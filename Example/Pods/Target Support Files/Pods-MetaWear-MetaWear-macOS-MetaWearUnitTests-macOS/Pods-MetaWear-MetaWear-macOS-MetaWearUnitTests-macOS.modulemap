@@ -1,0 +1,6 @@
+framework module Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS {
+  umbrella header "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

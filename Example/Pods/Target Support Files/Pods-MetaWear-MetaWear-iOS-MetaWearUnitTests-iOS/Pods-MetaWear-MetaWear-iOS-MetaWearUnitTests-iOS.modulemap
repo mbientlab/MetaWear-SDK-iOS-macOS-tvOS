@@ -1,0 +1,6 @@
+framework module Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS {
+  umbrella header "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

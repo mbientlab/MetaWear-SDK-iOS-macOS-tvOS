@@ -1,0 +1,25 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
+osx_image: xcode8
+language: objective-c
+# cache: cocoapods
+# podfile: Example/Podfile
+# before_install:
+# - gem install cocoapods # Since Travis is not always on latest version
+# - pod install --project-directory=Example
+before_install:
+  - TV_SIMULATOR_ID=$(xcrun instruments -s | grep -o "Apple TV 1080p (10.0) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
+  - IOS_SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 5s (10.0) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
+
+script:
+  - set -o pipefail
+  - xcodebuild test -workspace Example/MetaWear.xcworkspace -scheme MetaWearUnitTests-macOS -destination 'platform=macOS,arch=x86_64' | xcpretty
+  - open -a "simulator" --args -CurrentDeviceUDID $TV_SIMULATOR_ID
+  - xcodebuild test -workspace Example/MetaWear.xcworkspace -scheme MetaWearUnitTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty
+  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_ID
+  - xcodebuild test -workspace Example/MetaWear.xcworkspace -scheme MetaWearUnitTests-iOS -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.0' -enableCodeCoverage YES | xcpretty
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J '^MetaWear$'

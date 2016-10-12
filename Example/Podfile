@@ -1,0 +1,59 @@
+use_frameworks!
+
+# All tests need access to the Private headers of MetaWear
+abstract_target 'MetaWear' do
+    pod 'MetaWearPrivate', :path => '../'
+    
+    abstract_target 'MetaWear-iOS' do
+        platform :ios, '8.0'
+        
+        target 'MetaWearIntegrationTestHost-iOS' do
+            target 'MetaWearIntegrationTests-iOS' do
+                inherit! :search_paths
+            
+                pod 'Zip', git: 'https://github.com/marmelroy/Zip.git', branch: 'swift2.3', submodules: true
+                pod 'iOSDFULibrary', '1.0.8'
+            end
+        end
+        
+        target 'MetaWearUnitTests-iOS' do
+        end
+    end
+    
+    abstract_target 'MetaWear-macOS' do
+        platform :osx, '10.11'
+        
+        target 'MetaWearIntegrationTestHost-macOS' do
+            target 'MetaWearIntegrationTests-macOS' do
+                inherit! :search_paths
+                
+                pod 'Zip', git: 'https://github.com/marmelroy/Zip.git', branch: 'swift2.3', submodules: true
+                pod 'iOSDFULibrary', '1.0.8'
+            end
+        end
+        
+        target 'MetaWearUnitTests-macOS' do
+        end
+    end
+    
+    abstract_target 'MetaWear-tvOS' do
+        platform :tvos, '10.0'
+
+        target 'MetaWearIntegrationTestHost-tvOS' do
+            target 'MetaWearIntegrationTests-tvOS' do
+                inherit! :search_paths
+            end
+        end
+    
+        target 'MetaWearUnitTests-tvOS' do
+        end
+    end
+end
+
+
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        # Configure Pod targets for Xcode 8 compatibility
+        config.build_settings['SWIFT_VERSION'] = '2.3'
+    end
+end

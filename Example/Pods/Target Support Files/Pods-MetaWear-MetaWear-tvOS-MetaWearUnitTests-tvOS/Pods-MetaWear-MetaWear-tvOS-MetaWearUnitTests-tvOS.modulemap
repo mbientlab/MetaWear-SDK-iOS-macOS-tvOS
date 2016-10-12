@@ -1,0 +1,6 @@
+framework module Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS {
+  umbrella header "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

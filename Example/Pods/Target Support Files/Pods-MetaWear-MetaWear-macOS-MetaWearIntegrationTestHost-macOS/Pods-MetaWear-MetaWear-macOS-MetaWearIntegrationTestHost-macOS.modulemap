@@ -1,0 +1,6 @@
+framework module Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS {
+  umbrella header "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
