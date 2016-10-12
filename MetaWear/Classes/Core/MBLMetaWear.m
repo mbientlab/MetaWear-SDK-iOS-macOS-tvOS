@@ -75,6 +75,7 @@
 #import <objc/runtime.h>
 #import "MBLMovingAverage.h"
 #import "MBLConstants+Private.h"
+#import "MBLLogger.h"
 
 static int MAX_PENDING_WRITES = 25;
 
@@ -184,9 +185,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)writeToFile:(NSString *)filename
 {
-#ifdef DEBUG
-    NSLog(@"Saving to disk: %@", self);
-#endif
+    MBLLog(MBLLogLevelInfo, @"Saving to disk: %@", self);
     NSData *data = [FastCoder dataWithRootObject:self];
     NSError *error = nil;
     
@@ -199,11 +198,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
               options:NSDataWritingAtomic
                 error:&error];
 #endif
-
-#ifdef DEBUG
-    if (error) { NSLog(@"%@", error); }
-    assert(!error);
-#endif
+    
+    if (error) { MBLLog(MBLLogLevelError, @"%@", error); }
 }
 
 - (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral
@@ -294,7 +290,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (BOOL)isGuestConnection
 {
     if (self.state != MBLConnectionStateConnected) {
-        NSLog(@"MetaWear[WARNING] isGuestConnection not valid unless a connection is established");
+        MBLLog(MBLLogLevelWarning, @"isGuestConnection not valid unless a connection is established");
     }
     return _noencode_isGuestConnection;
 }
@@ -585,7 +581,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         for (int i = 0; i < numMethods; i++) {
             NSString *methodName = NSStringFromSelector(method_getName(methods[i]));
             if ([methodName isEqualToString:@"encodeWithCoder:"] || [methodName isEqualToString:@"initWithCoder:"]) {
-                NSLog(@"MetaWear[DEPRECATED]: We use FastCoding (https://github.com/nicklockwood/FastCoding) so you no longer need to implement NSCoding yourself.  By default all properties are saved and restored.  Use ivars, or synthesize your properties using non-KVC-compliant names to avoid coding them.");
+                MBLLog(MBLLogLevelWarning, @"[DEPRECATED] We use FastCoding (https://github.com/nicklockwood/FastCoding) so you no longer need to implement NSCoding yourself.  By default all properties are saved and restored.  Use ivars, or synthesize your properties using non-KVC-compliant names to avoid coding them.");
                 break;
             }
         }
@@ -659,7 +655,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)setName:(NSString *)name
 {
     if (name.length > 8) {
-        NSLog(@"[WARNING] MetaWear advertising name truncated to 8 characters");
+        MBLLog(MBLLogLevelWarning, @"MetaWear advertising name truncated to 8 characters");
         self.nameImpl = [name substringToIndex:8];
     } else {
         self.nameImpl = name;
@@ -848,14 +844,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     dispatch_async([MBLConstants metaWearQueue], ^{
         NSError *error = nil;
         BOOL success = [[NSFileManager defaultManager] removeItemAtPath:filename error:&error];
-#ifdef DEBUG
         if (!success) {
             if (!([error.domain isEqualToString:NSCocoaErrorDomain] && error.code == 4)) {
-                NSLog(@"%@", error);
-                assert(success);
+                MBLLog(MBLLogLevelError, @"%@", error);
             }
         }
-#endif
     });
 }
 
@@ -938,9 +931,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)bluetoothPoweredOff
 {
-#ifdef DEBUG
-    NSLog(@"bluetoothPoweredOff");
-#endif
+    MBLLog(MBLLogLevelInfo, @"bluetoothPoweredOff");
     connectionRetryCount = 0;
     [self didDisconnect:[NSError errorWithDomain:kMBLErrorDomain
                                             code:kMBLErrorBluetoothPoweredOff
@@ -954,10 +945,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
     
     if (simulatorHandler && [MBLConstants isSimulatorQueue]) {
-#ifdef DEBUG
-        NSString *str = [NSString stringWithFormat:@"Simulating: %@", data];
-        NSLog(@"%@", str);
-#endif
+        MBLLog(MBLLogLevelInfo, @"Simulating: %@", data);
         simulatorHandler(*(uint8_t *)data.bytes, *(uint8_t *)(data.bytes + 1), [data subdataWithRange:NSMakeRange(2, data.length - 2)]);
         return;
     }
@@ -975,9 +963,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         commandCount = 0;
         type = CBCharacteristicWriteWithResponse;
     }
-#ifdef DEBUG
-    NSLog(@"%@Writing: %@ %@", snifferHandler ? @"Sniff " : @"", data, type == CBCharacteristicWriteWithResponse ? @"RSP": @"NO-RSP");
-#endif
+    MBLLog(MBLLogLevelInfo, @"%@Writing: %@ %@", snifferHandler ? @"Sniff " : @"", data, type == CBCharacteristicWriteWithResponse ? @"RSP": @"NO-RSP");
     if (self.peripheral && metawearCommandCharacteristic) {
         [self.peripheral writeValue:data
                   forCharacteristic:metawearCommandCharacteristic
@@ -1160,9 +1146,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     MBLMetaWear *savedState = [FastCoder objectWithData:data];
     
     if (savedState) {
-#ifdef DEBUG
-        NSLog(@"Loaded Reset State");
-#endif
+        MBLLog(MBLLogLevelInfo, @"Loaded Reset State");
         [self copyModulesFrom:savedState];
     }
     return savedState != nil;
@@ -1275,9 +1259,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)peripheral:(id<MBLBluetoothPeripheral>)peripheral didDiscoverServices:(NSError *)error
 {
-#ifdef DEBUG
-    NSLog(@"didDiscoverServices");
-#endif
+    MBLLog(MBLLogLevelInfo, @"didDiscoverServices");
     if (error) {
         [self connectionCompleteWithError:error];
         return;
@@ -1328,9 +1310,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)peripheral:(id<MBLBluetoothPeripheral>)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
-#ifdef DEBUG
-    NSLog(@"didDiscoverCharacteristicsForService: %@", service.UUID);
-#endif
+    MBLLog(MBLLogLevelInfo, @"didDiscoverCharacteristicsForService: %@", service.UUID);
     if (error) {
         [self connectionCompleteWithError:error];
         return;
@@ -1447,9 +1427,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         BOOL stateValid = t.result.boolValue;
         if (!stateValid) {
-#ifdef DEBUG
-        NSLog(@"Unexpected MetaWear state - reseting modules");
-#endif
+            MBLLog(MBLLogLevelInfo, @"Unexpected MetaWear state - reseting modules");
             return [self resetModulesAsync];
         }
         return nil;
@@ -1488,11 +1466,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 -(void)peripheral:(id<MBLBluetoothPeripheral>)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
 #ifdef DEBUG
-    if (error) { NSLog(@"didUpdateValueForCharacteristic Error: %@", error); }
+    if (error) { MBLLog(MBLLogLevelError, @"didUpdateValueForCharacteristic Error: %@", error); }
     if (characteristic == metawearNotification6Characteristic) {
-        NSLog(@"Received: %@ ", characteristic.value);
+        MBLLog(MBLLogLevelInfo, @"Received: %@ ", characteristic.value);
     } else {
-        NSLog(@"didUpdateValueForCharacteristic = %@ with value %@",characteristic.UUID, characteristic.value);
+        MBLLog(MBLLogLevelInfo, @"didUpdateValueForCharacteristic = %@ with value %@",characteristic.UUID, characteristic.value);
     }
 #endif
     if (characteristic == metawearCommandCharacteristic || characteristic == metawearNotification6Characteristic) {
@@ -1580,9 +1558,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)peripheral:(id<MBLBluetoothPeripheral>)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-#ifdef DEBUG
-    if (error) { NSLog(@"didWriteValueForCharacteristic Error: %@", error); }
-#endif
+    if (error) { MBLLog(MBLLogLevelError, @"didWriteValueForCharacteristic Error: %@", error); }
 }
 
 - (BOOL)deviceInfoReady
@@ -1620,9 +1596,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                            eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                              eventAction:@"retry"
                                               eventLabel:@""];
-#ifdef DEBUG
-        NSLog(@"Connection Failed -- Retrying");
-#endif
+        MBLLog(MBLLogLevelInfo, @"Connection Failed -- Retrying");
         connectionRetryCount--;
         characteristicCount = 0;
         serviceCount = 0;
@@ -1644,9 +1618,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                    eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                                      eventAction:@"fail"
                                                       eventLabel:error.localizedDescription];
-#ifdef DEBUG
-                NSLog(@"Connection Failed");
-#endif
+                MBLLog(MBLLogLevelInfo, @"Connection Failed");
+
                 [self invokeConnectionHandlers:error];
             }
             return nil;
@@ -1664,9 +1637,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             }
         }
         [self.testDebug deviceConnected];
-#ifdef DEBUG
-        NSLog(@"Connection Success %@", self.deviceInfo.firmwareRevision);
-#endif
+        MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
         [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
                                            eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                              eventAction:@"success"
@@ -1765,7 +1736,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)updateFirmwareWithHandler:(MBLErrorHandler)handler
                   progressHandler:(MBLFloatHandler)progressHandler
 {
-    NSLog(@"This function no longer works, use prepareForFirmwareUpdateWithHandler: instead");
+    MBLLog(MBLLogLevelError, @"This function no longer works, use prepareForFirmwareUpdateWithHandler: instead");
 }
 
 - (void)synchronize

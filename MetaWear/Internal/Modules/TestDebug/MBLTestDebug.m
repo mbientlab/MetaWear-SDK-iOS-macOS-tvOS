@@ -42,6 +42,7 @@
 #import "MBLNumericData+Private.h"
 #import "BFTask+MBLExtensions.h"
 #import "MBLMetaWearManager+Private.h"
+#import "MBLLogger.h"
 
 @interface MBLTestDebug ()
 @property (nonatomic) MBLRegister *reset;
@@ -126,9 +127,7 @@
         if (obj.value.unsignedIntValue) {
             // Write magic value exisits, see if it matches!
             if (obj.value.unsignedIntValue != self.magicKey) {
-#ifdef DEBUG
-                NSLog(@"Guest Connection - Use caution to avoid causing data loss for other applications");
-#endif
+                MBLLog(MBLLogLevelInfo, @"Guest Connection - Use caution to avoid causing data loss for other applications");
                 return @YES;
             }
         } else {

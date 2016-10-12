@@ -37,6 +37,7 @@
 #import "MBLEntityEvent+Private.h"
 #import "MBLEntityModule+Private.h"
 #import "MBLDataSample+Private.h"
+#import "MBLLogger.h"
 
 @interface MBLEntityEvent ()
 @property (nonatomic) NSData *addEntityParameters;
@@ -71,10 +72,7 @@
                 return [BFTask taskWithResult:@YES];
             }
         }
-        NSString *desc = [NSString stringWithFormat:@"Entity[%d] expected != actual (%@ != %@)", self.index, expectedData, actualData];
-#ifdef DEBUG
-        NSLog(@"%@: %@", self.module, desc);
-#endif
+        MBLLog(MBLLogLevelInfo, @"%@: Entity[%d] expected != actual (%@ != %@)", self.module, self.index, expectedData, actualData);
         return [BFTask taskWithResult:@NO];
     }];
 }

@@ -41,6 +41,7 @@
 #import "MBLNumericFormatter.h"
 #import "MBLMagnetometerBMM150PeriodicMagneticFieldEvent.h"
 #import "MBLMagnetometerBMM150Format.h"
+#import "MBLLogger.h"
 
 /**
  Magnetometer sample frequencies
@@ -84,7 +85,7 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
 
 - (MBLData *)magneticField
 {
-    NSLog(@"Magnetometer[WARNING] magneticField not yet implemented, please use periodicMagneticField instead");
+    MBLLog(MBLLogLevelWarning, @"magneticField not yet implemented, please use periodicMagneticField instead");
     return nil;
 }
 

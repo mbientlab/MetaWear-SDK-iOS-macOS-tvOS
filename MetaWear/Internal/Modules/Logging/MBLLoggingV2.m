@@ -39,6 +39,7 @@
 #import "MBLNumericData+Private.h"
 #import "MBLConstants+Private.h"
 #import "MBLMetaWear+Private.h"
+#import "MBLLogger.h"
 
 @implementation MBLLoggingV2
 
@@ -125,8 +126,7 @@
 {
     assert([MBLConstants isMetaWearQueue]);
     if (printOnlyMode) {
-        NSLog(@"[%d] %d:%d - %@", rawEntry->triggerId, rawEntry->resetId, rawEntry->timestamp, [NSData dataWithBytes:rawEntry->data length:4]);
-        return;
+        MBLLog(MBLLogLevelInfo, @"[%d] %d:%d - %@", rawEntry->triggerId, rawEntry->resetId, rawEntry->timestamp, [NSData dataWithBytes:rawEntry->data length:4]);
     }
     
     // Check if this entry has been seen before, and ignore it if needed
@@ -161,9 +161,7 @@
     }
     // If we roll over, then advance the starting date
     if (entryTs < self.lastTimestamp) {
-#ifdef DEBUG
-        NSLog(@"***Timestamp Rolling Over***");
-#endif
+        MBLLog(MBLLogLevelInfo, @"***Timestamp Rolling Over***");
         date = [date dateByAddingTimeInterval:LOGGING_SEC_PER_TIMESTAMP * LOGGING_ROLLOVER_COUNT];
         self.device.nonVolatileState.logStartingDates[resetId] = date;
     }
@@ -172,7 +170,7 @@
     self.lastResetId = resetId;
     
     if ([[NSNull null] isEqual:date]) {
-        NSLog(@"Logging[ERROR]: Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
+        MBLLog(MBLLogLevelError, @"Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
         date = [NSDate dateWithTimeIntervalSince1970:0];
         self.device.nonVolatileState.logStartingDates[resetId] = date;
     }

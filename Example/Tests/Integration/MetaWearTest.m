@@ -46,6 +46,7 @@ static const int secondsToConnect = 20;
     
     // Put setup code here. This method is called before the invocation of each test method in the class.
     XCTestExpectation *connectDeviceExpectation = [self expectationWithDescription:@"connect to device"];
+    [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[[[[[DeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
         self.device = t.result;
         assert(self.device);

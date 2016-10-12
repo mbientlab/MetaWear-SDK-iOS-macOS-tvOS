@@ -57,6 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) NSOperationQueue *dispatchQueue;
 
+/**
+ Log level that will be displayed, defaults to `MBLLogLevelWarning`
+ */
+@property (nonatomic) MBLLogLevel logLevel;
+
+
 ///----------------------------------
 /// @name Getting the Shared Instance
 ///----------------------------------

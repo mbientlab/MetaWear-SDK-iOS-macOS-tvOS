@@ -49,6 +49,7 @@
 #import <libkern/OSAtomic.h>
 #import <CoreData/CoreData.h>
 #import "BFTask+Private.h"
+#import "MBLLogger.h"
 
 
 typedef struct __attribute__((packed)) {
@@ -162,10 +163,10 @@ typedef struct __attribute__((packed)) {
             triggerCount = *(uint8_t *)moduleInfo.moduleData.bytes;
             //if (moduleInfo.moduleRevision == 1) {
             //    mw_log_module_info *info = (mw_log_module_info *)moduleInfo.moduleData.bytes;
-            //    NSLog(@"%d", info->logCap);
+            //    MBLLog(MBLLogLevelDebug, @"%d", info->logCap);
             //} else {
             //    mw_log_module_info_old *info = (mw_log_module_info_old *)moduleInfo.moduleData.bytes;
-            //    NSLog(@"%d", info->logCap);
+            //    MBLLog(MBLLogLevelDebug, @"%d", info->logCap);
             //}
         }
         
@@ -545,10 +546,7 @@ typedef struct __attribute__((packed)) {
                             return [BFTask taskWithResult:@YES];
                         }
                     }
-                    NSString *desc = [NSString stringWithFormat:@"Logging: Entity[%d] expected != actual (%@ != %@)", i, expectedData, actualData];
-#ifdef DEBUG
-                    NSLog(@"%@", desc);
-#endif
+                    MBLLog(MBLLogLevelInfo, @"Logging: Entity[%d] expected != actual (%@ != %@)", i, expectedData, actualData);
                     return [BFTask taskWithResult:@NO];
                 }]];
             }
@@ -588,9 +586,7 @@ typedef struct __attribute__((packed)) {
             // Safe because we are on the MetaWear Queue
             self.device.nonVolatileState.logStartingDates[resetId] = [[NSDate date] dateByAddingTimeInterval:intervalSinceZero];
         }
-#ifdef DEBUG
-        NSLog(@"%@Reset-Uid: %d", didReset ? @"[RESET OCCURED] " : @"", info->resetId);
-#endif
+        MBLLog(MBLLogLevelInfo, @"%@Reset-Uid: %d", didReset ? @"[RESET OCCURED] " : @"", info->resetId);
         return [NSNumber numberWithBool:didReset];
     }];
 }
@@ -601,7 +597,7 @@ typedef struct __attribute__((packed)) {
 {
     assert([MBLConstants isMetaWearQueue]);
     if (printOnlyMode) {
-        NSLog(@"[%d] %d:%d - %@", rawEntry->triggerId, rawEntry->resetId, rawEntry->timestamp, [NSData dataWithBytes:rawEntry->data length:4]);
+        MBLLog(MBLLogLevelInfo, @"[%d] %d:%d - %@", rawEntry->triggerId, rawEntry->resetId, rawEntry->timestamp, [NSData dataWithBytes:rawEntry->data length:4]);
         return;
     }
     
@@ -613,16 +609,14 @@ typedef struct __attribute__((packed)) {
     NSDate __block *date = nil;
     date = self.device.nonVolatileState.logStartingDates[resetId];
     if ([[NSNull null] isEqual:date]) {
-        NSLog(@"Logging[ERROR]: Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
+        MBLLog(MBLLogLevelError, @"Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
         date = [NSDate dateWithTimeIntervalSince1970:0];
         self.device.nonVolatileState.logStartingDates[resetId] = date;
     }
 
     // If we roll over, then advance the starting date
     if (entryTs < self.lastTimestamp) {
-#ifdef DEBUG
-        NSLog(@"***Timestamp Rolling Over***");
-#endif
+        MBLLog(MBLLogLevelInfo, @"***Timestamp Rolling Over***");
         date = [date dateByAddingTimeInterval:LOGGING_SEC_PER_TIMESTAMP * LOGGING_ROLLOVER_COUNT];
         self.device.nonVolatileState.logStartingDates[resetId] = date;
     }
@@ -653,8 +647,7 @@ typedef struct __attribute__((packed)) {
         NSError *error;
         NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (error) {
-            NSLog(@"Unable to execute fetch request.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
+            MBLLog(MBLLogLevelError, @"Unable to execute fetch request.\n%@", error);
         }
         if (handler) {
             handler(results, error);
@@ -666,9 +659,7 @@ typedef struct __attribute__((packed)) {
 {
     [managedObjectContext performBlock:^{
         [managedObjectContext rollback];
-#ifdef DEBUG
-        NSLog(@"Rollback");
-#endif
+        MBLLog(MBLLogLevelInfo, @"Rollback");
     }];
 }
 
@@ -680,15 +671,12 @@ typedef struct __attribute__((packed)) {
         NSError *error;
         NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (error) {
-            NSLog(@"Unable to execute fetch request.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
+            MBLLog(MBLLogLevelError, @"Unable to execute fetch request.\n%@", error);
         } else {
             for (MBLRawLogEntry *entry in results) {
                 [managedObjectContext deleteObject:entry];
             }
-#ifdef DEBUG
-            NSLog(@"Delete reject entires");
-#endif
+            MBLLog(MBLLogLevelInfo, @"Delete reject entires");
         }
     }];
     // Make sure the save happens right after all these deletes
@@ -703,15 +691,12 @@ typedef struct __attribute__((packed)) {
         NSError *error;
         NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (error) {
-            NSLog(@"Unable to execute fetch request.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
+            MBLLog(MBLLogLevelError, @"Unable to execute fetch request.\n%@", error);
         } else {
             for (MBLRawLogEntry *entry in results) {
                 [managedObjectContext deleteObject:entry];
             }
-#ifdef DEBUG
-            NSLog(@"Delete all objects");
-#endif
+            MBLLog(MBLLogLevelInfo, @"Delete all objects");
         }
     }];
     // Make sure the save happens right after all these deletes
@@ -732,31 +717,25 @@ typedef struct __attribute__((packed)) {
             NSError *error;
             [managedObjectContext save:&error];
             if (error) {
-                NSLog(@"Unable to save.");
-                NSLog(@"%@, %@", error, error.localizedDescription);
+                MBLLog(MBLLogLevelError, @"Unable to save.\n%@", error);
             }
-#ifdef DEBUG
-            NSLog(@"Save Log Async");
-#endif
+            MBLLog(MBLLogLevelInfo, @"Save Log Async");
         }];
     } else {
         [managedObjectContext performBlockAndWait:^{
             NSError *error;
             [managedObjectContext save:&error];
             if (error) {
-                NSLog(@"Unable to save.");
-                NSLog(@"%@, %@", error, error.localizedDescription);
+                MBLLog(MBLLogLevelError, @"Unable to save.\n%@", error);
             }
-#ifdef DEBUG
-            NSLog(@"Save Log Sync");
-#endif
+            MBLLog(MBLLogLevelInfo, @"Save Log Sync");
         }];
     }
 }
 
 - (NSDate *)guessUidStartingDate:(uint8_t)resetId
 {
-    NSLog(@"Logging[WARNING] multiple unexpected resets, log timestamps are estimated");
+    MBLLog(MBLLogLevelWarning, @"Multiple unexpected resets, log timestamps are estimated");
     NSDate __block *date = nil;
     [managedObjectContext performBlockAndWait:^{
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MBLRawLogEntry"];
@@ -768,8 +747,7 @@ typedef struct __attribute__((packed)) {
         NSError *error;
         NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (error) {
-            NSLog(@"Unable to execute fetch request.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
+            MBLLog(MBLLogLevelError, @"Unable to execute fetch request.\n%@", error);
         } else {
             MBLRawLogEntry *obj = [results firstObject];
             date = [obj.timestamp dateByAddingTimeInterval:LOGGING_SEC_PER_TIMESTAMP];
@@ -788,8 +766,7 @@ typedef struct __attribute__((packed)) {
         NSError *error;
         NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (error) {
-            NSLog(@"Unable to execute fetch request.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
+            MBLLog(MBLLogLevelError, @"Unable to execute fetch request.\n%@", error);
         } else {
             entries = [results mutableCopy];
         }

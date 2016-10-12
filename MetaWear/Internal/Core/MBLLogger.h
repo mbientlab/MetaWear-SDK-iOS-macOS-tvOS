@@ -1,9 +1,9 @@
 /**
- * MBLGyroBMI160AxisReadyEvent.m
+ * MBLLogger.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 5/28/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 10/11/16.
+ * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,50 +33,6 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLGyroBMI160AxisReadyEvent.h"
-#import "MBLGyroBMI160Format.h"
-#import "MBLGyroBMI160+Private.h"
-#import "MBLLogger.h"
+#import <MetaWear/MBLConstants.h>
 
-@implementation MBLGyroBMI160AxisReadyEvent
-
-- (instancetype)initWithGyro:(MBLGyroBMI160 *)gyro axis:(uint8_t)axis
-{
-    self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro axis:axis]];
-    return self;
-}
-
-- (BFTask *)performAsyncInitialization
-{
-    MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    return [gyro.dataReadyEvent initializeAsync];
-}
-
-- (BFTask *)performAsyncDeinitialization
-{
-    MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    return [gyro.dataReadyEvent deinitializeAsync];
-}
-
-- (BFTask *)performAsyncActivation
-{
-    MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    return [gyro.dataReadyEvent activateAsync];
-}
-
-- (BFTask *)performAsyncDeactivation
-{
-    MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    return [gyro.dataReadyEvent deactivateAsync];
-}
-
-- (BFTask *)startNotificationsWithHandlerAsync:(MBLObjectHandler)handler
-{
-    MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    if (gyro.sampleFrequency > 200) {
-        MBLLog(MBLLogLevelWarning, @"[Gyro] due to Bluetooth LE bandwidth limitations, notications faster than 200Hz will result in packet loss");
-    }
-    return [super startNotificationsWithHandlerAsync:handler];
-}
-
-@end
+void MBLLog(MBLLogLevel level, NSString *format, ...) NS_FORMAT_FUNCTION(2, 3);

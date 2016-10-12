@@ -44,6 +44,7 @@
 #import "FastCoder.h"
 #import "MBLBluetoothCentralMock.h"
 #import "MBLConstants+Private.h"
+#import "MBLLogger.h"
 
 #import <CoreBluetooth/CoreBluetooth.h>
 
@@ -327,6 +328,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         
         self.isScanning = NO;
         self.minimumRequiredVersion = MBLFirmwareVersion1_0_4;
+        self.logLevel = MBLLogLevelWarning;
         
         self.centralStateUpdateSources = [NSMutableArray array];
         self.centralStateUpdateSourcesMutex = [[NSObject alloc] init];
@@ -340,9 +342,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         // If the app changes its API version then we must delete all the cached MBLMetaWear objects,
         // since they are no longer valid
         if (!version || ![version isEqualToString:kMBLAPIVersion]) {
-#ifdef DEBUG
             NSLog(@"Clearing! %@ -> %@", version, kMBLAPIVersion);
-#endif
             [[NSUserDefaults standardUserDefaults] setObject:kMBLAPIVersion forKey:kMBLApiVersionKey];
             // When the api version changes in an app you will need to reprogram devices
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMBLRememberedDevicesKey];
@@ -350,9 +350,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             // Delete the cachce folder
             NSError *error;
             BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self logFilename:nil] error:&error];
-            if (error) {
-                NSLog(@"%@", error);
-            }
+            if (error) { NSLog(error); }
             assert(success);
         }
     }
@@ -381,9 +379,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         if ([[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDirectory]) {
             if (!isDirectory) {
                 if (![[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
-#ifdef DEBUG
-                    NSLog(@"removeItemAtURL error: %@", error);
-#endif
+                    MBLLog(MBLLogLevelError, @"removeItemAtURL error: %@", error);
                 }
             }
         } else {
@@ -391,9 +387,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         }
         if (!isDirectory) {
             if (![[NSFileManager defaultManager] createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:&error]) {
-#ifdef DEBUG
-                NSLog(@"createDirectoryAtURL error: %@", error);
-#endif
+                MBLLog(MBLLogLevelError, @"createDirectoryAtURL error: %@", error);
                 return nil;
             }
         }
@@ -403,9 +397,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         }
         return url.path;
     }
-#ifdef DEBUG
-    NSLog(@"URLsForDirectory:inDomains: nothing found");
-#endif
+    MBLLog(MBLLogLevelError, @"URLsForDirectory:inDomains: nothing found");
     return nil;
 }
 
@@ -520,18 +512,14 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (void)centralManager:(id<MBLBluetoothCentral>)central didConnectPeripheral:(id<MBLBluetoothPeripheral>)peripheral
 {
-#ifdef DEBUG
-    NSLog(@"Connect: %@", peripheral.description);
-#endif
+    MBLLog(MBLLogLevelInfo, @"Connect: %@", peripheral.description);
     MBLMetaWear *device = self.peripheralToMetaWear[peripheral];
     [device didConnect];
 }
 
 - (void)centralManager:(id<MBLBluetoothCentral>)central didFailToConnectPeripheral:(id<MBLBluetoothPeripheral>)peripheral error:(NSError *)error
 {
-#ifdef DEBUG
-    NSLog(@"Connect Fail: %@", peripheral.description);
-#endif
+    MBLLog(MBLLogLevelInfo, @"Connect Fail: %@", peripheral.description);
     MBLMetaWear *device = self.peripheralToMetaWear[peripheral];
     [device didDisconnect:error];
 
@@ -539,9 +527,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (void)centralManager:(id<MBLBluetoothCentral>)central didDisconnectPeripheral:(id<MBLBluetoothPeripheral>)peripheral error:(NSError *)error
 {
-#ifdef DEBUG
-    NSLog(@"Disconnect: %@\nError: %@", peripheral.description, error.localizedDescription);
-#endif
+    MBLLog(MBLLogLevelInfo, @"Disconnect: %@\nError: %@", peripheral.description, error.localizedDescription);
     MBLMetaWear *device = self.peripheralToMetaWear[peripheral];
     if (device.testDebug.triggerDisconnectInProgress && (error.code == CBErrorPeripheralDisconnected || error.code == CBErrorConnectionTimeout)) {
         device.testDebug.triggerDisconnectInProgress = NO;

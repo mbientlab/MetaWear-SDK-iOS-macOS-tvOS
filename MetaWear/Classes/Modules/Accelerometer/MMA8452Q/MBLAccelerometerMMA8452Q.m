@@ -46,6 +46,7 @@
 #import "MBLRMSAccelerometerDataFilter.h"
 #import "MBLAccelerometerData+Private.h"
 #import "MBLAccelerometerAxisReadyEvent.h"
+#import "MBLLogger.h"
 
 
 @interface MBLAccelerometerMMA8452Q()
@@ -150,11 +151,11 @@ double timeStepForPulseLimeLimit_LPF_EN_0[8][4] = {
 - (uint8_t)scalePulseThreshold:(double)accelerationInGs
 {
     if (accelerationInGs < 0.0) {
-        NSLog(@"Accelerometer[WARNING] no negative pulse thresholds");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] no negative pulse thresholds");
         accelerationInGs = accelerationInGs * -1;
     }
     if (accelerationInGs > 8.0) {
-        NSLog(@"Accelerometer[WARNING] pulse threshold must be <= 8.0 G's");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] pulse threshold must be <= 8.0 G's");
         return 0xff;
     }
     // scale it to 0 - 127
@@ -164,10 +165,10 @@ double timeStepForPulseLimeLimit_LPF_EN_0[8][4] = {
 - (uint8_t)scalePulseTimeLimit:(double)timeInMsec
 {
     if (timeInMsec < 0.0) {
-        NSLog(@"Accelerometer[WARNING] no negative pulse time limit please");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] no negative pulse time limit please");
         timeInMsec = 0.0;
     } else if (timeInMsec > timeStepForPulseLimeLimit_LPF_EN_0[self.scaleSampleFrequency][self.activePowerScheme] * 255.0) {
-        NSLog(@"Accelerometer[WARNING] pulse time limit requested is greater than max allowed");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] pulse time limit requested is greater than max allowed");
         return 0xff;
     }
     // The ticks are scaled based on the current mode of the accelerometer
@@ -177,10 +178,10 @@ double timeStepForPulseLimeLimit_LPF_EN_0[8][4] = {
 - (uint8_t)scalePulseLatency:(double)timeInMsec
 {
     if (timeInMsec < 0.0) {
-        NSLog(@"Accelerometer[WARNING] no negative puse latency please");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] no negative puse latency please");
         timeInMsec = 0.0;
     } else if (timeInMsec > timeStepForPulseLimeLimit_LPF_EN_0[self.scaleSampleFrequency][self.activePowerScheme] * 255.0) {
-        NSLog(@"Accelerometer[WARNING] pulse latency requested is greater than max allowed");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] pulse latency requested is greater than max allowed");
         return 0xff;
     }
     // The ticks are scaled based on the current mode of the accelerometer
@@ -190,10 +191,10 @@ double timeStepForPulseLimeLimit_LPF_EN_0[8][4] = {
 - (uint8_t)scaleSecondPulseTimeWindow:(double)timeInMsec
 {
     if (timeInMsec < 0.0) {
-        NSLog(@"Accelerometer[WARNING] no negative pulse time windows please");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] no negative pulse time windows please");
         timeInMsec = 0.0;
     } else if (timeInMsec > timeStepForPulseLimeLimit_LPF_EN_0[self.scaleSampleFrequency][self.activePowerScheme] * 255.0) {
-        NSLog(@"Accelerometer[WARNING] pulse time windown requested is greater than max allowed");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] pulse time windown requested is greater than max allowed");
         return 0xff;
     }
     // The ticks are scaled based on the current mode of the accelerometer
@@ -203,10 +204,10 @@ double timeStepForPulseLimeLimit_LPF_EN_0[8][4] = {
 - (uint8_t)scalePortraitLandscapeDebounceCounter:(double)timeInMsec
 {
     if (timeInMsec < 0.0) {
-        NSLog(@"Accelerometer[WARNING] cannot have negative debounce counter value");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] cannot have negative debounce counter value");
         timeInMsec = 0.0;
     } else if (timeInMsec > timeStepForPulseLimeLimit_LPF_EN_0[self.scaleSampleFrequency][self.activePowerScheme] * 255.0) {
-        NSLog(@"Accelerometer[WARNING] debounce counter value requested is greater than max allowed");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] debounce counter value requested is greater than max allowed");
         return 0xff;
     }
     // The ticks are scaled based on the current mode of the accelerometer

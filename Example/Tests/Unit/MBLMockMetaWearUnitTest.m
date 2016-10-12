@@ -45,6 +45,7 @@
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for device to connect"];
 
     MBLSetUseMockManager(YES);
+    [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     // Nuke the devices
     [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
         self.device = [array firstObject];

@@ -37,6 +37,7 @@
 #import "MBLNeopixel+Private.h"
 #import "MBLModule+Private.h"
 #import "MBLMetaWear+Private.h"
+#import "MBLLogger.h"
 
 @interface MBLNeopixelStrand ()
 @property (nonatomic, weak) MBLNeopixel *neopixel;
@@ -67,9 +68,9 @@
 {
     if (self.index != 0xFF) {
         if (self.neopixel.device.state == MBLConnectionStateConnected) {
-            NSLog(@"NeoPixel[WARNING] please call deinitialize before releasing MBLNeopixelStrand objets");
+            MBLLog(MBLLogLevelWarning, @"please call deinitialize before releasing MBLNeopixelStrand objets");
         } else {
-            NSLog(@"NeoPixel[WARNING] please call deinitialize before releasing MBLNeopixelStrand objets, please reset MetaWear to properly recover");
+            MBLLog(MBLLogLevelWarning, @"please call deinitialize before releasing MBLNeopixelStrand objets, please reset MetaWear to properly recover");
         }
         [self.neopixel deallocDeinitializeStrand:self];
     }

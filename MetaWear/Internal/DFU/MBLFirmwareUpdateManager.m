@@ -41,6 +41,7 @@
 #import "MBLMetaWearManager+Private.h"
 #import "MBLConstants+Private.h"
 #import "BFTask+MBLExtensions.h"
+#import "MBLLogger.h"
 
 
 @interface MBLFirmwareUpdateManager() <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -149,9 +150,7 @@
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     // First, go grab the file at the required version URL
     NSURL *firmwareURL = firmware.firmwareURL;
-#ifdef DEBUG
-    NSLog(@"Downloading... %@", firmwareURL);
-#endif
+    MBLLog(MBLLogLevelInfo, @"Downloading... %@", firmwareURL);
     [[[NSURLSession sharedSession] downloadTaskWithURL:firmwareURL completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         if (error) {
             [source trySetError:error];
@@ -173,9 +172,7 @@
             [source trySetError:err];
             return;
         }
-#ifdef DEBUG
-        NSLog(@"Download Complete");
-#endif
+        MBLLog(MBLLogLevelInfo, @"Download Complete");
         [source trySetResult:fileURL];
     }] resume];
     return source.task;
@@ -300,7 +297,7 @@
         case CBCentralManagerStatePoweredOn:
             // As soon as the central is ready, start scanning!
             [self.centralManager scanForPeripheralsWithServices:@[[MBLConstants DFUServiceUUID]] options:nil];
-            NSLog(@"Scanning for MetaBoot...");
+            MBLLog(MBLLogLevelInfo, @"Scanning for MetaBoot...");
             // For saftey we set up a timer, and will signal error if we fail to find the
             // requested MetaBoot device within 10 seconds
             self.connectionWatchdog = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(connectionWatchdogTimeout:) userInfo:nil repeats:NO];
@@ -314,7 +311,7 @@
                   RSSI:(NSNumber *)RSSI
 {
     if ((self.identifier == nil) || [peripheral.identifier isEqual:self.identifier]) {
-        NSLog(@"Found MetaBoot");
+        MBLLog(MBLLogLevelInfo, @"Found MetaBoot");
         // We found what we were looking for so stop the scan and let the DFU code know what device to update
         self.identifier = peripheral.identifier;
         [self.connectionWatchdog invalidate];

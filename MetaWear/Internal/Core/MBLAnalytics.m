@@ -34,6 +34,7 @@
  */
 
 #import "MBLAnalytics.h"
+#import "MBLLogger.h"
 
 static const NSString *const VERSION = @"1";
 static const NSString *const GOOGLE_ANALYTICS_ID = @"UA-57166859-3";
@@ -98,25 +99,21 @@ static NSString *const GOOGLE_ANALYTICS_URL = @"https://ssl.google-analytics.com
 
 - (void)post
 {
-//    NSData *postData = [self.postPayload dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)postData.length];
-//    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-//    [request setURL:[NSURL URLWithString:GOOGLE_ANALYTICS_URL]];
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    [request setHTTPBody:postData];
-//#ifdef DEBUG
-//    NSString *tmp = self.postPayload;
-//    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError) {
-//        if (connectionError) {
-//            NSLog(@"Analysics Error:\n%@\%@", tmp, connectionError);
-//        }
-//    }] resume];
-//#else
-//    [[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];
-//#endif
+    NSData *postData = [self.postPayload dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)postData.length];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
+    [request setURL:[NSURL URLWithString:GOOGLE_ANALYTICS_URL]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSString *tmp = self.postPayload;
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError) {
+        if (connectionError) {
+            MBLLog(MBLLogLevelDebug, @"[Analytics] issue posting \n%@\%@", tmp, connectionError);
+        }
+    }] resume];
 }
 
 @end

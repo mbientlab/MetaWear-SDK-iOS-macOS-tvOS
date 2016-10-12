@@ -40,6 +40,7 @@
 #import "BFTask+Private.h"
 #import "BFTask+MBLExtensions.h"
 #import "MBLConstants+Private.h"
+#import "MBLLogger.h"
 
 typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     MBLRegisterStateNeedsResponse  = 1 << 0,
@@ -475,7 +476,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     
     // Special warning letting the SDK user know they forgot to clean up a notifying resource
     if (self.isNotifyingImpl && noError) {
-        NSLog(@"WARNING: Forgot to stop all notifications before disconnecting");
+        MBLLog(MBLLogLevelWarning, @"Forgot to stop all notifications before disconnecting");
     }
     for (MBLObjectHandler callback in notifyCallbacks) {
         [[MBLMetaWearManager dispatchQueue] addOperationWithBlock:^{

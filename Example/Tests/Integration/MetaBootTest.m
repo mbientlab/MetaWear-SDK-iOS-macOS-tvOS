@@ -56,6 +56,7 @@ static const int secondsToFind = 20;
     XCTestExpectation *findDeviceExpectation = [self expectationWithDescription:@"searching for device"];
     
     NSString *deviceUid = [DeviceLookup metawearUid];
+    [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {

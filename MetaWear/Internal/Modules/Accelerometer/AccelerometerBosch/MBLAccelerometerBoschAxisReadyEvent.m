@@ -36,6 +36,7 @@
 #import "MBLAccelerometerBoschAxisReadyEvent.h"
 #import "MBLAccelerometerBosch+Private.h"
 #import "MBLAccelerometerBoschFormat.h"
+#import "MBLLogger.h"
 
 @implementation MBLAccelerometerBoschAxisReadyEvent
 
@@ -73,7 +74,7 @@
 {
     MBLAccelerometerBosch *accelerometer = (MBLAccelerometerBosch *)self.module;
     if (accelerometer.sampleFrequency > 200) {
-        NSLog(@"Accelerometer[WARNING] due to Bluetooth LE bandwidth limitations, notications faster than 200Hz will result in packet loss");
+        MBLLog(MBLLogLevelWarning, @"[Accelerometer] due to Bluetooth LE bandwidth limitations, notications faster than 200Hz will result in packet loss");
     }
     return [super startNotificationsWithHandlerAsync:handler];
 }

@@ -38,6 +38,7 @@
 #import "MBLMetaWear+Private.h"
 #import "MBLRegister+Private.h"
 #import "MBLNumericFormatter.h"
+#import "MBLLogger.h"
 
 typedef struct __attribute__((packed)) {
     uint8_t     als_mode:1;
@@ -85,7 +86,7 @@ typedef struct __attribute__((packed)) {
 
 - (MBLData *)illuminance
 {
-    NSLog(@"AmbientLight[WARNING] illuminance not yet implemented, please use periodicIlluminance instead");
+    MBLLog(MBLLogLevelWarning, @"[AmbientLight] illuminance not yet implemented, please use periodicIlluminance instead");
     return nil;
 }
 

@@ -85,6 +85,7 @@
 #import "MBLFilter+Private.h"
 #import "MBLFirmwareBuild.h"
 #import "MBLFormat.h"
+#import "MBLLogger.h"
 #import "MBLMacAddressFormat.h"
 #import "MBLMetaWear+Private.h"
 #import "MBLMetaWearManager+Private.h"

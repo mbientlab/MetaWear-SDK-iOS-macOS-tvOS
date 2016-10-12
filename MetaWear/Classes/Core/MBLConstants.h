@@ -91,6 +91,17 @@ typedef NS_ENUM(uint8_t, MBLModel) {
     MBLModelMetaMotionC
 };
 
+/**
+ Verbosity of log messages coming from the MetaWear SDK
+ */
+typedef NS_ENUM(uint8_t, MBLLogLevel) {
+    MBLLogLevelNone = 0,
+    MBLLogLevelError = 1,
+    MBLLogLevelWarning = 2,
+    MBLLogLevelInfo = 3,
+    MBLLogLevelDebug = 4
+};
+
 #pragma mark - Block Typedefs
 
 typedef void (^MBLVoidHandler)();

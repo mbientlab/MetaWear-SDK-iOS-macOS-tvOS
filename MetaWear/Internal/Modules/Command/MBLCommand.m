@@ -42,6 +42,7 @@
 #import "MBLDataSample.h"
 #import "MBLMetaWearManager+Private.h"
 #import "BFTask+Private.h"
+#import "MBLLogger.h"
 
 
 typedef struct __attribute__((packed)) {
@@ -179,10 +180,7 @@ typedef struct __attribute__((packed)) {
                             return [BFTask taskWithResult:@YES];
                         }
                     }
-                    NSString *desc = [NSString stringWithFormat:@"Command: Entity[%d] expected != actual (%@ != %@)", i, expectedData, actualData];
-#ifdef DEBUG
-                    NSLog(@"%@", desc);
-#endif
+                    MBLLog(MBLLogLevelInfo, @"Command: Entity[%d] expected != actual (%@ != %@)", i, expectedData, actualData);
                     return [BFTask taskWithResult:@NO];
                 }]];
             }

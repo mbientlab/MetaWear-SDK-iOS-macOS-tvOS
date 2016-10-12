@@ -1,7 +1,7 @@
 {
   "name": "MetaWearPrivate",
   "module_name": "MetaWear",
-  "version": "2.7.3",
+  "version": "2.7.0",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
@@ -14,8 +14,8 @@
     "Stephen Schiffli": "stephen@mbientlab.com"
   },
   "source": {
-    "git": "https://github.com/sschiffli/MetaWear-Rename-Rename.git",
-    "tag": "2.7.3"
+    "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
+    "tag": "2.7.0"
   },
   "platforms": {
     "ios": "8.0",
@@ -23,7 +23,7 @@
     "tvos": "10.0"
   },
   "social_media_url": "https://twitter.com/mbientLab",
-  "documentation_url": "https://www.mbientlab.com/docs/metawear/ios/2.7.3/index.html",
+  "documentation_url": "https://www.mbientlab.com/docs/metawear/ios/2.7.0/index.html",
   "source_files": "MetaWear/**/*",
   "frameworks": [
     "CoreData",
