@@ -183,7 +183,7 @@
             AssertModule(self.device.barometer, 0, 0);
             AssertModule(self.device.gyro, 0, 1);
             AssertModule(self.device.ambientLight, 0, 0);
-            AssertModule(self.device.magnetometer, 0, 0);
+            AssertModule(self.device.magnetometer, 0, 1);
             AssertNilModule(self.device.hygrometer);
             AssertNilModule(self.device.photometer);
             AssertNilModule(self.device.proximity);
