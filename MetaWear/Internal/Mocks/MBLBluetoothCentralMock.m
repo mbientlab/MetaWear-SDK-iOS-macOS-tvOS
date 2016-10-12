@@ -61,11 +61,14 @@
                               metawearC.identifier : metawearC};
         
         // Simulate the initial state tranistion of a the typical CoreBluetooth beast
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         self.state = CBCentralManagerStateUnknown;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), queue, ^{
             self.state = CBCentralManagerStatePoweredOn;
             [self.delegate centralManagerDidUpdateState:self];
         });
+#pragma clang diagnostic pop
     }
     return self;
 }

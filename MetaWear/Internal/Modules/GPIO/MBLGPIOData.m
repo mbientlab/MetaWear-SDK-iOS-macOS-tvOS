@@ -116,7 +116,10 @@
 
 - (BFTask *)performAsyncActivation
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if (self.pin.enablePin) {
+#pragma clang diagnostic pop
         [NSException raise:@"Use of deprecated function" format:@"enablePin is deprecated, please use analogRatioWithPullUp:pullDown:readDelay or analogAbsoluteWithPullUp:pullDown:readDelay instead"];
     }
     return [super performAsyncActivation];

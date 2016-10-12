@@ -60,6 +60,9 @@ void MBLLog(MBLLogLevel level, NSString *format, ...)
         case MBLLogLevelDebug:
             message = [NSMutableString stringWithFormat:@"[%@]", @"Debug"];
             break;
+        case MBLLogLevelNone:
+            message = [NSMutableString string];
+            break;
     }
     [message appendFormat:@": %@", format];
     NSLogv(message, args);
