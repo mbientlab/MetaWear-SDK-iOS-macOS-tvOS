@@ -103,7 +103,7 @@ The properties of the configuration objected are automatically persisted to disk
 Received Signal Strength Indicator (RSSI)
 -----------------------------------------
 
-RSSI is a measurement of the power present in a received radio signal. This can be used to approximate how close the MetaWear is to the iOS device, bigger numbers mean closer.
+RSSI is a measurement of the power present in a received radio signal. This can be used to approximate how close the MetaWear is to the Apple device, bigger numbers mean closer.
 
 ::
 
@@ -147,7 +147,7 @@ If YES, this is not the owning application and you should take care because you 
 Identifier
 ----------
 
-iOS generates a unique identifier for each BLE device.  Note, two different iOS devices will generate two different identifiers for the same MetaWear.
+Apple generates a unique identifier for each BLE device.  Note, two different Apple devices will generate two different identifiers for the same MetaWear.
 
 ::
 

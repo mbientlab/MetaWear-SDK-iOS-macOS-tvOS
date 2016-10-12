@@ -14,7 +14,7 @@ In this section we will explain the generic features available to all events by 
 Notifications
 -------------
 
-One of the most basic use cases is to simply receive the data on your iOS device. This is done via blocks within your iOS app. When an event occurs you get a callback with an event specific object containing all relevant data. In this example, we setup a trigger that notifies us when there is a change detected in the value of GPIO pin 0 and logs a message upon receipt of that notification.
+One of the most basic use cases is to simply receive the data on your Apple device. This is done via blocks within your app. When an event occurs you get a callback with an event specific object containing all relevant data. In this example, we setup a trigger that notifies us when there is a change detected in the value of GPIO pin 0 and logs a message upon receipt of that notification.
 
 Events will continue to stream in until the device is disconnected, or you call ``stopNotificationsAsync:``
 
@@ -35,7 +35,7 @@ You can check if an event is currently streaming by checking the ``isNotifying``
 Command
 -------
 
-In order to free the MetaWear from needing constant phone connection, we can program the device to perform certain actions when an event occurs. It's a basic "If <event> then <action>" paradigm. The magic being, all logic is stored on the MetaWear, so it works even with the iOS device disconnected.
+In order to free the MetaWear from needing constant phone connection, we can program the device to perform certain actions when an event occurs. It's a basic "If <event> then <action>" paradigm. The magic being, all logic is stored on the MetaWear, so it works even with the Apple device disconnected.
 
 The device will continue to perform <action> on <event> until you either reset the device or call ``eraseCommandsToRunOnEvent:``
 
@@ -59,9 +59,9 @@ There are some important details to consider when using this feature.  At the lo
 Logging
 -------
 
-Another common use case is "offline" (aka iOS device not connected) logging of event data. It allows you put this data directly into the MetaWear flash memory. Since this memory is non-volatile your data is safe even if the MetaWear crashes or the battery dies. There is room for around 14,000 entries, just call ``startLoggingAsync`` on the event of interest.
+Another common use case is "offline" (aka Apple device not connected) logging of event data. It allows you put this data directly into the MetaWear flash memory. Since this memory is non-volatile your data is safe even if the MetaWear crashes or the battery dies. There is room for around 14,000 entries, just call ``startLoggingAsync`` on the event of interest.
 
-Once you start logging you can disconnect and even kill the iOS app. Later on, re-connect and get the log by calling the download method.
+Once you start logging you can disconnect and even kill the app. Later on, re-connect and get the log by calling the download method.
 
 ::
 

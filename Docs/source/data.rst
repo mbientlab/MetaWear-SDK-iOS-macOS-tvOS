@@ -10,7 +10,7 @@ In this section we will explain the generic features available to all data objec
 Read
 ----
 
-One of the most basic use cases is to simply receive the data on your iOS device.
+One of the most basic use cases is to simply receive the data on your Apple device.
 
 ::
 

@@ -53,9 +53,9 @@
         
         [self resetKnobs];
         
-        MBLBluetoothPeripheralMock *metawearR = [[MBLBluetoothPeripheralMock alloc] initWithVersion:MBLFirmwareVersion1_2_3
+        MBLBluetoothPeripheralMock *metawearR = [[MBLBluetoothPeripheralMock alloc] initWithVersion:MBLFirmwareVersion1_2_5
                                                                                               model:MBLModelMetaWearR];
-        MBLBluetoothPeripheralMock *metawearC = [[MBLBluetoothPeripheralMock alloc] initWithVersion:MBLFirmwareVersion1_2_3
+        MBLBluetoothPeripheralMock *metawearC = [[MBLBluetoothPeripheralMock alloc] initWithVersion:MBLFirmwareVersion1_2_5
                                                                                               model:MBLModelMetaWearC];
         self.peripherals = @{ metawearR.identifier : metawearR,
                               metawearC.identifier : metawearC};
