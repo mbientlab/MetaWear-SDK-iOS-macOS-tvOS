@@ -46,7 +46,8 @@
     [super setUp];
     
     if (![self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]) {
-        [NSException raise:@"Hardware error" format:@"Trying to run magnetometer tests on a board without a magnetometer"];
+        self.continueAfterFailure = NO;
+        XCTFail("Trying to run magnetometer tests on a board without a magnetometer");
     }
     self.magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
 }

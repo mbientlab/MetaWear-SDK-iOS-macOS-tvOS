@@ -48,20 +48,19 @@
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     // Nuke the devices
     [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
-        self.device = [array firstObject];
-        assert(self.device);
+        MBLMetaWear *device = [array firstObject];
+        assert(device);
         [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
         self.central = (MBLBluetoothCentralMock *)[MBLMetaWearManager sharedManager].centralManager;
         [self.central resetKnobs];
-        self.peripheral = [[self.central retrievePeripheralsWithIdentifiers:@[self.device.identifier]] firstObject];
+        self.peripheral = [[self.central retrievePeripheralsWithIdentifiers:@[device.identifier]] firstObject];
         [self.peripheral resetKnobs];
         [[[self.device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
+            self.device = result;
             [waitingExpectation fulfill];
         }] failure:^(NSError * _Nonnull error) {
-            // The assert macros don't stop the test, so we throw an expection to fast
-            // fail/ because nothing can work if there is no device!
-            [NSException raise:@"Connection Error"
-                        format:@"Couldn't connect to MetaWear"];
+            self.continueAfterFailure = NO;
+            XCTAssertNil(error);
         }];
     }];
     
@@ -70,15 +69,16 @@
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for disconnect"];
-    [[self.device disconnectAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
-        XCTAssertNil(t.error);
-        [waitingExpectation fulfill];
-        return nil;
-    }];
-    [self waitForExpectationsWithTimeout:15 handler:nil];
-    
+    if (self.device) {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for disconnect"];
+        [[self.device disconnectAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+            XCTAssertNil(t.error);
+            [waitingExpectation fulfill];
+            return nil;
+        }];
+        [self waitForExpectationsWithTimeout:15 handler:nil];
+    }
     [super tearDown];
 }
 

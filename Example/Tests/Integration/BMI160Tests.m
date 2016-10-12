@@ -50,10 +50,12 @@
     [super setUp];
     
     if (![self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]]) {
-        [NSException raise:@"Hardware error" format:@"Trying to run BMI160 tests on a board without a BMI160 accelerometer"];
+        self.continueAfterFailure = NO;
+        XCTFail("Trying to run BMI160 tests on a board without a BMI160 accelerometer");
     }
     if (![self.device.gyro isKindOfClass:[MBLGyroBMI160 class]]) {
-        [NSException raise:@"Hardware error" format:@"Trying to run BMI160 tests on a board without a BMI160 gyro"];
+        self.continueAfterFailure = NO;
+        XCTFail("Trying to run BMI160 tests on a board without a BMI160 gyro");
     }
     self.accelerometer = (MBLAccelerometerBMI160 *)self.device.accelerometer;
     self.gyro = (MBLGyroBMI160 *)self.device.gyro;

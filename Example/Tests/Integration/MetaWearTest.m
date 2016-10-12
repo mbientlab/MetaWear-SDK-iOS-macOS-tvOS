@@ -86,10 +86,8 @@ static const int secondsToConnect = 20;
         self.disconnectAtEnd = YES;
         [connectDeviceExpectation fulfill];
     }] failure:^(NSError * _Nonnull error) {
-        // The assert macros don't stop the test, so we throw an expection to fast
-        // fail/ because nothing can work if there is no device!
-        [NSException raise:@"Connection Error"
-                    format:@"%@", error.localizedDescription];
+        self.continueAfterFailure = NO;
+        XCTAssertNil(error);
     }];
     // The test will pause here, running the run loop, until the timeout is hit
     // or all expectations are fulfilled.
