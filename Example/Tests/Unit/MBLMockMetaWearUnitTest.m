@@ -55,7 +55,7 @@
         [self.central resetKnobs];
         self.peripheral = [[self.central retrievePeripheralsWithIdentifiers:@[device.identifier]] firstObject];
         [self.peripheral resetKnobs];
-        [[[self.device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
+        [[[device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
             self.device = result;
             [waitingExpectation fulfill];
         }] failure:^(NSError * _Nonnull error) {
