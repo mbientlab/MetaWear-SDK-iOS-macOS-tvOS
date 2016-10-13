@@ -32,7 +32,7 @@ Scanning for Nearby MetaWears
 
 In the previous example we set ``startScanForMetaWearsAllowDuplicates:NO`` which meant that the handler block would be invoked only when a new MetaWear was detected.  However, by allowing duplicates the handler block will be invoked each time an advertisement packet is detected (even from an already detected MetaWear).
 
-This feature is handy because the ``discoveryTimeRSSI`` property on the discovered `MBLMetaWear <https://www.mbientlab.com/docs/metawear/ios/latest/Classes/MBLMetaWear.html>`_ objects get continually updated, so you can get a real time sense for how far it is from the iOS device.
+This feature is handy because the ``discoveryTimeRSSI`` property on the discovered `MBLMetaWear <https://www.mbientlab.com/docs/metawear/ios/latest/Classes/MBLMetaWear.html>`_ objects get continually updated, so you can get a real time sense for how far it is from the Apple device.
 
 ::
 
@@ -72,7 +72,7 @@ Dispatch Queue
 
 Choose the queue on which all callbacks from the MetaWear API occur on.  Defaults to the main queue.
 
-Since we use `Bolts-iOS <https://github.com/BoltsFramework/Bolts-iOS>`_ throughout the API we provide a ``dispatchExecutor`` which uses the dispatch queue.  Also, we provide easy to use shortcuts ``success:`` and ``failure`` for the common cases of handling callbacks.
+Since we use `Bolts-ObjC <https://github.com/BoltsFramework/Bolts-ObjC>`_ throughout the API we provide a ``dispatchExecutor`` which uses the dispatch queue.  Also, we provide easy to use shortcuts ``success:`` and ``failure:`` for the common cases of handling callbacks.
 
 ::
 
@@ -88,6 +88,6 @@ This property is writeable, so you can enforce an even newer version for your ap
 
 ::
 
-    [MBLMetaWearManager sharedManager].minimumRequiredVersion = MBLFirmwareVersion1_1_1;
+    [MBLMetaWearManager sharedManager].minimumRequiredVersion = MBLFirmwareVersion1_2_0;
                                 
 

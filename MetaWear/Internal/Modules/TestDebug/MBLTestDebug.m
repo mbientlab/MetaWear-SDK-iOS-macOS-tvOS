@@ -127,7 +127,7 @@
         if (obj.value.unsignedIntValue) {
             // Write magic value exisits, see if it matches!
             if (obj.value.unsignedIntValue != self.magicKey) {
-                MBLLog(MBLLogLevelInfo, @"Guest Connection - Use caution to avoid causing data loss for other applications");
+                MBLLog(MBLLogLevelWarning, @"Guest Connection - Use caution to avoid causing data loss for other applications");
                 return @YES;
             }
         } else {
