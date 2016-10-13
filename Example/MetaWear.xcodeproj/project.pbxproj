@@ -77,6 +77,10 @@
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
 		40CBC89A1D9B7D630078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
+		40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
+		40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
+		40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
+		40F4C1B81DAF3EBC00DAD8F6 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
 		C6C1FE9518C301AF474B6984 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F957D6CE9A1C9C0BEAE3DE /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */; };
 		CFDB64A02371E8011E00F9F2 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F58DCE77A17DB515C1F1E9F /* Pods_MetaWearIntegrationTests_tvOS.framework */; };
 		E2315B38670ABE4A822503D5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF898E7E388A2255F67369F8 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */; };
@@ -1419,7 +1423,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F4C1B81DAF3EBC00DAD8F6 /* MBLConverstionTests.m in Sources */,
 				407820131D9DD5EB00FF5134 /* MBLMockMetaWearUnitTest.m in Sources */,
+				40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */,
+				40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */,
+				40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */,
 				407820461D9DD84500FF5134 /* MBLConnectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
