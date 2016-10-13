@@ -56,17 +56,16 @@ static const int secondsToConnect = 20;
     XCTestExpectation *connectDeviceExpectation = [self expectationWithDescription:@"connect to device"];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[[[DeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
-        self.device = t.result;
-        assert(self.device);
-        self.device.bypassSetup = YES;
-        return [self.device connectWithTimeoutAsync:secondsToConnect];
-    }] success:^(id result) {
+        MBLMetaWear *device = t.result;
+        assert(device);
+        device.bypassSetup = YES;
+        return [device connectWithTimeoutAsync:secondsToConnect];
+    }] success:^(MBLMetaWear * _Nonnull result) {
+        self.device = result;
         [connectDeviceExpectation fulfill];
     }] failure:^(NSError * _Nonnull error) {
-        // The assert macros don't stop the test, so we throw an expection to fast
-        // fail/ because nothing can work if there is no device!
-        [NSException raise:@"Connection Error"
-                    format:@"%@", error.localizedDescription];
+        self.continueAfterFailure = NO;
+        XCTAssertNil(error);
     }];
     // The test will pause here, running the run loop, until the timeout is hit
     // or all expectations are fulfilled.
@@ -85,7 +84,6 @@ static const int secondsToConnect = 20;
         }];
         [self waitForExpectationsWithTimeout:5 handler:nil];
     }
-    
     [super tearDown];
 }
 

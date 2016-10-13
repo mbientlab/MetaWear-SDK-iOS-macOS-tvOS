@@ -86,6 +86,9 @@
     return newFormat;
 }
 
+// The analyzer doesn't like i64 here, but it fact has been set to a valid value
+// this is well tested, so we just silence the analyzer here
+#ifndef __clang_analyzer__
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
     NSNumber *value = nil;
@@ -102,7 +105,6 @@
                 pi64[i] = 0xFF;  // pad the upper order bytes
             }
         }
-        
         if (self.isDouble) {
             value = [NSNumber numberWithDouble:(double)i64 * self.scale];
         } else {
@@ -119,6 +121,7 @@
     }
     return [[MBLNumericData alloc] initWithNumber:value timestamp:date];
 }
+#endif
 
 - (NSNumber *)numberFromDouble:(double)value
 {

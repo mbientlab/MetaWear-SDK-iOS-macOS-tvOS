@@ -46,7 +46,8 @@
     [super setUp];
     
     if (![self.device.accelerometer isKindOfClass:[MBLAccelerometerBMA255 class]]) {
-        [NSException raise:@"Hardware error" format:@"Trying to run BMA255 tests on a board without a BMA255 accelerometer"];
+        self.continueAfterFailure = NO;
+        XCTFail("Trying to run BMA255 tests on a board without a BMA255 accelerometer");
     }
     self.accelerometer = (MBLAccelerometerBMA255 *)self.device.accelerometer;
 }

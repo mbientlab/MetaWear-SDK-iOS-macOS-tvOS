@@ -47,7 +47,8 @@
     [super setUp];
     
     if (![self.device.accelerometer isKindOfClass:[MBLAccelerometerMMA8452Q class]]) {
-        [NSException raise:@"Hardware error" format:@"Trying to run MMA8452Q tests on a board without an MMA8452Q accelerometer"];
+        self.continueAfterFailure = NO;
+        XCTFail("Trying to run MMA8452Q tests on a board without an MMA8452Q accelerometer");
     }
     self.accelerometer = (MBLAccelerometerMMA8452Q *)self.device.accelerometer;
 }

@@ -278,6 +278,8 @@
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     switch (central.state) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         case CBCentralManagerStateUnknown:
         case CBCentralManagerStateResetting:
             // Updates are imminent, so wait
@@ -302,6 +304,7 @@
             // requested MetaBoot device within 10 seconds
             self.connectionWatchdog = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(connectionWatchdogTimeout:) userInfo:nil repeats:NO];
             break;
+#pragma clang diagnostic pop
     }
 }
 

@@ -109,7 +109,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 {
     self.stateHandler = handler;
     if (handler) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         handler((CBCentralManagerState)self.centralManager.state);
+#pragma clang diagnostic pop
     }
 }
 
@@ -133,6 +136,8 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     // If the central isn't ready, save the handler and we will call later on once its ready
     BFTask *head = [BFTask taskWithResult:nil];
     switch (self.centralManager.state) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         case CBCentralManagerStateUnknown:
         case CBCentralManagerStateResetting:
             // Updates are imminent, so wait
@@ -157,6 +162,8 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         case CBCentralManagerStatePoweredOn:
             // Nothing to wait on!
             break;
+#pragma clang diagnostic pop
+
     }
     
     return [head continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -190,7 +197,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     // Fire up scanning if the central is ready for it, otherwise it will get
     // turned on later when its ready
     if (!self.isScanning) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         if (self.centralManager.state == CBCentralManagerStatePoweredOn) {
+#pragma clang diagnostic pop
             [self startScan];
         }
     }
@@ -350,7 +360,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             // Delete the cachce folder
             NSError *error;
             BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self logFilename:nil] error:&error];
-            if (error) { NSLog(error); }
+            if (error) { NSLog(@"%@", error); }
             assert(success);
         }
     }
@@ -442,11 +452,17 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     MBLCentralManagerStateHandler handler = self.stateHandler;
     if (handler) {
         [self.dispatchQueue addOperationWithBlock:^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             handler((CBCentralManagerState)central.state);
+#pragma clang diagnostic pop
         }];
     }
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if (central.state == CBCentralManagerStatePoweredOn) {
+#pragma clang diagnostic pop
         NSArray *peripherals = [central retrieveConnectedPeripheralsWithServices:@[[MBLConstants serviceUUID]]];
         for (id<MBLBluetoothPeripheral> peripheral in peripherals) {
             [self metawearFromPeripheral:peripheral andAdvertisementData:nil RSSI:nil];
@@ -467,6 +483,8 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     @synchronized(self.centralStateUpdateSourcesMutex) {
         for (BFTaskCompletionSource *source in self.centralStateUpdateSources) {
             switch (central.state) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 case CBCentralManagerStateUnknown:
                 case CBCentralManagerStateResetting:
                     // Updates are imminent, so wait
@@ -486,6 +504,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
                 case CBCentralManagerStatePoweredOn:
                     [source trySetResult:nil];
                     break;
+#pragma clang diagnostic pop
             }
         }
         [self.centralStateUpdateSources removeAllObjects];
