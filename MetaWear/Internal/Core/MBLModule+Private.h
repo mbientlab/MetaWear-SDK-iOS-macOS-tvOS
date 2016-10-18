@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Let the module know our BLE link connected
  */
-- (void)deviceConnected;
+- (BFTask *)deviceConnected;
 
 /**
  A common firmware paradigm is the need to write one or more register to

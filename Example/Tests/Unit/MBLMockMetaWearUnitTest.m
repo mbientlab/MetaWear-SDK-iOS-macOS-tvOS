@@ -119,8 +119,4 @@ static uint8_t randomContext2;
     return (&randomContext2 == dispatch_get_specific(&randomKey2));
 }
 
-- (void)testConnect
-{
-}
-
 @end

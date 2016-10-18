@@ -183,7 +183,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @synthesize zeroCountQueue = _noencode_zeroCountQueue;
 
-- (void)writeToFile:(NSString *)filename
+- (NSError *)writeToFile:(NSString *)filename
 {
     MBLLog(MBLLogLevelInfo, @"Saving to disk: %@", self);
     NSData *data = [FastCoder dataWithRootObject:self];
@@ -200,6 +200,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 #endif
     
     if (error) { MBLLog(MBLLogLevelError, @"%@", error); }
+    return error;
 }
 
 - (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral
@@ -521,8 +522,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         // Save this as the reset state of the device
         // Do this on the bleQueue so that we don't process events while the save state is happening
         NSString *filename = [[MBLMetaWearManager sharedManager] logFilename:[self.identifier.UUIDString stringByAppendingString:@"Reset"]];
-        [self writeToFile:filename];
-        return nil;
+        return [self writeToFile:filename];
     }];
 }
 
@@ -592,12 +592,13 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (BFTask *)setConfigurationAsync:(id<MBLRestorable>)configuration
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    assert(![MBLConstants isSimulatorQueue] && "Can't set a configuration within a programCommandsToRunOnEventAsync: block");
+    dispatch_async([MBLConstants metaWearQueue], ^{
         if (self.state != MBLConnectionStateConnected) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
                                                     code:kMBLErrorNotConnected
                                                 userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before performing setConfiguartion:handler:."}]];
-            return nil;
+            return;
         }
         [self showFastCodingWarnings:configuration];
         // The reset file is no longer valid since we are re-programming the device
@@ -631,19 +632,18 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         
         // Wipe the device!
         [self.macro clearAllMacros];
-        [[[self.logging stopAndClearLog] success:^(id  _Nonnull result) {
+        [[[self.logging stopAndClearLog] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
             NSString *curVersion = self.accelerometer.device.deviceInfo.firmwareRevision;
             // Older versions don't have a reliable reset UID
             if ([MBLConstants versionString:curVersion isLessThan:@"1.0.7"]) {
                 self.modules = nil;
                 [self synchronizeAsync];
             }
-            [self.testDebug resetDeviceAfterGarbageCollect];
+            return [self.testDebug resetDeviceAfterGarbageCollect];
         }] failure:^(NSError * _Nonnull error) {
             [source trySetError:error];
         }];
-        return nil;
-    }];
+    });
     return source.task;
 }
 
@@ -822,8 +822,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     NSString *filename = [[MBLMetaWearManager sharedManager] logFilename:self.identifier.UUIDString];
     // Do this on the metaWearQueue so that we don't modify any data while the save is happening
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        [self writeToFile:filename];
-        return nil;
+        return [self writeToFile:filename];
     }];
 }
 
@@ -832,8 +831,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     NSString *filename = [[MBLMetaWearManager sharedManager] logFilename:[self.identifier.UUIDString stringByAppendingString:@"Reset"]];
     // Do this on the metaWearQueue so that we don't modify any data while the save is happening
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        [self writeToFile:filename];
-        return nil;
+        return [self writeToFile:filename];
     }];
 }
 
@@ -854,14 +852,14 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)didConnect
 {
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    dispatch_async([MBLConstants metaWearQueue], ^{
+        // Only access state from the metaWearQueue
         self.state = MBLConnectionStateDiscovery;
         [self.peripheral discoverServices:@[[MBLConstants serviceUUID],
                                             [MBLConstants batteryServiceUUID],
                                             [MBLConstants DISServiceUUID],
                                             [MBLConstants DFUServiceUUID]]];
-        return nil;
-    }];
+    });
 }
 
 - (void)didDisconnect:(NSError *)error
@@ -1005,8 +1003,10 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)incrementCount
 {
     if ([MBLConstants isSimulatorQueue]) {
+        MBLLog(MBLLogLevelDebug, @"+1 SimulatorQueue");
         [simulatorCountQueue suspend];
     } else {
+        MBLLog(MBLLogLevelDebug, @"+1 CountQueue");
         BOOL wasSuspended = [self.zeroCountQueue suspend];
         // If we were not previously suspended that means the link was
         // idle, and since we are in this function work is about to happen
@@ -1024,8 +1024,10 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)decrementCount
 {
     if ([MBLConstants isSimulatorQueue]) {
+        MBLLog(MBLLogLevelDebug, @"-1 SimulatorQueue");
         [simulatorCountQueue resume];
     } else {
+        MBLLog(MBLLogLevelDebug, @"-1 CountQueue");
         [self.zeroCountQueue resume];
     }
 }
@@ -1065,7 +1067,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (BFTask<NSNumber *> *)readRSSIAsync
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    dispatch_async([MBLConstants metaWearQueue], ^{
         if (self.state != MBLConnectionStateConnected) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
                                                    code:kMBLErrorNotConnected
@@ -1073,8 +1075,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         } else {
             [self.peripheral readRSSI];
         }
-        return nil;
-    }];
+    });
     @synchronized (RSSISources) {
         [RSSISources addObject:source];
     }
@@ -1231,15 +1232,14 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         }
         // Getting into DFU causes the device to disconnect, so we execute this
         // async to make sure our disconnection handler gets registered first.
-        [BFTask taskFromMetaWearWithBlock:^id {
+        dispatch_async([MBLConstants metaWearQueue], ^{
             if (alreadyInDFU) {
                 // See to simulate the disconnect that occurs when we jump to bootloader
                 [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
             } else {
                 [self.testDebug jumpToBootloader];
             }
-            return nil;
-        }];
+        });
         return [self waitForDisconnection];
     }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
         return [self startUpdate];
@@ -1628,22 +1628,27 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
     
     // Handle the passing case
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    [[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+        // We set the state here so the deviceConnected handlers can
+        // shut off any streams without errors about us not beging connected
+        self.state = MBLConnectionStateConnected;
         // Inform all the modules of this connection
+        NSMutableArray *tasks = [NSMutableArray arrayWithCapacity:self.modules.count];
         for (id obj in self.modules) {
             if ([obj isKindOfClass:[MBLModule class]]) {
                 MBLModule *module = obj;
-                [module deviceConnected];
+                [tasks addObject:[module deviceConnected]];
             }
         }
-        [self.testDebug deviceConnected];
+        [tasks addObject:[self.testDebug deviceConnected]];
+        return [BFTask taskForCompletionOfAllTasks:tasks];
+    }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        assert(!t.error);
         MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
         [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
                                            eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                              eventAction:@"success"
                                               eventLabel:self.deviceInfo.firmwareRevision];
-        
-        self.state = MBLConnectionStateConnected;
         [self invokeConnectionHandlers:nil];
         return nil;
     }];

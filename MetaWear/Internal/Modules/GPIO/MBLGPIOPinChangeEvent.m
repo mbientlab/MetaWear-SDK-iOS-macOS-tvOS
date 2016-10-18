@@ -74,9 +74,9 @@
     }];
 }
 
-- (BFTask *)performAsyncstopNotificationsAsync
+- (BFTask *)performAsyncStopNotificationsAsync
 {
-    return [[super performAsyncstopNotificationsAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+    return [[super performAsyncStopNotificationsAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [self.module.device.gpio stopNotificationsAsyncOnChangeEvent:self];
     }];
 }
