@@ -117,8 +117,9 @@
         // as an indicator someone is trying to use 2 apps simultaneously wihch is very
         // dangerous and unsupported.  Our only option is to disconnect this app
         MBLMetaWear *device = self.device;
-        [self.keyRegister addNotificationWithExecutor:[BFExecutor dispatchExecutor] handler:^(id  _Nullable obj, NSError * _Nullable error) {
+        [self.keyRegister addNotificationWithExecutor:[BFExecutor metaWearExecutor] handler:^(id _Nullable obj, NSError * _Nullable error) {
             if (obj) {
+                MBLLog(MBLLogLevelWarning, @"Simultaneous Connection - Disconnecting %@ because another App has initiated a connection", device);
                 [[MBLMetaWearManager sharedManager] disconnectMetaWear:device fromPeripheralSide:NO];
             }
         }];
