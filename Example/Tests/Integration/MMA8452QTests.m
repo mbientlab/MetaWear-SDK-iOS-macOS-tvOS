@@ -201,24 +201,6 @@
     [self waitForExpectationsWithTimeout:15 handler:nil];
 }
 
-- (void)testPeakDetector
-{
-    self.accelerometer.fullScaleRange = MBLAccelerometerRange8G;
-    self.accelerometer.sampleFrequency = 800;
-    self.accelerometer.highPassFilter = YES;
-    MBLEvent *event = [self.accelerometer.dataReadyEvent minPeakDetectorOfEventWithLookahead:10 delta:7000 extraPeakWidth:10 isSigned:YES];
-    [event startNotificationsWithHandlerAsync:^(id obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
-    
-    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [event stopNotificationsAsync];
-        [waitingExpectation fulfill];
-    });
-    [self waitForExpectationsWithTimeout:120 handler:nil];
-}
-
 - (void)testAllProperties
 {
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
