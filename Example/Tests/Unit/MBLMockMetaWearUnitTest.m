@@ -55,7 +55,7 @@
         [self.central resetKnobs];
         self.peripheral = [[self.central retrievePeripheralsWithIdentifiers:@[device.identifier]] firstObject];
         [self.peripheral resetKnobs];
-        [[[self.device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
+        [[[device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
             self.device = result;
             [waitingExpectation fulfill];
         }] failure:^(NSError * _Nonnull error) {
@@ -117,10 +117,6 @@ static uint8_t randomContext2;
 + (BOOL)isRandomQueue2
 {
     return (&randomContext2 == dispatch_get_specific(&randomKey2));
-}
-
-- (void)testConnect
-{
 }
 
 @end

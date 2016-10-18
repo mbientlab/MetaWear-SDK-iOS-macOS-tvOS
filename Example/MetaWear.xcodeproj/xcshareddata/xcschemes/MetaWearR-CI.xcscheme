@@ -8,15 +8,29 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "40703EA51D94C37500F38FF0"
                BuildableName = "MetaWearIntegrationTests-iOS.xctest"
                BlueprintName = "MetaWearIntegrationTests-iOS"
+               ReferencedContainer = "container:MetaWear.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "40703E5A1D94C06800F38FF0"
+               BuildableName = "MetaWearIntegrationTestHost-iOS.app"
+               BlueprintName = "MetaWearIntegrationTestHost-iOS"
                ReferencedContainer = "container:MetaWear.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -214,13 +228,13 @@
       </Testables>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "R_UUID"
-            value = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFFF"
+            key = "METAWEAR_MODEL_UNDER_TEST"
+            value = "R"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "RPRO_UUID"
-            value = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFFF"
+            key = "R_UUID"
+            value = "A4D5A508-6CFC-D5D1-A1D4-3725632D3E70"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -237,6 +251,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "40703EA51D94C37500F38FF0"
+            BuildableName = "MetaWearIntegrationTests-iOS.xctest"
+            BlueprintName = "MetaWearIntegrationTests-iOS"
+            ReferencedContainer = "container:MetaWear.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

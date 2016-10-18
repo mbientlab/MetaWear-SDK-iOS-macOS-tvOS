@@ -48,22 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format;
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format;
 
-/**
- @param lookahead Distance to look ahead from a peak candidate to determine
- if it is the actual peak '(sample / period) / f' where '4 >= f >= 1.25' might be a good value
- @param delta This specifies a minimum difference between a min/max and
- the following points in order to be considered a local min/max. Prevents
- the method from picking up false mins/maxs. To work well delta should
- be set to delta >= RMSnoise * 5.
- */
-- (MBLEvent *)maxPeakDetectorOfEventWithLookahead:(uint8_t)lookahead delta:(uint32_t)delta extraPeakWidth:(uint8_t)extraPeakWidth isSigned:(BOOL)isSigned;
-- (MBLEvent *)minPeakDetectorOfEventWithLookahead:(uint8_t)lookahead delta:(uint32_t)delta extraPeakWidth:(uint8_t)extraPeakWidth isSigned:(BOOL)isSigned;
-
+// TODO: Test and enable this filter
 - (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data;
-
-- (MBLEvent *)punchDetectorOfEventWithLookahead:(uint8_t)lookahead delta:(int16_t)delta areaThreshold:(uint16_t)areaThreshold startThreshold:(uint16_t)startThreshold;
-
-- (MBLFilter *)fallDetectorOfEventWithAccel:(uint8_t)accelShift gyro:(uint8_t)gyroShift;
 
 @end
 

@@ -895,29 +895,32 @@
     
     const int ENTRIES = 200;
     const float PERIOD = 0.010;
+    NSInteger __block sizeFirstReadout = 0;
+
     MBLI2CData *whoami = [self.device.serial dataAtDeviceAddress:self.i2cDevice registerAddress:self.i2cReadOnlyReg length:1];
     MBLEvent<MBLDataSample *> *periodicReg = [whoami periodicReadWithPeriod:PERIOD * 1000.0 eventCount:ENTRIES];
-    [periodicReg startLoggingAsync];
-    
-    NSInteger __block sizeFirstReadout = 0;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(((ENTRIES * PERIOD) + 1.0) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.device.logging->noAckMode = YES;
-        [[periodicReg downloadLogAndStopLoggingAsync:YES] success:^(NSArray<MBLDataSample *> * _Nonnull result) {
-            NSLog(@"%@", result);
-            sizeFirstReadout = result.count;
-            for (MBLDataSample *entry in result) {
-                XCTAssertEqual(self.i2cReadOnlyRegValue, *(uint8_t *)entry.data.bytes);
-            }
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.device.testDebug resetDevice]; // Reset after not ack-ing
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [waitingExpectation fulfill];
+    [[periodicReg startLoggingAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(((ENTRIES * PERIOD) + 1.0) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.device.logging->noAckMode = YES;
+            [[periodicReg downloadLogAndStopLoggingAsync:YES] success:^(NSArray<MBLDataSample *> * _Nonnull result) {
+                NSLog(@"%@", result);
+                sizeFirstReadout = result.count;
+                for (MBLDataSample *entry in result) {
+                    XCTAssertEqual(self.i2cReadOnlyRegValue, *(uint8_t *)entry.data.bytes);
+                }
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.device.testDebug resetDevice]; // Reset after not ack-ing
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [waitingExpectation fulfill];
+                    });
                 });
-            });
-        }];
-    });
+            }];
+        });
+    }];
+
     
-    [self waitForExpectationsWithTimeout:120 handler:nil]; // TODO: Set this timeout down
+    [self waitForExpectationsWithTimeout:30 handler:nil];
     
     waitingExpectation = [self expectationWithDescription:@"download"];
     

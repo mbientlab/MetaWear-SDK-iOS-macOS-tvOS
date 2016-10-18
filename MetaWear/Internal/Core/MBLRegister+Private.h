@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)recievedData:(nullable NSData *)data error:(nullable NSError *)error;
 - (void)deviceDisconnected:(nullable NSError *)error;
-- (void)deviceConnected;
+- (BFTask *)deviceConnected;
 
 
 - (BFTask *)initializeAsync;
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BFTask *)performAsyncDeactivation;
 
 - (BFTask *)performAsyncStartNotifications;
-- (BFTask *)performAsyncstopNotificationsAsync;
+- (BFTask *)performAsyncStopNotificationsAsync;
 
 @end
 

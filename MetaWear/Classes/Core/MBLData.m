@@ -108,10 +108,9 @@
 
 - (void)addNotificationsHandler:(MBLDataNotificationHandler)handler
 {
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    dispatch_async([MBLConstants metaWearQueue], ^{
         [super addNotificationWithExecutor:[BFExecutor dispatchExecutor] handler:handler];
-        return nil;
-    }];
+    });
 }
 
 - (void)removeNotificationHandlers

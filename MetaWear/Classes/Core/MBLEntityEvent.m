@@ -109,10 +109,10 @@
     }];
 }
 
-- (BFTask *)performAsyncstopNotificationsAsync
+- (BFTask *)performAsyncStopNotificationsAsync
 {
     MBLEntityModule *module = (MBLEntityModule *)self.module;
-    return [[super performAsyncstopNotificationsAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+    return [[super performAsyncStopNotificationsAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [module stopNotificationsAsyncForEntity:self];
     }];
 }

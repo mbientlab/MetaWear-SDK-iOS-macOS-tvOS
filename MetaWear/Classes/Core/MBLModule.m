@@ -133,22 +133,18 @@
 
 - (void)deviceDisconnected:(NSError *)error
 {
-    // sync incase [obj deviceDisconnected:error] modifies this register collection
-    dispatch_async([MBLConstants metaWearQueue], ^{
-        for (MBLRegister *obj in self.registers) {
-            [obj deviceDisconnected:error];
-        }
-    });
+    for (MBLRegister *obj in self.registers) {
+        [obj deviceDisconnected:error];
+    }
 }
 
-- (void)deviceConnected
+- (BFTask *)deviceConnected
 {
-    // sync incase [obj deviceConnected] modifies this register collection
-    dispatch_async([MBLConstants metaWearQueue], ^{
-        for (MBLRegister *obj in self.registers) {
-            [obj deviceConnected];
-        }
-    });
+    NSMutableArray *tasks = [NSMutableArray arrayWithCapacity:self.registers.count];
+    for (MBLRegister *obj in self.registers) {
+        [tasks addObject:[obj deviceConnected]];
+    }
+    return [BFTask taskForCompletionOfAllTasks:tasks];
 }
 
 - (BFTask *)initializeAsync

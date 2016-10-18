@@ -347,7 +347,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     return [BFTask taskWithResult:nil];
 }
 
-- (BFTask *)stopNotificationsAsyncWithStateCheck
+- (BFTask *)stopNotificationsAsync
 {
     MBLMetaWear *device = self.module.device;
     if (device.state != MBLConnectionStateConnected) {
@@ -356,12 +356,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                                          userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Notifications will automatically be stopped on next connect."}];
         return [BFTask taskWithError:error];
     }
-    return [self stopNotificationsAsyncWithoutStateCheck];
-}
-
-- (BFTask *)stopNotificationsAsyncWithoutStateCheck
-{
-    MBLMetaWear *device = self.module.device;
+    
     [device incrementCount];
     return [BFTask taskFromMetaWearWithBlock:^id{
         // Do nothing if we notifications are not enabled
@@ -371,7 +366,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
             [self removeNotificationHandlers];
             
             stopNotificationTask = [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                return [self performAsyncstopNotificationsAsync];
+                return [self performAsyncStopNotificationsAsync];
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [self deinitializeAsync];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -385,12 +380,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     }];
 }
 
-- (BFTask *)stopNotificationsAsync
-{
-    return [self stopNotificationsAsyncWithStateCheck];
-}
-
-- (BFTask *)performAsyncstopNotificationsAsync
+- (BFTask *)performAsyncStopNotificationsAsync
 {
     // Indexed registers and periodic read registers arn't equiped to take notification bytes
     if (self.index == 0xFF && !(self.registerId & 0x80)) {
@@ -414,10 +404,9 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
 
 - (void)removeNotificationHandlers
 {
-    [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+    dispatch_async([MBLConstants metaWearQueue], ^{
         [notifyCallbacks removeAllObjects];
-        return nil;
-    }];
+    });
 }
 
 - (void)recievedData:(NSData *)data error:(NSError *)error
@@ -486,14 +475,12 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     [notifyCallbacks removeAllObjects];
 }
 
-- (void)deviceConnected
+- (BFTask *)deviceConnected
 {
-    [BFTask taskFromMetaWearWithBlock:^id{
-        if (self.isNotifyingImpl) {
-            return [self stopNotificationsAsyncWithoutStateCheck];
-        }
-        return nil;
-    }];
+    if (self.isNotifyingImpl) {
+        return [self stopNotificationsAsync];
+    }
+    return [BFTask taskWithResult:nil];
 }
 
 - (BFTask *)initializeAsync
