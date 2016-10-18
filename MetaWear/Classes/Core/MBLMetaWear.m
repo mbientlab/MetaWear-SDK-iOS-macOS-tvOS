@@ -779,7 +779,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             case MBLConnectionStateDisconnecting:
                 return [self waitForDisconnection];
             case MBLConnectionStateDisconnected:
-                return [BFTask taskWithResult:nil];
+                return nil;
         }
     }];
 }
@@ -1232,15 +1232,14 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         }
         // Getting into DFU causes the device to disconnect, so we execute this
         // async to make sure our disconnection handler gets registered first.
-        dispatch_async([MBLConstants metaWearQueue], ^{
-            if (alreadyInDFU) {
-                // See to simulate the disconnect that occurs when we jump to bootloader
-                [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
-            } else {
-                [self.testDebug jumpToBootloader];
-            }
-        });
-        return [self waitForDisconnection];
+        BFTask *disconnectTask = [self waitForDisconnection];
+        if (alreadyInDFU) {
+            // See to simulate the disconnect that occurs when we jump to bootloader
+            [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
+        } else {
+            [self.testDebug jumpToBootloader];
+        }
+        return disconnectTask;
     }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
         return [self startUpdate];
     }];
