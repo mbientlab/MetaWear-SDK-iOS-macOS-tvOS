@@ -43,11 +43,17 @@
 
 - (void)testSwitchRead
 {
-    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for switch read"];
-    
+    XCTestExpectation *read1 = [self expectationWithDescription:@"wait for switch read1"];
+    XCTestExpectation *read2 = [self expectationWithDescription:@"wait for switch read2"];
+
     [[self.device.mechanicalSwitch.switchValue readAsync] success:^(MBLNumericData * _Nonnull result) {
         XCTAssertEqual(result.value.boolValue, NO);
-        [waitingExpectation fulfill];
+        [read1 fulfill];
+    }];
+    
+    [[self.device.mechanicalSwitch.switchValue readAsync] success:^(MBLNumericData * _Nonnull result) {
+        XCTAssertEqual(result.value.boolValue, YES);
+        [read2 fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:10 handler:nil];
