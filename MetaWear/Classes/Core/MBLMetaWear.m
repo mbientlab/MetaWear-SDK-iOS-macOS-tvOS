@@ -109,7 +109,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic, nullable) id<MBLRestorable> configuration;
 
 @property (nonatomic) MBLConnectionState state;
-@property (nonatomic) BOOL isGuestConnection;
+@property (nonatomic) BOOL programedByOtherApp;
 @property (nonatomic, nonnull) NSUUID *identifier;
 @property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
@@ -176,7 +176,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 // Properties that need custom encode/decode functions
 @synthesize state = _noencode_state;
-@synthesize isGuestConnection = _noencode_isGuestConnection;
+@synthesize programedByOtherApp = _noencode_programedByOtherApp;
 
 @synthesize peripheral = _noencode_peripheral;
 @synthesize bypassSetup = _noencode_bypassSetup;
@@ -288,12 +288,12 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     self.rssiAverager = nil;
 }
 
-- (BOOL)isGuestConnection
+- (BOOL)programedByOtherApp
 {
     if (self.state != MBLConnectionStateConnected) {
-        MBLLog(MBLLogLevelWarning, @"isGuestConnection not valid unless a connection is established");
+        MBLLog(MBLLogLevelWarning, @"programedByOtherApp not valid unless a connection is established");
     }
-    return _noencode_isGuestConnection;
+    return _noencode_programedByOtherApp;
 }
 
 - (BFTask *)initializeModulesIfNeededAsync
@@ -1400,11 +1400,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         // checks need to read data (which uses callbacks throught this characteristic)
         [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
         // 
-        return [self.testDebug isGuestApplicationAsync];
+        return [self.testDebug isProgramedByOtherAppAsync];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        self.isGuestConnection = t.result.boolValue;
+        self.programedByOtherApp = t.result.boolValue;
         if (t.result.boolValue) {
-            // If we are just a guest finish the connection now, note this will
+            // If we are programmed by another app finish the connection now, note this will
             // jump over all "success" blocks
             return [BFTask cancelledTask];
         } else {
@@ -1438,7 +1438,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)sanityCheck
 {
-    assert(!_noencode_isGuestConnection);
+    assert(!_noencode_programedByOtherApp);
     // Perform some sanity checks on all the module state
     NSMutableArray *tasks = [NSMutableArray array];
     for (id obj in self.modules) {

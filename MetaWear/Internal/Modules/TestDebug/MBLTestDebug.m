@@ -109,7 +109,7 @@
     return [self.gapDisconnect writeDataAsync:nil];
 }
 
-- (BFTask<NSNumber *> *)isGuestApplicationAsync
+- (BFTask<NSNumber *> *)isProgramedByOtherAppAsync
 {
     return [[self.keyRegister readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
         // If another app tries to connect to this MetaWear it will issue this same
@@ -128,7 +128,7 @@
         if (obj.value.unsignedIntValue) {
             // Write magic value exisits, see if it matches!
             if (obj.value.unsignedIntValue != self.magicKey) {
-                MBLLog(MBLLogLevelWarning, @"Guest Connection - Use caution to avoid causing data loss for other applications");
+                MBLLog(MBLLogLevelWarning, @"Programmed by Other Application - Use caution to avoid causing data loss for other applications");
                 return @YES;
             }
         } else {

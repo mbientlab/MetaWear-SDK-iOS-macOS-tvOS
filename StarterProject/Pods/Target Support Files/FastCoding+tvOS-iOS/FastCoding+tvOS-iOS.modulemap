@@ -1,0 +1,6 @@
+framework module FastCoding_tvOS {
+  umbrella header "FastCoding+tvOS-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

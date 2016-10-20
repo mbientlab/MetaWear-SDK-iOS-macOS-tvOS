@@ -133,15 +133,15 @@ Get the state of the BLE connection.
         NSLog(@"Connected!");
     }
 
-Guest Connection
-----------------
+Programmed by Other Application
+-------------------------------
 
-If YES, this is not the owning application and you should take care because you can cause data loss for the other application that is using the device.
+Since we do not support using a single MetaWear device with multiple application, you should take care if a user accidently tries to do this.  Once connected, your application should check this BOOL and if it is YES, then you shouldn't change settings or perform any operations unless you supply the user with an alert saying, "This device is in use by another application, are you sure you want to reprogram it?  This will cause errors and data loss for the other application”.  If they agree then you need to call setConfigurationAsync: to take ownership of the device.
 
 ::
 
-    if (device.isGuestConnection) {
-        NSLog(@"WARNING - guest app, are you sure you want to continue?  Call [device setConfigurationAsync:nil] if you wish to take ownership.");
+    if (device.programedByOtherApp) {
+        NSLog(@"WARNING - device already programmed, are you sure you want to continue?  Call [device setConfigurationAsync:nil] if you wish to take ownership.");
     }
 
 Identifier

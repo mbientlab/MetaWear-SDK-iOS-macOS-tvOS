@@ -1,0 +1,6 @@
+framework module MetaWear {
+  umbrella header "MetaWear-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

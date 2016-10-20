@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  This checks to see if we are the application that currently claims to own this MetaWear
  */
-- (BFTask<NSNumber *> *)isGuestApplicationAsync;
+- (BFTask<NSNumber *> *)isProgramedByOtherAppAsync;
 
 /**
  Command values to write magic value to the key register

@@ -352,6 +352,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         // If the app changes its API version then we must delete all the cached MBLMetaWear objects,
         // since they are no longer valid
         if (!version || ![version isEqualToString:kMBLAPIVersion]) {
+            // Don't use MBLLog since it needs to reference the MetaWearManager which we are setting up now
             NSLog(@"Clearing! %@ -> %@", version, kMBLAPIVersion);
             [[NSUserDefaults standardUserDefaults] setObject:kMBLAPIVersion forKey:kMBLApiVersionKey];
             // When the api version changes in an app you will need to reprogram devices
@@ -379,7 +380,14 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (NSString *)logFilename:(NSString *)filename
 {
+// tvOS isn't big on persistent local storage, long term we may want to use
+// CloudKit or some other supported thing
+// https://realm.io/news/is-tvos-the-future-of-apps/
+#if TARGET_OS_TV
+    NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+#else
     NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+#endif
     if (urls.count) {
         NSURL *url = urls[0];
         url = [url URLByAppendingPathComponent:@"com.mbientlab.metawear.devices" isDirectory:YES];
@@ -389,7 +397,9 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         if ([[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDirectory]) {
             if (!isDirectory) {
                 if (![[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
-                    MBLLog(MBLLogLevelError, @"removeItemAtURL error: %@", error);
+                    // Don't use MBLLog since it needs to reference the MetaWearManager
+                    // which we are setting up now
+                    NSLog(@"removeItemAtURL error: %@", error);
                 }
             }
         } else {
@@ -397,7 +407,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         }
         if (!isDirectory) {
             if (![[NSFileManager defaultManager] createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:&error]) {
-                MBLLog(MBLLogLevelError, @"createDirectoryAtURL error: %@", error);
+                NSLog(@"createDirectoryAtURL error: %@", error);
                 return nil;
             }
         }
@@ -407,7 +417,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         }
         return url.path;
     }
-    MBLLog(MBLLogLevelError, @"URLsForDirectory:inDomains: nothing found");
+    NSLog(@"URLsForDirectory:inDomains: nothing found");
     return nil;
 }
 

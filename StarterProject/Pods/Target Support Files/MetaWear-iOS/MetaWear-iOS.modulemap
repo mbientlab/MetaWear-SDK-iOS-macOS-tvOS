@@ -1,0 +1,6 @@
+framework module MetaWear {
+  umbrella header "MetaWear-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
