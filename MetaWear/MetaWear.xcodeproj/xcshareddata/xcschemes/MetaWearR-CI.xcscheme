@@ -179,6 +179,9 @@
                   Identifier = "AutomaticTests/testPressurePeriodicRead">
                </Test>
                <Test
+                  Identifier = "AutomaticTests/testProgrammedByOtherAppConnection">
+               </Test>
+               <Test
                   Identifier = "AutomaticTests/testProximity">
                </Test>
                <Test
@@ -234,7 +237,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "R_UUID"
-            value = "A4D5A508-6CFC-D5D1-A1D4-3725632D3E70"
+            value = "B6CC6C09-C439-47B6-A78F-4BE5D1888FA3"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
