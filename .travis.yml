@@ -5,12 +5,13 @@ before_install:
   - IOS_SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 5s (10.0) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
 
 script:
-  - set -o pipefail
-  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-macOS -destination 'platform=macOS,arch=x86_64' | xcpretty
-  - open -a "simulator" --args -CurrentDeviceUDID $TV_SIMULATOR_ID
-  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty
-  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_ID
-  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-iOS -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.0' -enableCodeCoverage YES | xcpretty
+#  - set -o pipefail
+#  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-macOS -destination 'platform=macOS,arch=x86_64' | xcpretty
+#  - open -a "simulator" --args -CurrentDeviceUDID $TV_SIMULATOR_ID
+#  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty
+#  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_ID
+#  - xcodebuild test -workspace MetaWear/MetaWear.xcworkspace -scheme MetaWearUnitTests-iOS -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.0' -enableCodeCoverage YES | xcpretty
+  - scan --workspace "MetaWear/MetaWear.xcworkspace" scheme "MetaWearUnitTests-iOS" device "iPhone 5s (10.0)" skip_build derived_data_path "./MetaWear/Build"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J '^MetaWear$'
