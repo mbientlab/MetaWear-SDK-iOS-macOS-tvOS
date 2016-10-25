@@ -19,5 +19,5 @@ script:
 
 after_success:
   - if [ $RUN_COVERAGE == "YES" ]; then
-    bash <(curl -s https://codecov.io/bash) -J '^MetaWear$' -D "$DERIVED_DATA_PATH";
-  fi
+      bash <(curl -s https://codecov.io/bash) -J '^MetaWear$' -D "$DERIVED_DATA_PATH";
+    fi
