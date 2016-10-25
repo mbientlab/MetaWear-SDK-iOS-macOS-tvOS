@@ -45,142 +45,19 @@
                   Identifier = "AccelerometerTests">
                </Test>
                <Test
-                  Identifier = "AutomaticTests/testAccelerometerLogging">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testAccelerometerRMSLogging">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testAccelerometerStreamDisconnect">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testAccelerometerUpdates">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testAltitudePeriodicRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testArchiveSpeed">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testBMA255">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testBigStream">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testChangeOfEventAcrossThreshold">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testChangeOfEventByDelta">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testConditionalDataSwitch">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testCounterOfEvents">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testDisconnectedErrors">
-               </Test>
-               <Test
                   Identifier = "AutomaticTests/testDroppedReadsWhileStreaming">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testFilterFromOffsetedEntry">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testGpioReads">
                </Test>
                <Test
                   Identifier = "AutomaticTests/testGuestConnection">
                </Test>
                <Test
-                  Identifier = "AutomaticTests/testHumidityPeriodicRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testHumidityRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testI2CMultipleReadWrite">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testI2CPeriodicLog">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testI2CPeriodicRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testI2CPeriodicReadIntoFilter">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testI2CReadWrite">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testLogDontAckReadout">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testLogDownloadAfterReconnect">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testLogDownloadDisconnect">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testLogDownloadReset">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testLogDownloadWithoutStopping">
-               </Test>
-               <Test
                   Identifier = "AutomaticTests/testLogSaturation">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testMagnetometerBMM150">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testMultiConnect">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testMultiLog">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testMultiTimeoutConnect">
                </Test>
                <Test
                   Identifier = "AutomaticTests/testPackedAccelStream">
                </Test>
                <Test
                   Identifier = "AutomaticTests/testPackedGyroStream">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPeriodicLogDownloadAfterReset">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPhotometerPeriodicRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPhotometerRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPressurePeriodicRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testProximity">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPulseDetectorOfEventWithThreshold">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testSPIRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testSwitchRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testTemperatureRead">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testTimer">
                </Test>
                <Test
                   Identifier = "BMA255Tests">
@@ -214,13 +91,18 @@
       </Testables>
       <EnvironmentVariables>
          <EnvironmentVariable
+            key = "METAWEAR_MODEL_UNDER_TEST"
+            value = "RPRO"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "R_UUID"
             value = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFFF"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "RPRO_UUID"
-            value = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFFF"
+            value = "6965BF19-EF68-4670-A13E-C17F4932E5D4"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
