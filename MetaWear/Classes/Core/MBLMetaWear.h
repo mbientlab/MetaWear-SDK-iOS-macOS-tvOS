@@ -257,11 +257,6 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  if you wish to change the advertised name, max 8 characters!
  */
 @property (nonatomic) NSString *name;
-/**
- Model of device as stated in marketing information.
- */
-@property (nonatomic, readonly) MBLModel metaModel;
-@property (nonatomic, readonly) NSString *metaModelString;
 
 ///----------------------------------
 /// @name Connect/Disconnect
