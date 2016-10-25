@@ -160,7 +160,7 @@
 		402B7E341DADA6B1005F81D3 /* settings.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = settings.rst; sourceTree = "<group>"; };
 		402B7E351DADA6B1005F81D3 /* temperature.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temperature.rst; sourceTree = "<group>"; };
 		402B7E361DADA6B1005F81D3 /* timer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timer.rst; sourceTree = "<group>"; };
-		403708581DBFD5FF003BF743 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gen_api_reference.sh; sourceTree = "<group>"; };
+		403708581DBFD5FF003BF743 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = gen_api_reference.sh; path = ../gen_api_reference.sh; sourceTree = "<group>"; };
 		403BF7721D9E342800B22B82 /* DFUTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFUTests.m; sourceTree = "<group>"; };
 		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40703E0A1D94AE3500F38FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../MetaWearUnitTests-iOS/Info.plist"; sourceTree = "<group>"; };
