@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/mbientLab"
   s.documentation_url  = "https://www.mbientlab.com/docs/metawear/ios/#{s.version}/index.html"
 
-  s.source_files = '{Assets,Classes,Internal}/**/*.{h,m}'
+  s.source_files = 'MetaWear/{Assets,Classes,Internal}/**/*.{h,m}'
 
   s.frameworks      = 'CoreData', 'CoreBluetooth'
   s.dependency 'Bolts/Tasks', '~> 1.8.4'

@@ -34,7 +34,6 @@
 		400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
 		400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
 		400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
-		4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */; };
 		403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */ = {isa = PBXBuildFile; fileRef = 403708581DBFD5FF003BF743 /* gen_api_reference.sh */; };
 		403BF7731D9E348000B22B82 /* DFUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 403BF7721D9E342800B22B82 /* DFUTests.m */; };
 		40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
@@ -77,6 +76,7 @@
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
 		40CBC89A1D9B7D630078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
+		40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */; };
 		40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
 		40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
@@ -129,7 +129,6 @@
 		400655C51D9A1DF30066AB54 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLConnectionTests.m; sourceTree = "<group>"; };
 		400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLMetaWearTests.m; sourceTree = "<group>"; };
-		4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MetaWearPrivate.podspec; sourceTree = "<group>"; };
 		402B7E191DADA6B1005F81D3 /* accelerometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometer.rst; sourceTree = "<group>"; };
 		402B7E1A1DADA6B1005F81D3 /* accelerometerbmi160.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometerbmi160.rst; sourceTree = "<group>"; };
 		402B7E1B1DADA6B1005F81D3 /* accelerometermma8452q.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometermma8452q.rst; sourceTree = "<group>"; };
@@ -222,6 +221,7 @@
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
 		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
+		40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MetaWearPrivate.podspec; path = ../MetaWearPrivate.podspec; sourceTree = "<group>"; };
 		484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */,
+				40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */,
 				2E06F9C64AEA806D32581A30 /* MetaWear.podspec */,
 				C4639C9104CACAD62933611C /* README.md */,
 				56D26D2541DE09EA81DA4175 /* LICENSE */,
@@ -888,9 +888,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */,
 				403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */,
 				4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */,
+				40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

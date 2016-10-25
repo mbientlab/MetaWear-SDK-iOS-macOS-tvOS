@@ -2,7 +2,7 @@ use_frameworks!
 
 # All tests need access to the Private headers of MetaWear
 abstract_target 'MetaWear' do
-    pod 'MetaWearPrivate', :path => '.'
+    pod 'MetaWearPrivate', :path => '../'
     
     abstract_target 'MetaWear-iOS' do
         platform :ios, '8.0'
