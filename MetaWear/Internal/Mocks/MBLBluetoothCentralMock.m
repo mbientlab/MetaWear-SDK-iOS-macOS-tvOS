@@ -40,6 +40,7 @@
 @interface MBLBluetoothCentralMock ()
 @property (nonatomic) NSDictionary<NSUUID *, MBLBluetoothPeripheralMock *> *peripherals;
 @property (nonatomic) BOOL isScanning;
+@property (nonatomic) NSTimer *connectionTimer;
 @end
 
 @implementation MBLBluetoothCentralMock
@@ -76,6 +77,7 @@
 - (void)resetKnobs
 {
     self.connectWaitTime = 0.1;
+    [self.connectionTimer invalidate];
 }
 
 - (NSArray<id<MBLBluetoothPeripheral>> *)retrievePeripheralsWithIdentifiers:(NSArray<NSUUID *> *)identifiers
@@ -119,16 +121,27 @@
     if (peripheral.state == CBPeripheralStateConnecting) {
         return;
     }
-    // Slight delay realism
+    // Slight delay for realism and testing
     peripheral.state = CBPeripheralStateConnecting;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.connectWaitTime * NSEC_PER_SEC)), self.queue, ^{
-        peripheral.state = CBPeripheralStateConnected;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.connectionTimer = [NSTimer scheduledTimerWithTimeInterval:self.connectWaitTime target:self selector:@selector(didConnect:) userInfo:peripheral repeats:NO];
+    });
+}
+
+- (void)didConnect:(NSTimer *)timer
+{
+    id<MBLBluetoothPeripheral> peripheral = timer.userInfo;
+    peripheral.state = CBPeripheralStateConnected;
+    
+    dispatch_async(self.queue, ^{
         [self.delegate centralManager:self didConnectPeripheral:peripheral];
     });
 }
 
 - (void)cancelPeripheralConnection:(id<MBLBluetoothPeripheral>)peripheral
 {
+    [self.connectionTimer invalidate];
+    
     // Slight delay for realism
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), self.queue, ^{
         peripheral.state = CBPeripheralStateDisconnected;

@@ -81,6 +81,8 @@
 @property (nonatomic) CBMutableCharacteristic *DISFirmwareRev;
 @property (nonatomic) CBMutableCharacteristic *DISHardwareRev;
 @property (nonatomic) CBMutableCharacteristic *DISManufacturerName;
+
+@property (nonatomic) NSTimer *discoveryTimer;
 @end
 
 @implementation MBLBluetoothPeripheralMock
@@ -182,6 +184,7 @@
 - (void)resetKnobs
 {
     self.discoverServicesWaitTime = 0.1;
+    [self.discoveryTimer invalidate];
     self.keyRegister = 0;
     self.isMetaBoot = NO;
 }
@@ -223,22 +226,27 @@
 
 - (void)discoverServices:(NSArray<CBUUID *> *)serviceUUIDs
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.discoverServicesWaitTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSMutableArray *services = [NSMutableArray array];
-        for (CBUUID *uuid in serviceUUIDs) {
-            // DFU Service IFF MetaBoot mode requested
-            if (self.isMetaBoot != [uuid isEqual:[MBLConstants DFUServiceUUID]]) {
-                continue;
-            }
-#if TARGET_OS_TV
-            [services addObject:[[MBLServiceCharacteristicMock alloc] initWithUUID:uuid]];
-#else
-            [services addObject:[[CBMutableService alloc] initWithType:uuid primary:YES]];
-#endif
+    NSMutableArray *services = [NSMutableArray array];
+    for (CBUUID *uuid in serviceUUIDs) {
+        // DFU Service IFF MetaBoot mode requested
+        if (self.isMetaBoot != [uuid isEqual:[MBLConstants DFUServiceUUID]]) {
+            continue;
         }
-        self.services = services;
-        [self.delegate peripheral:self didDiscoverServices:nil];
+#if TARGET_OS_TV
+        [services addObject:[[MBLServiceCharacteristicMock alloc] initWithUUID:uuid]];
+#else
+        [services addObject:[[CBMutableService alloc] initWithType:uuid primary:YES]];
+#endif
+    }
+    self.services = services;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.discoveryTimer = [NSTimer scheduledTimerWithTimeInterval:self.discoverServicesWaitTime target:self selector:@selector(didDiscover:) userInfo:nil repeats:NO];
     });
+}
+
+- (void)didDiscover:(NSTimer *)timer
+{
+    [self.delegate peripheral:self didDiscoverServices:nil];
 }
 
 + (CBMutableCharacteristic *)readOnly:(CBUUID *)uuid

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '2.7.2'
+  s.version            = '2.7.3'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS API and documentation for the MetaWear platform'
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/mbientLab"
   s.documentation_url  = "https://www.mbientlab.com/docs/metawear/ios/#{s.version}/index.html"
 
-  s.source_files = 'MetaWear/**/*'
+  s.source_files = 'MetaWear/{Assets,Classes,Internal}/**/*.{h,m}'
   s.private_header_files = 'MetaWear/Internal/**/*.h'
 
   s.frameworks      = 'CoreData', 'CoreBluetooth'

@@ -230,10 +230,15 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  */
 @property (nonatomic, readonly) MBLConnectionState state;
 /**
- If YES, then WARNING, this is not the owning application and you can cause 
- data loss for the other application that is using the device.
+ Since we do not support using a single MetaWear device with multiple application, you
+ should take care if a user accidently tries to do this.  Once connected, your application
+ should check this BOOL and if it is YES, then you shouldn't change settings or perform any
+ operations unless you supply the user with an alert saying, "This device is in use by another
+ application, are you sure you want to reprogram it?  This will cause errors and data loss for
+ the other application”.  If they agree then you need to call setConfigurationAsync: to take
+ ownership of the device.
  */
-@property (nonatomic, readonly) BOOL isGuestConnection;
+@property (nonatomic, readonly) BOOL programedByOtherApp;
 /**
  iOS generated unique identifier for this MetaWear.  This is device specific and
  two different iOS devices with generate two different identifiers.
@@ -252,11 +257,6 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  if you wish to change the advertised name, max 8 characters!
  */
 @property (nonatomic) NSString *name;
-/**
- Model of device as stated in marketing information.
- */
-@property (nonatomic, readonly) MBLModel metaModel;
-@property (nonatomic, readonly) NSString *metaModelString;
 
 ///----------------------------------
 /// @name Connect/Disconnect
@@ -368,6 +368,7 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
 ///----------------------------------
 
 @property (nonatomic, readonly, nullable) MBLI2C *i2c DEPRECATED_MSG_ATTRIBUTE("Use serial instead");
+@property (nonatomic, readonly) BOOL isGuestConnection DEPRECATED_MSG_ATTRIBUTE("Use programedByOtherApp instead");
 
 - (void)updateFirmwareWithHandler:(MBLErrorHandler)handler
                   progressHandler:(nullable MBLFloatHandler)progressHandler DEPRECATED_MSG_ATTRIBUTE("Use prepareForFirmwareUpdateAsync instead");

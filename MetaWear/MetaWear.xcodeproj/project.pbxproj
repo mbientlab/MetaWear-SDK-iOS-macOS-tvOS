@@ -1,0 +1,2149 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		088E33E5AFA1E3A88FED67D3 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */; };
+		2CA001D51AB8B0B68DC03986 /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */; };
+		400655A71D98BE920066AB54 /* MBLMockMetaWearUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */; };
+		400655A81D98BE920066AB54 /* MBLMockMetaWearUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */; };
+		400655AB1D99FD4A0066AB54 /* MMA8452QTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */; };
+		400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */; };
+		400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
+		400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
+		400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
+		400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
+		400655B31D9A00C10066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
+		400655B41D9A00C20066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
+		400655B71D9A01820066AB54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B61D9A017D0066AB54 /* ViewController.m */; };
+		400655B81D9A0C510066AB54 /* SendBytesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC41D94C3C100F38FF0 /* SendBytesTest.m */; };
+		400655B91D9A0C530066AB54 /* SendBytesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC41D94C3C100F38FF0 /* SendBytesTest.m */; };
+		400655BB1D9A0DD70066AB54 /* AccelerometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB41D94C3C100F38FF0 /* AccelerometerTests.m */; };
+		400655BC1D9A0DD80066AB54 /* AccelerometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB41D94C3C100F38FF0 /* AccelerometerTests.m */; };
+		400655BD1D9A0DE40066AB54 /* BMA255Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB71D94C3C100F38FF0 /* BMA255Tests.m */; };
+		400655BE1D9A0DE50066AB54 /* BMA255Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB71D94C3C100F38FF0 /* BMA255Tests.m */; };
+		400655C11D9A0E300066AB54 /* EnablingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655C01D9A0E090066AB54 /* EnablingTests.m */; };
+		400655C21D9A0E310066AB54 /* EnablingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655C01D9A0E090066AB54 /* EnablingTests.m */; };
+		400655C31D9A19720066AB54 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
+		400655C41D9A19720066AB54 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
+		400655CD1D9A47990066AB54 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
+		400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
+		400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
+		400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
+		4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */; };
+		403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */ = {isa = PBXBuildFile; fileRef = 403708581DBFD5FF003BF743 /* gen_api_reference.sh */; };
+		403BF7731D9E348000B22B82 /* DFUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 403BF7721D9E342800B22B82 /* DFUTests.m */; };
+		40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
+		40703E3A1D94B8CA00F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
+		40703E831D94C0DB00F38FF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E741D94C0AB00F38FF0 /* AppDelegate.m */; };
+		40703E841D94C0E800F38FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40703E761D94C0AB00F38FF0 /* LaunchScreen.storyboard */; };
+		40703E851D94C0E800F38FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40703E781D94C0AB00F38FF0 /* Main.storyboard */; };
+		40703E861D94C0F000F38FF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E7B1D94C0AB00F38FF0 /* main.m */; };
+		40703EE01D94C3EB00F38FF0 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
+		40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
+		40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
+		40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
+		40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */; };
+		40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
+		40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
+		407820131D9DD5EB00FF5134 /* MBLMockMetaWearUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */; };
+		4078203A1D9DD64A00FF5134 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40781F8E1D9DD1C400FF5134 /* AppDelegate.m */; };
+		4078203B1D9DD64E00FF5134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40781F911D9DD1C400FF5134 /* Main.storyboard */; };
+		4078203C1D9DD65400FF5134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40781F941D9DD1C400FF5134 /* main.m */; };
+		4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4078203D1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist */; };
+		4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
+		407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
+		407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
+		407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
+		407820431D9DD7DB00FF5134 /* IncrementingEventConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */; };
+		407820441D9DD7DB00FF5134 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
+		407820451D9DD7DB00FF5134 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
+		407820461D9DD84500FF5134 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
+		40915FE71D94D3C8008A5F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40915FDB1D94D3A1008A5F24 /* AppDelegate.m */; };
+		40915FE91D94D3D2008A5F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40915FDD1D94D3A1008A5F24 /* Main.storyboard */; };
+		40915FEA1D94D3D7008A5F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40915FE01D94D3A1008A5F24 /* main.m */; };
+		40915FF71D94D4BB008A5F24 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
+		40915FF81D94D4BB008A5F24 /* IncrementingEventConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */; };
+		40915FF91D94D4BB008A5F24 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
+		40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
+		40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
+		409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
+		409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
+		40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
+		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
+		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
+		40CBC89A1D9B7D630078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
+		40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
+		40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
+		40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
+		40F4C1B81DAF3EBC00DAD8F6 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
+		4CD60AFE9810719E6C216CA9 /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */; };
+		507DF4AF55480C3FD7E0DE6B /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */; };
+		7A5922771D78B9E2C42DAA92 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */; };
+		944905580F05FE11E28F1CDA /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */; };
+		AA67B6217E520AD3126D553A /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */; };
+		ACAB1804AB0115C056BF758B /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */; };
+		F788597B715675A6862B643D /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40703EAE1D94C39F00F38FF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40703E5A1D94C06800F38FF0;
+			remoteInfo = "MetaWearIntegrationTestHost-iOS";
+		};
+		4078202E1D9DD60500FF5134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 407820171D9DD60500FF5134;
+			remoteInfo = "MetaWearIntegrationTestHost-tvOS";
+		};
+		4091600B1D94D4DC008A5F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40915FC41D94D392008A5F24;
+			remoteInfo = "MetaWearIntegrationTestHost-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		2E06F9C64AEA806D32581A30 /* MetaWear.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MetaWear.podspec; path = ../MetaWear.podspec; sourceTree = "<group>"; };
+		315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		400655B11D9A00BA0066AB54 /* ANCSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCSTests.m; sourceTree = "<group>"; };
+		400655B51D9A017D0066AB54 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		400655B61D9A017D0066AB54 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		400655C01D9A0E090066AB54 /* EnablingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnablingTests.m; sourceTree = "<group>"; };
+		400655C51D9A1DF30066AB54 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLConnectionTests.m; sourceTree = "<group>"; };
+		400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLMetaWearTests.m; sourceTree = "<group>"; };
+		4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MetaWearPrivate.podspec; sourceTree = "<group>"; };
+		402B7E191DADA6B1005F81D3 /* accelerometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometer.rst; sourceTree = "<group>"; };
+		402B7E1A1DADA6B1005F81D3 /* accelerometerbmi160.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometerbmi160.rst; sourceTree = "<group>"; };
+		402B7E1B1DADA6B1005F81D3 /* accelerometermma8452q.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometermma8452q.rst; sourceTree = "<group>"; };
+		402B7E1C1DADA6B1005F81D3 /* ambient_light.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ambient_light.rst; sourceTree = "<group>"; };
+		402B7E1D1DADA6B1005F81D3 /* ambientlightltr329.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ambientlightltr329.rst; sourceTree = "<group>"; };
+		402B7E1E1DADA6B1005F81D3 /* ancs.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ancs.rst; sourceTree = "<group>"; };
+		402B7E1F1DADA6B1005F81D3 /* barometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = barometer.rst; sourceTree = "<group>"; };
+		402B7E201DADA6B1005F81D3 /* barometerbmp280.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = barometerbmp280.rst; sourceTree = "<group>"; };
+		402B7E211DADA6B1005F81D3 /* conf.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
+		402B7E221DADA6B1005F81D3 /* data.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.rst; sourceTree = "<group>"; };
+		402B7E231DADA6B1005F81D3 /* events.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events.rst; sourceTree = "<group>"; };
+		402B7E241DADA6B1005F81D3 /* filters.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = filters.rst; sourceTree = "<group>"; };
+		402B7E251DADA6B1005F81D3 /* gpio.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpio.rst; sourceTree = "<group>"; };
+		402B7E261DADA6B1005F81D3 /* gyro.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gyro.rst; sourceTree = "<group>"; };
+		402B7E271DADA6B1005F81D3 /* gyrobmi160.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gyrobmi160.rst; sourceTree = "<group>"; };
+		402B7E281DADA6B1005F81D3 /* haptic.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = haptic.rst; sourceTree = "<group>"; };
+		402B7E291DADA6B1005F81D3 /* ibeacon.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ibeacon.rst; sourceTree = "<group>"; };
+		402B7E2A1DADA6B1005F81D3 /* index.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
+		402B7E2B1DADA6B1005F81D3 /* led.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = led.rst; sourceTree = "<group>"; };
+		402B7E2C1DADA6B1005F81D3 /* magnetometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = magnetometer.rst; sourceTree = "<group>"; };
+		402B7E2D1DADA6B1005F81D3 /* magnetometerbmm150.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = magnetometerbmm150.rst; sourceTree = "<group>"; };
+		402B7E2E1DADA6B1005F81D3 /* metawear_manager.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = metawear_manager.rst; sourceTree = "<group>"; };
+		402B7E2F1DADA6B1005F81D3 /* metawear.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = metawear.rst; sourceTree = "<group>"; };
+		402B7E301DADA6B1005F81D3 /* modules.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = modules.rst; sourceTree = "<group>"; };
+		402B7E311DADA6B1005F81D3 /* neopixel.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neopixel.rst; sourceTree = "<group>"; };
+		402B7E321DADA6B1005F81D3 /* pushbutton.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pushbutton.rst; sourceTree = "<group>"; };
+		402B7E331DADA6B1005F81D3 /* serial.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = serial.rst; sourceTree = "<group>"; };
+		402B7E341DADA6B1005F81D3 /* settings.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = settings.rst; sourceTree = "<group>"; };
+		402B7E351DADA6B1005F81D3 /* temperature.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temperature.rst; sourceTree = "<group>"; };
+		402B7E361DADA6B1005F81D3 /* timer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timer.rst; sourceTree = "<group>"; };
+		403708581DBFD5FF003BF743 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = gen_api_reference.sh; path = ../gen_api_reference.sh; sourceTree = "<group>"; };
+		403BF7721D9E342800B22B82 /* DFUTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFUTests.m; sourceTree = "<group>"; };
+		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40703E0A1D94AE3500F38FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../MetaWearUnitTests-iOS/Info.plist"; sourceTree = "<group>"; };
+		40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLAutomaticTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLConverstionTests.m; sourceTree = "<group>"; };
+		40703E111D94AE5000F38FF0 /* MBLEnabling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLEnabling.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703E121D94AE5000F38FF0 /* MBLLogDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLLogDatabase.m; sourceTree = "<group>"; };
+		40703E131D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLMockMetaWearUnitTest.h; sourceTree = "<group>"; };
+		40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLMockMetaWearUnitTest.m; sourceTree = "<group>"; };
+		40703E1E1D94AEFE00F38FF0 /* MetaWearIntegrationTests-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearIntegrationTests-iOS-Info.plist"; sourceTree = "<group>"; };
+		40703E1F1D94AEFE00F38FF0 /* MetaWearIntegrationTests-macOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearIntegrationTests-macOS-Info.plist"; sourceTree = "<group>"; };
+		40703E201D94AEFE00F38FF0 /* MetaWearUnitTests-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearUnitTests-iOS-Info.plist"; sourceTree = "<group>"; };
+		40703E211D94AEFE00F38FF0 /* MetaWearUnitTests-macOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearUnitTests-macOS-Info.plist"; sourceTree = "<group>"; };
+		40703E311D94B8A700F38FF0 /* MetaWearUnitTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40703E5B1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetaWearIntegrationTestHost-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40703E731D94C0AB00F38FF0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		40703E741D94C0AB00F38FF0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		40703E771D94C0AB00F38FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		40703E791D94C0AB00F38FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40703E7A1D94C0AB00F38FF0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40703E7B1D94C0AB00F38FF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		40703EA61D94C37500F38FF0 /* MetaWearIntegrationTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40703EB21D94C3C100F38FF0 /* AccelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelConfig.h; sourceTree = "<group>"; };
+		40703EB31D94C3C100F38FF0 /* AccelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelConfig.m; sourceTree = "<group>"; };
+		40703EB41D94C3C100F38FF0 /* AccelerometerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerTests.m; sourceTree = "<group>"; };
+		40703EB61D94C3C100F38FF0 /* AutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AutomaticTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703EB71D94C3C100F38FF0 /* BMA255Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMA255Tests.m; sourceTree = "<group>"; };
+		40703EB81D94C3C100F38FF0 /* BMI160Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BMI160Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703EB91D94C3C100F38FF0 /* ButtonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonConfig.h; sourceTree = "<group>"; };
+		40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonConfig.m; sourceTree = "<group>"; };
+		40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLookup.h; sourceTree = "<group>"; };
+		40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLookup.m; sourceTree = "<group>"; };
+		40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingEventConfig.h; sourceTree = "<group>"; };
+		40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingEventConfig.m; sourceTree = "<group>"; };
+		40703EC01D94C3C100F38FF0 /* MetaBootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaBootTest.m; sourceTree = "<group>"; };
+		40703EC11D94C3C100F38FF0 /* MetaWearTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearTest.h; sourceTree = "<group>"; };
+		40703EC21D94C3C100F38FF0 /* MetaWearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MetaWearTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMA8452QTests.m; sourceTree = "<group>"; };
+		40703EC41D94C3C100F38FF0 /* SendBytesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SendBytesTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40703EC71D94C3C100F38FF0 /* TempLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempLoggerConfiguration.h; sourceTree = "<group>"; };
+		40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempLoggerConfiguration.m; sourceTree = "<group>"; };
+		40781F8D1D9DD1C400FF5134 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		40781F8E1D9DD1C400FF5134 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		40781F921D9DD1C400FF5134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		40781F931D9DD1C400FF5134 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40781F941D9DD1C400FF5134 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "../Tests/MetaWearIntegrationTestHost-tvOS/main.m"; sourceTree = "<group>"; };
+		40781FA01D9DD29900FF5134 /* MetaWearUnitTests-tvOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearUnitTests-tvOS-Info.plist"; sourceTree = "<group>"; };
+		40781FE01D9DD41900FF5134 /* MetaWearUnitTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		407820181D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetaWearIntegrationTestHost-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4078202D1D9DD60500FF5134 /* MetaWearIntegrationTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4078203D1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearIntegrationTests-tvOS-Info.plist"; sourceTree = "<group>"; };
+		40915FC51D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetaWearIntegrationTestHost-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40915FDA1D94D3A1008A5F24 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		40915FDB1D94D3A1008A5F24 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		40915FDE1D94D3A1008A5F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40915FDF1D94D3A1008A5F24 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40915FE01D94D3A1008A5F24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
+		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
+		484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		56D26D2541DE09EA81DA4175 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C4639C9104CACAD62933611C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40703E031D94AE3500F38FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA67B6217E520AD3126D553A /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E2E1D94B8A700F38FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944905580F05FE11E28F1CDA /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E581D94C06800F38FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088E33E5AFA1E3A88FED67D3 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703EA31D94C37500F38FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA001D51AB8B0B68DC03986 /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40781FDD1D9DD41900FF5134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACAB1804AB0115C056BF758B /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407820151D9DD60500FF5134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F788597B715675A6862B643D /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4078202A1D9DD60500FF5134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5922771D78B9E2C42DAA92 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FC21D94D392008A5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				507DF4AF55480C3FD7E0DE6B /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FEC1D94D478008A5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD60AFE9810719E6C216CA9 /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400655BA1D9A0D920066AB54 /* AdvancedSetups */ = {
+			isa = PBXGroup;
+			children = (
+				40703EC01D94C3C100F38FF0 /* MetaBootTest.m */,
+				40703EC41D94C3C100F38FF0 /* SendBytesTest.m */,
+			);
+			name = AdvancedSetups;
+			sourceTree = "<group>";
+		};
+		402B7E181DADA696005F81D3 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				403708581DBFD5FF003BF743 /* gen_api_reference.sh */,
+				402B7E191DADA6B1005F81D3 /* accelerometer.rst */,
+				402B7E1A1DADA6B1005F81D3 /* accelerometerbmi160.rst */,
+				402B7E1B1DADA6B1005F81D3 /* accelerometermma8452q.rst */,
+				402B7E1C1DADA6B1005F81D3 /* ambient_light.rst */,
+				402B7E1D1DADA6B1005F81D3 /* ambientlightltr329.rst */,
+				402B7E1E1DADA6B1005F81D3 /* ancs.rst */,
+				402B7E1F1DADA6B1005F81D3 /* barometer.rst */,
+				402B7E201DADA6B1005F81D3 /* barometerbmp280.rst */,
+				402B7E211DADA6B1005F81D3 /* conf.py */,
+				402B7E221DADA6B1005F81D3 /* data.rst */,
+				402B7E231DADA6B1005F81D3 /* events.rst */,
+				402B7E241DADA6B1005F81D3 /* filters.rst */,
+				402B7E251DADA6B1005F81D3 /* gpio.rst */,
+				402B7E261DADA6B1005F81D3 /* gyro.rst */,
+				402B7E271DADA6B1005F81D3 /* gyrobmi160.rst */,
+				402B7E281DADA6B1005F81D3 /* haptic.rst */,
+				402B7E291DADA6B1005F81D3 /* ibeacon.rst */,
+				402B7E2A1DADA6B1005F81D3 /* index.rst */,
+				402B7E2B1DADA6B1005F81D3 /* led.rst */,
+				402B7E2C1DADA6B1005F81D3 /* magnetometer.rst */,
+				402B7E2D1DADA6B1005F81D3 /* magnetometerbmm150.rst */,
+				402B7E2E1DADA6B1005F81D3 /* metawear_manager.rst */,
+				402B7E2F1DADA6B1005F81D3 /* metawear.rst */,
+				402B7E301DADA6B1005F81D3 /* modules.rst */,
+				402B7E311DADA6B1005F81D3 /* neopixel.rst */,
+				402B7E321DADA6B1005F81D3 /* pushbutton.rst */,
+				402B7E331DADA6B1005F81D3 /* serial.rst */,
+				402B7E341DADA6B1005F81D3 /* settings.rst */,
+				402B7E351DADA6B1005F81D3 /* temperature.rst */,
+				402B7E361DADA6B1005F81D3 /* timer.rst */,
+			);
+			name = Docs;
+			path = ../Docs/source;
+			sourceTree = "<group>";
+		};
+		40703E0E1D94AE5000F38FF0 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				40703E131D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.h */,
+				40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */,
+				400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */,
+				400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */,
+				40CBC8951D9B37040078573C /* MBLMetaBootTests.m */,
+				40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */,
+				40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */,
+				40703E111D94AE5000F38FF0 /* MBLEnabling.m */,
+				40703E121D94AE5000F38FF0 /* MBLLogDatabase.m */,
+				40703E1C1D94AE7200F38FF0 /* Supporting Files */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		40703E1C1D94AE7200F38FF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40703E0A1D94AE3500F38FF0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40703E1D1D94AEFE00F38FF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				40703E1E1D94AEFE00F38FF0 /* MetaWearIntegrationTests-iOS-Info.plist */,
+				40703E1F1D94AEFE00F38FF0 /* MetaWearIntegrationTests-macOS-Info.plist */,
+				4078203D1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist */,
+				40703E201D94AEFE00F38FF0 /* MetaWearUnitTests-iOS-Info.plist */,
+				40703E211D94AEFE00F38FF0 /* MetaWearUnitTests-macOS-Info.plist */,
+				40781FA01D9DD29900FF5134 /* MetaWearUnitTests-tvOS-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		40703E721D94C0AB00F38FF0 /* MetaWearIntegrationTestHost-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				40703E731D94C0AB00F38FF0 /* AppDelegate.h */,
+				40703E741D94C0AB00F38FF0 /* AppDelegate.m */,
+				400655B51D9A017D0066AB54 /* ViewController.h */,
+				400655B61D9A017D0066AB54 /* ViewController.m */,
+				40703E781D94C0AB00F38FF0 /* Main.storyboard */,
+				40703E761D94C0AB00F38FF0 /* LaunchScreen.storyboard */,
+				40703E7A1D94C0AB00F38FF0 /* Info.plist */,
+				40703E821D94C0C500F38FF0 /* Supporting Files */,
+			);
+			path = "MetaWearIntegrationTestHost-iOS";
+			sourceTree = "<group>";
+		};
+		40703E821D94C0C500F38FF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40703E7B1D94C0AB00F38FF0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40703EB01D94C3C100F38FF0 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				400655BA1D9A0D920066AB54 /* AdvancedSetups */,
+				40915FC01D94D1E6008A5F24 /* DeviceConfigurations */,
+				40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */,
+				40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */,
+				40703EC11D94C3C100F38FF0 /* MetaWearTest.h */,
+				40703EC21D94C3C100F38FF0 /* MetaWearTest.m */,
+				400655C01D9A0E090066AB54 /* EnablingTests.m */,
+				40703EB61D94C3C100F38FF0 /* AutomaticTests.m */,
+				403BF7721D9E342800B22B82 /* DFUTests.m */,
+				40703EB41D94C3C100F38FF0 /* AccelerometerTests.m */,
+				40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */,
+				40703EB71D94C3C100F38FF0 /* BMA255Tests.m */,
+				40703EB81D94C3C100F38FF0 /* BMI160Tests.m */,
+				400655B11D9A00BA0066AB54 /* ANCSTests.m */,
+				40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
+		40781F8C1D9DD16500FF5134 /* MetaWearIntegrationTestHost-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				40781F8D1D9DD1C400FF5134 /* AppDelegate.h */,
+				40781F8E1D9DD1C400FF5134 /* AppDelegate.m */,
+				40781F911D9DD1C400FF5134 /* Main.storyboard */,
+				40781F931D9DD1C400FF5134 /* Info.plist */,
+				409CA2681D9CF4FB00E1262B /* Supporting Files */,
+			);
+			path = "MetaWearIntegrationTestHost-tvOS";
+			sourceTree = "<group>";
+		};
+		40915FC01D94D1E6008A5F24 /* DeviceConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				40703EC71D94C3C100F38FF0 /* TempLoggerConfiguration.h */,
+				40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */,
+				40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */,
+				40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */,
+				40703EB91D94C3C100F38FF0 /* ButtonConfig.h */,
+				40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */,
+				40703EB21D94C3C100F38FF0 /* AccelConfig.h */,
+				40703EB31D94C3C100F38FF0 /* AccelConfig.m */,
+			);
+			name = DeviceConfigurations;
+			sourceTree = "<group>";
+		};
+		40915FD91D94D3A1008A5F24 /* MetaWearIntegrationTestHost-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				40915FDA1D94D3A1008A5F24 /* AppDelegate.h */,
+				40915FDB1D94D3A1008A5F24 /* AppDelegate.m */,
+				40915FDD1D94D3A1008A5F24 /* Main.storyboard */,
+				40915FDF1D94D3A1008A5F24 /* Info.plist */,
+				40915FE61D94D3B5008A5F24 /* Supporting Files */,
+			);
+			path = "MetaWearIntegrationTestHost-macOS";
+			sourceTree = "<group>";
+		};
+		40915FE61D94D3B5008A5F24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40915FE01D94D3A1008A5F24 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		409CA2681D9CF4FB00E1262B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40781F941D9DD1C400FF5134 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = "../../MetaWearIntegrationTestHost-tvOS";
+			sourceTree = "<group>";
+		};
+		6003F581195388D10070C39A = {
+			isa = PBXGroup;
+			children = (
+				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
+				402B7E181DADA696005F81D3 /* Docs */,
+				6003F5B5195388D20070C39A /* Tests */,
+				6003F58C195388D20070C39A /* Frameworks */,
+				6003F58B195388D20070C39A /* Products */,
+				CDB18D4111E3967525918DE4 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		6003F58B195388D20070C39A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */,
+				40703E311D94B8A700F38FF0 /* MetaWearUnitTests-macOS.xctest */,
+				40703E5B1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS.app */,
+				40703EA61D94C37500F38FF0 /* MetaWearIntegrationTests-iOS.xctest */,
+				40915FC51D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS.app */,
+				40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */,
+				40781FE01D9DD41900FF5134 /* MetaWearUnitTests-tvOS.xctest */,
+				407820181D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS.app */,
+				4078202D1D9DD60500FF5134 /* MetaWearIntegrationTests-tvOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6003F58C195388D20070C39A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				409CA2881D9D00FF00E1262B /* FastCoding.framework */,
+				6003F58D195388D20070C39A /* Foundation.framework */,
+				6003F58F195388D20070C39A /* CoreGraphics.framework */,
+				6003F591195388D20070C39A /* UIKit.framework */,
+				E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */,
+				5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */,
+				FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */,
+				E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */,
+				E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */,
+				FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */,
+				B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */,
+				8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */,
+				9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6003F5B5195388D20070C39A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				40703E1D1D94AEFE00F38FF0 /* Resources */,
+				40703E0E1D94AE5000F38FF0 /* Unit */,
+				40703EB01D94C3C100F38FF0 /* Integration */,
+				40703E721D94C0AB00F38FF0 /* MetaWearIntegrationTestHost-iOS */,
+				40915FD91D94D3A1008A5F24 /* MetaWearIntegrationTestHost-macOS */,
+				40781F8C1D9DD16500FF5134 /* MetaWearIntegrationTestHost-tvOS */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */,
+				2E06F9C64AEA806D32581A30 /* MetaWear.podspec */,
+				C4639C9104CACAD62933611C /* README.md */,
+				56D26D2541DE09EA81DA4175 /* LICENSE */,
+				400655C51D9A1DF30066AB54 /* .travis.yml */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		CDB18D4111E3967525918DE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */,
+				3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */,
+				4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */,
+				7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */,
+				EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */,
+				C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */,
+				F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */,
+				315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */,
+				6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */,
+				120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */,
+				54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */,
+				372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */,
+				0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */,
+				C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */,
+				BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */,
+				6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */,
+				0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */,
+				484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40703E051D94AE3500F38FF0 /* MetaWearUnitTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40703E0D1D94AE3500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-iOS" */;
+			buildPhases = (
+				C71AC92BEFBDB9F6B9F4BAB7 /* [CP] Check Pods Manifest.lock */,
+				40703E021D94AE3500F38FF0 /* Sources */,
+				40703E031D94AE3500F38FF0 /* Frameworks */,
+				40703E041D94AE3500F38FF0 /* Resources */,
+				346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */,
+				33D71A76E323B9B206883FD3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearUnitTests-iOS";
+			productName = "MetaWearUnitTests-iOS";
+			productReference = 40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40703E301D94B8A700F38FF0 /* MetaWearUnitTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40703E381D94B8A700F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-macOS" */;
+			buildPhases = (
+				02E81058C53AD24BA4DBAD91 /* [CP] Check Pods Manifest.lock */,
+				40703E2D1D94B8A700F38FF0 /* Sources */,
+				40703E2E1D94B8A700F38FF0 /* Frameworks */,
+				40703E2F1D94B8A700F38FF0 /* Resources */,
+				E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */,
+				4C09F1E7626F360333C9646E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearUnitTests-macOS";
+			productName = "MetaWearUnitTests-macOS";
+			productReference = 40703E311D94B8A700F38FF0 /* MetaWearUnitTests-macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40703E5A1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40703E6F1D94C06900F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-iOS" */;
+			buildPhases = (
+				1ECA979582EC73A7433D3C9D /* [CP] Check Pods Manifest.lock */,
+				40703E571D94C06800F38FF0 /* Sources */,
+				40703E581D94C06800F38FF0 /* Frameworks */,
+				40703E591D94C06800F38FF0 /* Resources */,
+				631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */,
+				0137699022A7D0201A49436F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearIntegrationTestHost-iOS";
+			productName = "MetaWearIntegrationTestHost-iOS";
+			productReference = 40703E5B1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40703EA51D94C37500F38FF0 /* MetaWearIntegrationTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40703EAD1D94C37500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-iOS" */;
+			buildPhases = (
+				74C76A8A0396ED2279A859DD /* [CP] Check Pods Manifest.lock */,
+				40703EA21D94C37500F38FF0 /* Sources */,
+				40703EA31D94C37500F38FF0 /* Frameworks */,
+				40703EA41D94C37500F38FF0 /* Resources */,
+				3E7FE9044A6EBB771B472483 /* [CP] Embed Pods Frameworks */,
+				76059A12DB46EEA4A5EB2FAB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40703EAF1D94C39F00F38FF0 /* PBXTargetDependency */,
+			);
+			name = "MetaWearIntegrationTests-iOS";
+			productName = "MetaWearIntegrationTests-iOS";
+			productReference = 40703EA61D94C37500F38FF0 /* MetaWearIntegrationTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40781FDF1D9DD41900FF5134 /* MetaWearUnitTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40781FEA1D9DD41900FF5134 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-tvOS" */;
+			buildPhases = (
+				D145B927748D76117FF30E46 /* [CP] Check Pods Manifest.lock */,
+				40781FDC1D9DD41900FF5134 /* Sources */,
+				40781FDD1D9DD41900FF5134 /* Frameworks */,
+				40781FDE1D9DD41900FF5134 /* Resources */,
+				CD397537C4F0DF6A0CCBA718 /* [CP] Embed Pods Frameworks */,
+				92FFBAC3FECF5C140A582577 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearUnitTests-tvOS";
+			productName = "MetaWearUnitTests-tvOSTests";
+			productReference = 40781FE01D9DD41900FF5134 /* MetaWearUnitTests-tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		407820171D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407820341D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-tvOS" */;
+			buildPhases = (
+				9247577DE79F1381D2AB2BAE /* [CP] Check Pods Manifest.lock */,
+				407820141D9DD60500FF5134 /* Sources */,
+				407820151D9DD60500FF5134 /* Frameworks */,
+				407820161D9DD60500FF5134 /* Resources */,
+				817CFAFEE002EA2071491BC4 /* [CP] Embed Pods Frameworks */,
+				1A349ED794582B27B51054A6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearIntegrationTestHost-tvOS";
+			productName = "MetaWearIntegrationTestHost-tvOS";
+			productReference = 407820181D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4078202C1D9DD60500FF5134 /* MetaWearIntegrationTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407820371D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-tvOS" */;
+			buildPhases = (
+				C054C15FB63B3A232F639E8A /* [CP] Check Pods Manifest.lock */,
+				407820291D9DD60500FF5134 /* Sources */,
+				4078202A1D9DD60500FF5134 /* Frameworks */,
+				4078202B1D9DD60500FF5134 /* Resources */,
+				D9290FEB3A49E4F0B96D72C0 /* [CP] Embed Pods Frameworks */,
+				2906418BAD5816F9166C3BBB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4078202F1D9DD60500FF5134 /* PBXTargetDependency */,
+			);
+			name = "MetaWearIntegrationTests-tvOS";
+			productName = "MetaWearIntegrationTestHost-tvOSTests";
+			productReference = 4078202D1D9DD60500FF5134 /* MetaWearIntegrationTests-tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40915FC41D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40915FD61D94D392008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-macOS" */;
+			buildPhases = (
+				0E6F7A6A5584FEE2173F2EFC /* [CP] Check Pods Manifest.lock */,
+				40915FC11D94D392008A5F24 /* Sources */,
+				40915FC21D94D392008A5F24 /* Frameworks */,
+				40915FC31D94D392008A5F24 /* Resources */,
+				FBC90CCA537EF206514FE09B /* [CP] Embed Pods Frameworks */,
+				77910CAAD6167CDAB0AC513B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetaWearIntegrationTestHost-macOS";
+			productName = "MetaWearIntegrationTestHost-macOS";
+			productReference = 40915FC51D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40915FEE1D94D478008A5F24 /* MetaWearIntegrationTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40915FF41D94D478008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-macOS" */;
+			buildPhases = (
+				7B23486CC0856302ADECCB77 /* [CP] Check Pods Manifest.lock */,
+				40915FEB1D94D478008A5F24 /* Sources */,
+				40915FEC1D94D478008A5F24 /* Frameworks */,
+				40915FED1D94D478008A5F24 /* Resources */,
+				ACF38D7B5EFF0974AB9F807B /* [CP] Embed Pods Frameworks */,
+				8320841632EE48A195255044 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4091600C1D94D4DC008A5F24 /* PBXTargetDependency */,
+			);
+			name = "MetaWearIntegrationTests-macOS";
+			productName = "MetaWearIntegrationTests-macOS";
+			productReference = 40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6003F582195388D10070C39A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MBL;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Stephen Schiffli";
+				TargetAttributes = {
+					40703E051D94AE3500F38FF0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					40703E301D94B8A700F38FF0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					40703E5A1D94C06800F38FF0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					40703EA51D94C37500F38FF0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 40703E5A1D94C06800F38FF0;
+					};
+					40781FDF1D9DD41900FF5134 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					407820171D9DD60500FF5134 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					4078202C1D9DD60500FF5134 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 407820171D9DD60500FF5134;
+					};
+					40915FC41D94D392008A5F24 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+					};
+					40915FEE1D94D478008A5F24 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2273LZ6GL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 40915FC41D94D392008A5F24;
+					};
+				};
+			};
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "MetaWear" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6003F581195388D10070C39A;
+			productRefGroup = 6003F58B195388D20070C39A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40703E051D94AE3500F38FF0 /* MetaWearUnitTests-iOS */,
+				40703E5A1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS */,
+				40703EA51D94C37500F38FF0 /* MetaWearIntegrationTests-iOS */,
+				40703E301D94B8A700F38FF0 /* MetaWearUnitTests-macOS */,
+				40915FC41D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS */,
+				40915FEE1D94D478008A5F24 /* MetaWearIntegrationTests-macOS */,
+				40781FDF1D9DD41900FF5134 /* MetaWearUnitTests-tvOS */,
+				407820171D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS */,
+				4078202C1D9DD60500FF5134 /* MetaWearIntegrationTests-tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40703E041D94AE3500F38FF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */,
+				403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */,
+				4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E2F1D94B8A700F38FF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E591D94C06800F38FF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40703E841D94C0E800F38FF0 /* LaunchScreen.storyboard in Resources */,
+				40703E851D94C0E800F38FF0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703EA41D94C37500F38FF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40781FDE1D9DD41900FF5134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407820161D9DD60500FF5134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4078203B1D9DD64E00FF5134 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4078202B1D9DD60500FF5134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FC31D94D392008A5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40915FE91D94D3D2008A5F24 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FED1D94D478008A5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0137699022A7D0201A49436F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		02E81058C53AD24BA4DBAD91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0E6F7A6A5584FEE2173F2EFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1A349ED794582B27B51054A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ECA979582EC73A7433D3C9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2906418BAD5816F9166C3BBB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33D71A76E323B9B206883FD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E7FE9044A6EBB771B472483 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C09F1E7626F360333C9646E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74C76A8A0396ED2279A859DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76059A12DB46EEA4A5EB2FAB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77910CAAD6167CDAB0AC513B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B23486CC0856302ADECCB77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		817CFAFEE002EA2071491BC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8320841632EE48A195255044 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9247577DE79F1381D2AB2BAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92FFBAC3FECF5C140A582577 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACF38D7B5EFF0974AB9F807B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C054C15FB63B3A232F639E8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C71AC92BEFBDB9F6B9F4BAB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD397537C4F0DF6A0CCBA718 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D145B927748D76117FF30E46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D9290FEB3A49E4F0B96D72C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBC90CCA537EF206514FE09B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40703E021D94AE3500F38FF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400655C31D9A19720066AB54 /* MBLAutomaticTests.m in Sources */,
+				400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */,
+				40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */,
+				400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */,
+				40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */,
+				400655A71D98BE920066AB54 /* MBLMockMetaWearUnitTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E2D1D94B8A700F38FF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400655C41D9A19720066AB54 /* MBLAutomaticTests.m in Sources */,
+				400655CD1D9A47990066AB54 /* MBLConnectionTests.m in Sources */,
+				40703E3A1D94B8CA00F38FF0 /* MBLConverstionTests.m in Sources */,
+				400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */,
+				40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */,
+				400655A81D98BE920066AB54 /* MBLMockMetaWearUnitTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703E571D94C06800F38FF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400655B71D9A01820066AB54 /* ViewController.m in Sources */,
+				40703E861D94C0F000F38FF0 /* main.m in Sources */,
+				40703E831D94C0DB00F38FF0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40703EA21D94C37500F38FF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40703EE01D94C3EB00F38FF0 /* AccelConfig.m in Sources */,
+				400655B31D9A00C10066AB54 /* ANCSTests.m in Sources */,
+				400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */,
+				400655BD1D9A0DE40066AB54 /* BMA255Tests.m in Sources */,
+				400655BB1D9A0DD70066AB54 /* AccelerometerTests.m in Sources */,
+				400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
+				40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */,
+				40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */,
+				400655C11D9A0E300066AB54 /* EnablingTests.m in Sources */,
+				40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */,
+				40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */,
+				400655B81D9A0C510066AB54 /* SendBytesTest.m in Sources */,
+				400655AB1D99FD4A0066AB54 /* MMA8452QTests.m in Sources */,
+				40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */,
+				403BF7731D9E348000B22B82 /* DFUTests.m in Sources */,
+				40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */,
+				40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40781FDC1D9DD41900FF5134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40F4C1B81DAF3EBC00DAD8F6 /* MBLConverstionTests.m in Sources */,
+				407820131D9DD5EB00FF5134 /* MBLMockMetaWearUnitTest.m in Sources */,
+				40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */,
+				40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */,
+				40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */,
+				407820461D9DD84500FF5134 /* MBLConnectionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407820141D9DD60500FF5134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4078203C1D9DD65400FF5134 /* main.m in Sources */,
+				4078203A1D9DD64A00FF5134 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407820291D9DD60500FF5134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */,
+				407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */,
+				407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */,
+				407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */,
+				407820451D9DD7DB00FF5134 /* AccelConfig.m in Sources */,
+				407820431D9DD7DB00FF5134 /* IncrementingEventConfig.m in Sources */,
+				407820441D9DD7DB00FF5134 /* ButtonConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FC11D94D392008A5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40915FEA1D94D3D7008A5F24 /* main.m in Sources */,
+				40915FE71D94D3C8008A5F24 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40915FEB1D94D478008A5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40915FF71D94D4BB008A5F24 /* TempLoggerConfiguration.m in Sources */,
+				400655B41D9A00C20066AB54 /* ANCSTests.m in Sources */,
+				400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */,
+				400655BE1D9A0DE50066AB54 /* BMA255Tests.m in Sources */,
+				400655BC1D9A0DD80066AB54 /* AccelerometerTests.m in Sources */,
+				400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
+				40915FF81D94D4BB008A5F24 /* IncrementingEventConfig.m in Sources */,
+				40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */,
+				400655C21D9A0E310066AB54 /* EnablingTests.m in Sources */,
+				40CBC89A1D9B7D630078573C /* MagnetometerTests.m in Sources */,
+				40915FF91D94D4BB008A5F24 /* ButtonConfig.m in Sources */,
+				400655B91D9A0C530066AB54 /* SendBytesTest.m in Sources */,
+				400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */,
+				40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */,
+				409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */,
+				409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40703EAF1D94C39F00F38FF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40703E5A1D94C06800F38FF0 /* MetaWearIntegrationTestHost-iOS */;
+			targetProxy = 40703EAE1D94C39F00F38FF0 /* PBXContainerItemProxy */;
+		};
+		4078202F1D9DD60500FF5134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 407820171D9DD60500FF5134 /* MetaWearIntegrationTestHost-tvOS */;
+			targetProxy = 4078202E1D9DD60500FF5134 /* PBXContainerItemProxy */;
+		};
+		4091600C1D94D4DC008A5F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40915FC41D94D392008A5F24 /* MetaWearIntegrationTestHost-macOS */;
+			targetProxy = 4091600B1D94D4DC008A5F24 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		40703E761D94C0AB00F38FF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40703E771D94C0AB00F38FF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		40703E781D94C0AB00F38FF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40703E791D94C0AB00F38FF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		40781F911D9DD1C400FF5134 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40781F921D9DD1C400FF5134 /* Base */,
+			);
+			name = Main.storyboard;
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		40915FDD1D94D3A1008A5F24 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40915FDE1D94D3A1008A5F24 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		40703E0B1D94AE3500F38FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MBL_UNIT_TEST=1",
+				);
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphonesimulator;
+			};
+			name = Debug;
+		};
+		40703E0C1D94AE3500F38FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MBL_UNIT_TEST=1",
+				);
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphonesimulator;
+			};
+			name = Release;
+		};
+		40703E361D94B8A700F38FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MBL_UNIT_TEST=1",
+				);
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-macOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		40703E371D94B8A700F38FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MBL_UNIT_TEST=1",
+				);
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-macOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40703E701D94C06900F38FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphoneos;
+			};
+			name = Debug;
+		};
+		40703E711D94C06900F38FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphoneos;
+			};
+			name = Release;
+		};
+		40703EAB1D94C37500F38FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
+			};
+			name = Debug;
+		};
+		40703EAC1D94C37500F38FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
+			};
+			name = Release;
+		};
+		40781FEB1D9DD41900FF5134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-tvOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		40781FEC1D9DD41900FF5134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearUnitTests-tvOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		407820351D9DD60500FF5134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		407820361D9DD60500FF5134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		407820381D9DD60500FF5134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-tvOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-tvOS.app/MetaWearIntegrationTestHost-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		407820391D9DD60500FF5134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-tvOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-tvOS.app/MetaWearIntegrationTestHost-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		40915FD71D94D392008A5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-macOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		40915FD81D94D392008A5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-macOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40915FF51D94D478008A5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-macOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-macOS.app/Contents/MacOS/MetaWearIntegrationTestHost-macOS";
+			};
+			name = Debug;
+		};
+		40915FF61D94D478008A5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S2273LZ6GL;
+				INFOPLIST_FILE = "Tests/Resources/MetaWearIntegrationTests-macOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-macOS.app/Contents/MacOS/MetaWearIntegrationTestHost-macOS";
+			};
+			name = Release;
+		};
+		6003F5BD195388D20070C39A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6003F5BE195388D20070C39A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40703E0D1D94AE3500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40703E0B1D94AE3500F38FF0 /* Debug */,
+				40703E0C1D94AE3500F38FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40703E381D94B8A700F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40703E361D94B8A700F38FF0 /* Debug */,
+				40703E371D94B8A700F38FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40703E6F1D94C06900F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40703E701D94C06900F38FF0 /* Debug */,
+				40703E711D94C06900F38FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40703EAD1D94C37500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40703EAB1D94C37500F38FF0 /* Debug */,
+				40703EAC1D94C37500F38FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40781FEA1D9DD41900FF5134 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40781FEB1D9DD41900FF5134 /* Debug */,
+				40781FEC1D9DD41900FF5134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407820341D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407820351D9DD60500FF5134 /* Debug */,
+				407820361D9DD60500FF5134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407820371D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407820381D9DD60500FF5134 /* Debug */,
+				407820391D9DD60500FF5134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40915FD61D94D392008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40915FD71D94D392008A5F24 /* Debug */,
+				40915FD81D94D392008A5F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40915FF41D94D478008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40915FF51D94D478008A5F24 /* Debug */,
+				40915FF61D94D478008A5F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "MetaWear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6003F5BD195388D20070C39A /* Debug */,
+				6003F5BE195388D20070C39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6003F582195388D10070C39A /* Project object */;
+}

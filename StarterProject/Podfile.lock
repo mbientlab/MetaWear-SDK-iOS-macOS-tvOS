@@ -1,0 +1,25 @@
+PODS:
+  - Bolts/Tasks (1.8.4)
+  - FastCoding+tvOS (3.2.1)
+  - MBProgressHUD (1.0.0)
+  - MetaWear (2.7.3):
+    - Bolts/Tasks (~> 1.8.4)
+    - FastCoding+tvOS (~> 3.2.1)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - MetaWear (from `../`)
+
+EXTERNAL SOURCES:
+  MetaWear:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FastCoding+tvOS: d314b6daa8389ec790ab362f973f53a5657292bd
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MetaWear: 60d427517b56eba621e220c271592ec67cb40478
+
+PODFILE CHECKSUM: 097e07f8cd09329bd0f334824e32a3f7be4e05a0
+
+COCOAPODS: 1.1.1

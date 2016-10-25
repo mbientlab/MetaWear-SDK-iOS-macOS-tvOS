@@ -1,0 +1,6 @@
+framework module MBProgressHUD {
+  umbrella header "MBProgressHUD-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

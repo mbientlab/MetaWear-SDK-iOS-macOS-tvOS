@@ -1,0 +1,118 @@
+/**
+ * MBLAccelerometerBoschDataReadyEvent.m
+ * MetaWear
+ *
+ * Created by Stephen Schiffli on 5/27/15.
+ * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ *
+ * IMPORTANT: Your use of this Software is limited to those specific rights
+ * granted under the terms of a software license agreement between the user who
+ * downloaded the software, his/her employer (which must be your employer) and
+ * MbientLab Inc, (the "License").  You may not use this Software unless you
+ * agree to abide by the terms of the License which can be found at
+ * www.mbientlab.com/terms.  The License limits your use, and you acknowledge,
+ * that the Software may be modified, copied, and distributed when used in
+ * conjunction with an MbientLab Inc, product.  Other than for the foregoing
+ * purpose, you may not use, reproduce, copy, prepare derivative works of,
+ * modify, distribute, perform, display or sell this Software and/or its
+ * documentation for any purpose.
+ *
+ * YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+ * PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+ * INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+ * NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+ * MBIENTLAB OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT, NEGLIGENCE,
+ * STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER LEGAL EQUITABLE
+ * THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING BUT NOT LIMITED
+ * TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR CONSEQUENTIAL DAMAGES, LOST
+ * PROFITS OR LOST DATA, COST OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY,
+ * SERVICES, OR ANY CLAIMS BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY
+ * DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+ *
+ * Should you have any questions regarding your right to use this Software,
+ * contact MbientLab via email: hello@mbientlab.com
+ */
+
+#import "MBLAccelerometerBoschDataReadyEvent.h"
+#import "MBLAccelerometerBoschPackedDataReadyEvent.h"
+#import "MBLAccelerometerBMI160+Private.h"
+#import "MBLAccelerometerBoschFormat.h"
+#import "MBLNumericFormatter.h"
+
+typedef NS_ENUM(uint8_t, MBLBoschPackedDataMode) {
+    MBLBoschPackedDataModeOff = 0,
+    MBLBoschPackedDataModeNormal = 1,
+    MBLBoschPackedDataModePacked = 2
+};
+
+@interface MBLAccelerometerBoschDataReadyEvent ()
+@property (nonatomic) MBLBoschPackedDataMode packerMode;
+@end
+
+
+@implementation MBLAccelerometerBoschDataReadyEvent
+
+- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
+{
+    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer packed:NO]];
+    if (self) {
+        self.accelDataInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+        if (accelerometer.moduleInfo.moduleRevision >= 1) {
+            self.packedData = [[MBLAccelerometerBoschPackedDataReadyEvent alloc] initWithAccelerometer:accelerometer];
+        }
+    }
+    return self;
+}
+
+- (BFTask *)performAsyncInitialization
+{
+    // Enable interrupts
+    uint8_t data[] = { 0x1, 0x0 };
+    return [self.accelDataInterruptEn writeDataAsync:[NSData dataWithBytes:&data length:2]];
+}
+
+- (BFTask *)performAsyncDeinitialization
+{
+    // Disable interrupts
+    uint8_t data[] = { 0x0, 0x1 };
+    return [self.accelDataInterruptEn writeDataAsync:[NSData dataWithBytes:&data length:2]];
+}
+
+- (BFTask *)startNotificationsWithHandlerAsync:(MBLObjectHandler)handler
+{
+    if (!self.packedData) {
+        return [super startNotificationsWithHandlerAsync:handler];
+    }
+    
+    MBLAccelerometerBosch *accelerometer = (MBLAccelerometerBosch *)self.module;
+    if (self.packerMode == MBLBoschPackedDataModeOff) {
+        // Turn on the packer for frequencies over 100
+        self.packerMode = accelerometer.sampleFrequency >= 100 ? MBLBoschPackedDataModePacked : MBLBoschPackedDataModeNormal;
+    }
+    return self.packerMode == MBLBoschPackedDataModePacked ? [self.packedData startNotificationsWithHandlerAsync:handler]
+                                                           : [super startNotificationsWithHandlerAsync:handler];
+}
+
+- (BFTask *)stopNotificationsAsync
+{
+    if (!self.packedData) {
+        return [super stopNotificationsAsync];
+    }
+    
+    MBLBoschPackedDataMode prevMode = self.packerMode;
+    self.packerMode = MBLBoschPackedDataModeOff;
+    return prevMode == MBLBoschPackedDataModePacked ? [self.packedData stopNotificationsAsync]
+                                                    : [super stopNotificationsAsync];
+}
+
+- (BOOL)isNotifying
+{
+    if (!self.packedData) {
+        return [super isNotifying];
+    }
+    
+    return self.packerMode == MBLBoschPackedDataModePacked ? [self.packedData isNotifying]
+                                                           : [super isNotifying];
+}
+
+@end
