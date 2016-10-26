@@ -39,7 +39,7 @@
 #import "MBLMetaWearManager+Private.h"
 #import "MBLTriggeredRead.h"
 #import "MBLDependentData.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 typedef struct __attribute__((packed)) {
     uint8_t				module_id;

@@ -39,7 +39,7 @@
 #import "MBLMetaWear+Private.h"
 #import "MBLTriggeredRead.h"
 #import "MBLConstants+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "BFTask+MBLExtensions.h"
 #import "MBLDownloadOnlyEvent.h"
 

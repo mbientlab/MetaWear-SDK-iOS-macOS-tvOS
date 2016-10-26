@@ -41,7 +41,7 @@
 #import "MBLDataSwitch.h"
 #import "MBLConversion.h"
 #import "MBLConstants+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 
 @interface MBLEvent ()

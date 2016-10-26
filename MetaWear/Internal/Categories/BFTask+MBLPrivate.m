@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLConstants+Private.h"
 
 @implementation BFExecutor (MBLPrivate)

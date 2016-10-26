@@ -48,7 +48,7 @@
 #import "MBLMetaWearManager+Private.h"
 #import <libkern/OSAtomic.h>
 #import <CoreData/CoreData.h>
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLLogger.h"
 
 

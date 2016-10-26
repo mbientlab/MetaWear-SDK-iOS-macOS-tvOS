@@ -40,7 +40,7 @@
 #import "MBLAccelerometerPackedDataReadyEvent.h"
 #import "MBLNumericFormatter.h"
 #import "mma8452q.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 
 typedef NS_ENUM(uint8_t, MBLAccelerometerPackedDataMode) {

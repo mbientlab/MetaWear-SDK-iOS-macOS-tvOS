@@ -34,7 +34,7 @@
  */
 
 #import "BFTask+MBLExtensions.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLMetaWearManager+Private.h"
 
 @implementation BFExecutor (MBLExtensions)

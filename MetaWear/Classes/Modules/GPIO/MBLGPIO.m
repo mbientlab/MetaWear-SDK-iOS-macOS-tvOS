@@ -44,7 +44,7 @@
 #import "MBLGPIOPinChangeEvent.h"
 #import "MBLNumericFormatter.h"
 #import "MBLDataSample.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLGPIO()
 @property (nonatomic) MBLRegister *setDigitalOutput;

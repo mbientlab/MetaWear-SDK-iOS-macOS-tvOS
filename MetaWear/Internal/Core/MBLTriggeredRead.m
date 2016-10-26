@@ -39,7 +39,7 @@
 #import "MBLMetaWear+Private.h"
 #import "MBLTimer+Private.h"
 #import "MBLMetaWearManager+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLTimerEvent+Private.h"
 
 typedef struct __attribute__((packed)) {

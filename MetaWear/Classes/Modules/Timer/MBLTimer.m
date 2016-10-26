@@ -43,7 +43,7 @@
 #import "MBLEntityEvent+Private.h"
 #import "MBLDeviceInfo.h"
 #import "MBLMetaWear+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLConstants+Private.h"
 
 

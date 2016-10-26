@@ -41,7 +41,7 @@
 #import "MBLNumericFormatter.h"
 #import "MBLDataSample.h"
 #import "MBLMetaWearManager+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 
 @interface MBLMacro ()

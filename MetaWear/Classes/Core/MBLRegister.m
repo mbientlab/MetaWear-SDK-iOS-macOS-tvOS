@@ -37,7 +37,7 @@
 #import "MBLMetaWearManager+Private.h"
 #import "MBLMetaWear+Private.h"
 #import "MBLModule+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "BFTask+MBLExtensions.h"
 #import "MBLConstants+Private.h"
 #import "MBLLogger.h"

@@ -45,7 +45,7 @@
 #import "MBLNumericData+Private.h"
 #import "FastCoder.h"
 #import "BFTask+MBLExtensions.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 #import "MBLMechanicalSwitch.h"
 #import "MBLAccelerometer+Private.h"

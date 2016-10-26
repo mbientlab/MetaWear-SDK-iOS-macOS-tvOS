@@ -71,7 +71,7 @@
 #import "MBLTemperature.h"
 #import "MBLTimer.h"
 #import "MBLTimerEvent.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLCategoryLoader.h"
 #import "MBLAnalytics.h"
 #import "MBLConstants+Private.h"
