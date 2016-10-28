@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/MetaWear.svg?style=flat)](https://mbientlab.com/license)
 [![Version](https://img.shields.io/cocoapods/v/MetaWear.svg?style=flat)](http://cocoapods.org/pods/MetaWear)
 
-[![Build Status](https://travis-ci.org/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.svg?branch=master)](https://travis-ci.org/mbientlab/MetaWear-SDK-iOS-macOS-tvOS)
+[![Build Status](https://jenkins.schiffli.us/buildStatus/icon?job=MetaWear-SDK-iOS-macOS-tvOS)](https://jenkins.schiffli.us/job/MetaWear-SDK-iOS-macOS-tvOS)
 [![Codecov](https://img.shields.io/codecov/c/github/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.svg?maxAge=2592000)](https://codecov.io/github/mbientlab/MetaWear-SDK-iOS-macOS-tvOS?branch=master)
 
 ![alt tag](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/Images/Metawear.png)
