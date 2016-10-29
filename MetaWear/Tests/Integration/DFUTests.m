@@ -48,8 +48,8 @@
     MBLFirmwareBuild *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
                                                                    modelNumber:self.device.deviceInfo.modelNumber
                                                                    buildFlavor:@"vanilla"
-                                                                   firmwareRev:@"1.2.3"
-                                                                      filename:@"firmware.bin"];
+                                                                   firmwareRev:@"1.2.5"
+                                                                      filename:@"firmware.zip"];
     [[[self.device prepareForFirmwareUpdateToVersionAsync:firmware] success:^(MBLFirmwareUpdateInfo * _Nonnull result) {
         NSLog(@"%@", result.firmwareUrl);
         DFUFirmware *selectedFirmware;
