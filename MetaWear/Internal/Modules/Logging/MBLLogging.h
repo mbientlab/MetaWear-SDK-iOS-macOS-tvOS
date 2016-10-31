@@ -78,6 +78,7 @@ static const uint32_t LOGGING_ROLLOVER_COUNT = 0x20000000;
 @property (nonatomic, nullable) NSNumber *currentResetId;
 @property (nonatomic) uint32_t lastTimestamp;
 @property (nonatomic) uint8_t lastResetId;
+@property (nonatomic) uint8_t remainingTriggers;
 
 @property (nonatomic) MBLRegister *addLogTrigger;
 @property (nonatomic) MBLRegister *removeLogTrigger;
