@@ -41,41 +41,120 @@
 
 @implementation DFUTests
 
+- (BFTask<NSNumber *> *)zipFirmwareExistsAsync:(NSURL *)url
+{
+    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
+    [[NSURLSession.sharedSession dataTaskWithRequest:[[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10] completionHandler:^(NSData *data, NSURLResponse * response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (error) {
+            [source trySetError:error];
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain code:kMBLErrorNoAvaliableFirmware userInfo:nil]];
+        } else {
+            [source trySetResult:@YES];
+        }
+    }] resume];
+    return source.task;
+}
+
 - (void)testPerformDFU
 {
     self.waitingExpectation = [self expectationWithDescription:@"wait for DFU"];
-    
-    MBLFirmwareBuild *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
+    NSString *version = @"1.2.5";
+    MBLFirmwareBuild __block *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
                                                                    modelNumber:self.device.deviceInfo.modelNumber
                                                                    buildFlavor:@"vanilla"
-                                                                   firmwareRev:@"1.2.5"
+                                                                   firmwareRev:version
                                                                       filename:@"firmware.zip"];
-    [[[self.device prepareForFirmwareUpdateToVersionAsync:firmware] success:^(MBLFirmwareUpdateInfo * _Nonnull result) {
-        NSLog(@"%@", result.firmwareUrl);
-        DFUFirmware *selectedFirmware;
-        if ([result.firmwareUrl.pathExtension caseInsensitiveCompare:@"zip"] == NSOrderedSame) {
-            selectedFirmware = [[DFUFirmware alloc] initWithUrlToZipFile:result.firmwareUrl];
-        } else {
-            selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
+    // First try to fetch a zip file
+    [[self zipFirmwareExistsAsync:firmware.firmwareURL] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+        if (t.error) {
+            // No zip file, assume it is a bin instead
+            firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
+                                                         modelNumber:self.device.deviceInfo.modelNumber
+                                                         buildFlavor:@"vanilla"
+                                                         firmwareRev:version
+                                                            filename:@"firmware.bin"];
         }
-        
-        DFUServiceInitiator *initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
-        [initiator withFirmwareFile:selectedFirmware];
-        
-        initiator.forceDfu = YES;
-        // initiator.packetReceiptNotificationParameter = N; // default is 12
-        initiator.logger = self;
-        initiator.delegate = self;
-        initiator.progressDelegate = self;
-        initiator.peripheralSelector = self;
-        
-        [initiator start];
-    }] failure:^(NSError * _Nonnull error) {
-        XCTAssertNil(error);
-        [self.waitingExpectation fulfill];
+        // Do the update!
+        [[[self.device prepareForFirmwareUpdateToVersionAsync:firmware] success:^(MBLFirmwareUpdateInfo * _Nonnull result) {
+            NSLog(@"%@", result.firmwareUrl);
+            DFUFirmware *selectedFirmware;
+            if ([result.firmwareUrl.pathExtension caseInsensitiveCompare:@"zip"] == NSOrderedSame) {
+                selectedFirmware = [[DFUFirmware alloc] initWithUrlToZipFile:result.firmwareUrl];
+            } else {
+                selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
+            }
+            
+            DFUServiceInitiator *initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
+            [initiator withFirmwareFile:selectedFirmware];
+            
+            initiator.forceDfu = YES;
+            // initiator.packetReceiptNotificationParameter = N; // default is 12
+            initiator.logger = self;
+            initiator.delegate = self;
+            initiator.progressDelegate = self;
+            initiator.peripheralSelector = self;
+            
+            [initiator start];
+        }] failure:^(NSError * _Nonnull error) {
+            XCTAssertNil(error);
+            [self.waitingExpectation fulfill];
+        }];
+        return nil;
     }];
     
-    [self waitForExpectationsWithTimeout:2600000000 handler:nil];
+    [self waitForExpectationsWithTimeout:160 handler:nil];
+}
+
+- (void)testUpdateToRC
+{
+    self.waitingExpectation = [self expectationWithDescription:@"wait for DFU"];
+    NSString *version = @"rc";
+    MBLFirmwareBuild __block *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
+                                                                           modelNumber:self.device.deviceInfo.modelNumber
+                                                                           buildFlavor:@"vanilla"
+                                                                           firmwareRev:version
+                                                                              filename:@"firmware.zip"];
+    // First try to fetch a zip file
+    [[self zipFirmwareExistsAsync:firmware.firmwareURL] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+        if (t.error) {
+            // No zip file, assume it is a bin instead
+            firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
+                                                         modelNumber:self.device.deviceInfo.modelNumber
+                                                         buildFlavor:@"vanilla"
+                                                         firmwareRev:version
+                                                            filename:@"firmware.bin"];
+        }
+        // Do the update!
+        [[[self.device prepareForFirmwareUpdateToVersionAsync:firmware] success:^(MBLFirmwareUpdateInfo * _Nonnull result) {
+            NSLog(@"%@", result.firmwareUrl);
+            DFUFirmware *selectedFirmware;
+            if ([result.firmwareUrl.pathExtension caseInsensitiveCompare:@"zip"] == NSOrderedSame) {
+                selectedFirmware = [[DFUFirmware alloc] initWithUrlToZipFile:result.firmwareUrl];
+            } else {
+                selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
+            }
+            
+            DFUServiceInitiator *initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
+            [initiator withFirmwareFile:selectedFirmware];
+            
+            initiator.forceDfu = YES;
+            // initiator.packetReceiptNotificationParameter = N; // default is 12
+            initiator.logger = self;
+            initiator.delegate = self;
+            initiator.progressDelegate = self;
+            initiator.peripheralSelector = self;
+            
+            [initiator start];
+        }] failure:^(NSError * _Nonnull error) {
+            XCTAssertNil(error);
+            [self.waitingExpectation fulfill];
+        }];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:160 handler:nil];
 }
 
 #pragma mark - DFU Service delegate methods
