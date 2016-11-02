@@ -76,13 +76,13 @@ typedef void (^MBLErrorBlock)(NSError *error);
  Enqueues the given block to be run once this task completes successfully.
  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)continueOnDispatchWithSuccessBlock:(BFContinuationBlock)block;
+- (instancetype)continueOnDispatchWithSuccessBlock:(BFContinuationBlock)block NS_SWIFT_NAME(continueOnDispatchWithSuccess(block:));
 
 /**
  Enqueues the given block to be run once this task completes.
  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)continueOnDispatchWithBlock:(BFContinuationBlock)block;
+- (instancetype)continueOnDispatchWithBlock:(BFContinuationBlock)block NS_SWIFT_NAME(continueOnDispatch(block:));
 
 @end
 

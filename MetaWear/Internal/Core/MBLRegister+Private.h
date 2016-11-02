@@ -60,7 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format;
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format;
 
-- (BFTask *)readAsync;
+// readAsync here conflicts with the paramerized type readAsync on MBLData
+- (BFTask *)readAsync NS_SWIFT_NAME(readRegisterAsync());
 - (BFTask *)readForcedIndexAsync:(uint8_t)index;
 - (BFTask *)localReadAsync;
 - (nullable NSData *)readParameters;
