@@ -45,7 +45,6 @@
 		40703EE01D94C3EB00F38FF0 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
-		40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */; };
 		40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
@@ -54,7 +53,6 @@
 		4078203B1D9DD64E00FF5134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40781F911D9DD1C400FF5134 /* Main.storyboard */; };
 		4078203C1D9DD65400FF5134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40781F941D9DD1C400FF5134 /* main.m */; };
 		4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4078203D1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist */; };
-		4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
@@ -70,7 +68,6 @@
 		40915FF91D94D4BB008A5F24 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
 		40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
-		409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
@@ -190,8 +187,6 @@
 		40703EB81D94C3C100F38FF0 /* BMI160Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BMI160Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EB91D94C3C100F38FF0 /* ButtonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonConfig.h; sourceTree = "<group>"; };
 		40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonConfig.m; sourceTree = "<group>"; };
-		40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLookup.h; sourceTree = "<group>"; };
-		40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLookup.m; sourceTree = "<group>"; };
 		40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingEventConfig.h; sourceTree = "<group>"; };
 		40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingEventConfig.m; sourceTree = "<group>"; };
 		40703EC01D94C3C100F38FF0 /* MetaBootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaBootTest.m; sourceTree = "<group>"; };
@@ -201,6 +196,8 @@
 		40703EC41D94C3C100F38FF0 /* SendBytesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SendBytesTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EC71D94C3C100F38FF0 /* TempLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempLoggerConfiguration.h; sourceTree = "<group>"; };
 		40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempLoggerConfiguration.m; sourceTree = "<group>"; };
+		407085211DCA555E00AAEB33 /* MetaWearSyntaxFriendly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearSyntaxFriendly.h; sourceTree = "<group>"; };
+		407085221DCA55C200AAEB33 /* MetaWearSyntaxFriendly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearSyntaxFriendly.h; sourceTree = "<group>"; };
 		40781F8D1D9DD1C400FF5134 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40781F8E1D9DD1C400FF5134 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		40781F921D9DD1C400FF5134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -377,6 +374,7 @@
 		40703E0E1D94AE5000F38FF0 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				407085221DCA55C200AAEB33 /* MetaWearSyntaxFriendly.h */,
 				40703E131D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.h */,
 				40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */,
 				400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */,
@@ -438,10 +436,9 @@
 		40703EB01D94C3C100F38FF0 /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				407085211DCA555E00AAEB33 /* MetaWearSyntaxFriendly.h */,
 				400655BA1D9A0D920066AB54 /* AdvancedSetups */,
 				40915FC01D94D1E6008A5F24 /* DeviceConfigurations */,
-				40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */,
-				40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */,
 				40703EC11D94C3C100F38FF0 /* MetaWearTest.h */,
 				40703EC21D94C3C100F38FF0 /* MetaWearTest.m */,
 				400655C01D9A0E090066AB54 /* EnablingTests.m */,
@@ -1418,7 +1415,6 @@
 				40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */,
 				400655B81D9A0C510066AB54 /* SendBytesTest.m in Sources */,
 				400655AB1D99FD4A0066AB54 /* MMA8452QTests.m in Sources */,
-				40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */,
 				403BF7731D9E348000B22B82 /* DFUTests.m in Sources */,
 				40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */,
 				40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */,
@@ -1451,7 +1447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */,
 				407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */,
 				407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */,
 				407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */,
@@ -1489,7 +1484,6 @@
 				400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */,
 				40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */,
 				409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */,
-				409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

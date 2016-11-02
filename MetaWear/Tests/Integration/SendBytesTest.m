@@ -34,7 +34,7 @@
  */
 
 #import <XCTest/XCTest.h>
-#import "DeviceLookup.h"
+#import "MetaWearSyntaxFriendly.h"
 
 static const int secondsToConnect = 20;
 
@@ -55,7 +55,7 @@ static const int secondsToConnect = 20;
     // Put setup code here. This method is called before the invocation of each test method in the class.
     XCTestExpectation *connectDeviceExpectation = [self expectationWithDescription:@"connect to device"];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
-    [[[[DeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+    [[[[MBLDeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
         MBLMetaWear *device = t.result;
         assert(device);
         device.bypassSetup = YES;
@@ -95,12 +95,41 @@ static const int secondsToConnect = 20;
     }
 }
 
+- (void)testFreq
+{
+//    [self.device.accelerometer.dataReadyEvent addNotificationWithExecutor:[BFExecutor dispatchExecutor] handler:^(id  _Nullable obj, NSError * _Nullable error) {
+//        NSLog(@"%@", obj);
+//    }];
+//    [((MBLBarometerBMP280 *)self.device.barometer).periodicPressure addNotificationWithExecutor:[BFExecutor dispatchExecutor] handler:^(id  _Nullable obj, NSError * _Nullable error) {
+//        NSLog(@"%@", obj);
+//    }];
+    [self sendData:@[@"12-83",
+                     @"12-84",
+                     @"03-83",
+                     @"03-81",
+                     @"03-82",
+                     @"03-85",
+                     @"03-89",
+                     @"03-8A",
+                     @"03-04-01",
+                     @"12-01-01"]];
+    
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2000 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [waitingExpectation fulfill];
+    });
+    [self waitForExpectationsWithTimeout:5000 handler:nil];
+}
 
 - (void)testNukeIt
 {
     [self sendData:@[@"0F-08",
                      @"FE-05",
                      @"FE-06"]];
+    
+    
+    
+    
     
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

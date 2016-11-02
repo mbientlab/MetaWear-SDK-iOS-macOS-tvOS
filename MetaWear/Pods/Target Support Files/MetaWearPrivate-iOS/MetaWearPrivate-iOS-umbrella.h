@@ -105,6 +105,7 @@
 #import "MBLBluetoothCentralMock.h"
 #import "MBLBluetoothPeripheral.h"
 #import "MBLBluetoothPeripheralMock.h"
+#import "MBLDeviceLookup.h"
 #import "MBLMockPeripheralFactory.h"
 #import "MBLMockUtils.h"
 #import "MBLModuleMock.h"

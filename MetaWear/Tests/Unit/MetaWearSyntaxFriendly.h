@@ -1,8 +1,8 @@
 /**
- * AccelConfig.h
+ * MetaWearSyntaxFriendly.h
  * MetaWearTests
  *
- * Created by Stephen Schiffli on 4/18/16.
+ * Created by Stephen Schiffli on 11/2/16.
  * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -33,18 +33,15 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MetaWearSyntaxFriendly.h"
+#import <Foundation/Foundation.h>
 
-/*
- Config that averages a big chunk of samples
- */
-@interface AccelConfig : NSObject <MBLRestorable>
-
-@property (nonatomic) MBLFilter *pressureEvent;
-@property (nonatomic) MBLFilter *xFilter;
-@property (nonatomic) MBLFilter *zFilter;
-
-- (void)startSession;
-- (void)stopSession;
-
-@end
+// The @import doesn't seem to play nice with syntax highlighting right now
+// so we do this instead, aint pretty but it's certainly nicer than dozens of
+// syntax highlighter errors
+#if TARGET_OS_IOS
+  #import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
+#elif TARGET_OS_TV
+  #import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
+#else
+  #import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
+#endif

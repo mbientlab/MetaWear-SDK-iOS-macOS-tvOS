@@ -63,8 +63,25 @@
 
 - (void)testAccelStream
 {
-    self.accelerometer.fullScaleRange = MBLAccelerometerBoschRange2G;
-    [self eventUpdateTest:self.accelerometer.dataReadyEvent time:10];
+    self.device.accelerometer.sampleFrequency = 25;
+    [self.device.accelerometer.dataReadyEvent startNotificationsWithHandlerAsync:^(MBLAccelerometerData * _Nullable obj, NSError * _Nullable error) {
+        NSLog(@"%@", obj);
+    }];
+    
+    ((MBLBarometerBMP280 *)self.device.barometer).standbyTime = MBLBarometerBMP280Standby62_5;
+    [((MBLBarometerBMP280 *)self.device.barometer).periodicPressure startNotificationsWithHandlerAsync:^(MBLNumericData * _Nullable obj, NSError * _Nullable error) {
+        NSLog(@"%@", obj);
+    }];
+
+    
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2000 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [waitingExpectation fulfill];
+    });
+    [self waitForExpectationsWithTimeout:5000 handler:nil];
+    
+    //self.accelerometer.fullScaleRange = MBLAccelerometerBoschRange2G;
+    //[self eventUpdateTest:self.accelerometer.dataReadyEvent time:10];
 }
 
 - (void)testGyroUpdates

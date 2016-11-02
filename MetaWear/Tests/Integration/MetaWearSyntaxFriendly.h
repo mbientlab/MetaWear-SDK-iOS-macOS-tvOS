@@ -1,8 +1,8 @@
 /**
- * DeviceLookup.h
+ * MetaWearSyntaxFriendly.h
  * MetaWearTests
  *
- * Created by Stephen Schiffli on 3/22/16.
+ * Created by Stephen Schiffli on 11/2/16.
  * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -34,21 +34,16 @@
  */
 
 #import <Foundation/Foundation.h>
+
+// The @import doesn't seem to play nice with syntax highlighting right now
+// so we do this instead, aint pretty but it's certainly nicer than dozens of
+// syntax highlighter errors
 #if TARGET_OS_IOS
-#import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
-@import iOSDFULibrary;
+  #import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-iOS-umbrella.h>
 #elif TARGET_OS_TV
-#import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
+  #import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
 #else
-#import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-@import iOSDFULibrary;
+  #import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-OSX-umbrella.h>
 #endif
-
-@interface DeviceLookup : NSObject
-
-+ (NSString *)metawearModelString;
-+ (MBLModel)metawearModel;
-+ (NSString *)metawearUid;
-+ (BFTask<MBLMetaWear *> *)deviceForTestWithTimeout:(NSTimeInterval)timeout;
-
-@end

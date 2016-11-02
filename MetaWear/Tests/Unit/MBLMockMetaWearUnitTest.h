@@ -35,13 +35,7 @@
 
 #import <XCTest/XCTest.h>
 #import <CoreData/CoreData.h>
-#if TARGET_OS_IOS
-#import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
-#elif TARGET_OS_TV
-#import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
-#else
-#import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-#endif
+#import "MetaWearSyntaxFriendly.h"
 
 @interface MBLMockMetaWearUnitTest : XCTestCase
 

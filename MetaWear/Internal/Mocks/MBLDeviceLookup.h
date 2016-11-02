@@ -1,8 +1,8 @@
 /**
- * AccelConfig.h
- * MetaWearTests
+ * MBLDeviceLookup.h
+ * MetaWear
  *
- * Created by Stephen Schiffli on 4/18/16.
+ * Created by Stephen Schiffli on 3/22/16.
  * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -33,18 +33,14 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MetaWearSyntaxFriendly.h"
+#import <MetaWear/MetaWear.h>
 
-/*
- Config that averages a big chunk of samples
- */
-@interface AccelConfig : NSObject <MBLRestorable>
+@interface MBLDeviceLookup : NSObject
 
-@property (nonatomic) MBLFilter *pressureEvent;
-@property (nonatomic) MBLFilter *xFilter;
-@property (nonatomic) MBLFilter *zFilter;
-
-- (void)startSession;
-- (void)stopSession;
++ (NSString *)metawearModelString;
++ (MBLModel)metawearModel;
++ (NSString *)metawearUid;
++ (BFTask<MBLMetaWear *> *)deviceForTestWithTimeout:(NSTimeInterval)timeout;
++ (BFTask<MBLMetaWear *> *)connectDevice:(MBLMetaWear *)device timeout:(NSTimeInterval)timeout forceClear:(BOOL)forceClear;
 
 @end
