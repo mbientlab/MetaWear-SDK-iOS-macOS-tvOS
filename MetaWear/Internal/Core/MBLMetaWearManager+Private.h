@@ -48,13 +48,13 @@ void MBLSetUseMockManager(BOOL useMock);
 
 @property (nonatomic, readonly) NSString *latestFirmware;
 
+- (void)startScanForMetaWears:(BOOL)metaWears metaBoots:(BOOL)metaBoots duplicates:(NSNumber *)duplicates handler:(MBLArrayHandler)handler;
+
 - (void)connectMetaWear:(MBLMetaWear *)device;
 - (void)disconnectMetaWear:(MBLMetaWear *)device fromPeripheralSide:(BOOL)fromPeripheralSide;
 
 - (void)rememberMetaWear:(MBLMetaWear *)device;
 - (void)forgetMetaWear:(MBLMetaWear *)device;
-
-- (void)clearDiscoveredDevices;
 
 - (nullable NSString *)logFilename:(nullable NSString *)filename;
 @end

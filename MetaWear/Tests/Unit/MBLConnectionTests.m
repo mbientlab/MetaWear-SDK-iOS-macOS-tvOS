@@ -226,4 +226,18 @@
     self.peripheral.keyRegister = tmp;
 }
 
+- (void)testConnectionWithRetry
+{
+    self.peripheral.failServiceDiscoveryOnce = YES;
+    
+    XCTestExpectation *connect1 = [self expectationWithDescription:@"wait for device1"];
+    [[[self.device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
+        [connect1 fulfill];
+    }] failure:^(NSError * _Nonnull error) {
+        XCTAssertNil(error);
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
 @end

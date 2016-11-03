@@ -94,12 +94,13 @@ NS_ASSUME_NONNULL_BEGIN
  @see startScanForMetaWearsAllowDuplicates:handler:
  */
 - (void)startScanForMetaWearsWithHandler:(MBLArrayHandler)handler;
+
 /**
  Begin scanning for MetaWear devices with the option to filter duplicate devices or not.
  
  This will invoke the provided block each time a new device shows up if filter == YES or
  each time a new advertising packet is found if filter == NO (may be many times per second).
- This can be useful in specific situations, such as making a connection based on a 
+ This can be useful in specific situations, such as making a connection based on a
  MetaWear's RSSI, but may have an adverse affect on battery-life and application performance,
  so use wisely.  This continues until stopScanForMetaWears is called.
  @param duplicates YES: only callback when a new device is found, NO: callback each time
@@ -107,23 +108,6 @@ NS_ASSUME_NONNULL_BEGIN
  a new advertising packet is found
  */
 - (void)startScanForMetaWearsAllowDuplicates:(BOOL)duplicates handler:(MBLArrayHandler)handler;
-
-/**
- Stop scanning for MetaWear devices, this will release all handlers given to
- startScanForMetaWearsWithHandler: and startScanForMetaWearsAllowDuplicates:handler:
- */
-- (void)stopScanForMetaWears;
-
-/**
- Returns a list of saved MetaWear objects, you add to this list by calling [MBLMetaWear rememberDevice]
- @returns Task whose result will be an array of remembered MBLMetaWear objects
- */
-- (BFTask<NSArray<MBLMetaWear *> *> *)retrieveSavedMetaWearsAsync;
-- (void)retrieveSavedMetaWearsWithHandler:(MBLArrayHandler)handler DEPRECATED_MSG_ATTRIBUTE("Use retrieveSavedMetaWearsAsync instead");
-
-///----------------------------------
-/// @name MetaBoot Recovery Scanning
-///----------------------------------
 
 /**
  This method is intended for recovery mode only.  If a firmware update experiences an unexpected error,
@@ -139,10 +123,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startScanForMetaBootsAllowDuplicates:(BOOL)duplicates handler:(MBLArrayHandler)handler;
 
 /**
- Stop scanning for MetaBoot devices, this will release all handlers given to
- startScanForMetaBootsAllowDuplicates:handler:
+ Stop scanning for devices, this will release all handlers given to
+ startScanForMetaWearsAllowDuplicates:handler: and startScanForMetaBootsAllowDuplicates:handler:
  */
-- (void)stopScanForMetaBoots;
+- (void)stopScan;
+
+/**
+ Devices are cached between start/stop scan requests, use the method if you with to clear that cache
+ */
+- (void)clearDiscoveredDevices;
+
+/**
+ Returns a list of saved MetaWear objects, you add to this list by calling [MBLMetaWear rememberDevice]
+ @returns Task whose result will be an array of remembered MBLMetaWear objects
+ */
+- (BFTask<NSArray<MBLMetaWear *> *> *)retrieveSavedMetaWearsAsync;
+
+///----------------------------------
+/// @name Deprecated
+///----------------------------------
+
+- (void)stopScanForMetaBoots DEPRECATED_MSG_ATTRIBUTE("Use stopScan instead");
+- (void)stopScanForMetaWears DEPRECATED_MSG_ATTRIBUTE("Use stopScan instead");
+- (void)retrieveSavedMetaWearsWithHandler:(MBLArrayHandler)handler DEPRECATED_MSG_ATTRIBUTE("Use retrieveSavedMetaWearsAsync instead");
 
 @end
 

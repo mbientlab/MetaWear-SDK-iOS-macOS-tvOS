@@ -187,6 +187,7 @@
     [self.discoveryTimer invalidate];
     self.keyRegister = 0;
     self.isMetaBoot = NO;
+    self.failServiceDiscoveryOnce = NO;
 }
 
 //- (NSData *)getAddEntityResponse:(NSData *)data
@@ -246,7 +247,12 @@
 
 - (void)didDiscover:(NSTimer *)timer
 {
-    [self.delegate peripheral:self didDiscoverServices:nil];
+    NSError *error = nil;
+    if (self.failServiceDiscoveryOnce) {
+        self.failServiceDiscoveryOnce = NO;
+        error = [NSError errorWithDomain:kMBLErrorDomain code:kMBLErrorUnexpectedServices userInfo:nil];
+    }
+    [self.delegate peripheral:self didDiscoverServices:error];
 }
 
 + (CBMutableCharacteristic *)readOnly:(CBUUID *)uuid

@@ -151,6 +151,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     int characteristicCount;
     int serviceCount;
     int connectionRetryCount;
+    BOOL setupRequestedDisconnect;
 
     MBLSimulationHandler simulatorHandler;
     MBLDataHandler snifferHandler;
@@ -898,28 +899,31 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         return [self synchronizeAsync];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
         // Make sure all the connection handlers are flushed out
-        NSError *connectionError = error;
-        switch (prevState) {
-            case MBLConnectionStateConnecting:
-            case MBLConnectionStateDiscovery:
-                if (!connectionError) {
-                    connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                          code:kMBLErrorUnexpectedDisconnect
-                                                      userInfo:@{NSLocalizedDescriptionKey : @"Unexpected disconnect during connection.  Please try connection again."}];
-                }
-                [self connectionCompleteWithError:connectionError];
-                break;
-            case MBLConnectionStateDisconnecting:
-                if (!connectionError) {
-                    connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                          code:kMBLErrorDisconnectRequested
-                                                      userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
-                }
-                [self invokeConnectionHandlers:connectionError];
-                break;
-            default:
-                break;
+        if (!setupRequestedDisconnect) {
+            NSError *connectionError = error;
+            switch (prevState) {
+                case MBLConnectionStateConnecting:
+                case MBLConnectionStateDiscovery:
+                    if (!connectionError) {
+                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
+                                                              code:kMBLErrorUnexpectedDisconnect
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Unexpected disconnect during connection.  Please try connection again."}];
+                    }
+                    [self connectionCompleteWithError:connectionError];
+                    break;
+                case MBLConnectionStateDisconnecting:
+                    if (!connectionError) {
+                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
+                                                              code:kMBLErrorDisconnectRequested
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
+                    }
+                    [self invokeConnectionHandlers:connectionError];
+                    break;
+                default:
+                    break;
+            }
         }
+        setupRequestedDisconnect = NO;
         
         // And flush out all the disconnection handlers
         [self invokeDisconnectionHandlers:error];
@@ -1280,6 +1284,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                   [MBLConstants DISFirmwareRevUUID],
                                                   [MBLConstants DISModelNumberUUID]] forService:service];
         } else if ([service.UUID isEqual:[MBLConstants DFUServiceUUID]]) {
+            connectionRetryCount = 0;
             [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                                   code:kMBLErrorDFUServiceFound
                                                               userInfo:@{NSLocalizedDescriptionKey : @"MetaWear device in bootloader mode.  Please update the firmware using prepareForFirmwareUpdateWithHandler:."}]];
@@ -1611,6 +1616,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)connectionCompleteWithError:(NSError *)error
 {
     if (error) {
+        setupRequestedDisconnect = YES;
         [[self disconnectAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
             if (![self retryConnectionIfAllowed]) {
                 [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
