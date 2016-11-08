@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSDate *timestamp;
 /*
- Raw data of the sample (if avaliable)
+ Raw data of the sample (if available)
  */
 @property (nonatomic, readonly, nullable) NSData *data;
 

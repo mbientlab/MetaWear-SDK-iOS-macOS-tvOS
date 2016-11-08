@@ -161,7 +161,7 @@ extern NSInteger const kMBLErrorConnectionTimeout;
 extern NSInteger const kMBLErrorWrongFirmwareModelNumber;
 
 /*! @abstract 109: Couldn't perform DFU, no valid firmware releases found */
-extern NSInteger const kMBLErrorNoAvaliableFirmware;
+extern NSInteger const kMBLErrorNoAvailableFirmware;
 
 /*! @abstract 110: MetaWear not connected, can't perform operation */
 extern NSInteger const kMBLErrorNotConnected;

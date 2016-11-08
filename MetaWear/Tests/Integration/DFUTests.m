@@ -49,7 +49,7 @@
         if (error) {
             [source trySetError:error];
         } else if (httpResponse.statusCode != 200) {
-            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain code:kMBLErrorNoAvaliableFirmware userInfo:nil]];
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain code:kMBLErrorNoAvailableFirmware userInfo:nil]];
         } else {
             [source trySetResult:@YES];
         }

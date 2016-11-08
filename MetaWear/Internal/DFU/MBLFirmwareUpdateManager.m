@@ -136,7 +136,7 @@
         }
         if (!latestFirmware) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
-                                                    code:kMBLErrorNoAvaliableFirmware
+                                                    code:kMBLErrorNoAvailableFirmware
                                                 userInfo:@{NSLocalizedDescriptionKey : @"No valid firmware releases found.  Please update your application and if problem persists, email developers@mbientlab.com"}]];
             return;
         }
