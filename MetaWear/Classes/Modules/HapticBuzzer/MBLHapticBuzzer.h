@@ -50,14 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param pwidth Duration of buzz in mSec
  @param completion Callback when the buzz is complete
  */
-- (BFTask *)startHapticWithDutyCycleAsync:(uint8_t)dcycle pulseWidth:(uint16_t)pwidth completion:(nullable MBLVoidHandler)completion;
+- (BFTask *)startHapticWithDutyCycleAsync:(uint8_t)dcycle pulseWidth:(uint16_t)pwidth completion:(nullable MBLVoidHandler)completion NS_SWIFT_NAME(startHapticAsync(dutyCycle:pulseWidth:completion:));
 
 /**
  Turn on Buzzer Driver.
  @param pwidth Duration of buzz in mSec
  @param completion Callback when the buzz is complete
  */
-- (BFTask *)startBuzzerWithPulseWidthAsync:(uint16_t)pwidth completion:(nullable MBLVoidHandler)completion;
+- (BFTask *)startBuzzerWithPulseWidthAsync:(uint16_t)pwidth completion:(nullable MBLVoidHandler)completion NS_SWIFT_NAME(startBuzzerAsync(pulseWidth:completion:));
 
 @end
 

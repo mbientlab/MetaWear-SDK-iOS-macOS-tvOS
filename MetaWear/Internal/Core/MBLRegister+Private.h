@@ -72,10 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addNotificationWithExecutor:(BFExecutor *)executor handler:(MBLObjectHandler)handler;
 - (void)removeNotificationHandlers;
 
-- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler;
-- (BFTask *)startNotificationsWithExecutorAsync:(BFExecutor *)executor withHandler:(nullable MBLObjectHandler)handler;
-- (BFTask *)stopNotificationsAsync;
-
+// conflicts with the paramerized types on MBLEvent
+- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(handler:));
+- (BFTask *)startNotificationsWithExecutorAsync:(BFExecutor *)executor withHandler:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(executor:handler:));
+- (BFTask *)stopNotificationsAsync NS_SWIFT_NAME(stopRegisterNotificationsAsync());
 
 - (void)recievedData:(nullable NSData *)data error:(nullable NSError *)error;
 - (void)deviceDisconnected:(nullable NSError *)error;

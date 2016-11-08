@@ -187,7 +187,7 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
  object that is passed to the handler depends on the event being handled
  @param handler Block invoked when this event occus
  */
-- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLNotificationHandler)handler;
+- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLNotificationHandler)handler NS_SWIFT_NAME(startNotificationsAsync(handler:));
 /**
  Stop receiving callbacks when this event occurs, and release the block provided
  to startNotificationsWithHandlerAsync:
@@ -216,7 +216,7 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
  NEVER AGAIN, DON'T ATTEMPT TO USE CALLBACKS INSIDE THIS BLOCK
  @param block Block consisting of API calls to make when this event occus
  */
-- (BFTask *)programCommandsToRunOnEventAsync:(MBLVoidHandler)block;
+- (BFTask *)programCommandsToRunOnEventAsync:(MBLVoidHandler)block NS_SWIFT_NAME(programCommandsToRunOnEventAsync(block:));
 /**
  Removes all commands setup when calling programCommandsToRunOnEventAsync:
  */
