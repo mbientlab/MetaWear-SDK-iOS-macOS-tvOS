@@ -1076,7 +1076,7 @@
                                 singleZero = YES;
                                 continue;
                             }
-                            XCTAssertEqualWithAccuracy(obj.value.floatValue, 35.0, 10.0);
+                            XCTAssertEqualWithAccuracy(obj.value.floatValue, 35.0, 20.0);
                         }
                         [waitingExpectation fulfill];
                     }];
@@ -1109,6 +1109,7 @@
         ((MBLBarometerBME280 *)barometer).standbyTime = MBLBarometerBME280Standby62_5;
     }
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
+    magnetometer.powerPreset = MBLMagnetometerBMM150PresetLowPower;
     self.device.gyro.sampleFrequency = 25;
     MBLAccelerometer *accelerometer = self.device.accelerometer;
     if ([accelerometer isKindOfClass:[MBLAccelerometerBMA255 class]]) {

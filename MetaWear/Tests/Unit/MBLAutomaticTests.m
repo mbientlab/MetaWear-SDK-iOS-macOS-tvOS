@@ -338,7 +338,7 @@
     
     [[[[BFTask taskFromMetaWearWithBlock:^id{
         return [[self.device.temperature.onDieThermistor readAsync] success:^(MBLNumericData * _Nonnull result) {
-            XCTAssertEqualWithAccuracy(result.value.floatValue, 35.0, 10.0);
+            XCTAssertEqualWithAccuracy(result.value.floatValue, 35.0, 20.0);
         }];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         self.device.temperature.externalThermistor.readPin = 0;
@@ -348,7 +348,7 @@
         }];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [[self.device.temperature.onboardThermistor readAsync] success:^(MBLNumericData * _Nonnull result) {
-            XCTAssertEqualWithAccuracy(result.value.floatValue, 35.0, 10.0);
+            XCTAssertEqualWithAccuracy(result.value.floatValue, 35.0, 20.0);
         }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         XCTAssertFalse(task.faulted);
