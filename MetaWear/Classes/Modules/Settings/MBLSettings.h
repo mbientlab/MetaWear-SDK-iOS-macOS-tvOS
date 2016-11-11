@@ -58,6 +58,9 @@ typedef NS_ENUM(uint8_t, MBLTransmitPower) {
     MBLTransmitPowerMinus30dBm = 7
 };
 
+/**
+ Various MetaWear settings and events
+ */
 @interface MBLSettings : MBLModule
 
 /**

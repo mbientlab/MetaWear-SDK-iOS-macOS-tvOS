@@ -50,7 +50,7 @@
     [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
         MBLMetaWear *device = [array firstObject];
         assert(device);
-        [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+        [[MBLMetaWearManager sharedManager] stopScan];
         self.central = (MBLBluetoothCentralMock *)[MBLMetaWearManager sharedManager].centralManager;
         [self.central resetKnobs];
         self.peripheral = [[self.central retrievePeripheralsWithIdentifiers:@[device.identifier]] firstObject];

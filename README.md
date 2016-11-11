@@ -56,7 +56,7 @@ Then add the following code wherever appropriate to make the LED flash green:
 ```obj-c
 [[MBLMetaWearManager sharedManager] startScanForMetaWearsWithHandler:^(NSArray *array) {
     // Hooray! We found a MetaWear board, so stop scanning for more
-    [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+    [[MBLMetaWearManager sharedManager] stopScan];
     // Connect to the board we found
     MBLMetaWear *device = [array firstObject];
     [[device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
