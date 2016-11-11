@@ -93,20 +93,20 @@ typedef NS_ENUM(uint8_t, MBLPinChangeType) {
  value indicates what state the pin changed to, YES means set, NO means
  clear.
  */
-@property (nonatomic, readonly) MBLEvent<MBLNumericData *> *changeEvent;
+@property (nonatomic, readonly, nullable) MBLEvent<MBLNumericData *> *changeEvent;
 /**
  Data representing the digital value of the pin.
  Event callbacks will be provided an MBLNumericData object whose bool
  value indicates what state the pin is in, YES means set, NO means clear.
  */
-@property (nonatomic, readonly) MBLData<MBLNumericData *> *digitalValue;
+@property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *digitalValue;
 /**
  Data representing the analog value of the pin.
  Event callbacks will be provided an MBLNumericData object whose double
  value will be volts.
  @warning Not all pins support analog reads
  */
-@property (nonatomic, readonly) MBLData<MBLNumericData *> *analogAbsolute;
+@property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *analogAbsolute;
 /**
  Data representing the analog value of the pin as a ratio of the supply voltage.
  Event callbacks will be provided an MBLNumericData object whose double value
@@ -114,7 +114,7 @@ typedef NS_ENUM(uint8_t, MBLPinChangeType) {
  ground, and 1.0 indicates pin is equal to supply voltage.
  @warning Not all pins support analog reads
  */
-@property (nonatomic, readonly) MBLData<MBLNumericData *> *analogRatio;
+@property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *analogRatio;
 
 ///----------------------------------
 /// @name Automatic Analog Sensor Enabling
@@ -133,8 +133,8 @@ typedef NS_ENUM(uint8_t, MBLPinChangeType) {
  @param pullUp Pin to set high just before analog read is started, nil if none
  @param pullDown  Pin to set low just before analog read is started, nil if none
  @param readDelay Time, in uSec, to delay the analog read after the pullUpPin and
-    pullDownPin have been set.  Note there is some delay by default
-    due to firmware code execution time, so this is in addtion to that.
+ pullDownPin have been set.  Note there is some delay by default
+ due to firmware code execution time, so this is in addtion to that.
  @returns New analogRatio data
  */
 - (MBLData<MBLNumericData *> *)analogRatioWithPullUp:(nullable NSNumber *)pullUp

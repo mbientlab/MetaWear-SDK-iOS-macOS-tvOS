@@ -73,17 +73,17 @@ typedef NS_ENUM(uint8_t, MBLConductanceRange) {
 
 /**
  Gain applied in the Conductance circuit 
- @note Not avaliable in all implementations
+ @note Not available in all implementations
  */
 @property (nonatomic) MBLConductanceGain gain;
 /**
  Constant voltage applied on the Conductance electrodes
- @note Not avaliable in all implementations
+ @note Not available in all implementations
  */
 @property (nonatomic) MBLConductanceVoltage voltage;
 /**
  Valid measurment range voltage on the Conductance electrodes
- @note Not avaliable in all implementations
+ @note Not available in all implementations
  */
 @property (nonatomic) MBLConductanceRange range;
 

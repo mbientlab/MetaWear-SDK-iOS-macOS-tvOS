@@ -60,13 +60,12 @@
     return [self initNumberWithLength:length isSigned:isSigned offset:0];
 }
 
-- (instancetype)initArrayWithLength:(uint8_t)length elements:(uint8_t)elements
+- (instancetype)initArrayWithLength:(uint8_t)length
 {
     self = [super init];
     if (self) {
         self.length = length;
         self.type = MBLFormatTypeArray;
-        self.elements = elements;
     }
     return self;
 }
@@ -87,7 +86,6 @@
     newFormat.length = self.length;
     newFormat.type = self.type;
     newFormat.offset = self.offset;
-    newFormat.elements = self.elements;
     newFormat.isSigned = self.isSigned;
     return newFormat;
 }

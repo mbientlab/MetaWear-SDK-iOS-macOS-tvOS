@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLConstants+Private.h"
 
 @implementation BFExecutor (MBLPrivate)
@@ -66,7 +66,7 @@
 
 @implementation BFTask (Private)
 
-- (instancetype)successOnMetaWear:(MBLPrivateSuccessBlock)block
+- (BFTask *)successOnMetaWear:(MBLPrivateSuccessBlock)block
 {
     return [self continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         block(task.result);
@@ -74,7 +74,7 @@
     }];
 }
 
-- (instancetype)failureOnMetaWear:(MBLPrivateErrorBlock)block
+- (BFTask *)failureOnMetaWear:(MBLPrivateErrorBlock)block
 {
     return [self continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         if (task.error) {
@@ -84,13 +84,13 @@
     }];
 }
 
-- (instancetype)continueOnMetaWearWithSuccessBlock:(BFContinuationBlock)block
+- (BFTask *)continueOnMetaWearWithSuccessBlock:(MBLPrivateContinuationBlock)block
 {
     BFExecutor *executor = [MBLConstants isSimulatorQueue] ? [BFExecutor simulatorExecutor] : [BFExecutor metaWearExecutor];
     return [self continueWithExecutor:executor withSuccessBlock:block];
 }
 
-- (instancetype)continueOnMetaWearWithBlock:(BFContinuationBlock)block
+- (BFTask *)continueOnMetaWearWithBlock:(MBLPrivateContinuationBlock)block
 {
     BFExecutor *executor = [MBLConstants isSimulatorQueue] ? [BFExecutor simulatorExecutor] : [BFExecutor metaWearExecutor];
     return [self continueWithExecutor:executor withBlock:block];

@@ -38,16 +38,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLAccelerometerBoschLowOrHighGEvent : MBLEvent<MBLDataSample *>
-
-
-#pragma mark - Beta API (Subject to change)
-
 /**
  The BMI160 combines low-g and high-g detection, so below we expose the
  raw registers as a first enabling step.  Over time this will become
  better encapsulated.
  */
+@interface MBLAccelerometerBoschLowOrHighGEvent : MBLEvent<MBLDataSample *>
+
+#pragma mark - Beta API (Subject to change)
 
 /**
  Set to YES if you want low-g events

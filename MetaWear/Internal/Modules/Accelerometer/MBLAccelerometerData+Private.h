@@ -43,4 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface MBLCorrectedAccelerometerData (Private)
+
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z accuracy:(MBLCalibrationAccuracy)accuracy timestamp:(NSDate *)timestamp;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -36,7 +36,7 @@
 #import "MBLTimerEvent+Private.h"
 #import "MBLEntityEvent+Private.h"
 #import "MBLEvent+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLTimer+Private.h"
 
 @interface MBLTimerEvent ()

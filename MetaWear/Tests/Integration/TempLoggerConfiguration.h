@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "DeviceLookup.h"
+#import "MetaWearSyntaxFriendly.h"
 
 /*
  Simple config that logs the temperature with X period

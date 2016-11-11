@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   # Same as MetaWear.podspec, but with access to private header files for our testing and development pleasure
   s.name               = 'MetaWearPrivate'
   s.module_name        = 'MetaWear'
-  s.version            = '2.7.3'
+  s.version            = '2.8.0'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS API and documentation for the MetaWear platform'
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/mbientLab"
   s.documentation_url  = "https://www.mbientlab.com/docs/metawear/ios/#{s.version}/index.html"
 
-  s.source_files = '{Assets,Classes,Internal}/**/*.{h,m}'
+  s.source_files = 'MetaWear/{Assets,Classes,Internal}/**/*.{h,m}'
 
   s.frameworks      = 'CoreData', 'CoreBluetooth'
   s.dependency 'Bolts/Tasks', '~> 1.8.4'

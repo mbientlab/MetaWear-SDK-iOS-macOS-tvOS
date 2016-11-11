@@ -67,6 +67,7 @@ static const uint8_t BAROMETER_ID           = 0x12;
 //static const uint8_t HYGROMETER_ID          = 0x16;
 //static const uint8_t PHOTOMETER_ID          = 0x17;
 //static const uint8_t PROXIMITY_ID           = 0x18;
+//static const uint8_t SENSOR_FUSTION_ID      = 0x19;
 
 static const uint8_t TEST_DEBUG_ID          = 0xFE;
 

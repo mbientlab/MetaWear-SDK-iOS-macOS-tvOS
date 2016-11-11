@@ -35,6 +35,9 @@
 
 #import <MetaWear/MBLEvent.h>
 
+/**
+ Base class for events that need a entry allocated on the MetaWear in order to function
+ */
 @interface MBLEntityEvent<ResultType> : MBLEvent<ResultType>
 
 @end

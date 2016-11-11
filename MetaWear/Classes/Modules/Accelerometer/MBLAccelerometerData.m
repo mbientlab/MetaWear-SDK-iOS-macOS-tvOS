@@ -39,6 +39,7 @@
 @interface MBLAccelerometerData()
 @property (nonatomic) double x, y, z;
 @property (nonatomic) double RMS;
+@property (nonatomic) double RSS;
 @end
 
 @implementation MBLAccelerometerData
@@ -50,7 +51,8 @@
         self.x = x;
         self.y = y;
         self.z = z;
-        self.RMS = sqrt(((self.x * self.x) + (self.y * self.y) + (self.z * self.z)) / 3);        
+        self.RMS = sqrt(((self.x * self.x) + (self.y * self.y) + (self.z * self.z)) / 3);
+        self.RSS = sqrt((self.x * self.x) + (self.y * self.y) + (self.z * self.z));
     }
     return self;
 }
@@ -63,6 +65,29 @@
 - (NSString *)csvRepresentation
 {
     return [NSString stringWithFormat:@"%f,%f,%f,%f\n", self.timestamp.timeIntervalSince1970, self.x, self.y, self.z];
+}
+
+@end
+
+
+@interface MBLCorrectedAccelerometerData()
+@property (nonatomic) MBLCalibrationAccuracy accuracy;
+@end
+
+@implementation MBLCorrectedAccelerometerData
+
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z accuracy:(MBLCalibrationAccuracy)accuracy timestamp:(NSDate *)timestamp
+{
+    self = [super initWithX:x y:y z:z timestamp:timestamp];
+    if (self) {
+        self.accuracy = accuracy;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %f,%f,%f", MBLCalibrationAccuracyString(self.accuracy), self.x, self.y, self.z];
 }
 
 @end

@@ -39,7 +39,7 @@
 #import "MBLI2CData+Private.h"
 #import "MBLSPIData+Private.h"
 #import "MBLMetaWearManager+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 
 @interface MBLSerial ()

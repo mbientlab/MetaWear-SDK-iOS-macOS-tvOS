@@ -122,6 +122,11 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
             repXY = 47;
             repZ = 83;
             break;
+        case MBLMagnetometerBMM150PresetSensorFusion25:
+            sampleFrequency = MBLMagnetometerBMM150SampleFrequency25Hz;
+            repXY = 9;
+            repZ = 15;
+            break;
     }
     
     uint8_t data[] = { (repXY - 1) / 2 , (repZ - 1) };

@@ -69,7 +69,8 @@ typedef NS_ENUM(uint8_t, MBLFirmwareVersion) {
     MBLFirmwareVersion1_2_2,
     MBLFirmwareVersion1_2_3,
     MBLFirmwareVersion1_2_4,
-    MBLFirmwareVersion1_2_5
+    MBLFirmwareVersion1_2_5,
+    MBLFirmwareVersion1_3_0
 };
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version);
 
@@ -102,6 +103,17 @@ typedef NS_ENUM(uint8_t, MBLLogLevel) {
     MBLLogLevelInfo = 3,
     MBLLogLevelDebug = 4
 };
+
+/**
+ Rating of Sensor Fusion calibration status for data samples
+ */
+typedef NS_ENUM(uint8_t, MBLCalibrationAccuracy) {
+    MBLCalibrationAccuracyUnreliable = 0,
+    MBLCalibrationAccuracyLow = 1,
+    MBLCalibrationAccuracyMedium = 2,
+    MBLCalibrationAccuracyHigh = 3
+};
+NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy);
 
 #pragma mark - Block Typedefs
 
@@ -161,7 +173,7 @@ extern NSInteger const kMBLErrorConnectionTimeout;
 extern NSInteger const kMBLErrorWrongFirmwareModelNumber;
 
 /*! @abstract 109: Couldn't perform DFU, no valid firmware releases found */
-extern NSInteger const kMBLErrorNoAvaliableFirmware;
+extern NSInteger const kMBLErrorNoAvailableFirmware;
 
 /*! @abstract 110: MetaWear not connected, can't perform operation */
 extern NSInteger const kMBLErrorNotConnected;

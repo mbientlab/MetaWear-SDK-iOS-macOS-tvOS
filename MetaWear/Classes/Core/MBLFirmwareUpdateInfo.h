@@ -37,6 +37,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Container for all the objects needed in order to begin a DFU with the Nordic DFU library
+ */
 @interface MBLFirmwareUpdateInfo : NSObject
 
 - (instancetype)initWithFirmwareUrl:(NSURL *)firmwareUrl

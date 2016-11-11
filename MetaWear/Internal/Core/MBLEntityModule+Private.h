@@ -39,7 +39,7 @@
 #import "MBLModule+Private.h"
 #import "MBLRegister+Private.h"
 #import "MBLEntityEvent+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

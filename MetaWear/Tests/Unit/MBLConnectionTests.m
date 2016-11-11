@@ -35,13 +35,7 @@
 
 #import <XCTest/XCTest.h>
 #import <CoreData/CoreData.h>
-#if TARGET_OS_IOS
-#import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
-#elif TARGET_OS_TV
-#import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
-#else
-#import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-#endif
+#import "MetaWearSyntaxFriendly.h"
 
 @interface MBLConnectionTests : XCTestCase
 @property (nonatomic) MBLMetaWear *device;
@@ -61,7 +55,7 @@
     MBLSetUseMockManager(YES);
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
-        [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+        [[MBLMetaWearManager sharedManager] stopScan];
         self.device = [array firstObject];
         assert(self.device);
         self.central = (MBLBluetoothCentralMock *)[MBLMetaWearManager sharedManager].centralManager;
@@ -230,6 +224,20 @@
     [self waitForExpectationsWithTimeout:5 handler:nil];
     
     self.peripheral.keyRegister = tmp;
+}
+
+- (void)testConnectionWithRetry
+{
+    self.peripheral.failServiceDiscoveryOnce = YES;
+    
+    XCTestExpectation *connect1 = [self expectationWithDescription:@"wait for device1"];
+    [[[self.device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
+        [connect1 fulfill];
+    }] failure:^(NSError * _Nonnull error) {
+        XCTAssertNil(error);
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 @end

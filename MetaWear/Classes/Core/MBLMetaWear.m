@@ -45,7 +45,7 @@
 #import "MBLNumericData+Private.h"
 #import "FastCoder.h"
 #import "BFTask+MBLExtensions.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 #import "MBLMechanicalSwitch.h"
 #import "MBLAccelerometer+Private.h"
@@ -70,6 +70,7 @@
 #import "MBLHygrometer.h"
 #import "MBLPhotometer+Private.h"
 #import "MBLProximity+Private.h"
+#import "MBLSensorFusion+Private.h"
 #import "MBLSettings+Private.h"
 #import "MBLDispatchQueue.h"
 #import <objc/runtime.h>
@@ -77,7 +78,7 @@
 #import "MBLConstants+Private.h"
 #import "MBLLogger.h"
 
-static int MAX_PENDING_WRITES = 25;
+static int MAX_PENDING_WRITES = 10;
 
 typedef void (^MBLModuleInfoErrorHandler)(MBLModuleInfo *moduleInfo, NSError *error);
 typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
@@ -103,6 +104,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic, nullable) MBLHygrometer *hygrometer;
 @property (nonatomic, nullable) MBLPhotometer *photometer;
 @property (nonatomic, nullable) MBLProximity *proximity;
+@property (nonatomic, nullable) MBLSensorFusion *sensorFusion;
 @property (nonatomic, nullable) MBLSettings *settings;
 @property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
@@ -151,6 +153,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     int characteristicCount;
     int serviceCount;
     int connectionRetryCount;
+    BOOL setupRequestedDisconnect;
 
     MBLSimulationHandler simulatorHandler;
     MBLDataHandler snifferHandler;
@@ -354,6 +357,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         self.hygrometer = nil;
         self.photometer = nil;
         self.proximity = nil;
+        self.sensorFusion = nil;
         self.testDebug = nil;
         
         self.configuration = nil;
@@ -484,6 +488,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 self.proximity = [MBLProximity objectWithDevice:self moduleInfo:moduleInfo];
             }
         }]];
+        [tasks addObject:[[self readModuleInfo:0x19] successOnMetaWear:^(MBLModuleInfo *moduleInfo) {
+            if (moduleInfo) {
+                self.sensorFusion = [MBLSensorFusion objectWithDevice:self moduleInfo:moduleInfo];
+            }
+        }]];
         [tasks addObject:[[self readModuleInfo:0xFE] successOnMetaWear:^(MBLModuleInfo *moduleInfo) {
             if (moduleInfo) {
                 self.testDebug = [MBLTestDebug objectWithDevice:self moduleInfo:moduleInfo];
@@ -517,7 +526,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                          self.magnetometer ? self.magnetometer : [NSNull null],
                          self.hygrometer ? self.hygrometer : [NSNull null],
                          self.photometer ? self.photometer : [NSNull null],
-                         self.proximity ? self.proximity : [NSNull null]];
+                         self.proximity ? self.proximity : [NSNull null],
+                         self.sensorFusion ? self.sensorFusion : [NSNull null]];
         
         // Save this as the reset state of the device
         // Do this on the bleQueue so that we don't process events while the save state is happening
@@ -557,6 +567,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     self.hygrometer = other.hygrometer;
     self.photometer = other.photometer;
     self.proximity = other.proximity;
+    self.sensorFusion = other.sensorFusion;
     
     self.testDebug = other.testDebug;
     
@@ -898,28 +909,31 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         return [self synchronizeAsync];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
         // Make sure all the connection handlers are flushed out
-        NSError *connectionError = error;
-        switch (prevState) {
-            case MBLConnectionStateConnecting:
-            case MBLConnectionStateDiscovery:
-                if (!connectionError) {
-                    connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                          code:kMBLErrorUnexpectedDisconnect
-                                                      userInfo:@{NSLocalizedDescriptionKey : @"Unexpected disconnect during connection.  Please try connection again."}];
-                }
-                [self connectionCompleteWithError:connectionError];
-                break;
-            case MBLConnectionStateDisconnecting:
-                if (!connectionError) {
-                    connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                          code:kMBLErrorDisconnectRequested
-                                                      userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
-                }
-                [self invokeConnectionHandlers:connectionError];
-                break;
-            default:
-                break;
+        if (!setupRequestedDisconnect) {
+            NSError *connectionError = error;
+            switch (prevState) {
+                case MBLConnectionStateConnecting:
+                case MBLConnectionStateDiscovery:
+                    if (!connectionError) {
+                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
+                                                              code:kMBLErrorUnexpectedDisconnect
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Unexpected disconnect during connection.  Please try connection again."}];
+                    }
+                    [self connectionCompleteWithError:connectionError];
+                    break;
+                case MBLConnectionStateDisconnecting:
+                    if (!connectionError) {
+                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
+                                                              code:kMBLErrorDisconnectRequested
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
+                    }
+                    [self invokeConnectionHandlers:connectionError];
+                    break;
+                default:
+                    break;
+            }
         }
+        setupRequestedDisconnect = NO;
         
         // And flush out all the disconnection handlers
         [self invokeDisconnectionHandlers:error];
@@ -1280,6 +1294,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                   [MBLConstants DISFirmwareRevUUID],
                                                   [MBLConstants DISModelNumberUUID]] forService:service];
         } else if ([service.UUID isEqual:[MBLConstants DFUServiceUUID]]) {
+            connectionRetryCount = 0;
             [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                                   code:kMBLErrorDFUServiceFound
                                                               userInfo:@{NSLocalizedDescriptionKey : @"MetaWear device in bootloader mode.  Please update the firmware using prepareForFirmwareUpdateWithHandler:."}]];
@@ -1611,6 +1626,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)connectionCompleteWithError:(NSError *)error
 {
     if (error) {
+        setupRequestedDisconnect = YES;
         [[self disconnectAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
             if (![self retryConnectionIfAllowed]) {
                 [[MBLAnalytics sharedManager] postEventForDevice:self.identifier

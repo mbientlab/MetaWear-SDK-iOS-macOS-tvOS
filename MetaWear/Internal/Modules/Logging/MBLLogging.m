@@ -48,7 +48,7 @@
 #import "MBLMetaWearManager+Private.h"
 #import <libkern/OSAtomic.h>
 #import <CoreData/CoreData.h>
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLLogger.h"
 
 
@@ -157,7 +157,7 @@ typedef struct __attribute__((packed)) {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
         [self sharedInit];
-
+        
         uint8_t triggerCount = 8; // This was the old default
         if (moduleInfo.moduleData.length) {
             triggerCount = *(uint8_t *)moduleInfo.moduleData.bytes;
@@ -176,6 +176,7 @@ typedef struct __attribute__((packed)) {
         }
         self.lastTimestamp = 0;
         self.lastResetId = 0xFF;
+        self.remainingTriggers = triggerCount;
         
         self.globalEnable = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.addLogTrigger = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:4]];
@@ -203,7 +204,12 @@ typedef struct __attribute__((packed)) {
 {
     return [[[self initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         assert(!event.loggingIds.count);
-        
+        if (self.remainingTriggers < ceil((double)event.format.length / 4.0)) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorInsufficientMemory
+                                             userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"MetaWear out of memory, can't perform action.  Reset the MetaWear and use no more than %d log entries", self.triggers.count]}];
+            return [BFTask taskWithError:error];
+        }
         BFTask *head = [BFTask taskWithResult:nil];
         for (int length = event.format.length, offset = event.format.offset; length > 0; length -= 4, offset += 4) {
             mw_log_trigger_t params = {0};
@@ -218,6 +224,7 @@ typedef struct __attribute__((packed)) {
             }
             
             NSData *paramData = [NSData dataWithBytes:&params length:sizeof(mw_log_trigger_t)];
+            self.remainingTriggers--;
             head = [[head continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [self.addLogTrigger writeDataAsync:paramData];
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -240,6 +247,7 @@ typedef struct __attribute__((packed)) {
         BFTask *head = [BFTask taskWithResult:nil];
         for (NSNumber *curId in event.loggingIds) {
             head = [head continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                self.remainingTriggers++;
                 self.triggers[curId.charValue] = [NSNull null];
                 return [self.removeLogTrigger writeByteAsync:curId.charValue];
             }];
@@ -375,6 +383,11 @@ typedef struct __attribute__((packed)) {
         for (int i = 0; i < self.device.nonVolatileState.logStartingDates.count; i++) {
             self.device.nonVolatileState.logStartingDates[i] = [NSNull null];
         }
+        // Remove all stale junk
+        for (int i = 0; i < self.triggers.count; i++) {
+            self.triggers[i] = [NSNull null];
+        }
+        self.remainingTriggers = self.triggers.count;
         return nil;
     }];
 }
@@ -526,7 +539,7 @@ typedef struct __attribute__((packed)) {
                     isDownloading = NO;
                 }
             }
-        });        
+        });
     }
 }
 
@@ -613,7 +626,7 @@ typedef struct __attribute__((packed)) {
         date = [NSDate dateWithTimeIntervalSince1970:0];
         self.device.nonVolatileState.logStartingDates[resetId] = date;
     }
-
+    
     // If we roll over, then advance the starting date
     if (entryTs < self.lastTimestamp) {
         MBLLog(MBLLogLevelInfo, @"***Timestamp Rolling Over***");
@@ -782,7 +795,7 @@ typedef struct __attribute__((packed)) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _managedObjectModel = [[NSManagedObjectModel alloc] init];
-
+        
         // create the entity
         NSEntityDescription *rawLogEntity = [[NSEntityDescription alloc] init];
         rawLogEntity.name = @"MBLRawLogEntry";

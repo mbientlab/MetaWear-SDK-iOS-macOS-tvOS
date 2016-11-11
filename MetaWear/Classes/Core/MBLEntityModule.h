@@ -35,6 +35,9 @@
 
 #import <MetaWear/MBLModule.h>
 
+/**
+ Base class for modules that need a entries allocated on the MetaWear in order to function
+ */
 @interface MBLEntityModule : MBLModule
 
 @end

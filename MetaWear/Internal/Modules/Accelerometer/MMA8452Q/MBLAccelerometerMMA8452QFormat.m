@@ -44,7 +44,7 @@
 
 - (instancetype)initWithPacked:(BOOL)packed
 {
-    self = [super initArrayWithLength:packed ? 18 : 6 elements:3];
+    self = [super initArrayWithLength:packed ? 18 : 6];
     if (self) {
         self.packed = packed;
     }

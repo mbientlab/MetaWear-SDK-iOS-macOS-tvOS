@@ -34,6 +34,7 @@
  */
 
 #import <MetaWear/MBLDataSample.h>
+#import <MetaWear/MBLConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,6 +64,19 @@ NS_ASSUME_NONNULL_BEGIN
  the tips of the other four fingers.
  */
 @property (nonatomic, readonly) double z;
+
+@end
+
+
+/**
+ Container for a single gyroscope reading corrected using
+ Sensor Fusion algorithims
+ */
+@interface MBLCorrectedGyroData : MBLGyroData
+/**
+ Rating of calibration status for this data sample
+ */
+@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
 
 @end
 

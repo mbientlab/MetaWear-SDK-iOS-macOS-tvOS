@@ -1,9 +1,9 @@
 /**
- * BFTask+Private.h
+ * MBLQuaternionData.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 12/3/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 11/8/16.
+ * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,38 +33,21 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <Foundation/Foundation.h>
-
-#import <Bolts/BFExecutor.h>
-#import <Bolts/BFTask.h>
+#import <MetaWear/MBLDataSample.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BFExecutor (MBLPrivate)
-
-+ (instancetype)metaWearExecutor;
-+ (instancetype)simulatorExecutor;
-
+/**
+ Container for quaternion data
+ */
+@interface MBLQuaternionData : MBLDataSample
+/**
+ TODO
+ */
+@property (nonatomic, readonly) double w;
+@property (nonatomic, readonly) double x;
+@property (nonatomic, readonly) double y;
+@property (nonatomic, readonly) double z;
 @end
-
-
-@interface BFTask<__covariant ResultType> (MBLPrivate)
-
-typedef void (^MBLPrivateSuccessBlock)(ResultType result);
-typedef void (^MBLPrivateErrorBlock)(NSError *error);
-
-- (instancetype)successOnMetaWear:(MBLPrivateSuccessBlock)block;
-- (instancetype)failureOnMetaWear:(MBLPrivateErrorBlock)block;
-
-- (instancetype)continueOnMetaWearWithSuccessBlock:(BFContinuationBlock)block;
-- (instancetype)continueOnMetaWearWithBlock:(BFContinuationBlock)block;
-
-+ (instancetype)taskFromMetaWearWithBlock:(id (^)())block;
-+ (instancetype)taskFromSimulatorWithBlock:(id (^)())block;
-
-@end
-
-
-extern void MBLForceLoadCategory_BFTask_Private();
 
 NS_ASSUME_NONNULL_END

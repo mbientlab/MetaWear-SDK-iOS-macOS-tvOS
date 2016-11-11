@@ -52,6 +52,7 @@ typedef void (^MBLBuzzerHandler)(uint8_t dutyCycle, uint16_t pulseWidth);
 @property (nonatomic) double discoverServicesWaitTime;
 @property (nonatomic) uint32_t keyRegister;
 @property (nonatomic) BOOL isMetaBoot;
+@property (nonatomic) BOOL failServiceDiscoveryOnce;
 - (void)resetKnobs;
 
 // In order to check that the peripherals are working you can watch them

@@ -1,8 +1,8 @@
 /**
- * DeviceLookup.h
- * MetaWearTests
+ * MBLQuaternionData.m
+ * MetaWear
  *
- * Created by Stephen Schiffli on 3/22/16.
+ * Created by Stephen Schiffli on 11/8/16.
  * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -33,22 +33,38 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <Foundation/Foundation.h>
-#if TARGET_OS_IOS
-#import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
-@import iOSDFULibrary;
-#elif TARGET_OS_TV
-#import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
-#else
-#import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-@import iOSDFULibrary;
-#endif
+#import "MBLQuaternionData+Private.h"
+#import "MBLDataSample+Private.h"
 
-@interface DeviceLookup : NSObject
+@interface MBLQuaternionData ()
+@property (nonatomic) double w;
+@property (nonatomic) double x;
+@property (nonatomic) double y;
+@property (nonatomic) double z;
+@end
 
-+ (NSString *)metawearModelString;
-+ (MBLModel)metawearModel;
-+ (NSString *)metawearUid;
-+ (BFTask<MBLMetaWear *> *)deviceForTestWithTimeout:(NSTimeInterval)timeout;
+@implementation MBLQuaternionData
+
+- (instancetype)initWithW:(double)w x:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp
+{
+    self = [super initWithTimestamp:timestamp];
+    if (self) {
+        self.w = w;
+        self.x = x;
+        self.y = y;
+        self.z = z;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %f,%f,%f,%f", [super description], self.w, self.x, self.y, self.z];
+}
+
+- (NSString *)csvRepresentation
+{
+    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f\n", self.timestamp.timeIntervalSince1970, self.w, self.x, self.y, self.z];
+}
 
 @end

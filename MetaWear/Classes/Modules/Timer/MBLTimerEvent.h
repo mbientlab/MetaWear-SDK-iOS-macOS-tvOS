@@ -37,6 +37,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Periodic timer based event
+ */
 @interface MBLTimerEvent<ResultType> : MBLEntityEvent<ResultType>
 
 /**

@@ -47,19 +47,10 @@ static const int secondsToConnect = 20;
     // Put setup code here. This method is called before the invocation of each test method in the class.
     XCTestExpectation *connectDeviceExpectation = [self expectationWithDescription:@"connect to device"];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
-    [[[[[[DeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+    [[[[MBLDeviceLookup deviceForTestWithTimeout:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
         self.device = t.result;
         assert(self.device);
-        return [self.device connectWithTimeoutAsync:secondsToConnect];
-    }] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
-        // Reboot if device is programmed elsewhere since we can't be sure of its current state
-        if (self.device.programedByOtherApp || forceClearAtStart) {
-            NSLog(@"Taking ownership of device");
-            return [self.device setConfigurationAsync:nil];
-        }
-        return nil;
-    }] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
-        return [self.device connectWithTimeoutAsync:secondsToConnect];
+        return [MBLDeviceLookup connectDevice:self.device timeout:secondsToConnect forceClear:forceClearAtStart];
     }] success:^(id result) {
         if ([self.device.ambientLight isKindOfClass:[MBLAmbientLightLTR329 class]]) {
             self.i2cDevice = 0x29;
@@ -82,7 +73,7 @@ static const int secondsToConnect = 20;
         } else {
             self.i2cDevice = 0;
         }
-        self.model = [DeviceLookup metawearModel];
+        self.model = [MBLDeviceLookup metawearModel];
         self.disconnectAtEnd = YES;
         [connectDeviceExpectation fulfill];
     }] failure:^(NSError * _Nonnull error) {
@@ -305,6 +296,14 @@ static const int secondsToConnect = 20;
     }
     assert(NO && "new accelerometer?");
     return 0;
+}
+
+- (void)sendData:(NSArray *)data
+{
+    for (NSString *byteArray in data) {
+        NSData *toSend = [MBLMockUtils dataFromString:byteArray];
+        [self.device writeCommandRegister:toSend withResponse:NO];
+    }
 }
 
 @end

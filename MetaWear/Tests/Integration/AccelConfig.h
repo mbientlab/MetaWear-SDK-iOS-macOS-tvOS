@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "DeviceLookup.h"
+#import "MetaWearSyntaxFriendly.h"
 
 /*
  Config that averages a big chunk of samples

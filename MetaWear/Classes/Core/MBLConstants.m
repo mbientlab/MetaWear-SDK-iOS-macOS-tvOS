@@ -36,7 +36,7 @@
 #import "MBLConstants.h"
 #import "MBLConstants+Private.h"
 
-NSString *const kMBLAPIVersion = @"2.7.3";
+NSString *const kMBLAPIVersion = @"2.8.0";
 
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
 {
@@ -67,6 +67,22 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
             return @"1.2.4";
         case MBLFirmwareVersion1_2_5:
             return @"1.2.5";
+        case MBLFirmwareVersion1_3_0:
+            return @"1.3.0";
+    }
+}
+
+NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy)
+{
+    switch (accuracy) {
+        case MBLCalibrationAccuracyUnreliable:
+            return @"Unreliable";
+        case MBLCalibrationAccuracyLow:
+            return @"Low";
+        case MBLCalibrationAccuracyMedium:
+            return @"Medium";
+        case MBLCalibrationAccuracyHigh:
+            return @"High";
     }
 }
 
@@ -83,7 +99,7 @@ NSInteger const kMBLErrorOutdatedFirmware = 105;
 NSInteger const kMBLErrorUnexpectedDisconnect = 106;
 NSInteger const kMBLErrorConnectionTimeout = 107;
 NSInteger const kMBLErrorWrongFirmwareModelNumber = 108;
-NSInteger const kMBLErrorNoAvaliableFirmware = 109;
+NSInteger const kMBLErrorNoAvailableFirmware = 109;
 NSInteger const kMBLErrorNotConnected = 110;
 NSInteger const kMBLErrorInsufficientMemory = 111;
 NSInteger const kMBLErrorOperationInvalid = 112;

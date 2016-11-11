@@ -34,7 +34,7 @@
  */
 
 #import "BFTask+MBLExtensions.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "MBLMetaWearManager+Private.h"
 
 @implementation BFExecutor (MBLExtensions)
@@ -56,7 +56,7 @@
 
 @implementation BFTask (MBLExtensions)
 
-- (instancetype)success:(MBLSuccessBlock)block
+- (BFTask *)success:(MBLSuccessBlock)block
 {
     return [self continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         // We need to send a non-null response but some tasks don't
@@ -66,7 +66,7 @@
     }];
 }
 
-- (instancetype)failure:(MBLErrorBlock)block
+- (BFTask *)failure:(MBLErrorBlock)block
 {
     return [self continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         if (task.error) {
@@ -76,12 +76,12 @@
     }];
 }
 
-- (instancetype)continueOnDispatchWithSuccessBlock:(BFContinuationBlock)block
+- (BFTask *)continueOnDispatchWithSuccessBlock:(MBLExtensionsContinuationBlock)block
 {
     return [self continueWithExecutor:[BFExecutor dispatchExecutor] withSuccessBlock:block];
 }
 
-- (instancetype)continueOnDispatchWithBlock:(BFContinuationBlock)block
+- (BFTask *)continueOnDispatchWithBlock:(MBLExtensionsContinuationBlock)block
 {
     return [self continueWithExecutor:[BFExecutor dispatchExecutor] withBlock:block];
 }
@@ -93,4 +93,3 @@ void MBLForceLoadCategory_BFTask_MBLExtensions()
     NSString *string = nil;
     [string description];
 }
-

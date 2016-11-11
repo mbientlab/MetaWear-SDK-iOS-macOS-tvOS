@@ -35,7 +35,7 @@
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import "DeviceLookup.h"
+#import "MetaWearSyntaxFriendly.h"
 
 @interface MetaWearTest : XCTestCase
 @property (nonatomic) MBLMetaWear *device;
@@ -55,5 +55,6 @@
 - (void)eventConcurrencyTest:(MBLEvent *)event time:(float)time;
 
 - (double)accelerometerFrequencyNear:(double)frequency;
+- (void)sendData:(NSArray *)data;
 
 @end

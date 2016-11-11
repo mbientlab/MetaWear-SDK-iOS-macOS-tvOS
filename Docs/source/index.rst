@@ -52,3 +52,4 @@ If you are not developing for the Apple ecosystem, we also offer an `Android API
     timer
     serial
     filters
+    sensor_fusion

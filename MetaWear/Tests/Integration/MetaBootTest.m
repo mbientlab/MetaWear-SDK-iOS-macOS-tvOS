@@ -35,7 +35,7 @@
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import "DeviceLookup.h"
+#import "MetaWearSyntaxFriendly.h"
 
 static const int secondsToFind = 20;
 
@@ -55,12 +55,12 @@ static const int secondsToFind = 20;
     
     XCTestExpectation *findDeviceExpectation = [self expectationWithDescription:@"searching for device"];
     
-    NSString *deviceUid = [DeviceLookup metawearUid];
+    NSString *deviceUid = [MBLDeviceLookup metawearUid];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
-                [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+                [[MBLMetaWearManager sharedManager] stopScan];
                 self.device = cur;
                 [findDeviceExpectation fulfill];
             }

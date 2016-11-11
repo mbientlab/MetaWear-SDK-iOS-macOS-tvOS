@@ -35,7 +35,7 @@
 
 
 #import "MBLCategoryLoader.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 #import "BFTask+MBLExtensions.h"
 #import "FastCoder.h"
 

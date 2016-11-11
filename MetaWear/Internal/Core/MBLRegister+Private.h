@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) uint8_t index;
 @property (nonatomic) MBLFormat *format;
 
+@property (nonatomic) int16_t initializeCount;
+@property (nonatomic) int16_t activateCount;
+
 // State Accessors
 @property (nonatomic) BOOL needsResponse;
 @property (nonatomic) BOOL writeResponds;
@@ -60,7 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format;
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format;
 
-- (BFTask *)readAsync;
+// readAsync here conflicts with the paramerized type readAsync on MBLData
+- (BFTask *)readAsync NS_SWIFT_NAME(readRegisterAsync());
 - (BFTask *)readForcedIndexAsync:(uint8_t)index;
 - (BFTask *)localReadAsync;
 - (nullable NSData *)readParameters;
@@ -71,10 +75,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addNotificationWithExecutor:(BFExecutor *)executor handler:(MBLObjectHandler)handler;
 - (void)removeNotificationHandlers;
 
-- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler;
-- (BFTask *)startNotificationsWithExecutorAsync:(BFExecutor *)executor withHandler:(nullable MBLObjectHandler)handler;
-- (BFTask *)stopNotificationsAsync;
-
+// conflicts with the paramerized types on MBLEvent
+- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(handler:));
+- (BFTask *)startNotificationsWithExecutorAsync:(BFExecutor *)executor withHandler:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(executor:handler:));
+- (BFTask *)stopNotificationsAsync NS_SWIFT_NAME(stopRegisterNotificationsAsync());
 
 - (void)recievedData:(nullable NSData *)data error:(nullable NSError *)error;
 - (void)deviceDisconnected:(nullable NSError *)error;

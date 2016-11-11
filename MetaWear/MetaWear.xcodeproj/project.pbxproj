@@ -34,7 +34,6 @@
 		400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
 		400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
 		400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
-		4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */; };
 		403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */ = {isa = PBXBuildFile; fileRef = 403708581DBFD5FF003BF743 /* gen_api_reference.sh */; };
 		403BF7731D9E348000B22B82 /* DFUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 403BF7721D9E342800B22B82 /* DFUTests.m */; };
 		40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
@@ -46,7 +45,6 @@
 		40703EE01D94C3EB00F38FF0 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
-		40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */; };
 		40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
@@ -55,7 +53,6 @@
 		4078203B1D9DD64E00FF5134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40781F911D9DD1C400FF5134 /* Main.storyboard */; };
 		4078203C1D9DD65400FF5134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40781F941D9DD1C400FF5134 /* main.m */; };
 		4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4078203D1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist */; };
-		4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */; };
@@ -71,12 +68,12 @@
 		40915FF91D94D4BB008A5F24 /* ButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */; };
 		40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
-		409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */; };
 		409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
 		40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
 		40CBC89A1D9B7D630078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
+		40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */; };
 		40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
 		40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40F4C1B71DAF3EB900DAD8F6 /* MBLAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */; };
@@ -129,7 +126,6 @@
 		400655C51D9A1DF30066AB54 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLConnectionTests.m; sourceTree = "<group>"; };
 		400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLMetaWearTests.m; sourceTree = "<group>"; };
-		4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MetaWearPrivate.podspec; sourceTree = "<group>"; };
 		402B7E191DADA6B1005F81D3 /* accelerometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometer.rst; sourceTree = "<group>"; };
 		402B7E1A1DADA6B1005F81D3 /* accelerometerbmi160.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometerbmi160.rst; sourceTree = "<group>"; };
 		402B7E1B1DADA6B1005F81D3 /* accelerometermma8452q.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometermma8452q.rst; sourceTree = "<group>"; };
@@ -162,6 +158,7 @@
 		402B7E361DADA6B1005F81D3 /* timer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timer.rst; sourceTree = "<group>"; };
 		403708581DBFD5FF003BF743 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = gen_api_reference.sh; path = ../gen_api_reference.sh; sourceTree = "<group>"; };
 		403BF7721D9E342800B22B82 /* DFUTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFUTests.m; sourceTree = "<group>"; };
+		4061029B1DD5343900F10575 /* sensor_fusion.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sensor_fusion.rst; sourceTree = "<group>"; };
 		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40703E0A1D94AE3500F38FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../MetaWearUnitTests-iOS/Info.plist"; sourceTree = "<group>"; };
 		40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLAutomaticTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -191,8 +188,6 @@
 		40703EB81D94C3C100F38FF0 /* BMI160Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BMI160Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EB91D94C3C100F38FF0 /* ButtonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonConfig.h; sourceTree = "<group>"; };
 		40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonConfig.m; sourceTree = "<group>"; };
-		40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLookup.h; sourceTree = "<group>"; };
-		40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLookup.m; sourceTree = "<group>"; };
 		40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingEventConfig.h; sourceTree = "<group>"; };
 		40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingEventConfig.m; sourceTree = "<group>"; };
 		40703EC01D94C3C100F38FF0 /* MetaBootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaBootTest.m; sourceTree = "<group>"; };
@@ -202,6 +197,8 @@
 		40703EC41D94C3C100F38FF0 /* SendBytesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SendBytesTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EC71D94C3C100F38FF0 /* TempLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempLoggerConfiguration.h; sourceTree = "<group>"; };
 		40703EC81D94C3C100F38FF0 /* TempLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempLoggerConfiguration.m; sourceTree = "<group>"; };
+		407085211DCA555E00AAEB33 /* MetaWearSyntaxFriendly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearSyntaxFriendly.h; sourceTree = "<group>"; };
+		407085221DCA55C200AAEB33 /* MetaWearSyntaxFriendly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearSyntaxFriendly.h; sourceTree = "<group>"; };
 		40781F8D1D9DD1C400FF5134 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40781F8E1D9DD1C400FF5134 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		40781F921D9DD1C400FF5134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -222,6 +219,7 @@
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
 		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
+		40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MetaWearPrivate.podspec; path = ../MetaWearPrivate.podspec; sourceTree = "<group>"; };
 		484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -354,6 +352,7 @@
 				402B7E251DADA6B1005F81D3 /* gpio.rst */,
 				402B7E261DADA6B1005F81D3 /* gyro.rst */,
 				402B7E271DADA6B1005F81D3 /* gyrobmi160.rst */,
+				4061029B1DD5343900F10575 /* sensor_fusion.rst */,
 				402B7E281DADA6B1005F81D3 /* haptic.rst */,
 				402B7E291DADA6B1005F81D3 /* ibeacon.rst */,
 				402B7E2A1DADA6B1005F81D3 /* index.rst */,
@@ -377,6 +376,7 @@
 		40703E0E1D94AE5000F38FF0 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				407085221DCA55C200AAEB33 /* MetaWearSyntaxFriendly.h */,
 				40703E131D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.h */,
 				40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */,
 				400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */,
@@ -438,10 +438,9 @@
 		40703EB01D94C3C100F38FF0 /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				407085211DCA555E00AAEB33 /* MetaWearSyntaxFriendly.h */,
 				400655BA1D9A0D920066AB54 /* AdvancedSetups */,
 				40915FC01D94D1E6008A5F24 /* DeviceConfigurations */,
-				40703EBB1D94C3C100F38FF0 /* DeviceLookup.h */,
-				40703EBC1D94C3C100F38FF0 /* DeviceLookup.m */,
 				40703EC11D94C3C100F38FF0 /* MetaWearTest.h */,
 				40703EC21D94C3C100F38FF0 /* MetaWearTest.m */,
 				400655C01D9A0E090066AB54 /* EnablingTests.m */,
@@ -577,7 +576,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				4006E3511DB932E8000B5DF4 /* MetaWearPrivate.podspec */,
+				40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */,
 				2E06F9C64AEA806D32581A30 /* MetaWear.podspec */,
 				C4639C9104CACAD62933611C /* README.md */,
 				56D26D2541DE09EA81DA4175 /* LICENSE */,
@@ -804,7 +803,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MBL;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40703E051D94AE3500F38FF0 = {
@@ -821,6 +820,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					40703EA51D94C37500F38FF0 = {
 						CreatedOnToolsVersion = 8.0;
@@ -837,6 +841,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.appletvos = {
+								enabled = 0;
+							};
+						};
 					};
 					4078202C1D9DD60500FF5134 = {
 						CreatedOnToolsVersion = 8.0;
@@ -888,9 +897,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4006E3521DB932E8000B5DF4 /* MetaWearPrivate.podspec in Resources */,
 				403708591DBFD5FF003BF743 /* gen_api_reference.sh in Resources */,
 				4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */,
+				40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1418,7 +1427,6 @@
 				40703EF01D94C3EB00F38FF0 /* TempLoggerConfiguration.m in Sources */,
 				400655B81D9A0C510066AB54 /* SendBytesTest.m in Sources */,
 				400655AB1D99FD4A0066AB54 /* MMA8452QTests.m in Sources */,
-				40703EE71D94C3EB00F38FF0 /* DeviceLookup.m in Sources */,
 				403BF7731D9E348000B22B82 /* DFUTests.m in Sources */,
 				40703EEB1D94C3EB00F38FF0 /* MetaWearTest.m in Sources */,
 				40703EE81D94C3EB00F38FF0 /* IncrementingEventConfig.m in Sources */,
@@ -1451,7 +1459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4078203F1D9DD6EB00FF5134 /* DeviceLookup.m in Sources */,
 				407820401D9DD7C000FF5134 /* MetaWearTest.m in Sources */,
 				407820421D9DD7DB00FF5134 /* TempLoggerConfiguration.m in Sources */,
 				407820411D9DD7C800FF5134 /* AutomaticTests.m in Sources */,
@@ -1489,7 +1496,6 @@
 				400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */,
 				40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */,
 				409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */,
-				409160011D94D4BB008A5F24 /* DeviceLookup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

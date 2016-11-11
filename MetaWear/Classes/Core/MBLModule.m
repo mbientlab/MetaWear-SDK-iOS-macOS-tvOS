@@ -38,7 +38,7 @@
 #import "MBLEvent+Private.h"
 #import "MBLFilter.h"
 #import "MBLConstants+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLModule ()
 @property (nonatomic, weak) MBLMetaWear *device;

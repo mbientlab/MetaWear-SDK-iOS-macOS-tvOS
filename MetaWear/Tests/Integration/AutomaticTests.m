@@ -240,6 +240,59 @@
             AssertModule(self.device.photometer, 0, 0);
             AssertNilModule(self.device.proximity);
             break;
+        case MBLModelMetaTracker:
+            AssertModule(self.device.mechanicalSwitch, 0, 0);
+            AssertModule(self.device.led, 0, 1);
+            AssertModule(self.device.accelerometer, 1, 1);
+            AssertModule(self.device.temperature, 1, 0);
+            AssertModule(self.device.gpio, 0, 2);
+            AssertModule(self.device.neopixel, 0, 0);
+            AssertModule(self.device.iBeacon, 0, 0);
+            AssertModule(self.device.hapticBuzzer, 0, 0);
+            AssertModule(self.device.dataProcessor, 0, 0);
+            AssertModule(self.device.command, 0, 0);
+            AssertModule(self.device.logging, 0, 2);
+            AssertModule(self.device.timer, 0, 0);
+            AssertModule(self.device.serial, 0, 1);
+            AssertNilModule(self.device.ancs);
+            AssertModule(self.device.macro, 0, 1);
+            AssertNilModule(self.device.conductance);
+            AssertModule(self.device.settings, 0, 4);
+            AssertModule(self.device.barometer, 1, 0);
+            AssertModule(self.device.gyro, 0, 1);
+            AssertModule(self.device.ambientLight, 0, 0);
+            AssertNilModule(self.device.magnetometer);
+            AssertModule(self.device.hygrometer, 0, 0);
+            AssertNilModule(self.device.photometer);
+            AssertNilModule(self.device.proximity);
+            break;
+        case MBLModelMetaMotionR:
+            AssertModule(self.device.mechanicalSwitch, 0, 0);
+            AssertModule(self.device.led, 0, 1);
+            AssertModule(self.device.accelerometer, 1, 1);
+            AssertModule(self.device.temperature, 1, 0);
+            AssertModule(self.device.gpio, 0, 2);
+            AssertModule(self.device.neopixel, 0, 0);
+            AssertModule(self.device.iBeacon, 0, 0);
+            AssertModule(self.device.hapticBuzzer, 0, 0);
+            AssertModule(self.device.dataProcessor, 0, 0);
+            AssertModule(self.device.command, 0, 0);
+            AssertModule(self.device.logging, 0, 2);
+            AssertModule(self.device.timer, 0, 0);
+            AssertModule(self.device.serial, 0, 1);
+            AssertNilModule(self.device.ancs);
+            AssertModule(self.device.macro, 0, 1);
+            AssertNilModule(self.device.conductance);
+            AssertModule(self.device.settings, 0, 4);
+            AssertModule(self.device.barometer, 0, 0);
+            AssertModule(self.device.gyro, 0, 1);
+            AssertModule(self.device.ambientLight, 0, 0);
+            AssertModule(self.device.magnetometer, 0, 1);
+            AssertNilModule(self.device.hygrometer);
+            AssertNilModule(self.device.photometer);
+            AssertNilModule(self.device.proximity);
+            AssertModule(self.device.sensorFusion, 0, 0);
+            break;
         default:
             XCTFail("Not enabeled");
             break;
@@ -1023,7 +1076,7 @@
                                 singleZero = YES;
                                 continue;
                             }
-                            XCTAssertEqualWithAccuracy(obj.value.floatValue, 35.0, 10.0);
+                            XCTAssertEqualWithAccuracy(obj.value.floatValue, 35.0, 20.0);
                         }
                         [waitingExpectation fulfill];
                     }];
@@ -1056,6 +1109,7 @@
         ((MBLBarometerBME280 *)barometer).standbyTime = MBLBarometerBME280Standby62_5;
     }
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
+    magnetometer.powerPreset = MBLMagnetometerBMM150PresetLowPower;
     self.device.gyro.sampleFrequency = 25;
     MBLAccelerometer *accelerometer = self.device.accelerometer;
     if ([accelerometer isKindOfClass:[MBLAccelerometerBMA255 class]]) {
@@ -1899,5 +1953,72 @@
     self.device.gyro.sampleFrequency = 400;
     [self eventUpdateTest:self.device.gyro.dataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
 };
+
+- (void)testSensorFusion
+{
+    CapabilityCheck(self.device.sensorFusion);
+
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"testSensorFusion"];
+    
+    self.device.sensorFusion.mode = MBLSensorFusionModeNDoF;
+    
+    int __block count = 0;
+    double sampleFrequency = 100.0;
+    [self.device.sensorFusion.gravity startNotificationsWithHandlerAsync:^(MBLAccelerometerData *obj, NSError *error) {
+        XCTAssertEqualWithAccuracy(obj.RSS, 1.0, 0.1);
+        count++;
+    }];
+    [self.device.sensorFusion.linearAcceleration startNotificationsWithHandlerAsync:^(MBLAccelerometerData *obj, NSError *error) {
+        XCTAssertLessThan(obj.RSS, 0.1);
+        count++;
+    }];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.device.sensorFusion.gravity stopNotificationsAsync];
+        // Check for 2 seconds worth of updates
+        XCTAssertEqualWithAccuracy(count, sampleFrequency * 2.0 * 2.0, sampleFrequency);
+        [waitingExpectation fulfill];
+    });
+    
+    [self waitForExpectationsWithTimeout:10 handler:nil];
+}
+
+- (void)testSensorFusionErrors
+{
+    CapabilityCheck(self.device.sensorFusion);
+    
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"testSensorFusion"];
+    
+    self.device.sensorFusion.mode = MBLSensorFusionModeM4G;
+    [[[[[[[self.device.sensorFusion.rotation startNotificationsWithHandlerAsync:^(MBLDataSample * _Nullable obj, NSError * _Nullable error) {
+        XCTFail("Shouldn't get any samples in invalid config");
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        return [self.device.sensorFusion.rotation stopNotificationsAsync];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        self.device.sensorFusion.mode = MBLSensorFusionModeCompass;
+        return [self.device.sensorFusion.rotation startNotificationsWithHandlerAsync:^(MBLDataSample * _Nullable obj, NSError * _Nullable error) {
+            XCTFail("Shouldn't get any samples in invalid config");
+        }];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        return [self.device.sensorFusion.rotation stopNotificationsAsync];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        self.device.sensorFusion.mode = MBLSensorFusionModeIMUPlus;
+        return [self.device.sensorFusion.magneticField startNotificationsWithHandlerAsync:^(MBLDataSample * _Nullable obj, NSError * _Nullable error) {
+            XCTFail("Shouldn't get any samples in invalid config");
+        }];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        return [self.device.sensorFusion.magneticField stopNotificationsAsync];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        XCTAssertNil(t.error);
+        [waitingExpectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:10 handler:nil];
+}
 
 @end

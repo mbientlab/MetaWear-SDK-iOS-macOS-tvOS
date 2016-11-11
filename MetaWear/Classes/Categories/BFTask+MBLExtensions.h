@@ -58,31 +58,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^MBLSuccessBlock)(ResultType result);
 typedef void (^MBLErrorBlock)(NSError *error);
+typedef __nullable id(^MBLExtensionsContinuationBlock)(BFTask<ResultType> *t);
 
 /**
- Add a block to be called if the task finishes successfully, complete with the 
+ Add a block to be called if the task finishes successfully, complete with the
  tasks result.  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)success:(MBLSuccessBlock)block;
+- (BFTask *)success:(MBLSuccessBlock)block;
 
 /**
  Add a block to be called if the task finishes with an error.
  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)failure:(MBLErrorBlock)block;
+- (BFTask *)failure:(MBLErrorBlock)block;
 
 
 /**
  Enqueues the given block to be run once this task completes successfully.
  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)continueOnDispatchWithSuccessBlock:(BFContinuationBlock)block;
+- (BFTask *)continueOnDispatchWithSuccessBlock:(MBLExtensionsContinuationBlock)block NS_SWIFT_NAME(continueOnDispatchWithSuccess(block:));
 
 /**
  Enqueues the given block to be run once this task completes.
  This callback will occur on the dispatchExecutor.
  */
-- (instancetype)continueOnDispatchWithBlock:(BFContinuationBlock)block;
+- (BFTask *)continueOnDispatchWithBlock:(MBLExtensionsContinuationBlock)block NS_SWIFT_NAME(continueOnDispatch(block:));
 
 @end
 

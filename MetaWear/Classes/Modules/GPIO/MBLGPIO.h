@@ -41,7 +41,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Interface to the general purprose input/output pins on the MetaWear.  This 
+ Interface to the general purprose input/output pins on the MetaWear.  This
  allows you to attach your own sensors or drive digitial devices.
  */
 @interface MBLGPIO : MBLModule
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  hardware spec sheet.
  @see MBLGPIOPin
  */
-@property (nonatomic, readonly) NSArray *pins;
+@property (nonatomic, readonly) NSArray<MBLGPIOPin *> *pins;
 
 @end
 

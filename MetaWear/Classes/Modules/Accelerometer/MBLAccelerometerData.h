@@ -34,6 +34,7 @@
  */
 
 #import <MetaWear/MBLDataSample.h>
+#import <MetaWear/MBLConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,6 +60,23 @@ NS_ASSUME_NONNULL_BEGIN
  RMS value of x, y, and z in G's
  */
 @property (nonatomic, readonly) double RMS;
+/**
+ RSS (vector magnitude) value of x, y, and z in G's
+ */
+@property (nonatomic, readonly) double RSS;
+
+@end
+
+
+/**
+ Container for a single accelerometer reading corrected using
+ Sensor Fusion algorithims
+ */
+@interface MBLCorrectedAccelerometerData : MBLAccelerometerData
+/**
+ Rating of calibration status for this data sample
+ */
+@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
 
 @end
 

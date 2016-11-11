@@ -40,7 +40,7 @@
 #import "MBLGPIO+Private.h"
 #import "MBLMetaWearManager+Private.h"
 #import "MBLMetaWear+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLGPIOData ()
 @property (nonatomic, weak) MBLGPIOPin *pin;

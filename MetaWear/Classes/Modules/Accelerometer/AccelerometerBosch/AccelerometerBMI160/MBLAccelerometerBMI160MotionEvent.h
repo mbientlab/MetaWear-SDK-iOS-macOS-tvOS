@@ -38,16 +38,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-@interface MBLAccelerometerBMI160MotionEvent : MBLEvent<MBLDataSample *>
-
-#pragma mark - Beta API (Subject to change)
-
 /**
  The BMI160 combines Slow/No-Motion and Any/Signification-Motion detection, so below
  we expose the raw registers as a first enabling step.  Over time this will become
  better encapsulated.
  */
+@interface MBLAccelerometerBMI160MotionEvent : MBLEvent<MBLDataSample *>
+
+#pragma mark - Beta API (Subject to change)
 
 #pragma mark - Slow-Motion/No-Motion
 /**

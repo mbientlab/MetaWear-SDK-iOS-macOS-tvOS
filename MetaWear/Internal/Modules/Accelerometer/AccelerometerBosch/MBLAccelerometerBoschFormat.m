@@ -41,7 +41,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer packed:(BOOL)packed
 {
-    self = [super initArrayWithLength:packed ? 18 : 6 elements:3];
+    self = [super initArrayWithLength:packed ? 18 : 6];
     if (self) {
         self.accelerometer = accelerometer;
         self.packed = packed;

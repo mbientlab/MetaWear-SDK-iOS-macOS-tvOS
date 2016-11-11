@@ -42,7 +42,7 @@
 #import "MBLNumericFormatter.h"
 #import "MBLDataSample.h"
 #import "MBLMetaWearManager+Private.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 static const uint8_t MW_ANCS_ATTRIBUTE_MATCH_SIZE = 14;
 

@@ -39,7 +39,7 @@
 #import "MBLAccelerometerMMA8452QFormat.h"
 #import "MBLNumericFormatter.h"
 #import "mma8452q.h"
-#import "BFTask+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLAccelerometerPackedDataReadyEvent ()
 @property (nonatomic) MBLRegister *dataEnable;
