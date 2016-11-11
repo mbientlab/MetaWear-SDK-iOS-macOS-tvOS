@@ -36,7 +36,7 @@
 #import "MBLConstants.h"
 #import "MBLConstants+Private.h"
 
-NSString *const kMBLAPIVersion = @"2.7.3";
+NSString *const kMBLAPIVersion = @"2.8.0";
 
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
 {
@@ -67,6 +67,8 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
             return @"1.2.4";
         case MBLFirmwareVersion1_2_5:
             return @"1.2.5";
+        case MBLFirmwareVersion1_3_0:
+            return @"1.3.0";
     }
 }
 
