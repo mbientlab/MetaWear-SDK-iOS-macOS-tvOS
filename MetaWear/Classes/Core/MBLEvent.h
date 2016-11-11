@@ -308,8 +308,8 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
 /**
  Create a new event that compares the current event's value to one or more data points
  @param op Operation type to perform
- @parma data Array of values to compare against
- @parma output Type of data to output
+ @param data Array of values to compare against
+ @param output Type of data to output
  @returns New event representing input values that meet the comparison condition
  */
 - (MBLFilter *)compareEventUsingOperation:(MBLComparisonOperation)op data:(NSArray<NSNumber *> *)data output:(MBLComparisonOutput)output;

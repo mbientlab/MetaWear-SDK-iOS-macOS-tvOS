@@ -106,26 +106,35 @@ typedef NS_ENUM(uint8_t, MBLANCSNotificationAttributeID) {
 /**
  Event representing an ANCS event of one or more CategoryID's. Event callbacks will
  be provided an MBLANCSEventData object.
+ @param categoryIds Bitmask of categories you want to observe
  */
 - (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds;
 
 /**
  Event representing an ANCS event of a specific CategoryID, EventID, and EventFlags.
  Event callbacks will be provided an MBLANCSEventData object.
+ @param categoryIds Bitmask of categories you want to observe
+ @param eventIds Bitmask of event types you want to observe
+ @param eventFlags Bitmask of event flags you want to observe
  */
 - (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
-                                                          eventIds:(MBLANCSEventID)eventIds
-                                                        eventFlags:(MBLANCSEventFlag)eventFlags;
+                                              eventIds:(MBLANCSEventID)eventIds
+                                            eventFlags:(MBLANCSEventFlag)eventFlags;
 
 /**
  Event representing an ANCS event of a specific CategoryID, EventID, EventFlags, and Notification Attribute.
  Event callbacks will be provided an MBLANCSEventData object.
+ @param categoryIds Bitmask of categories you want to observe
+ @param eventIds Bitmask of event types you want to observe
+ @param eventFlags Bitmask of event flags you want to observe
+ @param attributeId Type of attribute that should be matched @see attributeData
+ @param attributeData Data of attribute that should be matched @see attributeId
  */
 - (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
-                                                          eventIds:(MBLANCSEventID)eventIds
-                                                        eventFlags:(MBLANCSEventFlag)eventFlags
-                                                       attributeId:(MBLANCSNotificationAttributeID)attributeId
-                                                     attributeData:(NSString *)attributeData;
+                                              eventIds:(MBLANCSEventID)eventIds
+                                            eventFlags:(MBLANCSEventFlag)eventFlags
+                                           attributeId:(MBLANCSNotificationAttributeID)attributeId
+                                         attributeData:(NSString *)attributeData;
 
 @end
 
