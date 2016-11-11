@@ -55,7 +55,7 @@
     MBLSetUseMockManager(YES);
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
     [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
-        [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+        [[MBLMetaWearManager sharedManager] stopScan];
         self.device = [array firstObject];
         assert(self.device);
         self.central = (MBLBluetoothCentralMock *)[MBLMetaWearManager sharedManager].centralManager;

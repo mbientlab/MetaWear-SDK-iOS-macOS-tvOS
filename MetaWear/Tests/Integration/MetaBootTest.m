@@ -60,7 +60,7 @@ static const int secondsToFind = 20;
     [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
-                [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+                [[MBLMetaWearManager sharedManager] stopScan];
                 self.device = cur;
                 [findDeviceExpectation fulfill];
             }

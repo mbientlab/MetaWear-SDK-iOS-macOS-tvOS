@@ -49,7 +49,7 @@ This feature is handy because the ``discoveryTimeRSSI`` property on the discover
             if (device.discoveryTimeRSSI.integerValue < MIN_ALLOWED_RSSI) {
                 continue;
             }
-            [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+            [[MBLMetaWearManager sharedManager] stopScan];
             // At this point we have a close MetaWear, do what you please with it!
         }
     }];

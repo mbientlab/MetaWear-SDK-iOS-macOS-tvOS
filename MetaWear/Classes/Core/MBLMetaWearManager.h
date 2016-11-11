@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Begin scanning for MetaWear devices. This will invoke the provided block each time a
  new device shows up and passes an array of all discovered devices to the block.
- This continues until stopScanForMetaWears is called.
+ This continues until stopScan is called.
  @param handler Callback to handle each time a new device is found
  @see startScanForMetaWearsAllowDuplicates:handler:
  */
@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  each time a new advertising packet is found if filter == NO (may be many times per second).
  This can be useful in specific situations, such as making a connection based on a
  MetaWear's RSSI, but may have an adverse affect on battery-life and application performance,
- so use wisely.  This continues until stopScanForMetaWears is called.
+ so use wisely.  This continues until stopScan is called.
  @param duplicates YES: only callback when a new device is found, NO: callback each time
  @param handler Callback to handle each time a new device is found
  a new advertising packet is found

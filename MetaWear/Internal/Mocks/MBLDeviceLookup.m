@@ -108,7 +108,7 @@
         [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
             for (MBLMetaWear *cur in array) {
                 if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
-                    [[MBLMetaWearManager sharedManager] stopScanForMetaWears];
+                    [[MBLMetaWearManager sharedManager] stopScan];
                     [cur rememberDevice];
                     [source trySetResult:cur];
                 }
