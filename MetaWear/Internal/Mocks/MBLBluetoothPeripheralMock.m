@@ -175,6 +175,7 @@
                          [NSNull null],
                          [NSNull null],
                          [NSNull null],
+                         [NSNull null],
                          [NSNull null]];
         self.testDebug = [MBLModuleMock testDebug:self];
     }
