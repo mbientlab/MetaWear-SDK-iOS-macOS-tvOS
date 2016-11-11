@@ -70,6 +70,7 @@
 #import "MBLHygrometer.h"
 #import "MBLPhotometer+Private.h"
 #import "MBLProximity+Private.h"
+#import "MBLSensorFusion+Private.h"
 #import "MBLSettings+Private.h"
 #import "MBLDispatchQueue.h"
 #import <objc/runtime.h>
@@ -77,7 +78,7 @@
 #import "MBLConstants+Private.h"
 #import "MBLLogger.h"
 
-static int MAX_PENDING_WRITES = 25;
+static int MAX_PENDING_WRITES = 10;
 
 typedef void (^MBLModuleInfoErrorHandler)(MBLModuleInfo *moduleInfo, NSError *error);
 typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
@@ -103,6 +104,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic, nullable) MBLHygrometer *hygrometer;
 @property (nonatomic, nullable) MBLPhotometer *photometer;
 @property (nonatomic, nullable) MBLProximity *proximity;
+@property (nonatomic, nullable) MBLSensorFusion *sensorFusion;
 @property (nonatomic, nullable) MBLSettings *settings;
 @property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
@@ -355,6 +357,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         self.hygrometer = nil;
         self.photometer = nil;
         self.proximity = nil;
+        self.sensorFusion = nil;
         self.testDebug = nil;
         
         self.configuration = nil;
@@ -485,6 +488,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 self.proximity = [MBLProximity objectWithDevice:self moduleInfo:moduleInfo];
             }
         }]];
+        [tasks addObject:[[self readModuleInfo:0x19] successOnMetaWear:^(MBLModuleInfo *moduleInfo) {
+            if (moduleInfo) {
+                self.sensorFusion = [MBLSensorFusion objectWithDevice:self moduleInfo:moduleInfo];
+            }
+        }]];
         [tasks addObject:[[self readModuleInfo:0xFE] successOnMetaWear:^(MBLModuleInfo *moduleInfo) {
             if (moduleInfo) {
                 self.testDebug = [MBLTestDebug objectWithDevice:self moduleInfo:moduleInfo];
@@ -518,7 +526,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                          self.magnetometer ? self.magnetometer : [NSNull null],
                          self.hygrometer ? self.hygrometer : [NSNull null],
                          self.photometer ? self.photometer : [NSNull null],
-                         self.proximity ? self.proximity : [NSNull null]];
+                         self.proximity ? self.proximity : [NSNull null],
+                         self.sensorFusion ? self.sensorFusion : [NSNull null]];
         
         // Save this as the reset state of the device
         // Do this on the bleQueue so that we don't process events while the save state is happening
@@ -558,6 +567,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     self.hygrometer = other.hygrometer;
     self.photometer = other.photometer;
     self.proximity = other.proximity;
+    self.sensorFusion = other.sensorFusion;
     
     self.testDebug = other.testDebug;
     

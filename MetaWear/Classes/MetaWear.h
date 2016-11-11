@@ -60,6 +60,7 @@
 #import <MetaWear/MBLEntityModule.h>
 #import <MetaWear/MBLEvent.h>
 #import <MetaWear/MBLExternalThermistor.h>
+#import <MetaWear/MBLEulerAngleData.h>
 #import <MetaWear/MBLFilter.h>
 #import <MetaWear/MBLFirmwareUpdateInfo.h>
 #import <MetaWear/MBLGPIO.h>
@@ -90,9 +91,11 @@
 #import <MetaWear/MBLPhotometerTCS3472.h>
 #import <MetaWear/MBLProximity.h>
 #import <MetaWear/MBLProximityTSL2671.h>
+#import <MetaWear/MBLQuaternionData.h>
 #import <MetaWear/MBLRegister.h>
 #import <MetaWear/MBLRGBData.h>
 #import <MetaWear/MBLRMSAccelerometerData.h>
+#import <MetaWear/MBLSensorFusion.h>
 #import <MetaWear/MBLSerial.h>
 #import <MetaWear/MBLSettings.h>
 #import <MetaWear/MBLSPIData.h>

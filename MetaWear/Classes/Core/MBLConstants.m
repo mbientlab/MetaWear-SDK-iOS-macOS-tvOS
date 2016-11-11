@@ -70,6 +70,20 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
     }
 }
 
+NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy)
+{
+    switch (accuracy) {
+        case MBLCalibrationAccuracyUnreliable:
+            return @"Unreliable";
+        case MBLCalibrationAccuracyLow:
+            return @"Low";
+        case MBLCalibrationAccuracyMedium:
+            return @"Medium";
+        case MBLCalibrationAccuracyHigh:
+            return @"High";
+    }
+}
+
 #pragma mark - Errors
 
 NSString *const kMBLErrorDomain = @"com.mbientlab";

@@ -298,4 +298,12 @@ static const int secondsToConnect = 20;
     return 0;
 }
 
+- (void)sendData:(NSArray *)data
+{
+    for (NSString *byteArray in data) {
+        NSData *toSend = [MBLMockUtils dataFromString:byteArray];
+        [self.device writeCommandRegister:toSend withResponse:NO];
+    }
+}
+
 @end

@@ -64,3 +64,26 @@
 }
 
 @end
+
+
+@interface MBLCorrectedMagnetometeData()
+@property (nonatomic) MBLCalibrationAccuracy accuracy;
+@end
+
+@implementation MBLCorrectedMagnetometeData
+
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z accuracy:(MBLCalibrationAccuracy)accuracy timestamp:(NSDate *)timestamp
+{
+    self = [super initWithX:x y:y z:z timestamp:timestamp];
+    if (self) {
+        self.accuracy = accuracy;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %f,%f,%f", MBLCalibrationAccuracyString(self.accuracy), self.x, self.y, self.z];
+}
+
+@end

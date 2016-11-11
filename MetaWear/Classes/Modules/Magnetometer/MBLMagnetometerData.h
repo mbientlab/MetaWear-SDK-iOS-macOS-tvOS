@@ -34,6 +34,7 @@
  */
 
 #import <MetaWear/MBLDataSample.h>
+#import <MetaWear/MBLConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -54,6 +55,19 @@ NS_ASSUME_NONNULL_BEGIN
   Magnetic field along Z axis in Tesla's
  */
 @property (nonatomic, readonly) double z;
+
+@end
+
+
+/**
+ Container for a single magnetometer reading corrected using
+ Sensor Fusion algorithims
+ */
+@interface MBLCorrectedMagnetometeData : MBLMagnetometerData
+/**
+ Rating of calibration status for this data sample
+ */
+@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
 
 @end
 

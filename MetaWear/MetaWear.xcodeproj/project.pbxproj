@@ -158,6 +158,7 @@
 		402B7E361DADA6B1005F81D3 /* timer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timer.rst; sourceTree = "<group>"; };
 		403708581DBFD5FF003BF743 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = gen_api_reference.sh; path = ../gen_api_reference.sh; sourceTree = "<group>"; };
 		403BF7721D9E342800B22B82 /* DFUTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFUTests.m; sourceTree = "<group>"; };
+		4061029B1DD5343900F10575 /* sensor_fusion.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sensor_fusion.rst; sourceTree = "<group>"; };
 		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40703E0A1D94AE3500F38FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../MetaWearUnitTests-iOS/Info.plist"; sourceTree = "<group>"; };
 		40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLAutomaticTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -351,6 +352,7 @@
 				402B7E251DADA6B1005F81D3 /* gpio.rst */,
 				402B7E261DADA6B1005F81D3 /* gyro.rst */,
 				402B7E271DADA6B1005F81D3 /* gyrobmi160.rst */,
+				4061029B1DD5343900F10575 /* sensor_fusion.rst */,
 				402B7E281DADA6B1005F81D3 /* haptic.rst */,
 				402B7E291DADA6B1005F81D3 /* ibeacon.rst */,
 				402B7E2A1DADA6B1005F81D3 /* index.rst */,
@@ -801,7 +803,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MBL;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40703E051D94AE3500F38FF0 = {
@@ -818,6 +820,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					40703EA51D94C37500F38FF0 = {
 						CreatedOnToolsVersion = 8.0;
@@ -834,6 +841,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.appletvos = {
+								enabled = 0;
+							};
+						};
 					};
 					4078202C1D9DD60500FF5134 = {
 						CreatedOnToolsVersion = 8.0;

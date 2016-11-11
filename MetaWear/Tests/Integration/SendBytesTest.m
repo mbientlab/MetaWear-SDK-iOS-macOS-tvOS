@@ -127,10 +127,6 @@ static const int secondsToConnect = 20;
                      @"FE-05",
                      @"FE-06"]];
     
-    
-    
-    
-    
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [waitingExpectation fulfill];

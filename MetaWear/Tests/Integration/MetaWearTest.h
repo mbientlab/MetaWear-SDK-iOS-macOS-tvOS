@@ -55,5 +55,6 @@
 - (void)eventConcurrencyTest:(MBLEvent *)event time:(float)time;
 
 - (double)accelerometerFrequencyNear:(double)frequency;
+- (void)sendData:(NSArray *)data;
 
 @end

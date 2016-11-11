@@ -1,9 +1,9 @@
 /**
- * MBLGyroData.h
+ * MBLGravityFormat.m
  * MetaWear
  *
- * Created by Stephen Schiffli on 5/26/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 11/8/16.
+ * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,51 +33,36 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <MetaWear/MBLDataSample.h>
-#import <MetaWear/MBLConstants.h>
+#import "MBLGravityFormat.h"
+#import "MBLAccelerometerData+Private.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation MBLGravityFormat
 
-/**
- Container for a single accelerometer sensor reading
- */
-@interface MBLGyroData : MBLDataSample
+- (instancetype)init
+{
+    self = [super initArrayWithLength:12];
+    return self;
+}
 
-/**
- The X-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the X axis such that the tip
- of the thumb points toward positive X, a positive rotation is one toward 
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double x;
-/**
- The Y-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Y axis such that the tip
- of the thumb points toward positive Y, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double y;
-/**
- The Z-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Z axis such that the tip
- of the thumb points toward positive Z, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double z;
+- (id)copyWithZone:(NSZone *)zone
+{
+    MBLGravityFormat *newFormat = [super copyWithZone:zone];
+    return newFormat;
+}
 
-@end
+- (id)entryFromData:(NSData *)data date:(NSDate *)date
+{
+    const uint8_t *bytes = data.bytes;
+    const double scale = 9.80665;
+    const double x = (double)(*(float *)&bytes[0]) / scale;
+    const double y = (double)(*(float *)&bytes[4]) / scale;
+    const double z = (double)(*(float *)&bytes[8]) / scale;
+    return [[MBLAccelerometerData alloc] initWithX:x y:y z:z timestamp:date];
+}
 
-
-/**
- Container for a single gyroscope reading corrected using
- Sensor Fusion algorithims
- */
-@interface MBLCorrectedGyroData : MBLGyroData
-/**
- Rating of calibration status for this data sample
- */
-@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
+- (NSNumber *)numberFromDouble:(double)value
+{
+    return [NSNumber numberWithInt:value * 9.80665];
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

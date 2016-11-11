@@ -103,6 +103,17 @@ typedef NS_ENUM(uint8_t, MBLLogLevel) {
     MBLLogLevelDebug = 4
 };
 
+/**
+ Rating of Sensor Fusion calibration status for data samples
+ */
+typedef NS_ENUM(uint8_t, MBLCalibrationAccuracy) {
+    MBLCalibrationAccuracyUnreliable = 0,
+    MBLCalibrationAccuracyLow = 1,
+    MBLCalibrationAccuracyMedium = 2,
+    MBLCalibrationAccuracyHigh = 3
+};
+NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy);
+
 #pragma mark - Block Typedefs
 
 typedef void (^MBLVoidHandler)();

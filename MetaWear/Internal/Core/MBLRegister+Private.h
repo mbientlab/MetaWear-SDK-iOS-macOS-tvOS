@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) uint8_t index;
 @property (nonatomic) MBLFormat *format;
 
+@property (nonatomic) int16_t initializeCount;
+@property (nonatomic) int16_t activateCount;
+
 // State Accessors
 @property (nonatomic) BOOL needsResponse;
 @property (nonatomic) BOOL writeResponds;

@@ -1,9 +1,9 @@
 /**
- * MBLGyroData.h
+ * MBLBitmaskEvent.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 5/26/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 11/8/16.
+ * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,50 +33,19 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <MetaWear/MBLDataSample.h>
-#import <MetaWear/MBLConstants.h>
+#import "MBLEvent+Private.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- Container for a single accelerometer sensor reading
- */
-@interface MBLGyroData : MBLDataSample
+@interface MBLBitmaskEvent<ResultType> : MBLEvent<ResultType>
+@property (nonatomic) uint8_t enableBitmask;
+@property (nonatomic) MBLRegister *enableRegister;
 
-/**
- The X-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the X axis such that the tip
- of the thumb points toward positive X, a positive rotation is one toward 
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double x;
-/**
- The Y-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Y axis such that the tip
- of the thumb points toward positive Y, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double y;
-/**
- The Z-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Z axis such that the tip
- of the thumb points toward positive Z, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double z;
-
-@end
-
-
-/**
- Container for a single gyroscope reading corrected using
- Sensor Fusion algorithims
- */
-@interface MBLCorrectedGyroData : MBLGyroData
-/**
- Rating of calibration status for this data sample
- */
-@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
+- (instancetype)initWithModule:(MBLModule *)module
+                    registerId:(uint8_t)registerId
+                 enableBitmask:(uint8_t)enableBitmask
+                enableRegister:(MBLRegister *)enableRegister
+                        format:(MBLFormat *)format;
 
 @end
 

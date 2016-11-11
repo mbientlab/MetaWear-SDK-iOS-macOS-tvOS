@@ -47,8 +47,6 @@ typedef NS_ENUM(uint8_t, MBLFormatType) {
 @property (nonatomic) uint8_t length;
 @property (nonatomic) MBLFormatType type;
 @property (nonatomic) uint8_t offset;
-// Used for Array types
-@property (nonatomic) uint8_t elements;
 // Used for Number types
 @property (nonatomic) BOOL isSigned;
 
@@ -57,7 +55,7 @@ typedef NS_ENUM(uint8_t, MBLFormatType) {
 - (instancetype)initNumberWithLength:(uint8_t)length isSigned:(BOOL)isSigned offset:(uint8_t)offset;
 - (instancetype)initNumberWithLength:(uint8_t)length isSigned:(BOOL)isSigned;
 
-- (instancetype)initArrayWithLength:(uint8_t)length elements:(uint8_t)elements;
+- (instancetype)initArrayWithLength:(uint8_t)length;
 
 - (instancetype)initEncodedDataWithLength:(uint8_t)length;
 

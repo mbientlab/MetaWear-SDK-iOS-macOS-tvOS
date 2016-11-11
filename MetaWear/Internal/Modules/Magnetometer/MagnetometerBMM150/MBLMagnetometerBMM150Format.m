@@ -50,7 +50,7 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerAxis) {
 
 - (instancetype)init
 {
-    self = [super initArrayWithLength:6 elements:3];
+    self = [super initArrayWithLength:6];
     return self;
 }
 

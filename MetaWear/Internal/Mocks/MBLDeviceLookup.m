@@ -68,6 +68,8 @@
         model = MBLModelMetaWearHR;
     } else if ([modelString isEqualToString:@"PPG"]) {
         model = MBLModelMetaWearPPG;
+    } else if ([modelString isEqualToString:@"TRAK"]) {
+        model = MBLModelMetaTracker;
     } else if ([modelString isEqualToString:@"MOT_R"]) {
         model = MBLModelMetaMotionR;
     } else if ([modelString isEqualToString:@"MOT_C"]) {

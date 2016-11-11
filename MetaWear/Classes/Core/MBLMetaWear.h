@@ -58,6 +58,7 @@
 @class MBLHygrometer;
 @class MBLPhotometer;
 @class MBLProximity;
+@class MBLSensorFusion;
 @class MBLSettings;
 @class MBLMetaWear;
 @class MBLFirmwareUpdateInfo;
@@ -189,6 +190,10 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  MBLProximity object contains all methods for interacting with the proximity sensor
  */
 @property (nonatomic, readonly, nullable) MBLProximity *proximity;
+/**
+ MBLProximity object contains all methods for interacting with the proximity sensor
+ */
+@property (nonatomic, readonly, nullable) MBLSensorFusion *sensorFusion;
 /**
  MBLSettings object contains all methods for interacting with MetaWear device settings
  */

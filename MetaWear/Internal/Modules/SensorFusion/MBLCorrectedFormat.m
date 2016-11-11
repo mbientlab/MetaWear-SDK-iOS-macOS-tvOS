@@ -1,9 +1,9 @@
 /**
- * MBLGyroData.h
+ * MBLCorrectedFormat.m
  * MetaWear
  *
- * Created by Stephen Schiffli on 5/26/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 11/8/16.
+ * Copyright 2016 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,51 +33,52 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <MetaWear/MBLDataSample.h>
-#import <MetaWear/MBLConstants.h>
+#import "MBLCorrectedFormat.h"
+#import "MBLAccelerometerData+Private.h"
+#import "MBLGyroData+Private.h"
+#import "MBLMagnetometerData+Private.h"
+#import "MBLConstants.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation MBLCorrectedFormat
 
-/**
- Container for a single accelerometer sensor reading
- */
-@interface MBLGyroData : MBLDataSample
+- (instancetype)initWithType:(MBLCorrectedFormatType)formatType
+{
+    self = [super initArrayWithLength:13];
+    if (self) {
+        self.formatType = formatType;
+    }
+    return self;
+}
 
-/**
- The X-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the X axis such that the tip
- of the thumb points toward positive X, a positive rotation is one toward 
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double x;
-/**
- The Y-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Y axis such that the tip
- of the thumb points toward positive Y, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double y;
-/**
- The Z-axis rotation rate in degrees per second. The sign follows the right
- hand rule: If the right hand is wrapped around the Z axis such that the tip
- of the thumb points toward positive Z, a positive rotation is one toward
- the tips of the other four fingers.
- */
-@property (nonatomic, readonly) double z;
+- (id)copyWithZone:(NSZone *)zone
+{
+    MBLCorrectedFormat *newFormat = [super copyWithZone:zone];
+    newFormat.formatType = self.formatType;
+    return newFormat;
+}
+
+- (id)entryFromData:(NSData *)data date:(NSDate *)date
+{
+    const uint8_t *bytes = data.bytes;
+    const double x = (double)(*(float *)&bytes[0]);
+    const double y = (double)(*(float *)&bytes[4]);
+    const double z = (double)(*(float *)&bytes[8]);
+    const MBLCalibrationAccuracy accuracy = (MBLCalibrationAccuracy)(*(uint8_t *)&bytes[12]);
+    switch (self.formatType) {
+        case MBLCorrectedFormatTypeAccelerometer:
+            return [[MBLCorrectedAccelerometerData alloc] initWithX:x / 1000.0 y:y / 1000.0 z:z / 1000.0 accuracy:accuracy timestamp:date];
+        case MBLCorrectedFormatTypeGyro:
+            return [[MBLCorrectedGyroData alloc] initWithX:x y:y z:z timestamp:date];
+        case MBLCorrectedFormatTypeMagnetometer:
+            return [[MBLCorrectedMagnetometeData alloc] initWithX:x / 1000000.0 y:y / 1000000.0 z:z / 1000000.0 timestamp:date];
+    }
+    return nil;
+}
+
+- (NSNumber *)numberFromDouble:(double)value
+{
+    [NSException raise:@"Cannot use Sensor Fusion data with filters" format:@""];
+    return nil;
+}
 
 @end
-
-
-/**
- Container for a single gyroscope reading corrected using
- Sensor Fusion algorithims
- */
-@interface MBLCorrectedGyroData : MBLGyroData
-/**
- Rating of calibration status for this data sample
- */
-@property (nonatomic, readonly) MBLCalibrationAccuracy accuracy;
-
-@end
-
-NS_ASSUME_NONNULL_END
