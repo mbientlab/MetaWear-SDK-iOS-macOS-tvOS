@@ -179,8 +179,7 @@ typedef struct  __attribute__((packed)) {
             //    Null Gyro
             //    50Hz Mag (NOTE Using 25 for now since mag doesn't support 50)
             accelerometer.sampleFrequency = 50;
-            accelerometer.fullScaleRange = MBLAccelerometerBoschRange16G;
-
+            
             magnetometer.powerPreset = MBLMagnetometerBMM150PresetSensorFusion25;
             
             // Boot all the sensors
