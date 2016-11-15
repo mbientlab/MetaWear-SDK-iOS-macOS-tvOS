@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeNotificationHandlers;
 
 // conflicts with the paramerized types on MBLEvent
-- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(handler:));
+- (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler;
 - (BFTask *)startNotificationsWithExecutorAsync:(BFExecutor *)executor withHandler:(nullable MBLObjectHandler)handler NS_SWIFT_NAME(startRegisterNotificationsAsync(executor:handler:));
 - (BFTask *)stopNotificationsAsync NS_SWIFT_NAME(stopRegisterNotificationsAsync());
 
