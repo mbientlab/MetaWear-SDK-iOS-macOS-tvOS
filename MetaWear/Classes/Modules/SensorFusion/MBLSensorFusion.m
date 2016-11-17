@@ -102,7 +102,9 @@ typedef struct  __attribute__((packed)) {
 - (void)setMode:(MBLSensorFusionMode)mode
 {
     if (self.initializeCount > 0) {
-        MBLLog(MBLLogLevelError, @"Cannot change SensorFusion mode while it is active.");
+        if (mode != _mode) {
+            MBLLog(MBLLogLevelError, @"Cannot change SensorFusion mode while it is active.");
+        }
     } else {
         _mode = mode;
     }

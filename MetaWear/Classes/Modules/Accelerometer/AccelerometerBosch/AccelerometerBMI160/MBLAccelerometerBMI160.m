@@ -44,7 +44,6 @@
 #import "MBLAccelerometerBoschFlatEvent.h"
 #import "MBLAccelerometerBMI160StepEvent.h"
 #import "MBLAccelerometerBMI160MotionEvent+Private.h"
-#import "MBLRMSAccelerometerDataFilter.h"
 #import "MBLFormat.h"
 #import "MBLNumericFormatter.h"
 #import "MBLData+Private.h"

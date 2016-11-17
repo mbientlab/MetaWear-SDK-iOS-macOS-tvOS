@@ -1,5 +1,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "BFTask+MBLExtensions.h"
@@ -144,7 +152,6 @@
 #import "MBLAccelerometerPackedDataReadyEvent.h"
 #import "MBLAccelerometerShakeEvent.h"
 #import "MBLAccelerometerTapEvent.h"
-#import "MBLRMSAccelerometerDataFilter.h"
 #import "mma8452q.h"
 #import "MBLAmbientLight+Private.h"
 #import "MBLANCSEventData+Private.h"
