@@ -42,11 +42,11 @@
 #import "MBLAccelerometerBoschTapEvent.h"
 #import "MBLAccelerometerBoschFlatEvent.h"
 #import "MBLAccelerometerBMI160StepEvent.h"
-#import "MBLRMSAccelerometerDataFilter.h"
 #import "MBLFormat.h"
 #import "MBLNumericFormatter.h"
 #import "MBLData+Private.h"
 #import "bmi160.h"
+#import "MBLAccelerometerBoschRMSFormat.h"
 
 @interface MBLAccelerometerBosch ()
 @property (nonatomic) MBLRegister *accelDataConfig;
@@ -69,7 +69,7 @@
         self.xAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisX];
         self.yAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisY];
         self.zAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisZ];
-        self.rmsDataReadyEvent = [[MBLRMSAccelerometerDataFilter alloc] initWithAccelerometerBosch:self];
+        self.rmsDataReadyEvent = [self.dataReadyEvent rmsOfEventWithInputLength:2 inputCount:3 format:[[MBLAccelerometerBoschRMSFormat alloc] initWithAccelerometer:self]];
         
         // Default settings
         self.fullScaleRange = MBLAccelerometerBoschRange16G;

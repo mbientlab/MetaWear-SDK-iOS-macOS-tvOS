@@ -43,10 +43,11 @@
 #import "MBLAccelerometerOrientationEvent.h"
 #import "MBLAccelerometerTapEvent.h"
 #import "MBLAccelerometerShakeEvent.h"
-#import "MBLRMSAccelerometerDataFilter.h"
 #import "MBLAccelerometerData+Private.h"
 #import "MBLAccelerometerAxisReadyEvent.h"
 #import "MBLLogger.h"
+#import "MBLAccelerometerMMA8452QRMSFormat.h"
+
 
 
 @interface MBLAccelerometerMMA8452Q()
@@ -83,8 +84,7 @@
         self.tapEvent = [[MBLAccelerometerTapEvent alloc] initWithAccelerometer:self];
         self.shakeEvent = [[MBLAccelerometerShakeEvent alloc] initWithAccelerometer:self];
         
-        self.rmsDataReadyEvent = [[MBLRMSAccelerometerDataFilter alloc] initWithAccelerometer:self];
-        
+        self.rmsDataReadyEvent = [self.dataReadyEvent rmsOfEventWithInputLength:2 inputCount:3 format:[[MBLAccelerometerMMA8452QRMSFormat alloc] initWithAccelerometer:self]];
         self.globalEnable = globalEnable;
     }
     return self;

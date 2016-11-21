@@ -207,7 +207,7 @@ typedef struct __attribute__((packed)) {
         if (self.remainingTriggers < ceil((double)event.format.length / 4.0)) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorInsufficientMemory
-                                             userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"MetaWear out of memory, can't perform action.  Reset the MetaWear and use no more than %d log entries", self.triggers.count]}];
+                                             userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"MetaWear out of memory, can't perform action.  Reset the MetaWear and use no more than %lu log entries", (unsigned long)self.triggers.count]}];
             return [BFTask taskWithError:error];
         }
         BFTask *head = [BFTask taskWithResult:nil];

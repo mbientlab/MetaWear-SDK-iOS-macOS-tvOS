@@ -46,7 +46,6 @@
 #import "MBLAccelerometerOrientationEvent.h"
 #import "MBLAccelerometerTapEvent.h"
 #import "MBLAccelerometerShakeEvent.h"
-#import "MBLRMSAccelerometerDataFilter.h"
 #import "MBLAccelerometerData+Private.h"
 #import "MBLAccelerometerAxisReadyEvent.h"
 

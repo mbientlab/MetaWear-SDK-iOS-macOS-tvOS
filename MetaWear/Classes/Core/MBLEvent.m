@@ -804,6 +804,51 @@ typedef struct __attribute__((packed)) {
 }
 
 
+typedef struct __attribute__((packed)) {
+    uint8_t      filter_id;
+    uint8_t      outputlen:2;
+    uint8_t      inputlen:2;
+    uint8_t      inputcount:3;
+    uint8_t      issigned:1;
+    uint8_t      mode:3;
+} df_rms_param_t;
+
+static const int RMS_MODE_RMS = 0;
+static const int RMS_MODE_RSS = 1;
+
+- (MBLFilter *)rmsOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format
+{
+    df_rms_param_t params = {0};
+    params.filter_id = 7;
+    params.outputlen = 4 - 1;
+    params.inputlen = inputLength - 1;
+    params.inputcount = inputCount - 1;
+    params.issigned = YES;
+    params.mode = RMS_MODE_RMS;
+    
+    MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
+                                          filterParameters:[NSData dataWithBytes:&params length:sizeof(df_rms_param_t)]
+                                                    format:format];
+    return filter;
+}
+
+- (MBLFilter *)rssOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format
+{
+    df_rms_param_t params = {0};
+    params.filter_id = 7;
+    params.outputlen = 4 - 1;
+    params.inputlen = inputLength - 1;
+    params.inputcount = inputCount - 1;
+    params.issigned = YES;
+    params.mode = RMS_MODE_RSS;
+    
+    MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
+                                          filterParameters:[NSData dataWithBytes:&params length:sizeof(df_rms_param_t)]
+                                                    format:format];
+    return filter;
+}
+
+
 - (MBLEvent *)readDataOnEvent:(MBLData *)data
 {
     return [[MBLTriggeredRead alloc] initWithData:data trigger:self];

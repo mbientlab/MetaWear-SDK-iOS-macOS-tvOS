@@ -40,7 +40,7 @@
 
 - (instancetype)init
 {
-    self = [super initArrayWithLength:12];
+    self = [super initArrayWithLength:16];
     return self;
 }
 

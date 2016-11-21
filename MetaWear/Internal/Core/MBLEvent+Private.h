@@ -51,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 // TODO: Test and enable this filter
 - (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data;
 
+- (MBLFilter *)rmsOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format;
+- (MBLFilter *)rssOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format;
+
 @end
 
 NS_ASSUME_NONNULL_END
