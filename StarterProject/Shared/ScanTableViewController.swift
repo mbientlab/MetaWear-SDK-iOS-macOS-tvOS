@@ -30,7 +30,7 @@ class ScanTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        MBLMetaWearManager.shared().stopScanForMetaWears()
+        MBLMetaWearManager.shared().stopScan()
     }
 
     // MARK: - Table view data source

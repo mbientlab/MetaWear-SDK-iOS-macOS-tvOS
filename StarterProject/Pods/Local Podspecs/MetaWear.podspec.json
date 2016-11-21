@@ -1,6 +1,6 @@
 {
   "name": "MetaWear",
-  "version": "2.7.3",
+  "version": "2.8.1",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
-    "tag": "2.7.3"
+    "tag": "2.8.1"
   },
   "platforms": {
     "ios": "8.0",
@@ -22,7 +22,7 @@
     "tvos": "10.0"
   },
   "social_media_url": "https://twitter.com/mbientLab",
-  "documentation_url": "https://www.mbientlab.com/docs/metawear/ios/2.7.3/index.html",
+  "documentation_url": "https://www.mbientlab.com/docs/metawear/ios/2.8.1/index.html",
   "source_files": "MetaWear/{Assets,Classes,Internal}/**/*.{h,m}",
   "private_header_files": "MetaWear/Internal/**/*.h",
   "frameworks": [
