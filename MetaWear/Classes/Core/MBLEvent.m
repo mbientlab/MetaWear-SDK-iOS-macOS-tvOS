@@ -829,6 +829,7 @@ static const int RMS_MODE_RSS = 1;
     MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
                                           filterParameters:[NSData dataWithBytes:&params length:sizeof(df_rms_param_t)]
                                                     format:format];
+    return filter;
 }
 
 - (MBLFilter *)rssOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format
@@ -844,6 +845,7 @@ static const int RMS_MODE_RSS = 1;
     MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
                                           filterParameters:[NSData dataWithBytes:&params length:sizeof(df_rms_param_t)]
                                                     format:format];
+    return filter;
 }
 
 
