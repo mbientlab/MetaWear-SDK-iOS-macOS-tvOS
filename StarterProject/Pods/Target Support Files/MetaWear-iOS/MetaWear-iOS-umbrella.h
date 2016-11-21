@@ -1,5 +1,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "BFTask+MBLExtensions.h"
@@ -63,6 +71,9 @@
 #import "MBLPhotometerTCS3472.h"
 #import "MBLProximity.h"
 #import "MBLProximityTSL2671.h"
+#import "MBLEulerAngleData.h"
+#import "MBLQuaternionData.h"
+#import "MBLSensorFusion.h"
 #import "MBLI2CData.h"
 #import "MBLSerial.h"
 #import "MBLSPIData.h"
