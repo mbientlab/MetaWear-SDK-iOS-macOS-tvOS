@@ -33,7 +33,8 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLAccelerometerBoschFlatEvent.h"
+#import "MBLAccelerometerBoschFlatEvent+Private.h"
+#import "MBLEvent+Private.h"
 #import "MBLAccelerometerBosch+Private.h"
 #import "MBLAccelerometerBoschFlatFormat.h"
 
@@ -50,6 +51,9 @@
     if (self) {
         self.flatInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x12 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.flatConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x13 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
+        
+        self.flatThreshold = 6.0;
+        self.flatDelay = MBLAccelerometerBoschFlatTime640ms;
     }
     return self;
 }
@@ -60,12 +64,13 @@
     bmi160_reg_int_flat_t regs = { 0 };
     
     // defines threshold for detection of flat position in range from 0 to 44.8
-    regs.int_flat_0.int_flat_theta = 8;
+    // Since there are 6 bits to this field, each LSB is 44.8 / 63 = 0.71111111
+    regs.int_flat_0.int_flat_theta = round(self.flatThreshold / 0.71111111);
     // defines flat interrupt hystersis, no units given..thanks bosch
     regs.int_flat_1.int_flat_hy = 1;
     // delay time for which the flat value must remain stable for flat
     //. interrupt to be generated: 0 -> 0ms, 1 -> 640 ms, 2-> 1280 ms, 3 -> 2560 ms
-    regs.int_flat_1.int_flag_hold = 1;
+    regs.int_flat_1.int_flag_hold = self.flatDelay;
 
     [tasks addObject:[self.flatConfig writeDataAsync:[NSData dataWithBytes:&regs length:sizeof(bmi160_reg_int_flat_t)]]];
 

@@ -38,13 +38,21 @@
 
 @implementation MBLOrientationData
 
-- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp
+- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation
+                    facingDirection:(MBLAccelerometerFacingDirection)facingDirection
+                          timestamp:(NSDate *)timestamp
 {
     self = [super initWithTimestamp:timestamp];
     if (self) {
         self.orientation = orientation;
+        self.facingDirection = facingDirection;
     }
     return self;
+}
+
+- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp
+{
+    return [self initWithOrientation:orientation facingDirection:MBLAccelerometerFacingDirectionUnknown timestamp:timestamp];
 }
 
 - (NSString *)orientationString
@@ -62,6 +70,16 @@
             break;
         case MBLAccelerometerOrientationLandscapeRight:
             direction = @"LandscapeRight";
+            break;
+    }
+    switch (self.facingDirection) {
+        case MBLAccelerometerFacingDirectionUpward:
+            direction = [direction stringByAppendingString:@" Upward"];
+            break;
+        case MBLAccelerometerFacingDirectionDownward:
+            direction = [direction stringByAppendingString:@" Downward"];
+            break;
+        case MBLAccelerometerFacingDirectionUnknown:
             break;
     }
     return direction;

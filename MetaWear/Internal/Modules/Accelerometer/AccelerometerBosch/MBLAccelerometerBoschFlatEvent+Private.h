@@ -1,5 +1,5 @@
 /**
- * MBLAccelerometerBoschFlatEvent.h
+ * MBLAccelerometerBoschFlatEvent+Private.h
  * MetaWear
  *
  * Created by Stephen Schiffli on 7/20/15.
@@ -33,12 +33,12 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLEvent+Private.h"
+#import "MBLAccelerometerBoschFlatEvent.h"
 @class MBLAccelerometerBosch;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLAccelerometerBoschFlatEvent : MBLEvent
+@interface MBLAccelerometerBoschFlatEvent (Private)
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
 

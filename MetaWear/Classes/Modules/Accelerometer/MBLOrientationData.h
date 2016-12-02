@@ -41,7 +41,13 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerOrientation) {
     MBLAccelerometerOrientationPortrait = 0,
     MBLAccelerometerOrientationPortraitUpsideDown = 1,
     MBLAccelerometerOrientationLandscapeRight = 2,
-    MBLAccelerometerOrientationLandscapeLeft = 3
+    MBLAccelerometerOrientationLandscapeLeft = 3,
+};
+
+typedef NS_ENUM(uint8_t, MBLAccelerometerFacingDirection) {
+    MBLAccelerometerFacingDirectionUnknown = 0,
+    MBLAccelerometerFacingDirectionUpward = 1,
+    MBLAccelerometerFacingDirectionDownward = 2
 };
 
 /**
@@ -49,7 +55,14 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerOrientation) {
  */
 @interface MBLOrientationData : MBLDataSample
 
+/**
+ The Portrait/Landscape orientation
+ */
 @property (nonatomic) MBLAccelerometerOrientation orientation;
+/**
+ The Upward/Downward facing orientation.
+ */
+@property (nonatomic) MBLAccelerometerFacingDirection facingDirection;
 
 @end
 

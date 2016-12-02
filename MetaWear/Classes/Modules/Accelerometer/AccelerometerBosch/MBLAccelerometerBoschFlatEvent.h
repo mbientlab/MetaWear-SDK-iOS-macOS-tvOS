@@ -1,8 +1,8 @@
 /**
- * MBLOrientationData+Private.h
+ * MBLAccelerometerBoschFlatEvent.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 10/15/14.
+ * Created by Stephen Schiffli on 7/20/15.
  * Copyright 2014-2015 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -33,17 +33,35 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLOrientationData.h"
+#import <MetaWear/MBLEvent.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLOrientationData (Private)
+/**
+ Delay time for which flat value must remain stable for the flat interrupt to be generated
+ */
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschFlatTime) {
+    MBLAccelerometerBoschFlatTime0ms = 0,
+    MBLAccelerometerBoschFlatTime640ms = 1,
+    MBLAccelerometerBoschFlatTime1280ms = 2,
+    MBLAccelerometerBoschFlatTime2560ms = 3
+};
 
-- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp;
+/**
+ The BMI160 contains a special hardware block to detect when the device
+ is laying flat (setting on a table) or not.
+ */
+@interface MBLAccelerometerBoschFlatEvent : MBLEvent<MBLNumericData *>
 
-- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation
-                    facingDirection:(MBLAccelerometerFacingDirection)facingDirection
-                          timestamp:(NSDate *)timestamp;
+/**
+ Threshold in degrees from perfectly flat when a non-flat event is triggered.
+ */
+@property (nonatomic) double flatThreshold;
+
+/**
+ Delay time for which flat value must remain stable for the flat interrupt to be generated
+ */
+@property (nonatomic)  MBLAccelerometerBoschFlatTime flatDelay;
 
 @end
 
