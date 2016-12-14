@@ -1,39 +1,28 @@
 PODS:
   - Bolts/Tasks (1.8.4)
   - FastCoding+tvOS (3.2.1)
-  - iOSDFULibrary (1.0.8):
-    - Zip (~> 0.3)
+  - iOSDFULibrary (3.0.0):
+    - Zip (~> 0.6)
   - MetaWearPrivate (2.8.1):
     - Bolts/Tasks (~> 1.8.4)
     - FastCoding+tvOS (~> 3.2.1)
-  - Zip (0.4.3)
+  - Zip (0.6.0)
 
 DEPENDENCIES:
-  - iOSDFULibrary (= 1.0.8)
+  - iOSDFULibrary
   - MetaWearPrivate (from `../`)
-  - Zip (from `https://github.com/marmelroy/Zip.git`, branch `swift2.3`)
 
 EXTERNAL SOURCES:
   MetaWearPrivate:
     :path: ../
-  Zip:
-    :branch: swift2.3
-    :git: https://github.com/marmelroy/Zip.git
-    :submodules: true
-
-CHECKOUT OPTIONS:
-  Zip:
-    :commit: 88ba969d0b12fea5ba4d213229c4d7d8c540ee23
-    :git: https://github.com/marmelroy/Zip.git
-    :submodules: true
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FastCoding+tvOS: d314b6daa8389ec790ab362f973f53a5657292bd
-  iOSDFULibrary: 2610baf49af454a1bdc6cc25088e3b815eb5b5a2
+  iOSDFULibrary: 201dec70ae2d7e1cfbdc3cd8005b163f009c9dea
   MetaWearPrivate: a268a8f9dea067f87700dabdc1e05a04bb0b861f
-  Zip: 670419a5ba9faaf5f24ed3650c4c38b4136e996b
+  Zip: 805fc2fa9d2f05bbb7762d982d7a42ccdcc51f42
 
-PODFILE CHECKSUM: 6d2df89819e9a37a6a7e4fdf092d55ce15d0485a
+PODFILE CHECKSUM: 3f1860c05419ce0c9f1c5e51d97b5df098184716
 
 COCOAPODS: 1.2.0.beta.1

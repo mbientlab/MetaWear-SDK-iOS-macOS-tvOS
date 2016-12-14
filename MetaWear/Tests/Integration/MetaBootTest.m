@@ -42,9 +42,12 @@ static const int secondsToFind = 20;
 /*
  This test setup looks for devices in MetaBoot mode.
  */
-@interface MetaBootTest : XCTestCase <DFUPeripheralSelector, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate>
+@interface MetaBootTest : XCTestCase <DFUServiceDelegate, DFUProgressDelegate, LoggerDelegate, DFUPeripheralSelectorDelegate>
 @property (nonatomic) MBLMetaWear *device;
 @property (nonatomic) XCTestExpectation *waitingExpectation;
+
+@property (nonatomic) DFUServiceInitiator *initiator;
+@property (nonatomic) DFUServiceController *dfuController;
 @end
 
 @implementation MetaBootTest
@@ -115,17 +118,16 @@ static const int secondsToFind = 20;
                 selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
             }
             
-            DFUServiceInitiator *initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
-            [initiator withFirmwareFile:selectedFirmware];
+            self.initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
+            [self.initiator withFirmware:selectedFirmware];
             
-            initiator.forceDfu = YES;
-            // initiator.packetReceiptNotificationParameter = N; // default is 12
-            initiator.logger = self;
-            initiator.delegate = self;
-            initiator.progressDelegate = self;
-            initiator.peripheralSelector = self;
+            self.initiator.forceDfu = YES;
+            self.initiator.logger = self;
+            self.initiator.delegate = self;
+            self.initiator.progressDelegate = self;
+            self.initiator.peripheralSelector = self;
             
-            [initiator start];
+            self.dfuController = [self.initiator start];
         }] failure:^(NSError * _Nonnull error) {
             XCTAssertNil(error);
             [self.waitingExpectation fulfill];
@@ -138,66 +140,65 @@ static const int secondsToFind = 20;
 
 #pragma mark - DFU Service delegate methods
 
-- (void)logWith:(enum LogLevel)level message:(NSString *)message
-{
-    if (level > LogLevelInfo) {
-        NSLog(@"%ld: %@", (long) level, message);
-    }
-}
-
-- (void)didStateChangedTo:(enum State)state
+- (void)dfuStateDidChangeTo:(enum DFUState)state
 {
     NSString *msg = @"";
     switch (state) {
-        case StateConnecting:
+        case DFUStateConnecting:
             msg = @"Connecting...";
             break;
-        case StateStarting:
+        case DFUStateStarting:
             msg = @"Starting DFU...";
             break;
-        case StateEnablingDfuMode:
+        case DFUStateEnablingDfuMode:
             msg = @"Enabling DFU Bootloader...";
             break;
-        case StateUploading:
+        case DFUStateUploading:
             msg = @"Uploading...";
             break;
-        case StateValidating:
+        case DFUStateValidating:
             msg = @"Validating...";
             break;
-        case StateDisconnecting:
+        case DFUStateDisconnecting:
             msg = @"Disconnecting...";
             break;
-        case StateCompleted:
+        case DFUStateCompleted:
             msg = @"Upload complete";
             [self.waitingExpectation fulfill];
             break;
-        case StateAborted:
+        case DFUStateAborted:
             msg = @"Upload aborted";
             break;
     }
     NSLog(@"%@", msg);
 }
 
--(void)onUploadProgress:(NSInteger)part totalParts:(NSInteger)totalParts progress:(NSInteger)percentage
-currentSpeedBytesPerSecond:(double)speed avgSpeedBytesPerSecond:(double)avgSpeed
-{
-    NSLog(@"Progress: %ld%% (part %ld/%ld). Speed: %f bps, Avg speed: %f bps", (long) percentage, (long) part, (long) totalParts, speed, avgSpeed);
-}
-
--(void)didErrorOccur:(enum DFUError)error withMessage:(NSString *)message
+- (void)dfuError:(enum DFUError)error didOccurWithMessage:(NSString * _Nonnull)message
 {
     XCTFail(@"Error %ld: %@", (long) error, message);
     [self.waitingExpectation fulfill];
 }
 
-- (BOOL)select:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI
+- (void)dfuProgressDidChangeFor:(NSInteger)part outOf:(NSInteger)totalParts to:(NSInteger)progress currentSpeedBytesPerSecond:(double)currentSpeedBytesPerSecond avgSpeedBytesPerSecond:(double)avgSpeedBytesPerSecond
+{
+    NSLog(@"Progress: %ld%% (part %ld/%ld). Speed: %f bps, Avg speed: %f bps", (long)progress, (long)part, (long)totalParts, currentSpeedBytesPerSecond, avgSpeedBytesPerSecond);
+}
+
+- (void)logWith:(enum LogLevel)level message:(NSString * _Nonnull)message
+{
+    if (level > LogLevelInfo) {
+        NSLog(@"%ld: %@", (long) level, message);
+    }
+}
+
+- (BOOL)select:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI
 {
     NSLog(@"Looking for: %@", self.device.identifier);
     NSLog(@"%@", peripheral);
     return [peripheral.identifier isEqual:self.device.identifier];
 }
 
-- (NSArray<CBUUID *> *)filterBy
+- (NSArray<CBUUID *> * _Nullable)filterByHint:(CBUUID * _Nonnull)dfuServiceUUID
 {
     return nil;
 }
