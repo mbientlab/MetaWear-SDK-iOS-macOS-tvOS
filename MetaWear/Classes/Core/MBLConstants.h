@@ -85,14 +85,14 @@ typedef NS_ENUM(uint8_t, MBLModel) {
     MBLModelMetaWearRPro,
     MBLModelMetaWearC,
     MBLModelMetaWearCPro,
-    MBLModelMetaWearCEnv,
-    MBLModelMetaWearCDet,
-    MBLModelMetaWearHR,
-    MBLModelMetaWearPPG,
+    MBLModelMetaEnvironment,
+    MBLModelMetaDetector,
+    MBLModelMetaHealth,
     MBLModelMetaTracker,
     MBLModelMetaMotionR,
     MBLModelMetaMotionC
 };
+NSString *MBLModelString(MBLModel model);
 
 /**
  Verbosity of log messages coming from the MetaWear SDK

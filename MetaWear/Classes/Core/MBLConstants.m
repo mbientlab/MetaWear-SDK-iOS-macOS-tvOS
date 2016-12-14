@@ -74,6 +74,36 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
     }
 }
 
+NSString *MBLModelString(MBLModel model)
+{
+    switch (model) {
+        case MBLModelUnknown:
+            return @"Unknown";
+        case MBLModelMetaWearR:
+            return @"MetaWearR";
+        case MBLModelMetaWearRG:
+            return @"MetaWearRG";
+        case MBLModelMetaWearRPro:
+            return @"MetaWearRPro";
+        case MBLModelMetaWearC:
+            return @"MetaWearC";
+        case MBLModelMetaWearCPro:
+            return @"MetaWearCPro";
+        case MBLModelMetaEnvironment:
+            return @"MetaEnvironment";
+        case MBLModelMetaDetector:
+            return @"MetaDetector";
+        case MBLModelMetaHealth:
+            return @"MetaHealth";
+        case MBLModelMetaTracker:
+            return @"MetaTracker";
+        case MBLModelMetaMotionR:
+            return @"MetaMotionR";
+        case MBLModelMetaMotionC:
+            return @"MetaMotionC";
+    }
+}
+
 NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy)
 {
     switch (accuracy) {

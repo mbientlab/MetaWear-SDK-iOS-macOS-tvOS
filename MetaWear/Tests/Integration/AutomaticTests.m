@@ -57,6 +57,7 @@
 
 - (void)testModuleVersions
 {
+    XCTAssertEqual(self.model, self.device.model);
     switch (self.model) {
         case MBLModelMetaWearR:
             AssertModule(self.device.mechanicalSwitch, 0, 0);
@@ -188,7 +189,7 @@
             AssertNilModule(self.device.photometer);
             AssertNilModule(self.device.proximity);
             break;
-        case MBLModelMetaWearCDet:
+        case MBLModelMetaDetector:
             AssertModule(self.device.mechanicalSwitch, 0, 0);
             AssertModule(self.device.led, 0, 1);
             AssertModule(self.device.accelerometer, 3, 1);
@@ -214,7 +215,7 @@
             AssertNilModule(self.device.photometer);
             AssertModule(self.device.proximity, 0, 0);
             break;
-        case MBLModelMetaWearCEnv:
+        case MBLModelMetaEnvironment:
             AssertModule(self.device.mechanicalSwitch, 0, 0);
             AssertModule(self.device.led, 0, 0);
             AssertModule(self.device.accelerometer, 3, 0);

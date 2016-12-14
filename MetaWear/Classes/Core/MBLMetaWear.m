@@ -218,6 +218,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         self.identifier = peripheral.identifier;
         self.nameImpl = peripheral.name;
         self.discoveryTimeRSSI = RSSI;
+        self.model = MBLModelUnknown;
         
         self.state = MBLConnectionStateDisconnected;
         
@@ -528,6 +529,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                          self.photometer ? self.photometer : [NSNull null],
                          self.proximity ? self.proximity : [NSNull null],
                          self.sensorFusion ? self.sensorFusion : [NSNull null]];
+        self.model = [self calculateModelType];
         
         // Save this as the reset state of the device
         // Do this on the bleQueue so that we don't process events while the save state is happening
@@ -793,6 +795,47 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 return nil;
         }
     }];
+}
+
+- (MBLModel)calculateModelType
+{
+    if ([self.deviceInfo.modelNumber isEqualToString:@"0"]) {
+        return MBLModelMetaWearR;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"1"]) {
+        if (self.modules) {
+            if (self.barometer) {
+                return MBLModelMetaWearRPro;
+            } else {
+                return MBLModelMetaWearRG;
+            }
+        } else {
+            return MBLModelUnknown;
+        }
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"2"]) {
+        if (self.modules) {
+            if (self.proximity) {
+                return MBLModelMetaDetector;
+            } else if (self.hygrometer) {
+                return MBLModelMetaEnvironment;
+            } else if (self.magnetometer) {
+                return MBLModelMetaWearCPro;
+            } else {
+                return MBLModelMetaWearC;
+            }
+        } else {
+            return MBLModelUnknown;
+        }
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"3"]) {
+        return MBLModelMetaHealth;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"4"]) {
+        return MBLModelMetaTracker;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"5"]) {
+        return MBLModelMetaMotionR;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"6"]) {
+        return MBLModelMetaMotionC;
+    } else {
+        return MBLModelUnknown;
+    }
 }
 
 - (BFTask *)waitForDisconnection

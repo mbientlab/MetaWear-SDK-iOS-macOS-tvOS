@@ -39,13 +39,13 @@
 // so we do this instead, aint pretty but it's certainly nicer than dozens of
 // syntax highlighter errors
 #if TARGET_OS_IOS
-#import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
-#import <iOSDFULibrary/iOSDFULibrary-iOS-umbrella.h>
-#import <iOSDFULibrary/iOSDFULibrary-Swift.h>
+  #import <MetaWear/MetaWearPrivate-iOS-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-iOS-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-Swift.h>
 #elif TARGET_OS_TV
-#import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
+  #import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
 #else
-#import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-#import <iOSDFULibrary/iOSDFULibrary-OSX-umbrella.h>
-#import <iOSDFULibrary/iOSDFULibrary-Swift.h>
+  #import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-OSX-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-Swift.h>
 #endif

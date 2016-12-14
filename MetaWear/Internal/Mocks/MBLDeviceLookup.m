@@ -61,13 +61,11 @@
     } else if ([modelString isEqualToString:@"CPRO"]) {
         model = MBLModelMetaWearCPro;
     } else if ([modelString isEqualToString:@"CDET"]) {
-        model = MBLModelMetaWearCDet;
+        model = MBLModelMetaDetector;
     } else if ([modelString isEqualToString:@"CENV"]) {
-        model = MBLModelMetaWearCEnv;
-    } else if ([modelString isEqualToString:@"HR"]) {
-        model = MBLModelMetaWearHR;
-    } else if ([modelString isEqualToString:@"PPG"]) {
-        model = MBLModelMetaWearPPG;
+        model = MBLModelMetaEnvironment;
+    } else if ([modelString isEqualToString:@"HEALTH"]) {
+        model = MBLModelMetaHealth;
     } else if ([modelString isEqualToString:@"TRAK"]) {
         model = MBLModelMetaTracker;
     } else if ([modelString isEqualToString:@"MOT_R"]) {

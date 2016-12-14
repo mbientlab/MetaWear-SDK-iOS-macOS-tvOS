@@ -262,6 +262,11 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  if you wish to change the advertised name, max 8 characters!
  */
 @property (nonatomic) NSString *name;
+/**
+ The model of this MetaWear.  This is only valid after a successful connection!
+ @see MBLModelString for turning this into a friendly string
+ */
+@property (nonatomic) MBLModel model;
 
 ///----------------------------------
 /// @name Connect/Disconnect
@@ -361,7 +366,7 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
 /// @name Debug and Testing Utilities
 ///----------------------------------
 
-/*
+/**
  This causues the device to immediately disconnect with an error.  Useful for testing
  error handling flows.
  */
