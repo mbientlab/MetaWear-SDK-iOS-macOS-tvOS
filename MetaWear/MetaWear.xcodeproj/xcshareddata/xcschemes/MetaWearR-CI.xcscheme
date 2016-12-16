@@ -158,6 +158,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "40703EA51D94C37500F38FF0"
+            BuildableName = "MetaWearIntegrationTests-iOS.xctest"
+            BlueprintName = "MetaWearIntegrationTests-iOS"
+            ReferencedContainer = "container:MetaWear.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

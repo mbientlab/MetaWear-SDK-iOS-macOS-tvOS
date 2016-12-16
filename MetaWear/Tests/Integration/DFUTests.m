@@ -138,17 +138,16 @@
                 selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
             }
             
-            DFUServiceInitiator *initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
-            [initiator withFirmware:selectedFirmware];
+            self.initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
+            [self.initiator withFirmware:selectedFirmware];
             
-            initiator.forceDfu = YES;
-            // initiator.packetReceiptNotificationParameter = N; // default is 12
-            initiator.logger = self;
-            initiator.delegate = self;
-            initiator.progressDelegate = self;
-            initiator.peripheralSelector = self;
+            self.initiator.forceDfu = YES;
+            self.initiator.logger = self;
+            self.initiator.delegate = self;
+            self.initiator.progressDelegate = self;
+            self.initiator.peripheralSelector = self;
             
-            [initiator start];
+            self.dfuController = [self.initiator start];
         }] failure:^(NSError * _Nonnull error) {
             XCTAssertNil(error);
             [self.waitingExpectation fulfill];
