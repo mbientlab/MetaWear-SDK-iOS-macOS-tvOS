@@ -618,7 +618,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         [self removeResetFile];
         
         // When the disconnect occurs we know the device has been cleared and is ready for a fresh programming
-        [[self waitForDisconnection] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        [[self waitForDisconnect] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
             // Reconnect if we need to program the beast
             if (configuration) {
                 [[[self connectAsync] success:^(id  _Nonnull result) {
@@ -770,7 +770,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         switch (self.state) {
             case MBLConnectionStateConnected:
             {
-                BFTask *task = [self waitForDisconnection];
+                BFTask *task = [self waitForDisconnect];
                 [[self waitForCommandCompletion] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
                     self.state = MBLConnectionStateDisconnecting;
                     [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:YES];
@@ -782,7 +782,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             case MBLConnectionStateDiscovery:
             {
                 self.state = MBLConnectionStateDisconnecting;
-                BFTask *task = [self waitForDisconnection];
+                BFTask *task = [self waitForDisconnect];
                 [[self waitForCommandCompletion] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
                     [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
                     return nil;
@@ -790,7 +790,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 return task;
             }
             case MBLConnectionStateDisconnecting:
-                return [self waitForDisconnection];
+                return [self waitForDisconnect];
             case MBLConnectionStateDisconnected:
                 return nil;
         }
@@ -838,7 +838,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
 }
 
-- (BFTask *)waitForDisconnection
+- (BFTask<MBLMetaWear *> *)waitForDisconnect;
 {
     BFTaskCompletionSource *taskSource = [BFTaskCompletionSource taskCompletionSource];
     @synchronized(disconnectionSources) {
@@ -1289,7 +1289,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         }
         // Getting into DFU causes the device to disconnect, so we execute this
         // async to make sure our disconnection handler gets registered first.
-        BFTask *disconnectTask = [self waitForDisconnection];
+        BFTask *disconnectTask = [self waitForDisconnect];
         if (alreadyInDFU) {
             // See to simulate the disconnect that occurs when we jump to bootloader
             [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];

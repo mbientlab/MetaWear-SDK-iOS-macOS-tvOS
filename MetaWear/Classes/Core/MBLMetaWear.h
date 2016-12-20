@@ -292,6 +292,13 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  */
 - (BFTask<MBLMetaWear *> *)disconnectAsync;
 
+/**
+ Create a task that will complete once this device disconnects, either expectedly
+ or unexpectedly.  This is useful for observing unexpected disconnects and
+ automatically issing a re-connect request or otherwise updating the UI.
+ */
+- (BFTask<MBLMetaWear *> *)waitForDisconnect;
+
 ///----------------------------------
 /// @name Remember/Forget
 ///----------------------------------
