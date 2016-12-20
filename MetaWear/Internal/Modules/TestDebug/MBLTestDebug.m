@@ -114,7 +114,7 @@
     return [[self.keyRegister readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
         // If another app tries to connect to this MetaWear it will issue this same
         // command, so lets track any unexpected reads of the key register and use that
-        // as an indicator someone is trying to use 2 apps simultaneously wihch is very
+        // as an indicator someone is trying to use 2 apps simultaneously which is very
         // dangerous and unsupported.  Our only option is to disconnect this app
         MBLMetaWear *device = self.device;
         [self.keyRegister addNotificationWithExecutor:[BFExecutor metaWearExecutor] handler:^(id _Nullable obj, NSError * _Nullable error) {

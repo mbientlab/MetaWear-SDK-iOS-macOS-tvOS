@@ -35,131 +35,14 @@
 
 #import "MetaWearTest.h"
 
-@interface MBLBoschTiltFormat : MBLFormat
-@property (nonatomic, weak) MBLAccelerometerBosch *accelerometer;
-- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
-@end
-
-@implementation MBLBoschTiltFormat
-
-- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
-{
-    self = [super initNumberWithLength:4 isSigned:NO];
-    if (self) {
-        self.accelerometer = accelerometer;
-    }
-    return self;
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    MBLAccelerometerBoschRMSFormat *newFormat = [super copyWithZone:zone];
-    newFormat.accelerometer = self.accelerometer;
-    return newFormat;
-}
-
-- (id)entryFromData:(NSData *)data date:(NSDate *)date
-{
-    uint32_t raw = *(uint32_t *)data.bytes;
-    double scale;
-    switch (self.accelerometer.fullScaleRange) {
-        case MBLAccelerometerBoschRange16G:
-            scale = 16.0 / 32768.0;
-            break;
-        case MBLAccelerometerBoschRange8G:
-            scale = 8.0 / 32768.0;
-            break;
-        case MBLAccelerometerBoschRange4G:
-            scale = 4.0 / 32768.0;
-            break;
-        case MBLAccelerometerBoschRange2G:
-            scale = 2.0 / 32768.0;
-            break;
-    }
-    double angle;
-    if (raw & 0x10000) {
-        raw &= 0xffff;
-        angle = 180.0 - ((asin(MIN(1.0, (double)raw * scale)) /  M_PI) * 180.0);
-    } else {
-        angle = ((asin(MIN(1.0, (double)raw * scale)) /  M_PI) * 180.0);
-    }
-    return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:angle] timestamp:date];
-}
-
-- (NSNumber *)numberFromDouble:(double)value
-{
-    return [NSNumber numberWithInt:(int)value];
-}
-
-@end
-
-
-
 @interface EnablingTests : MetaWearTest
 @end
 
 @implementation EnablingTests
 
-- (void)testTraker
+- (void)testCrazyNewFeature
 {
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"testSwitchRead"];
-    
-    //[MBLMetaWearManager sharedManager].logLevel = MBLLogLevelWarning;
-    self.device.accelerometer.sampleFrequency = 100;
-    
-    MBLEvent *rss = [self.device.accelerometer.dataReadyEvent
-                     rssOfEventWithInputLength:2
-                     inputCount:2
-                     format:[[MBLBoschTiltFormat alloc] initWithAccelerometer:(MBLAccelerometerBosch *)self.device.accelerometer]];
-    
-    MBLFilter *avg = [rss averageOfEventWithDepth:128];
-    MBLFilter *ang = [avg modifyEventUsingOperation:MBLArithmeticOperationAdd withData:0x10000];
-    
-    MBLFilter *zChange = [self.device.accelerometer.zAxisReadyEvent changeOfEventAcrossThreshold:0.0 hysteresis:0.15 output:MBLThresholdValueOutputBinary];
-    MBLFilter *upFacing = [zChange compareEventUsingOperation:MBLComparisonOperationEqual data:@[@1] output:MBLComparisonOutputValue];
-    MBLFilter *downFacing = [zChange compareEventUsingOperation:MBLComparisonOperationEqual data:@[@-1] output:MBLComparisonOutputValue];
-    
-    [[[[avg programCommandsToRunOnEventAsync:^{
-        [avg resetAsync];
-    }] continueWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
-        return [ang startNotificationsWithHandlerAsync:^(id  _Nullable obj, NSError * _Nullable error) {
-            NSLog(@"%@", obj);
-        }];
-    }] continueWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
-        return [upFacing startNotificationsWithHandlerAsync:^(id  _Nullable obj, NSError * _Nullable error) {
-            uint8_t data[] = { 0x09, 0x0f, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00 };
-            int dataSize = sizeof(data) / sizeof(data[0]);
-            [ang resetParametersWithData:[NSData dataWithBytes:&data length:dataSize]];
-        }];
-    }] continueWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
-        return [downFacing programCommandsToRunOnEventAsync:^{
-            uint8_t data[] = { 0x09, 0x0f, 0x01, 0x00, 0x00, 0x01, 0x00, 0x00 };
-            int dataSize = sizeof(data) / sizeof(data[0]);
-            [ang resetParametersWithData:[NSData dataWithBytes:&data length:dataSize]];
-        }];
-    }];
-    
-    
-//    return [batteryNotCharging programCommandsToRunOnEventAsync:^{
-//        //return [batteryNotCharging startNotificationsWithHandlerAsync:^(id  _Nullable obj, NSError * _Nullable error) {
-//        uint8_t data[] = { 0x09, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00 };
-                             //OURS0x09, 0x0f, 0x01, 0x00, 0x00, 0x01, 0x00, 0x00
-//        int dataSize = sizeof(data) / sizeof(data[0]);
-//        [batteryChargeArithmetic resetParametersWithData:[NSData dataWithBytes:&data length:dataSize]];
-//        [self.device.settings.batteryRemaining localReadAsync];
-//    }];
-    
-//    [[self.device.accelerometer.dataReadyEvent startNotificationsWithHandlerAsync:^(MBLAccelerometerData * _Nullable obj, NSError * _Nullable error) {
-//        //NSLog(@"%@", obj);
-//        double op = sqrt((obj.y * obj.y) + (obj.x * obj.x));
-//        NSLog(@"%f", (atan2(op, obj.z) /  M_PI) * 180.0);
-//        NSLog(@"%f", (asin(op) /  M_PI) * 180.0);
-//    }] success:^(id  _Nonnull result) {
-//        [rss startNotificationsWithHandlerAsync:^(id  _Nullable obj, NSError * _Nullable error) {
-//            NSLog(@"%@", obj);
-//        }];
-//    }];
-//    
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(600 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [waitingExpectation fulfill];

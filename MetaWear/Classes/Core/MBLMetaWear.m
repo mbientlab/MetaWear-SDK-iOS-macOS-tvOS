@@ -1535,12 +1535,24 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         if (!characteristic.value.length) {
             return;
         }
-        uint8_t moduleId = *(uint8_t *)characteristic.value.bytes;
-        @synchronized(moduleInfoTaskSources) {
-            BFTaskCompletionSource *source = moduleInfoTaskSources[[NSNumber numberWithInt:moduleId]];
-            if (source) {
+        uint8_t *bytes = (uint8_t *)characteristic.value.bytes;
+        uint8_t moduleId = *bytes; bytes++;
+        uint8_t registerId = *bytes;
+        // The first register is special and should only be read during initialization
+        if (registerId == 0x80) {
+            @synchronized(moduleInfoTaskSources) {
+                BFTaskCompletionSource *source = moduleInfoTaskSources[[NSNumber numberWithInt:moduleId]];
+                if (!source) {
+                    // If another app tries to connect to this MetaWear it could issue these discovery
+                    // commands again, so lets track any unexpected reads of the these registers and use that
+                    // as an indicator someone is trying to use 2 apps simultaneously which is very
+                    // dangerous and unsupported.  Our only option is to disconnect this app.
+                    MBLLog(MBLLogLevelWarning, @"Simultaneous Connection - Disconnecting %@ because another App has initiated a connection", self);
+                    [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
+                }
                 [moduleInfoTaskSources removeObjectForKey:[NSNumber numberWithInt:moduleId]];
                 if (error) {
+                    // TODO: This can probably never be hit
                     [source trySetError:error];
                 } else if (characteristic.value.length >= 4) {
                     // 4 or more bytes indicates the module is present and active
@@ -1550,19 +1562,19 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                     [source trySetResult:nil];
                 }
                 [self decrementCount];
-            } else if (moduleId < self.modules.count) {
-                id module = self.modules[moduleId];
-                if ([module respondsToSelector:@selector(recievedData:error:)]) {
-                    [module recievedData:characteristic.value error:error];
-                } else {
-                    assert(NO && "No module found");
-                }
-            } else if (moduleId == self.testDebug.moduleInfo.moduleId) {
-                if ([self.testDebug respondsToSelector:@selector(recievedData:error:)]) {
-                    [self.testDebug recievedData:characteristic.value error:error];
-                } else {
-                    assert(NO && "No testDebug module found");
-                }
+            }
+        } else if (moduleId < self.modules.count) {
+            id module = self.modules[moduleId];
+            if ([module respondsToSelector:@selector(recievedData:error:)]) {
+                [module recievedData:characteristic.value error:error];
+            } else {
+                assert(NO && "No module found");
+            }
+        } else if (moduleId == self.testDebug.moduleInfo.moduleId) {
+            if ([self.testDebug respondsToSelector:@selector(recievedData:error:)]) {
+                [self.testDebug recievedData:characteristic.value error:error];
+            } else {
+                assert(NO && "No testDebug module found");
             }
         }
     } else if (characteristic == batteryLifeCharacteristic) {
