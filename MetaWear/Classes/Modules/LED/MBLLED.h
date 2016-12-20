@@ -84,6 +84,16 @@ typedef NS_ENUM(uint8_t, MBLLEDColorChannel) {
  */
 - (BFTask *)flashLEDColorAsync:(MBLColor *)color withIntensity:(CGFloat)intensity onTime:(uint16_t)otime andPeriod:(uint16_t)period;
 
+/**
+ Flash a specific color on the LED
+ @param color Which color the LED should flash
+ @param intensity Scale from 0-1.0 on how bright the LED should be
+ @param otime Time in mSec LED spends on
+ @param period Flash period lenght in mSec
+ @param numberOfFlashes Number of times LED will flash before turning off
+ */
+- (BFTask *)flashLEDColorAsync:(MBLColor *)color withIntensity:(CGFloat)intensity onTime:(uint16_t)otime period:(uint16_t)period numberOfFlashes:(uint8_t)numberOfFlashes;
+    
 
 #pragma mark - Advanced Settings
 // These are typically not needed, see the simpler APIs above

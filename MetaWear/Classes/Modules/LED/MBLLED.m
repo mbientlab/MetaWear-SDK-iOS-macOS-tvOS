@@ -156,6 +156,11 @@ typedef struct __attribute__((packed)) {
     return [self flashLEDColorAsync:color withIntensity:intensity onTime:otime period:period repeat:0xff offIsZero:NO];
 }
 
+- (BFTask *)flashLEDColorAsync:(MBLColor *)color withIntensity:(CGFloat)intensity onTime:(uint16_t)otime period:(uint16_t)period numberOfFlashes:(uint8_t)numberOfFlashes
+{
+    return [self flashLEDColorAsync:color withIntensity:intensity onTime:otime period:period repeat:numberOfFlashes offIsZero:NO];
+}
+
 - (BFTask *)flashLEDColorAsync:(MBLColor *)color withIntensity:(CGFloat)intensity onTime:(uint16_t)otime period:(uint16_t)period repeat:(uint8_t)repeat offIsZero:(BOOL)offIsZero
 {
     if (intensity < 0.0 || intensity > 1.0) {
