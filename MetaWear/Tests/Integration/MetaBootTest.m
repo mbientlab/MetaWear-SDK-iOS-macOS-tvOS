@@ -60,7 +60,7 @@ static const int secondsToFind = 20;
     
     NSString *deviceUid = [MBLDeviceLookup metawearUid];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
-    [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray *array) {
+    [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
                 [[MBLMetaWearManager sharedManager] stopScan];

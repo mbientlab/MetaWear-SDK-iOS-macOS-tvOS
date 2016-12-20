@@ -38,6 +38,7 @@
 @class MBLAccelerometerData;
 @class MBLDeviceInfo;
 @class MBLFirmwareBuild;
+@class MBLMetaWear;
 
 #if TARGET_OS_IOS || TARGET_OS_TV
 #import <UIKit/UIKit.h>
@@ -122,7 +123,7 @@ typedef void (^MBLVoidHandler)();
 typedef void (^MBLErrorHandler)(NSError *__nullable error);
 typedef void (^MBLDataHandler)(NSData *__nullable data, NSError *__nullable error);
 typedef void (^MBLObjectHandler)(id __nullable obj, NSError *__nullable error);
-typedef void (^MBLArrayHandler)(NSArray *__nonnull array);
+typedef void (^MBLArrayHandler)(NSArray<MBLMetaWear *> *__nonnull array);
 typedef void (^MBLArrayErrorHandler)(NSArray *__nullable array, NSError *__nullable error);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

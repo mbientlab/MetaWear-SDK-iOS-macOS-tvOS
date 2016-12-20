@@ -54,7 +54,9 @@
     
     MBLSetUseMockManager(YES);
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
-    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
+    
+    
+    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
         [[MBLMetaWearManager sharedManager] stopScan];
         self.device = [array firstObject];
         assert(self.device);
