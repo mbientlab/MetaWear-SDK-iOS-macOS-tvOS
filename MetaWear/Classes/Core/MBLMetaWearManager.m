@@ -205,14 +205,14 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     
     if ((!self.isScanningMetaWears && metaWears) || (!self.isScanningMetaBoots && metaBoots)) {
         self.allowDuplicates = duplicates;
-        NSMutableArray *services = [NSMutableArray array];
+        NSMutableSet *set = [NSMutableSet setWithArray:self.services];
         if (metaWears) {
-            [services addObject:[MBLConstants serviceUUID]];
+            [set addObject:[MBLConstants serviceUUID]];
         }
         if (metaBoots) {
-            [services addObject:[MBLConstants DFUServiceUUID]];
+            [set addObject:[MBLConstants DFUServiceUUID]];
         }
-        self.services = services;
+        self.services = set.allObjects;
         
         // Fire up scanning if the central is ready for it, otherwise it will get
         // turned on later when its ready
