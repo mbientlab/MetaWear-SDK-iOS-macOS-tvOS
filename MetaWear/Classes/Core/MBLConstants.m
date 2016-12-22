@@ -80,15 +80,15 @@ NSString *MBLModelString(MBLModel model)
         case MBLModelUnknown:
             return @"Unknown";
         case MBLModelMetaWearR:
-            return @"MetaWearR";
+            return @"MetaWear R";
         case MBLModelMetaWearRG:
-            return @"MetaWearRG";
+            return @"MetaWear RG";
         case MBLModelMetaWearRPro:
-            return @"MetaWearRPro";
+            return @"MetaWear RPro";
         case MBLModelMetaWearC:
-            return @"MetaWearC";
+            return @"MetaWear C";
         case MBLModelMetaWearCPro:
-            return @"MetaWearCPro";
+            return @"MetaWear CPro";
         case MBLModelMetaEnvironment:
             return @"MetaEnvironment";
         case MBLModelMetaDetector:
@@ -98,9 +98,9 @@ NSString *MBLModelString(MBLModel model)
         case MBLModelMetaTracker:
             return @"MetaTracker";
         case MBLModelMetaMotionR:
-            return @"MetaMotionR";
+            return @"MetaMotion R";
         case MBLModelMetaMotionC:
-            return @"MetaMotionC";
+            return @"MetaMotion C";
     }
 }
 
