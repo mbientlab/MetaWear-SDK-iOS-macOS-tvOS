@@ -1156,6 +1156,13 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)readBatteryLifeAsync
 {
+    // Use the new age thing if we have it.
+    if (self.settings.batteryRemaining) {
+        return [[self.settings.batteryRemaining readAsync] continueWithSuccessBlock:^id _Nullable(BFTask<MBLNumericData *> * _Nonnull t) {
+            return t.result.value;
+        }];
+    }
+    // Fall back on the battery characteristic
     if (!batteryLifeCharacteristic) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorNotConnected
@@ -1578,6 +1585,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             }
         }
     } else if (characteristic == batteryLifeCharacteristic) {
+        if (!characteristic.value.length) {
+            // Retry if no data received
+            [peripheral readValueForCharacteristic:characteristic];
+            return;
+        }
         @synchronized(batteryLifeSources) {
             for (BFTaskCompletionSource *source in batteryLifeSources) {
                 if (error) {
