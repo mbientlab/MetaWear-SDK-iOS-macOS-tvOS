@@ -182,6 +182,7 @@
 #import "MBLLoggingV1.h"
 #import "MBLLoggingV2.h"
 #import "MBLMacro.h"
+#import "MBLMagnetometerBMM150+Private.h"
 #import "MBLMagnetometerBMM150Format.h"
 #import "MBLMagnetometerBMM150PeriodicMagneticFieldEvent.h"
 #import "MBLMagnetometer+Private.h"
