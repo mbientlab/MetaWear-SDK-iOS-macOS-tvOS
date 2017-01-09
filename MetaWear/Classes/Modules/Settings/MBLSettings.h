@@ -113,6 +113,21 @@ typedef NS_ENUM(uint8_t, MBLTransmitPower) {
  */
 @property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *batteryRemaining;
 
+/**
+ Event representing a power source being connected or disconnected. Values are interpreted as follows:
+   0: Power Source Absent
+   1: Power Source Present
+ On boot, if power source is present, a notification will fire after all startup macros have executed.
+ */
+@property (nonatomic, readonly, nullable) MBLEvent<MBLNumericData *> *powerStatus;
+
+/**
+ Event representing a change in charging status. Values are interpreted as follows:
+   0: Battery Not Charging
+   1: Battery Charging
+ On boot, if battery is charging, a notification will fire after all startup macros have executed.
+ */
+@property (nonatomic, readonly, nullable) MBLEvent<MBLNumericData *> *chargerStatus;
 
 /**
  Start the pairing process which creates a persistent bond between the
