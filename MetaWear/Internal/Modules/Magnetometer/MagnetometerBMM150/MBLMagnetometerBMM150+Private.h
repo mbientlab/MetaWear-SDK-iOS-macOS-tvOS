@@ -1,5 +1,5 @@
 /**
- * MBLMagnetometerBMM150.h
+ * MBLMagnetometerBMM150+Private.h
  * MetaWear
  *
  * Created by Stephen Schiffli on 1/6/16.
@@ -33,36 +33,31 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <MetaWear/MBLMagnetometer.h>
+#import "MBLMagnetometerBMM150.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Magnetometer power presets
+ Magnetometer sample frequencies
  */
-typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150Preset) {
-    MBLMagnetometerBMM150PresetLowPower = 0,
-    MBLMagnetometerBMM150PresetRegular = 1,
-    MBLMagnetometerBMM150PresetEnhancedRegular = 2,
-    MBLMagnetometerBMM150PresetHighAccuracy = 3
+typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
+    MBLMagnetometerBMM150SampleFrequency2Hz = 1,
+    MBLMagnetometerBMM150SampleFrequency6Hz = 2,
+    MBLMagnetometerBMM150SampleFrequency8Hz = 3,
+    MBLMagnetometerBMM150SampleFrequency10Hz = 0,
+    MBLMagnetometerBMM150SampleFrequency15Hz = 4,
+    MBLMagnetometerBMM150SampleFrequency20Hz = 5,
+    MBLMagnetometerBMM150SampleFrequency25Hz = 6,
+    MBLMagnetometerBMM150SampleFrequency30Hz = 7
 };
 
-/**
- Interface to a BMM150 magnetometer sensor
- */
-@interface MBLMagnetometerBMM150 : MBLMagnetometer
+@interface MBLMagnetometerBMM150 (Private)
 
 /**
- This affects the power, accuracy, and frequency of periodicMagneticField event
+ @warning This is changed any time the powerPreset property changes, so set
+ powerPreset first and then override the sampleFrequency if needed
  */
-@property (nonatomic) MBLMagnetometerBMM150Preset powerPreset;
-
-
-/**
- Data representing the periodic magnetic field measured by magnetometer. 
- Event callbacks will be provided an MBLMagnetometerData object.
- */
-@property (nonatomic, readonly) MBLEvent<MBLMagnetometerData *> *periodicMagneticField;
+@property (nonatomic) MBLMagnetometerBMM150SampleFrequency sampleFrequency;
 
 @end
 
