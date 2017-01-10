@@ -49,6 +49,8 @@
 @property (nonatomic) MBLRegister *dataRate;
 @property (nonatomic) MBLRegister *dataRepetitions;
 @property (nonatomic) MBLEvent *periodicMagneticField;
+
+@property (nonatomic) MBLMagnetometerBMM150SampleFrequency sampleFrequency;
 @end
 
 @implementation MBLMagnetometerBMM150
