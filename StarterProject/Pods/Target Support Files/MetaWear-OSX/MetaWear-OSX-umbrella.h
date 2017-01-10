@@ -33,6 +33,7 @@
 #import "MBLAccelerometerBMI160.h"
 #import "MBLAccelerometerBMI160MotionEvent.h"
 #import "MBLAccelerometerBosch.h"
+#import "MBLAccelerometerBoschFlatEvent.h"
 #import "MBLAccelerometerBoschLowOrHighGEvent.h"
 #import "MBLAccelerometer.h"
 #import "MBLAccelerometerData.h"
