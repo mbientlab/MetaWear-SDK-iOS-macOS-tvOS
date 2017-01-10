@@ -28,7 +28,7 @@ class ScanViewController: NSViewController, NSTableViewDelegate, NSTableViewData
         
         MBLMetaWearManager.shared().logLevel = .info
         MBLMetaWearManager.shared().startScan(forMetaWearsAllowDuplicates: true) { array in
-            self.devices = array as? [MBLMetaWear]
+            self.devices = array
             self.tableView.reloadData()
         }
     }

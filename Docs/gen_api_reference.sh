@@ -1,4 +1,4 @@
-appledoc -p "MetaWear iOS/macOS/tvOS API 2.8.1" --project-version "2.8.1" -c "MBIENTLAB INC" --company-id com.mbientlab --no-create-docset --no-repeat-first-par --ignore .m -o . ../MetaWear/Classes
+appledoc -p "MetaWear iOS/macOS/tvOS API 2.8.2" --project-version "2.8.2" -c "MBIENTLAB INC" --company-id com.mbientlab --no-create-docset --no-repeat-first-par --ignore .m -o . ../MetaWear/Classes
 open html/index.html
 
 make html
