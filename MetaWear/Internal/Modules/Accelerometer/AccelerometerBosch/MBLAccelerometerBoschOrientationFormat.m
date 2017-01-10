@@ -47,6 +47,7 @@
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
     MBLAccelerometerOrientation result;
+    uint8_t updsideDown = ((*(uint8_t *)data.bytes) >> 3) & 0x1;
     uint8_t orient = ((*(uint8_t *)data.bytes) >> 1) & 0x3;
     switch (orient) {
         case 0:
@@ -64,7 +65,9 @@
         default:
             assert(NO && "Unexpected byte from the orientation");
     }
-    return [[MBLOrientationData alloc] initWithOrientation:result timestamp:date];
+    return [[MBLOrientationData alloc] initWithOrientation:result
+                                           facingDirection:updsideDown ? MBLAccelerometerFacingDirectionDownward : MBLAccelerometerFacingDirectionUpward
+                                                 timestamp:date];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

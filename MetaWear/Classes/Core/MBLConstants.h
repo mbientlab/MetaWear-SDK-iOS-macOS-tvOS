@@ -38,6 +38,7 @@
 @class MBLAccelerometerData;
 @class MBLDeviceInfo;
 @class MBLFirmwareBuild;
+@class MBLMetaWear;
 
 #if TARGET_OS_IOS || TARGET_OS_TV
 #import <UIKit/UIKit.h>
@@ -71,7 +72,8 @@ typedef NS_ENUM(uint8_t, MBLFirmwareVersion) {
     MBLFirmwareVersion1_2_4,
     MBLFirmwareVersion1_2_5,
     MBLFirmwareVersion1_3_0,
-    MBLFirmwareVersion1_3_1
+    MBLFirmwareVersion1_3_1,
+    MBLFirmwareVersion1_3_2
 };
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version);
 
@@ -85,14 +87,14 @@ typedef NS_ENUM(uint8_t, MBLModel) {
     MBLModelMetaWearRPro,
     MBLModelMetaWearC,
     MBLModelMetaWearCPro,
-    MBLModelMetaWearCEnv,
-    MBLModelMetaWearCDet,
-    MBLModelMetaWearHR,
-    MBLModelMetaWearPPG,
+    MBLModelMetaEnvironment,
+    MBLModelMetaDetector,
+    MBLModelMetaHealth,
     MBLModelMetaTracker,
     MBLModelMetaMotionR,
     MBLModelMetaMotionC
 };
+NSString *MBLModelString(MBLModel model);
 
 /**
  Verbosity of log messages coming from the MetaWear SDK
@@ -122,7 +124,7 @@ typedef void (^MBLVoidHandler)();
 typedef void (^MBLErrorHandler)(NSError *__nullable error);
 typedef void (^MBLDataHandler)(NSData *__nullable data, NSError *__nullable error);
 typedef void (^MBLObjectHandler)(id __nullable obj, NSError *__nullable error);
-typedef void (^MBLArrayHandler)(NSArray *__nonnull array);
+typedef void (^MBLArrayHandler)(NSArray<MBLMetaWear *> *__nonnull array);
 typedef void (^MBLArrayErrorHandler)(NSArray *__nullable array, NSError *__nullable error);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

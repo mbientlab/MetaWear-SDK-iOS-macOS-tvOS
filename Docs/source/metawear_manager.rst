@@ -21,7 +21,7 @@ It's simple to start scanning for advertising MetaWear devices using the `MBLMet
 
 ::
 
-    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
+    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *device in array) {
             NSLog(@"Found MetaWear: %@", device);
         }
@@ -39,7 +39,7 @@ This feature is handy because the ``discoveryTimeRSSI`` property on the discover
     static const int MAX_ALLOWED_RSSI = -15; // The RSSI calculation sometimes produces erroneous values, we know anything above this value is invalid
     static const int MIN_ALLOWED_RSSI = -45; // Depending on your specific application this value will change!
      
-    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:YES handler:^(NSArray *array) {
+    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:YES handler:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *device in array) {
             // Reject any value above a reasonable range
             if (device.discoveryTimeRSSI.integerValue > MAX_ALLOWED_RSSI) {

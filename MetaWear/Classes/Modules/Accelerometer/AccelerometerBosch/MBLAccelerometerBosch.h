@@ -37,6 +37,7 @@
 #import <MetaWear/bmi160.h>
 @class MBLNumericData;
 @class MBLAccelerometerBoschLowOrHighGEvent;
+@class MBLAccelerometerBoschFlatEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -91,7 +92,7 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerBoschRange) {
  Event callbacks will be provided an MBLNumericData object, where a bool value of
  YES means flat, and NO means not-flat.
  */
-@property (nonatomic, readonly) MBLEvent<MBLNumericData *> *flatEvent;
+@property (nonatomic, readonly) MBLAccelerometerBoschFlatEvent *flatEvent;
 
 @end
 

@@ -22,7 +22,7 @@ class ScanTableViewController: UITableViewController {
         super.viewWillAppear(animated);
         
         MBLMetaWearManager.shared().startScan(forMetaWearsAllowDuplicates: true) { array in
-            self.devices = array as? [MBLMetaWear]
+            self.devices = array
             self.tableView.reloadData()
         }
     }

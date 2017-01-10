@@ -40,7 +40,7 @@
 #import "MBLLogger.h"
 #import "MBLAccelerometerBMI160+Private.h"
 #import "MBLGyroBMI160+Private.h"
-#import "MBLMagnetometerBMM150.h"
+#import "MBLMagnetometerBMM150+Private.h"
 #import "MBLGravityFormat.h"
 #import "MBLBitmaskEvent.h"
 #import "MBLEulerFormat.h"
@@ -182,7 +182,8 @@ typedef struct  __attribute__((packed)) {
             //    50Hz Mag (NOTE Using 25 for now since mag doesn't support 50)
             accelerometer.sampleFrequency = 50;
             
-            magnetometer.powerPreset = MBLMagnetometerBMM150PresetSensorFusion25;
+            magnetometer.powerPreset = MBLMagnetometerBMM150PresetRegular;
+            magnetometer.sampleFrequency = MBLMagnetometerBMM150SampleFrequency25Hz;
             
             // Boot all the sensors
             return [[[[[accelerometer.dataReadyEvent initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
@@ -203,7 +204,8 @@ typedef struct  __attribute__((packed)) {
             
             gyro.sampleFrequency = 100;
             
-            magnetometer.powerPreset = MBLMagnetometerBMM150PresetSensorFusion25;
+            magnetometer.powerPreset = MBLMagnetometerBMM150PresetRegular;
+            magnetometer.sampleFrequency = MBLMagnetometerBMM150SampleFrequency25Hz;
             
             // Boot all the sensors
             return [[[[[[[accelerometer.dataReadyEvent initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
@@ -226,7 +228,8 @@ typedef struct  __attribute__((packed)) {
             //    25Hz Mag
             accelerometer.sampleFrequency = 25;
             
-            magnetometer.powerPreset = MBLMagnetometerBMM150PresetSensorFusion25;
+            magnetometer.powerPreset = MBLMagnetometerBMM150PresetRegular;
+            magnetometer.sampleFrequency = MBLMagnetometerBMM150SampleFrequency25Hz;
             
             // Boot all the sensors
             return [[[[[accelerometer.dataReadyEvent initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {

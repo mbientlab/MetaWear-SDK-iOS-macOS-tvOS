@@ -218,6 +218,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         self.identifier = peripheral.identifier;
         self.nameImpl = peripheral.name;
         self.discoveryTimeRSSI = RSSI;
+        self.model = MBLModelUnknown;
         
         self.state = MBLConnectionStateDisconnected;
         
@@ -528,6 +529,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                          self.photometer ? self.photometer : [NSNull null],
                          self.proximity ? self.proximity : [NSNull null],
                          self.sensorFusion ? self.sensorFusion : [NSNull null]];
+        self.model = [self calculateModelType];
         
         // Save this as the reset state of the device
         // Do this on the bleQueue so that we don't process events while the save state is happening
@@ -616,7 +618,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         [self removeResetFile];
         
         // When the disconnect occurs we know the device has been cleared and is ready for a fresh programming
-        [[self waitForDisconnection] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        [[self waitForDisconnect] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
             // Reconnect if we need to program the beast
             if (configuration) {
                 [[[self connectAsync] success:^(id  _Nonnull result) {
@@ -768,7 +770,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         switch (self.state) {
             case MBLConnectionStateConnected:
             {
-                BFTask *task = [self waitForDisconnection];
+                BFTask *task = [self waitForDisconnect];
                 [[self waitForCommandCompletion] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
                     self.state = MBLConnectionStateDisconnecting;
                     [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:YES];
@@ -780,7 +782,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             case MBLConnectionStateDiscovery:
             {
                 self.state = MBLConnectionStateDisconnecting;
-                BFTask *task = [self waitForDisconnection];
+                BFTask *task = [self waitForDisconnect];
                 [[self waitForCommandCompletion] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
                     [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
                     return nil;
@@ -788,14 +790,55 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 return task;
             }
             case MBLConnectionStateDisconnecting:
-                return [self waitForDisconnection];
+                return [self waitForDisconnect];
             case MBLConnectionStateDisconnected:
                 return nil;
         }
     }];
 }
 
-- (BFTask *)waitForDisconnection
+- (MBLModel)calculateModelType
+{
+    if ([self.deviceInfo.modelNumber isEqualToString:@"0"]) {
+        return MBLModelMetaWearR;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"1"]) {
+        if (self.modules) {
+            if (self.barometer) {
+                return MBLModelMetaWearRPro;
+            } else {
+                return MBLModelMetaWearRG;
+            }
+        } else {
+            return MBLModelUnknown;
+        }
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"2"]) {
+        if (self.modules) {
+            if (self.proximity) {
+                return MBLModelMetaDetector;
+            } else if (self.hygrometer) {
+                return MBLModelMetaEnvironment;
+            } else if (self.magnetometer) {
+                return MBLModelMetaWearCPro;
+            } else {
+                return MBLModelMetaWearC;
+            }
+        } else {
+            return MBLModelUnknown;
+        }
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"3"]) {
+        return MBLModelMetaHealth;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"4"]) {
+        return MBLModelMetaTracker;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"5"]) {
+        return MBLModelMetaMotionR;
+    } else if ([self.deviceInfo.modelNumber isEqualToString:@"6"]) {
+        return MBLModelMetaMotionC;
+    } else {
+        return MBLModelUnknown;
+    }
+}
+
+- (BFTask<MBLMetaWear *> *)waitForDisconnect;
 {
     BFTaskCompletionSource *taskSource = [BFTaskCompletionSource taskCompletionSource];
     @synchronized(disconnectionSources) {
@@ -1113,6 +1156,13 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)readBatteryLifeAsync
 {
+    // Use the new age thing if we have it.
+    if (self.settings.batteryRemaining) {
+        return [[self.settings.batteryRemaining readAsync] continueWithSuccessBlock:^id _Nullable(BFTask<MBLNumericData *> * _Nonnull t) {
+            return t.result.value;
+        }];
+    }
+    // Fall back on the battery characteristic
     if (!batteryLifeCharacteristic) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorNotConnected
@@ -1246,7 +1296,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         }
         // Getting into DFU causes the device to disconnect, so we execute this
         // async to make sure our disconnection handler gets registered first.
-        BFTask *disconnectTask = [self waitForDisconnection];
+        BFTask *disconnectTask = [self waitForDisconnect];
         if (alreadyInDFU) {
             // See to simulate the disconnect that occurs when we jump to bootloader
             [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
@@ -1492,12 +1542,24 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         if (!characteristic.value.length) {
             return;
         }
-        uint8_t moduleId = *(uint8_t *)characteristic.value.bytes;
-        @synchronized(moduleInfoTaskSources) {
-            BFTaskCompletionSource *source = moduleInfoTaskSources[[NSNumber numberWithInt:moduleId]];
-            if (source) {
+        uint8_t *bytes = (uint8_t *)characteristic.value.bytes;
+        uint8_t moduleId = *bytes; bytes++;
+        uint8_t registerId = *bytes;
+        // The first register is special and should only be read during initialization
+        if (registerId == 0x80) {
+            @synchronized(moduleInfoTaskSources) {
+                BFTaskCompletionSource *source = moduleInfoTaskSources[[NSNumber numberWithInt:moduleId]];
+                if (!source) {
+                    // If another app tries to connect to this MetaWear it could issue these discovery
+                    // commands again, so lets track any unexpected reads of the these registers and use that
+                    // as an indicator someone is trying to use 2 apps simultaneously which is very
+                    // dangerous and unsupported.  Our only option is to disconnect this app.
+                    MBLLog(MBLLogLevelWarning, @"Simultaneous Connection - Disconnecting %@ because another App has initiated a connection", self);
+                    [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
+                }
                 [moduleInfoTaskSources removeObjectForKey:[NSNumber numberWithInt:moduleId]];
                 if (error) {
+                    // TODO: This can probably never be hit
                     [source trySetError:error];
                 } else if (characteristic.value.length >= 4) {
                     // 4 or more bytes indicates the module is present and active
@@ -1507,22 +1569,27 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                     [source trySetResult:nil];
                 }
                 [self decrementCount];
-            } else if (moduleId < self.modules.count) {
-                id module = self.modules[moduleId];
-                if ([module respondsToSelector:@selector(recievedData:error:)]) {
-                    [module recievedData:characteristic.value error:error];
-                } else {
-                    assert(NO && "No module found");
-                }
-            } else if (moduleId == self.testDebug.moduleInfo.moduleId) {
-                if ([self.testDebug respondsToSelector:@selector(recievedData:error:)]) {
-                    [self.testDebug recievedData:characteristic.value error:error];
-                } else {
-                    assert(NO && "No testDebug module found");
-                }
+            }
+        } else if (moduleId < self.modules.count) {
+            id module = self.modules[moduleId];
+            if ([module respondsToSelector:@selector(recievedData:error:)]) {
+                [module recievedData:characteristic.value error:error];
+            } else {
+                assert(NO && "No module found");
+            }
+        } else if (moduleId == self.testDebug.moduleInfo.moduleId) {
+            if ([self.testDebug respondsToSelector:@selector(recievedData:error:)]) {
+                [self.testDebug recievedData:characteristic.value error:error];
+            } else {
+                assert(NO && "No testDebug module found");
             }
         }
     } else if (characteristic == batteryLifeCharacteristic) {
+        if (!characteristic.value.length) {
+            // Retry if no data received
+            [peripheral readValueForCharacteristic:characteristic];
+            return;
+        }
         @synchronized(batteryLifeSources) {
             for (BFTaskCompletionSource *source in batteryLifeSources) {
                 if (error) {

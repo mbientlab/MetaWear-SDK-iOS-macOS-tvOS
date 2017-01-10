@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLMagnetometerBMM150.h"
+#import "MBLMagnetometerBMM150+Private.h"
 #import "MBLMagnetometer+Private.h"
 #import "MBLMetaWear+Private.h"
 #import "MBLRegister+Private.h"
@@ -43,25 +43,14 @@
 #import "MBLMagnetometerBMM150Format.h"
 #import "MBLLogger.h"
 
-/**
- Magnetometer sample frequencies
- */
-typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
-    MBLMagnetometerBMM150SampleFrequency2Hz = 1,
-    MBLMagnetometerBMM150SampleFrequency6Hz = 2,
-    MBLMagnetometerBMM150SampleFrequency8Hz = 3,
-    MBLMagnetometerBMM150SampleFrequency10Hz = 0,
-    MBLMagnetometerBMM150SampleFrequency15Hz = 4,
-    MBLMagnetometerBMM150SampleFrequency20Hz = 5,
-    MBLMagnetometerBMM150SampleFrequency25Hz = 6,
-    MBLMagnetometerBMM150SampleFrequency30Hz = 7
-};
 
 @interface MBLMagnetometerBMM150 ()
 @property (nonatomic) MBLRegister *magPowerMode;
 @property (nonatomic) MBLRegister *dataRate;
 @property (nonatomic) MBLRegister *dataRepetitions;
 @property (nonatomic) MBLEvent *periodicMagneticField;
+
+@property (nonatomic) MBLMagnetometerBMM150SampleFrequency sampleFrequency;
 @end
 
 @implementation MBLMagnetometerBMM150
@@ -89,6 +78,30 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
     return nil;
 }
 
+- (void)setPowerPreset:(MBLMagnetometerBMM150Preset)powerPreset
+{
+    if (_powerPreset == powerPreset) {
+        return;
+    }
+    
+    _powerPreset = powerPreset;
+    // See Table 3: Recommended Presets
+    switch (powerPreset) {
+        case MBLMagnetometerBMM150PresetLowPower:
+            self.sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
+            break;
+        case MBLMagnetometerBMM150PresetRegular:
+            self.sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
+            break;
+        case MBLMagnetometerBMM150PresetEnhancedRegular:
+            self.sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
+            break;
+        case MBLMagnetometerBMM150PresetHighAccuracy:
+            self.sampleFrequency = MBLMagnetometerBMM150SampleFrequency20Hz;
+            break;
+    }
+}
+
 - (BFTask *)performAsyncInitialization
 {
     // Table 3: Recommended Presets
@@ -98,40 +111,30 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150SampleFrequency) {
     // | Regular    | 9         | 15        | 10        |
     // | Enhanced   | 15        | 27        | 10        |
     // | High Accur | 47        | 83        | 20        |
-    MBLMagnetometerBMM150SampleFrequency sampleFrequency;
     uint8_t repXY;
     uint8_t repZ;
     switch (self.powerPreset) {
         case MBLMagnetometerBMM150PresetLowPower:
-            sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
             repXY = 3;
             repZ = 3;
             break;
         case MBLMagnetometerBMM150PresetRegular:
-            sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
             repXY = 9;
             repZ = 15;
             break;
         case MBLMagnetometerBMM150PresetEnhancedRegular:
-            sampleFrequency = MBLMagnetometerBMM150SampleFrequency10Hz;
             repXY = 15;
             repZ = 27;
             break;
         case MBLMagnetometerBMM150PresetHighAccuracy:
-            sampleFrequency = MBLMagnetometerBMM150SampleFrequency20Hz;
             repXY = 47;
             repZ = 83;
-            break;
-        case MBLMagnetometerBMM150PresetSensorFusion25:
-            sampleFrequency = MBLMagnetometerBMM150SampleFrequency25Hz;
-            repXY = 9;
-            repZ = 15;
             break;
     }
     
     uint8_t data[] = { (repXY - 1) / 2 , (repZ - 1) };
     int dataSize = sizeof(data) / sizeof(data[0]);
-    uint8_t dataRate = sampleFrequency;
+    uint8_t dataRate = self.sampleFrequency;
     
     return [[self.dataRepetitions writeDataAsync:[NSData dataWithBytes:&data length:dataSize]] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [self.dataRate writeByteAsync:dataRate];

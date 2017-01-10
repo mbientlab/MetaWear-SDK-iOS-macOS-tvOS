@@ -42,6 +42,7 @@
 #import "MBLConversion.h"
 #import "MBLConstants+Private.h"
 #import "BFTask+MBLPrivate.h"
+#import "MBLDeviceInfo.h"
 
 
 @interface MBLEvent ()
@@ -503,8 +504,13 @@ typedef struct __attribute__((packed)) {
     
     deltat_param_t params = {0};
     params.filter_id = 8;
-    params.datalen = self.format.length - 1;
-    params.filter_mode = 0;
+    if (self.module.device.dataProcessor.moduleInfo.moduleRevision == 0) {
+        params.datalen = self.format.length - 1;
+        params.filter_mode = 0;
+    } else {
+        params.datalen = 7; // This is now ignored by passthrough output mode
+        params.filter_mode = 2;
+    }
     uint32_t *tmp = (uint32_t *)params.deltat_ms;
     *tmp = periodInMsec;
     

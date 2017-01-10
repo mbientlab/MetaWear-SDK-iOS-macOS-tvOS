@@ -40,7 +40,7 @@
 #import "MBLAccelerometerBoschLowOrHighGEvent+Private.h"
 #import "MBLAccelerometerBoschOrientationEvent.h"
 #import "MBLAccelerometerBoschTapEvent.h"
-#import "MBLAccelerometerBoschFlatEvent.h"
+#import "MBLAccelerometerBoschFlatEvent+Private.h"
 #import "MBLAccelerometerBMI160StepEvent.h"
 #import "MBLFormat.h"
 #import "MBLNumericFormatter.h"
@@ -54,7 +54,7 @@
 @property (nonatomic) MBLAccelerometerBoschLowOrHighGEvent *lowOrHighGEvent;
 @property (nonatomic) MBLEvent *tapEvent;
 @property (nonatomic) MBLEvent *orientationEvent;
-@property (nonatomic) MBLEvent *flatEvent;
+@property (nonatomic) MBLAccelerometerBoschFlatEvent *flatEvent;
 @property (nonatomic) MBLEvent *stepEvent;
 @end
 

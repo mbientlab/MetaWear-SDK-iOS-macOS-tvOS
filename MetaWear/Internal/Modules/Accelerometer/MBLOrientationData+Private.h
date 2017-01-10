@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp;
 
+- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation
+                    facingDirection:(MBLAccelerometerFacingDirection)facingDirection
+                          timestamp:(NSDate *)timestamp;
+
 @end
 
 NS_ASSUME_NONNULL_END

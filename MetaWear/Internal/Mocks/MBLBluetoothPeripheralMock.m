@@ -362,12 +362,11 @@
             case MBLModelMetaWearRPro:
             case MBLModelMetaWearC:
             case MBLModelMetaWearCPro:
-            case MBLModelMetaWearCEnv:
-            case MBLModelMetaWearCDet:
+            case MBLModelMetaEnvironment:
+            case MBLModelMetaDetector:
                 result = [@"0.3" dataUsingEncoding:NSASCIIStringEncoding];
                 break;
-            case MBLModelMetaWearHR:
-            case MBLModelMetaWearPPG:
+            case MBLModelMetaHealth:
             case MBLModelMetaTracker:
             case MBLModelMetaMotionR:
             case MBLModelMetaMotionC:
@@ -389,12 +388,11 @@
                 break;
             case MBLModelMetaWearC:
             case MBLModelMetaWearCPro:
-            case MBLModelMetaWearCEnv:
-            case MBLModelMetaWearCDet:
+            case MBLModelMetaEnvironment:
+            case MBLModelMetaDetector:
                 result = [@"2" dataUsingEncoding:NSASCIIStringEncoding];
                 break;
-            case MBLModelMetaWearHR:
-            case MBLModelMetaWearPPG:
+            case MBLModelMetaHealth:
                 result = [@"3" dataUsingEncoding:NSASCIIStringEncoding];
                 break;
             case MBLModelMetaTracker:

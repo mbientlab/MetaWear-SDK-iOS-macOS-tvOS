@@ -36,7 +36,7 @@
 #import "MBLConstants.h"
 #import "MBLConstants+Private.h"
 
-NSString *const kMBLAPIVersion = @"2.8.1";
+NSString *const kMBLAPIVersion = @"2.8.2";
 
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
 {
@@ -71,6 +71,38 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
             return @"1.3.0";
         case MBLFirmwareVersion1_3_1:
             return @"1.3.1";
+        case MBLFirmwareVersion1_3_2:
+            return @"1.3.2";
+    }
+}
+
+NSString *MBLModelString(MBLModel model)
+{
+    switch (model) {
+        case MBLModelUnknown:
+            return @"Unknown";
+        case MBLModelMetaWearR:
+            return @"MetaWear R";
+        case MBLModelMetaWearRG:
+            return @"MetaWear RG";
+        case MBLModelMetaWearRPro:
+            return @"MetaWear RPro";
+        case MBLModelMetaWearC:
+            return @"MetaWear C";
+        case MBLModelMetaWearCPro:
+            return @"MetaWear CPro";
+        case MBLModelMetaEnvironment:
+            return @"MetaEnvironment";
+        case MBLModelMetaDetector:
+            return @"MetaDetector";
+        case MBLModelMetaHealth:
+            return @"MetaHealth";
+        case MBLModelMetaTracker:
+            return @"MetaTracker";
+        case MBLModelMetaMotionR:
+            return @"MetaMotion R";
+        case MBLModelMetaMotionC:
+            return @"MetaMotion C";
     }
 }
 

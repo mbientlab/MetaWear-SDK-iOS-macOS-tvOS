@@ -65,6 +65,9 @@ typedef struct __attribute__((packed)) {
 @property (nonatomic) MBLRegister *watchdogConfig;
 @property (nonatomic) MBLRegister *watchdogAutoRefresh;
 @property (nonatomic) MBLRegister *watchdogUserRefresh;
+@property (nonatomic) MBLEvent *powerStatus;
+@property (nonatomic) MBLEvent *chargerStatus;
+
 
 // Setting the following properties causes side effects, so we
 // create an internal property for storing the actual value, allowing
@@ -117,6 +120,10 @@ typedef struct __attribute__((packed)) {
             self.watchdogConfig = [[MBLRegister alloc] initWithModule:self registerId:0xE format:[[MBLFormat alloc] initEncodedDataWithLength:5]];
             self.watchdogAutoRefresh = [[MBLRegister alloc] initWithModule:self registerId:0xF format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
             self.watchdogUserRefresh = [[MBLRegister alloc] initWithModule:self registerId:0x10 format:[MBLFormat writeOnly]];
+        }
+        if (moduleInfo.moduleRevision >= 5) {
+            self.powerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x11 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            self.chargerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x12 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         }
     }
     return self;

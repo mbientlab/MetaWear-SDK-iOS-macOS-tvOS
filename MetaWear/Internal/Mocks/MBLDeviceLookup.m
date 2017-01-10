@@ -61,13 +61,11 @@
     } else if ([modelString isEqualToString:@"CPRO"]) {
         model = MBLModelMetaWearCPro;
     } else if ([modelString isEqualToString:@"CDET"]) {
-        model = MBLModelMetaWearCDet;
+        model = MBLModelMetaDetector;
     } else if ([modelString isEqualToString:@"CENV"]) {
-        model = MBLModelMetaWearCEnv;
-    } else if ([modelString isEqualToString:@"HR"]) {
-        model = MBLModelMetaWearHR;
-    } else if ([modelString isEqualToString:@"PPG"]) {
-        model = MBLModelMetaWearPPG;
+        model = MBLModelMetaEnvironment;
+    } else if ([modelString isEqualToString:@"HEALTH"]) {
+        model = MBLModelMetaHealth;
     } else if ([modelString isEqualToString:@"TRAK"]) {
         model = MBLModelMetaTracker;
     } else if ([modelString isEqualToString:@"MOT_R"]) {
@@ -98,14 +96,14 @@
     
     NSString *deviceUid = [MBLDeviceLookup metawearUid];
     // First check the device cache
-    [[[[MBLMetaWearManager sharedManager] retrieveSavedMetaWearsAsync] success:^(NSArray<MBLMetaWear *> * _Nonnull array) {
+    [[[[MBLMetaWearManager sharedManager] retrieveSavedMetaWearsAsync] success:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
                 [source trySetResult:cur];
             }
         }
         // Then move to scanning
-        [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray *array) {
+        [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
             for (MBLMetaWear *cur in array) {
                 if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
                     [[MBLMetaWearManager sharedManager] stopScan];

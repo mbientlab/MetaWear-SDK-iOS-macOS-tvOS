@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "40915FEE1D94D478008A5F24"
+               BuildableName = "MetaWearIntegrationTests-macOS.xctest"
+               BlueprintName = "MetaWearIntegrationTests-macOS"
+               ReferencedContainer = "container:MetaWear.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "40915FC41D94D392008A5F24"
+               BuildableName = "MetaWearIntegrationTestHost-macOS.app"
+               BlueprintName = "MetaWearIntegrationTestHost-macOS"
+               ReferencedContainer = "container:MetaWear.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -55,6 +85,15 @@
             </SkippedTests>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "40915FEE1D94D478008A5F24"
+            BuildableName = "MetaWearIntegrationTests-macOS.xctest"
+            BlueprintName = "MetaWearIntegrationTests-macOS"
+            ReferencedContainer = "container:MetaWear.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -68,6 +107,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "40915FEE1D94D478008A5F24"
+            BuildableName = "MetaWearIntegrationTests-macOS.xctest"
+            BlueprintName = "MetaWearIntegrationTests-macOS"
+            ReferencedContainer = "container:MetaWear.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

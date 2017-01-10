@@ -205,14 +205,14 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     
     if ((!self.isScanningMetaWears && metaWears) || (!self.isScanningMetaBoots && metaBoots)) {
         self.allowDuplicates = duplicates;
-        NSMutableArray *services = [NSMutableArray array];
+        NSMutableSet *set = [NSMutableSet setWithArray:self.services];
         if (metaWears) {
-            [services addObject:[MBLConstants serviceUUID]];
+            [set addObject:[MBLConstants serviceUUID]];
         }
         if (metaBoots) {
-            [services addObject:[MBLConstants DFUServiceUUID]];
+            [set addObject:[MBLConstants DFUServiceUUID]];
         }
-        self.services = services;
+        self.services = set.allObjects;
         
         // Fire up scanning if the central is ready for it, otherwise it will get
         // turned on later when its ready
@@ -243,9 +243,12 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 - (void)stopScan
 {
     [self.centralManager stopScan];
-    
-    [self.metaWearBlocks removeAllObjects];
-    [self.metaBootBlocks removeAllObjects];
+    assert(![MBLConstants isMetaWearQueue]);
+    // Execute on metaWearQueue since mutable arrays are not thread safe
+    dispatch_sync([MBLConstants metaWearQueue], ^{
+        [self.metaWearBlocks removeAllObjects];
+        [self.metaBootBlocks removeAllObjects];
+    });
     self.allowDuplicates = nil;
     self.services = nil;
     self.isScanningMetaWears = NO;
@@ -571,16 +574,19 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     CBUUID *uuid = [advertisementData[CBAdvertisementDataServiceUUIDsKey] firstObject];
     BOOL isMetaBoot = [uuid isEqual:[MBLConstants DFUServiceUUID]];
     [self metawearFromPeripheral:peripheral andAdvertisementData:advertisementData RSSI:RSSI];
-    // Make copy incase stop scan is called inside which modifies self.scanForMetaWearBlocks
-    NSArray *copyHandlers = isMetaBoot ? [self.metaBootBlocks copy] : [self.metaWearBlocks copy];
-    NSArray *copyDevices = isMetaBoot ? [self.discoveredMetaBoots copy] : [self.discoveredMetaWears copy];
-    for (MBLArrayHandler callback in copyHandlers) {
-        [self.dispatchQueue addOperationWithBlock:^{
-            if ((isMetaBoot && self.isScanningMetaBoots) || (!isMetaBoot && self.isScanningMetaWears)) {
-                callback(copyDevices);
-            }
-        }];
-    }
+    // Execute on metaWearQueue since mutable arrays are not thread safe
+    dispatch_async([MBLConstants metaWearQueue], ^{
+        // Make copy incase stopScan is called inside which modifies these arrays
+        NSArray *copyHandlers = isMetaBoot ? [self.metaBootBlocks copy] : [self.metaWearBlocks copy];
+        NSArray *copyDevices = isMetaBoot ? [self.discoveredMetaBoots copy] : [self.discoveredMetaWears copy];
+        for (MBLArrayHandler callback in copyHandlers) {
+            [self.dispatchQueue addOperationWithBlock:^{
+                if ((isMetaBoot && self.isScanningMetaBoots) || (!isMetaBoot && self.isScanningMetaWears)) {
+                    callback(copyDevices);
+                }
+            }];
+        }
+    });
 }
 
 - (void)centralManager:(id<MBLBluetoothCentral>)central didConnectPeripheral:(id<MBLBluetoothPeripheral>)peripheral

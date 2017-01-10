@@ -11,8 +11,7 @@ abstract_target 'MetaWear' do
             target 'MetaWearIntegrationTests-iOS' do
                 inherit! :search_paths
             
-                pod 'Zip', git: 'https://github.com/marmelroy/Zip.git', branch: 'swift2.3', submodules: true
-                pod 'iOSDFULibrary', '1.0.8'
+                pod 'iOSDFULibrary'
             end
         end
         
@@ -27,8 +26,7 @@ abstract_target 'MetaWear' do
             target 'MetaWearIntegrationTests-macOS' do
                 inherit! :search_paths
                 
-                pod 'Zip', git: 'https://github.com/marmelroy/Zip.git', branch: 'swift2.3', submodules: true
-                pod 'iOSDFULibrary', '1.0.8'
+                pod 'iOSDFULibrary'
             end
         end
         
@@ -47,13 +45,5 @@ abstract_target 'MetaWear' do
     
         target 'MetaWearUnitTests-tvOS' do
         end
-    end
-end
-
-
-post_install do |installer|
-    installer.pods_project.build_configurations.each do |config|
-        # Configure Pod targets for Xcode 8 compatibility
-        config.build_settings['SWIFT_VERSION'] = '2.3'
     end
 end

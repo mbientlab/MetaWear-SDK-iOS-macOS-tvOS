@@ -44,8 +44,7 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150Preset) {
     MBLMagnetometerBMM150PresetLowPower = 0,
     MBLMagnetometerBMM150PresetRegular = 1,
     MBLMagnetometerBMM150PresetEnhancedRegular = 2,
-    MBLMagnetometerBMM150PresetHighAccuracy = 3,
-    MBLMagnetometerBMM150PresetSensorFusion25 = 4, // Special mode specific for Sensor Fusion
+    MBLMagnetometerBMM150PresetHighAccuracy = 3
 };
 
 /**

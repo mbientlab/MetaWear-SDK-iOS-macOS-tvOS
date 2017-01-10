@@ -48,22 +48,26 @@ For first time CocoaPods users we have a detailed [video guide](https://youtu.be
 Here is a walkthrough to showcase a very basic connect and toggle LED operation.
 
 First, import the framework header files like this:
-```obj-c
-#import <MetaWear/MetaWear.h>
+```swift
+import MetaWear
 ```
 
 Then add the following code wherever appropriate to make the LED flash green:
-```obj-c
-[[MBLMetaWearManager sharedManager] startScanForMetaWearsWithHandler:^(NSArray *array) {
+```swift
+MBLMetaWearManager.shared().startScanForMetaWears() { array in
     // Hooray! We found a MetaWear board, so stop scanning for more
-    [[MBLMetaWearManager sharedManager] stopScan];
+    MBLMetaWearManager.shared().stopScan()
     // Connect to the board we found
-    MBLMetaWear *device = [array firstObject];
-    [[device connectAsync] success:^(MBLMetaWear * _Nonnull result) {
-        // Hooray! We connected to a MetaWear board, so flash its LED!
-        [result.led flashLEDColorAsync:[UIColor greenColor] withIntensity:0.5];
-    }];
-}];
+    if let device = array.first {
+        device.connectAsync().success() { _ in
+            // Hooray! We connected to a MetaWear board, so flash its LED!
+            device.led?.flashColorAsync(UIColor.green, withIntensity: 0.5)
+        }.failure() { error in
+            // Sorry we couldn't connect
+            print(error)
+        }
+    }
+}
 ```
 Now run the app! 
 
