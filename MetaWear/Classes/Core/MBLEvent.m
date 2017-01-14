@@ -560,60 +560,74 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data
 {
+    return [self modifyEventUsingOperation:op withData:data outputLength:4];
+}
+
+- (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data outputLength:(uint8_t)outputLength
+{
     if (self.format.length > 4) {
-        [NSException raise:@"Invalid Filter" format:@"Can't use event with size > 4, %d invalid", self.format.length];
+        [NSException raise:@"Invalid Filter" format:@"Can't use a math filter on data greater than 4 bytes, %d invalid", self.format.length];
     }
+    BOOL scaleUnits = NO;
+    BOOL forceUnsigned = NO;
     // TODO: Enable these arithmetic modes
     switch (op) {
         case MBLArithmeticOperationNoOp:
             break;
         case MBLArithmeticOperationAdd:
-            //[NSException raise:@"Invalid Option" format:@"Add not implemented yet"];
+            scaleUnits = YES;
             break;
         case MBLArithmeticOperationMultiply:
             break;
         case MBLArithmeticOperationDivide:
             break;
         case MBLArithmeticOperationModulus:
-            [NSException raise:@"Invalid Option" format:@"Can't perform modulus on double data"];
+            scaleUnits = YES;
             break;
         case MBLArithmeticOperationExponent:
-            [NSException raise:@"Invalid Option" format:@"Exponent not implemented yet"];
             break;
         case MBLArithmeticOperationSquareRoot:
-            [NSException raise:@"Invalid Option" format:@"Square root not implemented yet"];
             break;
         case MBLArithmeticOperationLeftShift:
-            [NSException raise:@"Invalid Option" format:@"Can't perform left shift on double data"];
+            // TODO: Check if array
             break;
         case MBLArithmeticOperationRightShift:
-            [NSException raise:@"Invalid Option" format:@"Can't perform right shift on double data"];
+            // TODO: Check if array
             break;
         case MBLArithmeticOperationSubtract:
-            [NSException raise:@"Invalid Option" format:@"Subtract not implemented yet"];
+            scaleUnits = YES;
             break;
         case MBLArithmeticOperationAbsoluteValue:
-            [NSException raise:@"Invalid Option" format:@"Absolute value not implemented yet"];
+            forceUnsigned = YES;
             break;
         case MBLArithmeticOperationConstantOutput:
+            scaleUnits = YES;
             break;
     }
     
     df_simplemath_param_t params = {0};
     params.filter_id = 9;
-    params.outputlen = self.format.length - 1; // TODO: Maybe offer up ability to increase this
+    params.outputlen = outputLength - 1;
     params.inputlen = self.format.length - 1;
-    params.issigned = self.format.isSigned;
+    params.issigned = forceUnsigned ? NO : self.format.isSigned;
     params.operation = op;
     params.channel_count = 1 - 1; // TODO: Enable this for array types
-    if (![MBLConversion number:[self.format numberFromDouble:data] toInt32:(int32_t *)&params.paramvalue]) {
-        [NSException raise:@"Invalid data" format:@"data %f cannot fit in int32", data];
+    
+    if (scaleUnits) {
+        if (![MBLConversion number:[self.format numberFromDouble:data] toInt32:(int32_t *)&params.paramvalue]) {
+            [NSException raise:@"Invalid data" format:@"data %f cannot fit in int32", data];
+        }
+    } else {
+        *((int32_t *)&params.paramvalue) = (int32_t)round(data);
     }
     
     // We make a copy of the formatter because we want to force remove offset
     MBLFormat *formatClone = [self.format copy];
     formatClone.offset = 0;
-    
+    if (forceUnsigned) {
+        formatClone.isSigned = NO;
+    }
+    formatClone.length = outputLength;
     MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
                                           filterParameters:[NSData dataWithBytes:&params length:sizeof(df_simplemath_param_t)]
                                                     format:formatClone];

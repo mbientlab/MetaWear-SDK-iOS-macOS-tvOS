@@ -1709,6 +1709,48 @@
     [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
+- (void)testModifyEventUsingOperation
+{
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"testModifyEventUsingOperation"];
+    
+    MBLEvent<MBLNumericData *> *temp = [self.device.temperature.onDieThermistor periodicReadWithPeriod:500];
+    MBLFilter<MBLNumericData *> *doubleTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationMultiply withData:2];
+    MBLFilter<MBLNumericData *> *halfTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationDivide withData:2];
+    MBLFilter<MBLNumericData *> *fiftyLessTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationSubtract withData:50.0];
+    MBLFilter<MBLNumericData *> *absTemp = [fiftyLessTemp modifyEventUsingOperation:MBLArithmeticOperationAbsoluteValue withData:0];
+    
+    double __block actualTemp = 0.0;
+    [temp startNotificationsWithHandlerAsync:^(MBLNumericData * _Nullable obj, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        actualTemp = obj.value.doubleValue;
+        [temp stopNotificationsAsync];
+    }];
+    [doubleTemp startNotificationsWithHandlerAsync:^(MBLNumericData *  _Nullable obj, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertEqualWithAccuracy(actualTemp * 2.0, obj.value.doubleValue, 0.1);
+        [doubleTemp stopNotificationsAsync];
+    }];
+    [halfTemp startNotificationsWithHandlerAsync:^(MBLNumericData *  _Nullable obj, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertEqualWithAccuracy(actualTemp / 2.0, obj.value.doubleValue, 0.1);
+        [halfTemp stopNotificationsAsync];
+    }];
+    [fiftyLessTemp startNotificationsWithHandlerAsync:^(MBLNumericData *  _Nullable obj, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertEqualWithAccuracy(actualTemp - 50.0, obj.value.doubleValue, 0.1);
+        [fiftyLessTemp stopNotificationsAsync];
+    }];
+    [absTemp startNotificationsWithHandlerAsync:^(MBLNumericData *  _Nullable obj, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertEqualWithAccuracy(fabs(actualTemp - 50.0), obj.value.doubleValue, 0.1);
+        [absTemp stopNotificationsAsync];
+        [waitingExpectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:nil];
+}
+
+
 - (void)testProximity
 {
     CapabilityCheck(self.device.proximity);
