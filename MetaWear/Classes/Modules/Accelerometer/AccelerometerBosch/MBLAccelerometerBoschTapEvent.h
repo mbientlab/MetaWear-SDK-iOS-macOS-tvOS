@@ -33,14 +33,67 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLEvent+Private.h"
-@class MBLAccelerometerBosch;
+#import <MetaWear/MBLEvent.h>
+#import <MetaWear/MBLDataSample.h>
+#import <MetaWear/MBLAccelerometer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLAccelerometerBoschTapEvent : MBLEvent
+/**
+ Time delay between two taps
+ */
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapDuration) {
+    MBLAccelerometerBoschTapDuration50ms = 0,
+    MBLAccelerometerBoschTapDuration100ms = 1,
+    MBLAccelerometerBoschTapDuration150ms = 2,
+    MBLAccelerometerBoschTapDuration200ms = 3,
+    MBLAccelerometerBoschTapDuration250ms = 4, // Default
+    MBLAccelerometerBoschTapDuration375ms = 5,
+    MBLAccelerometerBoschTapDuration500ms = 6,
+    MBLAccelerometerBoschTapDuration700ms = 7
+};
 
-- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
+/**
+ Time for accelerometer to be still before a tap is considered to have occured
+ */
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapQuiet) {
+    MBLAccelerometerBoschTapQuiet30ms = 0, // Default
+    MBLAccelerometerBoschTapQuiet20ms = 1
+};
+
+/**
+ Time for status register to be locked in order to prevent other slopes from overwirting tap information
+ */
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapShock) {
+    MBLAccelerometerBoschTapShock50ms = 0, // Default
+    MBLAccelerometerBoschTapShock75ms = 1
+};
+
+@interface MBLAccelerometerBoschTapEvent : MBLEvent<MBLDataSample *>
+
+/**
+ Select the type of taps to be registered. When MBLAccelerometerTapModeBoth is used,
+ you will get two events on a double tap, one for the single and one for the double.
+ */
+@property (nonatomic) MBLAccelerometerTapType type;
+
+/**
+ Tap detection threshold in G's. Default 2.0
+ */
+@property (nonatomic) double threshold;
+
+/**
+ Time delay between two taps
+ */
+@property (nonatomic) MBLAccelerometerBoschTapDuration duration;
+/**
+ Time for accelerometer to be still before a tap is considered to have occured
+ */
+@property (nonatomic) MBLAccelerometerBoschTapQuiet quiet;
+/**
+ Time for status register to be locked in order to prevent other slopes from overwirting tap information
+ */
+@property (nonatomic) MBLAccelerometerBoschTapShock shock;
 
 @end
 

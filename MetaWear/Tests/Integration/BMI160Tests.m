@@ -115,7 +115,7 @@
 
 - (void)testSingleTapUpdates
 {
-    self.accelerometer.tapType = MBLAccelerometerTapTypeSingle;
+    self.accelerometer.tapEvent.type = MBLAccelerometerTapTypeSingle;
     self.accelerometer.fullScaleRange = MBLAccelerometerBoschRange16G;
     self.accelerometer.sampleFrequency = 100;
     [self eventUpdateTest:self.accelerometer.tapEvent time:20];
