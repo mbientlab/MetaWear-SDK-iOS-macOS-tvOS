@@ -34,6 +34,7 @@
  */
 
 #import <MetaWear/MBLEvent.h>
+@class MBLAccelerometerBoschFlatData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -51,7 +52,7 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerBoschFlatTime) {
  The BMI160 contains a special hardware block to detect when the device
  is laying flat (setting on a table) or not.
  */
-@interface MBLAccelerometerBoschFlatEvent : MBLEvent<MBLNumericData *>
+@interface MBLAccelerometerBoschFlatEvent : MBLEvent<MBLAccelerometerBoschFlatData *>
 
 /**
  Threshold in degrees from perfectly flat when a non-flat event is triggered.

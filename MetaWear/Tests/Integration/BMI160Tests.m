@@ -123,7 +123,7 @@
 
 - (void)testDoubleTapUpdates
 {
-    self.accelerometer.tapType = MBLAccelerometerTapTypeDouble;
+    self.accelerometer.tapEvent.type = MBLAccelerometerTapTypeDouble;
     self.accelerometer.fullScaleRange = MBLAccelerometerBoschRange16G;
     self.accelerometer.sampleFrequency = 100;
     [self eventUpdateTest:self.accelerometer.tapEvent time:20];
@@ -131,7 +131,7 @@
 
 - (void)testSingleAndDoubleTap
 {
-    self.accelerometer.tapType = MBLAccelerometerTapTypeBoth;
+    self.accelerometer.tapEvent.type = MBLAccelerometerTapTypeBoth;
     self.accelerometer.fullScaleRange = MBLAccelerometerBoschRange8G;
     self.accelerometer.sampleFrequency = 100;
     [self eventUpdateTest:self.accelerometer.tapEvent time:20];

@@ -1,9 +1,9 @@
 /**
- * MBLAccelerometerBoschFlatFormat.h
+ * MBLAccelerometerBoschFlatData.m
  * MetaWear
  *
- * Created by Stephen Schiffli on 8/11/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 1/18/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,15 +33,34 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLFormat.h"
-#import "MBLAccelerometerBosch+Private.h"
+#import "MBLAccelerometerBoschFlatData+Private.h"
+#import "MBLDataSample+Private.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface MBLAccelerometerBoschFlatFormat : MBLFormat
-@property (nonatomic, weak) MBLAccelerometerBosch *accelerometer;
-
-- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
+@interface MBLAccelerometerBoschFlatData ()
+@property (nonatomic) BOOL isFlat;
+@property (nonatomic) BOOL faceDown;
 @end
 
-NS_ASSUME_NONNULL_END
+@implementation MBLAccelerometerBoschFlatData
+
+- (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp
+{
+    self = [super initWithTimestamp:timestamp];
+    if (self) {
+        self.isFlat = isFlat;
+        self.faceDown = faceDown;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@-%@", [super description], self.isFlat ? @"Flat" : @"Not-Flat", self.faceDown ? @"FaceDown" : @"FaceUp"];
+}
+
+- (NSString *)csvRepresentation
+{
+    return [NSString stringWithFormat:@"%f,%d,%d\n", self.timestamp.timeIntervalSince1970, self.isFlat, self.faceDown];
+}
+
+@end
