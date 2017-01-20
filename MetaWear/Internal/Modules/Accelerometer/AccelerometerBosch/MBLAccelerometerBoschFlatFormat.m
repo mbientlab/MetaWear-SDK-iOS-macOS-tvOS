@@ -57,10 +57,11 @@
     if (self.accelerometer.moduleInfo.moduleRevision >= 2) {
         faceDown = raw & (1 << 1);
         isFlat = raw & (1 << 2);
+        return [[MBLAccelerometerBoschFlatData alloc] initWithIsFlat:isFlat faceDown:faceDown timestamp:date];
     } else {
         isFlat = raw & (1 << 1);
+        return [[MBLAccelerometerBoschFlatData alloc] initWithIsFlat:isFlat timestamp:date];
     }
-    return [[MBLAccelerometerBoschFlatData alloc] initWithIsFlat:isFlat faceDown:faceDown timestamp:date];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

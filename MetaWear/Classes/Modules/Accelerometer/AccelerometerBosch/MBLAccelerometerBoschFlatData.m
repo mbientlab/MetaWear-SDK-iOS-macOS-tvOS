@@ -35,13 +35,25 @@
 
 #import "MBLAccelerometerBoschFlatData+Private.h"
 #import "MBLDataSample+Private.h"
+#import "MBLLogger.h"
 
 @interface MBLAccelerometerBoschFlatData ()
 @property (nonatomic) BOOL isFlat;
 @property (nonatomic) BOOL faceDown;
+@property (nonatomic) BOOL faceDownValid;
 @end
 
 @implementation MBLAccelerometerBoschFlatData
+
+- (instancetype)initWithIsFlat:(BOOL)isFlat timestamp:(NSDate *)timestamp
+{
+    self = [super initWithTimestamp:timestamp];
+    if (self) {
+        self.isFlat = isFlat;
+        self.faceDownValid = NO;
+    }
+    return self;
+}
 
 - (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp
 {
@@ -49,8 +61,16 @@
     if (self) {
         self.isFlat = isFlat;
         self.faceDown = faceDown;
+        self.faceDownValid = YES;
     }
     return self;
+}
+
+- (BOOL)faceDown {
+    if (!self.faceDownValid) {
+        MBLLog(MBLLogLevelWarning, @"faceDown is only suppored on firmware versions >= 1.3.3");
+    }
+    return _faceDown;
 }
 
 - (NSString *)description
