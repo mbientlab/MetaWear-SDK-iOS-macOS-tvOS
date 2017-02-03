@@ -270,7 +270,7 @@
         case MBLModelMetaMotionR:
             AssertModule(self.device.mechanicalSwitch, 0, 0);
             AssertModule(self.device.led, 0, 1);
-            AssertModule(self.device.accelerometer, 1, 1);
+            AssertModule(self.device.accelerometer, 1, 2);
             AssertModule(self.device.temperature, 1, 0);
             AssertModule(self.device.gpio, 0, 2);
             AssertModule(self.device.neopixel, 0, 0);

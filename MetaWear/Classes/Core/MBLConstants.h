@@ -73,7 +73,8 @@ typedef NS_ENUM(uint8_t, MBLFirmwareVersion) {
     MBLFirmwareVersion1_2_5,
     MBLFirmwareVersion1_3_0,
     MBLFirmwareVersion1_3_1,
-    MBLFirmwareVersion1_3_2
+    MBLFirmwareVersion1_3_2,
+    MBLFirmwareVersion1_3_3
 };
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version);
 
