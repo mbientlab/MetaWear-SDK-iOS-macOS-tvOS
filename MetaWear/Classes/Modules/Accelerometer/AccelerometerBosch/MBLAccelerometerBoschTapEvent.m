@@ -95,7 +95,7 @@
     [tasks addObject:[self.tapConfig writeDataAsync:[NSData dataWithBytes:&regs length:sizeof(bmi160_reg_int_tap_t)]]];
 
     uint8_t enableMask;
-    switch (accelerometer.tapType) {
+    switch (self.type) {
         case MBLAccelerometerTapTypeSingle:
             enableMask = (1 << 1);
             break;
