@@ -68,6 +68,19 @@ Or you may want to quickly see what range a sensor value is in.  Here is an exam
         NSLog(@"Pin in zone: %@", obj);
     }];
 
+Modify
+------
+
+You can apply basic math operations to data as well.  We support add/subtract/multiply/divide, and the others listed in `MBLArithmeticOperation <https://mbientlab.com/docs/metawear/ios/latest/Constants/MBLArithmeticOperation.html>`_. Here are some examples of how you might initialize them:
+
+::
+
+    MBLEvent<MBLNumericData *> *temp = [device.temperature.onDieThermistor periodicReadWithPeriod:500];
+    MBLFilter<MBLNumericData *> *doubleTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationMultiply withData:2];
+    MBLFilter<MBLNumericData *> *halfTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationDivide withData:2];
+    MBLFilter<MBLNumericData *> *fiftyLessTemp = [temp modifyEventUsingOperation:MBLArithmeticOperationSubtract withData:50.0];
+    MBLFilter<MBLNumericData *> *absTemp = [fiftyLessTemp modifyEventUsingOperation:MBLArithmeticOperationAbsoluteValue withData:0];
+
 Periodic Sampling
 -----------------
 

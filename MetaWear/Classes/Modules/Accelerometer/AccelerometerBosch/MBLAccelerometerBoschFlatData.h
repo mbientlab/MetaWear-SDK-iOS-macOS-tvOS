@@ -1,9 +1,9 @@
 /**
- * MBLAccelerometerBoschFlatFormat.h
+ * MBLAccelerometerBoschFlatData.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 8/11/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 1/18/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,15 +33,26 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLFormat.h"
-#import "MBLAccelerometerBosch+Private.h"
+#import <MetaWear/MBLDataSample.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLAccelerometerBoschFlatFormat : MBLFormat
-@property (nonatomic, weak) MBLAccelerometerBosch *accelerometer;
+/**
+ Container for accelerometer flat data
+ */
+@interface MBLAccelerometerBoschFlatData : MBLDataSample
 
-- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
+/**
+ If YES, then the deivce is currently laying flat
+ */
+@property (nonatomic, readonly) BOOL isFlat;
+
+/**
+ If YES, then the device is flat with the top face down, otherwise it's flat
+ but with the right side up
+ */
+@property (nonatomic, readonly) BOOL faceDown;
+
 @end
 
 NS_ASSUME_NONNULL_END

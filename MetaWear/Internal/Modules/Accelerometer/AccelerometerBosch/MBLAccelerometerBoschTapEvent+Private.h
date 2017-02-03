@@ -1,9 +1,9 @@
 /**
- * MBLAccelerometerBoschFlatFormat.h
+ * MBLAccelerometerBoschTapEvent+Private.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 8/11/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 1/13/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,15 +33,15 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLFormat.h"
-#import "MBLAccelerometerBosch+Private.h"
+#import "MBLAccelerometerBoschTapEvent.h"
+@class MBLAccelerometerBosch;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLAccelerometerBoschFlatFormat : MBLFormat
-@property (nonatomic, weak) MBLAccelerometerBosch *accelerometer;
+@interface MBLAccelerometerBoschTapEvent (Private)
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
+
 @end
 
 NS_ASSUME_NONNULL_END

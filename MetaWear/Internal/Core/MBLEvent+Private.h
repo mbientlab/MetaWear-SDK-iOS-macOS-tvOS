@@ -48,9 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format;
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format;
 
-// TODO: Test and enable this filter
-- (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data;
-
 - (MBLFilter *)rmsOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format;
 - (MBLFilter *)rssOfEventWithInputLength:(uint8_t)inputLength inputCount:(uint8_t)inputCount format:(MBLFormat *)format;
 

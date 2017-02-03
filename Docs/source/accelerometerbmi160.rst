@@ -35,8 +35,8 @@ Events can be generated when the MetaWear is set down on a flat surface, or remo
 
 ::
 
-    [accelerometerBMI160.flatEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"%@" obj.value.boolValue ? @"Flat" : "Not Flat");
+    [accelerometerBMI160.flatEvent startNotificationsWithHandlerAsync:^(MBLAccelerometerBoschFlatData *obj, NSError *error) {
+        NSLog(@"%@" obj.isFlat ? @"Flat" : "Not Flat");
     }];
 
 Notify on Step

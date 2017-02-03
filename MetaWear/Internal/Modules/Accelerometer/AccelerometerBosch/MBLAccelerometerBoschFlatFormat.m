@@ -34,24 +34,39 @@
  */
 
 #import "MBLAccelerometerBoschFlatFormat.h"
-#import "MBLNumericData+Private.h"
+#import "MBLAccelerometerBoschFlatData+Private.h"
+#import "MBLModule+Private.h"
+#import "MBLModuleInfo.h"
 
 @implementation MBLAccelerometerBoschFlatFormat
 
-- (instancetype)init
+- (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
     self = [super initEncodedDataWithLength:1];
+    if (self) {
+        self.accelerometer = accelerometer;
+    }
     return self;
 }
 
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
     const uint8_t raw = *(uint8_t *)data.bytes;
-    return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithBool:raw == 3] timestamp:date];
+    BOOL faceDown = NO;
+    BOOL isFlat = NO;
+    if (self.accelerometer.moduleInfo.moduleRevision >= 2) {
+        faceDown = raw & (1 << 1);
+        isFlat = raw & (1 << 2);
+        return [[MBLAccelerometerBoschFlatData alloc] initWithIsFlat:isFlat faceDown:faceDown timestamp:date];
+    } else {
+        isFlat = raw & (1 << 1);
+        return [[MBLAccelerometerBoschFlatData alloc] initWithIsFlat:isFlat timestamp:date];
+    }
 }
 
 - (NSNumber *)numberFromDouble:(double)value
 {
+    // TODO How to also check for up vs down
     if (value) {
         return [NSNumber numberWithInt:3];
     } else {

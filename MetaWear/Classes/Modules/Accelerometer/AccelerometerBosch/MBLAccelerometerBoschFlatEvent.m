@@ -47,7 +47,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x14 format:[[MBLAccelerometerBoschFlatFormat alloc] init]];
+    self = [super initWithModule:accelerometer registerId:0x14 format:[[MBLAccelerometerBoschFlatFormat alloc] initWithAccelerometer:accelerometer]];
     if (self) {
         self.flatInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x12 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.flatConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x13 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

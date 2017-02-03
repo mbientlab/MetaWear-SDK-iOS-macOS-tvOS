@@ -38,6 +38,7 @@
 @class MBLNumericData;
 @class MBLAccelerometerBoschLowOrHighGEvent;
 @class MBLAccelerometerBoschFlatEvent;
+@class MBLAccelerometerBoschTapEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,25 +61,17 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerBoschRange) {
  */
 @property (nonatomic) MBLAccelerometerBoschRange fullScaleRange;
 
-
 /**
  Event representing a low-g (free fall) or high-g (impact) event.
  Event callbacks will be provided an empty MBLDataSample object
  */
 @property (nonatomic, readonly) MBLAccelerometerBoschLowOrHighGEvent *lowOrHighGEvent;
 
-
-/**
- Select the type of taps to be registered. When MBLAccelerometerTapModeBoth is used,
- you will get two events on a double tap, one for the single and one for the double.
- */
-@property (nonatomic) MBLAccelerometerTapType tapType;
 /**
  Event representing a tap (single, double, or both based on tapType) on the tapDetectionAxis.
  Event callbacks will be provided an empty MBLDataSample object
  */
-@property (nonatomic, readonly) MBLEvent<MBLDataSample *> *tapEvent;
-
+@property (nonatomic, readonly) MBLAccelerometerBoschTapEvent *tapEvent;
 
 /**
  Event representing an orientation change.
@@ -93,6 +86,12 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerBoschRange) {
  YES means flat, and NO means not-flat.
  */
 @property (nonatomic, readonly) MBLAccelerometerBoschFlatEvent *flatEvent;
+
+///----------------------------------
+/// @name Deprecated
+///----------------------------------
+// @deprecated
+@property (nonatomic) MBLAccelerometerTapType tapType DEPRECATED_MSG_ATTRIBUTE("Use tapEvent.type instead");
 
 @end
 

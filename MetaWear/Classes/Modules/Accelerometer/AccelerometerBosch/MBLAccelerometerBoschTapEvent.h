@@ -1,8 +1,8 @@
 /**
- * MBLAccelerometerBoschFlatEvent.h
+ * MBLAccelerometerBoschTapEvent.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 7/20/15.
+ * Created by Stephen Schiffli on 6/13/15.
  * Copyright 2014-2015 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -34,35 +34,66 @@
  */
 
 #import <MetaWear/MBLEvent.h>
-@class MBLAccelerometerBoschFlatData;
+#import <MetaWear/MBLDataSample.h>
+#import <MetaWear/MBLAccelerometer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Delay time for which flat value must remain stable for the flat interrupt to be generated
+ Time delay between two taps
  */
-typedef NS_ENUM(uint8_t, MBLAccelerometerBoschFlatTime) {
-    MBLAccelerometerBoschFlatTime0ms = 0,
-    MBLAccelerometerBoschFlatTime640ms = 1,
-    MBLAccelerometerBoschFlatTime1280ms = 2,
-    MBLAccelerometerBoschFlatTime2560ms = 3
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapDuration) {
+    MBLAccelerometerBoschTapDuration50ms = 0,
+    MBLAccelerometerBoschTapDuration100ms = 1,
+    MBLAccelerometerBoschTapDuration150ms = 2,
+    MBLAccelerometerBoschTapDuration200ms = 3,
+    MBLAccelerometerBoschTapDuration250ms = 4, // Default
+    MBLAccelerometerBoschTapDuration375ms = 5,
+    MBLAccelerometerBoschTapDuration500ms = 6,
+    MBLAccelerometerBoschTapDuration700ms = 7
 };
 
 /**
- The BMI160 contains a special hardware block to detect when the device
- is laying flat (setting on a table) or not.
+ Time for accelerometer to be still before a tap is considered to have occured
  */
-@interface MBLAccelerometerBoschFlatEvent : MBLEvent<MBLAccelerometerBoschFlatData *>
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapQuiet) {
+    MBLAccelerometerBoschTapQuiet30ms = 0, // Default
+    MBLAccelerometerBoschTapQuiet20ms = 1
+};
 
 /**
- Threshold in degrees from perfectly flat when a non-flat event is triggered.
+ Time for status register to be locked in order to prevent other slopes from overwirting tap information
  */
-@property (nonatomic) double flatThreshold;
+typedef NS_ENUM(uint8_t, MBLAccelerometerBoschTapShock) {
+    MBLAccelerometerBoschTapShock50ms = 0, // Default
+    MBLAccelerometerBoschTapShock75ms = 1
+};
+
+@interface MBLAccelerometerBoschTapEvent : MBLEvent<MBLDataSample *>
 
 /**
- Delay time for which flat value must remain stable for the flat interrupt to be generated
+ Select the type of taps to be registered. When MBLAccelerometerTapModeBoth is used,
+ you will get two events on a double tap, one for the single and one for the double.
  */
-@property (nonatomic)  MBLAccelerometerBoschFlatTime flatDelay;
+@property (nonatomic) MBLAccelerometerTapType type;
+
+/**
+ Tap detection threshold in G's. Default 2.0
+ */
+@property (nonatomic) double threshold;
+
+/**
+ Time delay between two taps
+ */
+@property (nonatomic) MBLAccelerometerBoschTapDuration duration;
+/**
+ Time for accelerometer to be still before a tap is considered to have occured
+ */
+@property (nonatomic) MBLAccelerometerBoschTapQuiet quiet;
+/**
+ Time for status register to be locked in order to prevent other slopes from overwirting tap information
+ */
+@property (nonatomic) MBLAccelerometerBoschTapShock shock;
 
 @end
 

@@ -315,6 +315,22 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
 - (MBLFilter *)compareEventUsingOperation:(MBLComparisonOperation)op data:(NSArray<NSNumber *> *)data output:(MBLComparisonOutput)output;
 
 /**
+ Create a new event that modifies the current event's value using a basic math operation
+ @param op Operation type to perform
+ @param data Right hand side of the operation
+ @returns New event representing input values that have been modified
+ */
+- (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data;
+/**
+ Create a new event that modifies the current event's value using a basic math operation
+ @param op Operation type to perform
+ @param data Right hand side of the operation
+ @param outputLength Size of the output, defaults to 4 unless specified here
+ @returns New event representing input values that have been modified
+ */
+- (MBLFilter *)modifyEventUsingOperation:(MBLArithmeticOperation)op withData:(double)data outputLength:(uint8_t)outputLength;
+
+/**
  Create a new event that occurs at most once every period milliseconds.
  Event callbacks will be provided the same object as the input.
  @param periodInMsec Sample period in msec

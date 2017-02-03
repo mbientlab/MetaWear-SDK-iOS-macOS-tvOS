@@ -39,7 +39,7 @@
 #import "MBLAccelerometerBoschAxisReadyEvent.h"
 #import "MBLAccelerometerBoschLowOrHighGEvent+Private.h"
 #import "MBLAccelerometerBoschOrientationEvent.h"
-#import "MBLAccelerometerBoschTapEvent.h"
+#import "MBLAccelerometerBoschTapEvent+Private.h"
 #import "MBLAccelerometerBoschFlatEvent+Private.h"
 #import "MBLAccelerometerBMI160StepEvent.h"
 #import "MBLFormat.h"
@@ -52,7 +52,7 @@
 @property (nonatomic) MBLRegister *accelDataConfig;
 
 @property (nonatomic) MBLAccelerometerBoschLowOrHighGEvent *lowOrHighGEvent;
-@property (nonatomic) MBLEvent *tapEvent;
+@property (nonatomic) MBLAccelerometerBoschTapEvent *tapEvent;
 @property (nonatomic) MBLEvent *orientationEvent;
 @property (nonatomic) MBLAccelerometerBoschFlatEvent *flatEvent;
 @property (nonatomic) MBLEvent *stepEvent;
@@ -73,7 +73,6 @@
         
         // Default settings
         self.fullScaleRange = MBLAccelerometerBoschRange16G;
-        self.tapType = MBLAccelerometerTapTypeSingle;
         // Registers
         MBLRegister *accelPowerMode = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.accelDataConfig = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

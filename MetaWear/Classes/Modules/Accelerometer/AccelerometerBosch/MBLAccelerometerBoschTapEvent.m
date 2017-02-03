@@ -33,8 +33,10 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLAccelerometerBoschTapEvent.h"
+#import "MBLAccelerometerBoschTapEvent+Private.h"
 #import "MBLAccelerometerBosch+Private.h"
+#import "MBLEvent+Private.h"
+#import "MBLFormat.h"
 
 @interface MBLAccelerometerBoschTapEvent ()
 @property (nonatomic) MBLRegister *tapInterruptEn;
@@ -49,6 +51,12 @@
     if (self) {
         self.tapInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0C format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.tapConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0D format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
+        
+        self.type = MBLAccelerometerTapTypeSingle;
+        self.threshold = 2.0;
+        self.duration = MBLAccelerometerBoschTapDuration250ms;
+        self.quiet = MBLAccelerometerBoschTapQuiet30ms;
+        self.shock = MBLAccelerometerBoschTapShock50ms;
     }
     return self;
 }
@@ -60,11 +68,11 @@
     bmi160_reg_int_tap_t regs = { 0 };
     
     // 0 -> 50 ms, 1 -> 100 ms, 2 -> 150 ms, 3 -> 200 ms, 4 -> 250 ms, 5 -> 375 ms, 6 -> 500 ms, 7 -> 700 ms
-    regs.int_tap_0.int_tap_dur = 4;
+    regs.int_tap_0.int_tap_dur = self.duration;
     // selects a tap quiet duration of 0 -> 30 ms, 1 -> 20 ms
-    regs.int_tap_0.int_tap_quiet = 0;
+    regs.int_tap_0.int_tap_quiet = self.quiet;
     // selects a tap shock duration of 0 -> 50 ms, 1 -> 75 ms
-    regs.int_tap_0.int_tap_shock = 0;
+    regs.int_tap_0.int_tap_shock = self.shock;
     
     // th * 62.5mg (2g-range), th * 125mg (4g-range), th * 250mg (8g-range), th * 500mg (16g-range)
     // if th = 0, then value is 1/2 the constant
@@ -83,11 +91,11 @@
             scale = 500;
             break;
     }
-    regs.int_tap_1.int_tap_th = 2000 / scale;
+    regs.int_tap_1.int_tap_th = round((self.threshold * 1000.0) / scale);
     [tasks addObject:[self.tapConfig writeDataAsync:[NSData dataWithBytes:&regs length:sizeof(bmi160_reg_int_tap_t)]]];
 
     uint8_t enableMask;
-    switch (accelerometer.tapType) {
+    switch (self.type) {
         case MBLAccelerometerTapTypeSingle:
             enableMask = (1 << 1);
             break;
