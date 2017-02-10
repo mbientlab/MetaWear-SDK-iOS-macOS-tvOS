@@ -209,17 +209,8 @@
     
     [device incrementCount];
     return [[[BFTask taskFromMetaWearWithBlock:^id{
-        if (stopLogging && self.isLoggingImpl) {
-            self.isLoggingImpl = NO;
-            
-            return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                return [device.logging stopLoggingEvent:self];
-            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                return [self deinitializeAsync];
-            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                // Since log downloads take a while, let's save state here
-                return [device synchronizeAsync];
-            }];
+        if (stopLogging) {
+            return [self stopLoggingAsync];
         }
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -249,6 +240,39 @@
 - (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging
 {
     return [self downloadLogAndStopLoggingAsync:stopLogging progressHandler:nil];
+}
+
+- (BFTask<NSNumber *> *)stopLoggingAsync
+{
+    MBLMetaWear *device = self.module.device;
+    if (device.state != MBLConnectionStateConnected) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorNotConnected
+                                         userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before using the API."}];
+        return [BFTask taskWithError:error];
+    }
+    
+    [device incrementCount];
+    return [[[BFTask taskFromMetaWearWithBlock:^id{
+        if (self.isLoggingImpl) {
+            self.isLoggingImpl = NO;
+            
+            return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                return [device.logging stopLoggingEvent:self];
+            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                return [self deinitializeAsync];
+            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                // Since log downloads take a while, let's save state here
+                return [device synchronizeAsync];
+            }];
+        }
+        return nil;
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+        return [device.logging.logLength readAsync];
+    }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+        [device decrementCount];
+        return task;
+    }];
 }
 
 - (BOOL)isLogging

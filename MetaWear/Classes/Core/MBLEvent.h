@@ -254,6 +254,14 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
 - (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging;
 
 /**
+ Stop logging this event, but don't initiate a download.
+ 
+ @returns Task whose completion value is the total number of entries in the log.
+ Note this size is for all events beging logged on the device.
+ */
+- (BFTask<MBLNumericData *> *)stopLoggingAsync;
+
+/**
  See if this event is currently being logged
  @returns YES if logging, NO otherwise
  */
