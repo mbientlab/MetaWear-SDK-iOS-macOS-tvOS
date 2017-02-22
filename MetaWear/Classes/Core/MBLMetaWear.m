@@ -1233,6 +1233,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync
 {
+    if (self.state != MBLConnectionStateConnected) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorNotConnected
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before performing checkForFirmwareUpdateAsync."}]];
+    }
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     [[[MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo] successOnMetaWear:^(MBLFirmwareBuild * _Nonnull result) {
         if ([MBLConstants versionString:self.deviceInfo.firmwareRevision isLessThan:result.firmwareRev]) {
