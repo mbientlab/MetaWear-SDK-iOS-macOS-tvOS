@@ -161,13 +161,13 @@ typedef struct __attribute__((packed)) {
         uint8_t triggerCount = 8; // This was the old default
         if (moduleInfo.moduleData.length) {
             triggerCount = *(uint8_t *)moduleInfo.moduleData.bytes;
-            //if (moduleInfo.moduleRevision == 1) {
-            //    mw_log_module_info *info = (mw_log_module_info *)moduleInfo.moduleData.bytes;
-            //    MBLLog(MBLLogLevelDebug, @"%d", info->logCap);
-            //} else {
-            //    mw_log_module_info_old *info = (mw_log_module_info_old *)moduleInfo.moduleData.bytes;
-            //    MBLLog(MBLLogLevelDebug, @"%d", info->logCap);
-            //}
+            if (moduleInfo.moduleRevision >= 1) {
+                mw_log_module_info *info = (mw_log_module_info *)moduleInfo.moduleData.bytes;
+                MBLLog(MBLLogLevelDebug, @"Log Capacity: %d", info->logCap);
+            } else {
+                mw_log_module_info_old *info = (mw_log_module_info_old *)moduleInfo.moduleData.bytes;
+                MBLLog(MBLLogLevelDebug, @"Log Capacity: %d", info->logCap);
+            }
         }
         
         self.triggers = [NSMutableArray arrayWithCapacity:triggerCount];
