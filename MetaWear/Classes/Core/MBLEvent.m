@@ -522,13 +522,12 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)periodicSampleOfEvent:(uint32_t)periodInMsec
 {
-    if (self.format.length > 8) {
-        [NSException raise:@"Invalid Filter" format:@"Can't use periodic sample filter with events of size > 8, %d invalid", self.format.length];
-    }
-    
     deltat_param_t params = {0};
     params.filter_id = 8;
     if (self.module.device.dataProcessor.moduleInfo.moduleRevision == 0) {
+        if (self.format.length > 8) {
+            [NSException raise:@"Invalid Filter" format:@"Can't use periodic sample filter with events of size > 8, %d invalid", self.format.length];
+        }
         params.datalen = self.format.length - 1;
         params.filter_mode = 0;
     } else {
