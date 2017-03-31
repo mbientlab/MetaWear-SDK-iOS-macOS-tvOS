@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 LED
 ===
@@ -12,20 +12,22 @@ This snippet will set the LED to a solid red color.
 
 ::
 
-    [device.led setLEDColorAsync:[UIColor redColor] withIntensity:1.0];
+    device.led?.setLEDColorAsync(.red, withIntensity: 1.0)
 
 Flash Color
 -----------
 
-This snippet will flash the LED a solid red color indefinitely. ::
+This snippet will flash the LED a red color indefinitely.
 
-    [device.led flashLEDColorAsync:[UIColor redColor] withIntensity:1.0];
+::
+
+    device.led?.flashColorAsync(.red, withIntensity: 1.0)
 
 Or you might find it beneficial to flash only a few times.
 
 ::
 
-    [device.led flashLEDColorAsync:[UIColor greenColor] withIntensity:1.0 numberOfFlashes:3];
+    device.led?.flashColorAsync(.red, withIntensity: 1.0, numberOfFlashes: 3)
 
 Turning Off
 -----------
@@ -34,5 +36,4 @@ This snippet will completely shut down the LED.
 
 ::
 
-    [device.led setLEDOnAsync:NO withOptions:1];
-
+    device.led?.setLEDOnAsync(false, withOptions: 1)

@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Barometer
 =========
@@ -14,9 +14,9 @@ One thing common to all ambient light sensors is the ability to measure the ambi
 
 ::
 
-    [[device.barometer.pressure readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"pressure: %f pascals", result.value.floatValue);
-    }];
+    device.barometer?.pressure.readAsync().success { result in
+        print("pressure: \(result.value.doubleValue) pascals")
+    }
 
 Altitude Reading
 ----------------
@@ -25,9 +25,9 @@ Often times what you really want is an estimation of current altitude above sea 
 
 ::
 
-    [[device.barometer.altitude readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"altitude: %f meters", result.value.floatValue);
-    }];
+    device.barometer?.altitude.readAsync().success { result in
+        print("altitude: \(result.value.doubleValue) meters")
+    }
 
 Cast to Derived Class
 ---------------------
@@ -36,7 +36,5 @@ To use advanced barometer features it's necessary to figure out exactly what bar
 
 ::
 
-    if ([device.barometer isKindOfClass:[MBLBarometerBMP280 class]]) {
-        MBLBarometerBMP280 *barometerBMP280 = (MBLBarometerBMP280 *)device.barometer;
+    if let barometerBMP280 = device.barometer as? MBLBarometerBMP280 {
     }
-

@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 GPIO
 ====
@@ -14,10 +14,11 @@ To check the digital (0 or 1) value of a pin, just get a pointer to the correspo
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    [[pin0.digitalValue readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"Pin State: %d", result.value.boolValue);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.digitalValue?.readAsync().success { result in
+            print("Pin State: \(result)")
+        }
+    }
 
 Read Analog
 -----------
@@ -28,17 +29,19 @@ To check the analog value relative to the supply voltage of a pin [0, 1.0], just
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    [[pin0.analogAbsolute readAsync] success:^(MBLNumericData * _Nonnull result) {
-         NSLog(@"Pin Voltage: %f V", result.value.floatValue);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.analogAbsolute?.readAsync().success { result in
+            print("Pin Voltage: \(result.value.doubleValue)")
+        }
+    }
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    [[pin0.analogRatio readAsync] success:^(MBLNumericData * _Nonnull result) {
-         NSLog(@"Pin Ratio: %f", result.value.floatValue);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.analogRatio?.readAsync().success { result in
+            print("Pin Ratio: \(result.value.doubleValue)")
+        }
+    }
 
 Set/Clear Pin
 -------------
@@ -47,8 +50,9 @@ To set the digital value of a pin:
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    [pin0 setToDigitalValueAsync:YES];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.setToDigitalValueAsync(true)
+    }
 
 Notify on Pin Change
 --------------------
@@ -57,12 +61,13 @@ Events can be generated when the digital state of a pin changes:
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    pin0.changeType = MBLPinChangeTypeRising;
-    pin0.configuration = MBLPinConfigurationNopull;
-    [pin0.changeEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-         NSLog(@"Cool, the pin changed: %@", obj.value);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.changeType = .rising
+        pin0.setConfiguration(.nopull)
+        pin0.changeEvent?.startNotificationsAsync(handler: { (obj, error) in
+            print("Cool, the pin changed: " + String(describing: obj))
+        })
+    }
 
 Enable Pin
 ----------
@@ -71,11 +76,9 @@ To save power, sensors connected to a GPIO pin may optionally have an "enable" s
 
 ::
 
-    MBLGPIOPin *pin0 = self.device.gpio.pins[0];
-    MBLData *analogRatio = [pin0 analogRatioWithPullUp:nil pullDown:@2 readDelay:200];
-    // When calling readAsync we will automatically pull down pin 2 200 uSec before
-    // reading pin 0 and then pull up pin 2 once the reading is complete
-    [[analogRatio readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"With Enable: %@", result.value);
-    }];
-
+    if let pin0 = device.gpio?.pins.first {
+        let analogRatio = pin0.analogRatio(withPullUp: nil, pullDown: 2, readDelay: 200)
+        analogRatio.readAsync().success { result in
+            print("With Enable: \(result.value)")
+        }
+    }

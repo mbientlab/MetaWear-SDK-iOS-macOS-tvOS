@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Accelerometer
 =============
@@ -14,10 +14,12 @@ One thing common to all accelerometers is the ability to access raw x, y, and z 
 
 ::
 
-    device.accelerometer.sampleFrequency = 100; // Default: 100 Hz
-    [device.accelerometer.dataReadyEvent startNotificationsWithHandlerAsync:^(MBLAccelerometerData *obj, NSError *error) {
-        NSLog(@"X = %f, Y = %f, Z = %f", obj.x, obj.y, obj.z);
-    }];
+    device.accelerometer?.sampleFrequency = 100
+    device.accelerometer?.dataReadyEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("X = \(obj.x), Y = \(obj.y), Z = \(obj.z)")
+        }
+    })
 
 Raw RMS Data
 ------------
@@ -26,9 +28,11 @@ You can also access the root mean square (RMS) of the accelerometer data
 
 ::
 
-    [device.accelerometer.rmsDataReadyEvent startNotificationsWithHandlerAsync:^(MBLRMSAccelerometerData *obj, NSError *error) {
-        NSLog(@"RMS: %@", obj);
-    }];
+    device.accelerometer?.rmsDataReadyEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("RMS = \(obj.rms)")
+        }
+    })
 
 Single Axis Data
 ----------------
@@ -37,9 +41,11 @@ You can also access a single axis of accelerometer data.
 
 ::
 
-    [device.accelerometer.xAxisReadyEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"x-axis: %@", obj);
-    }];
+    device.accelerometer?.xAxisReadyEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("x-axis = \(obj.value)")
+        }
+    })
 
 Cast to Derived Class
 ---------------------
@@ -48,9 +54,8 @@ To use advanced accelerometer features it's necessary to figure out exactly what
 
 ::
 
-    if ([device.accelerometer isKindOfClass:[MBLAccelerometerMMA8452Q class]]) {
-        MBLAccelerometerMMA8452Q *accelerometerMMA8452Q = (MBLAccelerometerMMA8452Q *)device.accelerometer;
-    } else if ([device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]]) {
-        MBLAccelerometerBMI160 *accelerometerBMI160 = (MBLAccelerometerBMI160 *)device.accelerometer;
-    }
+    if let accelerometerMMA8452Q = device.accelerometer as? MBLAccelerometerMMA8452Q {
 
+    } else if let accelerometerBMI160 = device.accelerometer as? MBLAccelerometerBMI160 {
+
+    }

@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Pushbutton
 ==========
@@ -12,9 +12,9 @@ You can read the current state with the following code.
 
 ::
 
-    [[device.mechanicalSwitch.switchValue readAsync] success:^(MBLNumericData * _Nonnull result) {
-       NSLog(@"Switch State: %d", result.value.boolValue);
-    }];
+    device.mechanicalSwitch?.switchValue.readAsync().success { result in
+        print("Switch State: \(result.value.boolValue)")
+    }
 
 Listening For Change
 --------------------
@@ -23,7 +23,9 @@ It's likely you just want to know when the switch is pressed or released, for th
 
 ::
 
-    [device.mechanicalSwitch.switchUpdateEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"Switch Changed: %@", obj);
-    }];
+    device.mechanicalSwitch?.switchUpdateEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Switch Changed \(obj)")
+        }
+    })
 

@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Data
 ====
@@ -14,11 +14,11 @@ One of the most basic use cases is to simply receive the data on your Apple devi
 
 ::
 
-    MBLGPIOPin *pin0 = self.device.gpio.pins[0];
-    [[pin0.digitalValue readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"Pin Value: %@", result);
-        result.value.boolValue ? NSLog(@"Pressed!") : NSLog(@"Released!");
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.digitalValue?.readAsync().success { result in
+            print("Pin Value: \(result)")
+        }
+    }
 
 Periodic Reads
 --------------
@@ -27,11 +27,12 @@ By periodically reading data, you conceptually turn it into an asynchronous even
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    MBLEvent *periodicPinValue = [pin0.analogAbsolute periodicReadWithPeriod:100];
-    [periodicPinValue startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"Analog Value: %@", obj);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        let periodicPinValue = pin0.analogAbsolute?.periodicRead(withPeriod: 100)
+            periodicPinValue?.startNotificationsAsync(handler: { (obj, error) in
+            print("Analog Value: \(obj)")
+        })
+    }
 
 Triggered Reads
 ---------------
@@ -41,9 +42,10 @@ Another interesting feature is the ability to have an ``MBLEvent`` trigger a rea
 ::
 
     // NOTE: This i2c register is just an example, it might not return anything on your exact board
-    MBLI2CData *whoami = [device.serial dataAtDeviceAddress:0x1C registerAddress:0x0D length:1];
-    MBLEvent *event = [device.mechanicalSwitch.switchUpdateEvent readDataOnEvent:whoami];
-    [event startNotificationsWithHandlerAsync:^(id obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
+    if let whoami = device.serial?.data(atDeviceAddress: 0x1C, registerAddress: 0x0D, length: 1) as? MBLData<AnyObject> {
+        let event = device.mechanicalSwitch?.switchUpdateEvent.readData(onEvent: whoami)
+        event?.startNotificationsAsync(handler: { (obj, error) in
+            print("\(obj)")
+        })
+    }
 

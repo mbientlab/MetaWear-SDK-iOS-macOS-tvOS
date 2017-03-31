@@ -29,7 +29,7 @@ import os
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ['sphinx.ext.autosectionlabel']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'MetaWear iOS/macOS/tvOS API'
-copyright = '2016, MbientLab'
+copyright = '2017, MbientLab'
 author = 'MbientLab'
 
 # The version info for the project you're documenting, acts as replacement for

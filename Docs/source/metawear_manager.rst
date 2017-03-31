@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 MetaWear Manager
 ================
@@ -12,7 +12,7 @@ The `MBLMetaWearManager <https://www.mbientlab.com/docs/metawear/ios/latest/Clas
 
 ::
 
-    MBLMetaWearManager *manager = [MBLMetaWearManager sharedManager];
+    let manager = MBLMetaWearManager.shared()
 
 Scanning for MetaWears
 ----------------------
@@ -21,38 +21,41 @@ It's simple to start scanning for advertising MetaWear devices using the `MBLMet
 
 ::
 
-    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
-        for (MBLMetaWear *device in array) {
-            NSLog(@"Found MetaWear: %@", device);
+    MBLMetaWearManager.shared().startScan(forMetaWearsAllowDuplicates: false, handler: { array in
+        for device in array {
+            print("Found MetaWear: \(device)")
         }
-    }];
+    })
 
 Scanning for Nearby MetaWears
 -----------------------------
 
-In the previous example we set ``startScanForMetaWearsAllowDuplicates:NO`` which meant that the handler block would be invoked only when a new MetaWear was detected.  However, by allowing duplicates the handler block will be invoked each time an advertisement packet is detected (even from an already detected MetaWear).
+In the previous example we set ``startScan(forMetaWearsAllowDuplicates: false`` which meant that the handler block would be invoked only when a new MetaWear was detected.  However, by allowing duplicates the handler block will be invoked each time an advertisement packet is detected (even from an already detected MetaWear).
 
 This feature is handy because the ``discoveryTimeRSSI`` property on the discovered `MBLMetaWear <https://www.mbientlab.com/docs/metawear/ios/latest/Classes/MBLMetaWear.html>`_ objects get continually updated, so you can get a real time sense for how far it is from the Apple device.
 
 ::
 
-    static const int MAX_ALLOWED_RSSI = -15; // The RSSI calculation sometimes produces erroneous values, we know anything above this value is invalid
-    static const int MIN_ALLOWED_RSSI = -45; // Depending on your specific application this value will change!
-     
-    [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:YES handler:^(NSArray<MBLMetaWear *> *array) {
-        for (MBLMetaWear *device in array) {
+    let MAX_ALLOWED_RSSI = -15; // The RSSI calculation sometimes produces erroneous values, we know anything above this value is invalid
+    let MIN_ALLOWED_RSSI = -45; // Depending on your specific application this value will change!
+
+    MBLMetaWearManager.shared().startScan(forMetaWearsAllowDuplicates: true, handler: { array in
+        for device in array {
+            guard device.discoveryTimeRSSI != nil else {
+                continue
+            }
             // Reject any value above a reasonable range
-            if (device.discoveryTimeRSSI.integerValue > MAX_ALLOWED_RSSI) {
-                continue;
+            if device.discoveryTimeRSSI!.intValue > MAX_ALLOWED_RSSI {
+                continue
             }
             // Reject if the signal strength is too low to be close enough (find through experiment)
-            if (device.discoveryTimeRSSI.integerValue < MIN_ALLOWED_RSSI) {
-                continue;
+            if device.discoveryTimeRSSI!.intValue < MIN_ALLOWED_RSSI {
+                continue
             }
-            [[MBLMetaWearManager sharedManager] stopScan];
+            MBLMetaWearManager.shared().stopScan()
             // At this point we have a close MetaWear, do what you please with it!
         }
-    }];
+    })
 
 Retrieving MetaWears
 --------------------
@@ -63,9 +66,9 @@ The array is ordered so the first device remembered is at index 0, next device a
 
 ::
 
-    [[[MBLMetaWearManager sharedManager] retrieveSavedMetaWearsAsync] success:^(NSArray<MBLMetaWear *> * _Nonnull array) {
-        MBLMetaWear *savedDevice = array[0];
-    }];
+    MBLMetaWearManager.shared().retrieveSavedMetaWearsAsync().success { array in
+        let savedDevice = array.firstObject
+    }
 
 Dispatch Queue
 --------------
@@ -76,7 +79,7 @@ Since we use `Bolts-ObjC <https://github.com/BoltsFramework/Bolts-ObjC>`_ throug
 
 ::
 
-    [MBLMetaWearManager sharedManager].dispatchQueue = myCustomQueue;
+    MBLMetaWearManager.shared().dispatchQueue = myCustomQueue
                                 
 
 Minimum Firmware Required
@@ -88,6 +91,4 @@ This property is writeable, so you can enforce an even newer version for your ap
 
 ::
 
-    [MBLMetaWearManager sharedManager].minimumRequiredVersion = MBLFirmwareVersion1_2_0;
-                                
-
+    MBLMetaWearManager.shared().minimumRequiredVersion = .version1_2_0

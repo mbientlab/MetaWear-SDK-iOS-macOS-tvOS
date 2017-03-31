@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 MagnetometerBMM150
 ==================
@@ -12,7 +12,8 @@ This magnetometer sensor has a built in timer, so you can program it directly to
 
 ::
 
-    [magnetometerBMM150.periodicMagneticField startNotificationsWithHandlerAsync:^(MBLMagnetometerData *result, NSError *error) {
-        NSLog(@"Magnetic Field: %@", result);
-    }];
-
+    magnetometerBMM150.periodicMagneticField.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Magnetic Field: \(obj)")
+        }
+    })

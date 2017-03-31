@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Haptic
 ======
@@ -12,7 +12,7 @@ The haptic motor has 2 parameters.  First, duty cycle [0, 255], which correspond
 
 ::
 
-    [device.hapticBuzzer startHapticWithDutyCycleAsync:255 pulseWidth:500 completion:nil];
+    device.hapticBuzzer?.startHapticAsync(dutyCycle: 255, pulseWidth: 500, completion: nil)
 
 Start Buzzer
 ------------
@@ -21,5 +21,4 @@ The buzzer has just a pulse width parameter, or how long to buzz (units in ms).
 
 ::
 
-    [device.hapticBuzzer startBuzzerWithPulseWidthAsync:500 completion:nil];
-
+    device.hapticBuzzer?.startBuzzerAsync(pulseWidth: 500, completion: nil)

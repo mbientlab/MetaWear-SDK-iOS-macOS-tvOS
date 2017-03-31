@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Magnetometer
 ============
@@ -14,7 +14,6 @@ Cast to Derived Class
 There is currently nothing in the generic ``MBLMagnetometer`` class, so you need to use the `MagnetometerBMM150 <https://www.mbientlab.com/docs/metawear/ios/latest/Classes/MagnetometerBMM150.html>`_ derived class.
 ::
 
-    if ([device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]) {
-        MBLMagnetometerBMM150 *magnetometerBMM150 = (MBLMagnetometerBMM150 *)device.magnetometer;
+    if let magnetometerBMM150 = device.magnetometer as? MBLMagnetometerBMM150 {
     }
 
