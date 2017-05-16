@@ -708,9 +708,11 @@ typedef struct __attribute__((packed)) {
     params.outputmode = output;
     params.width = width;
     
-    if (![MBLConversion number:[self.format numberFromDouble:threshold] toInt32:&params.threshold]) {
+    int32_t	thresholdTmp;
+    if (![MBLConversion number:[self.format numberFromDouble:threshold] toInt32:&thresholdTmp]) {
         [NSException raise:@"Invalid data" format:@"threshold %f cannot fit in int32", threshold];
     }
+    params.threshold = thresholdTmp;
     
     MBLFormat *format = nil;
     // We make a copy of the formatter because we want to force it to 4 byte length
