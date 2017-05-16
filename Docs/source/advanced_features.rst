@@ -5,7 +5,8 @@ Advanced Features
 
 High Frequency Streaming
 ------------------------
-Some developers may want to stream data from multiple motion sensors simultaneously or individually at frequencies higher than 100Hz.  To accommodate this use case, acceleration, angular velocity, and magnetic field data have a packed output mode that combines 3 data samples into 1 ble packet increasing the data throughput by 3x.  This mode is automatically enabeled when any compatible sensor is configured greated than 100Hz.
+
+Some developers may want to stream data from multiple motion sensors simultaneously or individually at frequencies higher than 100Hz. To accommodate this use case, accelerometer and gyro have a packed output mode that combines 3 data samples into 1 ble packet increasing the data throughput by 3x.  Simply enable notifications on the ``packedDataReadEvent`` to use this feature.
 
 Persistent Configuration
 ------------------------
