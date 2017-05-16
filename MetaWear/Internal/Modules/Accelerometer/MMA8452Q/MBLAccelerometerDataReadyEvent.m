@@ -41,18 +41,11 @@
 #import "MBLNumericFormatter.h"
 #import "mma8452q.h"
 #import "BFTask+MBLPrivate.h"
+#import "MBLLogger.h"
 
-
-typedef NS_ENUM(uint8_t, MBLAccelerometerPackedDataMode) {
-    MBLAccelerometerPackedDataModeOff = 0,
-    MBLAccelerometerPackedDataModeNormal = 1,
-    MBLAccelerometerPackedDataModePacked = 2
-};
 
 @interface MBLAccelerometerDataReadyEvent ()
 @property (nonatomic) MBLRegister *dataEnable;
-@property (nonatomic) MBLAccelerometerPackedDataReadyEvent *packedData;
-@property (nonatomic) MBLAccelerometerPackedDataMode packerMode;
 @end
 
 @implementation MBLAccelerometerDataReadyEvent
@@ -62,9 +55,6 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerPackedDataMode) {
     self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerMMA8452QFormat alloc] initWithPacked:NO]];
     if (self) {
         self.dataEnable = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x2 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
-        if (accelerometer.moduleInfo.moduleRevision >= 1) {
-            self.packedData = [[MBLAccelerometerPackedDataReadyEvent alloc] initWithAccelerometer:accelerometer];
-        }
     }
     return self;
 }
@@ -92,39 +82,11 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerPackedDataMode) {
 
 - (BFTask *)startNotificationsWithHandlerAsync:(MBLObjectHandler)handler
 {
-    if (!self.packedData) {
-        return [super startNotificationsWithHandlerAsync:handler];
-    }
-    
     MBLAccelerometerMMA8452Q *accelerometer = (MBLAccelerometerMMA8452Q *)self.module;
-    if (self.packerMode == MBLAccelerometerPackedDataModeOff) {
-        // Turn on the packer for frequencies over 100
-        self.packerMode = accelerometer.sampleFrequency >= 100 ? MBLAccelerometerPackedDataModePacked : MBLAccelerometerPackedDataModeNormal;
+    if (accelerometer.packedDataReadyEvent && accelerometer.sampleFrequency >= 100) {
+        MBLLog(MBLLogLevelWarning, @"For high frequency streaming, use packedDataReadyEvent");
     }
-    return self.packerMode == MBLAccelerometerPackedDataModePacked ? [self.packedData startNotificationsWithHandlerAsync:handler]
-                                                                   : [super startNotificationsWithHandlerAsync:handler];
-}
-
-- (BFTask *)stopNotificationsAsync
-{
-    if (!self.packedData) {
-        return [super stopNotificationsAsync];
-    }
-    
-    MBLAccelerometerPackedDataMode prevMode = self.packerMode;
-    self.packerMode = MBLAccelerometerPackedDataModeOff;
-    return prevMode == MBLAccelerometerPackedDataModePacked ? [self.packedData stopNotificationsAsync]
-                                                            : [super stopNotificationsAsync];
-}
-
-- (BOOL)isNotifying
-{
-    if (!self.packedData) {
-        return [super isNotifying];
-    }
-    
-    return self.packerMode == MBLAccelerometerPackedDataModePacked ? [self.packedData isNotifying]
-                                                                   : [super isNotifying];
+    return [super startNotificationsWithHandlerAsync:handler];
 }
 
 @end

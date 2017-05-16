@@ -36,6 +36,7 @@
 #import "MBLAccelerometerBosch+Private.h"
 #import "MBLAccelerometer+Private.h"
 #import "MBLAccelerometerBoschDataReadyEvent.h"
+#import "MBLAccelerometerBoschPackedDataReadyEvent.h"
 #import "MBLAccelerometerBoschAxisReadyEvent.h"
 #import "MBLAccelerometerBoschLowOrHighGEvent+Private.h"
 #import "MBLAccelerometerBoschOrientationEvent.h"
@@ -66,6 +67,9 @@
     if (self) {
         // MBLAccelerometer properties
         self.dataReadyEvent = [[MBLAccelerometerBoschDataReadyEvent alloc] initWithAccelerometer:self];
+        if (moduleInfo.moduleRevision >= 1) {
+            self.packedDataReadyEvent = [[MBLAccelerometerBoschPackedDataReadyEvent alloc] initWithAccelerometer:self];
+        }
         self.xAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisX];
         self.yAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisY];
         self.zAxisReadyEvent = [[MBLAccelerometerBoschAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisZ];

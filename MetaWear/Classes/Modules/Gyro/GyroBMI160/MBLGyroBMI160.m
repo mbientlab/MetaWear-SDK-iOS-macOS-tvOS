@@ -37,6 +37,7 @@
 #import "MBLGyro+Private.h"
 #import "MBLMetaWear+Private.h"
 #import "MBLGyroBMI160DataReadyEvent.h"
+#import "MBLGyroBMI160PackedDataReadyEvent.h"
 #import "MBLGyroBMI160AxisReadyEvent.h"
 #import "MBLNumericFormatter.h"
 
@@ -54,6 +55,9 @@
     if (self) {
         // MBLGyro properties
         self.dataReadyEvent = [[MBLGyroBMI160DataReadyEvent alloc] initWithGyro:self];
+        if (moduleInfo.moduleRevision >= 1) {
+            self.packedDataReadyEvent = [[MBLGyroBMI160PackedDataReadyEvent alloc] initWithGyro:self];
+        }
         self.xAxisReadyEvent = [[MBLGyroBMI160AxisReadyEvent alloc] initWithGyro:self axis:MBLGyroAxisX];
         self.yAxisReadyEvent = [[MBLGyroBMI160AxisReadyEvent alloc] initWithGyro:self axis:MBLGyroAxisY];
         self.zAxisReadyEvent = [[MBLGyroBMI160AxisReadyEvent alloc] initWithGyro:self axis:MBLGyroAxisZ];

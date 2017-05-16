@@ -51,6 +51,7 @@
 
 @interface MBLAccelerometer()
 @property (nonatomic) MBLEvent *dataReadyEvent;
+@property (nonatomic) MBLEvent *packedDataReadyEvent;
 @property (nonatomic) MBLEvent *xAxisReadyEvent;
 @property (nonatomic) MBLEvent *yAxisReadyEvent;
 @property (nonatomic) MBLEvent *zAxisReadyEvent;

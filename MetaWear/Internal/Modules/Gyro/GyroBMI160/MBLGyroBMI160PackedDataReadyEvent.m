@@ -76,4 +76,11 @@
     return [gyro.dataReadyEvent deactivateAsync];
 }
 
+- (BFTask *)startLoggingAsync
+{
+    return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                     code:kMBLErrorOperationInvalid
+                                                 userInfo:@{NSLocalizedDescriptionKey : @"You should only log dataReadyEvent and not packedDataReadyEvent."}]];
+}
+
 @end

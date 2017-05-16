@@ -2022,16 +2022,16 @@
     CapabilityCheck(self.device.accelerometer.dataReadyEvent);
 
     self.device.accelerometer.sampleFrequency = [self accelerometerFrequencyNear:400];
-    [self eventUpdateTest:self.device.accelerometer.dataReadyEvent time:10 frequency:self.device.accelerometer.sampleFrequency];
-};
+    [self eventUpdateTest:self.device.accelerometer.packedDataReadyEvent time:10 frequency:self.device.accelerometer.sampleFrequency];
+}
 
 - (void)testPackedGyroStream
 {
     CapabilityCheck(self.device.gyro.dataReadyEvent);
     
     self.device.gyro.sampleFrequency = 400;
-    [self eventUpdateTest:self.device.gyro.dataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
-};
+    [self eventUpdateTest:self.device.gyro.packedDataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
+}
 
 - (void)testSensorFusion
 {

@@ -38,16 +38,7 @@
 #import "MBLAccelerometerBMI160+Private.h"
 #import "MBLAccelerometerBoschFormat.h"
 #import "MBLNumericFormatter.h"
-
-typedef NS_ENUM(uint8_t, MBLBoschPackedDataMode) {
-    MBLBoschPackedDataModeOff = 0,
-    MBLBoschPackedDataModeNormal = 1,
-    MBLBoschPackedDataModePacked = 2
-};
-
-@interface MBLAccelerometerBoschDataReadyEvent ()
-@property (nonatomic) MBLBoschPackedDataMode packerMode;
-@end
+#import "MBLLogger.h"
 
 
 @implementation MBLAccelerometerBoschDataReadyEvent
@@ -57,9 +48,6 @@ typedef NS_ENUM(uint8_t, MBLBoschPackedDataMode) {
     self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer packed:NO]];
     if (self) {
         self.accelDataInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
-        if (accelerometer.moduleInfo.moduleRevision >= 1) {
-            self.packedData = [[MBLAccelerometerBoschPackedDataReadyEvent alloc] initWithAccelerometer:accelerometer];
-        }
     }
     return self;
 }
@@ -80,39 +68,11 @@ typedef NS_ENUM(uint8_t, MBLBoschPackedDataMode) {
 
 - (BFTask *)startNotificationsWithHandlerAsync:(MBLObjectHandler)handler
 {
-    if (!self.packedData) {
-        return [super startNotificationsWithHandlerAsync:handler];
-    }
-    
     MBLAccelerometerBosch *accelerometer = (MBLAccelerometerBosch *)self.module;
-    if (self.packerMode == MBLBoschPackedDataModeOff) {
-        // Turn on the packer for frequencies over 100
-        self.packerMode = accelerometer.sampleFrequency >= 100 ? MBLBoschPackedDataModePacked : MBLBoschPackedDataModeNormal;
+    if (accelerometer.packedDataReadyEvent && accelerometer.sampleFrequency >= 100 ) {
+        MBLLog(MBLLogLevelWarning, @"For high frequency streaming, use packedDataReadyEvent");
     }
-    return self.packerMode == MBLBoschPackedDataModePacked ? [self.packedData startNotificationsWithHandlerAsync:handler]
-                                                           : [super startNotificationsWithHandlerAsync:handler];
-}
-
-- (BFTask *)stopNotificationsAsync
-{
-    if (!self.packedData) {
-        return [super stopNotificationsAsync];
-    }
-    
-    MBLBoschPackedDataMode prevMode = self.packerMode;
-    self.packerMode = MBLBoschPackedDataModeOff;
-    return prevMode == MBLBoschPackedDataModePacked ? [self.packedData stopNotificationsAsync]
-                                                    : [super stopNotificationsAsync];
-}
-
-- (BOOL)isNotifying
-{
-    if (!self.packedData) {
-        return [super isNotifying];
-    }
-    
-    return self.packerMode == MBLBoschPackedDataModePacked ? [self.packedData isNotifying]
-                                                           : [super isNotifying];
+    return [super startNotificationsWithHandlerAsync:handler];
 }
 
 @end

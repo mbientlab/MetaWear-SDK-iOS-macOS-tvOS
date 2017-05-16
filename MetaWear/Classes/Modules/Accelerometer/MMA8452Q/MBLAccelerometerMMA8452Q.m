@@ -39,6 +39,7 @@
 #import "MBLRegister+Private.h"
 #import "MBLNumericFormatter.h"
 #import "MBLAccelerometerDataReadyEvent.h"
+#import "MBLAccelerometerPackedDataReadyEvent.h"
 #import "MBLAccelerometerFreeFallEvent.h"
 #import "MBLAccelerometerOrientationEvent.h"
 #import "MBLAccelerometerTapEvent.h"
@@ -76,6 +77,9 @@
         MBLRegister *globalEnable = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.dataSettings = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:4]];
         self.dataReadyEvent = [[MBLAccelerometerDataReadyEvent alloc] initWithAccelerometer:self];
+        if (moduleInfo.moduleRevision >= 1) {
+            self.packedDataReadyEvent = [[MBLAccelerometerPackedDataReadyEvent alloc] initWithAccelerometer:self];
+        }
         self.xAxisReadyEvent = [[MBLAccelerometerAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisX];
         self.yAxisReadyEvent = [[MBLAccelerometerAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisY];
         self.zAxisReadyEvent = [[MBLAccelerometerAxisReadyEvent alloc] initWithAccelerometer:self axis:MBLAccelerometerAxisZ];

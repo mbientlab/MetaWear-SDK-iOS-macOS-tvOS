@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLAccelerometer (Private)
 @property (nonatomic) MBLEvent *dataReadyEvent;
+@property (nonatomic) MBLEvent *packedDataReadyEvent;
 @property (nonatomic) MBLEvent *xAxisReadyEvent;
 @property (nonatomic) MBLEvent *yAxisReadyEvent;
 @property (nonatomic) MBLEvent *zAxisReadyEvent;
