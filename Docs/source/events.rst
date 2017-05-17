@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Events
 ======
@@ -16,28 +16,29 @@ Notifications
 
 One of the most basic use cases is to simply receive the data on your Apple device. This is done via blocks within your app. When an event occurs you get a callback with an event specific object containing all relevant data. In this example, we setup a trigger that notifies us when there is a change detected in the value of GPIO pin 0 and logs a message upon receipt of that notification.
 
-Events will continue to stream in until the device is disconnected, or you call ``stopNotificationsAsync:``
+Events will continue to stream in until the device is disconnected, or you call ``stopNotificationsAsync``
 
 You can check if an event is currently streaming by checking the ``isNotifying`` property.
 
 ::
 
-    MBLGPIOPin *pin0 = device.gpio.pins[0];
-    [pin0.changeEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"Cool, the pin changed: %@", obj);
-    }];
+    if let pin0 = device.gpio?.pins.first {
+        pin0.changeEvent?.startNotificationsAsync(handler: { (obj, error) in
+            print("Cool, the pin changed: " + String(describing: obj))
+        })
+    }
 
 ::
 
-    [pin0.changeEvent stopNotificationsAsync];
-    pin0.changeEvent.isNotifying
+    pin0.changeEvent?.stopNotificationsAsync()
+    pin0.changeEvent?.isNotifying()
 
 Command
 -------
 
 In order to free the MetaWear from needing constant phone connection, we can program the device to perform certain actions when an event occurs. It's a basic "If <event> then <action>" paradigm. The magic being, all logic is stored on the MetaWear, so it works even with the Apple device disconnected.
 
-The device will continue to perform <action> on <event> until you either reset the device or call ``eraseCommandsToRunOnEvent:``
+The device will continue to perform <action> on <event> until you either reset the device or call ``programCommandsToRunOnEventAsync``
 
 You can check if an event is currently programmed by checking the ``hasCommands`` property.
 
@@ -47,14 +48,14 @@ There are some important details to consider when using this feature.  At the lo
 ::
 
     // Flash the LED when you press the button
-    [device.mechanicalSwitch.switchUpdateEvent programCommandsToRunOnEventAsync:^{
-        [device.led flashLEDColorAsync:[UIColor redColor] withIntensity:1.0 numberOfFlashes:3];
-    }];
+    device.mechanicalSwitch?.switchUpdateEvent.programCommandsToRunOnEventAsync {
+        device.led?.flashColorAsync(.red, withIntensity: 1.0, numberOfFlashes: 3)
+    }
 
 ::
 
-    [self.device.mechanicalSwitch.switchUpdateEvent eraseCommandsToRunOnEvent];
-    self.device.mechanicalSwitch.switchUpdateEvent.hasCommands
+    device.mechanicalSwitch?.switchUpdateEvent.eraseCommandsToRunOnEventAsync()
+    device.mechanicalSwitch?.switchUpdateEvent.hasCommands()
 
 Logging
 -------
@@ -65,23 +66,24 @@ Once you start logging you can disconnect and even kill the app. Later on, re-co
 
 ::
 
-    [device.mechanicalSwitch.switchUpdateEvent startLoggingAsync];
+    device.mechanicalSwitch?.switchUpdateEvent.startLoggingAsync()
 
 ::
 
-    [[device.mechanicalSwitch.switchUpdateEvent downloadLogAndStopLoggingAsync:YES progressHandler:^(float number) {
-        // Update progress bar, as this can take upwards of one minute to download a full log
-    }] success:^(NSArray<MBLNumericData *> * _Nonnull result) {
+    device.mechanicalSwitch?.switchUpdateEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+        // Update progress bar, as this can take anywhere from one minute
+        // to a couple hours to download a full log
+    }).success({ result in
         // array contains all the log entries
-        for (MBLNumericData *entry in result) {
-            NSLog(@"Entry: %@", entry);
+        for entry in result {
+            print("Entry: " + String(describing: entry))
         }
-    }];
+    })
 
 Filters
 -------
 
 Many of the events generated are raw sensor output, to help make sense of this data, MetaWear has several digital signal processing (DSP) functions builtin.  To use filters you call one of the "create filter" functions on an event object and it will return a new event object!  When you turn on notifications or logging of this new event, you will see the filtered data.
 
-Since the filters work at the firmware level, they too function when the device is disconnected.  See the section on :doc:`filters` for details.
+Since the filters work at the firmware level, they too function when the device is disconnected.  See the section on :doc:`data_processor` for details.
 

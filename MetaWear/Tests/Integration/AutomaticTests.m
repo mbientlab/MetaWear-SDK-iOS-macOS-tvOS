@@ -495,6 +495,42 @@
     XCTAssertGreaterThanOrEqual(progressCount, 4);
 }
 
+- (void)testStopLogWithoutDownload
+{
+    CapabilityCheck(self.device.accelerometer.dataReadyEvent);
+    
+    self.device.accelerometer.sampleFrequency = [self accelerometerFrequencyNear:200];
+    
+    int __block entryCount = 0;
+    [self.device.accelerometer.dataReadyEvent startLoggingAsync];
+    
+    XCTestExpectation *loggingExpectation = [self expectationWithDescription:@"logging accelerometer data"];
+    // Let the log run for 2.0 seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[self.device.accelerometer.dataReadyEvent stopLoggingAsync] success:^(MBLNumericData * _Nonnull result) {
+            entryCount = result.value.intValue;
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[self.device.accelerometer.dataReadyEvent downloadLogAndStopLoggingAsync:YES remainingHandler:^(uint32_t totalEntries, uint32_t remainingEntries) {
+                    XCTAssertEqual(totalEntries, entryCount);
+                }] success:^(NSArray<MBLAccelerometerData *> * _Nonnull result) {
+                    // Finished the test!
+                    // We were having trouble with extra samples getting into the log after the above
+                    // readout, so here we do an extra purge after the accelermoeter has had time to
+                    // empty its buffers.
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [[self.device.logging stopAndClearLog] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+                            [loggingExpectation fulfill];
+                            return nil;
+                        }];
+                    });
+                }];
+            });
+        }];
+    });
+    [self waitForExpectationsWithTimeout:60 handler:nil];
+}
+
 - (void)testAccelerometerRMSLogging
 {
     CapabilityCheck(self.device.accelerometer.rmsDataReadyEvent);
@@ -1986,16 +2022,16 @@
     CapabilityCheck(self.device.accelerometer.dataReadyEvent);
 
     self.device.accelerometer.sampleFrequency = [self accelerometerFrequencyNear:400];
-    [self eventUpdateTest:self.device.accelerometer.dataReadyEvent time:10 frequency:self.device.accelerometer.sampleFrequency];
-};
+    [self eventUpdateTest:self.device.accelerometer.packedDataReadyEvent time:10 frequency:self.device.accelerometer.sampleFrequency];
+}
 
 - (void)testPackedGyroStream
 {
     CapabilityCheck(self.device.gyro.dataReadyEvent);
     
     self.device.gyro.sampleFrequency = 400;
-    [self eventUpdateTest:self.device.gyro.dataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
-};
+    [self eventUpdateTest:self.device.gyro.packedDataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
+}
 
 - (void)testSensorFusion
 {

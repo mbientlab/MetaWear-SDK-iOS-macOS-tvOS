@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Ambient Light
 =============
@@ -14,7 +14,5 @@ There is currently nothing in the generic ``MBLAmbientLight`` class, so you need
 
 ::
 
-    if ([device.ambientLight isKindOfClass:[MBLAmbientLightLTR329 class]]) {
-        MBLAmbientLightLTR329 *ambientLightLTR329 = (MBLAmbientLightLTR329 *)device.ambientLight;
+    if let ambientLightLTR329 = device.ambientLight as? MBLAmbientLightLTR329 {
     }
-

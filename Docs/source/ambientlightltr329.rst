@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 AmbientLightLTR329
 ==================
@@ -12,12 +12,13 @@ This ambient light sensor has a built in timer, so you can program it directly t
 
 ::
 
-    ambientLightLTR329.gain = MBLAmbientLightLTR329Gain1X;
+    ambientLightLTR329.gain = .gain1X;
     // Have the sensor measure over 100ms
-    ambientLightLTR329.integrationTime = MBLAmbientLightLTR329Integration100ms;
+    ambientLightLTR329.integrationTime = .integration100ms;
     // Perform a new measurement each second
-    ambientLightLTR329.measurementRate = MBLAmbientLightLTR329Rate1000ms;
-    [ambientLightLTR329.periodicIlluminance startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"ambient light: %f lux", obj.value.floatValue);
-    }];
-
+    ambientLightLTR329.measurementRate = .rate1000ms;
+    ambientLightLTR329.periodicIlluminance.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("ambient light: \(obj.value.doubleValue) lux")
+        }
+    })

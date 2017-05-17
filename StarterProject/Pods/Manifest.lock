@@ -2,7 +2,7 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - FastCoding+tvOS (3.2.1)
   - MBProgressHUD (1.0.0)
-  - MetaWear (2.8.3):
+  - MetaWear (2.8.4):
     - Bolts/Tasks (~> 1.8.4)
     - FastCoding+tvOS (~> 3.2.1)
 
@@ -18,8 +18,8 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FastCoding+tvOS: d314b6daa8389ec790ab362f973f53a5657292bd
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MetaWear: edb17be3e38fd7d262ea433f257a0655c0401f07
+  MetaWear: 3ce32e1e16a6840846d3f71aab528bf4522f5969
 
 PODFILE CHECKSUM: 097e07f8cd09329bd0f334824e32a3f7be4e05a0
 
-COCOAPODS: 1.2.0.beta.3
+COCOAPODS: 1.2.1

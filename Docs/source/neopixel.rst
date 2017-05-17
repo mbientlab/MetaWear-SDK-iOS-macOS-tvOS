@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 NeoPixel
 ========
@@ -16,18 +16,16 @@ Note, if it lights up a color other than green, you have the wrong color orderin
 
 ::
 
-    const int length = 30; // Specific to your NeoPixel stand
-    const MBLColorOrdering color = MBLColorOrderingGRB; // Specific to your NeoPixel stand
-    const MBLStrandSpeed speed = MBLStrandSpeedSlow; // Specific to your NeoPixel stand
-        
-    MBLNeopixelStrand *strand = [device.neopixel strandWithColor:color speed:speed pin:0 length:length];
-    [strand initializeAsync];
-    for (int i = 0; i < length; i++) {
-        [strand setPixelAsync:i color:[UIColor greenColor]];
+    // All constants are specific to your NeoPixel stand
+    let length: UInt8 = 30
+    let strand = device.neopixel?.strand(withColor: .GBR, speed: .slow, pin: 0, length: length)
+    strand?.initializeAsync()
+    for i in 0..<length {
+        strand?.setPixelAsync(i, color: .green)
     }
     // ... some time later
-    [strand clearAllPixelsAsync];
-    [strand deinitializeAsync];
+    strand?.clearAllPixelsAsync()
+    strand?.deinitializeAsync()
 
 Rotate Strand
 -------------
@@ -36,25 +34,19 @@ You can program a pattern and then rotate it for fun effects.
 
 ::
 
-    const int length = 30; // Specific to your NeoPixel stand
-    const MBLColorOrdering color = MBLColorOrderingGRB; // Specific to your NeoPixel stand
-    const MBLStrandSpeed speed = MBLStrandSpeedSlow; // Specific to your NeoPixel stand
-        
-    MBLNeopixelStrand *strand = [device.neopixel strandWithColor:color speed:speed pin:0 length:length];
-    for (int i = 0; i < length; i++) {
-        UIColor *color;
-        switch (i % 3) {
-            case 0:
-                color = [UIColor redColor];
-                break;
-            case 1:
-                color = [UIColor greenColor];
-                break;
-            case 2:
-                color = [UIColor blueColor];
-                break;
+    // All constants are specific to your NeoPixel stand
+    let length: UInt8 = 30
+    let strand = device.neopixel?.strand(withColor: .GBR, speed: .slow, pin: 0, length: length)
+    strand?.initializeAsync()
+    for i in 0..<length {
+        switch i % 3 {
+        case 0:
+            strand?.setPixelAsync(i, color: .red)
+        case 1:
+            strand?.setPixelAsync(i, color: .green)
+        default:
+            strand?.setPixelAsync(i, color: .blue)
         }
-        [strand setPixelAsync:i color:color];
     }
-    [strand rotateStrandWithDirectionAsync:MBLRotationDirectionAwayFromBoard repetitions:length period:100];
+    strand?.rotateStrand(withDirectionAsync: .awayFromBoard, repetitions: length, period: 100)
 

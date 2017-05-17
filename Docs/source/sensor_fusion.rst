@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Sensor Fusion
 =============
@@ -28,12 +28,12 @@ We provide attitude and heading information using both Euler Angles and Quaterni
 
 ::
 
-    [self.device.sensorFusion.eulerAngle startNotificationsWithHandlerAsync:^(MBLEulerAngleData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
-    [self.device.sensorFusion.quaternion startNotificationsWithHandlerAsync:^(MBLQuaternionData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
+    device.sensorFusion?.eulerAngle.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
+    device.sensorFusion?.quaternion.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
 
 Gravity Reading
 ---------------
@@ -42,9 +42,9 @@ This looks at the acceleration due to gravity and removes the acceleration due t
 
 ::
 
-    [self.device.sensorFusion.gravity startNotificationsWithHandlerAsync:^(MBLAccelerometerData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
+    device.sensorFusion?.gravity.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
 
 Linear Acceleration
 -------------------
@@ -53,9 +53,9 @@ This looks at the acceleration due to motion and removes the acceleration due to
 
 ::
 
-    [self.device.sensorFusion.gravity startNotificationsWithHandlerAsync:^(MBLAccelerometerData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
+    device.sensorFusion?.linearAcceleration.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
 
 Corrected Sensor Readings
 -------------------------
@@ -73,12 +73,12 @@ M4G      50Hz  N/A   50Hz
 
 ::
 
-    [device.sensorFusion.acceleration startNotificationsWithHandlerAsync:^(MBLCorrectedAccelerometerData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
-    [device.sensorFusion.rotation startNotificationsWithHandlerAsync:^(MBLCorrectedGyroData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
-    [device.sensorFusion.magneticField startNotificationsWithHandlerAsync:^(MBLCorrectedMagnetometeData *obj, NSError *error) {
-        NSLog(@"%@", obj);
-    }];
+    device.sensorFusion?.acceleration.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
+    device.sensorFusion?.rotation.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })
+    device.sensorFusion?.magneticField.startNotificationsAsync(handler: { (obj, error) in
+        print(String(describing: obj))
+    })

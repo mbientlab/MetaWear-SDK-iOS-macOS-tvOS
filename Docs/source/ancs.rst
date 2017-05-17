@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 ANCS
 ====
@@ -14,10 +14,10 @@ It's simple to have the MetaWear flash when a notification comes in.
 
 ::
 
-    MBLEvent *ancs = [device.ancs eventWithCategoryIds:MBLANCSCategoryIDAny];
-    [ancs programCommandsToRunOnEventAsync:^{
-        [device.led flashLEDColorAsync:[UIColor redColor] withIntensity:1.0];
-    }];
+    let ancs = device.ancs?.event(withCategoryIds: .any)
+    ancs?.programCommandsToRunOnEventAsync {
+        device.led?.flashColorAsync(.red, withIntensity: 1.0)
+    }
 
 Filter Notification Events
 --------------------------
@@ -26,13 +26,12 @@ You may want to be notified when you get a message from a special someone:
 
 ::
 
-    MBLEvent *ancs = [device.ancs eventWithCategoryIds:MBLANCSCategoryIDAny
-                                              eventIds:MBLANCSEventIDNotificationAdded
-                                            eventFlags:MBLANCSEventFlagAny
-                                           attributeId:MBLANCSNotificationAttributeIDTitle
-                                         attributeData:@"John Doe"];
-    [ancs programCommandsToRunOnEventAsync:^{
-        [device.led flashLEDColorAsync:[UIColor greenColor] withIntensity:1.0 numberOfFlashes:5];
-        [device.hapticBuzzer startHapticWithDutyCycleAsync:255 pulseWidth:500 completion:nil];
-    }];
-
+    let ancs = device.ancs?.event(withCategoryIds: .any,
+                                  eventIds: .notificationAdded,
+                                  eventFlags: .init(rawValue: 0),
+                                  attributeId: .title,
+                                  attributeData: "John Doe")
+    ancs?.programCommandsToRunOnEventAsync {
+        device.led?.flashColorAsync(.green, withIntensity: 1.0, numberOfFlashes: 5)
+        device.hapticBuzzer?.startHapticAsync(dutyCycle: 255, pulseWidth: 500, completion: nil)
+    }

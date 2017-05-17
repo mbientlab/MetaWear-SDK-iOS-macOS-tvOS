@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -715,7 +716,7 @@
                                                             <rect key="frame" x="1" y="1" width="475" height="84"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-f6-4kX">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-f6-4kX">
                                                                     <rect key="frame" x="13" y="39" width="293" height="17"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="326A9000-85CB-9195-D9DD-464CFBBAE75A" id="08w-uG-TaU">
                                                                         <font key="font" metaFont="system"/>
@@ -731,7 +732,7 @@
                                                                     </constraints>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="wifi_d3" id="uCt-N6-Ei5"/>
                                                                 </imageView>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFk-nk-eTh">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="4" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFk-nk-eTh">
                                                                     <rect key="frame" x="13" y="60" width="82" height="21"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="MetaWear" id="W0h-2T-6uK">
                                                                         <font key="font" metaFont="system" size="17"/>
@@ -739,7 +740,7 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-jd-6dQ">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="2" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-jd-6dQ">
                                                                     <rect key="frame" x="51" y="14" width="27" height="17"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="-45" id="de8-AR-j6i">
                                                                         <font key="font" metaFont="system"/>
@@ -747,7 +748,7 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-hx-VOu">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="3" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-hx-VOu">
                                                                     <rect key="frame" x="216" y="61" width="90" height="19"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Connected!" id="FHC-5u-nxy">
                                                                         <font key="font" metaFont="systemBold" size="15"/>
@@ -806,7 +807,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="650"/>
         </scene>
     </scenes>
     <resources>

@@ -35,13 +35,11 @@
 
 #import "MBLEvent+Private.h"
 @class MBLAccelerometerBosch;
-@class MBLAccelerometerBoschPackedDataReadyEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLAccelerometerBoschDataReadyEvent : MBLEvent
 @property (nonatomic) MBLRegister *accelDataInterruptEn;
-@property (nonatomic) MBLAccelerometerBoschPackedDataReadyEvent *packedData;
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer;
 @end

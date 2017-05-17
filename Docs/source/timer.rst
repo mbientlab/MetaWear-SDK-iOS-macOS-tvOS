@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Timer
 =====
@@ -12,8 +12,7 @@ Here is a simple way to buzz 3 times.
 
 ::
 
-    MBLEvent *periodicEvent = [device.timer eventWithPeriod:2000 eventCount:3];
-    [periodicEvent programCommandsToRunOnEventAsync:^{
-        [device.hapticBuzzer startBuzzerWithPulseWidthAsync:500 completion:nil];
-    }];
-
+    let periodicEvent = device.timer?.event(withPeriod: 2000, eventCount: 3)
+    periodicEvent?.programCommandsToRunOnEventAsync {
+        device.hapticBuzzer?.startBuzzerAsync(pulseWidth: 500, completion: nil)
+    }

@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 AccelerometerMMA8452Q
 =====================
@@ -12,11 +12,11 @@ Events can be generated for a single or double tap along any of the axis'.
 
 ::
 
-    accelerometerMMA8452Q.tapDetectionAxis = MBLAccelerometerAxisX; // Default: X-axis tap
-    accelerometerMMA8452Q.tapType = MBLAccelerometerTapTypeSingle; // Default: Single tap
-    [accelerometerMMA8452Q.tapEvent startNotificationsWithHandlerAsync:^(id obj, NSError *error) {
-        NSLog(@"Tapped Me!");
-    }];
+    accelerometerMMA8452Q.tapDetectionAxis = .X
+    accelerometerMMA8452Q.tapType = .single
+    accelerometerMMA8452Q.tapEvent.startNotificationsAsync(handler: { (obj, error) in
+        print("Tapped Me!")
+    })
 
 Notify on Orientation Change
 ----------------------------
@@ -25,9 +25,11 @@ Events can be generated when an orientation change of the MetaWear occurs.
 
 ::
 
-    [accelerometerMMA8452Q.orientationEvent startNotificationsWithHandlerAsync:^(MBLOrientationData *obj, NSError *error) {
-        NSLog(@"Flipped Me: %@", obj);
-    }];
+    accelerometerMMA8452Q.orientationEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Flipped Me: \(obj)")
+        }
+    })
 
 Notify on Free Fall
 -------------------
@@ -36,9 +38,11 @@ Events can be generated when the MetaWear goes into free fall.
 
 ::
 
-    [accelerometerMMA8452Q.freeFallEvent startNotificationsWithHandlerAsync:^(id obj, NSError *error) {
-        NSLog(@"Dropped Me!");
-    }];
+    accelerometerMMA8452Q.freeFallEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Dropped Me!")
+        }
+    })
 
 Notify on Shake
 ---------------
@@ -47,7 +51,9 @@ Events can be generated when you shake the MetaWear.
 
 ::
 
-    [accelerometerMMA8452Q.shakeEvent startNotificationsWithHandlerAsync:^(id obj, NSError *error) {
-        NSLog(@"Yeah YOU! Shook me all night long");
-    }];
+    accelerometerMMA8452Q.shakeEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Yeah YOU! Shook me all night long")
+        }
+    })
 

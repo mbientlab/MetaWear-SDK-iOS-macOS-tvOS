@@ -74,6 +74,13 @@ typedef NS_ENUM(uint8_t, MBLGyroAxis) {
  */
 @property (nonatomic, readonly) MBLEvent<MBLGyroData *> *dataReadyEvent;
 /**
+ Event representing a new gryo data sample, but with 3 raw samples
+ packed into a single BLE packet at the link level.  This makes streaming much
+ more efficient, but at a slight cost of latency.  This should certainly be used
+ for streaming at speeds over 100Hz, but should not be used for logging.
+ */
+@property (nonatomic, readonly, nullable) MBLEvent<MBLGyroData *> *packedDataReadyEvent;
+/**
  Event representing a new gyro X-axis sample. This event will occur
  at sampleFrequency. Event callbacks will be provided an MBLNumericData
  object whose double value will be rotation rate in degrees per second.

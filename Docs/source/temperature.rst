@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Temperature
 ===========
@@ -12,9 +12,9 @@ The sources are available as different ``MBLData`` properties.
 
 ::
 
-    MBLData *onDieThermistor = device.temperature.onDieThermistor;
-    MBLExternalThermistor *externalThermistor = device.temperature.externalThermistor;
-    MBLData *onboardThermistor = device.temperature.onboardThermistor;
+    let onDieThermistor = device.temperature?.onDieThermistor
+    let externalThermistor = device.temperature?.externalThermistor
+    let onboardThermistor = device.temperature?.onboardThermistor
 
 Single Read
 -----------
@@ -23,20 +23,19 @@ Here is how you get a single temperature reading.  Note that to use an external 
 
 ::
 
-    [[device.temperature.onDieThermistor readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"on-die temp: %f", result.value.floatValue);
-    }];
-    
-    [[device.temperature.onboardThermistor readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"on-board temp: %f", result.value.floatValue);
-    }];
-    
-    MBLExternalThermistor *externalThermistor = device.temperature.externalThermistor;
-    externalThermistor.readPin = 0;
-    externalThermistor.enablePin = 1;
-    [[externalThermistor readAsync] success:^(MBLNumericData * _Nonnull result) {
-        NSLog(@"external thermistor temp: %f", result.value.floatValue);
-    }];
+    device.temperature?.onDieThermistor.readAsync().success { result in
+        print("on-die temp: \(result.value.doubleValue)")
+    }
+    device.temperature?.onboardThermistor?.readAsync().success { result in
+        print("on-board temp: \(result.value.doubleValue)")
+    }
+
+    let externalThermistor = device.temperature?.externalThermistor
+    externalThermistor?.readPin = 0
+    externalThermistor?.enablePin = 1
+    externalThermistor?.readAsync().success { result in
+        print("external thermistor temp: \(result.value.doubleValue)")
+    }
 
 Periodic Read
 -------------
@@ -45,10 +44,12 @@ Since all temperature sources are MBLData objects, you can easily perform period
 
 ::
 
-    MBLEvent *temperatureEvent = [device.temperature.onDieThermistor periodicReadWithPeriod:500];
-    [temperatureEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"on-die temp: %f", obj.value.floatValue);
-    }];
+    let temperatureEvent = device.temperature?.onDieThermistor.periodicRead(withPeriod: 500)
+    temperatureEvent?.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("on-die temp: \(obj.value.doubleValue)")
+        }
+    })
 
 Change Event
 ------------
@@ -57,12 +58,15 @@ The following code shows how to setup filters to notify when the temperature has
 
 ::
 
-    MBLEvent *temperatureEvent = [device.temperature.onDieThermistor periodicReadWithPeriod:500];
+    let temperatureEvent = device.temperature?.onDieThermistor.periodicRead(withPeriod: 500)
     // Get notifications when it changes by 2 degrees C
-    MBLEvent *deltaTemperatureEvent = [temperatureEvent changeOfEventByDelta:2.0 output:MBLDeltaValueOutputAbsolute];
-    [deltaTemperatureEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"Temp Changed!: %@", obj);
-    }];
+    let deltaTemperatureEvent = temperatureEvent?.changeOfEvent(byDelta: 2.0, output: .absolute)
+    deltaTemperatureEvent?.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Temp Changed!: \(obj.value.doubleValue)")
+        }
+    })
+
 
 Threshold Event
 ---------------
@@ -71,10 +75,11 @@ Similarly, we can use the filters to setup a notification when the temperature o
 
 ::
 
-    MBLEvent *temperatureEvent = [device.temperature.onDieThermistor periodicReadWithPeriod:500];
-    // Get notifications when it crosses 25 degrees C
-    MBLEvent *thresholdEvent = [temperatureEvent changeOfEventAcrossThreshold:25.0 hysteresis:2.0 output:MBLThresholdValueOutputAbsolute];
-    [thresholdEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"Temp Crossed Threshold!: %@", obj);
-    }];
-
+    let temperatureEvent = device.temperature?.onDieThermistor.periodicRead(withPeriod: 500)
+    // Get notifications when it changes by 2 degrees C
+    let thresholdEvent = temperatureEvent?.change(ofEventAcrossThreshold: 25.0, hysteresis: 2.0, output: .absolute)
+    thresholdEvent?.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("Temp Crossed Threshold!: \(obj.value.doubleValue)")
+        }
+    })

@@ -42,17 +42,8 @@
 #import "MBLNumericFormatter.h"
 #import "MBLGyroBMI160Format.h"
 #import "MBLGyroBMI160PackedDataReadyEvent.h"
+#import "MBLLogger.h"
 
-typedef NS_ENUM(uint8_t, MBLGyroPackedDataMode) {
-    MBLGyroPackedDataModeOff = 0,
-    MBLGyroPackedDataModeNormal = 1,
-    MBLGyroPackedDataModePacked = 2
-};
-
-@interface MBLGyroBMI160DataReadyEvent ()
-@property (nonatomic) MBLGyroPackedDataMode packerMode;
-@property (nonatomic) MBLGyroBMI160PackedDataReadyEvent *packedData;
-@end
 
 @implementation MBLGyroBMI160DataReadyEvent
 
@@ -61,9 +52,6 @@ typedef NS_ENUM(uint8_t, MBLGyroPackedDataMode) {
     self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro packed:NO]];
     if (self) {
         self.dataInterruptEn = [[MBLRegister alloc] initWithModule:gyro registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
-        if (gyro.moduleInfo.moduleRevision >= 1) {
-            self.packedData = [[MBLGyroBMI160PackedDataReadyEvent alloc] initWithGyro:gyro];
-        }
     }
     return self;
 }
@@ -84,40 +72,11 @@ typedef NS_ENUM(uint8_t, MBLGyroPackedDataMode) {
 
 - (BFTask *)startNotificationsWithHandlerAsync:(MBLObjectHandler)handler
 {
-    if (!self.packedData) {
-        return [super startNotificationsWithHandlerAsync:handler];
-    }
-    
     MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.module;
-    if (self.packerMode == MBLGyroPackedDataModeOff) {
-        // Turn on the packer for frequencies over 100
-        self.packerMode = gyro.sampleFrequency >= 100 ? MBLGyroPackedDataModePacked : MBLGyroPackedDataModeNormal;
+    if (gyro.packedDataReadyEvent && gyro.sampleFrequency >= 100 ) {
+        MBLLog(MBLLogLevelWarning, @"For high frequency streaming, use packedDataReadyEvent");
     }
-    return self.packerMode == MBLGyroPackedDataModePacked ? [self.packedData startNotificationsWithHandlerAsync:handler]
-                                                          : [super startNotificationsWithHandlerAsync:handler];
+    return [super startNotificationsWithHandlerAsync:handler];
 }
-
-- (BFTask *)stopNotificationsAsync
-{
-    if (!self.packedData) {
-        return [super stopNotificationsAsync];
-    }
-    
-    MBLGyroPackedDataMode prevMode = self.packerMode;
-    self.packerMode = MBLGyroPackedDataModeOff;
-    return prevMode == MBLGyroPackedDataModePacked ? [self.packedData stopNotificationsAsync]
-                                                   : [super stopNotificationsAsync];
-}
-
-- (BOOL)isNotifying
-{
-    if (!self.packedData) {
-        return [super isNotifying];
-    }
-    
-    return self.packerMode == MBLGyroPackedDataModePacked ? [self.packedData isNotifying]
-                                                          : [super isNotifying];
-}
-
 
 @end

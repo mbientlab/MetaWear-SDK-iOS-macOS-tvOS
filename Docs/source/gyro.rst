@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 Gyro
 ====
@@ -14,10 +14,12 @@ One thing common to all gyroscopes is the ability to access raw x, y, and z axis
 
 ::
 
-    device.gyro.sampleFrequency = 100; // Default: 100 Hz
-    [device.gyro.dataReadyEvent startNotificationsWithHandlerAsync:^(MBLGyroData *obj, NSError *error) {
-        NSLog(@"X = %f, Y = %f, Z = %f", obj.x, obj.y, obj.z);
-    }];
+    device.gyro?.sampleFrequency = 100.0
+    device.gyro?.dataReadyEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("X = \(obj.x), Y = \(obj.y), Z = \(obj.z)")
+        }
+    })
 
 Single Axis Data
 ----------------
@@ -26,9 +28,11 @@ You can also access a single axis of gyroscope data.
 
 ::
 
-    [device.gyro.xAxisReadyEvent startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"x-axis: %@", obj);
-    }];
+    device.gyro?.xAxisReadyEvent.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("x-axis: \(obj.value.doubleValue)")
+        }
+    })
 
 Cast to Derived Class
 ---------------------
@@ -37,7 +41,5 @@ To use advanced gyroscope features it's necessary to figure out exactly what gyr
 
 ::
 
-    if ([device.gyro isKindOfClass:[MBLGyroBMI160 class]]) {
-    	MBLGyroBMI160 *gyroBMI160 = (MBLGyroBMI160 *)device.gyro;
+    if let gyroBMI160 = device.gyro as? MBLGyroBMI160 {
     }
-

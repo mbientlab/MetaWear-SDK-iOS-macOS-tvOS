@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 GyroBMI160
 ==========
@@ -12,5 +12,4 @@ You can adjust the sensitivity of the gyroscope based on your needs.
 
 ::
 
-    gyroBMI160.fullScaleRange = MBLGyroBMI160Range125;
-
+    gyroBMI160.fullScaleRange = .range125

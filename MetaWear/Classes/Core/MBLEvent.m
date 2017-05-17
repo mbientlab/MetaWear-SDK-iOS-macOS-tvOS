@@ -209,17 +209,8 @@
     
     [device incrementCount];
     return [[[BFTask taskFromMetaWearWithBlock:^id{
-        if (stopLogging && self.isLoggingImpl) {
-            self.isLoggingImpl = NO;
-            
-            return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                return [device.logging stopLoggingEvent:self];
-            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                return [self deinitializeAsync];
-            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-                // Since log downloads take a while, let's save state here
-                return [device synchronizeAsync];
-            }];
+        if (stopLogging) {
+            return [self stopLoggingAsync];
         }
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -249,6 +240,39 @@
 - (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging
 {
     return [self downloadLogAndStopLoggingAsync:stopLogging progressHandler:nil];
+}
+
+- (BFTask<NSNumber *> *)stopLoggingAsync
+{
+    MBLMetaWear *device = self.module.device;
+    if (device.state != MBLConnectionStateConnected) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorNotConnected
+                                         userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before using the API."}];
+        return [BFTask taskWithError:error];
+    }
+    
+    [device incrementCount];
+    return [[[BFTask taskFromMetaWearWithBlock:^id{
+        if (self.isLoggingImpl) {
+            self.isLoggingImpl = NO;
+            
+            return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                return [device.logging stopLoggingEvent:self];
+            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                return [self deinitializeAsync];
+            }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+                // Since log downloads take a while, let's save state here
+                return [device synchronizeAsync];
+            }];
+        }
+        return nil;
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+        return [device.logging.logLength readAsync];
+    }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+        [device decrementCount];
+        return task;
+    }];
 }
 
 - (BOOL)isLogging
@@ -498,13 +522,12 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)periodicSampleOfEvent:(uint32_t)periodInMsec
 {
-    if (self.format.length > 8) {
-        [NSException raise:@"Invalid Filter" format:@"Can't use periodic sample filter with events of size > 8, %d invalid", self.format.length];
-    }
-    
     deltat_param_t params = {0};
     params.filter_id = 8;
     if (self.module.device.dataProcessor.moduleInfo.moduleRevision == 0) {
+        if (self.format.length > 8) {
+            [NSException raise:@"Invalid Filter" format:@"Can't use periodic sample filter with events of size > 8, %d invalid", self.format.length];
+        }
         params.datalen = self.format.length - 1;
         params.filter_mode = 0;
     } else {
@@ -685,9 +708,11 @@ typedef struct __attribute__((packed)) {
     params.outputmode = output;
     params.width = width;
     
-    if (![MBLConversion number:[self.format numberFromDouble:threshold] toInt32:&params.threshold]) {
+    int32_t	thresholdTmp;
+    if (![MBLConversion number:[self.format numberFromDouble:threshold] toInt32:&thresholdTmp]) {
         [NSException raise:@"Invalid data" format:@"threshold %f cannot fit in int32", threshold];
     }
+    params.threshold = thresholdTmp;
     
     MBLFormat *format = nil;
     // We make a copy of the formatter because we want to force it to 4 byte length

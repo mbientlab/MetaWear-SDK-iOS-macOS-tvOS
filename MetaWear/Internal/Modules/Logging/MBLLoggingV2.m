@@ -155,6 +155,12 @@
     NSData *data = [NSData dataWithBytes:rawEntry->data length:4];
     NSDate __block *date = nil;
     date = self.device.nonVolatileState.logStartingDates[resetId];
+    if ([[NSNull null] isEqual:date]) {
+        MBLLog(MBLLogLevelError, @"Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
+        date = [NSDate dateWithTimeIntervalSince1970:0];
+        self.device.nonVolatileState.logStartingDates[resetId] = date;
+    }
+    
     // If reset uid changes then reset lastTimestamp
     if (resetId != self.lastResetId) {
         self.lastTimestamp = 0;
@@ -169,11 +175,6 @@
     self.lastTimestamp = entryTs;
     self.lastResetId = resetId;
     
-    if ([[NSNull null] isEqual:date]) {
-        MBLLog(MBLLogLevelError, @"Timestamp error, please call setConfiguration:nil on the MBLMetaWear object to reset log");
-        date = [NSDate dateWithTimeIntervalSince1970:0];
-        self.device.nonVolatileState.logStartingDates[resetId] = date;
-    }
     // Convert to real time
     NSDate *timestamp = [date dateByAddingTimeInterval:entryTs * LOGGING_SEC_PER_TIMESTAMP];
     

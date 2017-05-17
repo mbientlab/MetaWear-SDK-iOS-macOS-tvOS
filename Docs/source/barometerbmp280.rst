@@ -1,4 +1,4 @@
-.. highlight:: Objective-C
+.. highlight:: swift
 
 BarometerBMP280
 ===============
@@ -13,16 +13,17 @@ This barometer has a built in timer, so you can program it to directly perform p
 ::
 
     // Use the oversampling mode to balance power vs performance
-    barometerBMP280.pressureOversampling = MBLBarometerBMP280OversampleUltraHighResolution;
+    barometerBMP280.pressureOversampling = .ultraHighResolution;
     // Use the builtin average filter to eliminate short term noise
-    barometerBMP280.hardwareAverageFilter = MBLBarometerBMP280FilterAverage16;
+    barometerBMP280.hardwareAverageFilter = .average16;
     // This determines how long the device will sleep between samples,
     // so it's not directly the period, since the sample itself can
     // take several ms to complete.
-    barometerBMP280.standbyTime = MBLBarometerBMP280Standby0_5;
-    
-    // Or you can use periodicPressure below
-    [barometerBMP280.periodicAltitude startNotificationsWithHandlerAsync:^(MBLNumericData *obj, NSError *error) {
-        NSLog(@"altitude: %f meters", obj.value.floatValue);
-    }];
+    barometerBMP280.standbyTime = .standby0_5;
 
+    // Or you can use periodicPressure below
+    barometerBMP280.periodicAltitude.startNotificationsAsync(handler: { (obj, error) in
+        if let obj = obj {
+            print("altitude: \(obj.value.doubleValue) meters")
+        }
+    })

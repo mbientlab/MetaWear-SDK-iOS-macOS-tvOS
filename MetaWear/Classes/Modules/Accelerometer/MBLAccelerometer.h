@@ -83,9 +83,17 @@ typedef NS_ENUM(uint8_t, MBLAccelerometerTapType) {
 /**
  Event representing a new accelerometer data sample complete with x, y,
  and z axis data.  This event will occur at the neareast hardware value
- to sampleFrequency. Event callbacks will be provided an MBLAccelerometerData object.
+ to sampleFrequency. Event callbac
+ ks will be provided an MBLAccelerometerData object.
  */
 @property (nonatomic, readonly) MBLEvent<MBLAccelerometerData *> *dataReadyEvent;
+/**
+ Event representing a new accelerometer data sample, but with 3 raw samples
+ packed into a single BLE packet at the link level.  This makes streaming much 
+ more efficient, but at a slight cost of latency.  This should certainly be used 
+ for streaming at speeds over 100Hz, but should not be used for logging.
+ */
+@property (nonatomic, readonly, nullable) MBLEvent<MBLAccelerometerData *> *packedDataReadyEvent;
 /**
  Event representing a new accelerometer X axis sample. This event
  will occur at sampleFrequency. Event callbacks will be provided an
