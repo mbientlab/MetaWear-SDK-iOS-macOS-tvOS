@@ -1730,13 +1730,17 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         [tasks addObject:[self.testDebug deviceConnected]];
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
-        assert(!t.error);
-        MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
-        [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
-                                           eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
-                                             eventAction:@"success"
-                                              eventLabel:self.deviceInfo.firmwareRevision];
-        [self invokeConnectionHandlers:nil];
+        if (t.error) {
+            self.state = MBLConnectionStateConnecting;
+            [self connectionCompleteWithError:t.error];
+        } else {
+            MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
+            [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
+                                               eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
+                                                 eventAction:@"success"
+                                                  eventLabel:self.deviceInfo.firmwareRevision];
+            [self invokeConnectionHandlers:nil];
+        }
         return nil;
     }];
 }
