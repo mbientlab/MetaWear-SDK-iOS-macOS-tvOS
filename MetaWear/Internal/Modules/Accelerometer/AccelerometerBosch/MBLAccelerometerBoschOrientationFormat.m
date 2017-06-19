@@ -63,7 +63,8 @@
             result = MBLAccelerometerOrientationPortraitUpsideDown;
             break;
         default:
-            assert(NO && "Unexpected byte from the orientation");
+            result = 0;
+            NSAssert(NO, @"Unexpected byte from the orientation");
     }
     return [[MBLOrientationData alloc] initWithOrientation:result
                                            facingDirection:updsideDown ? MBLAccelerometerFacingDirectionDownward : MBLAccelerometerFacingDirectionUpward

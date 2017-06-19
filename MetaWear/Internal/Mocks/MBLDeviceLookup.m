@@ -68,9 +68,9 @@
         model = MBLModelMetaHealth;
     } else if ([modelString isEqualToString:@"TRAK"]) {
         model = MBLModelMetaTracker;
-    } else if ([modelString isEqualToString:@"MOT_R"]) {
+    } else if ([modelString isEqualToString:@"MMR"]) {
         model = MBLModelMetaMotionR;
-    } else if ([modelString isEqualToString:@"MOT_C"]) {
+    } else if ([modelString isEqualToString:@"MMC"]) {
         model = MBLModelMetaMotionC;
     } else {
         MBLLog(MBLLogLevelWarning, @"Uknown model %@", modelString);

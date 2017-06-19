@@ -138,7 +138,7 @@
             // Turn off global notifications
             return [self.pinChangeNotification stopNotificationsAsync];
         }
-        assert(self.activeNotifications >= 0);
+        NSAssert(self.activeNotifications >= 0, @"Start/Stop notification calls unbalanced.");
         self.activeNotifications = MAX(self.activeNotifications, 0);
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -174,7 +174,12 @@
 - (BFTask *)performAsyncInitializationForRegister:(MBLGPIOData *)reg
 {
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(reg.index == 0xFF);
+        if (reg.index != 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't initialize entity that's already initialized"}];
+            return [BFTask taskWithError:error];
+        }
         NSNumber *index = [self.indexes lastObject];
         if (!index) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
@@ -191,7 +196,12 @@
 - (BFTask *)performAsyncDeinitializationForRegister:(MBLGPIOData *)reg
 {
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(reg.index != 0xFF);
+        if (reg.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't deinitialize entity that's already deinitialized"}];
+            return [BFTask taskWithError:error];
+        }
         [self.indexes addObject:[NSNumber numberWithInt:reg.index]];
         reg.index = 0xFF;
         return nil;

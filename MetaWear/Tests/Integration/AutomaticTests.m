@@ -2054,6 +2054,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.device.sensorFusion.gravity stopNotificationsAsync];
+        [self.device.sensorFusion.linearAcceleration stopLoggingAsync];
         // Check for 2 seconds worth of updates
         XCTAssertEqualWithAccuracy(count, sampleFrequency * 2.0 * 2.0, sampleFrequency);
         [waitingExpectation fulfill];

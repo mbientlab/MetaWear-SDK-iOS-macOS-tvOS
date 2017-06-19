@@ -67,7 +67,12 @@
 - (BFTask *)performAsyncInitializationForRegister:(MBLRegister *)reg
 {
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(reg.index == 0xFF);
+        if (reg.index != 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't initialize entity that's already initialized"}];
+            return [BFTask taskWithError:error];
+        }
         reg.index = self.regs.count;
         [self.regs addObject:reg];
         return nil;
@@ -77,7 +82,12 @@
 - (BFTask *)performAsyncDeinitializationForRegister:(MBLRegister *)reg
 {
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(reg.index != 0xFF);
+        if (reg.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't deinitialize entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         [self.regs removeObject:reg];
         reg.index = 0xFF;
         return nil;

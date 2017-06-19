@@ -203,7 +203,12 @@ typedef struct __attribute__((packed)) {
 - (BFTask *)startLoggingAsyncEvent:(MBLEvent *)event
 {
     return [[[self initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        assert(!event.loggingIds.count);
+        if (event.loggingIds.count) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't log event that is already logging."}];
+            return [BFTask taskWithError:error];
+        }
         if (self.remainingTriggers < ceil((double)event.format.length / 4.0)) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorInsufficientMemory

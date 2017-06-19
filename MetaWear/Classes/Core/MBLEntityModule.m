@@ -70,12 +70,19 @@
         return [BFTask taskWithResult:nil];
     }
     
-    return [[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(entity.index == 0xFF);
+    return [[BFTask taskFromMetaWearWithBlock:^id _Nonnull {
+        NSError *error = nil;
+        if (entity.index != 0xFF) {
+            error = [NSError errorWithDomain:kMBLErrorDomain
+                                        code:kMBLErrorOperationInvalid
+                                    userInfo:@{NSLocalizedDescriptionKey : @"Can't initialize entity that's already initialized"}];
+        }
         if (self.entities.count >= self.maxEntities) {
-            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+            error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorInsufficientMemory
                                              userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"MetaWear out of memory, can't perform action.  Reset the MetaWear and use no more than %d entities", self.maxEntities]}];
+        }
+        if (error) {
             return [BFTask taskWithError:error];
         }
         [self.entities addObject:entity];
@@ -98,7 +105,12 @@
     }
     
     return [[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(entity.index != 0xFF);
+        if (entity.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                        code:kMBLErrorOperationInvalid
+                                    userInfo:@{NSLocalizedDescriptionKey : @"Can't deinitialize entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         return [self.removeEntity writeByteAsync:entity.index];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         entity.index = 0xFF;
@@ -114,7 +126,12 @@
     }
     
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(entity.index != 0xFF);
+        if (entity.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't deinitialize entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         return [self.activateEntity writeByteAsync:entity.index];
     }];
 }
@@ -126,7 +143,12 @@
     }
     
     return [BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        assert(entity.index != 0xFF);
+        if (entity.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't deinitialize entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         return [self.deactivateEntity writeByteAsync:entity.index];
     }];
 }
@@ -139,7 +161,12 @@
     
     return [[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
         // Turn on notifications for this filter
-        assert(entity.index != 0xFF);
+        if (entity.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't start notifications for entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         uint8_t packet[] = { entity.index, 0x1 };
         return [self.notificationEnable writeDataAsync:[NSData dataWithBytes:&packet length:2]];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
@@ -164,12 +191,17 @@
             // Turn off global notifications
             return [self.globalNotifications stopNotificationsAsync];
         }
-        assert(self.activeNotifications >= 0);
+        NSAssert(self.activeNotifications >= 0, @"Start/Stop notification calls unbalanced.");
         self.activeNotifications = MAX(self.activeNotifications, 0);
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         // Turn off notifications for this filter
-        assert(entity.index != 0xFF);
+        if (entity.index == 0xFF) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't stop notifications for entity that's not initialized"}];
+            return [BFTask taskWithError:error];
+        }
         uint8_t data[] = { entity.index, 0x0 };
         return [self.notificationEnable writeDataAsync:[NSData dataWithBytes:&data length:2]];
     }];

@@ -53,7 +53,7 @@
 
 - (instancetype)initWithAxis:(uint8_t)axis
 {
-    assert(__builtin_popcount(axis) == 1);
+    NSAssert(__builtin_popcount(axis) == 1, @"Only one axis at a time please");
     switch (axis) {
         case MBLAccelerometerAxisX:
             self = [super initNumberWithLength:2 isSigned:YES offset:0];

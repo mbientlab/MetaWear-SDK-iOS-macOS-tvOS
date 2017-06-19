@@ -51,7 +51,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer axis:(uint8_t)axis
 {
-    assert(__builtin_popcount(axis) == 1);
+    NSAssert(__builtin_popcount(axis) == 1, @"Only one axis at a time please");
     MBLAccelerometerAxis typedAxis = axis;
     switch (typedAxis) {
         case MBLAccelerometerAxisX:

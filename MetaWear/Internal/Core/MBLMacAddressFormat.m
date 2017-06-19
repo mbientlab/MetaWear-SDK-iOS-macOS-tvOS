@@ -53,7 +53,9 @@
 
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
-    assert(data.length == 6);
+    if (data.length != 6) {
+        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date];
+    }
     uint8_t const *macBytes = data.bytes;
     NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5], macBytes[4], macBytes[3], macBytes[2], macBytes[1], macBytes[0]];
     return [[MBLStringData alloc] initWithString:macStr timestamp:date];

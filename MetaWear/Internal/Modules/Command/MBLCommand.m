@@ -96,7 +96,12 @@ typedef struct __attribute__((packed)) {
     return [[[[[[[self initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [self.device waitForSimulatorTurn];
     }] continueWithExecutor:[BFExecutor simulatorExecutor] withBlock:^id _Nullable(BFTask * _Nonnull task) {
-        assert(!event.commandIds.count);
+        if (event.commandIds.count) {
+            NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                                 code:kMBLErrorOperationInvalid
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Can't program event that has already been programmed."}];
+            return [BFTask taskWithError:error];
+        }
         mw_event_trigger_t __block params = { 0 };
         params.source_modid = event.module.moduleInfo.moduleId;
         params.source_regid = event.registerId;
@@ -115,7 +120,7 @@ typedef struct __attribute__((packed)) {
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [event.module.device waitForSimulatorCompletion];
-    }] continueWithExecutor:[BFExecutor metaWearExecutor] withBlock:^id _Nullable(BFTask * _Nonnull task) {
+    }] continueWithExecutor:[BFExecutor metaWearExecutor] withSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         self.activatedRegHandler = nil;
         BFTask *head = [BFTask taskWithResult:nil];
         for (NSArray *pair in pairs) {
