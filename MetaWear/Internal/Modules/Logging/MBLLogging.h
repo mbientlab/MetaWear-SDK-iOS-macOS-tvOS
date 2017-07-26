@@ -51,6 +51,15 @@ typedef struct __attribute__((packed)) {
     uint8_t		data[4];
 } mw_log_entry_t;
 
+typedef struct __attribute__((packed)) {
+    uint8_t		source_modid;
+    uint8_t		source_regid;
+    uint8_t		source_index;
+    uint8_t		source_offset:5;
+    uint8_t		source_datalen:2;
+    uint8_t		valid:1;
+} mw_log_trigger_t;
+
 static const double LOGGING_SEC_PER_TIMESTAMP = 0.00146484375;
 static NSString * const kMBLStartingDatesKey = @"com.mbientlab.metawear.logStartingDates";
 static const uint32_t LOGGING_ROLLOVER_COUNT = 0x20000000;

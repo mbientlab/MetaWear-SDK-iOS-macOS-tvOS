@@ -296,15 +296,47 @@ typedef void (^MBLNotificationMessageHandler)(message_payload_t const *msg, BOOL
     mw_log_module_info extra = { 0 };
     extra.logTriggers = 8;
     extra.logCap = 10000;
+    NSMutableArray *entries = [NSMutableArray array];
     MBLModuleMock *module = [[MBLModuleMock alloc] initWithPeripheral:peripheral
                                                                 modId:LOGGING_ID
                                                               modImpl:0
                                                                modRev:2
                                                                 extra:[NSData dataWithBytes:&extra length:sizeof(extra)]];
     
+    [module handleWrite:2 handler:^(const message_payload_t *msg) {
+        mw_log_trigger_t *entry = (mw_log_trigger_t *)msg->data;
+        [entries addObject:[NSData dataWithBytes:entry length:sizeof(mw_log_trigger_t)]];
+        uint8_t logId = entries.count - 1;
+        [peripheral messageSend:msg->mod_id regId:msg->red_id notifyen:1 data:[NSData dataWithBytes:&logId length:1]];
+    }];
+    [module handleRead:2 handler:^(message_payload_t const *msg) {
+        NSData *data = entries[msg->data[0]];
+        [peripheral messageSend:msg->mod_id regId:msg->red_id notifyen:1 data:data];
+    }];
     [module handleRead:4 handler:^(message_payload_t const *msg) {
         uint64_t resp = 0;
         [peripheral messageSend:msg->mod_id regId:msg->red_id notifyen:1 data:[NSData dataWithBytes:&resp length:5]];
+    }];
+    [module handleRead:5 handler:^(message_payload_t const *msg) {
+        uint32_t resp = 10000;
+        [peripheral messageSend:msg->mod_id regId:msg->red_id notifyen:1 data:[NSData dataWithBytes:&resp length:sizeof(resp)]];
+    }];
+    [module handleWrite:6 handler:^(const message_payload_t *msg) {
+        uint32_t numToReadout = *(uint32_t *)msg->data;
+        mw_log_entry_t entry;
+        entry.triggerId = 0;
+        entry.resetId = 0;
+        entry.timestamp = 0;
+        entry.data[0] = 1;
+        entry.data[1] = 0;
+        entry.data[2] = 0;
+        entry.data[3] = 0;
+        for (int i = 0; i < numToReadout; i++) {
+            entry.timestamp += 1;
+            [peripheral messageSend:msg->mod_id regId:0x7 notifyen:1 data:[NSData dataWithBytes:&entry length:sizeof(mw_log_entry_t)]];
+        }
+        uint32_t zero = 0;
+        [peripheral messageSend:msg->mod_id regId:0x8 notifyen:1 data:[NSData dataWithBytes:&zero length:sizeof(zero)]];        
     }];
     return module;
 }

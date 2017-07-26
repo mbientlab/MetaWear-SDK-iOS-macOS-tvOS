@@ -62,15 +62,6 @@ typedef struct __attribute__((packed)) {
     uint8_t     resetId;
 } mw_log_current_time;
 
-typedef struct __attribute__((packed)) {
-    uint8_t		source_modid;
-    uint8_t		source_regid;
-    uint8_t		source_index;
-    uint8_t		source_offset:5;
-    uint8_t		source_datalen:2;
-    uint8_t		valid:1;
-} mw_log_trigger_t;
-
 
 @implementation MBLRawLogEntry
 @dynamic timestamp;
@@ -297,8 +288,8 @@ typedef struct __attribute__((packed)) {
                     for (MBLRawLogEntry *rawEntry in rawEntries) {
                         NSData *data = [rawEntry.data subdataWithRange:NSMakeRange(0, event.format.length)];
                         [log addObject:[event.format entryFromData:data date:rawEntry.timestamp]];
-                        [self deleteObject:rawEntry];
                     }
+                    [self deleteObjects:@[rawEntries]];
                     
                     [source trySetResult:log];
                     dispatch_group_leave(logProcessingGroup);
@@ -312,6 +303,7 @@ typedef struct __attribute__((packed)) {
                     
                     // Get an array or array to hold all the reverse enumerators
                     NSMutableArray *allRawEntries = [NSMutableArray array];
+                    NSMutableArray *rawEntriesToDelete = [NSMutableArray array];
                     [allRawEntries addObject:rawEntries.reverseObjectEnumerator];
                     
                     NSArray *additionalLoggingIds = [loggingIds subarrayWithRange:NSMakeRange(1, loggingIds.count - 1)];
@@ -323,7 +315,7 @@ typedef struct __attribute__((packed)) {
                                 dispatch_group_leave(logProcessingGroup);
                                 return;
                             }
-                            
+                            [rawEntriesToDelete addObject:rawEntries];
                             [allRawEntries addObject:rawEntries.reverseObjectEnumerator];
                             if (uid == [additionalLoggingIds lastObject]) {
                                 // Now we have all arrays so perform the merge
@@ -340,7 +332,6 @@ typedef struct __attribute__((packed)) {
                                             }
                                             NSData *additionalData = [cur.data subdataWithRange:NSMakeRange(0, MIN(event.format.length - completeData.length, 4))];
                                             [completeData appendData:additionalData];
-                                            [self deleteObject:cur];
                                         } else {
                                             moreEntries = NO;
                                             break;
@@ -351,19 +342,8 @@ typedef struct __attribute__((packed)) {
                                         [log insertObject:[event.format entryFromData:completeData date:timestamp] atIndex:0];
                                     }
                                 }
-                                // Even though we didn't use them, we need everything marked as read
-                                moreEntries = YES;
-                                while (moreEntries) {
-                                    moreEntries = NO;
-                                    for (NSEnumerator *enumerator in allRawEntries) {
-                                        MBLRawLogEntry *cur = [enumerator nextObject];
-                                        if (cur) {
-                                            [self deleteObject:cur];
-                                            moreEntries = YES;
-                                        }
-                                    }
-                                }
                                 
+                                [self deleteObjects:rawEntriesToDelete];
                                 [source trySetResult:log];
                                 dispatch_group_leave(logProcessingGroup);
                             }
@@ -721,11 +701,17 @@ typedef struct __attribute__((packed)) {
     [self saveLogAsync:YES];
 }
 
-- (void)deleteObject:(NSManagedObject *)object
+- (void)deleteObjects:(NSArray<NSArray *> *)rawEntriesToDelete
 {
     [managedObjectContext performBlock:^{
-        [managedObjectContext deleteObject:object];
+        for (NSArray *array in rawEntriesToDelete) {
+            for (MBLRawLogEntry *entry in array) {
+                [managedObjectContext deleteObject:entry];
+            }
+        }
     }];
+    // Make sure the save happens right after all these deletes
+    [self saveLogAsync:YES];
 }
 
 - (void)saveLogAsync:(BOOL)async
