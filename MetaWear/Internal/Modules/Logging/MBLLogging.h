@@ -62,7 +62,8 @@ typedef struct __attribute__((packed)) {
 
 static const double LOGGING_SEC_PER_TIMESTAMP = 0.00146484375;
 static NSString * const kMBLStartingDatesKey = @"com.mbientlab.metawear.logStartingDates";
-static const uint32_t LOGGING_ROLLOVER_COUNT = 0x20000000;
+// The logger timestamp rolls over at 32bits
+static const uint64_t LOGGING_ROLLOVER_COUNT = 0x100000000;
 
 @class MBLEvent;
 @interface MBLLogging : MBLModule {
