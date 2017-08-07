@@ -48,6 +48,7 @@
     self = [super init];
     if (self) {
         self.length = length;
+        self.elements = 1;
         self.type = MBLFormatTypeNumber;
         self.offset = offset;
         self.isSigned = isSigned;
@@ -60,11 +61,13 @@
     return [self initNumberWithLength:length isSigned:isSigned offset:0];
 }
 
-- (instancetype)initArrayWithLength:(uint8_t)length
+- (instancetype)initArrayWithElements:(uint8_t)elements elementSize:(uint8_t)elementSize isSigned:(BOOL)isSigned
 {
     self = [super init];
     if (self) {
-        self.length = length;
+        self.length = elements * elementSize;
+        self.elements = elements;
+        self.isSigned = isSigned;
         self.type = MBLFormatTypeArray;
     }
     return self;
@@ -75,6 +78,7 @@
     self = [super init];
     if (self) {
         self.length = length;
+        self.elements = 1;
         self.type = MBLFormatTypeEncodedData;
     }
     return self;
@@ -86,6 +90,7 @@
     newFormat.length = self.length;
     newFormat.type = self.type;
     newFormat.offset = self.offset;
+    newFormat.elements = self.elements;
     newFormat.isSigned = self.isSigned;
     return newFormat;
 }

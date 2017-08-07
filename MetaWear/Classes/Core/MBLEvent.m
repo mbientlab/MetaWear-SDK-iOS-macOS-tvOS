@@ -383,6 +383,11 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)averageOfEventWithDepth:(uint8_t)depth
 {
+    // A new vector implemntation showed up in firmware 1.3.3
+    NSString *curVersion = self.module.device.deviceInfo.firmwareRevision;
+    if (![MBLConstants versionString:curVersion isLessThan:@"1.3.3"]) {
+        return [self vectorAverageWithDepth:depth highPass:NO];
+    }
     const int outputSize = 4;
     if (self.format.length > outputSize) {
         [NSException raise:@"Invalid Filter" format:@"Can't use event with size > 4, %d invalid", self.format.length];
@@ -404,6 +409,55 @@ typedef struct __attribute__((packed)) {
                                                     format:formatClone];
     return filter;
 }
+
+- (MBLFilter *)highPassOfEventWithDepth:(uint8_t)depth
+{
+    // High pass filter showed up in firmware 1.3.3
+    NSString *curVersion = self.module.device.deviceInfo.firmwareRevision;
+    if ([MBLConstants versionString:curVersion isLessThan:@"1.3.3"]) {
+        return nil;
+    }
+    return [self vectorAverageWithDepth:depth highPass:YES];
+}
+
+typedef struct __attribute__((packed)) {
+    uint8_t      filter_id;
+    uint8_t      outputlen:2;
+    uint8_t      inputlen:2;
+    uint8_t      issigned:1;
+    uint8_t      mode:1;
+    uint8_t      :2;
+    uint8_t      depth;
+    uint8_t      vectorlen;
+} df_lowmem_avg_param_t;
+
+- (MBLFilter *)vectorAverageWithDepth:(uint8_t)depth highPass:(BOOL)highPass
+{
+    uint8_t length = self.format.type == MBLFormatTypeArray
+        ? self.format.length / self.format.elements
+        : self.format.length;
+    if (length > 4) {
+        [NSException raise:@"Invalid Filter" format:@"Can't use event with size > 4, %d invalid", self.format.length];
+    }
+    df_lowmem_avg_param_t params = {0};
+    params.filter_id = 3;
+    params.outputlen = length - 1;
+    params.inputlen = length - 1;
+    params.issigned = self.format.isSigned;
+    params.mode = highPass ? 1 : 0;
+    params.depth = depth;
+    params.vectorlen = self.format.elements - 1;
+    
+    // We make a copy of the formatter because we the filter will remove any offset
+    MBLFormat *formatClone = [self.format copy];
+    formatClone.offset = 0;
+    
+    MBLFilter *filter = [[MBLFilter alloc] initWithTrigger:self
+                                          filterParameters:[NSData dataWithBytes:&params length:sizeof(df_lowmem_avg_param_t)]
+                                                    format:formatClone];
+    return filter;
+}
+
 
 
 typedef struct __attribute__((packed)) {

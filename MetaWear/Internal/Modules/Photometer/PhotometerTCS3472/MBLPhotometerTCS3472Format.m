@@ -41,7 +41,7 @@
 
 - (instancetype)init
 {
-    self = [super initArrayWithLength:8];
+    self = [super initArrayWithElements:4 elementSize:2 isSigned:NO];
     return self;
 }
 
