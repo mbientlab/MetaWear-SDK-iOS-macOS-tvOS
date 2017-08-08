@@ -1,5 +1,5 @@
 framework module MetaWear {
-  umbrella header "MetaWearPrivate-OSX-umbrella.h"
+  umbrella header "MetaWearPrivate-macOS-umbrella.h"
 
   export *
   module * { export * }

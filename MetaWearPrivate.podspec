@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   # Same as MetaWear.podspec, but with access to private header files for our testing and development pleasure
   s.name               = 'MetaWearPrivate'
   s.module_name        = 'MetaWear'
+  s.header_dir         = 'MetaWear'
   s.version            = '2.8.4'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'

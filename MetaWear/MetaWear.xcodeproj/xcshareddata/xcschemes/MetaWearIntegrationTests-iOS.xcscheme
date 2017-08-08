@@ -110,8 +110,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "MMC_UUID"
+            value = "385EE857-2543-40ED-B273-3D4F15EF6FFA"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "MMR_UUID"
-            value = "B59848B4-EA7C-4182-99D3-EBD8CB28B4B4"
+            value = "1CF8C6BF-C357-40D8-A9E6-1E83FC22C8B9"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
