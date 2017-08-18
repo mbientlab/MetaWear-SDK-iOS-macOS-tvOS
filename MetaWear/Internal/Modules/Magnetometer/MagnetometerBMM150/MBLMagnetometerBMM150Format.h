@@ -38,8 +38,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLMagnetometerBMM150Format : MBLFormat
+@property (nonatomic) BOOL packed;
 
-- (instancetype)init;
+- (instancetype)initWithPacked:(BOOL)packed;
 - (instancetype)initWithAxis:(uint8_t)axis;
 
 @end

@@ -41,6 +41,7 @@
 #import "MBLNumericFormatter.h"
 #import "MBLMagnetometerBMM150PeriodicMagneticFieldEvent.h"
 #import "MBLMagnetometerBMM150Format.h"
+#import "MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent.h"
 #import "MBLLogger.h"
 
 
@@ -49,6 +50,7 @@
 @property (nonatomic) MBLRegister *dataRate;
 @property (nonatomic) MBLRegister *dataRepetitions;
 @property (nonatomic) MBLEvent *periodicMagneticField;
+@property (nonatomic) MBLEvent *packedPeriodicMagneticField;
 
 @property (nonatomic) MBLMagnetometerBMM150SampleFrequency sampleFrequency;
 @end
@@ -65,7 +67,9 @@
         self.dataRate = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLNumericFormatter alloc] initEncodedDataWithLength:1]];
         self.dataRepetitions = [[MBLRegister alloc] initWithModule:self registerId:0x4 format:[[MBLNumericFormatter alloc] initEncodedDataWithLength:2]];
         self.periodicMagneticField = [[MBLMagnetometerBMM150PeriodicMagneticFieldEvent alloc] initWithMagnetometer:self];
-        
+        if (moduleInfo.moduleRevision >= 1) {
+            self.packedPeriodicMagneticField = [[MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent alloc] initWithMagnetometer:self];
+        }
         // From Matt: The "Low power preset" should be the MetaWear default in the apps.
         self.powerPreset = MBLMagnetometerBMM150PresetLowPower;
     }
@@ -135,10 +139,22 @@
     uint8_t data[] = { (repXY - 1) / 2 , (repZ - 1) };
     int dataSize = sizeof(data) / sizeof(data[0]);
     uint8_t dataRate = self.sampleFrequency;
+    NSData *finalData = [NSData dataWithBytes:&data length:dataSize];
     
-    return [[self.dataRepetitions writeDataAsync:[NSData dataWithBytes:&data length:dataSize]] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+    return [[[self.magPowerMode writeByteAsync:0] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+        return [self.dataRepetitions writeDataAsync:finalData];
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
         return [self.dataRate writeByteAsync:dataRate];
     }];
+}
+
+- (BFTask *)performAsyncDeinitialization
+{
+    if (self.moduleInfo.moduleRevision >= 2) {
+        return [self.magPowerMode writeByteAsync:2];
+    } else {
+        return [super performAsyncDeinitialization];
+    }
 }
 
 - (BFTask *)performAsyncActivation

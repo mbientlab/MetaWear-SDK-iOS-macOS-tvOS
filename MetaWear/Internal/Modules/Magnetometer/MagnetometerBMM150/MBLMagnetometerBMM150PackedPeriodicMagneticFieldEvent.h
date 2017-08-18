@@ -1,9 +1,9 @@
 /**
- * MBLMacAddressFormat.m
+ * MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 12/16/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 8/18/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,44 +33,15 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLMacAddressFormat.h"
-#import "MBLFormat.h"
-#import "MBLStringData+Private.h"
+#import "MBLEvent+Private.h"
+@class MBLMagnetometerBMM150;
 
-@implementation MBLMacAddressFormat
+NS_ASSUME_NONNULL_BEGIN
 
-- (instancetype)initWithAddressType:(BOOL)hasAddressType
-{
-    uint8_t length = hasAddressType ? 7 : 6;
-    self = [super initEncodedDataWithLength:length];
-    if (self) {
-        self.hasAddressType = hasAddressType;
-    }
-    return self;
-}
+@interface MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent : MBLEvent
 
-- (id)copyWithZone:(NSZone *)zone
-{
-    MBLMacAddressFormat *newFormat = [super copyWithZone:zone];
-    newFormat.hasAddressType = self.hasAddressType;
-    return newFormat;
-}
-
-- (id)entryFromData:(NSData *)data date:(NSDate *)date
-{
-    if ((self.hasAddressType && data.length != 7) || (!self.hasAddressType && data.length != 6)) {
-        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date];
-    }
-    uint8_t const *macBytes = data.bytes;
-    uint8_t const offset = self.hasAddressType ? 1 : 0;
-    NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5 + offset], macBytes[4 + offset], macBytes[3 + offset], macBytes[2 + offset], macBytes[1 + offset], macBytes[0 + offset]];
-    return [[MBLStringData alloc] initWithString:macStr timestamp:date];
-}
-
-- (NSNumber *)numberFromDouble:(double)value
-{
-    [NSException raise:@"Cannout use MAC Address with filters" format:@""];
-    return nil;
-}
+- (instancetype)initWithMagnetometer:(MBLMagnetometerBMM150 *)mag;
 
 @end
+
+NS_ASSUME_NONNULL_END

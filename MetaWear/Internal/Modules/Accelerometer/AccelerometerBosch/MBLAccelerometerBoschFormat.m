@@ -74,6 +74,7 @@
 {
     MBLAccelerometerBoschFormat *newFormat = [super copyWithZone:zone];
     newFormat.accelerometer = self.accelerometer;
+    newFormat.packed = self.packed;
     return newFormat;
 }
 

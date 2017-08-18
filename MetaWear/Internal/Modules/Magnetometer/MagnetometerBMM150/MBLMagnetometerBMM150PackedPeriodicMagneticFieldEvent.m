@@ -1,9 +1,9 @@
 /**
- * MBLMacAddressFormat.m
+ * MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent.m
  * MetaWear
  *
- * Created by Stephen Schiffli on 12/16/15.
- * Copyright 2014-2015 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 8/18/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,44 +33,53 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLMacAddressFormat.h"
-#import "MBLFormat.h"
-#import "MBLStringData+Private.h"
 
-@implementation MBLMacAddressFormat
+#import "MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent.h"
+#import "MBLMagnetometerBMM150+Private.h"
+#import "MBLMetaWear+Private.h"
+#import "MBLRegister+Private.h"
+#import "MBLNumericFormatter.h"
+#import "MBLMagnetometerBMM150Format.h"
 
-- (instancetype)initWithAddressType:(BOOL)hasAddressType
+@implementation MBLMagnetometerBMM150PackedPeriodicMagneticFieldEvent
+
+- (instancetype)initWithMagnetometer:(MBLMagnetometerBMM150 *)mag
 {
-    uint8_t length = hasAddressType ? 7 : 6;
-    self = [super initEncodedDataWithLength:length];
+    self = [super initWithModule:mag registerId:0x9 format:[[MBLMagnetometerBMM150Format alloc] initWithPacked:YES]];
     if (self) {
-        self.hasAddressType = hasAddressType;
     }
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone
+- (BFTask *)performAsyncInitialization
 {
-    MBLMacAddressFormat *newFormat = [super copyWithZone:zone];
-    newFormat.hasAddressType = self.hasAddressType;
-    return newFormat;
+    MBLMagnetometerBMM150 *mag = (MBLMagnetometerBMM150 *)self.module;
+    return [mag.periodicMagneticField initializeAsync];
 }
 
-- (id)entryFromData:(NSData *)data date:(NSDate *)date
+- (BFTask *)performAsyncDeinitialization
 {
-    if ((self.hasAddressType && data.length != 7) || (!self.hasAddressType && data.length != 6)) {
-        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date];
-    }
-    uint8_t const *macBytes = data.bytes;
-    uint8_t const offset = self.hasAddressType ? 1 : 0;
-    NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5 + offset], macBytes[4 + offset], macBytes[3 + offset], macBytes[2 + offset], macBytes[1 + offset], macBytes[0 + offset]];
-    return [[MBLStringData alloc] initWithString:macStr timestamp:date];
+    MBLMagnetometerBMM150 *mag = (MBLMagnetometerBMM150 *)self.module;
+    return [mag.periodicMagneticField deinitializeAsync];
 }
 
-- (NSNumber *)numberFromDouble:(double)value
+- (BFTask *)performAsyncActivation
 {
-    [NSException raise:@"Cannout use MAC Address with filters" format:@""];
-    return nil;
+    MBLMagnetometerBMM150 *mag = (MBLMagnetometerBMM150 *)self.module;
+    return [mag.periodicMagneticField activateAsync];
+}
+
+- (BFTask *)performAsyncDeactivation
+{
+    MBLMagnetometerBMM150 *mag = (MBLMagnetometerBMM150 *)self.module;
+    return [mag.periodicMagneticField deactivateAsync];
+}
+
+- (BFTask *)startLoggingAsync
+{
+    return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                     code:kMBLErrorOperationInvalid
+                                                 userInfo:@{NSLocalizedDescriptionKey : @"You should only log periodicMagneticField and not packedPeriodicMagneticField."}]];
 }
 
 @end

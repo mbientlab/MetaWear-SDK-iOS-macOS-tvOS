@@ -2033,6 +2033,16 @@
     [self eventUpdateTest:self.device.gyro.packedDataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
 }
 
+- (void)testPackedGyroMagnetometer
+{
+    CapabilityCheck([self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]);
+    MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
+    CapabilityCheck(magnetometer.packedPeriodicMagneticField);
+    
+    magnetometer.powerPreset = MBLMagnetometerBMM150PresetHighAccuracy;
+    [self eventUpdateTest:magnetometer.packedPeriodicMagneticField time:10 frequency:20.0];
+}
+
 - (void)testSensorFusion
 {
     CapabilityCheck(self.device.sensorFusion);

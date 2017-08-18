@@ -74,6 +74,7 @@
 {
     MBLGyroBMI160Format *newFormat = [super copyWithZone:zone];
     newFormat.gyro = self.gyro;
+    newFormat.packed = self.packed;
     return newFormat;
 }
 
