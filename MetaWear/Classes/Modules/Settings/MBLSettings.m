@@ -106,7 +106,7 @@ typedef struct __attribute__((packed)) {
         self.supervisoryTimeout = 6000 / 10;
         
         self.deviceName = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLFormat alloc] initEncodedDataWithLength:8]];
-        self.advertisingIntervalRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:3]];
+        self.advertisingIntervalRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:moduleInfo.moduleRevision >= 6 ? 4 : 3]];
         self.txPower = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.bondsDelete = [[MBLRegister alloc] initWithModule:self registerId:0x4 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.startAdvertising = [[MBLRegister alloc] initWithModule:self registerId:0x5 format:[[MBLFormat alloc] initEncodedDataWithLength:0]];
@@ -173,17 +173,32 @@ typedef struct __attribute__((packed)) {
     uint8_t     timeout;
 } advertising_interval_param_t;
 
+typedef struct __attribute__((packed)) {
+    uint16_t    interval;
+    uint8_t     timeout;
+    uint8_t     advertisement_type;
+} advertising_interval_param_v2_t;
+
 - (void)updateAdvertisingIntervalRegister
 {
     uint16_t intValue = self.advertisingIntervalImpl;
     if (self.moduleInfo.moduleRevision >= 1) {
         intValue = roundf(self.advertisingIntervalImpl / 0.625);
     }
-    
-    advertising_interval_param_t params = {0};
-    params.interval = intValue;
-    params.timeout = self.advertisingTimeoutImpl;
-    [self.advertisingIntervalRegister writeDataAsync:[NSData dataWithBytes:&params length:sizeof(advertising_interval_param_t)]];
+    NSData *data;
+    if (self.moduleInfo.moduleRevision >= 6) {
+        advertising_interval_param_v2_t params = {0};
+        params.interval = intValue;
+        params.timeout = self.advertisingTimeoutImpl;
+        params.advertisement_type = 0;
+        data = [NSData dataWithBytes:&params length:sizeof(advertising_interval_param_v2_t)];
+    } else {
+        advertising_interval_param_t params = {0};
+        params.interval = intValue;
+        params.timeout = self.advertisingTimeoutImpl;
+        data = [NSData dataWithBytes:&params length:sizeof(advertising_interval_param_t)];
+    }
+    [self.advertisingIntervalRegister writeDataAsync:data];
 }
 
 - (MBLTransmitPower)transmitPower

@@ -65,6 +65,9 @@
                   Identifier = "AutomaticTests/testGuestConnection">
                </Test>
                <Test
+                  Identifier = "AutomaticTests/testLogSaturation">
+               </Test>
+               <Test
                   Identifier = "BMA255Tests">
                </Test>
                <Test
