@@ -65,15 +65,6 @@
                   Identifier = "AutomaticTests/testGuestConnection">
                </Test>
                <Test
-                  Identifier = "AutomaticTests/testLogSaturation">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPackedAccelStream">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPackedGyroStream">
-               </Test>
-               <Test
                   Identifier = "BMA255Tests">
                </Test>
                <Test
@@ -106,12 +97,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "MMR"
+            value = "MMC"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMC_UUID"
-            value = "385EE857-2543-40ED-B273-3D4F15EF6FFA"
+            value = "4E8F9BBF-9CA2-45BE-B7AF-85142229A4AA"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
