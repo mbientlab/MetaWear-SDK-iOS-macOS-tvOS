@@ -284,11 +284,11 @@
             AssertNilModule(self.device.ancs);
             AssertModule(self.device.macro, 0, 1);
             AssertNilModule(self.device.conductance);
-            AssertModule(self.device.settings, 0, 5);
+            AssertModule(self.device.settings, 0, 6);
             AssertModule(self.device.barometer, 0, 0);
             AssertModule(self.device.gyro, 0, 1);
             AssertModule(self.device.ambientLight, 0, 0);
-            AssertModule(self.device.magnetometer, 0, 1);
+            AssertModule(self.device.magnetometer, 0, 2);
             AssertNilModule(self.device.hygrometer);
             AssertNilModule(self.device.photometer);
             AssertNilModule(self.device.proximity);

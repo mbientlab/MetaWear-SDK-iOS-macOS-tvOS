@@ -100,7 +100,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "MMC"
+            value = "MMR"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
