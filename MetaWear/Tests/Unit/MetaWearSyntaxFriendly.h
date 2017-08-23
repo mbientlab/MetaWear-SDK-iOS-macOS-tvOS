@@ -43,5 +43,5 @@
 #elif TARGET_OS_TV
   #import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
 #else
-  #import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
+  #import <MetaWear/MetaWearPrivate-macOS-umbrella.h>
 #endif
