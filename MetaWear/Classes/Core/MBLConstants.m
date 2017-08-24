@@ -75,6 +75,8 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
             return @"1.3.2";
         case MBLFirmwareVersion1_3_3:
             return @"1.3.3";
+        case MBLFirmwareVersion1_3_4:
+            return @"1.3.4";
     }
 }
 

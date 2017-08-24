@@ -383,9 +383,9 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)averageOfEventWithDepth:(uint8_t)depth
 {
-    // A new vector implemntation showed up in firmware 1.3.3
+    // A new vector implemntation showed up in firmware 1.3.4
     NSString *curVersion = self.module.device.deviceInfo.firmwareRevision;
-    if (![MBLConstants versionString:curVersion isLessThan:@"1.3.3"]) {
+    if (![MBLConstants versionString:curVersion isLessThan:@"1.3.4"]) {
         return [self vectorAverageWithDepth:depth highPass:NO];
     }
     const int outputSize = 4;
@@ -412,9 +412,9 @@ typedef struct __attribute__((packed)) {
 
 - (MBLFilter *)highPassOfEventWithDepth:(uint8_t)depth
 {
-    // High pass filter showed up in firmware 1.3.3
+    // High pass filter showed up in firmware 1.3.4
     NSString *curVersion = self.module.device.deviceInfo.firmwareRevision;
-    if ([MBLConstants versionString:curVersion isLessThan:@"1.3.3"]) {
+    if ([MBLConstants versionString:curVersion isLessThan:@"1.3.4"]) {
         return nil;
     }
     return [self vectorAverageWithDepth:depth highPass:YES];
