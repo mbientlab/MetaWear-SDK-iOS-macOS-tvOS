@@ -386,7 +386,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             [[NSUserDefaults standardUserDefaults] synchronize];
             // Delete the cachce folder
             NSError *error;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
             BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self logFilename:nil] error:&error];
+#pragma clang diagnostic pop
             NSAssert(success, @"File remove error: %@", error);
         }
     }

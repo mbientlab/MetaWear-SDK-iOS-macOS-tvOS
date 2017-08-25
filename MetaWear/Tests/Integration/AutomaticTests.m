@@ -276,7 +276,7 @@
             AssertModule(self.device.neopixel, 0, 0);
             AssertModule(self.device.iBeacon, 0, 0);
             AssertModule(self.device.hapticBuzzer, 0, 0);
-            AssertModule(self.device.dataProcessor, 0, 1);
+            AssertModule(self.device.dataProcessor, 0, 2);
             AssertModule(self.device.command, 0, 0);
             AssertModule(self.device.logging, 0, 2);
             AssertModule(self.device.timer, 0, 0);
