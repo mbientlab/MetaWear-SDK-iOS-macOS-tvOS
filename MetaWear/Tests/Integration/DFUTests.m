@@ -63,7 +63,7 @@
 - (void)testPerformDFU
 {
     self.waitingExpectation = [self expectationWithDescription:@"wait for DFU"];
-    NSString *version = @"1.2.5";
+    NSString *version = @"1.3.4";
     MBLFirmwareBuild __block *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
                                                                            modelNumber:self.device.deviceInfo.modelNumber
                                                                            buildFlavor:@"vanilla"

@@ -79,7 +79,7 @@ static const double DEGREES_CELSIUS_PER_UNIT = 0.125;
                     self.onboardThermistor.needsResponse = YES; // TODO: Remove once fixed
                     break;
                 default:
-                    assert(NO && "Unexpected temperature driver");
+                    NSAssert(NO, @"Unexpected temperature driver");
                     break;
             }
             if (current) {

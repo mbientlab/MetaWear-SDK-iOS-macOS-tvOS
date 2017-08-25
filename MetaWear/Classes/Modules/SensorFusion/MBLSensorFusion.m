@@ -113,9 +113,15 @@ typedef struct  __attribute__((packed)) {
 - (BFTask *)performAsyncInitialization
 {
     // Some basic housekeeping checks as we enable Sensor Fusion
-    assert([self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]]);
-    assert([self.device.gyro isKindOfClass:[MBLGyroBMI160 class]]);
-    assert([self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]);
+    BOOL expected = [self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]] &&
+                    [self.device.gyro isKindOfClass:[MBLGyroBMI160 class]] &&
+                    [self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]];
+    // As of now we must assert certain sensors types
+    if (!expected) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorOperationInvalid
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"This device is not yet enabled for sensor fusion, please contact MbientLab."}]];
+    }
     MBLAccelerometerBMI160 *accelerometer = (MBLAccelerometerBMI160 *)self.device.accelerometer;
     MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.device.gyro;
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
@@ -268,10 +274,6 @@ typedef struct  __attribute__((packed)) {
 
 - (BFTask *)performAsyncDeinitialization
 {
-    // Some basic housekeeping checks as we enable Sensor Fusion
-    assert([self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]]);
-    assert([self.device.gyro isKindOfClass:[MBLGyroBMI160 class]]);
-    assert([self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]);
     MBLAccelerometerBMI160 *accelerometer = (MBLAccelerometerBMI160 *)self.device.accelerometer;
     MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.device.gyro;
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;

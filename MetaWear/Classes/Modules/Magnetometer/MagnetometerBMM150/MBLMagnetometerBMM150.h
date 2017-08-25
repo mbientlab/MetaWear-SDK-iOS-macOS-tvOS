@@ -63,6 +63,13 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerBMM150Preset) {
  Event callbacks will be provided an MBLMagnetometerData object.
  */
 @property (nonatomic, readonly) MBLEvent<MBLMagnetometerData *> *periodicMagneticField;
+/**
+ Event representing a new magnetometer data sample, but with 3 raw samples
+ packed into a single BLE packet at the link level.  This makes streaming much
+ more efficient, but at a slight cost of latency and loss of timestamp resolution.
+ This is usefull for streaming at speeds over 100Hz, but can not be used for logging.
+ */
+@property (nonatomic, readonly, nullable) MBLEvent<MBLMagnetometerData *> *packedPeriodicMagneticField;
 
 @end
 

@@ -69,14 +69,15 @@ typedef struct __attribute__((packed)) {
         self.mode = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
         
         if (moduleInfo.moduleImplementation >= 1) {
-            assert(moduleInfo.moduleData.length == 3);
-            conductance_module_info *info = (conductance_module_info *)moduleInfo.moduleData.bytes;
-            
-            NSMutableArray *channels = [[NSMutableArray alloc] initWithCapacity:info->count];
-            for (uint8_t channel = 0; channel < info->count; channel++) {
-                [channels addObject:[[MBLConductanceData alloc] initWithRegister:self.conductance channel:channel]];
+            if (moduleInfo.moduleData.length == 3) {
+                conductance_module_info *info = (conductance_module_info *)moduleInfo.moduleData.bytes;
+                
+                NSMutableArray *channels = [[NSMutableArray alloc] initWithCapacity:info->count];
+                for (uint8_t channel = 0; channel < info->count; channel++) {
+                    [channels addObject:[[MBLConductanceData alloc] initWithRegister:self.conductance channel:channel]];
+                }
+                self.channels = channels;
             }
-            self.channels = channels;
         } else {
             self.channels = @[[[MBLConductanceData alloc] initWithRegister:self.conductance channel:0],
                               [[MBLConductanceData alloc] initWithRegister:self.conductance channel:1],

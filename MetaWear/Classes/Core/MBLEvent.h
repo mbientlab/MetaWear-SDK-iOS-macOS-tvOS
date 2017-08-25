@@ -306,12 +306,23 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
 
 /**
  Create a new event that averages the output data of the current event. This
- uses a recursive average technique so the answers are approximate.
+ uses a recursive average technique so the answers are approximate. This can be
+ thought of as a LOW-PASS filter.
  Event callbacks will be provided the same object as the input.
  @param depth Number of samples to average (works fastest if a power of 2)
  @returns New event representing average of input
  */
 - (MBLFilter<ResultType> *)averageOfEventWithDepth:(uint8_t)depth;
+
+/**
+ Create a new event that subtracts a rolling average of the current event. This
+ uses a recursive average technique so the answers are approximate. This can be
+ thought of as a HIGH-PASS filter.
+ Event callbacks will be provided the same object as the input.
+ @param depth Number of samples to average (works fastest if a power of 2)
+ @returns New event representing average of input
+ */
+- (MBLFilter<ResultType> *)highPassOfEventWithDepth:(uint8_t)depth;
 
 /**
  Create a new event that compares the current event's value to one or more data points

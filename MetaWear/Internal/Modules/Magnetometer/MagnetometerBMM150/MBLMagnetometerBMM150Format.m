@@ -48,9 +48,12 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerAxis) {
 
 @implementation MBLMagnetometerBMM150Format
 
-- (instancetype)init
+- (instancetype)initWithPacked:(BOOL)packed
 {
-    self = [super initArrayWithLength:6];
+    self = [super initArrayWithElements:packed ? 9 : 3 elementSize:2 isSigned:YES];
+    if (self) {
+        self.packed = packed;
+    }
     return self;
 }
 
@@ -74,10 +77,11 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerAxis) {
 - (id)copyWithZone:(NSZone *)zone
 {
     MBLMagnetometerBMM150Format *newFormat = [super copyWithZone:zone];
+    newFormat.packed = self.packed;
     return newFormat;
 }
 
-- (id)entryFromData:(NSData *)data date:(NSDate *)date
+- (id)singleEntryFromData:(NSData *)data date:(NSDate *)date
 {
     double x = DBL_MIN, y = DBL_MIN, z = DBL_MIN;
     const uint8_t *bytes = data.bytes;
@@ -93,6 +97,17 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerAxis) {
         return [[MBLMagnetometerData alloc] initWithX:x y:y z:z timestamp:date];
     } else {
         return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:x] timestamp:date];
+    }
+}
+
+- (id)entryFromData:(NSData *)data date:(NSDate *)date
+{
+    if (self.packed) {
+        return @[[self singleEntryFromData:[data subdataWithRange:NSMakeRange(0, 6)] date:date],
+                 [self singleEntryFromData:[data subdataWithRange:NSMakeRange(6, 6)] date:date],
+                 [self singleEntryFromData:[data subdataWithRange:NSMakeRange(12, 6)] date:date]];
+    } else {
+        return [self singleEntryFromData:data date:date];
     }
 }
 

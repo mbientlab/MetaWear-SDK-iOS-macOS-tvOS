@@ -45,7 +45,7 @@ import CoreBluetooth
     }
     
     /// The version read from the DFU Version charactertistic. Nil, if such does not exist.
-    private(set) var version: (major: Int, minor: Int)?
+    private(set) var version: (major: UInt8, minor: UInt8)?
     private var paused  = false
     private var aborted = false
     
@@ -63,7 +63,7 @@ import CoreBluetooth
     
     // MARK: - Initialization
     
-    required init(_ service:CBService, _ logger:LoggerHelper) {
+    required init(_ service: CBService, _ logger: LoggerHelper) {
         self.service = service
         self.logger = logger
         super.init()
@@ -117,6 +117,12 @@ import CoreBluetooth
     
     // MARK: - Service API methods
     
+    /**
+     Discovers characteristics in the DFU Service. Result it reported using callbacks.
+     
+     - parameter success: method called when required DFU characteristics were discovered
+     - parameter report:  method called when an error occurred
+     */
     func discoverCharacteristics(onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
         // Save callbacks
         self.success = success
@@ -201,24 +207,42 @@ import CoreBluetooth
      - parameter success: a callback called when a response with status Success is received
      - parameter report:  a callback called when a response with an error status is received
      */
-    func sendDfuStart(withFirmwareType type:UInt8, andSize size:DFUFirmwareSize, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
-        if aborted {
+    func sendDfuStart(withFirmwareType type: UInt8, andSize size: DFUFirmwareSize, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
+        guard !aborted else {
             sendReset(onError: report)
             return
         }
         
-        // 1. Sends the Start DFU command with the firmware type to DFU Control Point characteristic
-        // 2. Sends firmware sizes to DFU Packet characteristic
-        // 3. Receives response notification and calls onSuccess or onError
-        dfuControlPointCharacteristic!.send(Request.startDfu(type: type), onSuccess: success) { (error, aMessage) in
-            if error == .remoteLegacyDFUInvalidState {
-                self.targetPeripheral!.shouldReconnect = true
-                self.sendReset(onError: report)
-                return
+        // It has been found that a bootloader from SDK 6.1 or older requires some time before the firmware can be sent in the following situation:
+        // 1. DFU starts normally (the delay not required)
+        // 2. DFU process interrupts by a link loss (Faraday cage used for testing)
+        // 3. The iPhone reconnects and receives state = 2 (Invalid state) after sending app size - bootloader would like the old upload to be resumed,
+        //    but new Start DFU sent instead (this is expected)
+        // 4. The central sends Op Code = 06 (Reset) to reset the state
+        // 5. The central reconnects and starts DFU again. Without the 1 sec delay below it would receive a response with status = 6 (Operation failed)
+        //    after sending some firmware packets. Delay 1 sec seems to work while 600 ms was too short. The time seems to be required to prepare flash(?).
+        let sendStartDfu = {
+            // 1. Sends the Start DFU command with the firmware type to DFU Control Point characteristic
+            // 2. Sends firmware sizes to DFU Packet characteristic
+            // 3. Receives response notification and calls onSuccess or onError
+            self.dfuControlPointCharacteristic!.send(Request.startDfu(type: type), onSuccess: success) { (error, aMessage) in
+                if error == .remoteLegacyDFUInvalidState {
+                    self.targetPeripheral!.shouldReconnect = true
+                    self.sendReset(onError: report)
+                    return
+                }
+                report(error, aMessage)
             }
-            report(error, aMessage)
+            self.dfuPacketCharacteristic!.sendFirmwareSize(size)
         }
-        dfuPacketCharacteristic!.sendFirmwareSize(size)
+        if version != nil {
+            // The legacy DFU bootloader from SDK 7.0+ does not require delay.
+            sendStartDfu()
+        } else {
+            // DFU Version characteristic did not exist in SDK 6.1 or before. Delay is required as stated above.
+            logger.d("wait(1000)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: sendStartDfu)
+        }
     }
     
     /**
@@ -229,17 +253,28 @@ import CoreBluetooth
      - parameter success: a callback called when a response with status Success is received
      - parameter report:  a callback called when a response with an error status is received
      */
-    func sendStartDfu(withFirmwareSize size:DFUFirmwareSize, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
-        if aborted {
+    func sendStartDfu(withFirmwareSize size: DFUFirmwareSize, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
+        guard !aborted else {
             sendReset(onError: report)
             return
         }
         
-        // 1. Sends the Start DFU command with the firmware type to the DFU Control Point characteristic
-        // 2. Sends firmware sizes to the DFU Packet characteristic
-        // 3. Receives response notification and calls onSuccess or onError
-        dfuControlPointCharacteristic!.send(Request.startDfu_v1, onSuccess: success, onError: report)
-        dfuPacketCharacteristic!.sendFirmwareSize_v1(size)
+        // See comment in sendDfuStart(withFirmwareType:andSize:onSuccess:onError) above
+        logger.d("wait(1000)")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+            // 1. Sends the Start DFU command with the firmware type to the DFU Control Point characteristic
+            // 2. Sends firmware sizes to the DFU Packet characteristic
+            // 3. Receives response notification and calls onSuccess or onError
+            self.dfuControlPointCharacteristic!.send(Request.startDfu_v1, onSuccess: success)  { (error, aMessage) in
+                if error == .remoteLegacyDFUInvalidState {
+                    self.targetPeripheral!.shouldReconnect = true
+                    self.sendReset(onError: report)
+                    return
+                }
+                report(error, aMessage)
+            }
+            self.dfuPacketCharacteristic!.sendFirmwareSize_v1(size)
+        }
     }
     
     /**
@@ -253,8 +288,8 @@ import CoreBluetooth
      - parameter success: a callback called when a response with status Success is received
      - parameter report:  a callback called when a response with an error status is received
      */
-    func sendInitPacket(_ data:Data, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
-        if aborted {
+    func sendInitPacket(_ data: Data, onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
+        guard !aborted else {
             sendReset(onError: report)
             return
         }
@@ -335,15 +370,15 @@ import CoreBluetooth
      Sends the firmware data to the DFU target device.
      
      - parameter aFirmware: the firmware to be sent
-     - parameter aPRNValue:   number of packets of firmware data to be received by the DFU target before
+     - parameter aPRNValue: number of packets of firmware data to be received by the DFU target before
      sending a new Packet Receipt Notification
      - parameter progressDelegate: a progress delagate that will be informed about transfer progress
-     - parameter success:  a callback called when a response with status Success is received
-     - parameter report:   a callback called when a response with an error status is received
+     - parameter success:   a callback called when a response with status Success is received
+     - parameter report:    a callback called when a response with an error status is received
      */
     func sendFirmware(_ aFirmware: DFUFirmware, andReportProgressTo progressDelegate: DFUProgressDelegate?,
-                    onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
-        if aborted {
+                      onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
+        guard !aborted else {
             sendReset(onError: report)
             return
         }

@@ -47,6 +47,11 @@ typedef struct __attribute__((packed)) {
     uint16_t    conn_sup_timeout;
 } ble_gap_conn_params_t;
 
+typedef struct __attribute__((packed)) {
+    uint8_t     power_status_supported:1;
+    uint8_t     charger_status_supported:1;
+} mw_settings_feature_bitmask_t;
+
 @interface MBLSettings ()
 @property (nonatomic) MBLRegister *deviceName;
 @property (nonatomic) MBLRegister *advertisingIntervalRegister;
@@ -85,6 +90,10 @@ typedef struct __attribute__((packed)) {
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
+        mw_settings_feature_bitmask_t features = { 0 };
+        if (moduleInfo.moduleData.length > 0) {
+            features = *(mw_settings_feature_bitmask_t *)moduleInfo.moduleData.bytes;
+        }
         self.advertisingIntervalImpl = 417.5;
         self.advertisingTimeoutImpl = 0;
         self.transmitPowerImpl = MBLTransmitPower0dBm;
@@ -97,7 +106,7 @@ typedef struct __attribute__((packed)) {
         self.supervisoryTimeout = 6000 / 10;
         
         self.deviceName = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLFormat alloc] initEncodedDataWithLength:8]];
-        self.advertisingIntervalRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:3]];
+        self.advertisingIntervalRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:moduleInfo.moduleRevision >= 6 ? 4 : 3]];
         self.txPower = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.bondsDelete = [[MBLRegister alloc] initWithModule:self registerId:0x4 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.startAdvertising = [[MBLRegister alloc] initWithModule:self registerId:0x5 format:[[MBLFormat alloc] initEncodedDataWithLength:0]];
@@ -109,7 +118,7 @@ typedef struct __attribute__((packed)) {
         }
         if (moduleInfo.moduleRevision >= 2) {
             self.disconnectEvent = [[MBLEvent alloc] initWithModule:self registerId:0xA format:[[MBLFormat alloc] initEncodedDataWithLength:0]];
-            self.macAddress = [[MBLData alloc] initWithModule:self registerId:0xB format:[[MBLMacAddressFormat alloc] init]];
+            self.macAddress = [[MBLData alloc] initWithModule:self registerId:0xB format:[[MBLMacAddressFormat alloc] initWithAddressType:moduleInfo.moduleRevision >= 6]];
         }
         if (moduleInfo.moduleRevision >= 3) {
             self.batteryRemaining = [[MBLData alloc] initWithModule:self registerId:0xC format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
@@ -122,8 +131,16 @@ typedef struct __attribute__((packed)) {
             self.watchdogUserRefresh = [[MBLRegister alloc] initWithModule:self registerId:0x10 format:[MBLFormat writeOnly]];
         }
         if (moduleInfo.moduleRevision >= 5) {
-            self.powerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x11 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
-            self.chargerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x12 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            if (features.power_status_supported) {
+                self.powerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x11 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            }
+            if (features.charger_status_supported) {
+                self.chargerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x12 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            }
+        }
+        if (moduleInfo.moduleRevision >= 6) {
+            // TODO: We can't do whitelist with iOS devices unless we pair
+            // enable this when the time comes
         }
     }
     return self;
@@ -156,17 +173,32 @@ typedef struct __attribute__((packed)) {
     uint8_t     timeout;
 } advertising_interval_param_t;
 
+typedef struct __attribute__((packed)) {
+    uint16_t    interval;
+    uint8_t     timeout;
+    uint8_t     advertisement_type;
+} advertising_interval_param_v2_t;
+
 - (void)updateAdvertisingIntervalRegister
 {
     uint16_t intValue = self.advertisingIntervalImpl;
     if (self.moduleInfo.moduleRevision >= 1) {
         intValue = roundf(self.advertisingIntervalImpl / 0.625);
     }
-    
-    advertising_interval_param_t params = {0};
-    params.interval = intValue;
-    params.timeout = self.advertisingTimeoutImpl;
-    [self.advertisingIntervalRegister writeDataAsync:[NSData dataWithBytes:&params length:sizeof(advertising_interval_param_t)]];
+    NSData *data;
+    if (self.moduleInfo.moduleRevision >= 6) {
+        advertising_interval_param_v2_t params = {0};
+        params.interval = intValue;
+        params.timeout = self.advertisingTimeoutImpl;
+        params.advertisement_type = 0;
+        data = [NSData dataWithBytes:&params length:sizeof(advertising_interval_param_v2_t)];
+    } else {
+        advertising_interval_param_t params = {0};
+        params.interval = intValue;
+        params.timeout = self.advertisingTimeoutImpl;
+        data = [NSData dataWithBytes:&params length:sizeof(advertising_interval_param_t)];
+    }
+    [self.advertisingIntervalRegister writeDataAsync:data];
 }
 
 - (MBLTransmitPower)transmitPower

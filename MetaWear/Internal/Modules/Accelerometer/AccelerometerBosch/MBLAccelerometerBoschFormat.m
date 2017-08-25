@@ -41,7 +41,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer packed:(BOOL)packed
 {
-    self = [super initArrayWithLength:packed ? 18 : 6];
+    self = [super initArrayWithElements:packed ? 9 : 3 elementSize:2 isSigned:YES];
     if (self) {
         self.accelerometer = accelerometer;
         self.packed = packed;
@@ -51,7 +51,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer axis:(uint8_t)axis
 {
-    assert(__builtin_popcount(axis) == 1);
+    NSAssert(__builtin_popcount(axis) == 1, @"Only one axis at a time please");
     MBLAccelerometerAxis typedAxis = axis;
     switch (typedAxis) {
         case MBLAccelerometerAxisX:
@@ -74,6 +74,7 @@
 {
     MBLAccelerometerBoschFormat *newFormat = [super copyWithZone:zone];
     newFormat.accelerometer = self.accelerometer;
+    newFormat.packed = self.packed;
     return newFormat;
 }
 

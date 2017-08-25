@@ -39,23 +39,31 @@
 
 @implementation MBLMacAddressFormat
 
-- (instancetype)init
+- (instancetype)initWithAddressType:(BOOL)hasAddressType
 {
-    self = [super initEncodedDataWithLength:6];
+    uint8_t length = hasAddressType ? 7 : 6;
+    self = [super initEncodedDataWithLength:length];
+    if (self) {
+        self.hasAddressType = hasAddressType;
+    }
     return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
     MBLMacAddressFormat *newFormat = [super copyWithZone:zone];
+    newFormat.hasAddressType = self.hasAddressType;
     return newFormat;
 }
 
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
-    assert(data.length == 6);
+    if ((self.hasAddressType && data.length != 7) || (!self.hasAddressType && data.length != 6)) {
+        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date];
+    }
     uint8_t const *macBytes = data.bytes;
-    NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5], macBytes[4], macBytes[3], macBytes[2], macBytes[1], macBytes[0]];
+    uint8_t const offset = self.hasAddressType ? 1 : 0;
+    NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5 + offset], macBytes[4 + offset], macBytes[3 + offset], macBytes[2 + offset], macBytes[1 + offset], macBytes[0 + offset]];
     return [[MBLStringData alloc] initWithString:macStr timestamp:date];
 }
 

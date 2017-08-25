@@ -329,7 +329,12 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask *)resetModulesAsync
 {
-    assert(self.peripheral && self.peripheral.state == MBLConnectionStateConnected);
+    if (!(self.peripheral && self.peripheral.state == MBLConnectionStateConnected)) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorOperationInvalid
+                                         userInfo:@{NSLocalizedDescriptionKey : @"Can't reset modules without being connected."}];
+        return [BFTask taskWithError:error];
+    }
     uint32_t magicKey = self.testDebug.magicKey;
     
     return [[[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
@@ -604,8 +609,14 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask *)setConfigurationAsync:(id<MBLRestorable>)configuration
 {
+    if ([MBLConstants isSimulatorQueue]) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorOperationInvalid
+                                         userInfo:@{NSLocalizedDescriptionKey : @"Can't set a configuration within a programCommandsToRunOnEventAsync: block"}];
+        return [BFTask taskWithError:error];
+    }
+    
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    assert(![MBLConstants isSimulatorQueue] && "Can't set a configuration within a programCommandsToRunOnEventAsync: block");
     dispatch_async([MBLConstants metaWearQueue], ^{
         if (self.state != MBLConnectionStateConnected) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
@@ -1508,7 +1519,12 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)sanityCheck
 {
-    assert(!_noencode_programedByOtherApp);
+    if (_noencode_programedByOtherApp) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorOperationInvalid
+                                         userInfo:@{NSLocalizedDescriptionKey : @"Can't sanityCheck in limited mode"}];
+        return [BFTask taskWithError:error];
+    }
     // Perform some sanity checks on all the module state
     NSMutableArray *tasks = [NSMutableArray array];
     for (id obj in self.modules) {
@@ -1543,7 +1559,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
 #endif
     if (characteristic == metawearCommandCharacteristic || characteristic == metawearNotification6Characteristic) {
-        assert(characteristic.value.length);
+        NSAssert(characteristic.value.length, @"Didn't expect to receive an empty value.");
         if (!characteristic.value.length) {
             return;
         }
@@ -1580,13 +1596,13 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             if ([module respondsToSelector:@selector(recievedData:error:)]) {
                 [module recievedData:characteristic.value error:error];
             } else {
-                assert(NO && "No module found");
+                NSAssert(NO, @"No module found");
             }
         } else if (moduleId == self.testDebug.moduleInfo.moduleId) {
             if ([self.testDebug respondsToSelector:@selector(recievedData:error:)]) {
                 [self.testDebug recievedData:characteristic.value error:error];
             } else {
-                assert(NO && "No testDebug module found");
+                NSAssert(NO, @"No testDebug module found");
             }
         }
     } else if (characteristic == batteryLifeCharacteristic) {
@@ -1730,13 +1746,17 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         [tasks addObject:[self.testDebug deviceConnected]];
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
-        assert(!t.error);
-        MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
-        [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
-                                           eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
-                                             eventAction:@"success"
-                                              eventLabel:self.deviceInfo.firmwareRevision];
-        [self invokeConnectionHandlers:nil];
+        if (t.error) {
+            self.state = MBLConnectionStateConnecting;
+            [self connectionCompleteWithError:t.error];
+        } else {
+            MBLLog(MBLLogLevelInfo, @"Connection Success %@", self.deviceInfo.firmwareRevision);
+            [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
+                                               eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
+                                                 eventAction:@"success"
+                                                  eventLabel:self.deviceInfo.firmwareRevision];
+            [self invokeConnectionHandlers:nil];
+        }
         return nil;
     }];
 }

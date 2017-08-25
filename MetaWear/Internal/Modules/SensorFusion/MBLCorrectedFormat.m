@@ -43,7 +43,7 @@
 
 - (instancetype)initWithType:(MBLCorrectedFormatType)formatType
 {
-    self = [super initArrayWithLength:13];
+    self = [super initEncodedDataWithLength:13];
     if (self) {
         self.formatType = formatType;
     }

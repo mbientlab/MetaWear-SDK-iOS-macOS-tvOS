@@ -276,7 +276,7 @@
             AssertModule(self.device.neopixel, 0, 0);
             AssertModule(self.device.iBeacon, 0, 0);
             AssertModule(self.device.hapticBuzzer, 0, 0);
-            AssertModule(self.device.dataProcessor, 0, 1);
+            AssertModule(self.device.dataProcessor, 0, 2);
             AssertModule(self.device.command, 0, 0);
             AssertModule(self.device.logging, 0, 2);
             AssertModule(self.device.timer, 0, 0);
@@ -284,11 +284,11 @@
             AssertNilModule(self.device.ancs);
             AssertModule(self.device.macro, 0, 1);
             AssertNilModule(self.device.conductance);
-            AssertModule(self.device.settings, 0, 5);
+            AssertModule(self.device.settings, 0, 6);
             AssertModule(self.device.barometer, 0, 0);
             AssertModule(self.device.gyro, 0, 1);
             AssertModule(self.device.ambientLight, 0, 0);
-            AssertModule(self.device.magnetometer, 0, 1);
+            AssertModule(self.device.magnetometer, 0, 2);
             AssertNilModule(self.device.hygrometer);
             AssertNilModule(self.device.photometer);
             AssertNilModule(self.device.proximity);
@@ -2033,6 +2033,16 @@
     [self eventUpdateTest:self.device.gyro.packedDataReadyEvent time:10 frequency:self.device.gyro.sampleFrequency];
 }
 
+- (void)testPackedGyroMagnetometer
+{
+    CapabilityCheck([self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]]);
+    MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
+    CapabilityCheck(magnetometer.packedPeriodicMagneticField);
+    
+    magnetometer.powerPreset = MBLMagnetometerBMM150PresetHighAccuracy;
+    [self eventUpdateTest:magnetometer.packedPeriodicMagneticField time:10 frequency:20.0];
+}
+
 - (void)testSensorFusion
 {
     CapabilityCheck(self.device.sensorFusion);
@@ -2054,6 +2064,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.device.sensorFusion.gravity stopNotificationsAsync];
+        [self.device.sensorFusion.linearAcceleration stopLoggingAsync];
         // Check for 2 seconds worth of updates
         XCTAssertEqualWithAccuracy(count, sampleFrequency * 2.0 * 2.0, sampleFrequency);
         [waitingExpectation fulfill];

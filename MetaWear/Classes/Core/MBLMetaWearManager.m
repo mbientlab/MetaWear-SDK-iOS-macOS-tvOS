@@ -189,7 +189,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (void)startScanForMetaWears:(BOOL)metaWears metaBoots:(BOOL)metaBoots duplicates:(NSNumber *)duplicates handler:(MBLArrayHandler)handler;
 {
-    assert(handler);
+    NSAssert(handler, @"Can't start scanning without handler");
     if (metaWears) {
         [self.metaWearBlocks addObject:handler];
         if (self.discoveredMetaWears.count) {
@@ -386,9 +386,11 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             [[NSUserDefaults standardUserDefaults] synchronize];
             // Delete the cachce folder
             NSError *error;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
             BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self logFilename:nil] error:&error];
-            if (error) { NSLog(@"%@", error); }
-            assert(success);
+#pragma clang diagnostic pop
+            NSAssert(success, @"File remove error: %@", error);
         }
     }
     return self;

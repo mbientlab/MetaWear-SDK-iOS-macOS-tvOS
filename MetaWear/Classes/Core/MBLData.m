@@ -73,7 +73,7 @@
     }] continueWithExecutor:[BFExecutor simulatorExecutor] withBlock:^id _Nullable(BFTask * _Nonnull task) {
         return isLocal ? [super localReadAsync] : [super readAsync];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        assert(device.command.activatedRegHandler);
+        NSAssert(device.command.activatedRegHandler, @"activatedRegHandler need to be set.");
         device.command.activatedRegHandler(self, nil);
         return task;
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {

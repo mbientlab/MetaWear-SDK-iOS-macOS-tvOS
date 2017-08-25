@@ -44,7 +44,7 @@
 
 - (instancetype)initWithPacked:(BOOL)packed
 {
-    self = [super initArrayWithLength:packed ? 18 : 6];
+    self = [super initArrayWithElements:packed ? 9 : 3 elementSize:2 isSigned:YES];
     if (self) {
         self.packed = packed;
     }
@@ -53,7 +53,7 @@
 
 - (instancetype)initWithAxis:(uint8_t)axis
 {
-    assert(__builtin_popcount(axis) == 1);
+    NSAssert(__builtin_popcount(axis) == 1, @"Only one axis at a time please");
     switch (axis) {
         case MBLAccelerometerAxisX:
             self = [super initNumberWithLength:2 isSigned:YES offset:0];

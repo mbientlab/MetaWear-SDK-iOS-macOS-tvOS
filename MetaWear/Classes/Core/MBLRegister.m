@@ -517,9 +517,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return task;
             }];
         }
-#ifdef DEBUG
-        assert(self.initializeCount >= 0);
-#endif
+        NSAssert(self.initializeCount >= 0, @"init/deinit calls unbalanced.");
         self.initializeCount = MAX(self.initializeCount, 0);
         return deinitializeTask;
     }];
@@ -557,9 +555,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return task;
             }];
         }
-#ifdef DEBUG
-        assert(self.activateCount >= 0);
-#endif
+        NSAssert(self.activateCount >= 0, @"activate/deactivate calls unbalanced.");
         self.activateCount = MAX(self.activateCount, 0);
         return activateTask;
     }];

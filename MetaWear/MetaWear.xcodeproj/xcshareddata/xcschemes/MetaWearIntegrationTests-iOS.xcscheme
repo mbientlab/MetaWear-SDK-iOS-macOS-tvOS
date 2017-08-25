@@ -68,12 +68,6 @@
                   Identifier = "AutomaticTests/testLogSaturation">
                </Test>
                <Test
-                  Identifier = "AutomaticTests/testPackedAccelStream">
-               </Test>
-               <Test
-                  Identifier = "AutomaticTests/testPackedGyroStream">
-               </Test>
-               <Test
                   Identifier = "BMA255Tests">
                </Test>
                <Test
@@ -106,12 +100,17 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "RPRO"
+            value = "MMR"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "R_UUID"
-            value = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFFF"
+            key = "MMC_UUID"
+            value = "4E8F9BBF-9CA2-45BE-B7AF-85142229A4AA"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MMR_UUID"
+            value = "1CF8C6BF-C357-40D8-A9E6-1E83FC22C8B9"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

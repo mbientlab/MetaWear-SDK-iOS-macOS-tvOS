@@ -45,7 +45,7 @@
 
 - (instancetype)initWithMagnetometer:(MBLMagnetometer *)magnetometer
 {
-    self = [super initWithModule:magnetometer registerId:0x05 format:[[MBLMagnetometerBMM150Format alloc] init]];
+    self = [super initWithModule:magnetometer registerId:0x05 format:[[MBLMagnetometerBMM150Format alloc] initWithPacked:NO]];
     if (self) {
         self.dataEnable = [[MBLRegister alloc] initWithModule:magnetometer registerId:0x02 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
     }

@@ -42,7 +42,7 @@
 
 - (instancetype)initWithGyro:(MBLGyroBMI160 *)gyro packed:(BOOL)packed
 {
-    self = [super initArrayWithLength:packed ? 18 : 6];
+    self = [super initArrayWithElements:packed ? 9 : 3 elementSize:2 isSigned:YES];
     if (self) {
         self.gyro = gyro;
         self.packed = packed;
@@ -74,6 +74,7 @@
 {
     MBLGyroBMI160Format *newFormat = [super copyWithZone:zone];
     newFormat.gyro = self.gyro;
+    newFormat.packed = self.packed;
     return newFormat;
 }
 

@@ -45,7 +45,7 @@
 #elif TARGET_OS_TV
   #import <MetaWear/MetaWearPrivate-tvOS-umbrella.h>
 #else
-  #import <MetaWear/MetaWearPrivate-OSX-umbrella.h>
-  #import <iOSDFULibrary/iOSDFULibrary-OSX-umbrella.h>
+  #import <MetaWear/MetaWearPrivate-macOS-umbrella.h>
+  #import <iOSDFULibrary/iOSDFULibrary-macOS-umbrella.h>
   #import <iOSDFULibrary/iOSDFULibrary-Swift.h>
 #endif

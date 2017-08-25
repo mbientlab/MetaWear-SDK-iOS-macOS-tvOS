@@ -1,0 +1,6 @@
+framework module MetaWear {
+  umbrella header "MetaWear-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
