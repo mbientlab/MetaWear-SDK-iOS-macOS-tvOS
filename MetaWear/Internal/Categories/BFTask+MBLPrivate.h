@@ -60,12 +60,12 @@ typedef __nullable id(^MBLPrivateContinuationBlock)(BFTask<ResultType> *t);
 - (BFTask *)continueOnMetaWearWithSuccessBlock:(MBLPrivateContinuationBlock)block NS_SWIFT_NAME(continueOnMetaWearWithSuccess(block:));
 - (BFTask *)continueOnMetaWearWithBlock:(MBLPrivateContinuationBlock)block NS_SWIFT_NAME(continueOnMetaWear(block:));
 
-+ (instancetype)taskFromMetaWearWithBlock:(id (^)())block;
-+ (instancetype)taskFromSimulatorWithBlock:(id (^)())block;
++ (instancetype)taskFromMetaWearWithBlock:(id (^)(void))block;
++ (instancetype)taskFromSimulatorWithBlock:(id (^)(void))block;
 
 @end
 
 
-extern void MBLForceLoadCategory_BFTask_Private();
+extern void MBLForceLoadCategory_BFTask_Private(void);
 
 NS_ASSUME_NONNULL_END

@@ -211,16 +211,16 @@
     }
 }
 
-- (BOOL)select:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI
+- (NSArray<CBUUID *> * _Nullable)filterByHint:(CBUUID * _Nonnull)dfuServiceUUID
 {
+    return nil;
+}
+
+- (BOOL)select:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *,id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI hint:(NSString * _Nullable)name {
     NSLog(@"Looking for: %@", self.device.identifier);
     NSLog(@"%@", peripheral);
     return [peripheral.identifier isEqual:self.device.identifier];
 }
 
-- (NSArray<CBUUID *> * _Nullable)filterByHint:(CBUUID * _Nonnull)dfuServiceUUID
-{
-    return nil;
-}
 
 @end

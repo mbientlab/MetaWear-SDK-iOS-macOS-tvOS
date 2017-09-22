@@ -45,7 +45,7 @@
     static BFExecutor *singleton;
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
-        singleton = [BFExecutor executorWithBlock:^void(void(^block)()) {
+        singleton = [BFExecutor executorWithBlock:^void(void(^block)(void)) {
             [[MBLMetaWearManager dispatchQueue] addOperationWithBlock:block];
         }];
     });

@@ -54,7 +54,7 @@
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         // Time simulator queue is like a sub-queue of metaWearQueue
-        singleton = [BFExecutor executorWithBlock:^void(void(^block)()) {
+        singleton = [BFExecutor executorWithBlock:^void(void(^block)(void)) {
             dispatch_async([MBLConstants metaWearQueue], ^{
                 dispatch_sync([MBLConstants simulatorQueue], block);
             });
@@ -96,14 +96,14 @@
     return [self continueWithExecutor:executor withBlock:block];
 }
 
-+ (instancetype)taskFromMetaWearWithBlock:(id (^)())block {
++ (instancetype)taskFromMetaWearWithBlock:(id (^)(void))block {
     BFExecutor *executor = [MBLConstants isSimulatorQueue] ? [BFExecutor simulatorExecutor] : [BFExecutor metaWearExecutor];
     return [[self taskWithResult:nil] continueWithExecutor:executor withBlock:^id(BFTask *task) {
         return block();
     }];
 }
 
-+ (instancetype)taskFromSimulatorWithBlock:(id (^)())block
++ (instancetype)taskFromSimulatorWithBlock:(id (^)(void))block
 {
     return [[self taskWithResult:nil] continueWithExecutor:[BFExecutor simulatorExecutor] withBlock:^id(BFTask *task) {
         return block();

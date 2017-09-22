@@ -122,7 +122,7 @@ NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy);
 
 #pragma mark - Block Typedefs
 
-typedef void (^MBLVoidHandler)();
+typedef void (^MBLVoidHandler)(void);
 typedef void (^MBLErrorHandler)(NSError *__nullable error);
 typedef void (^MBLDataHandler)(NSData *__nullable data, NSError *__nullable error);
 typedef void (^MBLObjectHandler)(id __nullable obj, NSError *__nullable error);
