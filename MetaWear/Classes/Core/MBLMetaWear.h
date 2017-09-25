@@ -63,6 +63,7 @@
 @class MBLMetaWear;
 @class MBLFirmwareUpdateInfo;
 @protocol MBLBluetoothPeripheralDelegate;
+@class MBLAnonymousEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -337,6 +338,13 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  Query the percent remaining battery life, returns int between 0-100
  */
 - (BFTask<NSNumber *> *)readBatteryLifeAsync;
+
+/**
+ Reads the current state of the board and creates anonymous events
+ based on what data is being logged.  This lets you download the
+ log without knowing exactly where/how it was setup.
+ */
+- (BFTask<NSArray<MBLAnonymousEvent *> *> *)createAnonymousEventsAsync;
 
 ///----------------------------------
 /// @name Firmware Update and Reset

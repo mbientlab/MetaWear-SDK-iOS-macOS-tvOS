@@ -11,6 +11,7 @@
 #endif
 
 #import "BFTask+MBLExtensions.h"
+#import "MBLAnonymousEvent.h"
 #import "MBLConstants.h"
 #import "MBLData.h"
 #import "MBLDataSample.h"
@@ -88,6 +89,7 @@
 #import "BFTask+MBLPrivate.h"
 #import "MBLCategoryLoader.h"
 #import "MBLAnalytics.h"
+#import "MBLAnonymousEvent+Private.h"
 #import "MBLConstants+Private.h"
 #import "MBLConversion.h"
 #import "MBLData+Private.h"
