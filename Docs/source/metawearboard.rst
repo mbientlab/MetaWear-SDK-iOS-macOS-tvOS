@@ -129,3 +129,13 @@ MetaWear modules, represented by the `MBLModule <https://mbientlab.com/docs/meta
 * Requested module is not supported on the board  
 * Board is in MetaBoot mode  
 * Has not yet connected
+
+Sleep Mode
+----------
+
+Use the ``sleepModeOnReset`` function to put the device in a low-power sleep mode after the next reset.  To wake the device back up you can press the button, connect usb power (latest models only), or remove and reconnect the coin cell battery.
+
+::
+
+    [device sleepModeOnReset];
+    [device resetDevice];

@@ -1242,6 +1242,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     [self.testDebug resetDevice];
 }
 
+- (BFTask *)sleepModeOnReset
+{
+    return [self.testDebug enterPowersaveOnReset];
+}
+
 - (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync
 {
     if (self.state != MBLConnectionStateConnected) {

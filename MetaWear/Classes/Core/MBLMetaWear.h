@@ -358,6 +358,13 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
 - (void)resetDevice;
 
 /**
+ After the next reset, the device will immediately enter a low-power sleep
+ mode.  To wake the device back up you can press the button, connect usb
+ power (latest models only), or remove and reconnect the coin cell battery.
+ */
+- (BFTask *)sleepModeOnReset;
+
+/**
  See if this device is running the most up to date firmware
  */
 - (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync;
