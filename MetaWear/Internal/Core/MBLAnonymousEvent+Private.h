@@ -34,10 +34,14 @@
  */
 
 #import "MBLAnonymousEvent.h"
+#import "MBLModule+Private.h"
+#import "MBLFormat.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLAnonymousEvent (Private)
+
+- (instancetype)initWithRegister:(MBLRegister *)reg identifier:(NSString *)identifier;
 
 @end
 

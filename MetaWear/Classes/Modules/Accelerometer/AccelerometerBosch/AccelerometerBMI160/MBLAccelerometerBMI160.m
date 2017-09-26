@@ -74,6 +74,16 @@
     return self;
 }
 
+- (BFTask *)pullConfigAsync
+{
+    return [[self.accelDataConfig readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const bmi160_regs_acc_t *regs = result.data.bytes;
+        self.fullScaleRange = regs->acc_range.acc_range;
+        return nil;
+    }];
+}
+
 - (BFTask *)performAsyncInitialization
 {
     // Setup the accelerometer config

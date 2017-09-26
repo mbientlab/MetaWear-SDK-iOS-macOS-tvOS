@@ -39,6 +39,7 @@
 #import "MBLAccelerometerBMA255MotionEvent+Private.h"
 #import "MBLAccelerometerBoschLowOrHighGEvent+Private.h"
 #import "MBLRegister+Private.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLAccelerometerBMA255 ()
 @property (nonatomic) MBLAccelerometerBMA255MotionEvent *motionEvent;
@@ -55,6 +56,16 @@
         self.lowOrHighGEvent.lowOrHighGDurationMultiplier = 2.0;
     }
     return self;
+}
+
+- (BFTask *)pullConfigAsync
+{
+    return [[self.accelDataConfig readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const uint8_t *data = result.data.bytes;
+        self.fullScaleRange = data[1];
+        return nil;
+    }];
 }
 
 - (BFTask *)performAsyncInitialization

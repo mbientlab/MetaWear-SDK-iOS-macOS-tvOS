@@ -65,6 +65,7 @@ typedef void (^MBLSimulationHandler)(uint8_t module, uint8_t opcode, NSData *par
 
 @property (nonatomic, readonly) MBLDispatchQueue *zeroCountQueue;
 
+@property (nonatomic, readonly) NSArray *modules;
 
 - (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral
               andAdvertisementData:(NSDictionary *)advertisementData

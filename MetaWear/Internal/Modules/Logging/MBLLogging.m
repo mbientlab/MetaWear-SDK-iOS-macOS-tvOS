@@ -50,7 +50,7 @@
 #import <CoreData/CoreData.h>
 #import "BFTask+MBLPrivate.h"
 #import "MBLLogger.h"
-
+#import "MBLAnonymousEvent+Private.h"
 
 typedef struct __attribute__((packed)) {
     uint8_t		logTriggers;
@@ -183,6 +183,35 @@ typedef struct __attribute__((packed)) {
         self.addLogTrigger.writeResponds = YES;
     }
     return self;
+}
+
+- (BFTask *)queryActiveLoggersAsync
+{
+    NSMutableDictionary<NSData *, MBLAnonymousEvent *> *eventByHeader = [NSMutableDictionary dictionary];
+    return [[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
+        NSMutableArray *tasks = [NSMutableArray array];
+        for (int i = 0; i < self.triggers.count; i++) {
+            [tasks addObject:[[self.addLogTrigger readForcedIndexAsync:i] successOnMetaWear:^(MBLDataSample *result) {
+                //self.triggers[i] = result.data.length > 2 ? result.data : [NSNull null];
+                if (result.data.length >= 4) {
+                    const mw_log_trigger_t *params = result.data.bytes;
+                    [[self.device.modules[params->source_modid] getRegister:result.data] successOnMetaWear:^(MBLRegister * _Nonnull reg) {
+                        NSData *header = [result.data subdataWithRange:NSMakeRange(0, 3)];
+                        MBLAnonymousEvent *event = eventByHeader[header];
+                        if (!event) {
+                            event = [[MBLAnonymousEvent alloc] initWithRegister:reg identifier:@"hi"];
+                            eventByHeader[header] = event;
+                        }
+                        [event.loggingIds addObject:[NSNumber numberWithChar:i]];
+                        NSLog(@"%@", event.loggingIds);
+                    }];
+                }
+            }]];
+        }
+        return [BFTask taskForCompletionOfAllTasks:tasks];
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+        return [BFTask taskWithResult:[eventByHeader allValues]];
+    }];
 }
 
 - (id)awakeAfterFastCoding

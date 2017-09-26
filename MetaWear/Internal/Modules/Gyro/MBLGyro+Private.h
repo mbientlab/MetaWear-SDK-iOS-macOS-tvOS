@@ -36,6 +36,7 @@
 #import "MBLGyro.h"
 #import "MBLRegister+Private.h"
 #import "MBLModuleInfo.h"
+#import "BFTask+MBLPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) MBLEvent *zAxisReadyEvent;
 
 - (instancetype)initWithDevice:(MBLMetaWear *)device moduleInfo:(MBLModuleInfo *)moduleInfo;
+
+- (BFTask *)pullConfigAsync;
 @end
 
 NS_ASSUME_NONNULL_END

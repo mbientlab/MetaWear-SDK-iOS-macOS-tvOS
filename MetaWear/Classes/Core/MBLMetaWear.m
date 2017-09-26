@@ -137,7 +137,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @property (nonatomic) MBLDispatchQueue *zeroCountQueue;
 
-// Properties needed internally requring AutoConding
 @property (nonatomic) NSArray *modules;
 @end
 
@@ -1185,6 +1184,20 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
     [self.peripheral readValueForCharacteristic:batteryLifeCharacteristic];
     return source.task;
+}
+
+- (BFTask *)createAnonymousEventsAsync
+{
+    NSMutableArray *tasks = [NSMutableArray array];
+    if (self.accelerometer) {
+        [tasks addObject:[self.accelerometer pullConfigAsync]];
+    }
+    if (self.gyro) {
+        [tasks addObject:[self.gyro pullConfigAsync]];
+    }
+    return [[BFTask taskForCompletionOfAllTasks:tasks] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        return [self.logging queryActiveLoggersAsync];
+    }];
 }
 
 - (BFTask<MBLDeviceInfo *> *)readDeviceInfoAsync;

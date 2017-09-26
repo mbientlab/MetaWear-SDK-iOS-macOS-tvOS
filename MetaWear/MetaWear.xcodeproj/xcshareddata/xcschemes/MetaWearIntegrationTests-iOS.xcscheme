@@ -101,7 +101,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "MMR"
+            value = "RG"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "RG_UUID"
+            value = "B80927D2-F8C3-4FA8-A643-AF444C136C12"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

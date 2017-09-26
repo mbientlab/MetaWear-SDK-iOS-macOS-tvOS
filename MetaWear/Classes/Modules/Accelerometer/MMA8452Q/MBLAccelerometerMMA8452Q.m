@@ -94,6 +94,16 @@
     return self;
 }
 
+- (BFTask *)pullConfigAsync
+{
+    return [[self.dataSettings readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const mma8452q_data_regs_t *regs = result.data.bytes;
+        self.fullScaleRange = regs->xyz_data_cfg.fs;
+        return nil;
+    }];
+}
+
 - (BFTask *)performAsyncInitialization
 {
     mma8452q_data_regs_t regs = { 0 };

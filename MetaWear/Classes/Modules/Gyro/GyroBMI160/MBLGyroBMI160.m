@@ -75,6 +75,16 @@
     return self;
 }
 
+- (BFTask *)pullConfigAsync
+{
+    return [[self.gyroConfig readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const bmi160_regs_gyr_t *regs = result.data.bytes;
+        self.fullScaleRange = regs->gyr_range.gyr_range;
+        return nil;
+    }];
+}
+
 - (BFTask *)performAsyncInitialization
 {
     // First setup the gyro config

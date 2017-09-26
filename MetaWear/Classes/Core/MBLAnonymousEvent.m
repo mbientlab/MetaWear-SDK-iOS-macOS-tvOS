@@ -34,28 +34,40 @@
  */
 
 #import "MBLAnonymousEvent+Private.h"
+#import "MBLEvent+Private.h"
+#import "MBLMetaWear+Private.h"
+#import "MBLRegister+Private.h"
 
 @interface MBLAnonymousEvent ()
 @property (nonatomic) NSString *identifier;
 @end
 
 @implementation MBLAnonymousEvent
-//
-//- (instancetype)initWithModule:(MBLEntityModule *)module
-//                    registerId:(uint8_t)registerId
-//           addEntityParameters:(NSData *)addEntityParameters
-//                        format:(MBLFormat *)format
-//{
-//    // Since all filters get their data through the single timerNotification register in
-//    // the timer module, we create a dummy register which is optionally notified
-//    // when we see a global notification which matches our filter id
-//    self = [super initWithModule:module registerId:registerId format:format];
-//    if (self) {
-//        self.addEntityParameters = addEntityParameters;
-//    }
-//    return self;
-//}
-//
+
+- (instancetype)initWithRegister:(MBLRegister *)reg identifier:(NSString *)identifier
+{
+    self = [super initWithModule:reg.module registerId:reg.registerId index:reg.index format:reg.format];
+    if (self) {
+        self.identifier = identifier;
+    }
+    return self;
+}
+
+- (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(MBLLogProgressHandler)progressHandler
+{
+    MBLMetaWear *device = self.module.device;
+    if (device.state != MBLConnectionStateConnected) {
+        NSError *error = [NSError errorWithDomain:kMBLErrorDomain
+                                             code:kMBLErrorNotConnected
+                                         userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before downloading log."}];
+        return [BFTask taskWithError:error];
+    }
+    [device incrementCount];
+    return [[device.logging downloadLogEvents:self progressHandler:progressHandler] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+        [device decrementCount];
+        return task;
+    }];
+}
 
 + (BFTask *)mustLogError
 {

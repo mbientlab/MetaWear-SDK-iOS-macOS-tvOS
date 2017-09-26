@@ -95,6 +95,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)addRegister:(MBLRegister *)reg;
 /**
+ Find the register for this message.  Data should be in the format
+ of [module id, reg id, index] each a uint8_t.
+ */
+- (BFTask<MBLRegister *> *)getRegister:(NSData *)data;
+
+/**
  Data from BLE radio first goes to the MBLMetaWear, which routes it
  to the appropriate module (by calling this method).  This method will
  then pass the data along to the appropriate MBLRegister
