@@ -45,8 +45,9 @@
                  enableBitmask:(uint8_t)enableBitmask
                 enableRegister:(MBLRegister *)enableRegister
                         format:(MBLFormat *)format
+                    identifier:(NSString *)identifier
 {
-    self = [super initWithModule:module registerId:registerId format:format];
+    self = [super initWithModule:module registerId:registerId format:format identifier:identifier];
     if (self) {
         self.enableBitmask = enableBitmask;
         self.enableRegister = enableRegister;

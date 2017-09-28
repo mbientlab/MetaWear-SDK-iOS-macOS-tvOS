@@ -48,7 +48,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerMMA8452Q *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0xD format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+    self = [super initWithModule:accelerometer registerId:0xD format:[[MBLFormat alloc] initEncodedDataWithLength:1] identifier:@"mma8452q-tap"];
     if (self) {
         self.pulseEnable = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0B format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.pulseSettings = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0C format:[[MBLFormat alloc] initEncodedDataWithLength:8]];

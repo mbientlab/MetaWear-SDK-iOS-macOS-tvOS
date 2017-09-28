@@ -42,7 +42,20 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer axis:(uint8_t)axis
 {
-    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer axis:axis]];
+    NSString *identifier = nil;
+    MBLAccelerometerAxis typedAxis = axis;
+    switch (typedAxis) {
+        case MBLAccelerometerAxisX:
+            identifier = @"acceleration[0]";
+            break;
+        case MBLAccelerometerAxisY:
+            identifier = @"acceleration[1]";
+            break;
+        case MBLAccelerometerAxisZ:
+            identifier = @"acceleration[2]";
+            break;
+    }
+    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer axis:axis] identifier:identifier];
     return self;
 }
 

@@ -64,7 +64,7 @@
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
         self.stepEvent = [[MBLAccelerometerBMI160StepEvent alloc] initWithAccelerometer:self];
-        self.stepCounter = [[MBLData alloc] initWithModule:self registerId:0x1A format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO]];
+        self.stepCounter = [[MBLData alloc] initWithModule:self registerId:0x1A format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO] identifier:@"step-counter"];
         self.motionEvent = [[MBLAccelerometerBMI160MotionEvent alloc] initWithAccelerometer:self];
         
         self.stepCounterReset = [[MBLRegister alloc] initWithModule:self registerId:0x1B format:[[MBLFormat alloc] initEncodedDataWithLength:1]];

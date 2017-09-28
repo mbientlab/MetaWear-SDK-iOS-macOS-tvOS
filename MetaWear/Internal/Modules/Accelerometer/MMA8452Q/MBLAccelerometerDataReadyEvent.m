@@ -52,7 +52,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerMMA8452Q *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerMMA8452QFormat alloc] initWithPacked:NO]];
+    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerMMA8452QFormat alloc] initWithPacked:NO] identifier:@"acceleration"];
     if (self) {
         self.dataEnable = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x2 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
     }

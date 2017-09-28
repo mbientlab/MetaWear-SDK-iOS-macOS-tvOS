@@ -45,7 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
                     registerId:(uint8_t)registerId
                  enableBitmask:(uint8_t)enableBitmask
                 enableRegister:(MBLRegister *)enableRegister
-                        format:(MBLFormat *)format;
+                        format:(MBLFormat *)format
+                    identifier:(NSString *)identifier;
 
 @end
 

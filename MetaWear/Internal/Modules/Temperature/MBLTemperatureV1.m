@@ -61,7 +61,7 @@ static const double DEGREES_CELSIUS_PER_UNIT = 0.125;
             NSObject *current = nil;
             switch (driverId) {
                 case 0:
-                    self.onDieThermistor = [[MBLData alloc] initWithModule:self registerId:0x1 index:i format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT]];
+                    self.onDieThermistor = [[MBLData alloc] initWithModule:self registerId:0x1 index:i format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT] identifier:[NSString stringWithFormat:@"temperature[%d]", i]];
                     current = self.onDieThermistor;
                     self.onDieThermistor.needsResponse = YES; // TODO: Remove once fixed
                     break;
@@ -74,7 +74,7 @@ static const double DEGREES_CELSIUS_PER_UNIT = 0.125;
                     // TODO: Enable the BMP280 Temperature
                     break;
                 case 3:
-                    self.onboardThermistor = [[MBLData alloc] initWithModule:self registerId:0x1 index:i format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT]];
+                    self.onboardThermistor = [[MBLData alloc] initWithModule:self registerId:0x1 index:i format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT] identifier:[NSString stringWithFormat:@"temperature[%d]", i]];
                     current = self.onboardThermistor;
                     self.onboardThermistor.needsResponse = YES; // TODO: Remove once fixed
                     break;

@@ -101,7 +101,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "RG"
+            value = "MMR"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "BW_UUID"
+            value = "7042FF0C-C6C2-09CB-78A9-577D752020F4"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
@@ -116,7 +121,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMR_UUID"
-            value = "1CF8C6BF-C357-40D8-A9E6-1E83FC22C8B9"
+            value = "F03D1111-05BC-4C9F-8D2D-F9095FDDFEC9"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

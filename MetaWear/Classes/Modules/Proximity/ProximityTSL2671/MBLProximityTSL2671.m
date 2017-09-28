@@ -72,7 +72,7 @@ typedef struct __attribute__((packed)) {
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
-        self.proximity = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO]];
+        self.proximity = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO] identifier:@"proximity"];
         
         self.mode = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:3]];
         // Mode defaults

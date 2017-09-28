@@ -56,6 +56,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
 @property (nonatomic) uint8_t index;
 @property (nonatomic) MBLRegisterState state;
 @property (nonatomic) MBLFormat *format;
+@property (nonatomic, nullable) NSString *identifier;
 
 @property (nonatomic) int16_t initializeCount;
 @property (nonatomic) int16_t activateCount;
@@ -73,7 +74,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     BFTask          *stopNotificationTask;
 }
 
-- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format identifier:(nullable NSString *)identifier
 {
     self = [super init];
     if (self) {
@@ -82,6 +83,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
         self.index = index;
         self.needsResponse = NO;
         self.format = format;
+        self.identifier = identifier;
         
         self.initializeCount = 0;
         self.activateCount = 0;
@@ -103,12 +105,18 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
     }
     return self;
 }
-
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format identifier:(NSString *)identifier
+{
+    return [self initWithModule:module registerId:registerId index:0xFF format:format identifier:identifier];
+}
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format
+{
+    return [self initWithModule:module registerId:registerId index:index format:format identifier:nil];
+}
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format
 {
-    return [self initWithModule:module registerId:registerId index:0xFF format:format];
+    return [self initWithModule:module registerId:registerId index:0xFF format:format identifier:nil];
 }
-
 
 - (id)awakeAfterFastCoding
 {

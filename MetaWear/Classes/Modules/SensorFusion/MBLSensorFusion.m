@@ -76,14 +76,14 @@ typedef struct  __attribute__((packed)) {
         self.modeRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
         self.outputEnable = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
         
-        self.acceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x4 enableBitmask:(1 << 0) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeAccelerometer]];
-        self.rotation = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x5 enableBitmask:(1 << 1) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeGyro]];
-        self.magneticField = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x6 enableBitmask:(1 << 2) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeMagnetometer]];
+        self.acceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x4 enableBitmask:(1 << 0) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeAccelerometer] identifier:@"corrected-acceleration"];
+        self.rotation = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x5 enableBitmask:(1 << 1) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeGyro] identifier:@"corrected-angular-velocity"];
+        self.magneticField = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x6 enableBitmask:(1 << 2) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeMagnetometer] identifier:@"corrected-magnetic-field"];
         
-        self.quaternion = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x7 enableBitmask:(1 << 3) enableRegister:self.outputEnable format:[[MBLQuaternionFormat alloc] init]];
-        self.eulerAngle = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x8 enableBitmask:(1 << 4) enableRegister:self.outputEnable format:[[MBLEulerFormat alloc] init]];
-        self.gravity = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x9 enableBitmask:(1 << 5) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init]];
-        self.linearAcceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0xA enableBitmask:(1 << 6) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init]];
+        self.quaternion = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x7 enableBitmask:(1 << 3) enableRegister:self.outputEnable format:[[MBLQuaternionFormat alloc] init] identifier:@"quaternion"];
+        self.eulerAngle = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x8 enableBitmask:(1 << 4) enableRegister:self.outputEnable format:[[MBLEulerFormat alloc] init] identifier:@"euler-angles"];
+        self.gravity = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x9 enableBitmask:(1 << 5) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init] identifier:@"gravity"];
+        self.linearAcceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0xA enableBitmask:(1 << 6) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init] identifier:@"linear-acceleration"];
     }
     return self;
 }

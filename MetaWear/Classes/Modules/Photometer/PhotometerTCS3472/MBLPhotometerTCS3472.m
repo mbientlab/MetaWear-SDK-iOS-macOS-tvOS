@@ -66,11 +66,11 @@ typedef struct __attribute__((packed)) {
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
-        self.color = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] init]];
-        self.redColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:2]];
-        self.greenColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:4]];
-        self.blueColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:6]];
-        self.clearColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:0]];
+        self.color = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] init] identifier:@"color"];
+        self.redColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:2] identifier:@"color[1]"];
+        self.greenColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:4] identifier:@"color[2]"];
+        self.blueColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:6] identifier:@"color[3]"];
+        self.clearColor = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLPhotometerTCS3472Format alloc] initWithOffset:0] identifier:@"color[0]"];
         
         self.mode = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:3]];
         

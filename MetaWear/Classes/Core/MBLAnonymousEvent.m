@@ -38,18 +38,13 @@
 #import "MBLMetaWear+Private.h"
 #import "MBLRegister+Private.h"
 
-@interface MBLAnonymousEvent ()
-@property (nonatomic) NSString *identifier;
-@end
-
 @implementation MBLAnonymousEvent
 
-- (instancetype)initWithRegister:(MBLRegister *)reg identifier:(NSString *)identifier
+@dynamic identifier;
+
+- (instancetype)initWithRegister:(MBLRegister *)reg
 {
-    self = [super initWithModule:reg.module registerId:reg.registerId index:reg.index format:reg.format];
-    if (self) {
-        self.identifier = identifier;
-    }
+    self = [super initWithModule:reg.module registerId:reg.registerId index:reg.index format:reg.format identifier:reg.identifier];
     return self;
 }
 

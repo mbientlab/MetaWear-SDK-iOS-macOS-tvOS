@@ -47,7 +47,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerMMA8452Q *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x10 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+    self = [super initWithModule:accelerometer registerId:0x10 format:[[MBLFormat alloc] initEncodedDataWithLength:1] identifier:@"mma8452q-shake"];
     if (self) {
         self.transientEnable = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0E format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.transientSettings = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0F format:[[MBLFormat alloc] initEncodedDataWithLength:4]];

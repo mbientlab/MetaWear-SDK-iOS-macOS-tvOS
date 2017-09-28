@@ -45,7 +45,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer packed:NO]];
+    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerBoschFormat alloc] initWithAccelerometer:accelerometer packed:NO] identifier:@"acceleration"];
     if (self) {
         self.accelDataInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
     }

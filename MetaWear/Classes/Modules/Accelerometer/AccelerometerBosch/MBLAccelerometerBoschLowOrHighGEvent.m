@@ -50,7 +50,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x8 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+    self = [super initWithModule:accelerometer registerId:0x8 format:[[MBLFormat alloc] initEncodedDataWithLength:1] identifier:@"bosch-low-high"];
     if (self) {
         // Default settings
         self.lowGDuration = 100.0;

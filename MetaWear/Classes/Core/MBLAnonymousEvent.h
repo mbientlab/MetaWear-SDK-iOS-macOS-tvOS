@@ -45,6 +45,6 @@
 /*
  String identifying the data producer chain
  */
-@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly, nullable) NSString *identifier;
 
 @end
