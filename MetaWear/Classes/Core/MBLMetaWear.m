@@ -113,6 +113,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) MBLConnectionState state;
 @property (nonatomic) BOOL programedByOtherApp;
 @property (nonatomic, nonnull) NSUUID *identifier;
+@property (nonatomic) NSDictionary *advertisementData;
 @property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
 //@property (nonatomic, nonnull) NSString *name;
@@ -215,6 +216,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         
         self.peripheral = peripheral;
         self.identifier = peripheral.identifier;
+        self.advertisementData = advertisementData;
         self.nameImpl = peripheral.name;
         self.discoveryTimeRSSI = RSSI;
         self.model = MBLModelUnknown;
@@ -545,6 +547,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)copyModulesFrom:(MBLMetaWear *)other
 {
     self.identifier = other.identifier;
+    self.advertisementData = other.advertisementData;
     self.nameImpl = other.name;
     self.deviceInfo = other.deviceInfo;
     

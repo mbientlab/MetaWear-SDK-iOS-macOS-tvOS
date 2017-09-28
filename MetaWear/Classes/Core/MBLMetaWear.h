@@ -251,6 +251,12 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  */
 @property (nonatomic, readonly) NSUUID *identifier;
 /**
+ A dictionary containing any advertisement and scan response data. For
+ a list of advertisementData keys, see {@link CBAdvertisementDataLocalNameKey}
+ and other similar constants.
+ */
+@property (nonatomic, readonly) NSDictionary *advertisementData;
+/**
  Stored value of signal strength at discovery time
  */
 @property (nonatomic, readonly, nullable) NSNumber *discoveryTimeRSSI;
