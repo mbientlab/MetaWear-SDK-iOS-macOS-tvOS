@@ -257,6 +257,10 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  */
 @property (nonatomic, readonly) NSDictionary *advertisementData;
 /**
+ MAC address of this MetaWear.  NOTE: this is only populated after a successful connection
+ */
+@property (nonatomic, readonly, nullable) NSString *mac;
+/**
  Stored value of signal strength at discovery time
  */
 @property (nonatomic, readonly, nullable) NSNumber *discoveryTimeRSSI;

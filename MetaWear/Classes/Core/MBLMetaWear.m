@@ -77,6 +77,7 @@
 #import "MBLMovingAverage.h"
 #import "MBLConstants+Private.h"
 #import "MBLLogger.h"
+#import "MBLStringData.h"
 
 static int MAX_PENDING_WRITES = 10;
 
@@ -114,6 +115,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) BOOL programedByOtherApp;
 @property (nonatomic, nonnull) NSUUID *identifier;
 @property (nonatomic) NSDictionary *advertisementData;
+@property (nonatomic, nullable) NSString *mac;
 @property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
 //@property (nonatomic, nonnull) NSString *name;
@@ -548,6 +550,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 {
     self.identifier = other.identifier;
     self.advertisementData = other.advertisementData;
+    self.mac = other.mac;
     self.nameImpl = other.name;
     self.deviceInfo = other.deviceInfo;
     
@@ -1481,7 +1484,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)setupMetaWear
 {
-    [[[[[[[self readDeviceInfoAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
+    [[[[[[[[self readDeviceInfoAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
         // Starting firmware 1.1.0 we can flood the beast!
         if ([MBLConstants versionString:t.result.firmwareRevision isLessThan:@"1.1.0"]) {
             MAX_PENDING_WRITES = 3;
@@ -1532,6 +1535,10 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             return [self resetModulesAsync];
         }
         return nil;
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+        return [[self.settings.macAddress readAsync] successOnMetaWear:^(MBLStringData * _Nonnull result) {
+            self.mac = result.value;
+        }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         [self connectionCompleteWithError:t.error];
         return nil;
