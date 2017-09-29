@@ -466,6 +466,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             peripheral.delegate = device;
             [device updateName:peripheral.name];
             device.discoveryTimeRSSI = RSSI;
+            device.advertisementData = advertisementData;
             self.peripheralToMetaWear[peripheral] = device;
             return device;
         }

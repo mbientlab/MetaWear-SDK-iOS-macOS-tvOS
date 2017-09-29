@@ -51,6 +51,7 @@ typedef void (^MBLSimulationHandler)(uint8_t module, uint8_t opcode, NSData *par
 // Properties that certain privileged people need access too
 @interface MBLMetaWear (Private) <MBLBluetoothPeripheralDelegate>
 @property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
+@property (nonatomic) NSDictionary *advertisementData;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 
 @property (nonatomic) BOOL bypassSetup;
