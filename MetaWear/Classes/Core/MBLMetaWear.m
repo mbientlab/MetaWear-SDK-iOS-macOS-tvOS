@@ -113,10 +113,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @property (nonatomic) MBLConnectionState state;
 @property (nonatomic) BOOL programedByOtherApp;
-@property (nonatomic, nonnull) NSUUID *identifier;
-@property (nonatomic) NSDictionary *advertisementData;
-@property (nonatomic, nullable) NSString *mac;
-@property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
 //@property (nonatomic, nonnull) NSString *name;
 // Setting the name property causes side effects, so we
@@ -126,8 +122,12 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 
 // Properties from MBLMetaWear+Private.h
-@property (nonatomic) BOOL bypassSetup;
+@property (nonatomic, nonnull) NSUUID *identifier;
+@property (nonatomic) NSDictionary *advertisementData;
+@property (nonatomic, nullable) NSString *mac;
+@property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 
+@property (nonatomic) BOOL bypassSetup;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 
 @property (nonatomic) MBLDataProcessor *dataProcessor;
