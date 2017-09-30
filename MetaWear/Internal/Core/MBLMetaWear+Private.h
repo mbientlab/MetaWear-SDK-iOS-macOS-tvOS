@@ -63,6 +63,7 @@ typedef void (^MBLSimulationHandler)(uint8_t module, uint8_t opcode, NSData *par
 @property (nonatomic, readonly) MBLCommand *command;
 @property (nonatomic, readonly) MBLTestDebug *testDebug;
 @property (nonatomic, readonly) MBLMacro *macro;
+@property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic, readonly) MBLNonVolatileState *nonVolatileState;
 

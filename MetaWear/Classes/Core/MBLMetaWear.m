@@ -107,7 +107,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic, nullable) MBLProximity *proximity;
 @property (nonatomic, nullable) MBLSensorFusion *sensorFusion;
 @property (nonatomic, nullable) MBLSettings *settings;
-@property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic, nullable) id<MBLRestorable> configuration;
 
@@ -135,6 +134,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) MBLCommand *command;
 @property (nonatomic) MBLTestDebug *testDebug;
 @property (nonatomic) MBLMacro *macro;
+@property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic) MBLNonVolatileState *nonVolatileState;
 
