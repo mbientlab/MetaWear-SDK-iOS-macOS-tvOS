@@ -1504,20 +1504,24 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         // Start listening to the global notification register since the following
         // checks need to read data (which uses callbacks throught this characteristic)
         [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
-        // 
+        // Get MAC address if needed (but ignore errors)
+        return [self.mac ? nil : [self.settings.macAddress readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLStringData *> * _Nonnull t) {
+            self.mac = t.result.value;
+            return nil;
+        }];
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         return [self.testDebug isProgramedByOtherAppAsync];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        self.programedByOtherApp = t.result.boolValue;
-        if (t.result.boolValue) {
+        BOOL isProgramedByOtherAppResult = t.result.boolValue;
+        self.programedByOtherApp = isProgramedByOtherAppResult;
+        // No matter if we are the owning application or not we first run checkForResetAsync
+        // since it sync's the logger timstamps since a guest app can download log now
+        return [[self.logging checkForResetAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
             // If we are programmed by another app finish the connection now, note this will
-            // jump over all "success" blocks
-            return [BFTask cancelledTask];
-        } else {
-            // If we are the owning application do extra cleanup and state checking.
-            // First check if the device happened to reset while we were away and if
-            // so reload its reset state
-            return [self.logging checkForResetAsync];
-        }
+            // jump over all "success" blocks.  Otherwise forward the "didReset" result to
+            // the next block and continue with extra cleanup and state checking.
+            return isProgramedByOtherAppResult ? [BFTask cancelledTask] : t;
+        }];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         BOOL didReset = t.result.boolValue;
         if (didReset) {
@@ -1535,10 +1539,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             return [self resetModulesAsync];
         }
         return nil;
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        return [[self.settings.macAddress readAsync] successOnMetaWear:^(MBLStringData * _Nonnull result) {
-            self.mac = result.value;
-        }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         [self connectionCompleteWithError:t.error];
         return nil;
