@@ -456,6 +456,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
                    andAdvertisementData:(NSDictionary *)advertisementData
                                    RSSI:(NSNumber *)RSSI
 {
+    NSString *adName = advertisementData[CBAdvertisementDataLocalNameKey];
     CBUUID *uuid = [advertisementData[CBAdvertisementDataServiceUUIDsKey] firstObject];
     BOOL isMetaBoot = [uuid isEqual:[MBLConstants DFUServiceUUID]];
     // Updates things we already know about
@@ -464,7 +465,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         if ([device.identifier isEqual:peripheral.identifier]) {
             device.peripheral = peripheral;
             peripheral.delegate = device;
-            [device updateName:peripheral.name];
+            [device updateName:adName ? adName : peripheral.name];
             device.discoveryTimeRSSI = RSSI;
             device.advertisementData = advertisementData;
             self.peripheralToMetaWear[peripheral] = device;
@@ -482,8 +483,9 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     } else {
         device.peripheral = peripheral;
         peripheral.delegate = device;
-        [device updateName:peripheral.name];
+        [device updateName:adName ? adName : peripheral.name];
         device.discoveryTimeRSSI = RSSI;
+        device.advertisementData = advertisementData;
     }
     self.peripheralToMetaWear[peripheral] = device;
     if (isMetaBoot) {
