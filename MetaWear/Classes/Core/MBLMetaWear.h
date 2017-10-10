@@ -394,6 +394,12 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  */
 - (BFTask<MBLFirmwareUpdateInfo *> *)prepareForFirmwareUpdateAsync;
 
+/**
+ Check if this device is in bootloader mode, if yes then you may only call
+ prepareForFirmwareUpdateAsync.  Any call to connectAsync will retun an error
+ */
+@property (nonatomic, readonly) BOOL isMetaBoot;
+
 ///----------------------------------
 /// @name Debug and Testing Utilities
 ///----------------------------------

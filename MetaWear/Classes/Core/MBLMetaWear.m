@@ -125,6 +125,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) NSDictionary *advertisementData;
 @property (nonatomic, nullable) NSString *mac;
 @property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
+@property (nonatomic) BOOL isMetaBoot;
 
 @property (nonatomic) BOOL bypassSetup;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
@@ -140,7 +141,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @property (nonatomic) MBLDispatchQueue *zeroCountQueue;
 
-@property (nonatomic) NSArray *modules;
+@property (nonatomic, nullable) NSArray *modules;
 @end
 
 
