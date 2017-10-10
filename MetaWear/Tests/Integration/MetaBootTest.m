@@ -191,7 +191,7 @@ static const int secondsToFind = 20;
     }
 }
 
-- (BOOL)select:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI
+- (BOOL)select:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI hint:(NSString *)name
 {
     NSLog(@"Looking for: %@", self.device.identifier);
     NSLog(@"%@", peripheral);

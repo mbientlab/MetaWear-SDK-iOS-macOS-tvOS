@@ -11,6 +11,7 @@
 #endif
 
 #import "BFTask+MBLExtensions.h"
+#import "MBLAnonymousEvent.h"
 #import "MBLConstants.h"
 #import "MBLData.h"
 #import "MBLDataSample.h"
