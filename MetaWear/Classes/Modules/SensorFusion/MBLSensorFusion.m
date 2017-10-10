@@ -110,6 +110,16 @@ typedef struct  __attribute__((packed)) {
     }
 }
 
+- (BFTask *)pullConfigAsync
+{
+    return [[self.modeRegister readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const mw_sensorfusion_mode_t *regs = result.data.bytes;
+        self.mode = regs->working_mode;
+        return nil;
+    }];
+}
+
 - (BFTask *)performAsyncInitialization
 {
     // Some basic housekeeping checks as we enable Sensor Fusion

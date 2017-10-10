@@ -34,11 +34,13 @@
  */
 
 #import "MBLSensorFusion.h"
+#import "BFTask+MBLPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLSensorFusion (Private)
 
+- (BFTask *)pullConfigAsync;
 
 @end
 

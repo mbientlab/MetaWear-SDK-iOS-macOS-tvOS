@@ -1202,6 +1202,9 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     if (self.gyro) {
         [tasks addObject:[self.gyro pullConfigAsync]];
     }
+    if (self.sensorFusion) {
+        [tasks addObject:[self.sensorFusion pullConfigAsync]];
+    }
     return [[BFTask taskForCompletionOfAllTasks:tasks] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
         return [self.logging queryActiveLoggersAsync];
     }];
