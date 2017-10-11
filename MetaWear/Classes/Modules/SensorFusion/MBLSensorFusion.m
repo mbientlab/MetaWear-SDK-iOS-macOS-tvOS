@@ -124,18 +124,27 @@ typedef struct  __attribute__((packed)) {
 {
     // Some basic housekeeping checks as we enable Sensor Fusion
     BOOL expected = [self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]] &&
-                    [self.device.gyro isKindOfClass:[MBLGyroBMI160 class]] &&
-                    [self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]];
+                    [self.device.gyro isKindOfClass:[MBLGyroBMI160 class]];
     // As of now we must assert certain sensors types
     if (!expected) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
-                                                     userInfo:@{NSLocalizedDescriptionKey : @"This device is not yet enabled for sensor fusion, please contact MbientLab."}]];
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"BMI160 required for sensor fusion but was not detected, please contact MbientLab."}]];
     }
     MBLAccelerometerBMI160 *accelerometer = (MBLAccelerometerBMI160 *)self.device.accelerometer;
     MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.device.gyro;
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
     
+    if (!magnetometer && self.mode != MBLSensorFusionModeIMUPlus) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorOperationInvalid
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion can only run in MBLSensorFusionModeIMUPlus mode without a Magnetometer."}]];
+    }
+    if (magnetometer && (magnetometer.periodicMagneticField.initializeCount > 0)) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorOperationInvalid
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the magnetometer to specific settings, please enable Sensor Fusion first before streaming or logging raw magnetometer data."}]];
+    }
     if (accelerometer.dataReadyEvent.initializeCount > 0) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
@@ -145,11 +154,6 @@ typedef struct  __attribute__((packed)) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
                                                      userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the gyro to specific settings, please enable Sensor Fusion first before streaming or logging raw gyro data."}]];
-    }
-    if (magnetometer.periodicMagneticField.initializeCount > 0) {
-        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                         code:kMBLErrorOperationInvalid
-                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the magnetometer to specific settings, please enable Sensor Fusion first before streaming or logging raw magnetometer data."}]];
     }
     
     // Byte 1.0-1.3: Accel Range (0: 2G, 1: 4G, 2: 8G, 3:16G)
