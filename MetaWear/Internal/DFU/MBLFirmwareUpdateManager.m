@@ -94,8 +94,13 @@
     NSURL *url = [NSURL URLWithString:@"https://mbientlab.com/releases/metawear/info1.json"];
 
     [[NSURLSession.sharedSession dataTaskWithRequest:[[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10] completionHandler:^(NSData *data, NSURLResponse * response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (error) {
             [source trySetError:error];
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorNoAvailableFirmware
+                                                userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", url, (long)httpResponse.statusCode]}]];
         } else {
             [source trySetResult:@YES];
         }
@@ -110,8 +115,14 @@
     // this on a backgroud thread to avoid hanging the UI.
     NSURL *url = [NSURL URLWithString:@"https://mbientlab.com/releases/metawear/info1.json"];
     [[NSURLSession.sharedSession dataTaskWithRequest:[[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10] completionHandler:^(NSData *data, NSURLResponse * response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (error) {
             [source trySetError:error];
+            return;
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorNoAvailableFirmware
+                                                userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", url, (long)httpResponse.statusCode]}]];
             return;
         }
         MBLFirmwareBuild *latestFirmware = nil;
@@ -152,8 +163,14 @@
     NSURL *firmwareURL = firmware.firmwareURL;
     MBLLog(MBLLogLevelInfo, @"Downloading... %@", firmwareURL);
     [[[NSURLSession sharedSession] downloadTaskWithURL:firmwareURL completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (error) {
             [source trySetError:error];
+            return;
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorNoAvailableFirmware
+                                                userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", firmwareURL, (long)httpResponse.statusCode]}]];
             return;
         }
         // If no download error, then copy the file to a permanent place.  Note the location
