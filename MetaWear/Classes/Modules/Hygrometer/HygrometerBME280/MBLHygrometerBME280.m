@@ -53,7 +53,7 @@
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
-        self.humidity = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 1024.0]];
+        self.humidity = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 1024.0] identifier:@"relative-humidity"];
 
         self.humidityOversampling = MBLHygrometerBME280Oversample1X;
 
