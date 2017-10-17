@@ -130,11 +130,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) BOOL bypassSetup;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 
-@property (nonatomic) MBLDataProcessor *dataProcessor;
-@property (nonatomic) MBLLogging *logging;
-@property (nonatomic) MBLCommand *command;
-@property (nonatomic) MBLTestDebug *testDebug;
-@property (nonatomic) MBLMacro *macro;
+@property (nonatomic, nullable) MBLDataProcessor *dataProcessor;
+@property (nonatomic, nullable) MBLLogging *logging;
+@property (nonatomic, nullable) MBLCommand *command;
+@property (nonatomic, nullable) MBLTestDebug *testDebug;
+@property (nonatomic, nullable) MBLMacro *macro;
 @property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic) MBLNonVolatileState *nonVolatileState;

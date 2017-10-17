@@ -59,11 +59,11 @@ typedef void (^MBLSimulationHandler)(uint8_t module, uint8_t opcode, NSData *par
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 @property (nonatomic) BOOL bypassSetup;
 
-@property (nonatomic, readonly) MBLDataProcessor *dataProcessor;
-@property (nonatomic, readonly) MBLLogging *logging;
-@property (nonatomic, readonly) MBLCommand *command;
-@property (nonatomic, readonly) MBLTestDebug *testDebug;
-@property (nonatomic, readonly) MBLMacro *macro;
+@property (nonatomic, nullable, readonly) MBLDataProcessor *dataProcessor;
+@property (nonatomic, nullable, readonly) MBLLogging *logging;
+@property (nonatomic, nullable, readonly) MBLCommand *command;
+@property (nonatomic, nullable, readonly) MBLTestDebug *testDebug;
+@property (nonatomic, nullable, readonly) MBLMacro *macro;
 @property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic, readonly) MBLNonVolatileState *nonVolatileState;
