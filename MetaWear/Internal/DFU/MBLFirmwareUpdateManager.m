@@ -108,7 +108,7 @@
     return source.task;
 }
 
-+ (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device
++ (BFTask<NSArray<MBLFirmwareBuild *> *> *)getAllFirmwareForDeviceAsync:(MBLDeviceInfo *)device
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     // To get the latest firmware version we parse the json from our website, make sure to do
@@ -125,7 +125,8 @@
                                                 userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", url, (long)httpResponse.statusCode]}]];
             return;
         }
-        MBLFirmwareBuild *latestFirmware = nil;
+        
+        NSMutableArray<MBLFirmwareBuild *> *allFirmwares = [NSMutableArray array];
         NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         if (info) {
             NSString *buildFlavor = @"vanilla";
@@ -136,24 +137,31 @@
             NSSet *validVersions = [potentialVersions keysOfEntriesPassingTest:^BOOL(NSString *key, NSDictionary *obj, BOOL *stop) {
                 return ![MBLConstants versionString:kMBLAPIVersion isLessThan:obj[@"min-ios-version"]];
             }];
-            if (validVersions && validVersions.count) {
-                NSString *latestVersion = [validVersions valueForKeyPath:@"@max.self"];
-                latestFirmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
-                                                                   modelNumber:modelNumber
-                                                                   buildFlavor:buildFlavor
-                                                                   firmwareRev:latestVersion
-                                                                      filename:potentialVersions[latestVersion][@"filename"]];
+            NSArray *sortedVersions = [validVersions sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+            for (NSString *version in sortedVersions) {
+                [allFirmwares addObject:[[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
+                                                                          modelNumber:modelNumber
+                                                                          buildFlavor:buildFlavor
+                                                                          firmwareRev:version
+                                                                             filename:potentialVersions[version][@"filename"]]];
             }
         }
-        if (!latestFirmware) {
+        if (allFirmwares.count == 0) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
                                                     code:kMBLErrorNoAvailableFirmware
                                                 userInfo:@{NSLocalizedDescriptionKey : @"No valid firmware releases found.  Please update your application and if problem persists, email developers@mbientlab.com"}]];
             return;
         }
-        [source trySetResult:latestFirmware];
+        [source trySetResult:allFirmwares];
     }] resume];
     return source.task;
+}
+
++ (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device
+{
+    return [[MBLFirmwareUpdateManager getAllFirmwareForDeviceAsync:device] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSArray<MBLFirmwareBuild *> *> *t) {
+        return t.result.lastObject;
+    }];
 }
 
 + (BFTask<NSURL *> *)downloadFirmwareVersionAsync:(MBLFirmwareBuild *)firmware

@@ -43,11 +43,21 @@
 - (void)testFirmwareUpdateManager
 {
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for completion"];
-    
-    [[[[MBLFirmwareUpdateManager isFirmwareReachableAsync] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        MBLDeviceInfo *info = [[MBLDeviceInfo alloc] init];
-        info.modelNumber = @"0";
-        info.hardwareRevision = @"0.1";
+    MBLDeviceInfo *info = [[MBLDeviceInfo alloc] init];
+    info.modelNumber = @"0";
+    info.hardwareRevision = @"0.1";
+    [[[[[MBLFirmwareUpdateManager isFirmwareReachableAsync] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+        return [MBLFirmwareUpdateManager getAllFirmwareForDeviceAsync:info];
+    }] continueOnDispatchWithSuccessBlock:^id (BFTask<NSArray<MBLFirmwareBuild *> *> *t) {
+        XCTAssertTrue([t.result[0].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.0.4/firmware.bin"]);
+        XCTAssertTrue([t.result[1].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.0/firmware.bin"]);
+        XCTAssertTrue([t.result[2].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.1/firmware.bin"]);
+        XCTAssertTrue([t.result[3].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.2/firmware.bin"]);
+        XCTAssertTrue([t.result[4].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.3/firmware.bin"]);
+        XCTAssertTrue([t.result[5].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.3/firmware.bin"]);
+        XCTAssertTrue([t.result[6].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.4/firmware.bin"]);
+        XCTAssertTrue([t.result[7].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.5/firmware.bin"]);
+        XCTAssertTrue([t.result[8].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.3.4/firmware.bin"]);
         return [MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:info];
     }] continueOnDispatchWithSuccessBlock:^id (BFTask<MBLFirmwareBuild *> *t) {
         XCTAssertTrue([t.result.firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.3.4/firmware.bin"]);

@@ -60,6 +60,7 @@
 
 + (BFTask<NSNumber *> *)isFirmwareReachableAsync;
 
++ (BFTask<NSArray<MBLFirmwareBuild *> *> *)getAllFirmwareForDeviceAsync:(MBLDeviceInfo *)device;
 + (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device;
 
 + (BFTask<NSURL *> *)downloadFirmwareVersionAsync:(MBLFirmwareBuild *)firmware;
