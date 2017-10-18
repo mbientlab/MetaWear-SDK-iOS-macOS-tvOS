@@ -375,9 +375,10 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
 - (BFTask *)sleepModeOnReset;
 
 /**
- See if this device is running the most up to date firmware
+ See if this device is running the most up to date firmware.  If the task
+ returns a non-null string, then its contents are the latest firmware version
  */
-- (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync;
+- (BFTask<NSString *> *)checkForFirmwareUpdateAsync;
 
 /**
  Download the latest firmware and put the device in bootloader mode.  Note that

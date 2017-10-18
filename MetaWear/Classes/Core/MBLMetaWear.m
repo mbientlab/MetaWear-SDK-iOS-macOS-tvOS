@@ -1269,24 +1269,17 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     return [self.testDebug enterPowersaveOnReset];
 }
 
-- (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync
+- (BFTask<NSString *> *)checkForFirmwareUpdateAsync
 {
     if (self.state != MBLConnectionStateConnected) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorNotConnected
                                                      userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before performing checkForFirmwareUpdateAsync."}]];
     }
-    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    [[[MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo] successOnMetaWear:^(MBLFirmwareBuild * _Nonnull result) {
-        if ([MBLConstants versionString:self.deviceInfo.firmwareRevision isLessThan:result.firmwareRev]) {
-            [source trySetResult:@YES];
-        } else {
-            [source trySetResult:@NO];
-        }
-    }] failureOnMetaWear:^(NSError * _Nonnull error) {
-        [source trySetError:error];
+    return [[MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo]
+            continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLFirmwareBuild *> * _Nonnull t) {
+        return [MBLConstants versionString:self.deviceInfo.firmwareRevision isLessThan:t.result.firmwareRev] ? t.result.firmwareRev : nil;
     }];
-    return source.task;
 }
 
 - (BFTask *)prepareForFirmwareUpdateToVersionAsync:(MBLFirmwareBuild *)firmware
