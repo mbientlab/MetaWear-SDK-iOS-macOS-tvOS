@@ -110,23 +110,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "RG_UUID"
-            value = "B80927D2-F8C3-4FA8-A643-AF444C136C12"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
             key = "MMC_UUID"
-            value = "4E8F9BBF-9CA2-45BE-B7AF-85142229A4AA"
+            value = "D9DB9D56-5FA8-C828-9ED7-F7B4EB594405"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMR_UUID"
-            value = "F03D1111-05BC-4C9F-8D2D-F9095FDDFEC9"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "RPRO_UUID"
-            value = "6965BF19-EF68-4670-A13E-C17F4932E5D4"
+            value = "111F0D77-6EBB-4813-850F-7FF0E835D7CC"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

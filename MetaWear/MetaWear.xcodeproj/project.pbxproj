@@ -68,6 +68,18 @@
 		40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
+		40969D911F96B63A0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D921F96B63A0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D931F96B63D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D941F96B63D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D951F96B63F0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D961F96B63F0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D971F96C01B0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D981F96C01B0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D991F96C01D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D9A1F96C01D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D9B1F96C0210024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D9C1F96C0210024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
 		40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
@@ -184,6 +196,8 @@
 		40915FDF1D94D3A1008A5F24 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40915FE01D94D3A1008A5F24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmr-r0.2-r1.3.4.zip"; sourceTree = "<group>"; };
+		40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmc-r0.1-r1.3.5.zip"; sourceTree = "<group>"; };
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
 		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
@@ -427,6 +441,8 @@
 				40703E201D94AEFE00F38FF0 /* MetaWearUnitTests-iOS-Info.plist */,
 				40703E211D94AEFE00F38FF0 /* MetaWearUnitTests-macOS-Info.plist */,
 				40781FA01D9DD29900FF5134 /* MetaWearUnitTests-tvOS-Info.plist */,
+				40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */,
+				40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -916,7 +932,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D921F96B63A0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
 				4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */,
+				40969D911F96B63A0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 				40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +943,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D941F96B63D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D931F96B63D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,6 +961,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D981F96C01B0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D971F96C01B0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +970,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D961F96B63F0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D951F96B63F0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +987,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D9C1F96C0210024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D9B1F96C0210024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1004,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D9A1F96C01D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D991F96C01D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1802,6 +1830,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -1823,6 +1852,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -2025,6 +2055,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -2048,6 +2079,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;

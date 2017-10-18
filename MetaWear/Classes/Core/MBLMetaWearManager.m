@@ -61,10 +61,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 @interface MBLMetaWearManager() <MBLBluetoothCentralDelegate, CBCentralManagerDelegate>
 
 @property (nonatomic) id<MBLBluetoothCentral> centralManager;
-@property (nonatomic) NSMutableArray *discoveredMetaWears;
-@property (nonatomic) NSMutableArray *discoveredMetaBoots;
+@property (nonatomic) NSMutableArray *discoveredDevices;
 @property (nonatomic) NSMutableArray *metaWearBlocks;
 @property (nonatomic) NSMutableArray *metaBootBlocks;
+@property (nonatomic) NSMutableArray *bothBlocks;
 @property (nonatomic) NSMutableDictionary *peripheralToMetaWear;
 
 @property (nonatomic) NSNumber *allowDuplicates;
@@ -190,38 +190,55 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 - (void)startScanForMetaWears:(BOOL)metaWears metaBoots:(BOOL)metaBoots duplicates:(NSNumber *)duplicates handler:(MBLArrayHandler)handler;
 {
     NSAssert(handler, @"Can't start scanning without handler");
-    if (metaWears) {
-        [self.metaWearBlocks addObject:handler];
-        if (self.discoveredMetaWears.count) {
-            handler(self.discoveredMetaWears);
+    dispatch_async([MBLConstants metaWearQueue], ^{
+        if (metaBoots && metaWears) {
+            [self.bothBlocks addObject:handler];
+            if (self.discoveredDevices.count) {
+                [self.dispatchQueue addOperationWithBlock:^{
+                    handler(self.discoveredDevices);
+                }];
+            }
+        } else if (metaWears) {
+            [self.metaWearBlocks addObject:handler];
+            [self invokeHandler:handler isMetaBoot:NO];
+        } else if (metaBoots) {
+            [self.metaBootBlocks addObject:handler];
+            [self invokeHandler:handler isMetaBoot:YES];
         }
-    }
-    if (metaBoots) {
-        [self.metaBootBlocks addObject:handler];
-        if (self.discoveredMetaBoots.count) {
-            handler(self.discoveredMetaBoots);
-        }
-    }
-    
-    if ((!self.isScanningMetaWears && metaWears) || (!self.isScanningMetaBoots && metaBoots)) {
-        self.allowDuplicates = duplicates;
-        NSMutableSet *set = [NSMutableSet setWithArray:self.services];
-        if (metaWears) {
-            [set addObject:[MBLConstants serviceUUID]];
-        }
-        if (metaBoots) {
-            [set addObject:[MBLConstants DFUServiceUUID]];
-        }
-        self.services = set.allObjects;
         
-        // Fire up scanning if the central is ready for it, otherwise it will get
-        // turned on later when its ready
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if (self.centralManager.state == CBCentralManagerStatePoweredOn) {
-#pragma clang diagnostic pop
-            [self startScan];
+        if ((!self.isScanningMetaWears && metaWears) || (!self.isScanningMetaBoots && metaBoots)) {
+            self.allowDuplicates = duplicates;
+            NSMutableSet *set = [NSMutableSet setWithArray:self.services];
+            if (metaWears) {
+                [set addObject:[MBLConstants serviceUUID]];
+            }
+            if (metaBoots) {
+                [set addObject:[MBLConstants DFUServiceUUID]];
+            }
+            self.services = set.allObjects;
+            
+            // Fire up scanning if the central is ready for it, otherwise it will get
+            // turned on later when its ready
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            if (self.centralManager.state == CBCentralManagerStatePoweredOn) {
+    #pragma clang diagnostic pop
+                [self startScan];
+            }
         }
+    });
+}
+
+- (void)invokeHandler:(MBLArrayHandler)handler isMetaBoot:(BOOL)isMetaBoot
+{
+    NSMutableArray *copyDevices = [self.discoveredDevices mutableCopy];
+    [copyDevices filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MBLMetaWear *obj, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return obj.isMetaBoot == isMetaBoot;
+    }]];
+    if (copyDevices.count) {
+        [self.dispatchQueue addOperationWithBlock:^{
+            handler(copyDevices);
+        }];
     }
 }
 
@@ -248,6 +265,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     dispatch_sync([MBLConstants metaWearQueue], ^{
         [self.metaWearBlocks removeAllObjects];
         [self.metaBootBlocks removeAllObjects];
+        [self.bothBlocks removeAllObjects];
     });
     self.allowDuplicates = nil;
     self.services = nil;
@@ -334,8 +352,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (void)clearDiscoveredDevices
 {
-    [self.discoveredMetaWears removeAllObjects];
-    [self.discoveredMetaBoots removeAllObjects];
+    [self.discoveredDevices removeAllObjects];
     [self.peripheralToMetaWear removeAllObjects];
 }
 
@@ -354,10 +371,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:bleQueue options:nil];
             version = [[NSUserDefaults standardUserDefaults] stringForKey:kMBLApiVersionKey];
         }
-        self.discoveredMetaWears = [NSMutableArray array];
-        self.discoveredMetaBoots = [NSMutableArray array];
+        self.discoveredDevices = [NSMutableArray array];
         self.metaWearBlocks = [NSMutableArray array];
         self.metaBootBlocks = [NSMutableArray array];
+        self.bothBlocks = [NSMutableArray array];
         self.peripheralToMetaWear = [NSMutableDictionary dictionary];
         self.dispatchQueue = [NSOperationQueue mainQueue];
         
@@ -459,16 +476,8 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     NSString *adName = advertisementData[CBAdvertisementDataLocalNameKey];
     CBUUID *uuid = [advertisementData[CBAdvertisementDataServiceUUIDsKey] firstObject];
     BOOL isMetaBoot = [uuid isEqual:[MBLConstants DFUServiceUUID]];
-    NSMutableArray *array = isMetaBoot ? self.discoveredMetaBoots : self.discoveredMetaWears;
-    NSMutableArray *otherArray = isMetaBoot ? self.discoveredMetaWears : self.discoveredMetaBoots;
-    // If a device switched from metawear to metaboot, remove from old list now
-    [otherArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(MBLMetaWear *p, NSUInteger idx, BOOL *stop) {
-        if ([p.identifier isEqual:peripheral.identifier]) {
-            [otherArray removeObjectAtIndex:idx];
-        }
-    }];
     // Updates things we already know about
-    for (MBLMetaWear *device in array) {
+    for (MBLMetaWear *device in self.discoveredDevices) {
         if ([device.identifier isEqual:peripheral.identifier]) {
             device.peripheral = peripheral;
             peripheral.delegate = device;
@@ -497,7 +506,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         device.isMetaBoot = isMetaBoot;
     }
     self.peripheralToMetaWear[peripheral] = device;
-    [array addObject:device];
+    [self.discoveredDevices addObject:device];
     return device;
 }
 
@@ -532,7 +541,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         for (id<MBLBluetoothPeripheral> peripheral in peripherals) {
             [self metawearFromPeripheral:peripheral andAdvertisementData:nil RSSI:nil];
         }
-        if ((self.metaWearBlocks.count && !self.isScanningMetaWears) || (self.metaBootBlocks.count && !self.isScanningMetaBoots)) {
+        
+        if ((self.metaWearBlocks.count && !self.isScanningMetaWears) ||
+            (self.metaBootBlocks.count && !self.isScanningMetaBoots) ||
+            (self.bothBlocks.count && !(self.isScanningMetaBoots && self.isScanningMetaBoots))) {
             [self startScan];
         }
     } else {
@@ -587,14 +599,33 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     // Execute on metaWearQueue since mutable arrays are not thread safe
     dispatch_async([MBLConstants metaWearQueue], ^{
         // Make copy incase stopScan is called inside which modifies these arrays
+        // Call blocks looking for either metawear or metaboot, we have to
+        // filter out the devices we are not intersted in
         NSArray *copyHandlers = isMetaBoot ? [self.metaBootBlocks copy] : [self.metaWearBlocks copy];
-        NSArray *copyDevices = isMetaBoot ? [self.discoveredMetaBoots copy] : [self.discoveredMetaWears copy];
-        for (MBLArrayHandler callback in copyHandlers) {
-            [self.dispatchQueue addOperationWithBlock:^{
-                if ((isMetaBoot && self.isScanningMetaBoots) || (!isMetaBoot && self.isScanningMetaWears)) {
-                    callback(copyDevices);
-                }
-            }];
+        if (copyHandlers.count) {
+            NSMutableArray *copyDevices = [self.discoveredDevices mutableCopy];
+            [copyDevices filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MBLMetaWear *obj, NSDictionary<NSString *,id> * _Nullable bindings) {
+                return obj.isMetaBoot == isMetaBoot;
+            }]];
+            for (MBLArrayHandler callback in copyHandlers) {
+                [self.dispatchQueue addOperationWithBlock:^{
+                    if ((isMetaBoot && self.isScanningMetaBoots) || (!isMetaBoot && self.isScanningMetaWears)) {
+                        callback(copyDevices);
+                    }
+                }];
+            }
+        }
+        // Call both blocks with all devies
+        if (self.bothBlocks.count) {
+            NSArray *copyBothHandlers = [self.bothBlocks copy];
+            NSArray *copyAllDevices = [self.discoveredDevices copy];
+            for (MBLArrayHandler callback in copyBothHandlers) {
+                [self.dispatchQueue addOperationWithBlock:^{
+                    if (self.isScanningMetaBoots && self.isScanningMetaWears) {
+                        callback(copyAllDevices);
+                    }
+                }];
+            }
         }
     });
 }

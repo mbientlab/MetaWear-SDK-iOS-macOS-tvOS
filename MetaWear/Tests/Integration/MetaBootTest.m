@@ -60,7 +60,7 @@ static const int secondsToFind = 20;
     
     NSString *deviceUid = [MBLDeviceLookup metawearUid];
     [MBLMetaWearManager sharedManager].logLevel = MBLLogLevelInfo;
-    [[MBLMetaWearManager sharedManager] startScanForMetaBootsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
+    [[MBLMetaWearManager sharedManager] startScanForMetaWears:YES metaBoots:YES duplicates:@NO handler:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *cur in array) {
             if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
                 [[MBLMetaWearManager sharedManager] stopScan];
@@ -92,14 +92,17 @@ static const int secondsToFind = 20;
 - (void)testPerformMetaBootDFU
 {
     self.waitingExpectation = [self expectationWithDescription:@"wait for DFU"];
-    NSString *version = @"rc";
-    MBLFirmwareBuild __block *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
-                                                                           modelNumber:self.device.deviceInfo.modelNumber
-                                                                           buildFlavor:@"vanilla"
-                                                                           firmwareRev:version
-                                                                              filename:@"firmware.zip"];
-    // First try to fetch a zip file
-    [[self zipFirmwareExistsAsync:firmware.firmwareURL] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+    NSString *version = @"1.3.4";
+    MBLFirmwareBuild __block *firmware = nil;
+    [[[[self.device connectAsync] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+        firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
+                                                     modelNumber:self.device.deviceInfo.modelNumber
+                                                     buildFlavor:@"vanilla"
+                                                     firmwareRev:version
+                                                        filename:@"firmware.zip"];
+        // First try to fetch a zip file
+        return [self zipFirmwareExistsAsync:firmware.firmwareURL];
+    }] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         if (t.error) {
             // No zip file, assume it is a bin instead
             firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:self.device.deviceInfo.hardwareRevision
@@ -107,7 +110,10 @@ static const int secondsToFind = 20;
                                                          buildFlavor:@"vanilla"
                                                          firmwareRev:version
                                                             filename:@"firmware.bin"];
+            return [self zipFirmwareExistsAsync:firmware.firmwareURL];
         }
+        return t;
+    }] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         // Do the update!
         [[[self.device prepareForFirmwareUpdateToVersionAsync:firmware] success:^(MBLFirmwareUpdateInfo * _Nonnull result) {
             NSLog(@"%@", result.firmwareUrl);
@@ -118,9 +124,7 @@ static const int secondsToFind = 20;
                 selectedFirmware = [[DFUFirmware alloc] initWithUrlToBinOrHexFile:result.firmwareUrl urlToDatFile:nil type:DFUFirmwareTypeApplication];
             }
             
-            self.initiator = [[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target];
-            [self.initiator withFirmware:selectedFirmware];
-            
+            self.initiator = [[[DFUServiceInitiator alloc] initWithCentralManager:result.centralManager target:result.target] withFirmware:selectedFirmware];
             self.initiator.forceDfu = YES;
             self.initiator.logger = self;
             self.initiator.delegate = self;

@@ -207,7 +207,4 @@ extern NSInteger const kMBLErrorBluetoothUnauthorized;
 /*! @abstract 118: Requested a disconnect while a connection was in progress .*/
 extern NSInteger const kMBLErrorDisconnectRequested;
 
-/*! @abstract 119: DFU service was found during a connection .*/
-extern NSInteger const kMBLErrorDFUServiceFound;
-
 NS_ASSUME_NONNULL_END
