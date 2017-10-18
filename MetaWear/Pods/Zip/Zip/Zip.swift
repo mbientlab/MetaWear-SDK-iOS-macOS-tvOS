@@ -165,8 +165,10 @@ public class Zip {
             let fullPath = destination.appendingPathComponent(pathString).path
 
             let creationDate = Date()
-            let directoryAttributes = [FileAttributeKey.creationDate.rawValue : creationDate,
-                                       FileAttributeKey.modificationDate.rawValue : creationDate]
+
+            let directoryAttributes = [FileAttributeKey.creationDate : creationDate,
+                                       FileAttributeKey.modificationDate : creationDate]
+
             do {
                 if isDirectory {
                     try fileManager.createDirectory(atPath: fullPath, withIntermediateDirectories: true, attributes: directoryAttributes)
@@ -180,12 +182,17 @@ public class Zip {
                 unzCloseCurrentFile(zip)
                 ret = unzGoToNextFile(zip)
             }
+
+            var writeBytes: UInt64 = 0
             var filePointer: UnsafeMutablePointer<FILE>?
             filePointer = fopen(fullPath, "wb")
             while filePointer != nil {
                 let readBytes = unzReadCurrentFile(zip, &buffer, bufferSize)
                 if readBytes > 0 {
-                    fwrite(buffer, Int(readBytes), 1, filePointer)
+                    guard fwrite(buffer, Int(readBytes), 1, filePointer) == 1 else {
+                        throw ZipError.unzipFail
+                    }
+                    writeBytes += UInt64(readBytes)
                 }
                 else {
                     break
@@ -195,6 +202,9 @@ public class Zip {
             fclose(filePointer)
             crc_ret = unzCloseCurrentFile(zip)
             if crc_ret == UNZ_CRCERROR {
+                throw ZipError.unzipFail
+            }
+            guard writeBytes == fileInfo.uncompressed_size else {
                 throw ZipError.unzipFail
             }
 
