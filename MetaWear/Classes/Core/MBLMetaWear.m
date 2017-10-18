@@ -765,7 +765,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
 }
 
-- (void)invokeConnectionHandlers:(NSError *)error
+- (void)invokeConnectionHandlers:(NSError *)error cancelled:(BOOL)cancelled
 {
     @synchronized(connectionSources) {
         for (BFTaskCompletionSource *source in connectionSources) {
@@ -774,6 +774,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             });
             if (error) {
                 [source trySetError:error];
+            } else if (cancelled) {
+                [source trySetCancelled];
             } else {
                 [source trySetResult:self];
             }
@@ -984,12 +986,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                     [self connectionCompleteWithError:connectionError];
                     break;
                 case MBLConnectionStateDisconnecting:
-                    if (!connectionError) {
-                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                              code:kMBLErrorDisconnectRequested
-                                                          userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
-                    }
-                    [self invokeConnectionHandlers:connectionError];
+                    [self invokeConnectionHandlers:connectionError cancelled:YES];
                     break;
                 default:
                     break;
@@ -1758,7 +1755,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                       eventLabel:error.localizedDescription];
                 MBLLog(MBLLogLevelInfo, @"Connection Failed");
 
-                [self invokeConnectionHandlers:error];
+                [self invokeConnectionHandlers:error cancelled:NO];
             }
             return nil;
         }];
@@ -1792,7 +1789,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                                  eventAction:@"success"
                                                   eventLabel:self.deviceInfo.firmwareRevision];
-            [self invokeConnectionHandlers:nil];
+            [self invokeConnectionHandlers:nil cancelled:NO];
         }
         return nil;
     }];

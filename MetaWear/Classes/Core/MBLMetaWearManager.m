@@ -304,12 +304,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
     if (device.state == MBLConnectionStateDisconnected) {
         [device didDisconnect:nil];
     } else {
-        if (fromPeripheralSide) {
+        if (fromPeripheralSide && device.testDebug) {
             [device.testDebug triggerDisconnect];
-        } else {
-            if (device.peripheral) {
-                [self.centralManager cancelPeripheralConnection:device.peripheral];
-            }
+        } else if (device.peripheral) {
+            [self.centralManager cancelPeripheralConnection:device.peripheral];
         }
     }
 }
