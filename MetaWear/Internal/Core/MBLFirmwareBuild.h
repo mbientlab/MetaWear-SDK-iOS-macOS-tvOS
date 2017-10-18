@@ -33,7 +33,7 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <Foundation/Foundation.h>
+#import <Bolts/Bolts.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,6 +56,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSString *filename;
 
 @property (nonatomic, readonly) NSURL *firmwareURL;
+@property (nonatomic, readonly, nullable) NSURL *firmwareLocalFile;
+
+/**
+ If the provided is a URL version this will download it to a local file
+ for use with the acutal DFU process
+ */
+- (BFTask *)downloadFirmwareAsync;
+
+/**
+ See if this specified firmware exists on our release server
+ */
++ (BFTask<MBLFirmwareBuild *> *)fromReleaseServerWithHardwareRev:(NSString *)hardwareRev
+                                                     modelNumber:(NSString *)modelNumber
+                                                     firmwareRev:(NSString *)firmwareRev;
 @end
 
 NS_ASSUME_NONNULL_END

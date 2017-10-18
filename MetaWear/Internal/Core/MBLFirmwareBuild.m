@@ -34,6 +34,8 @@
  */
 
 #import "MBLFirmwareBuild.h"
+#import "MBLLogger.h"
+#import "BFTask+MBLPrivate.h"
 
 @interface MBLFirmwareBuild ()
 @property (nonatomic) NSString *hardwareRev;
@@ -43,6 +45,7 @@
 @property (nonatomic) NSString *filename;
 
 @property (nonatomic) NSURL *firmwareURL;
+@property (nonatomic) NSURL *firmwareLocalFile;
 @end
 
 @implementation MBLFirmwareBuild
@@ -81,8 +84,80 @@
         self.modelNumber = modelNumber;
         self.filename = customUrl.lastPathComponent;
         self.firmwareURL = customUrl;
+        if (customUrl.isFileURL) {
+            self.firmwareLocalFile = customUrl;
+        }
     }
     return self;
+}
+
+
+- (BFTask *)downloadFirmwareAsync
+{
+    if (self.firmwareLocalFile) {
+        return [BFTask taskWithResult:nil];
+    }
+    // Go grab the file at the URL
+    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
+    MBLLog(MBLLogLevelInfo, @"Downloading... %@", self.firmwareURL);
+    [[[NSURLSession sharedSession] downloadTaskWithURL:self.firmwareURL completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (error) {
+            [source trySetError:error];
+            return;
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorNoAvailableFirmware
+                                                userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", self.firmwareURL, (long)httpResponse.statusCode]}]];
+            return;
+        }
+        // If no download error, then copy the file to a permanent place.  Note the location
+        // variable suppiled is invalid once this block returns.
+        NSString *filepath = [NSTemporaryDirectory() stringByAppendingPathComponent:self.filename];
+        if (!filepath) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorUnexpectedServices
+                                                userInfo:@{NSLocalizedDescriptionKey : @"Couldn't find temp directory to store firmware file.  Please report issue to developers@mbientlab.com"}]];
+            return;
+        }
+        NSURL *fileURL = [NSURL fileURLWithPath:filepath];
+        NSError *err;
+        [[NSFileManager defaultManager] removeItemAtPath:filepath error:nil];
+        if (![[NSFileManager defaultManager] copyItemAtURL:location toURL:fileURL error:&err]) {
+            [source trySetError:err];
+            return;
+        }
+        MBLLog(MBLLogLevelInfo, @"Download Complete");
+        self.firmwareLocalFile = fileURL;
+        [source trySetResult:fileURL];
+    }] resume];
+    return source.task;
+}
+
++ (BFTask<MBLFirmwareBuild *> *)fromReleaseServerWithHardwareRev:(NSString *)hardwareRev
+                                                     modelNumber:(NSString *)modelNumber
+                                                     firmwareRev:(NSString *)firmwareRev
+{
+    // First try to fetch a zip file
+    MBLFirmwareBuild __block *firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
+                                                                   modelNumber:modelNumber
+                                                                   buildFlavor:@"vanilla"
+                                                                   firmwareRev:firmwareRev
+                                                                      filename:@"firmware.zip"];
+    return [[[firmware downloadFirmwareAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+        if (t.error == nil) {
+            return t;
+        }
+        // No zip file, try a bin instead
+        firmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
+                                                     modelNumber:modelNumber
+                                                     buildFlavor:@"vanilla"
+                                                     firmwareRev:firmwareRev
+                                                        filename:@"firmware.bin"];
+        return [firmware downloadFirmwareAsync];
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        return firmware;
+    }];
 }
 
 @end
