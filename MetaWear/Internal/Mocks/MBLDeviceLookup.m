@@ -92,8 +92,6 @@
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     
-    
-    
     NSString *deviceUid = [MBLDeviceLookup metawearUid];
     // First check the device cache
     [[[[MBLMetaWearManager sharedManager] retrieveSavedMetaWearsAsync] success:^(NSArray<MBLMetaWear *> *array) {
@@ -116,7 +114,7 @@
         [source trySetError:error];
     }];
     
-    // TODO: We do this on main thread because performSelector afterDelay isn't working on other threads
+    // We do this on main thread because performSelector afterDelay isn't working on other threads
     dispatch_async(dispatch_get_main_queue(), ^{
         [[MBLDeviceLookup class] performSelector:@selector(searchTimeout:) withObject:source afterDelay:timeout];
     });
