@@ -15,6 +15,7 @@ protocol ScanTableViewControllerDelegate {
 
 class ScanTableViewController: UITableViewController {
     var delegate: ScanTableViewControllerDelegate?
+    var createConfiguration: (() -> MBLRestorable)?
     var devices: [MBLMetaWear]?
     var selected: MBLMetaWear?
     
@@ -45,7 +46,7 @@ class ScanTableViewController: UITableViewController {
         // Configure the cell...
         if let cur = devices?[(indexPath as NSIndexPath).row] {
             let uuid = cell.viewWithTag(1) as! UILabel
-            uuid.text = cur.identifier.uuidString
+            uuid.text = cur.mac ?? "Connect for MAC"
             
             let connected = cell.viewWithTag(3) as! UILabel
             if cur.state == .connected {
@@ -102,9 +103,22 @@ class ScanTableViewController: UITableViewController {
                 }))
                 alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: { (action: UIAlertAction) -> Void in
                     selected.led?.setLEDOnAsync(false, withOptions: 1)
-                    selected.disconnectAsync()
-                    if let delegate = self.delegate {
-                        delegate.scanTableViewController(self, didSelectDevice: selected)
+                    guard let createConfiguration = self.createConfiguration else {
+                        selected.disconnectAsync()
+                        self.delegate?.scanTableViewController(self, didSelectDevice: selected)
+                        return
+                    }
+                    let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+                    hud.label.text = "Programming..."
+                    selected.setConfigurationAsync(createConfiguration()).continueOnDispatch { t in
+                        hud.hide(animated: true)
+                        selected.disconnectAsync()
+                        if let error = t.error {
+                            self.showOKAlert("Error", message: error.localizedDescription)
+                        } else {
+                            self.delegate?.scanTableViewController(self, didSelectDevice: selected)
+                        }
+                        return nil
                     }
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -113,5 +127,11 @@ class ScanTableViewController: UITableViewController {
                 hud.hide(animated: true, afterDelay: 2.0)
             }
         }
+    }
+    
+    func showOKAlert(_ title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
+        present(alertController, animated: true)
     }
 }
