@@ -123,8 +123,8 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "R_UUID"
-            value = "B6CC6C09-C439-47B6-A78F-4BE5D1888FA3"
+            key = "R_MAC"
+            value = "E3:F9:02:44:00:B7"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
