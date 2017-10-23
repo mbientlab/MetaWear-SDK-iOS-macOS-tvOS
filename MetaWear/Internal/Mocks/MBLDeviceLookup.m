@@ -79,34 +79,53 @@
     return model;
 }
 
-+ (NSString *)metawearUid
++ (NSString *)metawearMAC
 {
-    NSString *uuidKey = [[MBLDeviceLookup metawearModelString] stringByAppendingString:@"_UUID"];
+    NSString *MACKey = [[MBLDeviceLookup metawearModelString] stringByAppendingString:@"_MAC"];
     NSDictionary *environment = [[NSProcessInfo processInfo] environment];
-    NSString *metawearId = environment[uuidKey];
-    assert(metawearId && ![metawearId isEqualToString:@""]);
-    return metawearId;
+    NSString *mac = environment[MACKey];
+    assert(mac && ![mac isEqualToString:@""]);
+    return mac;
 }
 
 + (BFTask<MBLMetaWear *> *)deviceForTestWithTimeout:(NSTimeInterval)timeout
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     
-    NSString *deviceUid = [MBLDeviceLookup metawearUid];
+    NSString *deviceMAC = [MBLDeviceLookup metawearMAC];
     // First check the device cache
     [[[[MBLMetaWearManager sharedManager] retrieveSavedMetaWearsAsync] success:^(NSArray<MBLMetaWear *> *array) {
         for (MBLMetaWear *cur in array) {
-            if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
+            if ([cur.mac isEqualToString:deviceMAC]) {
                 [source trySetResult:cur];
+                return;
             }
         }
+        NSMutableSet<MBLMetaWear *> *deviceSet = [NSMutableSet set];
         // Then move to scanning
         [[MBLMetaWearManager sharedManager] startScanForMetaWearsAllowDuplicates:NO handler:^(NSArray<MBLMetaWear *> *array) {
             for (MBLMetaWear *cur in array) {
-                if ([cur.identifier.UUIDString isEqualToString:deviceUid]) {
-                    [[MBLMetaWearManager sharedManager] stopScan];
-                    [cur rememberDevice];
-                    [source trySetResult:cur];
+                if (![deviceSet containsObject:cur]) {
+                    [deviceSet addObject:cur];
+                    // Check if we have a chached mac, otherwise me must connect to get it
+                    if (cur.mac) {
+                        if ([cur.mac isEqualToString:deviceMAC]) {
+                            [cur rememberDevice];
+                            [[MBLMetaWearManager sharedManager] stopScan];
+                            [source trySetResult:cur];
+                        }
+                    } else {
+                        [[[cur connectWithTimeoutAsync:10.0] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+                            return [cur disconnectAsync];
+                        }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
+                            if ([cur.mac isEqualToString:deviceMAC]) {
+                                [cur rememberDevice];
+                                [[MBLMetaWearManager sharedManager] stopScan];
+                                [source trySetResult:cur];
+                            }
+                            return nil;
+                        }];
+                    }
                 }
             }
         }];

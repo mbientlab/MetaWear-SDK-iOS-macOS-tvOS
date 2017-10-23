@@ -79,7 +79,6 @@
 #import "MBLLogger.h"
 #import "MBLStringData.h"
 
-static int MAX_PENDING_WRITES = 10;
 
 typedef void (^MBLModuleInfoErrorHandler)(MBLModuleInfo *moduleInfo, NSError *error);
 typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
@@ -161,6 +160,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     MBLSimulationHandler simulatorHandler;
     MBLDataHandler snifferHandler;
     NSMutableDictionary *moduleInfoTaskSources;
+    int maxPendingWrites;
     int commandCount;
     
     CBCharacteristic *metawearCommandCharacteristic;
@@ -1030,7 +1030,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         type = CBCharacteristicWriteWithResponse;
     }
     // Throttle by having every Nth request wait for response
-    if (++commandCount == MAX_PENDING_WRITES) {
+    if (++commandCount >= maxPendingWrites) {
         commandCount = 0;
         type = CBCharacteristicWriteWithResponse;
     }
@@ -1484,7 +1484,9 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     [[[[[[[[self readDeviceInfoAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
         // Starting firmware 1.1.0 we can flood the beast!
         if ([MBLConstants versionString:t.result.firmwareRevision isLessThan:@"1.1.0"]) {
-            MAX_PENDING_WRITES = 3;
+            maxPendingWrites = 3;
+        } else {
+            maxPendingWrites = 10;
         }
         // Make sure the firmware isn't too old
         NSString *required = MBLFirmwareVersionString([MBLMetaWearManager sharedManager].minimumRequiredVersion);
@@ -1502,7 +1504,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         // checks need to read data (which uses callbacks throught this characteristic)
         [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
         // Get MAC address if needed (but ignore errors)
-        return [self.mac ? nil : [self.settings.macAddress readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLStringData *> * _Nonnull t) {
+        return [self.mac ? nil : [self.settings.macAddress readAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask<MBLStringData *> * _Nonnull t) {
             self.mac = t.result.value;
             return nil;
         }];

@@ -46,7 +46,7 @@
 
 - (void)testPerformDFU
 {
-    [self doUpdateToVersion:@"1.3.4"];
+    [self doUpdateToVersion:@"1.3.3"];
 }
 
 - (void)testUpdateToRC

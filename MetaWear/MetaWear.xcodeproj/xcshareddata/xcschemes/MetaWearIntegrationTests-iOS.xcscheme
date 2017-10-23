@@ -63,9 +63,6 @@
                   Identifier = "AutomaticTests/testDroppedReadsWhileStreaming">
                </Test>
                <Test
-                  Identifier = "AutomaticTests/testGuestConnection">
-               </Test>
-               <Test
                   Identifier = "AutomaticTests/testLogSaturation">
                </Test>
                <Test
@@ -105,18 +102,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "BW_UUID"
-            value = "7042FF0C-C6C2-09CB-78A9-577D752020F4"
+            key = "MMC_MAC"
+            value = "E9:0D:40:33:2C:E9"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "MMC_UUID"
-            value = "D9DB9D56-5FA8-C828-9ED7-F7B4EB594405"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "MMR_UUID"
-            value = "111F0D77-6EBB-4813-850F-7FF0E835D7CC"
+            key = "MMR_MAC"
+            value = "F1:F5:93:F9:F3:2E"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

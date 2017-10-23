@@ -15,8 +15,6 @@
 		400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */; };
 		400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
 		400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
-		400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
-		400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
 		400655B31D9A00C10066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
 		400655B41D9A00C20066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
 		400655B71D9A01820066AB54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B61D9A017D0066AB54 /* ViewController.m */; };
@@ -170,7 +168,6 @@
 		40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonConfig.m; sourceTree = "<group>"; };
 		40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingEventConfig.h; sourceTree = "<group>"; };
 		40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingEventConfig.m; sourceTree = "<group>"; };
-		40703EC01D94C3C100F38FF0 /* MetaBootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaBootTest.m; sourceTree = "<group>"; };
 		40703EC11D94C3C100F38FF0 /* MetaWearTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearTest.h; sourceTree = "<group>"; };
 		40703EC21D94C3C100F38FF0 /* MetaWearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MetaWearTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMA8452QTests.m; sourceTree = "<group>"; };
@@ -350,7 +347,6 @@
 		400655BA1D9A0D920066AB54 /* AdvancedSetups */ = {
 			isa = PBXGroup;
 			children = (
-				40703EC01D94C3C100F38FF0 /* MetaBootTest.m */,
 				40703EC41D94C3C100F38FF0 /* SendBytesTest.m */,
 			);
 			name = AdvancedSetups;
@@ -1544,7 +1540,6 @@
 				400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */,
 				400655BD1D9A0DE40066AB54 /* BMA255Tests.m in Sources */,
 				400655BB1D9A0DD70066AB54 /* AccelerometerTests.m in Sources */,
-				400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
 				40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */,
 				40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */,
 				400655C11D9A0E300066AB54 /* EnablingTests.m in Sources */,
@@ -1611,7 +1606,6 @@
 				400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */,
 				400655BE1D9A0DE50066AB54 /* BMA255Tests.m in Sources */,
 				400655BC1D9A0DD80066AB54 /* AccelerometerTests.m in Sources */,
-				400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
 				40915FF81D94D4BB008A5F24 /* IncrementingEventConfig.m in Sources */,
 				40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */,
 				400655C21D9A0E310066AB54 /* EnablingTests.m in Sources */,

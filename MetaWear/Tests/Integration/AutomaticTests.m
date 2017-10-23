@@ -2106,6 +2106,7 @@
     }] continueOnDispatchWithBlock:^id _Nullable(BFTask * _Nonnull t) {
         XCTAssertNil(t.error);
         [waitingExpectation fulfill];
+        return nil;
     }];
 
     [self waitForExpectationsWithTimeout:10 handler:nil];
