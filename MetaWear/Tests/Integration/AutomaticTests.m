@@ -68,7 +68,7 @@
             AssertModule(self.device.neopixel, 0, 0);
             AssertModule(self.device.iBeacon, 0, 0);
             AssertModule(self.device.hapticBuzzer, 0, 0);
-            AssertModule(self.device.dataProcessor, 0, 0);
+            AssertModule(self.device.dataProcessor, 0, 2);
             AssertModule(self.device.command, 0, 0);
             AssertModule(self.device.logging, 0, 2);
             AssertModule(self.device.timer, 0, 0);
@@ -76,7 +76,7 @@
             AssertModule(self.device.ancs, 0, 0);
             AssertModule(self.device.macro, 0, 1);
             AssertNilModule(self.device.conductance);
-            AssertModule(self.device.settings, 0, 4);
+            AssertModule(self.device.settings, 0, 6);
             AssertNilModule(self.device.barometer);
             AssertNilModule(self.device.gyro);
             AssertNilModule(self.device.ambientLight);
