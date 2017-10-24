@@ -1556,7 +1556,7 @@
 		06442DAAFF21721B0E2C64C15BC6F28E /* MBLHapticBuzzer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLHapticBuzzer.h; sourceTree = "<group>"; };
 		064E1E70344FD893965888C0643D028F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		065B9A18331BB5E77686A1A37B93AB89 /* MBLFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLFilter.h; sourceTree = "<group>"; };
-		069159D6B4A50F6EDE89E10AE34E5243 /* iOSDFULibrary-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "iOSDFULibrary-macOS.modulemap"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.modulemap"; sourceTree = "<group>"; };
+		069159D6B4A50F6EDE89E10AE34E5243 /* iOSDFULibrary-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "iOSDFULibrary-macOS.modulemap"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.modulemap"; sourceTree = "<group>"; };
 		06FE401D7714356AE47088498A48E826 /* LegacyDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/DFU/LegacyDFUExecutor.swift; sourceTree = "<group>"; };
 		07218CDF32728C8D7B179EF6BF2E063B /* BFCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenSource.h; path = Bolts/Common/BFCancellationTokenSource.h; sourceTree = "<group>"; };
 		074A291A191B13334260DE0EA07DE8F7 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -1599,7 +1599,7 @@
 		116BB3AC97B4B082383621A9CB2549E4 /* MBLAccelerometerBosch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBosch.m; sourceTree = "<group>"; };
 		11DD487EEB31D0A2E1939F4FC9874AE8 /* MBLAccelerometer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometer.h; sourceTree = "<group>"; };
 		11E5257353A0A8F124F0B331A4538993 /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
-		1245355700F9204731A756505A82774A /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap"; sourceTree = "<group>"; };
+		1245355700F9204731A756505A82774A /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap"; sourceTree = "<group>"; };
 		124A66A7D61B70758937979372A167E8 /* QuickZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickZip.swift; path = Zip/QuickZip.swift; sourceTree = "<group>"; };
 		125C400C3639412117CC73ADC6B68B26 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-dummy.m"; sourceTree = "<group>"; };
 		12C9DC23F0B487B7DEE634B37A340BD7 /* Pods-MetaWearIntegrationTests-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -1608,7 +1608,7 @@
 		13A32AA096E9CC779B36C686BD2CF253 /* Pods-MetaWearIntegrationTests-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWearIntegrationTests-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		13DC5F50967878257628BE72601421B3 /* MBLTemperatureV1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLTemperatureV1.m; sourceTree = "<group>"; };
 		146C6F2EFE7859BBE990B6949EEB29FE /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-umbrella.h"; sourceTree = "<group>"; };
-		149A299EB270D54A906B759631B645DE /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zip.framework; path = "Zip-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		149A299EB270D54A906B759631B645DE /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14EF7A0FCCB0842B76635115328356DD /* MBLConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLConstants.m; sourceTree = "<group>"; };
 		14F97140194A6FFAF4887995AC14BDBE /* Pods-MetaWearIntegrationTests-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWearIntegrationTests-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		154C63619035D967672EFF5169B9350C /* MBLBarometerBoschPeriodicAltitudeEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLBarometerBoschPeriodicAltitudeEvent.m; sourceTree = "<group>"; };
@@ -1617,7 +1617,7 @@
 		1715097568001DA621307FAF3AB98ABF /* DFUStreamBin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamBin.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamBin.swift; sourceTree = "<group>"; };
 		17EFC2C06B8579FD74B3E5A222DE447E /* DFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUPacket.swift; sourceTree = "<group>"; };
 		1836DBE60406D35990AF938F41D465F2 /* MBLTimer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLTimer.h; sourceTree = "<group>"; };
-		188462229B48E75C3B38FD78962917B8 /* Zip-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "Zip-macOS.modulemap"; path = "../Zip-macOS/Zip-macOS.modulemap"; sourceTree = "<group>"; };
+		188462229B48E75C3B38FD78962917B8 /* Zip-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Zip-macOS.modulemap"; path = "../Zip-macOS/Zip-macOS.modulemap"; sourceTree = "<group>"; };
 		18BB70CAC175503B0836D3D7EF3C1AE8 /* MBLAccelerometerBMA255MotionEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBMA255MotionEvent.h; sourceTree = "<group>"; };
 		18D0C4AE392CD54EE51E540B5D17D335 /* MBLI2CData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLI2CData.m; sourceTree = "<group>"; };
 		18DDDD5E1E2ADE29C7D340B61A72DAD1 /* MBLEntityEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLEntityEvent+Private.h"; sourceTree = "<group>"; };
@@ -1645,10 +1645,10 @@
 		207253A3CCB458058792D0E02B6AA4F5 /* FastCoding+tvOS-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FastCoding+tvOS-iOS-prefix.pch"; sourceTree = "<group>"; };
 		20F79B1DFA93D6C8DEC2C4D417376E27 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2173E09EFD7D86F6C58907D0B83C31AF /* MBLAccelerometerBoschAxisReadyEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBoschAxisReadyEvent.m; sourceTree = "<group>"; };
-		21F967B6EA940F7D199DEA3CF5062BD5 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = unzip.c; path = Zip/minizip/unzip.c; sourceTree = "<group>"; };
+		21F967B6EA940F7D199DEA3CF5062BD5 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Zip/minizip/unzip.c; sourceTree = "<group>"; };
 		22074BEB840408CE90EAF720DD456558 /* MBLFirmwareUpdateInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLFirmwareUpdateInfo.m; sourceTree = "<group>"; };
 		235473A94D078668FB5E9A033D8063BA /* Bolts-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-tvOS-prefix.pch"; path = "../Bolts-tvOS/Bolts-tvOS-prefix.pch"; sourceTree = "<group>"; };
-		237ACA4BD32EB5D373F2E7B20C7E76C7 /* Bolts-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "Bolts-macOS.modulemap"; path = "../Bolts-macOS/Bolts-macOS.modulemap"; sourceTree = "<group>"; };
+		237ACA4BD32EB5D373F2E7B20C7E76C7 /* Bolts-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Bolts-macOS.modulemap"; path = "../Bolts-macOS/Bolts-macOS.modulemap"; sourceTree = "<group>"; };
 		23D453257F06A73A5C8CD0F590FB2534 /* MBLAccelerometerBMA255.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBMA255.h; sourceTree = "<group>"; };
 		249139FB8D137FD0841B19206867C7EB /* MBLEntityModule+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLEntityModule+Private.h"; sourceTree = "<group>"; };
 		257DF6872E94837AC767B4782104D87E /* MBLExternalThermistor1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLExternalThermistor1.m; sourceTree = "<group>"; };
@@ -1661,7 +1661,7 @@
 		2706954377653812FD06C3E316EE5232 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-umbrella.h"; sourceTree = "<group>"; };
 		2712F6503B63708AD7766394B4BFAB8B /* MBLLoggingV1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLLoggingV1.m; sourceTree = "<group>"; };
 		2775F63A5885A6560DF256662375885D /* MBLTriggeredRead.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLTriggeredRead.m; sourceTree = "<group>"; };
-		2799BD30062D781BB83761469C1981A4 /* Pods-MetaWearIntegrationTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWearIntegrationTests-tvOS.modulemap"; sourceTree = "<group>"; };
+		2799BD30062D781BB83761469C1981A4 /* Pods-MetaWearIntegrationTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWearIntegrationTests-tvOS.modulemap"; sourceTree = "<group>"; };
 		27CC639E6DE536C6F9FDEBCB0AFFEA31 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2807A744BD66EC2FC25F34F06ABD06A3 /* MBLAccelerometerData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerData.m; sourceTree = "<group>"; };
 		2813B6E415AA511D8A27433A7E7567D7 /* MBLBarometerBMP280.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLBarometerBMP280.h; sourceTree = "<group>"; };
@@ -1683,7 +1683,7 @@
 		2E9509DC1D8A3CAC000D15100F024E81 /* DFUServiceSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUSelector/DFUServiceSelector.swift; sourceTree = "<group>"; };
 		2EC3430CE59F55B7ECCD181718DED63F /* MBLSerial.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLSerial.h; sourceTree = "<group>"; };
 		2EE1FB0DD41BD31701FDA36D7A577E33 /* MBLOrientationData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLOrientationData+Private.h"; sourceTree = "<group>"; };
-		2EE9250947FD8978BB6039BA8E6127F6 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi.c; path = Zip/minizip/ioapi.c; sourceTree = "<group>"; };
+		2EE9250947FD8978BB6039BA8E6127F6 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Zip/minizip/ioapi.c; sourceTree = "<group>"; };
 		30380F8CC34F2968DCC11BFA184B2CE8 /* MBLStringData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLStringData+Private.h"; sourceTree = "<group>"; };
 		307F674A703E7405F88305FB6DCF1CC3 /* iOSDFULibrary-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDFULibrary-iOS-dummy.m"; sourceTree = "<group>"; };
 		315DE6DF9415ACA45A996357360A6099 /* MBLPhotometer+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLPhotometer+Private.h"; sourceTree = "<group>"; };
@@ -1700,7 +1700,7 @@
 		35A4AC7510CFC6F186F94CABFBF54780 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36D8527B2592BA672AAD7D7AF5CF1B77 /* DFUStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStream.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStream.swift; sourceTree = "<group>"; };
 		37B489C8B8DBB94117E2EF08913D2FB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		3830103920A95F3003C18CD72C7672C0 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = "Bolts-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3830103920A95F3003C18CD72C7672C0 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39406C785E452FAF5B389D4F86949543 /* MBLConductanceData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLConductanceData.h; sourceTree = "<group>"; };
 		39A93D8D844389570DDA7A68F02881BF /* MBLMagnetometer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLMagnetometer.m; sourceTree = "<group>"; };
 		3A11D978BD98802C632FA253271B5EF2 /* MBLSPIData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLSPIData.h; sourceTree = "<group>"; };
@@ -1726,7 +1726,7 @@
 		44D9BA52B3B96B5EDB43E0D206ED3869 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44E2876AE1BB6B2EC1B9E6DFFDB5C908 /* MBLEulerFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLEulerFormat.m; sourceTree = "<group>"; };
 		4525E160E4898E62B03AE43EB2983390 /* SoftdeviceBootloaderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoftdeviceBootloaderInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/SoftdeviceBootloaderInfo.swift; sourceTree = "<group>"; };
-		456ACD2DC3330D84D9FFD3A8A3AF3EBE /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_tvOS.framework; path = "Pods-MetaWearIntegrationTests-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		456ACD2DC3330D84D9FFD3A8A3AF3EBE /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4602EBBBCBFC4B0BDD1112C6F156FAC2 /* MBLGyro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLGyro.h; sourceTree = "<group>"; };
 		46546F45369A541754827BBFAD119C43 /* MBLHygrometerBME280.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLHygrometerBME280.h; sourceTree = "<group>"; };
 		466F4CBD1227EE55915A7031EC4B452F /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-dummy.m"; sourceTree = "<group>"; };
@@ -1765,13 +1765,13 @@
 		55B5F56299B15AFD2D2404B34E225E67 /* MBLBarometer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLBarometer.m; sourceTree = "<group>"; };
 		55FE4B0DB5B634C182E58E6D85C98CDA /* Zip-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zip-iOS-dummy.m"; sourceTree = "<group>"; };
 		568C305A82820552CFE0C4605EBA0459 /* MBLAccelerometerPackedDataReadyEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerPackedDataReadyEvent.h; sourceTree = "<group>"; };
-		56AE87A1B67649D3A9475AF268FDA668 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDFULibrary.framework; path = "iOSDFULibrary-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AE87A1B67649D3A9475AF268FDA668 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BF9B3D5859CBEA51D1EFF6538F58D4 /* MetaWearPrivate-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetaWearPrivate-iOS-dummy.m"; sourceTree = "<group>"; };
 		5821C4BBD7BA17653F0E958820AECF88 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
 		583A609E5ACE78382C84ED5EF0EDE7C8 /* MBLFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLFormat.m; sourceTree = "<group>"; };
 		58D92C0D8A331C0153DC2D7E2E1A110E /* MBLTestDebug.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLTestDebug.m; sourceTree = "<group>"; };
 		59F41F0F37DF9DF332219AE7B2AA6890 /* MBLFirmwareUpdateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLFirmwareUpdateManager.h; sourceTree = "<group>"; };
-		5A8A8324FEEE1EAD815BD50D4C91B653 /* MetaWearPrivate-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "MetaWearPrivate-tvOS.modulemap"; path = "../MetaWearPrivate-tvOS/MetaWearPrivate-tvOS.modulemap"; sourceTree = "<group>"; };
+		5A8A8324FEEE1EAD815BD50D4C91B653 /* MetaWearPrivate-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "MetaWearPrivate-tvOS.modulemap"; path = "../MetaWearPrivate-tvOS/MetaWearPrivate-tvOS.modulemap"; sourceTree = "<group>"; };
 		5B6488DE19FA291681E79AFB6D915611 /* MBLGPIOData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLGPIOData.m; sourceTree = "<group>"; };
 		5B916B04CDA309B8322D3494A89A559E /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		5BC673AC71BD95CD9BF86FDD6371BE59 /* MBLAccelerometerOrientationEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerOrientationEvent.m; sourceTree = "<group>"; };
@@ -1806,9 +1806,9 @@
 		683A646CE59BF06ACE557B9DC63F37BD /* MBLAccelerometerMMA8452Q.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerMMA8452Q.m; sourceTree = "<group>"; };
 		683E023C19814107E458986DB3C80721 /* MBLNeopixel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLNeopixel.h; sourceTree = "<group>"; };
 		684ACAB6B74CA94DDD2CBE56FD8D20B5 /* MBLConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLConstants.h; sourceTree = "<group>"; };
-		68E0F9521AF535BF9D8E414EEB4D4F8C /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap"; sourceTree = "<group>"; };
+		68E0F9521AF535BF9D8E414EEB4D4F8C /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap"; sourceTree = "<group>"; };
 		692F88AF29ED9FF0430BBE14223C9017 /* BFTask+Exceptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BFTask+Exceptions.h"; path = "Bolts/Common/BFTask+Exceptions.h"; sourceTree = "<group>"; };
-		69E03E2C4F44184A98EE3403E5901159 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDFULibrary.framework; path = "iOSDFULibrary-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69E03E2C4F44184A98EE3403E5901159 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3741316EE19AD0AE240BFCE27C008 /* MBLAccelerometerTapEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerTapEvent.m; sourceTree = "<group>"; };
 		6A3C94A2D4474A8DC16FF570AEE192F7 /* MBLGyro.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLGyro.m; sourceTree = "<group>"; };
 		6B34BF91775BD5B5F16563879AAE89DE /* MBLDataProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLDataProcessor.m; sourceTree = "<group>"; };
@@ -1826,10 +1826,10 @@
 		717E1C94E4A237C3492917CC7A3748D2 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-umbrella.h"; sourceTree = "<group>"; };
 		718939B1F06D98A2D692322B76D0E876 /* iOSDFULibrary-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "iOSDFULibrary-macOS-umbrella.h"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS-umbrella.h"; sourceTree = "<group>"; };
 		71C9148C30A9AEBF8DA33E34D3D71D0A /* MBLLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLLogging.m; sourceTree = "<group>"; };
-		72327B193C0B447D601C314F9A935A88 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72327B193C0B447D601C314F9A935A88 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72719947DFFD1CE465ABCF26C079567E /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		728A14598DFA2E0ADAC364544A685C3C /* MBLConstants+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLConstants+Private.h"; sourceTree = "<group>"; };
-		738903D8BA6358DD4676E389668DFC4D /* FastCoding+tvOS-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "FastCoding+tvOS-macOS.modulemap"; path = "../FastCoding+tvOS-macOS/FastCoding+tvOS-macOS.modulemap"; sourceTree = "<group>"; };
+		738903D8BA6358DD4676E389668DFC4D /* FastCoding+tvOS-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "FastCoding+tvOS-macOS.modulemap"; path = "../FastCoding+tvOS-macOS/FastCoding+tvOS-macOS.modulemap"; sourceTree = "<group>"; };
 		73BC22E4E093926AE2FD93BAFE2E5B2B /* MBLAccelerometerBoschLowOrHighGEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBoschLowOrHighGEvent.h; sourceTree = "<group>"; };
 		7420DE7FF33B58C5DB851F3A44534E10 /* Pods-MetaWearIntegrationTests-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-macOS-resources.sh"; sourceTree = "<group>"; };
 		748435E6E0217484100FE5221050840B /* MetaWearPrivate-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWearPrivate-macOS-dummy.m"; path = "../MetaWearPrivate-macOS/MetaWearPrivate-macOS-dummy.m"; sourceTree = "<group>"; };
@@ -1880,7 +1880,7 @@
 		843E0A48169AE80D5131149D66B2E83B /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
 		84636ADEBFC31D02D2AA9BB00F220C37 /* MBLGravityFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLGravityFormat.m; sourceTree = "<group>"; };
 		851B1F784539DC188479DDCA5FEC1F8D /* MBLEntityModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLEntityModule.h; sourceTree = "<group>"; };
-		853EA2C7A36ECCB7CFFBA0E8591D03E7 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWearPrivate-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		853EA2C7A36ECCB7CFFBA0E8591D03E7 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85795CBE32C64342DEFEA3F17C5EF7C4 /* MBLEulerFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLEulerFormat.h; sourceTree = "<group>"; };
 		858C9D6C80314D5D2A2684B605ED326F /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		85CE3C145F9D23BF8E0DB8462C048C88 /* MBLGyro+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLGyro+Private.h"; sourceTree = "<group>"; };
@@ -1896,39 +1896,39 @@
 		88ED920AEEE06BB9756967CB01B506F9 /* MetaWearPrivate-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWearPrivate-tvOS-prefix.pch"; path = "../MetaWearPrivate-tvOS/MetaWearPrivate-tvOS-prefix.pch"; sourceTree = "<group>"; };
 		89508313CD903B64125F4A956E656897 /* MBLRMSAccelerometerData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLRMSAccelerometerData+Private.h"; sourceTree = "<group>"; };
 		89623681E889D7BF4140DF54CFBA5AE9 /* FastCoding+tvOS-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "FastCoding+tvOS-macOS.xcconfig"; path = "../FastCoding+tvOS-macOS/FastCoding+tvOS-macOS.xcconfig"; sourceTree = "<group>"; };
-		89E2C70DC2DB2EB6CF0AF07001305D1C /* Zip-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Zip-iOS.modulemap"; sourceTree = "<group>"; };
+		89E2C70DC2DB2EB6CF0AF07001305D1C /* Zip-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Zip-iOS.modulemap"; sourceTree = "<group>"; };
 		8A18E55D8821CB31D07CE5BF47FF94C0 /* DFUServiceController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceController.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceController.swift; sourceTree = "<group>"; };
 		8A498490BEAA8E5C25A3B8A636D898BA /* MBLEntityEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLEntityEvent.m; sourceTree = "<group>"; };
 		8AEE8D67D4F7E8DFF4E506064DE422CF /* BFTask+Exceptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Exceptions.m"; path = "Bolts/Common/BFTask+Exceptions.m"; sourceTree = "<group>"; };
 		8B57BD6985CC1B1CBC84967E9E7A9D0C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		8C06DE03D80A35DF40079D0DC1D26480 /* MBLAccelerometerBoschFlatEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBoschFlatEvent.h; sourceTree = "<group>"; };
 		8CB82133272E40D5FE88AAFEE0E3AA14 /* MBLDataSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLDataSwitch.h; sourceTree = "<group>"; };
-		8D04054AC4D8EFD56FACC7F3A3561897 /* FastCoding+tvOS-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "FastCoding+tvOS-tvOS.modulemap"; path = "../FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS.modulemap"; sourceTree = "<group>"; };
-		8D05A200AB55C449114D902EB7C3330D /* Bolts-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Bolts-iOS.modulemap"; sourceTree = "<group>"; };
+		8D04054AC4D8EFD56FACC7F3A3561897 /* FastCoding+tvOS-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "FastCoding+tvOS-tvOS.modulemap"; path = "../FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS.modulemap"; sourceTree = "<group>"; };
+		8D05A200AB55C449114D902EB7C3330D /* Bolts-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Bolts-iOS.modulemap"; sourceTree = "<group>"; };
 		8D409E9AC30BA95DADFD8640807D6AC9 /* MBLAccelerometerMMA8452Q.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerMMA8452Q.h; sourceTree = "<group>"; };
 		8DB88D5E21CC6737F8A128219B847D7C /* MBLTemperatureV1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLTemperatureV1.h; sourceTree = "<group>"; };
-		8DF9B3DC4C18DFE10D8244ADD40CBA5B /* Pods-MetaWearIntegrationTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWearIntegrationTests-iOS.modulemap"; sourceTree = "<group>"; };
+		8DF9B3DC4C18DFE10D8244ADD40CBA5B /* Pods-MetaWearIntegrationTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWearIntegrationTests-iOS.modulemap"; sourceTree = "<group>"; };
 		8E467C7C82562087AC08D2E87E1D227E /* MBLAccelerometerBoschFlatData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBoschFlatData.m; sourceTree = "<group>"; };
 		8E865202A724C2E7CA60627742396A26 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		8F04C343FC7E20D674466E19D6BF71FA /* MBLModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLModule.h; sourceTree = "<group>"; };
-		8F2306643AE7C0B434345DBC19F36F96 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zip.framework; path = "Zip-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2306643AE7C0B434345DBC19F36F96 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F8B897BFBEE1E908BC588532F4D8073 /* Manifest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manifest.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/Manifest.swift; sourceTree = "<group>"; };
 		8FB11F20516E10D5392A8FD9A19FCAF4 /* MBLGPIO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLGPIO.h; sourceTree = "<group>"; };
 		9029C34C208F4D319765F0AA0AFE713B /* DFUStreamZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamZip.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamZip.swift; sourceTree = "<group>"; };
 		9030BAA310B1AD555332EC41BE83E228 /* MBLAmbientLightLTR329.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAmbientLightLTR329.h; sourceTree = "<group>"; };
 		903FA22423F59CCE8208F4C9FE53F11B /* Bolts-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-macOS.xcconfig"; path = "../Bolts-macOS/Bolts-macOS.xcconfig"; sourceTree = "<group>"; };
-		9148EDD83DD82263EE4A730D3F6BD436 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zip.c; path = Zip/minizip/zip.c; sourceTree = "<group>"; };
+		9148EDD83DD82263EE4A730D3F6BD436 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Zip/minizip/zip.c; sourceTree = "<group>"; };
 		92516A30E70293A900BBF8AB90EB0500 /* MBLSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLSettings.h; sourceTree = "<group>"; };
-		92A5CB77A0BEE90EB224D67A4C528722 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A5CB77A0BEE90EB224D67A4C528722 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D663A7C28AB18F9A50BB387E5D8978 /* SecureDFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Peripheral/SecureDFUPeripheralDelegate.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93EAE20DC31EBE286C11FBC0F8E11117 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-dummy.m"; sourceTree = "<group>"; };
 		9415EA9965A6D5B1AEB2660964C616EC /* Pods-MetaWearIntegrationTests-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		9447C9E2EE7B1F292D335549BCE3E09E /* MBLAccelerometerMMA8452QFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerMMA8452QFormat.h; sourceTree = "<group>"; };
 		94E08C3E838F46065D9A579E08D26F1F /* MBLModuleMock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLModuleMock.h; sourceTree = "<group>"; };
 		9582ADFE04E59FB00FC2EB1B9CDF781A /* MBLMockPeripheralFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLMockPeripheralFactory.h; sourceTree = "<group>"; };
 		963DB1DF54760EFEB2E73CDBE77C533A /* Bolts-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-macOS-dummy.m"; path = "../Bolts-macOS/Bolts-macOS-dummy.m"; sourceTree = "<group>"; };
-		9742179AAB1CA120568E4E5F3166A262 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap"; sourceTree = "<group>"; };
+		9742179AAB1CA120568E4E5F3166A262 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap"; sourceTree = "<group>"; };
 		97EED75612896E793A8196DE13BFBA02 /* MBLNumericData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLNumericData.m; sourceTree = "<group>"; };
 		988D40BB92611BCE21D54846268F245A /* MBLAccelerometerBoschRMSFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBoschRMSFormat.m; sourceTree = "<group>"; };
 		9951ED4CE84E530835A1BBE12C8A58BB /* MBLMagnetometerBMM150.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLMagnetometerBMM150.m; sourceTree = "<group>"; };
@@ -1938,7 +1938,7 @@
 		9AAFD4E4609EAE8A3637DD8B1CBB0C77 /* MBLMetaWear+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLMetaWear+Private.h"; sourceTree = "<group>"; };
 		9AF439C209114525130FC395432345CF /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-umbrella.h"; sourceTree = "<group>"; };
 		9BEBDF15B99A76AB465BBDA0C0529628 /* MBLTestDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLTestDebug.h; sourceTree = "<group>"; };
-		9C08B8EB18CB8CD87039B1092B189B51 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWearPrivate-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C08B8EB18CB8CD87039B1092B189B51 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C683486ECC25A38F2E223F39D10D5D9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		9CB89E36AEE3848001C95666AAB53B64 /* MBLAccelerometerBMI160MotionEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBMI160MotionEvent.m; sourceTree = "<group>"; };
 		9D144E6E435DBDDDD0D91240069800D3 /* MBLMacro.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLMacro.m; sourceTree = "<group>"; };
@@ -1950,13 +1950,13 @@
 		9F5479EAA668064130D02812F59E306C /* MBLProximity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLProximity.m; sourceTree = "<group>"; };
 		9F8F783E140BB600631BF26096F6498C /* bmi160.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = bmi160.h; sourceTree = "<group>"; };
 		9FCA26FF093F156E325A7B83CC6F09F3 /* MBLAccelerometerBoschFlatFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBoschFlatFormat.m; sourceTree = "<group>"; };
-		A02B8FFA01135298BB1A1E5040DDC13E /* iOSDFULibrary-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "iOSDFULibrary-iOS.modulemap"; sourceTree = "<group>"; };
+		A02B8FFA01135298BB1A1E5040DDC13E /* iOSDFULibrary-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "iOSDFULibrary-iOS.modulemap"; sourceTree = "<group>"; };
 		A0804FE517C8395CC41A21867714CE20 /* SecureDFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUControlPoint.swift; sourceTree = "<group>"; };
 		A0DAFCFCA37D81B01944B09B50BD2EF8 /* MBLNonVolatileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLNonVolatileState.m; sourceTree = "<group>"; };
 		A2F0E57E1990CED91D153D6BCA97B4B8 /* mma8452q.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mma8452q.h; sourceTree = "<group>"; };
 		A487D9615078F8F70198C070FAF0058C /* MBLRegister.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLRegister.m; sourceTree = "<group>"; };
 		A496183A4668C26A08A67495675B4D7F /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh"; sourceTree = "<group>"; };
-		A68A991D8682BE111C399A8360F8F6B4 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_iOS.framework; path = "Pods-MetaWearIntegrationTests-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68A991D8682BE111C399A8360F8F6B4 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D1CAB7A4C5AA326DEFFBB8A028D90E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		A8E537AD8696AC9BD8F1C4C269CFC7C0 /* LegacyDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheral.swift; sourceTree = "<group>"; };
 		A924A05D60ADB810E3396EEB214443A7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1967,13 +1967,13 @@
 		ABF694E5002B9296413AA84DDC5B0D02 /* MBLPhotometerTCS3472.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLPhotometerTCS3472.m; sourceTree = "<group>"; };
 		AC165D8BECA691BFCA6C6045C8C5762C /* MBLAccelerometerBMA255+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAccelerometerBMA255+Private.h"; sourceTree = "<group>"; };
 		AC54B32E4666B6C1892004CAB3F5F4F7 /* MBLMetaWearManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLMetaWearManager.h; sourceTree = "<group>"; };
-		ACA6CFBF6B7B67C7C297FAFFE38AD1F4 /* MetaWearPrivate-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "MetaWearPrivate-macOS.modulemap"; path = "../MetaWearPrivate-macOS/MetaWearPrivate-macOS.modulemap"; sourceTree = "<group>"; };
+		ACA6CFBF6B7B67C7C297FAFFE38AD1F4 /* MetaWearPrivate-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "MetaWearPrivate-macOS.modulemap"; path = "../MetaWearPrivate-macOS/MetaWearPrivate-macOS.modulemap"; sourceTree = "<group>"; };
 		ACCF7CA22DE0EE99184FAFF40C4412D1 /* MBLHygrometer+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLHygrometer+Private.h"; sourceTree = "<group>"; };
 		AD5AA089B841493D5B1B4D4B72507C34 /* DFUFirmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUFirmware.swift; path = iOSDFULibrary/Classes/Implementation/Firmware/DFUFirmware.swift; sourceTree = "<group>"; };
 		AD6A182159DB824EC701C4F5CECF3593 /* BFTask+MBLExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BFTask+MBLExtensions.h"; sourceTree = "<group>"; };
 		AD87D9452AD5DFA34EAE953736420189 /* MBLCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLCommand.m; sourceTree = "<group>"; };
 		AD8EF5FF275DB50EA6F98F6CE294C071 /* MBLAccelerometerFreeFallEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerFreeFallEvent.m; sourceTree = "<group>"; };
-		ADAF3CB39C8B2D17FB5EB8ABD62A07A9 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap"; sourceTree = "<group>"; };
+		ADAF3CB39C8B2D17FB5EB8ABD62A07A9 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap"; sourceTree = "<group>"; };
 		AE1010EE66D1FDA5F86AD0D8493B7D87 /* MBLNeopixelStrand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLNeopixelStrand.m; sourceTree = "<group>"; };
 		AE70D8C3F080CAE5CD2BD059325B35B0 /* MBLGPIOData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLGPIOData.h; sourceTree = "<group>"; };
 		AE87B690092A8EF75229C72683FD9686 /* DFUPeripheralSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelector.swift; sourceTree = "<group>"; };
@@ -1993,16 +1993,16 @@
 		B8A91121FECDED26B7FB6549E0D9D636 /* Zip-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Zip-macOS-umbrella.h"; path = "../Zip-macOS/Zip-macOS-umbrella.h"; sourceTree = "<group>"; };
 		B90E3A5C2959459174C720292B111ACD /* MBLDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLDeviceInfo.h; sourceTree = "<group>"; };
 		B9676FFAADD54AD787A3022BA543B95D /* MBLFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLFilter.m; sourceTree = "<group>"; };
-		B9788F2A099965213B05746533D0E69F /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_macOS.framework; path = "Pods-MetaWearIntegrationTests-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9788F2A099965213B05746533D0E69F /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9982DA76A06D503421233E250EC06D3 /* FastCoding+tvOS-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "FastCoding+tvOS-tvOS.xcconfig"; path = "../FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS.xcconfig"; sourceTree = "<group>"; };
-		BA2A6BF801C131AF9E86987D0B238DA6 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = "Bolts-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2A6BF801C131AF9E86987D0B238DA6 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD999AF844115DA8A50A968030408C1 /* MBLAccelerometerBMI160+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAccelerometerBMI160+Private.h"; sourceTree = "<group>"; };
 		BB0992D5084797FE10F678A4D2FE31D2 /* MBLStringData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLStringData.m; sourceTree = "<group>"; };
 		BB2393946755F5852638E025B4E4DCAE /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3630C4C23448737131CCDFA574952F /* MBLDataSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLDataSwitch.m; sourceTree = "<group>"; };
 		BB3F32928EB651F4C4CE72952F313C1F /* MetaWearPrivate-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWearPrivate-iOS-prefix.pch"; sourceTree = "<group>"; };
 		BBA69F3B3472ABC188162666FEA7E552 /* MBLAccelerometerMMA8452QFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerMMA8452QFormat.m; sourceTree = "<group>"; };
-		BBC31E2D07C65D9C0879D5A953FB1507 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC31E2D07C65D9C0879D5A953FB1507 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC4EE879733B6643D4330B3DC8C441E /* MetaWearPrivate-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWearPrivate-macOS.xcconfig"; path = "../MetaWearPrivate-macOS/MetaWearPrivate-macOS.xcconfig"; sourceTree = "<group>"; };
 		BBD2CD5AC9C224EF7A5EC8606ACED6BE /* MBLAccelerometerBMI160.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBMI160.h; sourceTree = "<group>"; };
 		BBFA2A124C5CF5541408059671A33F65 /* MBLAccelerometerBMI160StepEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBMI160StepEvent.m; sourceTree = "<group>"; };
@@ -2015,14 +2015,14 @@
 		BF37B13956F515D176ED1150BBA2BF23 /* MBLTemperature+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLTemperature+Private.h"; sourceTree = "<group>"; };
 		BFE41FD08D80647E835161681D60921A /* MBLANCSEventData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLANCSEventData+Private.h"; sourceTree = "<group>"; };
 		C00606375314EB5180797E7794603591 /* MBLAccelerometerBMI160StepEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBMI160StepEvent.h; sourceTree = "<group>"; };
-		C0DB0ACB3A5FF22CFAC71A73E1D5C3B4 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = "Bolts-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DB0ACB3A5FF22CFAC71A73E1D5C3B4 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F1DD0100FE7F87C5D186A165C20E9B /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		C1B685F9E6F13388FB4E2B6427B04C34 /* DFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUControlPoint.swift; sourceTree = "<group>"; };
 		C1EDCB210888571A4674E8E85C415DAC /* MBLAccelerometerBosch+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAccelerometerBosch+Private.h"; sourceTree = "<group>"; };
 		C23EE3F1FACF9A4C1ACF113B7106D470 /* MBLAccelerometerMMA8452QOrientationFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerMMA8452QOrientationFormat.h; sourceTree = "<group>"; };
 		C2C168D223F2416C3CC90340404D2559 /* FastCoding+tvOS-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FastCoding+tvOS-iOS-umbrella.h"; sourceTree = "<group>"; };
 		C31C3C37A5B28C48919E378674655A95 /* MBLI2CData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLI2CData.h; sourceTree = "<group>"; };
-		C3A7530B6B5A98159999CA0C010AA27D /* Bolts-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "Bolts-tvOS.modulemap"; path = "../Bolts-tvOS/Bolts-tvOS.modulemap"; sourceTree = "<group>"; };
+		C3A7530B6B5A98159999CA0C010AA27D /* Bolts-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Bolts-tvOS.modulemap"; path = "../Bolts-tvOS/Bolts-tvOS.modulemap"; sourceTree = "<group>"; };
 		C3BD137652B007FD84DB4EEEF5268307 /* Double.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Double.swift; path = iOSDFULibrary/Classes/Utilities/Double.swift; sourceTree = "<group>"; };
 		C3F37BD6E8C1B5B209223A4403C6820B /* MBLAccelerometerBoschTapEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBoschTapEvent.h; sourceTree = "<group>"; };
 		C3FF22CA55CEDA7F854443FF7BDB86C8 /* MBLData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLData.m; sourceTree = "<group>"; };
@@ -2037,10 +2037,10 @@
 		C6EF3DD06DCF465CB6B9BF1E1C048270 /* MBLGyroBMI160PackedDataReadyEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLGyroBMI160PackedDataReadyEvent.h; sourceTree = "<group>"; };
 		C778CE095A0DBF3235157B58561F1329 /* MBLGyroBMI160AxisReadyEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLGyroBMI160AxisReadyEvent.m; sourceTree = "<group>"; };
 		C78C6DCAA18927FE63D0D8C43B0CFF2F /* MBLRegister.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLRegister.h; sourceTree = "<group>"; };
-		C81A0A7EF3E87B0E29504E658122DE26 /* FastCoding+tvOS-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "FastCoding+tvOS-iOS.modulemap"; sourceTree = "<group>"; };
+		C81A0A7EF3E87B0E29504E658122DE26 /* FastCoding+tvOS-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "FastCoding+tvOS-iOS.modulemap"; sourceTree = "<group>"; };
 		C830F6C50185B585F4EB59E43DC8DD8F /* MBLGyroData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLGyroData.h; sourceTree = "<group>"; };
 		C8D814FF23AF9233769F9E031893135E /* Pods-MetaWearIntegrationTests-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		C8DE035EAFE1F787A57B07726C2F8665 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8DE035EAFE1F787A57B07726C2F8665 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C926B3FBE54B3DF99DD7B12C0402933C /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C9D693443D18F04CD16EC8D21B3265B7 /* MBLI2CData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLI2CData+Private.h"; sourceTree = "<group>"; };
 		CA1245D808F6BCC15B8A902CE557F9AA /* MBLMechanicalSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLMechanicalSwitch.m; sourceTree = "<group>"; };
@@ -2060,7 +2060,7 @@
 		CF11CDDD171CAD8715AD95DFF1BF1992 /* MBLFirmwareUpdateInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLFirmwareUpdateInfo.h; sourceTree = "<group>"; };
 		CF9F74DB820671AFBE5EF84A20FFF98A /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D015AFF3E32DB592E65FF30976F85E80 /* MBLMagnetometerData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLMagnetometerData.h; sourceTree = "<group>"; };
-		D077056CC556573D6A6415B4FF28CFAE /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FastCoding_tvOS.framework; path = "FastCoding+tvOS-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D077056CC556573D6A6415B4FF28CFAE /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastCoding_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09F8208C59945BF9BCA2E29C547665D /* MBLQuaternionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLQuaternionData.m; sourceTree = "<group>"; };
 		D0A61028F007854D347336A0CF0B717A /* FastCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FastCoder.m; path = FastCoder/FastCoder.m; sourceTree = "<group>"; };
 		D0FED9CA66384F76DECF70F875B7267B /* MBLDataSample+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLDataSample+Private.h"; sourceTree = "<group>"; };
@@ -2068,12 +2068,12 @@
 		D2182E483FD05DCE8941DE26DA14FE7A /* MBLMagnetometerBMM150PeriodicMagneticFieldEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLMagnetometerBMM150PeriodicMagneticFieldEvent.m; sourceTree = "<group>"; };
 		D2A0C4EBC219C36288D8D895258EAB81 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		D2E840663FC7E9ADDC8814A8A0A39287 /* iOSDFULibrary-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDFULibrary-iOS-prefix.pch"; sourceTree = "<group>"; };
-		D370CFF85045EC034431DF1AB3427228 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWearPrivate-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D370CFF85045EC034431DF1AB3427228 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D382C7ED86B3A4044E9BC7FE7B808E0C /* MBLSerial+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLSerial+Private.h"; sourceTree = "<group>"; };
 		D40F487EB7317900E4F1BE3F5E7C3240 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C71EC1407F5E40D46788C5806EBAC1 /* MBLAmbientLight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAmbientLight.h; sourceTree = "<group>"; };
 		D57BE345C3B103A8511DD25E291757E4 /* MBLHapticBuzzer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLHapticBuzzer.m; sourceTree = "<group>"; };
-		D633E42D18A3857B8B2BFD7976D967DC /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap"; sourceTree = "<group>"; };
+		D633E42D18A3857B8B2BFD7976D967DC /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap"; sourceTree = "<group>"; };
 		D638CE0D4E71C4047F8878745F8486D7 /* MBLAccelerometerBoschAxisReadyEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBoschAxisReadyEvent.h; sourceTree = "<group>"; };
 		D71F96F841281B595282C44BF5FF857F /* MBLBluetoothPeripheralMock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLBluetoothPeripheralMock.m; sourceTree = "<group>"; };
 		D7A2BBD6DD7144921CBFA24FE2770E9C /* MBLDispatchQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLDispatchQueue.m; sourceTree = "<group>"; };
@@ -2082,12 +2082,12 @@
 		D90A40228894F0CEFF647FF056945920 /* IntelHex2BinConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IntelHex2BinConverter.h; path = iOSDFULibrary/Classes/Utilities/HexToBinConverter/IntelHex2BinConverter.h; sourceTree = "<group>"; };
 		DA2F44F7E9F9EE61C3C5A26ED8A8050C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA6E5CE6CE505DF838D77C452AD13B6F /* MBLAccelerometerBoschPackedDataReadyEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerBoschPackedDataReadyEvent.m; sourceTree = "<group>"; };
-		DA9014116B9939EB265A41191D67F069 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap"; sourceTree = "<group>"; };
+		DA9014116B9939EB265A41191D67F069 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap"; sourceTree = "<group>"; };
 		DABD5D15B57D8F075CA743D1528D890E /* MBLLoggingV1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLLoggingV1.h; sourceTree = "<group>"; };
-		DAD6C3C7D8561D071FA01641360CA601 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAD6C3C7D8561D071FA01641360CA601 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5898A42A321FD0618A921C0E77E8A4 /* MBLAccelerometerBoschTapEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAccelerometerBoschTapEvent+Private.h"; sourceTree = "<group>"; };
 		DBCEE7FBDB19D37FCD244D897C836B59 /* MBLMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLMacro.h; sourceTree = "<group>"; };
-		DBFEE45C1C99E983F9455CFCCD543E36 /* MetaWearPrivate-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "MetaWearPrivate-iOS.modulemap"; sourceTree = "<group>"; };
+		DBFEE45C1C99E983F9455CFCCD543E36 /* MetaWearPrivate-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "MetaWearPrivate-iOS.modulemap"; sourceTree = "<group>"; };
 		DC0744A2E6338C410DA551C06E11E55C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		DC7D0B2E65A380068EC3FEF2957C2A44 /* MBLAccelerometerAxisReadyEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerAxisReadyEvent.m; sourceTree = "<group>"; };
 		DC815D12EA8708C010F8ACBECBD33848 /* SecureDFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUPacket.swift; sourceTree = "<group>"; };
@@ -2109,7 +2109,7 @@
 		E33E51117A7906AD725BC5896DAF7AB9 /* MBLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLLogger.m; sourceTree = "<group>"; };
 		E3423964A8005D7B6EFA277C19C0AD04 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh"; sourceTree = "<group>"; };
 		E3AD1BAB629ECA814247A5E73B8CD685 /* MBLEulerAngleData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLEulerAngleData.h; sourceTree = "<group>"; };
-		E44A5557E65216347B12E0BEAAC73511 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44A5557E65216347B12E0BEAAC73511 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4682D51E341672CE83B830F1F7E405E /* MBLPhotometerTCS3472Format.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLPhotometerTCS3472Format.h; sourceTree = "<group>"; };
 		E4B1A1FBAE850F03A849FAD0119AB5B4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4CFCB7B9A81296DDC19BE717B547395 /* MBLAccelerometerBMI160MotionEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAccelerometerBMI160MotionEvent+Private.h"; sourceTree = "<group>"; };
@@ -2127,7 +2127,7 @@
 		E95B4734AA96D0221CFDDE954406F997 /* MBLAccelerometerShakeEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerShakeEvent.h; sourceTree = "<group>"; };
 		E9A04EC0A77D40BFA9A26340EBD99D8C /* MBLProximityTSL2671.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLProximityTSL2671.m; sourceTree = "<group>"; };
 		EA8956DD984CD12941D9C8124A4C9C11 /* MBLDataProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLDataProcessor.h; sourceTree = "<group>"; };
-		EAA271081F41E5CABA23135604DB34C1 /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FastCoding_tvOS.framework; path = "FastCoding+tvOS-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA271081F41E5CABA23135604DB34C1 /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastCoding_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAAC3899A77F9C5262F1E8C71D3E775C /* iOSDFULibrary-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "iOSDFULibrary-macOS.xcconfig"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.xcconfig"; sourceTree = "<group>"; };
 		EAAE3E2C5294FB4D702F158809A0913D /* MBLAccelerometerPackedDataReadyEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLAccelerometerPackedDataReadyEvent.m; sourceTree = "<group>"; };
 		EB0F3127CA80D2F446D1A1CAAF111A24 /* MBLQuaternionFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLQuaternionFormat.m; sourceTree = "<group>"; };
@@ -2142,12 +2142,12 @@
 		EDE6C826922F3600FB2AF23676046E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EEE2C38FE1144B7A77E1150FCC48FF3A /* MBLProximityTSL2671.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLProximityTSL2671.h; sourceTree = "<group>"; };
 		EFC64ABBE5E34175B525CC0AF9B7AD46 /* MBLSettings+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLSettings+Private.h"; sourceTree = "<group>"; };
-		F010B45A4744AEA32F8622B4D117B191 /* Pods-MetaWearIntegrationTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MetaWearIntegrationTests-macOS.modulemap"; sourceTree = "<group>"; };
+		F010B45A4744AEA32F8622B4D117B191 /* Pods-MetaWearIntegrationTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetaWearIntegrationTests-macOS.modulemap"; sourceTree = "<group>"; };
 		F01AB64A7B09DE16655CB6E91F38EBF8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1077D65D27B700AA15FDE7AB1D1BA5C /* LegacyDFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUService.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Services/LegacyDFUService.swift; sourceTree = "<group>"; };
 		F12B911756D24E4437801B5DC7B003EC /* MBLAccelerometerBoschPackedDataReadyEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBLAccelerometerBoschPackedDataReadyEvent.h; sourceTree = "<group>"; };
 		F1950DB31EFF9511CAAD020DE490A290 /* MBLFirmwareBuild.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBLFirmwareBuild.m; sourceTree = "<group>"; };
-		F1F971B0BA5E3A879DB935D7099E73A5 /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FastCoding_tvOS.framework; path = "FastCoding+tvOS-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F971B0BA5E3A879DB935D7099E73A5 /* FastCoding_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastCoding_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30B2B3B63182A49C671A0BBD1815F0A /* Pods-MetaWearIntegrationTests-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		F352EEA80E24C897DFE65410ECEBAF80 /* MBLAnonymousEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBLAnonymousEvent+Private.h"; sourceTree = "<group>"; };
 		F36840C4CAE22288200B199380FC8D63 /* MetaWearPrivate-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWearPrivate-tvOS-umbrella.h"; path = "../MetaWearPrivate-tvOS/MetaWearPrivate-tvOS-umbrella.h"; sourceTree = "<group>"; };
@@ -2407,7 +2407,6 @@
 				94E08C3E838F46065D9A579E08D26F1F /* MBLModuleMock.h */,
 				18EADF7AF343005056845D551D588501 /* MBLModuleMock.m */,
 			);
-			name = Mocks;
 			path = Mocks;
 			sourceTree = "<group>";
 		};
@@ -2418,7 +2417,6 @@
 				3CA104EEA8E4AEA2C3540CC3CE284922 /* MBLAmbientLight.m */,
 				FC97A1D538612AA0C8F64D8A60282A1C /* AmbientLightLTR329 */,
 			);
-			name = AmbientLight;
 			path = AmbientLight;
 			sourceTree = "<group>";
 		};
@@ -2428,7 +2426,6 @@
 				5C2FDEE37CF41DE80256A00DFCF4163C /* MBLHygrometerBME280PeriodicHumidityEvent.h */,
 				E2973DEE2198C544E205D3FB1EEE9C59 /* MBLHygrometerBME280PeriodicHumidityEvent.m */,
 			);
-			name = HygrometerBME280;
 			path = HygrometerBME280;
 			sourceTree = "<group>";
 		};
@@ -2438,7 +2435,6 @@
 				6B96BB66E32A76C37714BD32108877E8 /* MBLNeopixel+Private.h */,
 				F452562548AA032277EDAF36A3C1F4EA /* MBLNeopixelStrand+Private.h */,
 			);
-			name = Neopixel;
 			path = Neopixel;
 			sourceTree = "<group>";
 		};
@@ -2448,7 +2444,6 @@
 				4B5A2DB9C21AB3E46343707203DB8703 /* MBLiBeacon.h */,
 				6E0D65D220AC16FD37B5C370498E1556 /* MBLiBeacon.m */,
 			);
-			name = iBeacon;
 			path = iBeacon;
 			sourceTree = "<group>";
 		};
@@ -2458,7 +2453,6 @@
 				2813B6E415AA511D8A27433A7E7567D7 /* MBLBarometerBMP280.h */,
 				C5B0A790FBDDC8943DD967E22F5E6484 /* MBLBarometerBMP280.m */,
 			);
-			name = BarometerBMP280;
 			path = BarometerBMP280;
 			sourceTree = "<group>";
 		};
@@ -2472,7 +2466,6 @@
 				3A11D978BD98802C632FA253271B5EF2 /* MBLSPIData.h */,
 				BC8E5506693A8AD4210AFC4F04630DB5 /* MBLSPIData.m */,
 			);
-			name = Serial;
 			path = Serial;
 			sourceTree = "<group>";
 		};
@@ -2486,7 +2479,6 @@
 				2F8BE36E7F86685E4D23F4A3FF189B70 /* AccelerometerBosch */,
 				3FD4A702DA1D91C1C90A3B3F3E631805 /* MMA8452Q */,
 			);
-			name = Accelerometer;
 			path = Accelerometer;
 			sourceTree = "<group>";
 		};
@@ -2500,7 +2492,6 @@
 				1C3629650A5E90D12D7E8D34CB7524F6 /* MBLSensorFusion.h */,
 				F611D503A35A2C29A17EFE78CFEA593D /* MBLSensorFusion.m */,
 			);
-			name = SensorFusion;
 			path = SensorFusion;
 			sourceTree = "<group>";
 		};
@@ -2577,7 +2568,6 @@
 				80522ABAB30A84102A4A1F9F6171D7F8 /* MBLTriggeredRead.h */,
 				2775F63A5885A6560DF256662375885D /* MBLTriggeredRead.m */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -2588,7 +2578,6 @@
 				55B5F56299B15AFD2D2404B34E225E67 /* MBLBarometer.m */,
 				AF9DE890B55EE16771C6F34E8E56493E /* BarometerBosch */,
 			);
-			name = Barometer;
 			path = Barometer;
 			sourceTree = "<group>";
 		};
@@ -2617,7 +2606,6 @@
 				876E22D020687C840F45B60CBE75C97A /* MBLGyroBMI160.h */,
 				342B40755E2FFB37E7739C0F867B357B /* MBLGyroBMI160.m */,
 			);
-			name = GyroBMI160;
 			path = GyroBMI160;
 			sourceTree = "<group>";
 		};
@@ -2629,7 +2617,6 @@
 				18BB70CAC175503B0836D3D7EF3C1AE8 /* MBLAccelerometerBMA255MotionEvent.h */,
 				446871FDEF6BE23071F1C4D30C83656D /* MBLAccelerometerBMA255MotionEvent.m */,
 			);
-			name = AccelerometerBMA255;
 			path = AccelerometerBMA255;
 			sourceTree = "<group>";
 		};
@@ -2641,7 +2628,6 @@
 				5F0E221620B947BDDB6ED38CF1DFC44C /* MBLGPIOPin.h */,
 				5F1BC518C4E1FB3BC352030FB4FECD49 /* MBLGPIOPin.m */,
 			);
-			name = GPIO;
 			path = GPIO;
 			sourceTree = "<group>";
 		};
@@ -2690,7 +2676,6 @@
 				53EE9E0F92480BAB83C39FD641139F64 /* AccelerometerBMA255 */,
 				672675BFE4E23661663E014B459F8555 /* AccelerometerBMI160 */,
 			);
-			name = AccelerometerBosch;
 			path = AccelerometerBosch;
 			sourceTree = "<group>";
 		};
@@ -2755,7 +2740,6 @@
 				7C76EB125E555C3CEEAECE10EB48F4C5 /* MBLGyroData+Private.h */,
 				816576B9D81026BEC7A9C3F672648A1E /* GyroBMI160 */,
 			);
-			name = Gyro;
 			path = Gyro;
 			sourceTree = "<group>";
 		};
@@ -2767,7 +2751,6 @@
 				510DD17398465B0992EB321F5ADC3AE1 /* MBLANCSEventData.h */,
 				78A46EE93080D885BFF6F8471DA8A012 /* MBLANCSEventData.m */,
 			);
-			name = ANCS;
 			path = ANCS;
 			sourceTree = "<group>";
 		};
@@ -2797,7 +2780,6 @@
 				69F3741316EE19AD0AE240BFCE27C008 /* MBLAccelerometerTapEvent.m */,
 				A2F0E57E1990CED91D153D6BCA97B4B8 /* mma8452q.h */,
 			);
-			name = MMA8452Q;
 			path = MMA8452Q;
 			sourceTree = "<group>";
 		};
@@ -2826,7 +2808,6 @@
 				54781085AAAF8C81138D0EABE060B960 /* MBLRGBData+Private.h */,
 				DEAA6241835AA811525C345D8CA9CB48 /* PhotometerTCS3472 */,
 			);
-			name = Photometer;
 			path = Photometer;
 			sourceTree = "<group>";
 		};
@@ -2837,7 +2818,6 @@
 				D0A61028F007854D347336A0CF0B717A /* FastCoder.m */,
 				5BC3E3269653CA9CED812BD50C5ECED2 /* Support Files */,
 			);
-			name = "FastCoding+tvOS";
 			path = "FastCoding+tvOS";
 			sourceTree = "<group>";
 		};
@@ -2846,7 +2826,6 @@
 			children = (
 				49DCC21B1CC2D91B3B63A59EB7E2B099 /* MBLProximity+Private.h */,
 			);
-			name = Proximity;
 			path = Proximity;
 			sourceTree = "<group>";
 		};
@@ -2856,7 +2835,6 @@
 				AC165D8BECA691BFCA6C6045C8C5762C /* MBLAccelerometerBMA255+Private.h */,
 				0D04BC1738D891A89974B9F55A4A084C /* MBLAccelerometerBMA255MotionEvent+Private.h */,
 			);
-			name = AccelerometerBMA255;
 			path = AccelerometerBMA255;
 			sourceTree = "<group>";
 		};
@@ -2876,7 +2854,6 @@
 				21B4BBB10283CF7188B440DBC241C88B /* AccelerometerBMA255 */,
 				78C2DC1ACA2E990782B1D0C0865D4937 /* AccelerometerBMI160 */,
 			);
-			name = AccelerometerBosch;
 			path = AccelerometerBosch;
 			sourceTree = "<group>";
 		};
@@ -2897,7 +2874,6 @@
 				EB0F3127CA80D2F446D1A1CAAF111A24 /* MBLQuaternionFormat.m */,
 				6F7055C022657B2629DA9C9F0AA2C463 /* MBLSensorFusion+Private.h */,
 			);
-			name = SensorFusion;
 			path = SensorFusion;
 			sourceTree = "<group>";
 		};
@@ -2935,7 +2911,6 @@
 				59188FA84F543E0011173B66D7EFBEB3 /* Temperature */,
 				C054B68861A5FE2D9F8CB9F30532BA52 /* Timer */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -2947,7 +2922,6 @@
 				B4C74EF9EB41D6A6C9BFF4EF7F64F663 /* MBLTemperature.h */,
 				096F4405C3E714C672C9653B4875D76E /* MBLTemperature.m */,
 			);
-			name = Temperature;
 			path = Temperature;
 			sourceTree = "<group>";
 		};
@@ -2966,7 +2940,6 @@
 				8DB88D5E21CC6737F8A128219B847D7C /* MBLTemperatureV1.h */,
 				13DC5F50967878257628BE72601421B3 /* MBLTemperatureV1.m */,
 			);
-			name = Temperature;
 			path = Temperature;
 			sourceTree = "<group>";
 		};
@@ -3002,7 +2975,6 @@
 				70692F88DC3B085CFA67F4801CC091A8 /* MBLPhotometerTCS3472.h */,
 				ABF694E5002B9296413AA84DDC5B0D02 /* MBLPhotometerTCS3472.m */,
 			);
-			name = PhotometerTCS3472;
 			path = PhotometerTCS3472;
 			sourceTree = "<group>";
 		};
@@ -3059,7 +3031,6 @@
 				F7E7E6184051E8E4D3FA6ADE81603334 /* TestDebug */,
 				B1226DBAC6B0F7E6741FB414E02847B6 /* Timer */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -3071,7 +3042,6 @@
 				C00606375314EB5180797E7794603591 /* MBLAccelerometerBMI160StepEvent.h */,
 				BBFA2A124C5CF5541408059671A33F65 /* MBLAccelerometerBMI160StepEvent.m */,
 			);
-			name = AccelerometerBMI160;
 			path = AccelerometerBMI160;
 			sourceTree = "<group>";
 		};
@@ -3081,7 +3051,6 @@
 				92516A30E70293A900BBF8AB90EB0500 /* MBLSettings.h */,
 				26128295AA0938AD6329B2E3407ED0C8 /* MBLSettings.m */,
 			);
-			name = Settings;
 			path = Settings;
 			sourceTree = "<group>";
 		};
@@ -3092,7 +3061,6 @@
 				4BF938D304C25C4D90A26EE7E13BFE15 /* MBLMagnetometerData+Private.h */,
 				8E8B36041CFD2CBC4E57E30271ADA952 /* MagnetometerBMM150 */,
 			);
-			name = Magnetometer;
 			path = Magnetometer;
 			sourceTree = "<group>";
 		};
@@ -3105,7 +3073,6 @@
 				AF4CD04C1CA0C935C555B4F0D3E0CFA2 /* MBLBarometerBoschPeriodicPressureEvent.h */,
 				DF8E3C12A71CB3E4174655FDA95A0093 /* MBLBarometerBoschPeriodicPressureEvent.m */,
 			);
-			name = BarometerBosch;
 			path = BarometerBosch;
 			sourceTree = "<group>";
 		};
@@ -3117,7 +3084,6 @@
 				082B67135724324C65933732754CC49D /* MBLAccelerometerBMI160MotionEvent.h */,
 				9CB89E36AEE3848001C95666AAB53B64 /* MBLAccelerometerBMI160MotionEvent.m */,
 			);
-			name = AccelerometerBMI160;
 			path = AccelerometerBMI160;
 			sourceTree = "<group>";
 		};
@@ -3152,7 +3118,6 @@
 				06442DAAFF21721B0E2C64C15BC6F28E /* MBLHapticBuzzer.h */,
 				D57BE345C3B103A8511DD25E291757E4 /* MBLHapticBuzzer.m */,
 			);
-			name = HapticBuzzer;
 			path = HapticBuzzer;
 			sourceTree = "<group>";
 		};
@@ -3168,7 +3133,6 @@
 				7DF7B457DCC8E360D49A842F6BB6699D /* MBLLoggingV2.h */,
 				3FE8137EC2AD26C62D15D585531C0FA4 /* MBLLoggingV2.m */,
 			);
-			name = Logging;
 			path = Logging;
 			sourceTree = "<group>";
 		};
@@ -3185,7 +3149,6 @@
 				C6EF3DD06DCF465CB6B9BF1E1C048270 /* MBLGyroBMI160PackedDataReadyEvent.h */,
 				99C09A3AC008BF7FA56EEB4385A3C3DB /* MBLGyroBMI160PackedDataReadyEvent.m */,
 			);
-			name = GyroBMI160;
 			path = GyroBMI160;
 			sourceTree = "<group>";
 		};
@@ -3206,7 +3169,6 @@
 				352E1631A56726C30EAE50929ED999C6 /* MBLHygrometer.m */,
 				FA3CD652A00031DE7B18DD17E19CC751 /* HygrometerBME280 */,
 			);
-			name = Hygrometer;
 			path = Hygrometer;
 			sourceTree = "<group>";
 		};
@@ -3234,7 +3196,6 @@
 				AB4B55BD141F864F663A2BE6B25969E0 /* MBLCommand.h */,
 				AD87D9452AD5DFA34EAE953736420189 /* MBLCommand.m */,
 			);
-			name = Command;
 			path = Command;
 			sourceTree = "<group>";
 		};
@@ -3249,7 +3210,6 @@
 				EB5771483BE42EC3D5F131B912DD7DF2 /* MBLMagnetometerBMM150PeriodicMagneticFieldEvent.h */,
 				D2182E483FD05DCE8941DE26DA14FE7A /* MBLMagnetometerBMM150PeriodicMagneticFieldEvent.m */,
 			);
-			name = MagnetometerBMM150;
 			path = MagnetometerBMM150;
 			sourceTree = "<group>";
 		};
@@ -3298,7 +3258,6 @@
 				9E17C60212960E5BD204BBD874B9C3A1 /* MBLBarometerBME280.h */,
 				3EA4B888A2C3618023DA6440BA48FD6D /* MBLBarometerBME280.m */,
 			);
-			name = BarometerBME280;
 			path = BarometerBME280;
 			sourceTree = "<group>";
 		};
@@ -3308,7 +3267,6 @@
 				D1E6558024B268AE630D502852299126 /* Support Files */,
 				DAA2403A8AC9581CFE8424BB189A734B /* Tasks */,
 			);
-			name = Bolts;
 			path = Bolts;
 			sourceTree = "<group>";
 		};
@@ -3317,7 +3275,6 @@
 			children = (
 				BFE41FD08D80647E835161681D60921A /* MBLANCSEventData+Private.h */,
 			);
-			name = ANCS;
 			path = ANCS;
 			sourceTree = "<group>";
 		};
@@ -3327,7 +3284,6 @@
 				8D409E9AC30BA95DADFD8640807D6AC9 /* MBLAccelerometerMMA8452Q.h */,
 				683A646CE59BF06ACE557B9DC63F37BD /* MBLAccelerometerMMA8452Q.m */,
 			);
-			name = MMA8452Q;
 			path = MMA8452Q;
 			sourceTree = "<group>";
 		};
@@ -3337,7 +3293,6 @@
 				FE0D8515949C9861487F28B146EEA3C0 /* MBLLED.h */,
 				51A41ECB56B5DFC8D755819D80040E78 /* MBLLED.m */,
 			);
-			name = LED;
 			path = LED;
 			sourceTree = "<group>";
 		};
@@ -3355,7 +3310,6 @@
 				544962843747D8DD831ED23FB7999377 /* AccelerometerBosch */,
 				9706A1327A18C25E4E4BA22A471DC64F /* MMA8452Q */,
 			);
-			name = Accelerometer;
 			path = Accelerometer;
 			sourceTree = "<group>";
 		};
@@ -3365,7 +3319,6 @@
 				7F28543D661599E174AF98EA4A3B6D58 /* MBLBarometer+Private.h */,
 				785F22FFA8D012086C401968EFB0A34D /* BarometerBosch */,
 			);
-			name = Barometer;
 			path = Barometer;
 			sourceTree = "<group>";
 		};
@@ -3375,7 +3328,6 @@
 				EA8956DD984CD12941D9C8124A4C9C11 /* MBLDataProcessor.h */,
 				6B34BF91775BD5B5F16563879AAE89DE /* MBLDataProcessor.m */,
 			);
-			name = DataProcessor;
 			path = DataProcessor;
 			sourceTree = "<group>";
 		};
@@ -3405,7 +3357,6 @@
 				3C2075920A7BE1CF684C76F2F799ECBD /* MBLConductance.h */,
 				66B6BA83C3C4F23C8DBF08F46B6DEDF9 /* MBLConductance.m */,
 			);
-			name = Conductance;
 			path = Conductance;
 			sourceTree = "<group>";
 		};
@@ -3417,7 +3368,6 @@
 				94D7A54374E70B0FC23F8BA1B996DBD1 /* BarometerBME280 */,
 				1865A7BDE339829F3046DF7A7EC1FF28 /* BarometerBMP280 */,
 			);
-			name = BarometerBosch;
 			path = BarometerBosch;
 			sourceTree = "<group>";
 		};
@@ -3427,7 +3377,6 @@
 				533D2377CF75F400D378A7FB2C5A8B80 /* MBLTimer+Private.h */,
 				7CECA256893645F935B5C13A5CBBED84 /* MBLTimerEvent+Private.h */,
 			);
-			name = Timer;
 			path = Timer;
 			sourceTree = "<group>";
 		};
@@ -3493,7 +3442,6 @@
 				4A4F94BA207906E6CCBBA0553D73885C /* ZipArchive.swift */,
 				A2971817024A562EE191F54CAD3F5F87 /* Support Files */,
 			);
-			name = iOSDFULibrary;
 			path = iOSDFULibrary;
 			sourceTree = "<group>";
 		};
@@ -3506,7 +3454,6 @@
 				CA2B309AECBFE6D4E1FAC166D236C338 /* MBLMagnetometerData.m */,
 				DACE7F93A317DB9FFCB7C169F6CA6079 /* MagnetometerBMM150 */,
 			);
-			name = Magnetometer;
 			path = Magnetometer;
 			sourceTree = "<group>";
 		};
@@ -3516,7 +3463,6 @@
 				ACCF7CA22DE0EE99184FAFF40C4412D1 /* MBLHygrometer+Private.h */,
 				07D7C6467087B882AF581A8870CA5DE1 /* HygrometerBME280 */,
 			);
-			name = Hygrometer;
 			path = Hygrometer;
 			sourceTree = "<group>";
 		};
@@ -3528,7 +3474,6 @@
 				CDC48CA96245E09799A29D95AD8C8C71 /* MBLTimerEvent.h */,
 				01A67B1A530D3D12F82B2B6F354568D5 /* MBLTimerEvent.m */,
 			);
-			name = Timer;
 			path = Timer;
 			sourceTree = "<group>";
 		};
@@ -3538,7 +3483,6 @@
 				59F41F0F37DF9DF332219AE7B2AA6890 /* MBLFirmwareUpdateManager.h */,
 				0FB44E2B89CF240B81C4538959705A14 /* MBLFirmwareUpdateManager.m */,
 			);
-			name = DFU;
 			path = DFU;
 			sourceTree = "<group>";
 		};
@@ -3552,7 +3496,6 @@
 				EB1D49F95D43D02E56017B6BC3737041 /* MBLGPIOPinChangeEvent.h */,
 				0B3830A96734A10F95A0898A3AE3C2DA /* MBLGPIOPinChangeEvent.m */,
 			);
-			name = GPIO;
 			path = GPIO;
 			sourceTree = "<group>";
 		};
@@ -3562,7 +3505,6 @@
 				F618C9DF00DDF47D5EEEAAFDFC613948 /* MBLI2C.h */,
 				108D19978FED2D6CCDA0F6BB617FF38A /* MBLI2C.m */,
 			);
-			name = I2C;
 			path = I2C;
 			sourceTree = "<group>";
 		};
@@ -3582,7 +3524,6 @@
 				170F8980C2C97415EA24CFF08176C86F /* ZipUtilities.swift */,
 				CAB2479C614B9A1A9E1946994B6A268B /* Support Files */,
 			);
-			name = Zip;
 			path = Zip;
 			sourceTree = "<group>";
 		};
@@ -3650,7 +3591,6 @@
 				9F5479EAA668064130D02812F59E306C /* MBLProximity.m */,
 				F9B7B9D8B392F324C14BD6442474A6B5 /* ProximityTSL2671 */,
 			);
-			name = Proximity;
 			path = Proximity;
 			sourceTree = "<group>";
 		};
@@ -3660,7 +3600,6 @@
 				0B45978E147332C2D7DCE27CFB3A99DC /* MBLMechanicalSwitch.h */,
 				CA1245D808F6BCC15B8A902CE557F9AA /* MBLMechanicalSwitch.m */,
 			);
-			name = MechanicalSwitch;
 			path = MechanicalSwitch;
 			sourceTree = "<group>";
 		};
@@ -3695,7 +3634,6 @@
 				E65129647907D6602565EDEA64B50EC5 /* MBLNeopixelStrand.h */,
 				AE1010EE66D1FDA5F86AD0D8493B7D87 /* MBLNeopixelStrand.m */,
 			);
-			name = Neopixel;
 			path = Neopixel;
 			sourceTree = "<group>";
 		};
@@ -3705,7 +3643,6 @@
 				E4EDFCEE5B72864E7DA91A1762E564CD /* MBLMagnetometerBMM150.h */,
 				9951ED4CE84E530835A1BBE12C8A58BB /* MBLMagnetometerBMM150.m */,
 			);
-			name = MagnetometerBMM150;
 			path = MagnetometerBMM150;
 			sourceTree = "<group>";
 		};
@@ -3726,7 +3663,6 @@
 			children = (
 				6712272425BFA706A80ED17C721D2468 /* MBLAmbientLight+Private.h */,
 			);
-			name = AmbientLight;
 			path = AmbientLight;
 			sourceTree = "<group>";
 		};
@@ -3736,7 +3672,6 @@
 				E4682D51E341672CE83B830F1F7E405E /* MBLPhotometerTCS3472Format.h */,
 				5F0D1110D45FA365DBC5367085D1E83A /* MBLPhotometerTCS3472Format.m */,
 			);
-			name = PhotometerTCS3472;
 			path = PhotometerTCS3472;
 			sourceTree = "<group>";
 		};
@@ -3778,7 +3713,6 @@
 				768A2B5331EA1D222EB6A73E262ED8E0 /* MBLStringData.h */,
 				BB0992D5084797FE10F678A4D2FE31D2 /* MBLStringData.m */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -3788,7 +3722,6 @@
 				AD6A182159DB824EC701C4F5CECF3593 /* BFTask+MBLExtensions.h */,
 				E8B316769B25CA5CFF1037BB6E6C5DFA /* BFTask+MBLExtensions.m */,
 			);
-			name = Categories;
 			path = Categories;
 			sourceTree = "<group>";
 		};
@@ -3811,7 +3744,6 @@
 				2933BA5E21AEF0F56E04A4BD5C37AD29 /* MBLGyroData.m */,
 				214DE6365ABA09E1AD6EF8A2A6A11492 /* GyroBMI160 */,
 			);
-			name = Gyro;
 			path = Gyro;
 			sourceTree = "<group>";
 		};
@@ -3824,7 +3756,6 @@
 				34B693A9204E409123726821605F41F4 /* MBLRGBData.m */,
 				5E03CFBC88678963CEBD96168ACE50F0 /* PhotometerTCS3472 */,
 			);
-			name = Photometer;
 			path = Photometer;
 			sourceTree = "<group>";
 		};
@@ -3833,7 +3764,6 @@
 			children = (
 				3A343C0D07D72D5EED6731AA686094E0 /* MBLLED+Private.h */,
 			);
-			name = LED;
 			path = LED;
 			sourceTree = "<group>";
 		};
@@ -3861,7 +3791,6 @@
 				39406C785E452FAF5B389D4F86949543 /* MBLConductanceData.h */,
 				8683A0E500A656B29F04A8F167263386 /* MBLConductanceData.m */,
 			);
-			name = Conductance;
 			path = Conductance;
 			sourceTree = "<group>";
 		};
@@ -3870,7 +3799,6 @@
 			children = (
 				EFC64ABBE5E34175B525CC0AF9B7AD46 /* MBLSettings+Private.h */,
 			);
-			name = Settings;
 			path = Settings;
 			sourceTree = "<group>";
 		};
@@ -3881,7 +3809,6 @@
 				D382C7ED86B3A4044E9BC7FE7B808E0C /* MBLSerial+Private.h */,
 				792F603BFB6C85B0F5D8CB9889BC30AB /* MBLSPIData+Private.h */,
 			);
-			name = Serial;
 			path = Serial;
 			sourceTree = "<group>";
 		};
@@ -3893,7 +3820,6 @@
 				77004055E8B046B2F94C36501CA986B0 /* MBLCategoryLoader.h */,
 				269F0FBB246D90F6DFB2F2AD18A04252 /* MBLCategoryLoader.m */,
 			);
-			name = Categories;
 			path = Categories;
 			sourceTree = "<group>";
 		};
@@ -3903,7 +3829,6 @@
 				9BEBDF15B99A76AB465BBDA0C0529628 /* MBLTestDebug.h */,
 				58D92C0D8A331C0153DC2D7E2E1A110E /* MBLTestDebug.m */,
 			);
-			name = TestDebug;
 			path = TestDebug;
 			sourceTree = "<group>";
 		};
@@ -3913,7 +3838,6 @@
 				EEE2C38FE1144B7A77E1150FCC48FF3A /* MBLProximityTSL2671.h */,
 				E9A04EC0A77D40BFA9A26340EBD99D8C /* MBLProximityTSL2671.m */,
 			);
-			name = ProximityTSL2671;
 			path = ProximityTSL2671;
 			sourceTree = "<group>";
 		};
@@ -3923,7 +3847,6 @@
 				46546F45369A541754827BBFAD119C43 /* MBLHygrometerBME280.h */,
 				7AB376E87546F5C959DF1E7882959E6A /* MBLHygrometerBME280.m */,
 			);
-			name = HygrometerBME280;
 			path = HygrometerBME280;
 			sourceTree = "<group>";
 		};
@@ -3933,7 +3856,6 @@
 				9030BAA310B1AD555332EC41BE83E228 /* MBLAmbientLightLTR329.h */,
 				46D823DA636B25C835ED3EAB68BE9151 /* MBLAmbientLightLTR329.m */,
 			);
-			name = AmbientLightLTR329;
 			path = AmbientLightLTR329;
 			sourceTree = "<group>";
 		};
@@ -3943,7 +3865,6 @@
 				DBCEE7FBDB19D37FCD244D897C836B59 /* MBLMacro.h */,
 				9D144E6E435DBDDDD0D91240069800D3 /* MBLMacro.m */,
 			);
-			name = Macro;
 			path = Macro;
 			sourceTree = "<group>";
 		};
@@ -6328,6 +6249,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "${SRCROOT}/../build";
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
@@ -6758,6 +6680,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "${SRCROOT}/../build";
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
