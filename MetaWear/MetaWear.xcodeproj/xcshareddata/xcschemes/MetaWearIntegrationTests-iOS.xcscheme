@@ -103,12 +103,12 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMC_MAC"
-            value = "E9:0D:40:33:2C:E9"
+            value = "AB:CD:EF:AB:CD:EF"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMR_MAC"
-            value = "F1:F5:93:F9:F3:2E"
+            value = "AB:CD:EF:AB:CD:EF"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

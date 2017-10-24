@@ -5099,97 +5099,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		01845CCC023382A0A970B53987EC502E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC053D434A06B030B7720431E4D9A87E /* MetaWear-iOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		088D105AF7A799A115061223C59FDF8C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7CF2AFFD79ED44D950AB9E3BD258C48 /* FastCoding+tvOS-iOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS.modulemap";
-				PRODUCT_NAME = FastCoding_tvOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		0D076E62D0633E71449F36261BCF444C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F79069F96BB84263B4A72A9AD4E1093 /* Bolts-tvOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-tvOS/Bolts-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Bolts-tvOS/Bolts-tvOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		0E9D9317E41B2E70E02E02B1A26586D2 /* Release */ = {
+		0EA5D972B43FF0768DA24A58D7326C6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BAF1C18E70E2AFFB242EB3F137F0A0A /* FastCoding+tvOS-macOS.xcconfig */;
 			buildSettings = {
@@ -5214,44 +5124,13 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		2E1874B74518713B2016723E0B79015D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36D4B11AB48EF3E2155179D46525BE41 /* Bolts-iOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-iOS/Bolts-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Bolts-iOS/Bolts-iOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3486D01514D8253EAD2E180F75646A03 /* Release */ = {
+		154842C1DF3ACE450D134599091DABA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC4FBF214D4B82375533FAFB243220B0 /* MetaWear-macOS.xcconfig */;
 			buildSettings = {
@@ -5276,13 +5155,44 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1FDE2F0AAEB024A12CB5C392652E020E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95C08C954E0D8EF805456D25B2423138 /* MetaWear-tvOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		36EE6DB968C1E914F3E676E614CBA109 /* Release */ = {
+		2E9E6E6725A44390C6203EB6C92AC27C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6F87F917FAA3E45D3960071A8778559 /* FastCoding+tvOS-tvOS.xcconfig */;
 			buildSettings = {
@@ -5304,7 +5214,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -5345,6 +5255,67 @@
 			};
 			name = Debug;
 		};
+		4274679E05C16B0F873456CFED4DBA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120C65070CDA6310205D3E5D7167E604 /* MBProgressHUD-tvOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD-tvOS/MBProgressHUD-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MBProgressHUD-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MBProgressHUD-tvOS/MBProgressHUD-tvOS.modulemap";
+				PRODUCT_NAME = MBProgressHUD;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		42EE56FCBF79012EFF331115F7439F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3165AB5E668C9F7C9FB17C37EC2AAEE /* MBProgressHUD-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD-iOS/MBProgressHUD-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MBProgressHUD-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MBProgressHUD-iOS/MBProgressHUD-iOS.modulemap";
+				PRODUCT_NAME = MBProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		4579F9E9BEC81B29D6A378B173DB8A0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9000F0FF7A90A6F59B81BFB7F8D0A37 /* Pods-Starter-iOS.debug.xcconfig */;
@@ -5376,6 +5347,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		466762EB8560804F645D190044DF0A9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4FBF214D4B82375533FAFB243220B0 /* MetaWear-macOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		46A677CB5439F4AD2328B868BCFAECD1 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5410,7 +5412,67 @@
 			};
 			name = Release;
 		};
-		46B2C7F42EA92A240F07EE1B11BBAFF5 /* Release */ = {
+		52D3694D4E96AC1F26599CA5B6B35620 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F87F917FAA3E45D3960071A8778559 /* FastCoding+tvOS-tvOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS.modulemap";
+				PRODUCT_NAME = FastCoding_tvOS;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		58B708AE92F3130AA0CAD2C774E5F2F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36D4B11AB48EF3E2155179D46525BE41 /* Bolts-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-iOS/Bolts-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Bolts-iOS/Bolts-iOS.modulemap";
+				PRODUCT_NAME = Bolts;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BD00F6C1F8F02BC2637569C159407C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 120C65070CDA6310205D3E5D7167E604 /* MBProgressHUD-tvOS.xcconfig */;
 			buildSettings = {
@@ -5432,48 +5494,17 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4F54AF7879A2CCABB07F56D5F83022EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95C08C954E0D8EF805456D25B2423138 /* MetaWear-tvOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		576A8F272320D7FE85B1FBFC4D032F16 /* Release */ = {
+		5CB6D237CD609B7779236C006282BCF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95C08C954E0D8EF805456D25B2423138 /* MetaWear-tvOS.xcconfig */;
+			baseConfigurationReference = 7F79069F96BB84263B4A72A9AD4E1093 /* Bolts-tvOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -5484,25 +5515,85 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-tvOS/Bolts-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
-				PRODUCT_NAME = MetaWear;
+				MODULEMAP_FILE = "Target Support Files/Bolts-tvOS/Bolts-tvOS.modulemap";
+				PRODUCT_NAME = Bolts;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-				VALIDATE_PRODUCT = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		6EEF73E7D930DD768DBE58BD014D5ECA /* Release */ = {
+		6B4142171824F3C6EB45F320B5E50DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CF2AFFD79ED44D950AB9E3BD258C48 /* FastCoding+tvOS-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS.modulemap";
+				PRODUCT_NAME = FastCoding_tvOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7059B06E4146DC55EDC121FFCC734B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3AC83EECEDD226908FCA01FE6B187D5 /* Bolts-macOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-macOS/Bolts-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MODULEMAP_FILE = "Target Support Files/Bolts-macOS/Bolts-macOS.modulemap";
+				PRODUCT_NAME = Bolts;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		768883211B55A6C485164D7C7274A185 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC053D434A06B030B7720431E4D9A87E /* MetaWear-iOS.xcconfig */;
 			buildSettings = {
@@ -5525,13 +5616,12 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		7C7F3A23197A8A41D704572F6C2B40CA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5590,40 +5680,9 @@
 			};
 			name = Release;
 		};
-		7F577EEEB2BD6526F2569EC25BDAB711 /* Release */ = {
+		7D21E5BDDE7BFEA557897546D8E319CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3AC83EECEDD226908FCA01FE6B187D5 /* Bolts-macOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-macOS/Bolts-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				MODULEMAP_FILE = "Target Support Files/Bolts-macOS/Bolts-macOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		821D4C3778172D6DD9B34694DF1FA3D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3165AB5E668C9F7C9FB17C37EC2AAEE /* MBProgressHUD-iOS.xcconfig */;
+			baseConfigurationReference = FC053D434A06B030B7720431E4D9A87E /* MetaWear-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -5634,17 +5693,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD-iOS/MBProgressHUD-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MBProgressHUD-iOS/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MBProgressHUD-iOS/MBProgressHUD-iOS.modulemap";
-				PRODUCT_NAME = MBProgressHUD;
+				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
+				PRODUCT_NAME = MetaWear;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5685,6 +5744,37 @@
 			};
 			name = Release;
 		};
+		8A419D581B54E90009AB92616CBB3486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36D4B11AB48EF3E2155179D46525BE41 /* Bolts-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-iOS/Bolts-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Bolts-iOS/Bolts-iOS.modulemap";
+				PRODUCT_NAME = Bolts;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		8CBAAF4BB72948B21FECD880962EA2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 399DB060F7BC7DA67868EB5F087FF658 /* Pods-Starter-macOS.debug.xcconfig */;
@@ -5717,68 +5807,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		8CDE3A04161C2FE7D1BE83F9BECB380B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F79069F96BB84263B4A72A9AD4E1093 /* Bolts-tvOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-tvOS/Bolts-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Bolts-tvOS/Bolts-tvOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9494CC6A541135E9AA38B983B06EA9BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7CF2AFFD79ED44D950AB9E3BD258C48 /* FastCoding+tvOS-iOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS.modulemap";
-				PRODUCT_NAME = FastCoding_tvOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		94E096E1BA41D4A49B542E9234D1A85F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5813,69 +5841,7 @@
 			};
 			name = Release;
 		};
-		966E4A8F21120906A1FEFB8D014CF39D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3AC83EECEDD226908FCA01FE6B187D5 /* Bolts-macOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-macOS/Bolts-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				MODULEMAP_FILE = "Target Support Files/Bolts-macOS/Bolts-macOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A3F1C11BF8D738F330289C1E36BD79C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC4FBF214D4B82375533FAFB243220B0 /* MetaWear-macOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A55FBC03658317DC817BB78B0D10207F /* Debug */ = {
+		9DF3A1D67966C3BD660ADDE4CF1DDECA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BAF1C18E70E2AFFB242EB3F137F0A0A /* FastCoding+tvOS-macOS.xcconfig */;
 			buildSettings = {
@@ -5900,43 +5866,13 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		A72AEBF0A84DAF89D0789E37CC8F079D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 120C65070CDA6310205D3E5D7167E604 /* MBProgressHUD-tvOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD-tvOS/MBProgressHUD-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MBProgressHUD-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MBProgressHUD-tvOS/MBProgressHUD-tvOS.modulemap";
-				PRODUCT_NAME = MBProgressHUD;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B3411A943A9AF06853FC91946B5C7582 /* Debug */ = {
+		BC1CD90A40188B1FAC142134A3725388 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3165AB5E668C9F7C9FB17C37EC2AAEE /* MBProgressHUD-iOS.xcconfig */;
 			buildSettings = {
@@ -5959,42 +5895,13 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		BD2FDEBCF2A7D5FBCFF218281FBF52E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36D4B11AB48EF3E2155179D46525BE41 /* Bolts-iOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts-iOS/Bolts-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Bolts-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Bolts-iOS/Bolts-iOS.modulemap";
-				PRODUCT_NAME = Bolts;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		C8E5DFC78A2855E8803BDF63D968A27C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -6058,9 +5965,40 @@
 			};
 			name = Debug;
 		};
-		D023FF08C37E5AEA8A8459F39221FFAE /* Debug */ = {
+		DC8A33575EB2C1DB70E876190534C579 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6F87F917FAA3E45D3960071A8778559 /* FastCoding+tvOS-tvOS.xcconfig */;
+			baseConfigurationReference = F3AC83EECEDD226908FCA01FE6B187D5 /* Bolts-macOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-macOS/Bolts-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MODULEMAP_FILE = "Target Support Files/Bolts-macOS/Bolts-macOS.modulemap";
+				PRODUCT_NAME = Bolts;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E17E47ADCE7A0EF4E589B480B17EF3AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F79069F96BB84263B4A72A9AD4E1093 /* Bolts-tvOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6071,22 +6009,84 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-tvOS/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts-tvOS/Bolts-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Bolts-tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-tvOS/FastCoding+tvOS-tvOS.modulemap";
-				PRODUCT_NAME = FastCoding_tvOS;
+				MODULEMAP_FILE = "Target Support Files/Bolts-tvOS/Bolts-tvOS.modulemap";
+				PRODUCT_NAME = Bolts;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E7AB2883C717BA99E4BD42F7188C5432 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95C08C954E0D8EF805456D25B2423138 /* MetaWear-tvOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		FC93C889E297E8C8B4ADDD5BDE29371F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CF2AFFD79ED44D950AB9E3BD258C48 /* FastCoding+tvOS-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FastCoding+tvOS-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FastCoding+tvOS-iOS/FastCoding+tvOS-iOS.modulemap";
+				PRODUCT_NAME = FastCoding_tvOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -6094,8 +6094,8 @@
 		1001156ABA7BBF13FFDD87FD175B4A1C /* Build configuration list for PBXNativeTarget "FastCoding+tvOS-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A55FBC03658317DC817BB78B0D10207F /* Debug */,
-				0E9D9317E41B2E70E02E02B1A26586D2 /* Release */,
+				9DF3A1D67966C3BD660ADDE4CF1DDECA /* Debug */,
+				0EA5D972B43FF0768DA24A58D7326C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6112,8 +6112,8 @@
 		1D0004B7C8634CA30AE87A84B60F0E6B /* Build configuration list for PBXNativeTarget "Bolts-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				966E4A8F21120906A1FEFB8D014CF39D /* Debug */,
-				7F577EEEB2BD6526F2569EC25BDAB711 /* Release */,
+				7059B06E4146DC55EDC121FFCC734B5D /* Debug */,
+				DC8A33575EB2C1DB70E876190534C579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6121,8 +6121,8 @@
 		21252E6CE3D099A3BE867C48DE81CB0E /* Build configuration list for PBXNativeTarget "Bolts-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0D076E62D0633E71449F36261BCF444C /* Debug */,
-				8CDE3A04161C2FE7D1BE83F9BECB380B /* Release */,
+				5CB6D237CD609B7779236C006282BCF0 /* Debug */,
+				E17E47ADCE7A0EF4E589B480B17EF3AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6130,8 +6130,8 @@
 		295ECAA9B3954089BEFDC23B1D2C2730 /* Build configuration list for PBXNativeTarget "Bolts-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD2FDEBCF2A7D5FBCFF218281FBF52E2 /* Debug */,
-				2E1874B74518713B2016723E0B79015D /* Release */,
+				58B708AE92F3130AA0CAD2C774E5F2F5 /* Debug */,
+				8A419D581B54E90009AB92616CBB3486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6148,8 +6148,8 @@
 		39124CEBFD3908ED7A5FDC2827711723 /* Build configuration list for PBXNativeTarget "MetaWear-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F54AF7879A2CCABB07F56D5F83022EA /* Debug */,
-				576A8F272320D7FE85B1FBFC4D032F16 /* Release */,
+				E7AB2883C717BA99E4BD42F7188C5432 /* Debug */,
+				1FDE2F0AAEB024A12CB5C392652E020E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6157,8 +6157,8 @@
 		44E941482C0742D390D3AFB1A0A6C567 /* Build configuration list for PBXNativeTarget "FastCoding+tvOS-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				088D105AF7A799A115061223C59FDF8C /* Debug */,
-				9494CC6A541135E9AA38B983B06EA9BD /* Release */,
+				6B4142171824F3C6EB45F320B5E50DEB /* Debug */,
+				FC93C889E297E8C8B4ADDD5BDE29371F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6184,8 +6184,8 @@
 		9BBE1CCE55B1516D4231137C9B7EE2F1 /* Build configuration list for PBXNativeTarget "MetaWear-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A3F1C11BF8D738F330289C1E36BD79C4 /* Debug */,
-				3486D01514D8253EAD2E180F75646A03 /* Release */,
+				154842C1DF3ACE450D134599091DABA0 /* Debug */,
+				466762EB8560804F645D190044DF0A9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6193,8 +6193,8 @@
 		D15F450C46352209534CE932C303818F /* Build configuration list for PBXNativeTarget "MBProgressHUD-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3411A943A9AF06853FC91946B5C7582 /* Debug */,
-				821D4C3778172D6DD9B34694DF1FA3D8 /* Release */,
+				42EE56FCBF79012EFF331115F7439F59 /* Debug */,
+				BC1CD90A40188B1FAC142134A3725388 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6202,8 +6202,8 @@
 		D4FCC774EFF79AA8E4FE14428E4F3FF6 /* Build configuration list for PBXNativeTarget "MBProgressHUD-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A72AEBF0A84DAF89D0789E37CC8F079D /* Debug */,
-				46B2C7F42EA92A240F07EE1B11BBAFF5 /* Release */,
+				5BD00F6C1F8F02BC2637569C159407C2 /* Debug */,
+				4274679E05C16B0F873456CFED4DBA56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6211,8 +6211,8 @@
 		E6FCE49D80275049D3DDC9FA5F5CDE3F /* Build configuration list for PBXNativeTarget "FastCoding+tvOS-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D023FF08C37E5AEA8A8459F39221FFAE /* Debug */,
-				36EE6DB968C1E914F3E676E614CBA109 /* Release */,
+				52D3694D4E96AC1F26599CA5B6B35620 /* Debug */,
+				2E9E6E6725A44390C6203EB6C92AC27C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6220,8 +6220,8 @@
 		F71D4CF6D44E01648B3C7C08701CDBA4 /* Build configuration list for PBXNativeTarget "MetaWear-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01845CCC023382A0A970B53987EC502E /* Debug */,
-				6EEF73E7D930DD768DBE58BD014D5ECA /* Release */,
+				768883211B55A6C485164D7C7274A185 /* Debug */,
+				7D21E5BDDE7BFEA557897546D8E319CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
