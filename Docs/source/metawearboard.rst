@@ -14,10 +14,15 @@ Bluetooth LE Connection
 -----------------------
 Before using any API features, you must first connect to the board with `connectAsync <https://mbientlab.com/docs/metawear/ios/latest/Classes/MBLMetaWear.html#//api/name/connectAsync>`_.  The returned task will finish when a connection has been established and the ``MBLMetaWear`` state has been initialized.  ::
 
-    device.connectAsync().success { _ in
-        print("Connected")
-    }.failure { error in
-        print("Failed to connect", error)
+    device.connectAsync().continueOnDispatch { t in
+        if t.isCancelled {
+            print("disconnectAsync() called before connection completed")
+        } else if t.isFaulted {
+            print("Connection Error: \(t.error?.localizedDescription ?? "N/A")")
+        } else {
+            print("Connection Success")
+        }
+        return t
     }
 
 There is also a convenient `connectWithTimeoutAsync <https://mbientlab.com/docs/metawear/ios/latest/Classes/MBLMetaWear.html#//api/name/connectWithTimeoutAsync:>`_ which will finish when the connection is complete, or timeout seconds have passed.  If a timeout occurs, the task will get an error of kMBLErrorDomain and kMBLErrorConnectionTimeout code.  ::
@@ -106,7 +111,7 @@ Since we do not support using a single MetaWear device with multiple application
 Identifier
 ----------
 
-Apple generates a unique identifier for each BLE device.  Note, two different Apple devices will generate two different identifiers for the same MetaWear.
+Apple generates a unique identifier for each BLE device.  Note, two different Apple devices will generate two different identifiers for the same MetaWear.  It might be useful to use ``device.mac`` instead.
 
 ::
 

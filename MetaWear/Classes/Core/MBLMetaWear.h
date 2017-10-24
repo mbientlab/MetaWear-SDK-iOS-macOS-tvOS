@@ -385,7 +385,7 @@ typedef NS_ENUM(NSInteger, MBLConnectionState) {
  you will need to use Nordic's DFU library to actaully perform the update:
  https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library
  For example, you can see our sample app for how to integrate DFU into your own app:
- https://github.com/mbientlab/Metawear-SampleiOSApp
+ https://github.com/mbientlab/MetaWear-SampleApp-iOS
  
  Please make sure the device is plugged in or charged above 50% to prevent errors.
 

@@ -28,7 +28,7 @@ The properties of the configuration objected are automatically persisted to disk
 Updating Firmware
 -----------------
 
-The firmware running on the MetaWear is periodically updated by MbientLab with additional features and bug-fixes.  To update, you first call a MetaWear API which puts the device in a special bootloader mode, then use the Nordic Semiconductor `IOS-DFU-Librarly <https://github.com/NordicSemiconductor/IOS-DFU-Library>`_ to upload the new firmware.  We recommend looking at our `Sample App <https://github.com/mbientlab/Metawear-SampleiOSApp>`_ for an example on how to integrate.
+The firmware running on the MetaWear is periodically updated by MbientLab with additional features and bug-fixes.  To update, you first call a MetaWear API which puts the device in a special bootloader mode, then use the Nordic Semiconductor `IOS-DFU-Librarly <https://github.com/NordicSemiconductor/IOS-DFU-Library>`_ to upload the new firmware.  We recommend looking at our `Sample App <https://github.com/mbientlab/MetaWear-SampleApp-iOS>`_ for an example on how to integrate.
 
 This is one API you can call WITHOUT being connected, there are some cases where you can't connect because the firmware is too old, but you still need to be able to update it!
 
