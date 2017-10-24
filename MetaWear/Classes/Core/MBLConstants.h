@@ -75,7 +75,8 @@ typedef NS_ENUM(uint8_t, MBLFirmwareVersion) {
     MBLFirmwareVersion1_3_1,
     MBLFirmwareVersion1_3_2,
     MBLFirmwareVersion1_3_3,
-    MBLFirmwareVersion1_3_4
+    MBLFirmwareVersion1_3_4,
+    MBLFirmwareVersion1_3_5
 };
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version);
 
@@ -122,7 +123,7 @@ NSString *MBLCalibrationAccuracyString(MBLCalibrationAccuracy accuracy);
 
 #pragma mark - Block Typedefs
 
-typedef void (^MBLVoidHandler)();
+typedef void (^MBLVoidHandler)(void);
 typedef void (^MBLErrorHandler)(NSError *__nullable error);
 typedef void (^MBLDataHandler)(NSData *__nullable data, NSError *__nullable error);
 typedef void (^MBLObjectHandler)(id __nullable obj, NSError *__nullable error);
@@ -203,11 +204,5 @@ extern NSInteger const kMBLErrorBluetoothUnsupported;
 
 /*! @abstract 117: The application is not authorized to use the Bluetooth Low Energy Central/Client role.*/
 extern NSInteger const kMBLErrorBluetoothUnauthorized;
-
-/*! @abstract 118: Requested a disconnect while a connection was in progress .*/
-extern NSInteger const kMBLErrorDisconnectRequested;
-
-/*! @abstract 119: DFU service was found during a connection .*/
-extern NSInteger const kMBLErrorDFUServiceFound;
 
 NS_ASSUME_NONNULL_END

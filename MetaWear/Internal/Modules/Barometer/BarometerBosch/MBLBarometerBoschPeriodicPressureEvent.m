@@ -45,7 +45,7 @@
 
 - (instancetype)initWithBarometer:(MBLBarometerBosch *)barometer
 {
-    self = [super initWithModule:barometer registerId:0x01 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 256.0]];
+    self = [super initWithModule:barometer registerId:0x01 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 256.0] identifier:@"pressure"];
     if (self) {
         self.cyclicEnable = [[MBLRegister alloc] initWithModule:barometer registerId:0x04 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
     }

@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) uint8_t registerId;
 @property (nonatomic) uint8_t index;
 @property (nonatomic) MBLFormat *format;
+@property (nonatomic, nullable) NSString *identifier;
 
 @property (nonatomic) int16_t initializeCount;
 @property (nonatomic) int16_t activateCount;
@@ -62,6 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format;
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format;
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format identifier:(nullable NSString *)identifier;
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format identifier:(NSString *)identifier;
 
 // readAsync here conflicts with the paramerized type readAsync on MBLData
 - (BFTask *)readAsync NS_SWIFT_NAME(readRegisterAsync());

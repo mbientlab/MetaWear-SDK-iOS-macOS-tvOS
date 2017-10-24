@@ -39,7 +39,7 @@
 
 + (NSString *)metawearModelString;
 + (MBLModel)metawearModel;
-+ (NSString *)metawearUid;
++ (NSString *)metawearMAC;
 + (BFTask<MBLMetaWear *> *)deviceForTestWithTimeout:(NSTimeInterval)timeout;
 + (BFTask<MBLMetaWear *> *)connectDevice:(MBLMetaWear *)device timeout:(NSTimeInterval)timeout forceClear:(BOOL)forceClear;
 

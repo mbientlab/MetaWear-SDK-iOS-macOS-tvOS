@@ -45,7 +45,7 @@
 
 - (instancetype)initWithHygrometer:(MBLHygrometer *)hygrometer
 {
-    self = [super initWithModule:hygrometer registerId:0x01 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 1024.0]];
+    self = [super initWithModule:hygrometer registerId:0x01 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 1024.0] identifier:@"relative-humidity"];
     if (self) {
         self.cyclicEnable = [[MBLRegister alloc] initWithModule:hygrometer registerId:0x03 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
     }

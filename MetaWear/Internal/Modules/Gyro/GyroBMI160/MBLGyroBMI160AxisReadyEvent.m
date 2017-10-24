@@ -42,7 +42,20 @@
 
 - (instancetype)initWithGyro:(MBLGyroBMI160 *)gyro axis:(uint8_t)axis
 {
-    self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro axis:axis]];
+    NSString *identifier = nil;
+    MBLGyroAxis typedAxis = axis;
+    switch (typedAxis) {
+        case MBLGyroAxisX:
+            identifier = @"angular-velocity[0]";
+            break;
+        case MBLGyroAxisY:
+            identifier = @"angular-velocity[1]";
+            break;
+        case MBLGyroAxisZ:
+            identifier = @"angular-velocity[2]";
+            break;
+    }
+    self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro axis:axis] identifier:identifier];
     return self;
 }
 

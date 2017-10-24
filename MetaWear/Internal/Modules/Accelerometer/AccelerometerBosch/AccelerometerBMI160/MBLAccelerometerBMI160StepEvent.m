@@ -46,7 +46,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBMI160 *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x19 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+    self = [super initWithModule:accelerometer registerId:0x19 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"step-detector"];
     if (self) {
         self.stepCounterInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x17 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.stepCounterConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x18 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

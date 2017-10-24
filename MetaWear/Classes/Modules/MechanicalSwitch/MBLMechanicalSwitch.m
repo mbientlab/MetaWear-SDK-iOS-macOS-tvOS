@@ -53,8 +53,8 @@
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
-        self.switchValue = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
-        self.switchUpdateEvent = [[MBLEvent alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+        self.switchValue = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"switch"];
+        self.switchUpdateEvent = [[MBLEvent alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"switch"];
     }
     return self;
 }

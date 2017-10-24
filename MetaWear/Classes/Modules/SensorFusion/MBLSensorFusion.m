@@ -76,14 +76,14 @@ typedef struct  __attribute__((packed)) {
         self.modeRegister = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
         self.outputEnable = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
         
-        self.acceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x4 enableBitmask:(1 << 0) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeAccelerometer]];
-        self.rotation = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x5 enableBitmask:(1 << 1) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeGyro]];
-        self.magneticField = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x6 enableBitmask:(1 << 2) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeMagnetometer]];
+        self.acceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x4 enableBitmask:(1 << 0) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeAccelerometer] identifier:@"corrected-acceleration"];
+        self.rotation = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x5 enableBitmask:(1 << 1) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeGyro] identifier:@"corrected-angular-velocity"];
+        self.magneticField = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x6 enableBitmask:(1 << 2) enableRegister:self.outputEnable format:[[MBLCorrectedFormat alloc] initWithType:MBLCorrectedFormatTypeMagnetometer] identifier:@"corrected-magnetic-field"];
         
-        self.quaternion = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x7 enableBitmask:(1 << 3) enableRegister:self.outputEnable format:[[MBLQuaternionFormat alloc] init]];
-        self.eulerAngle = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x8 enableBitmask:(1 << 4) enableRegister:self.outputEnable format:[[MBLEulerFormat alloc] init]];
-        self.gravity = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x9 enableBitmask:(1 << 5) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init]];
-        self.linearAcceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0xA enableBitmask:(1 << 6) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init]];
+        self.quaternion = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x7 enableBitmask:(1 << 3) enableRegister:self.outputEnable format:[[MBLQuaternionFormat alloc] init] identifier:@"quaternion"];
+        self.eulerAngle = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x8 enableBitmask:(1 << 4) enableRegister:self.outputEnable format:[[MBLEulerFormat alloc] init] identifier:@"euler-angles"];
+        self.gravity = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0x9 enableBitmask:(1 << 5) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init] identifier:@"gravity"];
+        self.linearAcceleration = [[MBLBitmaskEvent alloc] initWithModule:self registerId:0xA enableBitmask:(1 << 6) enableRegister:self.outputEnable format:[[MBLGravityFormat alloc] init] identifier:@"linear-acceleration"];
     }
     return self;
 }
@@ -110,22 +110,41 @@ typedef struct  __attribute__((packed)) {
     }
 }
 
+- (BFTask *)pullConfigAsync
+{
+    return [[self.modeRegister readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const mw_sensorfusion_mode_t *regs = result.data.bytes;
+        self.mode = regs->working_mode;
+        return nil;
+    }];
+}
+
 - (BFTask *)performAsyncInitialization
 {
     // Some basic housekeeping checks as we enable Sensor Fusion
     BOOL expected = [self.device.accelerometer isKindOfClass:[MBLAccelerometerBMI160 class]] &&
-                    [self.device.gyro isKindOfClass:[MBLGyroBMI160 class]] &&
-                    [self.device.magnetometer isKindOfClass:[MBLMagnetometerBMM150 class]];
+                    [self.device.gyro isKindOfClass:[MBLGyroBMI160 class]];
     // As of now we must assert certain sensors types
     if (!expected) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
-                                                     userInfo:@{NSLocalizedDescriptionKey : @"This device is not yet enabled for sensor fusion, please contact MbientLab."}]];
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"BMI160 required for sensor fusion but was not detected, please contact MbientLab."}]];
     }
     MBLAccelerometerBMI160 *accelerometer = (MBLAccelerometerBMI160 *)self.device.accelerometer;
     MBLGyroBMI160 *gyro = (MBLGyroBMI160 *)self.device.gyro;
     MBLMagnetometerBMM150 *magnetometer = (MBLMagnetometerBMM150 *)self.device.magnetometer;
     
+    if (!magnetometer && self.mode != MBLSensorFusionModeIMUPlus) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorOperationInvalid
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion can only run in MBLSensorFusionModeIMUPlus mode without a Magnetometer."}]];
+    }
+    if (magnetometer && (magnetometer.periodicMagneticField.initializeCount > 0)) {
+        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                         code:kMBLErrorOperationInvalid
+                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the magnetometer to specific settings, please enable Sensor Fusion first before streaming or logging raw magnetometer data."}]];
+    }
     if (accelerometer.dataReadyEvent.initializeCount > 0) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
@@ -135,11 +154,6 @@ typedef struct  __attribute__((packed)) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorOperationInvalid
                                                      userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the gyro to specific settings, please enable Sensor Fusion first before streaming or logging raw gyro data."}]];
-    }
-    if (magnetometer.periodicMagneticField.initializeCount > 0) {
-        return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                         code:kMBLErrorOperationInvalid
-                                                     userInfo:@{NSLocalizedDescriptionKey : @"Sensor Fusion needs to program the magnetometer to specific settings, please enable Sensor Fusion first before streaming or logging raw magnetometer data."}]];
     }
     
     // Byte 1.0-1.3: Accel Range (0: 2G, 1: 4G, 2: 8G, 3:16G)

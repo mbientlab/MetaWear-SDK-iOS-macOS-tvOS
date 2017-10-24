@@ -73,10 +73,11 @@ Event representing a BLE disconnection event.  Note this doesn't make sense to s
 MAC Address
 -----------
 
-Get the MAC address of the MetaWear.
+Get the MAC address of the MetaWear.  As of SDK 2.10.0 this is now automaticaly cached upon connection and avaliable at ``device.mac``.
 
 ::
 
+    print(device.mac)
     device.settings?.macAddress?.readAsync().success { mac in
         print(mac)
     }

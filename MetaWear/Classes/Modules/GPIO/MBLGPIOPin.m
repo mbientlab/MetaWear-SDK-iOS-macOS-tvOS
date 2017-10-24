@@ -69,11 +69,11 @@
         
         if (featureByte & 0x1) {
             self.changeEvent = [[MBLGPIOPinChangeEvent alloc] initWithModule:gpio pin:pin];
-            self.digitalValue = [[MBLGPIOData alloc] initWithRegister:gpio.readDigital pin:self format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            self.digitalValue = [[MBLGPIOData alloc] initWithRegister:gpio.readDigital pin:self format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:[NSString stringWithFormat:@"digital[%d]", pin]];
         }
         if (featureByte & 0x2) {
-            self.analogAbsolute = [[MBLGPIOData alloc] initWithRegister:gpio.readAnalogAbsolute pin:self format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1000.0]];
-            self.analogRatio = [[MBLGPIOData alloc] initWithRegister:gpio.readAnalogRatio pin:self format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1023.0]];
+            self.analogAbsolute = [[MBLGPIOData alloc] initWithRegister:gpio.readAnalogAbsolute pin:self format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1000.0] identifier:[NSString stringWithFormat:@"abs-ref[%d]", pin]];
+            self.analogRatio = [[MBLGPIOData alloc] initWithRegister:gpio.readAnalogRatio pin:self format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1023.0] identifier:[NSString stringWithFormat:@"adc[%d]", pin]];
         }
         
         self.changeType = MBLPinChangeTypeRising;
@@ -116,7 +116,8 @@
                                           format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1023.0]
                                           pullUp:pullUp
                                         pullDown:pullDown
-                                       readDelay:readDelay];
+                                       readDelay:readDelay
+                                      identifier:[NSString stringWithFormat:@"adc[%d]", self.pin]];
 }
 
 - (MBLData *)analogAbsoluteWithPullUp:(NSNumber *)pullUp
@@ -131,7 +132,8 @@
                                           format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:NO scale:1.0 / 1000.0]
                                           pullUp:pullUp
                                         pullDown:pullDown
-                                       readDelay:readDelay];
+                                       readDelay:readDelay
+                                      identifier:[NSString stringWithFormat:@"abs-ref[%d]", self.pin]];
 }
 
 @end

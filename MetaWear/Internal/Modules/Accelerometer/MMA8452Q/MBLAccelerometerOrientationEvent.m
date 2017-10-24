@@ -49,7 +49,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerMMA8452Q *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0xA format:[[MBLAccelerometerMMA8452QOrientationFormat alloc] init]];
+    self = [super initWithModule:accelerometer registerId:0xA format:[[MBLAccelerometerMMA8452QOrientationFormat alloc] init] identifier:@"orientation"];
     if (self) {
         self.orientationEnable = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x08 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.orientationSettings = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x09 format:[[MBLFormat alloc] initEncodedDataWithLength:5]];

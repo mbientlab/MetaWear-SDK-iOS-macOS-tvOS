@@ -79,7 +79,7 @@ typedef struct __attribute__((packed)) {
         self.integrationTime = MBLAmbientLightLTR329Integration100ms;
         
         self.mode = [[MBLRegister alloc] initWithModule:self registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
-        self.periodicIlluminance = [[MBLEvent alloc] initWithModule:self registerId:0x3 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:0.001]];
+        self.periodicIlluminance = [[MBLEvent alloc] initWithModule:self registerId:0x3 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:0.001] identifier:@"illuminance"];
     }
     return self;
 }

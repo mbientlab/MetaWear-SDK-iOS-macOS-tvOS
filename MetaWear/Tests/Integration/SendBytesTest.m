@@ -147,8 +147,9 @@ static const int secondsToConnect = 20;
 
 - (void)testSomeReads
 {
-    [self sendData:@[@"14-83"]];
-    
+    [self sendData:@[@"FE-89"]];
+    [self sendData:@[@"FE-8A-00"]];
+    [self sendData:@[@"FE-8A-01"]];
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"pause for manual verification"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [waitingExpectation fulfill];

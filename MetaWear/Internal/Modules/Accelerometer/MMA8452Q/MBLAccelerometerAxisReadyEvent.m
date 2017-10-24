@@ -43,7 +43,20 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerMMA8452Q *)accelerometer axis:(uint8_t)axis
 {
-    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerMMA8452QFormat alloc] initWithAxis:axis]];
+    NSString *identifier = nil;
+    MBLAccelerometerAxis typedAxis = axis;
+    switch (typedAxis) {
+        case MBLAccelerometerAxisX:
+            identifier = @"acceleration[0]";
+            break;
+        case MBLAccelerometerAxisY:
+            identifier = @"acceleration[1]";
+            break;
+        case MBLAccelerometerAxisZ:
+            identifier = @"acceleration[2]";
+            break;
+    }
+    self = [super initWithModule:accelerometer registerId:0x4 format:[[MBLAccelerometerMMA8452QFormat alloc] initWithAxis:axis] identifier:identifier];
     return self;
 }
 

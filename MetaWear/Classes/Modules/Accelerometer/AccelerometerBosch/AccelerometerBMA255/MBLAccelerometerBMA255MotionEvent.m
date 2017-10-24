@@ -49,7 +49,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBMA255 *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x0B format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+    self = [super initWithModule:accelerometer registerId:0x0B format:[[MBLFormat alloc] initEncodedDataWithLength:1] identifier:@"bosch-motion"];
     if (self) {
         // Default Settings
         self.slowNoMotionEnabled = NO;

@@ -64,7 +64,7 @@
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
         self.stepEvent = [[MBLAccelerometerBMI160StepEvent alloc] initWithAccelerometer:self];
-        self.stepCounter = [[MBLData alloc] initWithModule:self registerId:0x1A format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO]];
+        self.stepCounter = [[MBLData alloc] initWithModule:self registerId:0x1A format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO] identifier:@"step-counter"];
         self.motionEvent = [[MBLAccelerometerBMI160MotionEvent alloc] initWithAccelerometer:self];
         
         self.stepCounterReset = [[MBLRegister alloc] initWithModule:self registerId:0x1B format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
@@ -72,6 +72,16 @@
         self.lowOrHighGEvent.lowOrHighGDurationMultiplier = 2.5;
     }
     return self;
+}
+
+- (BFTask *)pullConfigAsync
+{
+    return [[self.accelDataConfig readAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        MBLDataSample *result = t.result;
+        const bmi160_regs_acc_t *regs = result.data.bytes;
+        self.fullScaleRange = regs->acc_range.acc_range;
+        return nil;
+    }];
 }
 
 - (BFTask *)performAsyncInitialization

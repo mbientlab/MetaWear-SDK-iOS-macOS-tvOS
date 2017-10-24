@@ -173,9 +173,10 @@
     
     XCTestExpectation *connect1 = [self expectationWithDescription:@"wait for device1"];
     XCTestExpectation *connect2 = [self expectationWithDescription:@"wait for device2"];
-    [[self.device connectAsync] failure:^(NSError * _Nonnull error) {
-        XCTAssertEqual(error.code, kMBLErrorDisconnectRequested);
+    [[self.device connectAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+        XCTAssertTrue(t.cancelled);
         [connect1 fulfill];
+        return t;
     }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[self.device disconnectAsync] success:^(id result) {
@@ -195,9 +196,10 @@
     
     XCTestExpectation *connect1 = [self expectationWithDescription:@"wait for device1"];
     XCTestExpectation *connect2 = [self expectationWithDescription:@"wait for device2"];
-    [[self.device connectAsync] failure:^(NSError * _Nonnull error) {
-        XCTAssertEqual(error.code, kMBLErrorDisconnectRequested);
+    [[self.device connectAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask<MBLMetaWear *> * _Nonnull t) {
+        XCTAssertTrue(t.cancelled);
         [connect1 fulfill];
+        return t;
     }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[self.device disconnectAsync] success:^(id result) {

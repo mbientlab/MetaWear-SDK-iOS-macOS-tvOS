@@ -77,8 +77,8 @@
 #import "MBLMovingAverage.h"
 #import "MBLConstants+Private.h"
 #import "MBLLogger.h"
+#import "MBLStringData.h"
 
-static int MAX_PENDING_WRITES = 10;
 
 typedef void (^MBLModuleInfoErrorHandler)(MBLModuleInfo *moduleInfo, NSError *error);
 typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
@@ -106,14 +106,11 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic, nullable) MBLProximity *proximity;
 @property (nonatomic, nullable) MBLSensorFusion *sensorFusion;
 @property (nonatomic, nullable) MBLSettings *settings;
-@property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic, nullable) id<MBLRestorable> configuration;
 
 @property (nonatomic) MBLConnectionState state;
 @property (nonatomic) BOOL programedByOtherApp;
-@property (nonatomic, nonnull) NSUUID *identifier;
-@property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
 //@property (nonatomic, nonnull) NSString *name;
 // Setting the name property causes side effects, so we
@@ -123,22 +120,27 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 
 // Properties from MBLMetaWear+Private.h
-@property (nonatomic) BOOL bypassSetup;
+@property (nonatomic, nonnull) NSUUID *identifier;
+@property (nonatomic) NSDictionary *advertisementData;
+@property (nonatomic, nullable) NSString *mac;
+@property (nonatomic, nullable) NSNumber *discoveryTimeRSSI;
+@property (nonatomic) BOOL isMetaBoot;
 
+@property (nonatomic) BOOL bypassSetup;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 
-@property (nonatomic) MBLDataProcessor *dataProcessor;
-@property (nonatomic) MBLLogging *logging;
-@property (nonatomic) MBLCommand *command;
-@property (nonatomic) MBLTestDebug *testDebug;
-@property (nonatomic) MBLMacro *macro;
+@property (nonatomic, nullable) MBLDataProcessor *dataProcessor;
+@property (nonatomic, nullable) MBLLogging *logging;
+@property (nonatomic, nullable) MBLCommand *command;
+@property (nonatomic, nullable) MBLTestDebug *testDebug;
+@property (nonatomic, nullable) MBLMacro *macro;
+@property (nonatomic, nullable) MBLDeviceInfo *deviceInfo;
 
 @property (nonatomic) MBLNonVolatileState *nonVolatileState;
 
 @property (nonatomic) MBLDispatchQueue *zeroCountQueue;
 
-// Properties needed internally requring AutoConding
-@property (nonatomic) NSArray *modules;
+@property (nonatomic, nullable) NSArray *modules;
 @end
 
 
@@ -158,6 +160,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     MBLSimulationHandler simulatorHandler;
     MBLDataHandler snifferHandler;
     NSMutableDictionary *moduleInfoTaskSources;
+    int maxPendingWrites;
     int commandCount;
     
     CBCharacteristic *metawearCommandCharacteristic;
@@ -168,8 +171,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     CBCharacteristic *disSerialNumberCharacteristic;
     CBCharacteristic *disHardwareRevisionCharacteristic;
     CBCharacteristic *disFirmwareRevisionCharacteristic;
-    
-    MBLFirmwareUpdateManager *updateManager;
     
     MBLDispatchQueue *simulatorCountQueue;
     NSMutableArray  *simulatorFreeTasks;
@@ -216,6 +217,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         
         self.peripheral = peripheral;
         self.identifier = peripheral.identifier;
+        self.advertisementData = advertisementData;
         self.nameImpl = peripheral.name;
         self.discoveryTimeRSSI = RSSI;
         self.model = MBLModelUnknown;
@@ -327,6 +329,39 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     return source.task;
 }
 
+- (void)clearAllModules
+{
+    self.modules = nil;
+    self.mechanicalSwitch = nil;
+    self.led = nil;
+    self.accelerometer = nil;
+    self.temperature = nil;
+    self.gpio = nil;
+    self.neopixel = nil;
+    self.iBeacon = nil;
+    self.hapticBuzzer = nil;
+    self.dataProcessor = nil;
+    self.command = nil;
+    self.logging = nil;
+    self.timer = nil;
+    self.serial = nil;
+    self.ancs = nil;
+    self.macro = nil;
+    self.conductance = nil;
+    self.settings = nil;
+    self.barometer = nil;
+    self.gyro = nil;
+    self.ambientLight = nil;
+    self.magnetometer = nil;
+    self.hygrometer = nil;
+    self.photometer = nil;
+    self.proximity = nil;
+    self.sensorFusion = nil;
+    self.testDebug = nil;
+    
+    self.configuration = nil;
+}
+
 - (BFTask *)resetModulesAsync
 {
     if (!(self.peripheral && self.peripheral.state == MBLConnectionStateConnected)) {
@@ -338,36 +373,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     uint32_t magicKey = self.testDebug.magicKey;
     
     return [[[BFTask taskFromMetaWearWithBlock:^id _Nonnull{
-        self.modules = nil;
-        self.mechanicalSwitch = nil;
-        self.led = nil;
-        self.accelerometer = nil;
-        self.temperature = nil;
-        self.gpio = nil;
-        self.neopixel = nil;
-        self.iBeacon = nil;
-        self.hapticBuzzer = nil;
-        self.dataProcessor = nil;
-        self.command = nil;
-        self.logging = nil;
-        self.timer = nil;
-        self.serial = nil;
-        self.ancs = nil;
-        self.macro = nil;
-        self.conductance = nil;
-        self.settings = nil;
-        self.barometer = nil;
-        self.gyro = nil;
-        self.ambientLight = nil;
-        self.magnetometer = nil;
-        self.hygrometer = nil;
-        self.photometer = nil;
-        self.proximity = nil;
-        self.sensorFusion = nil;
-        self.testDebug = nil;
-        
-        self.configuration = nil;
-        
+        [self clearAllModules];
         // Initialize the madness
         // These 3 must go first so that the other modules can access them duing init
         NSMutableArray *tasks = [NSMutableArray array];
@@ -546,6 +552,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 - (void)copyModulesFrom:(MBLMetaWear *)other
 {
     self.identifier = other.identifier;
+    self.advertisementData = other.advertisementData;
+    self.mac = other.mac;
     self.nameImpl = other.name;
     self.deviceInfo = other.deviceInfo;
     
@@ -757,7 +765,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     }
 }
 
-- (void)invokeConnectionHandlers:(NSError *)error
+- (void)invokeConnectionHandlers:(NSError *)error cancelled:(BOOL)cancelled
 {
     @synchronized(connectionSources) {
         for (BFTaskCompletionSource *source in connectionSources) {
@@ -766,6 +774,8 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             });
             if (error) {
                 [source trySetError:error];
+            } else if (cancelled) {
+                [source trySetCancelled];
             } else {
                 [source trySetResult:self];
             }
@@ -976,12 +986,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                     [self connectionCompleteWithError:connectionError];
                     break;
                 case MBLConnectionStateDisconnecting:
-                    if (!connectionError) {
-                        connectionError = [NSError errorWithDomain:kMBLErrorDomain
-                                                              code:kMBLErrorDisconnectRequested
-                                                          userInfo:@{NSLocalizedDescriptionKey : @"Disconnect requested while a connection was in progress.  Please try connection again."}];
-                    }
-                    [self invokeConnectionHandlers:connectionError];
+                    [self invokeConnectionHandlers:connectionError cancelled:YES];
                     break;
                 default:
                     break;
@@ -1025,7 +1030,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         type = CBCharacteristicWriteWithResponse;
     }
     // Throttle by having every Nth request wait for response
-    if (++commandCount == MAX_PENDING_WRITES) {
+    if (++commandCount >= maxPendingWrites) {
         commandCount = 0;
         type = CBCharacteristicWriteWithResponse;
     }
@@ -1187,6 +1192,23 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     return source.task;
 }
 
+- (BFTask *)createAnonymousEventsAsync
+{
+    NSMutableArray *tasks = [NSMutableArray array];
+    if (self.accelerometer) {
+        [tasks addObject:[self.accelerometer pullConfigAsync]];
+    }
+    if (self.gyro) {
+        [tasks addObject:[self.gyro pullConfigAsync]];
+    }
+    if (self.sensorFusion) {
+        [tasks addObject:[self.sensorFusion pullConfigAsync]];
+    }
+    return [[BFTask taskForCompletionOfAllTasks:tasks] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
+        return [self.logging queryActiveLoggersAsync];
+    }];
+}
+
 - (BFTask<MBLDeviceInfo *> *)readDeviceInfoAsync;
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
@@ -1242,29 +1264,62 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     [self.testDebug resetDevice];
 }
 
-- (BFTask<NSNumber *> *)checkForFirmwareUpdateAsync
+- (BFTask *)sleepModeOnReset
+{
+    return [self.testDebug enterPowersaveOnReset];
+}
+
+- (BFTask<NSString *> *)checkForFirmwareUpdateAsync
 {
     if (self.state != MBLConnectionStateConnected) {
         return [BFTask taskWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                          code:kMBLErrorNotConnected
                                                      userInfo:@{NSLocalizedDescriptionKey : @"MetaWear not connected, can't perform operation.  Please connect to MetaWear before performing checkForFirmwareUpdateAsync."}]];
     }
-    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    [[[MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo] successOnMetaWear:^(MBLFirmwareBuild * _Nonnull result) {
-        if ([MBLConstants versionString:self.deviceInfo.firmwareRevision isLessThan:result.firmwareRev]) {
-            [source trySetResult:@YES];
-        } else {
-            [source trySetResult:@NO];
-        }
-    }] failureOnMetaWear:^(NSError * _Nonnull error) {
-        [source trySetError:error];
+    return [[MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo]
+            continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLFirmwareBuild *> * _Nonnull t) {
+        return [MBLConstants versionString:self.deviceInfo.firmwareRevision isLessThan:t.result.firmwareRev] ? t.result.firmwareRev : nil;
     }];
-    return source.task;
 }
 
-- (BFTask<MBLFirmwareUpdateInfo *> *)startUpdate
+- (BFTask *)prepareForFirmwareUpdateToVersionAsync:(MBLFirmwareBuild *)firmware
 {
-    return [[updateManager startUpdate] continueOnMetaWearWithBlock:^id _Nullable(BFTask<MBLFirmwareUpdateInfo *> * _Nonnull t) {
+    // We must connect then jump to the bootloader.  This special flag
+    // removes most of the init flow incase we connect to a super old
+    // unsuported firmware version.
+    self.bypassSetup = YES;
+    MBLFirmwareUpdateManager __block *updateManager;
+    return [[[[[[[self connectAsync] continueOnMetaWearWithBlock:^id (BFTask *t) {
+        // Make sure to always turn off the flag
+        self.bypassSetup = NO;
+        // Forwared errors we can't handle or move on to the update if we are already in DFU mode
+        if (t.error) {
+            return t;
+        }
+        // Read the device info if we wern't told what firmware to use
+        return firmware == nil ? [self readDeviceInfoAsync] : nil;
+    }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
+        // Grab the latest firmware if we wern't told what firmware to use
+        return firmware == nil ? [MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:self.deviceInfo] : firmware;
+    }] continueOnMetaWearWithSuccessBlock:^id (BFTask<MBLFirmwareBuild *> *t) {
+        // Create master class which handles all the details for the firmware upate process
+        updateManager = [[MBLFirmwareUpdateManager alloc] initWithFirmware:t.result identifier:self.identifier];
+        // Grab the correct firmware file first
+        return [t.result downloadFirmwareAsync];
+    }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
+        // Getting into DFU causes the device to disconnect, so we execute this
+        // async to make sure our disconnection handler gets registered first.
+        BFTask *disconnectTask = [self waitForDisconnect];
+        if (self.isMetaBoot) {
+            // See to simulate the disconnect that occurs when we jump to bootloader
+            [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
+        } else {
+            [self.testDebug jumpToBootloader];
+        }
+        return disconnectTask;
+    }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
+        return [updateManager startUpdate];
+    }] continueOnMetaWearWithBlock:^id _Nullable(BFTask<MBLFirmwareUpdateInfo *> * _Nonnull t) {
         updateManager = nil;
         if (t.error) {
             [[MBLAnalytics sharedManager] postEventForDevice:self.identifier
@@ -1286,42 +1341,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             // TODO: Reprogram device after update if we have a configuration
         }
         return t;
-    }];
-}
-
-- (BFTask *)prepareForFirmwareUpdateToVersionAsync:(MBLFirmwareBuild *)firmware
-{
-    // Create master class which handles all the details for the firmware upate process
-    updateManager = [[MBLFirmwareUpdateManager alloc] initWithFirmware:firmware
-                                                            identifier:self.peripheral.identifier];
-    
-    return [[[[MBLFirmwareUpdateManager isFirmwareReachableAsync] continueOnMetaWearWithSuccessBlock:^id (BFTask<NSNumber *> *t) {
-        // We must connect then jump to the bootloader.  This special flag
-        // removes most of the init flow incase we connect to a super old
-        // unsuported firmware version.
-        self.bypassSetup = YES;
-        return [self connectAsync];
-    }] continueOnMetaWearWithBlock:^id (BFTask *t) {
-        // Make sure to always turn off the flag
-        self.bypassSetup = NO;
-        // Its possible we are already in DFU, so gracefully handle that condition
-        BOOL alreadyInDFU = [t.error.domain isEqualToString:kMBLErrorDomain] && t.error.code == kMBLErrorDFUServiceFound;
-        // Forwared errors we can't handle
-        if (!alreadyInDFU && t.error) {
-            return t;
-        }
-        // Getting into DFU causes the device to disconnect, so we execute this
-        // async to make sure our disconnection handler gets registered first.
-        BFTask *disconnectTask = [self waitForDisconnect];
-        if (alreadyInDFU) {
-            // See to simulate the disconnect that occurs when we jump to bootloader
-            [[MBLMetaWearManager sharedManager] disconnectMetaWear:self fromPeripheralSide:NO];
-        } else {
-            [self.testDebug jumpToBootloader];
-        }
-        return disconnectTask;
-    }] continueOnMetaWearWithSuccessBlock:^id (BFTask *t) {
-        return [self startUpdate];
     }];
 }
 
@@ -1348,6 +1367,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
     for (CBService *service in peripheral.services) {
         if ([service.UUID isEqual:[MBLConstants serviceUUID]]) {
             services++;
+            self.isMetaBoot = NO;
             [peripheral discoverCharacteristics:@[[MBLConstants commandUUID], [MBLConstants notificationUUID]] forService:service];
         } else if ([service.UUID isEqual:[MBLConstants batteryServiceUUID]]) {
             services++;
@@ -1360,11 +1380,9 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                   [MBLConstants DISFirmwareRevUUID],
                                                   [MBLConstants DISModelNumberUUID]] forService:service];
         } else if ([service.UUID isEqual:[MBLConstants DFUServiceUUID]]) {
-            connectionRetryCount = 0;
-            [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                                  code:kMBLErrorDFUServiceFound
-                                                              userInfo:@{NSLocalizedDescriptionKey : @"MetaWear device in bootloader mode.  Please update the firmware using prepareForFirmwareUpdateWithHandler:."}]];
-            return;
+            services++;
+            self.isMetaBoot = YES;
+            // Expected service, but we don't need to discover its characteristics
         } else {
             [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                                   code:kMBLErrorUnexpectedServices
@@ -1372,12 +1390,10 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
             return;
         }
     }
-    if (services != 3) {
-        if (peripheral.services.count != 3) {
-            [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                                  code:kMBLErrorUnexpectedServices
-                                                              userInfo:@{NSLocalizedDescriptionKey : @"Couldn't find all expected BLE services.  Please try connection again."}]];
-        }
+    if (services != (self.isMetaBoot ? 2 : 3)) {
+        [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                              code:kMBLErrorUnexpectedServices
+                                                          userInfo:@{NSLocalizedDescriptionKey : @"Couldn't find all expected BLE services.  Please try connection again."}]];
     }
 }
 
@@ -1438,21 +1454,26 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         }
     }
     
-    if (serviceCount == 3) {
-        if (!(characteristicCount == 7 || characteristicCount == 8)) {
+    if (serviceCount == (self.isMetaBoot ? 1 : 3)) {
+        if ((self.isMetaBoot && characteristicCount != 5) ||
+            (!self.isMetaBoot && !(characteristicCount == 7 || characteristicCount == 8))) {
             [self connectionCompleteWithError:[NSError errorWithDomain:kMBLErrorDomain
                                                                   code:kMBLErrorUnexpectedCharacteristics
                                                               userInfo:@{NSLocalizedDescriptionKey : @"MetaWear device contained an unexpected number of BLE characteristics.  Please try connection again."}]];
+        } else if (self.isMetaBoot) {
+            [self clearAllModules];
+            [[self readDeviceInfoAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
+                [self connectionCompleteWithError:t.error];
+                return nil;
+            }];
+        } else if (self.bypassSetup) {
+            [self clearAllModules];
+            // We need this one module to issue jump to bootloader commands
+            self.testDebug = [MBLTestDebug objectWithDevice:self moduleInfo:[[MBLModuleInfo alloc] initWithId:0xFE data:nil]];
+            [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
+            [self connectionCompleteWithError:nil];
         } else {
-            // Short circut if asked for
-            if (self.bypassSetup) {
-                // We need this one module to issue jump to bootloader commands
-                self.testDebug = [MBLTestDebug objectWithDevice:self moduleInfo:[[MBLModuleInfo alloc] initWithId:0xFE data:nil]];
-                [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
-                [self connectionCompleteWithError:nil];
-            } else {
-                [self setupMetaWear];
-            }
+            [self setupMetaWear];
         }
     }
 }
@@ -1460,10 +1481,12 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (void)setupMetaWear
 {
-    [[[[[[[self readDeviceInfoAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
+    [[[[[[[[self readDeviceInfoAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDeviceInfo *> * _Nonnull t) {
         // Starting firmware 1.1.0 we can flood the beast!
         if ([MBLConstants versionString:t.result.firmwareRevision isLessThan:@"1.1.0"]) {
-            MAX_PENDING_WRITES = 3;
+            maxPendingWrites = 3;
+        } else {
+            maxPendingWrites = 10;
         }
         // Make sure the firmware isn't too old
         NSString *required = MBLFirmwareVersionString([MBLMetaWearManager sharedManager].minimumRequiredVersion);
@@ -1480,20 +1503,24 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         // Start listening to the global notification register since the following
         // checks need to read data (which uses callbacks throught this characteristic)
         [self.peripheral setNotifyValue:YES forCharacteristic:metawearNotification6Characteristic];
-        // 
+        // Get MAC address if needed (but ignore errors)
+        return [self.mac ? nil : [self.settings.macAddress readAsync] continueOnMetaWearWithBlock:^id _Nullable(BFTask<MBLStringData *> * _Nonnull t) {
+            self.mac = t.result.value;
+            return nil;
+        }];
+    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         return [self.testDebug isProgramedByOtherAppAsync];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        self.programedByOtherApp = t.result.boolValue;
-        if (t.result.boolValue) {
+        BOOL isProgramedByOtherAppResult = t.result.boolValue;
+        self.programedByOtherApp = isProgramedByOtherAppResult;
+        // No matter if we are the owning application or not we first run checkForResetAsync
+        // since it sync's the logger timstamps since a guest app can download log now
+        return [[self.logging checkForResetAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
             // If we are programmed by another app finish the connection now, note this will
-            // jump over all "success" blocks
-            return [BFTask cancelledTask];
-        } else {
-            // If we are the owning application do extra cleanup and state checking.
-            // First check if the device happened to reset while we were away and if
-            // so reload its reset state
-            return [self.logging checkForResetAsync];
-        }
+            // jump over all "success" blocks.  Otherwise forward the "didReset" result to
+            // the next block and continue with extra cleanup and state checking.
+            return isProgramedByOtherAppResult ? [BFTask cancelledTask] : t;
+        }];
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
         BOOL didReset = t.result.boolValue;
         if (didReset) {
@@ -1723,7 +1750,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                       eventLabel:error.localizedDescription];
                 MBLLog(MBLLogLevelInfo, @"Connection Failed");
 
-                [self invokeConnectionHandlers:error];
+                [self invokeConnectionHandlers:error cancelled:NO];
             }
             return nil;
         }];
@@ -1743,7 +1770,9 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                 [tasks addObject:[module deviceConnected]];
             }
         }
-        [tasks addObject:[self.testDebug deviceConnected]];
+        if (self.testDebug) {
+            [tasks addObject:[self.testDebug deviceConnected]];
+        }
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull t) {
         if (t.error) {
@@ -1755,7 +1784,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
                                                eventCategory:[@"connect " stringByAppendingString:kMBLAPIVersion]
                                                  eventAction:@"success"
                                                   eventLabel:self.deviceInfo.firmwareRevision];
-            [self invokeConnectionHandlers:nil];
+            [self invokeConnectionHandlers:nil cancelled:NO];
         }
         return nil;
     }];

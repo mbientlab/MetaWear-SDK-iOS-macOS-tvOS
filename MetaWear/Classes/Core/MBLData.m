@@ -46,17 +46,24 @@
 
 @implementation MBLData
 
-- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format identifier:(nullable NSString *)identifier
 {
-    self = [super initWithModule:module registerId:registerId index:index format:format];
+    self = [super initWithModule:module registerId:registerId index:index format:format identifier:identifier];
     if (self) {
     }
     return self;
 }
-
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format identifier:(NSString *)identifier
+{
+    return [self initWithModule:module registerId:registerId index:0xFF format:format identifier:identifier];
+}
+- (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId index:(uint8_t)index format:(MBLFormat *)format
+{
+    return [self initWithModule:module registerId:registerId index:index format:format identifier:nil];
+}
 - (instancetype)initWithModule:(MBLModule *)module registerId:(uint8_t)registerId format:(MBLFormat *)format
 {
-    return [self initWithModule:module registerId:registerId index:0xFF format:format];
+    return [self initWithModule:module registerId:registerId index:0xFF format:format identifier:nil];
 }
 
 - (BFTask *)simulatedReadAsync:(BOOL)isLocal

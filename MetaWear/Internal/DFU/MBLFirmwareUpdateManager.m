@@ -45,19 +45,19 @@
 
 
 @interface MBLFirmwareUpdateManager() <CBCentralManagerDelegate, CBPeripheralDelegate>
-@property (nonatomic) NSUUID *identifier;
 @property (nonatomic) MBLFirmwareBuild *firmware;
-
-@property (nonatomic) NSString *modelNumber;
-@property (nonatomic) NSString *hardwareRev;
-@property (nonatomic) CBPeripheral *peripheral;
+@property (nonatomic) NSUUID *identifier;
 
 @property (nonatomic) BFTaskCompletionSource *source;
 @property (nonatomic) BOOL updateDone;
 @property (nonatomic) int recoveryTries;
 @property (nonatomic) NSTimer *connectionWatchdog;
 @property (nonatomic) NSError *recievedError;
+@property (nonatomic) NSString *modelNumber;
+@property (nonatomic) NSString *hardwareRev;
+
 @property (nonatomic) CBCentralManager *centralManager;
+@property (nonatomic) CBPeripheral *peripheral;
 @end
 
 @implementation MBLFirmwareUpdateManager
@@ -67,8 +67,8 @@
 {
     self = [super init];
     if (self) {
-        self.identifier = identifier;
         self.firmware = firmware;
+        self.identifier = identifier;
         
         self.updateDone = NO;
         self.recoveryTries = 2;
@@ -88,33 +88,25 @@
     return self.source.task;
 }
 
-+ (BFTask<NSNumber *> *)isFirmwareReachableAsync
-{
-    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    NSURL *url = [NSURL URLWithString:@"https://mbientlab.com/releases/metawear/info1.json"];
-
-    [[NSURLSession.sharedSession dataTaskWithRequest:[[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10] completionHandler:^(NSData *data, NSURLResponse * response, NSError *error) {
-        if (error) {
-            [source trySetError:error];
-        } else {
-            [source trySetResult:@YES];
-        }
-    }] resume];
-    return source.task;
-}
-
-+ (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device
++ (BFTask<NSArray<MBLFirmwareBuild *> *> *)getAllFirmwareForDeviceAsync:(MBLDeviceInfo *)device
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     // To get the latest firmware version we parse the json from our website, make sure to do
     // this on a backgroud thread to avoid hanging the UI.
     NSURL *url = [NSURL URLWithString:@"https://mbientlab.com/releases/metawear/info1.json"];
     [[NSURLSession.sharedSession dataTaskWithRequest:[[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10] completionHandler:^(NSData *data, NSURLResponse * response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (error) {
             [source trySetError:error];
             return;
+        } else if (httpResponse.statusCode != 200) {
+            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
+                                                    code:kMBLErrorNoAvailableFirmware
+                                                userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Firmware URL %@ returned code %ld", url, (long)httpResponse.statusCode]}]];
+            return;
         }
-        MBLFirmwareBuild *latestFirmware = nil;
+        
+        NSMutableArray<MBLFirmwareBuild *> *allFirmwares = [NSMutableArray array];
         NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         if (info) {
             NSString *buildFlavor = @"vanilla";
@@ -125,57 +117,31 @@
             NSSet *validVersions = [potentialVersions keysOfEntriesPassingTest:^BOOL(NSString *key, NSDictionary *obj, BOOL *stop) {
                 return ![MBLConstants versionString:kMBLAPIVersion isLessThan:obj[@"min-ios-version"]];
             }];
-            if (validVersions && validVersions.count) {
-                NSString *latestVersion = [validVersions valueForKeyPath:@"@max.self"];
-                latestFirmware = [[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
-                                                                   modelNumber:modelNumber
-                                                                   buildFlavor:buildFlavor
-                                                                   firmwareRev:latestVersion
-                                                                      filename:potentialVersions[latestVersion][@"filename"]];
+            NSArray *sortedVersions = [validVersions sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+            for (NSString *version in sortedVersions) {
+                [allFirmwares addObject:[[MBLFirmwareBuild alloc] initWithHardwareRev:hardwareRev
+                                                                          modelNumber:modelNumber
+                                                                          buildFlavor:buildFlavor
+                                                                          firmwareRev:version
+                                                                             filename:potentialVersions[version][@"filename"]]];
             }
         }
-        if (!latestFirmware) {
+        if (allFirmwares.count == 0) {
             [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
                                                     code:kMBLErrorNoAvailableFirmware
                                                 userInfo:@{NSLocalizedDescriptionKey : @"No valid firmware releases found.  Please update your application and if problem persists, email developers@mbientlab.com"}]];
             return;
         }
-        [source trySetResult:latestFirmware];
+        [source trySetResult:allFirmwares];
     }] resume];
     return source.task;
 }
 
-+ (BFTask<NSURL *> *)downloadFirmwareVersionAsync:(MBLFirmwareBuild *)firmware
++ (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device
 {
-    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-    // First, go grab the file at the required version URL
-    NSURL *firmwareURL = firmware.firmwareURL;
-    MBLLog(MBLLogLevelInfo, @"Downloading... %@", firmwareURL);
-    [[[NSURLSession sharedSession] downloadTaskWithURL:firmwareURL completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        if (error) {
-            [source trySetError:error];
-            return;
-        }
-        // If no download error, then copy the file to a permanent place.  Note the location
-        // variable suppiled is invalid once this block returns.
-        NSString *filepath = [NSTemporaryDirectory() stringByAppendingPathComponent:firmware.filename];
-        if (!filepath) {
-            [source trySetError:[NSError errorWithDomain:kMBLErrorDomain
-                                                    code:kMBLErrorUnexpectedServices
-                                                userInfo:@{NSLocalizedDescriptionKey : @"Couldn't find temp directory to store firmware file.  Please report issue to developers@mbientlab.com"}]];
-            return;
-        }
-        NSURL *fileURL = [NSURL fileURLWithPath:filepath];
-        NSError *err;
-        [[NSFileManager defaultManager] removeItemAtPath:filepath error:nil];
-        if (![[NSFileManager defaultManager] copyItemAtURL:location toURL:fileURL error:&err]) {
-            [source trySetError:err];
-            return;
-        }
-        MBLLog(MBLLogLevelInfo, @"Download Complete");
-        [source trySetResult:fileURL];
-    }] resume];
-    return source.task;
+    return [[MBLFirmwareUpdateManager getAllFirmwareForDeviceAsync:device] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<NSArray<MBLFirmwareBuild *> *> *t) {
+        return t.result.lastObject;
+    }];
 }
 
 
@@ -203,29 +169,34 @@
 
 - (BOOL)sanityCheck
 {
-    if (self.firmware) {
-        // If we were given a firmware model, it damn well better match
-        if (self.firmware.modelNumber && self.modelNumber) {
-            // Sanity check the model number
-            if (![self.modelNumber isEqualToString:self.firmware.modelNumber]) {
-                self.recoveryTries = 0;
-                [self attemptRecoveryWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                                   code:kMBLErrorWrongFirmwareModelNumber
-                                                               userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Couldn't perform DFU, bad model number given.  Given %@, but expected %@", self.firmware.modelNumber, self.modelNumber]}]];
-                return NO;
-            }
+    // If we were given a firmware model, it damn well better match
+    if (self.firmware.modelNumber && self.modelNumber) {
+        // Sanity check the model number
+        if (![self.modelNumber isEqualToString:self.firmware.modelNumber]) {
+            self.recoveryTries = 0;
+            [self attemptRecoveryWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                               code:kMBLErrorWrongFirmwareModelNumber
+                                                           userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Couldn't perform DFU, bad model number given.  Given %@, but expected %@", self.firmware.modelNumber, self.modelNumber]}]];
+            return NO;
         }
-        // If we were given a hardware rev, it damn well better match
-        if (self.firmware.hardwareRev && self.hardwareRev) {
-            // Sanity check the model number
-            if (![self.hardwareRev isEqualToString:self.firmware.hardwareRev]) {
-                self.recoveryTries = 0;
-                [self attemptRecoveryWithError:[NSError errorWithDomain:kMBLErrorDomain
-                                                                   code:kMBLErrorWrongFirmwareModelNumber
-                                                               userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Couldn't perform DFU, bad hardware rev given.  Given %@, but expected %@", self.firmware.hardwareRev, self.hardwareRev]}]];
-                return NO;
-            }
+    }
+    // If we were given a hardware rev, it damn well better match
+    if (self.firmware.hardwareRev && self.hardwareRev) {
+        // Sanity check the model number
+        if (![self.hardwareRev isEqualToString:self.firmware.hardwareRev]) {
+            self.recoveryTries = 0;
+            [self attemptRecoveryWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                               code:kMBLErrorWrongFirmwareModelNumber
+                                                           userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Couldn't perform DFU, bad hardware rev given.  Given %@, but expected %@", self.firmware.hardwareRev, self.hardwareRev]}]];
+            return NO;
         }
+    }
+    // Make sure local file is ready to go
+    if (!self.firmware.firmwareLocalFile) {
+        [self attemptRecoveryWithError:[NSError errorWithDomain:kMBLErrorDomain
+                                                           code:kMBLErrorOperationInvalid
+                                                       userInfo:@{NSLocalizedDescriptionKey : @"Couldn't perform DFU, firmware wasn't downloaded first."}]];
+        return NO;
     }
     return YES;
 }
@@ -236,32 +207,12 @@
     if (![self sanityCheck]) {
         return;
     }
-    
-    // Move forward with firmware download
-    BFTask *head = nil;
-    if (self.firmware) {
-        head = [BFTask taskWithResult:self.firmware];
-    } else {
-        // If not given firmware then just grab the latest
-        MBLDeviceInfo *info = [[MBLDeviceInfo alloc] init];
-        info.modelNumber = self.modelNumber;
-        info.hardwareRevision = self.hardwareRev;
-        head = [MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:info];
-    }
-    
-    [[[head continueOnMetaWearWithSuccessBlock:^id (BFTask<MBLFirmwareBuild *> *t) {
-        return [MBLFirmwareUpdateManager downloadFirmwareVersionAsync:t.result];
-    }] successOnMetaWear:^(NSURL * _Nonnull result) {
-        // Report the successful result!
-        self.peripheral.delegate = nil;
-        self.centralManager.delegate = nil;
-        [self.source trySetResult:[[MBLFirmwareUpdateInfo alloc] initWithFirmwareUrl:result
-                                                                              target:self.peripheral
-                                                                      centralManager:self.centralManager]];
-    }] failureOnMetaWear:^(NSError * _Nonnull error) {
-        self.recoveryTries = 0;
-        [self attemptRecoveryWithError:error];
-    }];
+    // Report the successful result!
+    self.peripheral.delegate = nil;
+    self.centralManager.delegate = nil;
+    [self.source trySetResult:[[MBLFirmwareUpdateInfo alloc] initWithFirmwareUrl:self.firmware.firmwareLocalFile
+                                                                          target:self.peripheral
+                                                                  centralManager:self.centralManager]];
 }
 
 - (void)connectionWatchdogTimeout:(NSTimer *)timer

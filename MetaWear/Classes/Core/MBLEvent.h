@@ -322,7 +322,7 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
  @param depth Number of samples to average (works fastest if a power of 2)
  @returns New event representing average of input
  */
-- (MBLFilter<ResultType> *)highPassOfEventWithDepth:(uint8_t)depth;
+- (nullable MBLFilter<ResultType> *)highPassOfEventWithDepth:(uint8_t)depth;
 
 /**
  Create a new event that compares the current event's value to one or more data points

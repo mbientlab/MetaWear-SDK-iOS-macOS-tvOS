@@ -15,8 +15,6 @@
 		400655AC1D99FD4C0066AB54 /* MMA8452QTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */; };
 		400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
 		400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB81D94C3C100F38FF0 /* BMI160Tests.m */; };
-		400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
-		400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC01D94C3C100F38FF0 /* MetaBootTest.m */; };
 		400655B31D9A00C10066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
 		400655B41D9A00C20066AB54 /* ANCSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B11D9A00BA0066AB54 /* ANCSTests.m */; };
 		400655B71D9A01820066AB54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655B61D9A017D0066AB54 /* ViewController.m */; };
@@ -68,6 +66,18 @@
 		40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB31D94C3C100F38FF0 /* AccelConfig.m */; };
 		40915FFE1D94D4BB008A5F24 /* AutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EB61D94C3C100F38FF0 /* AutomaticTests.m */; };
 		409160041D94D4BB008A5F24 /* MetaWearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703EC21D94C3C100F38FF0 /* MetaWearTest.m */; };
+		40969D911F96B63A0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D921F96B63A0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D931F96B63D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D941F96B63D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D951F96B63F0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D961F96B63F0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D971F96C01B0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D981F96C01B0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D991F96C01D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D9A1F96C01D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
+		40969D9B1F96C0210024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
+		40969D9C1F96C0210024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
 		40CBC8961D9B37580078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8971D9B37590078573C /* MBLMetaBootTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8951D9B37040078573C /* MBLMetaBootTests.m */; };
 		40CBC8991D9B7D620078573C /* MagnetometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */; };
@@ -158,7 +168,6 @@
 		40703EBA1D94C3C100F38FF0 /* ButtonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonConfig.m; sourceTree = "<group>"; };
 		40703EBD1D94C3C100F38FF0 /* IncrementingEventConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingEventConfig.h; sourceTree = "<group>"; };
 		40703EBE1D94C3C100F38FF0 /* IncrementingEventConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingEventConfig.m; sourceTree = "<group>"; };
-		40703EC01D94C3C100F38FF0 /* MetaBootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaBootTest.m; sourceTree = "<group>"; };
 		40703EC11D94C3C100F38FF0 /* MetaWearTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaWearTest.h; sourceTree = "<group>"; };
 		40703EC21D94C3C100F38FF0 /* MetaWearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MetaWearTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40703EC31D94C3C100F38FF0 /* MMA8452QTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMA8452QTests.m; sourceTree = "<group>"; };
@@ -184,6 +193,8 @@
 		40915FDF1D94D3A1008A5F24 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40915FE01D94D3A1008A5F24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmr-r0.2-r1.3.4.zip"; sourceTree = "<group>"; };
+		40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmc-r0.1-r1.3.5.zip"; sourceTree = "<group>"; };
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
 		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
@@ -336,7 +347,6 @@
 		400655BA1D9A0D920066AB54 /* AdvancedSetups */ = {
 			isa = PBXGroup;
 			children = (
-				40703EC01D94C3C100F38FF0 /* MetaBootTest.m */,
 				40703EC41D94C3C100F38FF0 /* SendBytesTest.m */,
 			);
 			name = AdvancedSetups;
@@ -427,6 +437,8 @@
 				40703E201D94AEFE00F38FF0 /* MetaWearUnitTests-iOS-Info.plist */,
 				40703E211D94AEFE00F38FF0 /* MetaWearUnitTests-macOS-Info.plist */,
 				40781FA01D9DD29900FF5134 /* MetaWearUnitTests-tvOS-Info.plist */,
+				40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */,
+				40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -822,7 +834,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MBL;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40703E051D94AE3500F38FF0 = {
@@ -916,7 +928,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D921F96B63A0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
 				4078203E1D9DD6B200FF5134 /* MetaWearIntegrationTests-tvOS-Info.plist in Resources */,
+				40969D911F96B63A0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 				40D2A7091DC0192300916C7E /* MetaWearPrivate.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +939,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D941F96B63D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D931F96B63D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,6 +957,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D981F96C01B0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D971F96C01B0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +966,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D961F96B63F0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D951F96B63F0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +983,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D9C1F96C0210024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D9B1F96C0210024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1000,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40969D9A1F96C01D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */,
+				40969D991F96C01D0024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1516,7 +1540,6 @@
 				400655AD1D99FEED0066AB54 /* BMI160Tests.m in Sources */,
 				400655BD1D9A0DE40066AB54 /* BMA255Tests.m in Sources */,
 				400655BB1D9A0DD70066AB54 /* AccelerometerTests.m in Sources */,
-				400655AF1D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
 				40703EE31D94C3EB00F38FF0 /* AutomaticTests.m in Sources */,
 				40703EE61D94C3EB00F38FF0 /* ButtonConfig.m in Sources */,
 				400655C11D9A0E300066AB54 /* EnablingTests.m in Sources */,
@@ -1583,7 +1606,6 @@
 				400655AE1D99FEEE0066AB54 /* BMI160Tests.m in Sources */,
 				400655BE1D9A0DE50066AB54 /* BMA255Tests.m in Sources */,
 				400655BC1D9A0DD80066AB54 /* AccelerometerTests.m in Sources */,
-				400655B01D99FFDB0066AB54 /* MetaBootTest.m in Sources */,
 				40915FF81D94D4BB008A5F24 /* IncrementingEventConfig.m in Sources */,
 				40915FFA1D94D4BB008A5F24 /* AccelConfig.m in Sources */,
 				400655C21D9A0E310066AB54 /* EnablingTests.m in Sources */,
@@ -1802,6 +1824,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -1823,6 +1846,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -2025,6 +2049,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -2048,6 +2073,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -2076,14 +2102,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2122,14 +2154,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

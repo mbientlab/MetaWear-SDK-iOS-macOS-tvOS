@@ -40,14 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLGPIOData<ResultType> : MBLData<ResultType>
 
-- (instancetype)initWithRegister:(MBLRegister *)reg pin:(MBLGPIOPin *)pin format:(MBLFormat *)format;
+- (instancetype)initWithRegister:(MBLRegister *)reg pin:(MBLGPIOPin *)pin format:(MBLFormat *)format identifier:(NSString *)identifier;
 
 - (instancetype)initWithRegister:(MBLRegister *)reg
                              pin:(MBLGPIOPin *)pin
                           format:(MBLFormat *)format
                           pullUp:(nullable NSNumber *)pullUp
                         pullDown:(nullable NSNumber *)pullDown
-                       readDelay:(uint16_t)readDelay;
+                       readDelay:(uint16_t)readDelay
+                      identifier:(NSString *)identifier;
 
 @end
 

@@ -47,7 +47,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0xE format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
+    self = [super initWithModule:accelerometer registerId:0xE format:[[MBLFormat alloc] initEncodedDataWithLength:1] identifier:@"bosch-tap"];
     if (self) {
         self.tapInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0C format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.tapConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0D format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

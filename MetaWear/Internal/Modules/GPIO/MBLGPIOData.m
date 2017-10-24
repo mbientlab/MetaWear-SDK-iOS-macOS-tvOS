@@ -51,9 +51,9 @@
 
 @implementation MBLGPIOData
 
-- (instancetype)initWithRegister:(MBLRegister *)reg pin:(MBLGPIOPin *)pin format:(MBLFormat *)format
+- (instancetype)initWithRegister:(MBLRegister *)reg pin:(MBLGPIOPin *)pin format:(MBLFormat *)format identifier:(NSString *)identifier
 {
-    self = [super initWithModule:reg.module registerId:reg.registerId index:pin.pin format:format];
+    self = [super initWithModule:reg.module registerId:reg.registerId index:pin.pin format:format identifier:identifier];
     if (self) {
         self.pin = pin;
     }
@@ -65,8 +65,9 @@
                           pullUp:(NSNumber *)pullUp
                         pullDown:(NSNumber *)pullDown
                        readDelay:(uint16_t)readDelay
+                      identifier:(NSString *)identifier
 {
-    self = [super initWithModule:reg.module registerId:reg.registerId index:0xFF format:format];
+    self = [super initWithModule:reg.module registerId:reg.registerId index:0xFF format:format identifier:identifier];
     if (self) {
         self.pin = pin;
         self.pullUp = pullUp;

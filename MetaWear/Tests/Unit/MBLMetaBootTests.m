@@ -43,16 +43,39 @@
 - (void)testFirmwareUpdateManager
 {
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for completion"];
-    
-    [[[[MBLFirmwareUpdateManager isFirmwareReachableAsync] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
-        MBLDeviceInfo *info = [[MBLDeviceInfo alloc] init];
-        info.modelNumber = @"0";
-        info.hardwareRevision = @"0.1";
+    MBLDeviceInfo *info = [[MBLDeviceInfo alloc] init];
+    info.modelNumber = @"0";
+    info.hardwareRevision = @"0.1";
+    [[[[MBLFirmwareUpdateManager getAllFirmwareForDeviceAsync:info] continueOnDispatchWithSuccessBlock:^id _Nullable(BFTask<NSArray<MBLFirmwareBuild *> *> *t) {
+        XCTAssertTrue([t.result[0].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.0.4/firmware.bin"]);
+        XCTAssertTrue([t.result[1].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.0/firmware.bin"]);
+        XCTAssertTrue([t.result[2].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.1/firmware.bin"]);
+        XCTAssertTrue([t.result[3].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.2/firmware.bin"]);
+        XCTAssertTrue([t.result[4].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.1.3/firmware.bin"]);
+        XCTAssertTrue([t.result[5].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.3/firmware.bin"]);
+        XCTAssertTrue([t.result[6].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.4/firmware.bin"]);
+        XCTAssertTrue([t.result[7].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.5/firmware.bin"]);
+        XCTAssertTrue([t.result[8].firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.3.4/firmware.bin"]);
         return [MBLFirmwareUpdateManager getLatestFirmwareForDeviceAsync:info];
     }] continueOnDispatchWithSuccessBlock:^id (BFTask<MBLFirmwareBuild *> *t) {
-        XCTAssertTrue([t.result.firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.2.5/firmware.bin"]);
-        return [MBLFirmwareUpdateManager downloadFirmwareVersionAsync:t.result];
+        XCTAssertTrue([t.result.firmwareURL.absoluteString isEqualToString:@"https://mbientlab.com/releases/metawear/0.1/0/vanilla/1.3.4/firmware.bin"]);
+        return [t.result downloadFirmwareAsync];
     }] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSNumber *> * _Nonnull t) {
+        XCTAssertNil(t.error);
+        [waitingExpectation fulfill];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:20 handler:nil];
+}
+
+- (void)testFun
+{
+    XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for completion"];
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"metawearmmc-r0.1-r1.3.5"
+                                                          withExtension:@"zip"];
+    MBLFirmwareBuild *frimware = [[MBLFirmwareBuild alloc] initWithHardwareRev:@"0.1" modelNumber:@"5" url:url];
+    [[frimware downloadFirmwareAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask *t) {
         XCTAssertNil(t.error);
         [waitingExpectation fulfill];
         return nil;
@@ -66,7 +89,10 @@
 {
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for completion"];
 
-    [[self.device prepareForFirmwareUpdateAsync] failure:^(NSError * _Nonnull error) {
+    [[[self.device checkForFirmwareUpdateAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSString *> * _Nonnull t) {
+        XCTAssertEqualObjects(t.result, @"1.3.4");
+        return [self.device prepareForFirmwareUpdateAsync];
+    }] failure:^(NSError * _Nonnull error) {
         // TODO: Maybe mock out the firmware update manager, for now we expect it to fail at that point
         XCTAssertEqual(error.code, kMBLErrorBluetoothUnsupported);
         [waitingExpectation fulfill];

@@ -103,6 +103,36 @@
     });
 }
 
+- (BFTask *)getRegister:(NSData *)data
+{
+    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
+    const uint8_t *bytes = data.bytes;
+    // Decompose the data coming from the MetaWear firmware, see the firwmare API guide
+    // for details on the protocol
+    uint8_t registerId = *(bytes + 1) & 0x3F; // Strip off the "[local] read bit"
+    uint8_t index = 0xFF;
+    // If the register contains an index it would be at byte 3, note the index isn't required
+    if (data.length > 2) {
+        index = *(bytes + 2);
+    }
+    dispatch_async([MBLConstants metaWearQueue], ^{
+        for (MBLRegister *obj in self.registers) {
+            // See if we have a register id match
+            if ((obj.registerId & 0x3F) == registerId) {
+                // If the register doesn't expect an index then give it the data!  However, if it does
+                // then the indexs must match.
+                if (obj.index == 0xFF) {
+                    [source trySetResult:obj];
+                } else if (obj.index == index) {
+                    [source trySetResult:obj];
+                }
+            }
+        }
+        [source trySetResult:nil];
+    });
+    return source.task;
+}
+
 - (void)recievedData:(NSData *)data error:(NSError *)error
 {
     // Decompose the data coming from the MetaWear firmware, see the firwmare API guide

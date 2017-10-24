@@ -1,9 +1,9 @@
 /**
- * MBLSensorFusion+Private.h
+ * MBLAnonymousEvent+Private.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 11/8/16.
- * Copyright 2016 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 9/22/15.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,14 +33,15 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLSensorFusion.h"
-#import "BFTask+MBLPrivate.h"
+#import "MBLAnonymousEvent.h"
+#import "MBLModule+Private.h"
+#import "MBLFormat.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBLSensorFusion (Private)
+@interface MBLAnonymousEvent (Private)
 
-- (BFTask *)pullConfigAsync;
+- (instancetype)initWithRegister:(MBLRegister *)reg;
 
 @end
 

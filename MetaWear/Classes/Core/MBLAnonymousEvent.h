@@ -1,9 +1,9 @@
 /**
- * MBLSensorFusion+Private.h
+ * MBLAnonymousEvent.h
  * MetaWear
  *
- * Created by Stephen Schiffli on 11/8/16.
- * Copyright 2016 MbientLab Inc. All rights reserved.
+ * Created by Stephen Schiffli on 9/22/17.
+ * Copyright 2017 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
  * granted under the terms of a software license agreement between the user who
@@ -33,15 +33,18 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import "MBLSensorFusion.h"
-#import "BFTask+MBLPrivate.h"
+#import <MetaWear/MBLEvent.h>
+@class MBLDataSample;
 
-NS_ASSUME_NONNULL_BEGIN
+/**
+ Pared down variant of the MBLEvent interface that can only be used to
+ retrieve logged data from a board that was programmed elsewhere.
+ */
+@interface MBLAnonymousEvent : MBLEvent<MBLDataSample *>
 
-@interface MBLSensorFusion (Private)
-
-- (BFTask *)pullConfigAsync;
+/*
+ String identifying the data producer chain
+ */
+@property (nonatomic, readonly, nullable) NSString *identifier;
 
 @end
-
-NS_ASSUME_NONNULL_END

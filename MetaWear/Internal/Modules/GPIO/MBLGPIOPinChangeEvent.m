@@ -48,7 +48,8 @@
     self = [super initWithModule:gpio
                       registerId:gpio.pinChangeNotification.registerId
                            index:pin
-                          format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+                          format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]
+                      identifier:[NSString stringWithFormat:@"pin-monitor[%d]", pin]];
     if (self) {
         self.gpio = gpio;
     }

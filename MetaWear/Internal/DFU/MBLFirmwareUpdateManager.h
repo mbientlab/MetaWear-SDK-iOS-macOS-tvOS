@@ -39,6 +39,8 @@
 #import "MBLFirmwareBuild.h"
 #import "MBLFirmwareUpdateInfo.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  This manager bundles up all communication with the Nordic DFU code. All you do
  is create an instance and then call startUpdate
@@ -58,10 +60,11 @@
 - (BFTask<MBLFirmwareUpdateInfo *> *)startUpdate;
 
 
-+ (BFTask<NSNumber *> *)isFirmwareReachableAsync;
-
+/// Util functions
++ (BFTask<NSArray<MBLFirmwareBuild *> *> *)getAllFirmwareForDeviceAsync:(MBLDeviceInfo *)device;
 + (BFTask<MBLFirmwareBuild *> *)getLatestFirmwareForDeviceAsync:(MBLDeviceInfo *)device;
 
-+ (BFTask<NSURL *> *)downloadFirmwareVersionAsync:(MBLFirmwareBuild *)firmware;
-
 @end
+
+NS_ASSUME_NONNULL_END
+

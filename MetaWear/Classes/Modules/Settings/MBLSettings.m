@@ -121,7 +121,7 @@ typedef struct __attribute__((packed)) {
             self.macAddress = [[MBLData alloc] initWithModule:self registerId:0xB format:[[MBLMacAddressFormat alloc] initWithAddressType:moduleInfo.moduleRevision >= 6]];
         }
         if (moduleInfo.moduleRevision >= 3) {
-            self.batteryRemaining = [[MBLData alloc] initWithModule:self registerId:0xC format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+            self.batteryRemaining = [[MBLData alloc] initWithModule:self registerId:0xC format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"battery"];
             self.batteryVoltage = [[MBLData alloc] initWithModule:self registerId:0xC format:[[MBLNumericFormatter alloc] initIntWithLength:2 isSigned:NO offset:1]];
         }
         if (moduleInfo.moduleRevision >= 4) {
@@ -132,10 +132,10 @@ typedef struct __attribute__((packed)) {
         }
         if (moduleInfo.moduleRevision >= 5) {
             if (features.power_status_supported) {
-                self.powerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x11 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+                self.powerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x11 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"power-status"];
             }
             if (features.charger_status_supported) {
-                self.chargerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x12 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
+                self.chargerStatus = [[MBLEvent alloc] initWithModule:self registerId:0x12 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO] identifier:@"charge-status"];
             }
         }
         if (moduleInfo.moduleRevision >= 6) {

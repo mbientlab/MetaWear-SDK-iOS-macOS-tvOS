@@ -56,7 +56,7 @@ static const double DEGREES_CELSIUS_PER_UNIT = 0.125;
 
 - (instancetype)initWithTemperature:(MBLTemperature *)temperature index:(uint8_t)index
 {
-    self = [super initWithModule:temperature registerId:0x1 index:index format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT]];
+    self = [super initWithModule:temperature registerId:0x1 index:index format:[[MBLNumericFormatter alloc] initDoubleWithLength:2 isSigned:YES scale:DEGREES_CELSIUS_PER_UNIT] identifier:[NSString stringWithFormat:@"temperature[%d]", index]];
     if (self) {
         self.mode = [[MBLRegister alloc] initWithModule:temperature registerId:0x2 index:index format:[[MBLFormat alloc] initEncodedDataWithLength:3]];
         self.readPin = 0xFF;

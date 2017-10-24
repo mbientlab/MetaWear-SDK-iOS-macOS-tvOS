@@ -49,7 +49,7 @@
 
 - (instancetype)initWithGyro:(MBLGyroBMI160 *)gyro
 {
-    self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro packed:NO]];
+    self = [super initWithModule:gyro registerId:0x5 format:[[MBLGyroBMI160Format alloc] initWithGyro:gyro packed:NO] identifier:@"angular-velocity"];
     if (self) {
         self.dataInterruptEn = [[MBLRegister alloc] initWithModule:gyro registerId:0x2 format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
     }

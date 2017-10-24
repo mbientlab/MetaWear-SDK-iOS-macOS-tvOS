@@ -54,8 +54,8 @@
 {
     self = [super initWithDevice:device moduleInfo:moduleInfo];
     if (self) {
-        self.pressure = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 256.0]];
-        self.altitude = [[MBLData alloc] initWithModule:self registerId:0x2 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:YES scale:1.0 / 256.0]];
+        self.pressure = [[MBLData alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:NO scale:1.0 / 256.0] identifier:@"pressure"];
+        self.altitude = [[MBLData alloc] initWithModule:self registerId:0x2 format:[[MBLNumericFormatter alloc] initDoubleWithLength:4 isSigned:YES scale:1.0 / 256.0] identifier:@"altitude"];
         self.periodicPressure = [[MBLBarometerBoschPeriodicPressureEvent alloc] initWithBarometer:self];
         self.periodicAltitude = [[MBLBarometerBoschPeriodicAltitudeEvent alloc] initWithBarometer:self];
         self.mode = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

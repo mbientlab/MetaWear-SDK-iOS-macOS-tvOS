@@ -36,6 +36,7 @@
 #import "MBLModule+Private.h"
 #import "MBLConstants.h"
 #import <CoreData/CoreData.h>
+@class MBLAnonymousEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -123,6 +124,7 @@ static const uint64_t LOGGING_ROLLOVER_COUNT = 0x100000000;
 
 - (BFTask<NSNumber *> *)checkForResetAsync;
 
+- (BFTask<NSArray<MBLAnonymousEvent *> *> *)queryActiveLoggersAsync;
 
 - (NSDate *)guessUidStartingDate:(uint8_t)resetId;
 - (void)deleteAllRejectObjects;

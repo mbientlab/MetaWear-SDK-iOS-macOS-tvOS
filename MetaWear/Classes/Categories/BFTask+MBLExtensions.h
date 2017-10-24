@@ -88,6 +88,6 @@ typedef __nullable id(^MBLExtensionsContinuationBlock)(BFTask<ResultType> *t);
 @end
 
 
-extern void MBLForceLoadCategory_BFTask_MBLExtensions();
+extern void MBLForceLoadCategory_BFTask_MBLExtensions(void);
 
 NS_ASSUME_NONNULL_END

@@ -24,6 +24,8 @@
 		402973861DB839ED00EC8C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973801DB839EA00EC8C32 /* AppDelegate.swift */; };
 		402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973811DB839EA00EC8C32 /* DeviceViewController.swift */; };
 		402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973821DB839EA00EC8C32 /* MainTableViewController.swift */; };
+		402A1EB21F9E65C3001C2253 /* DeviceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */; };
+		402A1EB31F9E65C8001C2253 /* DeviceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */; };
 		A74CC4E904D4261827DB3639 /* Pods_Starter_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */; };
 		BC31A9FBED54BD932058B42E /* Pods_Starter_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */; };
 		E829A8A800A7AFC5A4C5DA7A /* Pods_Starter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3D37560DD979815A53DF1B /* Pods_Starter_iOS.framework */; };
@@ -35,7 +37,6 @@
 		2573A1969C83186B79E292E1 /* Pods-Starter-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-iOS/Pods-Starter-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		263A788447671602C2AE4FFF /* Pods-Starter-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2C1A4E13D173813A39F97132 /* Pods-Starter-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-iOS/Pods-Starter-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		402973271DB81F5A00EC8C32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		402973281DB81F5A00EC8C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4029732D1DB81F5B00EC8C32 /* StarterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402973381DB81F5B00EC8C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		402973801DB839EA00EC8C32 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		402973811DB839EA00EC8C32 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		402973821DB839EA00EC8C32 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfiguration.swift; sourceTree = "<group>"; };
 		4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831B849867AF94CA117AB75 /* Pods-Starter-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-macOS/Pods-Starter-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC9E019C266AD9823B5E877D /* Pods-Starter-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +118,8 @@
 				402973801DB839EA00EC8C32 /* AppDelegate.swift */,
 				402973811DB839EA00EC8C32 /* DeviceViewController.swift */,
 				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
-				402973271DB81F5A00EC8C32 /* GameScene.swift */,
 				4029737D1DB839AF00EC8C32 /* ScanTableViewController.swift */,
+				402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */,
 				402973281DB81F5A00EC8C32 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -246,22 +248,25 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "MBIENTLAB, INC";
 				TargetAttributes = {
 					4029732C1DB81F5A00EC8C32 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					4029733E1DB81F5B00EC8C32 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					4029734C1DB81F5B00EC8C32 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -495,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402973851DB839EA00EC8C32 /* MainTableViewController.swift in Sources */,
+				402A1EB21F9E65C3001C2253 /* DeviceConfiguration.swift in Sources */,
 				402973831DB839EA00EC8C32 /* AppDelegate.swift in Sources */,
 				4029737E1DB839AF00EC8C32 /* ScanTableViewController.swift in Sources */,
 				402973841DB839EA00EC8C32 /* DeviceViewController.swift in Sources */,
@@ -506,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */,
+				402A1EB31F9E65C8001C2253 /* DeviceConfiguration.swift in Sources */,
 				402973861DB839ED00EC8C32 /* AppDelegate.swift in Sources */,
 				4029737F1DB839B200EC8C32 /* ScanTableViewController.swift in Sources */,
 				402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */,
@@ -552,7 +559,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -560,7 +569,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -600,7 +613,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -608,7 +623,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -644,6 +663,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = iphoneos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -661,6 +682,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = iphoneos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -678,6 +701,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = appletvos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
@@ -694,6 +719,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = appletvos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -713,6 +740,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = macosx;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -730,6 +759,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = macosx;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

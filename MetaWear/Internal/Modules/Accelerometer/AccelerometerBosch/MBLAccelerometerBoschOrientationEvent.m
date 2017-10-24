@@ -46,7 +46,7 @@
 
 - (instancetype)initWithAccelerometer:(MBLAccelerometerBosch *)accelerometer
 {
-    self = [super initWithModule:accelerometer registerId:0x11 format:[[MBLAccelerometerBoschOrientationFormat alloc] init]];
+    self = [super initWithModule:accelerometer registerId:0x11 format:[[MBLAccelerometerBoschOrientationFormat alloc] init] identifier:@"orientation"];
     if (self) {
         self.orientInterruptEn = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x0F format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
         self.orientConfig = [[MBLRegister alloc] initWithModule:accelerometer registerId:0x10 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];

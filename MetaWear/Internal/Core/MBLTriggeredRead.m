@@ -60,7 +60,7 @@ typedef struct __attribute__((packed)) {
 - (instancetype)initWithData:(MBLData *)data
                      trigger:(MBLEvent *)trigger
 {
-    self = [super initWithModule:data.module registerId:data.registerId | 0x80 format:data.format];
+    self = [super initWithModule:data.module registerId:data.registerId | 0x80 format:data.format identifier:data.identifier];
     if (self) {
         self.data = data;
         self.trigger = trigger;
