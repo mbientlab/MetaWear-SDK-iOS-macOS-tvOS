@@ -48,7 +48,7 @@
     return self;
 }
 
-- (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(MBLLogProgressHandler)progressHandler
+- (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(MBLLogRemainingHandler)remainingHandler
 {
     MBLMetaWear *device = self.module.device;
     if (device.state != MBLConnectionStateConnected) {
@@ -58,7 +58,7 @@
         return [BFTask taskWithError:error];
     }
     [device incrementCount];
-    return [[device.logging downloadLogEvents:self progressHandler:progressHandler] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+    return [[device.logging downloadLogEvents:self remainingHandler:remainingHandler] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         [device decrementCount];
         return task;
     }];

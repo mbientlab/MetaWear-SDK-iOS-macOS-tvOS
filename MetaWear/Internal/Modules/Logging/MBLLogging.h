@@ -76,7 +76,7 @@ static const uint64_t LOGGING_ROLLOVER_COUNT = 0x100000000;
     // Real ivars
     NSObject            *handlerMutex;
     BOOL                isDownloading;
-    NSMutableArray      *progressHandlers;
+    NSMutableArray      *remainingHandlers;
     NSMutableArray      *downloadHandlers;
     dispatch_queue_t    logProcessingQueue;
     dispatch_group_t    logProcessingGroup;
@@ -108,13 +108,12 @@ static const uint64_t LOGGING_ROLLOVER_COUNT = 0x100000000;
 - (BFTask *)startLoggingAsyncEvent:(MBLEvent *)event;
 - (BFTask *)stopLoggingEvent:(MBLEvent *)event;
 /**
- Fetch entire contents of log from MetaWear.  Executes the progressHandler
- periodically with the progress (0.0 - 1.0), progressHandler will get called
- with 1.0 before handler is called.
- @param progressHandler Periodically called while log download is in progress
+ Fetch entire contents of log from MetaWear.  Executes the remainingHandler
+ periodically with the number of entires remaining.
+ @param remainingHandler Periodically called while log download is in progress
  */
 - (BFTask<NSArray *> *)downloadLogEvents:(MBLEvent *)event
-                         progressHandler:(MBLLogProgressHandler)progressHandler;
+                        remainingHandler:(MBLLogRemainingHandler)remainingHandler;
 
 
 - (BFTask *)stopAndClearLog;
@@ -132,7 +131,7 @@ static const uint64_t LOGGING_ROLLOVER_COUNT = 0x100000000;
 - (void)processRawEntry:(const mw_log_entry_t *)rawEntry;
 
 - (void)performRawReadOutWithHandler:(MBLErrorHandler)handler
-                     progressHandler:(MBLLogProgressHandler)progressHandler;
+                    remainingHandler:(MBLLogRemainingHandler)remainingHandler;
 
 @end
 

@@ -834,7 +834,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MBL;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40703E051D94AE3500F38FF0 = {

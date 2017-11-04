@@ -250,7 +250,7 @@ typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nul
  @param progressHandler Periodically called while log download is in progress
  */
 - (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging progressHandler:(nullable MBLFloatHandler)progressHandler;
-- (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(nullable MBLLogProgressHandler)progressHandler;
+- (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(nullable MBLLogRemainingHandler)remainingHandler;
 - (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging;
 
 /**

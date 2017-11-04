@@ -141,7 +141,7 @@ typedef void (^MBLNumberHandler)(NSNumber *__nullable number, NSError *__nullabl
 typedef void (^MBLSwitchStateHandler)(BOOL isPressed, NSError *__nullable error);
 typedef void (^MBLBoolHandler)(BOOL isTrue, NSError *__nullable error);
 typedef void (^MBLFloatHandler)(float number);
-typedef void (^MBLLogProgressHandler)(uint32_t totalEntries, uint32_t remainingEntries);
+typedef void (^MBLLogRemainingHandler)(uint32_t totalEntries, uint32_t remainingEntries);
 typedef void (^MBLStringHandler)(NSString *__nullable string);
 typedef void (^MBLFirmwareBuildHandler)(MBLFirmwareBuild *__nullable firmware, NSError *__nullable error);
 typedef void (^MBLUrlHandler)(NSURL *__nullable url, NSError *__nullable error);

@@ -185,7 +185,7 @@
         if (self.isLoggingImpl) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorOperationInvalid
-                                             userInfo:@{NSLocalizedDescriptionKey : @"Cannot call startLoggingAsync if it's already logging.  Please call downloadLogAndStopLogging:handler:progressHandler: first."}];
+                                             userInfo:@{NSLocalizedDescriptionKey : @"Cannot call startLoggingAsync if it's already logging.  Please call downloadLogAndStopLoggingAsync: first."}];
             return [BFTask taskWithError:error];
         }
         self.isLoggingImpl = YES;
@@ -204,7 +204,7 @@
     }];
 }
 
-- (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(MBLLogProgressHandler)progressHandler
+- (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging remainingHandler:(MBLLogRemainingHandler)remainingHandler
 {
     MBLMetaWear *device = self.module.device;
     if (device.state != MBLConnectionStateConnected) {
@@ -221,7 +221,7 @@
         }
         return nil;
     }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [device.logging downloadLogEvents:self progressHandler:progressHandler];
+        return [device.logging downloadLogEvents:self remainingHandler:remainingHandler];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         [device decrementCount];
         return task;
@@ -231,7 +231,7 @@
 - (BFTask *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging
                            progressHandler:(MBLFloatHandler)progressHandler
 {
-    MBLLogProgressHandler remainingHandler = nil;
+    MBLLogRemainingHandler remainingHandler = nil;
     if (progressHandler) {
         remainingHandler = ^(uint32_t totalEntries, uint32_t remainingEntries) {
             float progress = (float)(totalEntries - remainingEntries) / (float)(totalEntries);

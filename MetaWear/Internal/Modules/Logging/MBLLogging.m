@@ -92,7 +92,7 @@ typedef struct __attribute__((packed)) {
 - (void)sharedInit
 {
     handlerMutex = [[NSObject alloc] init];
-    progressHandlers = [NSMutableArray array];
+    remainingHandlers = [NSMutableArray array];
     downloadHandlers = [NSMutableArray array];
     logProcessingQueue = dispatch_queue_create("com.mbientlab.metawear.logProcessingQueue", DISPATCH_QUEUE_CONCURRENT);
     logProcessingGroup = dispatch_group_create();
@@ -290,7 +290,7 @@ typedef struct __attribute__((packed)) {
 }
 
 - (BFTask *)downloadLogEvents:(MBLEvent *)event
-              progressHandler:(MBLLogProgressHandler)progressHandler
+             remainingHandler:(MBLLogRemainingHandler)remainingHandler
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     [self performRawReadOutWithHandler:^(NSError *error) {
@@ -387,7 +387,7 @@ typedef struct __attribute__((packed)) {
                 }
             }];
         });
-    } progressHandler:progressHandler];
+    } remainingHandler:remainingHandler];
     return source.task;
 }
 
@@ -425,19 +425,19 @@ typedef struct __attribute__((packed)) {
 }
 
 - (void)performRawReadOutWithHandler:(MBLErrorHandler)handler
-                     progressHandler:(MBLLogProgressHandler)progressHandler
+                    remainingHandler:(MBLLogRemainingHandler)remainingHandler
 {
     @synchronized(handlerMutex) {
         if (handler) {
             [downloadHandlers addObject:handler];
         }
-        if (progressHandler) {
-            MBLLogProgressHandler handlerOnDispatch = ^(uint32_t totalEntries, uint32_t remainingEntries) {
+        if (remainingHandler) {
+            MBLLogRemainingHandler handlerOnDispatch = ^(uint32_t totalEntries, uint32_t remainingEntries) {
                 [[MBLMetaWearManager dispatchQueue] addOperationWithBlock:^{
-                    progressHandler(totalEntries, remainingEntries);
+                    remainingHandler(totalEntries, remainingEntries);
                 }];
             };
-            [progressHandlers addObject:handlerOnDispatch];
+            [remainingHandlers addObject:handlerOnDispatch];
         }
         if (!isDownloading) {
             isDownloading = YES;
@@ -471,8 +471,8 @@ typedef struct __attribute__((packed)) {
             
             uint32_t remainingEntries = data.value.unsignedIntValue;
             @synchronized(handlerMutex) {
-                for (MBLLogProgressHandler progressHandler in progressHandlers) {
-                    progressHandler(totalEntries, remainingEntries);
+                for (MBLLogRemainingHandler remainingHandler in remainingHandlers) {
+                    remainingHandler(totalEntries, remainingEntries);
                 }
             }
             if (remainingEntries == 0) {
@@ -539,7 +539,7 @@ typedef struct __attribute__((packed)) {
             [self dropEntriesSinceSave];
             self.lastTimestamp = 0;
         }
-        [progressHandlers removeAllObjects];
+        [remainingHandlers removeAllObjects];
         for (MBLErrorHandler handler in downloadHandlers) {
             dispatch_group_enter(logProcessingGroup);
             dispatch_async(logProcessingQueue, ^{
@@ -553,7 +553,7 @@ typedef struct __attribute__((packed)) {
                 [self saveLogAsync:NO];
                 // Now that processing is finished, if someone else is waiting for
                 // entries, kick off another download, otherwise put her to sleep.
-                if (downloadHandlers.count || progressHandlers.count) {
+                if (downloadHandlers.count || remainingHandlers.count) {
                     [self rawReadOut];
                 } else {
                     isDownloading = NO;
