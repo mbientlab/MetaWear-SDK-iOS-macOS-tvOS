@@ -463,6 +463,12 @@ typedef struct __attribute__((packed)) {
             [self rawReadOutFinishedWithError:nil];
             return nil;
         }
+        // Initial callback for the progress handlers
+        @synchronized(handlerMutex) {
+            for (MBLLogRemainingHandler remainingHandler in remainingHandlers) {
+                remainingHandler(totalEntries, totalEntries);
+            }
+        }
         [[[[[self.logReadoutProgress startNotificationsWithExecutorAsync:[BFExecutor metaWearExecutor] withHandler:^(MBLNumericData *data, NSError *error) {
             if (error) {
                 [self rawReadOutFinishedWithError:error];
