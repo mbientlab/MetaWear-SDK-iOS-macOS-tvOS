@@ -78,4 +78,18 @@
     return self;
 }
 
+- (BFTask *)getRegister:(NSData *)data
+{
+    const uint8_t *bytes = data.bytes;
+    uint8_t registerId = bytes[1] & 0x3F; // Strip off the "[local] read bit"
+    // The data processer abstracts the true data source, so traverse down the linked list
+    if (registerId == 0x3) {
+        return [[self.addEntity readForcedIndexAsync:bytes[2]] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask<MBLDataSample *> *t) {
+            const uint8_t *bytes = t.result.data.bytes;
+            return [self.device.modules[bytes[0]] getRegister:t.result.data];
+        }];
+    }
+    return [super getRegister:data];
+}
+
 @end
