@@ -47,9 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSDate *timestamp;
 /*
- Raw data of the sample (if available)
+ Raw data of the sample
  */
-@property (nonatomic, readonly, nullable) NSData *data;
+@property (nonatomic, readonly) NSData *data;
 
 /*
  A standardized CSV, new-line terminated representation of the sample
