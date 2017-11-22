@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLStringData (Private)
 
-- (instancetype)initWithString:(NSString *)string timestamp:(NSDate *)timestamp;
+- (instancetype)initWithString:(NSString *)string timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

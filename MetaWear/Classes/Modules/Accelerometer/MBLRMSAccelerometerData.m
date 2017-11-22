@@ -42,9 +42,9 @@
 
 @implementation MBLRMSAccelerometerData
 
-- (instancetype)initWithRMS:(double)rms timestamp:(NSDate *)timestamp
+- (instancetype)initWithRMS:(double)rms timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.rms = rms;
     }

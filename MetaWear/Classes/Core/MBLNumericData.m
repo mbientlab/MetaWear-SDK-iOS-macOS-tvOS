@@ -43,9 +43,9 @@
 
 @implementation MBLNumericData
 
-- (instancetype)initWithNumber:(NSNumber *)number timestamp:(NSDate *)timestamp
+- (instancetype)initWithNumber:(NSNumber *)number timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.value = number;
     }

@@ -57,7 +57,7 @@
     const double p = (double)(*(float *)&bytes[4]);
     const double r = (double)(*(float *)&bytes[8]);
     const double y = (double)(*(float *)&bytes[12]);
-    return [[MBLEulerAngleData alloc] initWithH:h p:p r:r y:y timestamp:date];
+    return [[MBLEulerAngleData alloc] initWithH:h p:p r:r y:y timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

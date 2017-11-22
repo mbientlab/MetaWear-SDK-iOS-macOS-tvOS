@@ -80,9 +80,9 @@
     }
     
     if (self.type == MBLFormatTypeArray) {
-        return [[MBLAccelerometerData alloc] initWithX:x y:y z:z timestamp:date];
+        return [[MBLAccelerometerData alloc] initWithX:x y:y z:z timestamp:date data:data];
     } else {
-        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:x] timestamp:date];
+        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:x] timestamp:date data:data];
     }
 }
 

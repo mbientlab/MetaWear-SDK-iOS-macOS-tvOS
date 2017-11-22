@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLEulerAngleData (Private)
 
-- (instancetype)initWithH:(double)h p:(double)p r:(double)r y:(double)y timestamp:(NSDate *)timestamp;
+- (instancetype)initWithH:(double)h p:(double)p r:(double)r y:(double)y timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

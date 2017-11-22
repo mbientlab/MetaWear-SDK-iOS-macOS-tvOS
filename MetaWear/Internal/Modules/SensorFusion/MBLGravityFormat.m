@@ -57,7 +57,7 @@
     const double x = (double)(*(float *)&bytes[0]) / scale;
     const double y = (double)(*(float *)&bytes[4]) / scale;
     const double z = (double)(*(float *)&bytes[8]) / scale;
-    return [[MBLAccelerometerData alloc] initWithX:x y:y z:z timestamp:date];
+    return [[MBLAccelerometerData alloc] initWithX:x y:y z:z timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

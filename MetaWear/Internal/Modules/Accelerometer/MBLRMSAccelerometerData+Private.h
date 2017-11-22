@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLRMSAccelerometerData (Private)
 
-- (instancetype)initWithRMS:(double)rms timestamp:(NSDate *)timestamp;
+- (instancetype)initWithRMS:(double)rms timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

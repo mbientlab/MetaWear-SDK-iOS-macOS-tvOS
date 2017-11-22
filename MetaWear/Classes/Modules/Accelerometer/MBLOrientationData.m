@@ -41,8 +41,9 @@
 - (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation
                     facingDirection:(MBLAccelerometerFacingDirection)facingDirection
                           timestamp:(NSDate *)timestamp
+                               data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.orientation = orientation;
         self.facingDirection = facingDirection;
@@ -50,9 +51,9 @@
     return self;
 }
 
-- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp
+- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    return [self initWithOrientation:orientation facingDirection:MBLAccelerometerFacingDirectionUnknown timestamp:timestamp];
+    return [self initWithOrientation:orientation facingDirection:MBLAccelerometerFacingDirectionUnknown timestamp:timestamp data:data];
 }
 
 - (NSString *)orientationString

@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLAccelerometerBoschFlatData (Private)
 
-- (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp;
-- (instancetype)initWithIsFlat:(BOOL)isFlat timestamp:(NSDate *)timestamp;
+- (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp data:(NSData *)data;
+- (instancetype)initWithIsFlat:(BOOL)isFlat timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

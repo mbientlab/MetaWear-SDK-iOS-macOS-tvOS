@@ -57,7 +57,7 @@
     const double x = (double)(*(float *)&bytes[4]);
     const double y = (double)(*(float *)&bytes[8]);
     const double z = (double)(*(float *)&bytes[12]);
-    return [[MBLQuaternionData alloc] initWithW:w x:x y:y z:z timestamp:date];
+    return [[MBLQuaternionData alloc] initWithW:w x:x y:y z:z timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

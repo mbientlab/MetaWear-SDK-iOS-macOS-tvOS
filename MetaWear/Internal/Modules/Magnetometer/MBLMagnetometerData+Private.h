@@ -37,6 +37,6 @@
 
 @interface MBLMagnetometerData (Private)
 
-- (instancetype)initWithX:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp;
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end

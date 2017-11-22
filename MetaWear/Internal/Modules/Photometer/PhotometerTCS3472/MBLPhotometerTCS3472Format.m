@@ -64,9 +64,9 @@
     }
     
     if (self.type == MBLFormatTypeArray) {
-        return [[MBLRGBData alloc] initWithRed:red green:green blue:blue clear:clear timestamp:date];
+        return [[MBLRGBData alloc] initWithRed:red green:green blue:blue clear:clear timestamp:date data:data];
     } else {
-        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:clear] timestamp:date];
+        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:clear] timestamp:date data:data];
     }
 }
 

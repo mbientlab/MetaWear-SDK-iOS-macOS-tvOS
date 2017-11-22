@@ -59,12 +59,12 @@
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
     if ((self.hasAddressType && data.length != 7) || (!self.hasAddressType && data.length != 6)) {
-        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date];
+        return [[MBLStringData alloc] initWithString:@"N/A" timestamp:date data:data];
     }
     uint8_t const *macBytes = data.bytes;
     uint8_t const offset = self.hasAddressType ? 1 : 0;
     NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", macBytes[5 + offset], macBytes[4 + offset], macBytes[3 + offset], macBytes[2 + offset], macBytes[1 + offset], macBytes[0 + offset]];
-    return [[MBLStringData alloc] initWithString:macStr timestamp:date];
+    return [[MBLStringData alloc] initWithString:macStr timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

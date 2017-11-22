@@ -72,7 +72,7 @@
             scale = 2.0 / 32768.0;
             break;
     }
-    return [[MBLRMSAccelerometerData alloc] initWithRMS:(double)raw * scale timestamp:date];
+    return [[MBLRMSAccelerometerData alloc] initWithRMS:(double)raw * scale timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

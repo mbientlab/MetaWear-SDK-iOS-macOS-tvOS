@@ -42,9 +42,9 @@
 
 @implementation MBLStringData
 
-- (instancetype)initWithString:(NSString *)string timestamp:(NSDate *)timestamp
+- (instancetype)initWithString:(NSString *)string timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.value = string;
     }

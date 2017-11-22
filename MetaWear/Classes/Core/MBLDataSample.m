@@ -41,11 +41,6 @@
 
 @implementation MBLDataSample
 
-- (instancetype)initWithTimestamp:(NSDate *)timestamp
-{
-    return [self initWithTimestamp:timestamp data:nil];
-}
-
 - (instancetype)initWithTimestamp:(NSDate *)timestamp data:(NSData *)data
 {
     self = [super init];

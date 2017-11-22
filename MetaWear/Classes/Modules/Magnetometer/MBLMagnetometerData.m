@@ -42,9 +42,9 @@
 
 @implementation MBLMagnetometerData
 
-- (instancetype)initWithX:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp;
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.x = x;
         self.y = y;
@@ -72,9 +72,9 @@
 
 @implementation MBLCorrectedMagnetometeData
 
-- (instancetype)initWithX:(double)x y:(double)y z:(double)z accuracy:(MBLCalibrationAccuracy)accuracy timestamp:(NSDate *)timestamp
+- (instancetype)initWithX:(double)x y:(double)y z:(double)z accuracy:(MBLCalibrationAccuracy)accuracy timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithX:x y:y z:z timestamp:timestamp];
+    self = [super initWithX:x y:y z:z timestamp:timestamp data:data];
     if (self) {
         self.accuracy = accuracy;
     }

@@ -45,9 +45,9 @@
 
 @implementation MBLQuaternionData
 
-- (instancetype)initWithW:(double)w x:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp
+- (instancetype)initWithW:(double)w x:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.w = w;
         self.x = x;

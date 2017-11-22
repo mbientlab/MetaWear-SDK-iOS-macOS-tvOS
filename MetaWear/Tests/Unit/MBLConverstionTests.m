@@ -116,7 +116,7 @@ typedef struct __attribute__((packed)) {
 
 - (void)testCSVNumericRepresentation
 {
-    NSString *a = [[[MBLNumericData alloc] initWithNumber:@123.4 timestamp:[NSDate dateWithTimeIntervalSince1970:1234.5678]] csvRepresentation];
+    NSString *a = [[[MBLNumericData alloc] initWithNumber:@123.4 timestamp:[NSDate dateWithTimeIntervalSince1970:1234.5678] data:[NSData data]] csvRepresentation];
     NSLog(@"%@", a);
     XCTAssertTrue([a isEqualToString:@"1234.567800,123.4\n"]);
 }

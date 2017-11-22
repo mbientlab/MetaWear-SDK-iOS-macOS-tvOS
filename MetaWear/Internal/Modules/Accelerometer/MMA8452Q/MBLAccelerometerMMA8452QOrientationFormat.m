@@ -48,7 +48,7 @@
 - (id)entryFromData:(NSData *)data date:(NSDate *)date
 {
     mma8452q_pl_status_t status = *(mma8452q_pl_status_t *)data.bytes;
-    return [[MBLOrientationData alloc] initWithOrientation:status.lapo timestamp:date];
+    return [[MBLOrientationData alloc] initWithOrientation:status.lapo timestamp:date data:data];
 }
 
 @end

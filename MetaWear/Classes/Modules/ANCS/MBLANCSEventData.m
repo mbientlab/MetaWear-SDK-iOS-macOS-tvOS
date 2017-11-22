@@ -77,7 +77,7 @@ typedef struct __attribute__((packed)) {
 
 - (instancetype)initWithData:(NSData *)data timestamp:(NSDate *)timestamp
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         mw_ancs_notification_t status = *(mw_ancs_notification_t *)data.bytes;
         self.eventId = (1 << status.event_id);

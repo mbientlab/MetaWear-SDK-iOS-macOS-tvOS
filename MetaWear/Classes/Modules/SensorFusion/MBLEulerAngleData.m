@@ -45,9 +45,9 @@
 
 @implementation MBLEulerAngleData
 
-- (instancetype)initWithH:(double)h p:(double)p r:(double)r y:(double)y timestamp:(NSDate *)timestamp
+- (instancetype)initWithH:(double)h p:(double)p r:(double)r y:(double)y timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.h = h;
         self.p = p;

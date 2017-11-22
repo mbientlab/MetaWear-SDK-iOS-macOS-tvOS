@@ -38,8 +38,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLDataSample (Private)
-- (instancetype)initWithTimestamp:(NSDate *)timestamp;
-- (instancetype)initWithTimestamp:(NSDate *)timestamp data:(nullable NSData *)data;
+- (instancetype)initWithTimestamp:(NSDate *)timestamp data:(NSData *)data;
 @end
 
 NS_ASSUME_NONNULL_END

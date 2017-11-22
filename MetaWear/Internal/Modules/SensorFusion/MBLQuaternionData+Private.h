@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLQuaternionData (Private)
 
-- (instancetype)initWithW:(double)w x:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp;
+- (instancetype)initWithW:(double)w x:(double)x y:(double)y z:(double)z timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

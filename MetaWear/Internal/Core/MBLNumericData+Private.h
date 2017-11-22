@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLNumericData (Private)
 
-- (instancetype)initWithNumber:(NSNumber *)number timestamp:(NSDate *)timestamp;
+- (instancetype)initWithNumber:(NSNumber *)number timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

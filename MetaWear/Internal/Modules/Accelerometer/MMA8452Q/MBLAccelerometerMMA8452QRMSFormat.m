@@ -61,7 +61,7 @@
 {
     const uint32_t raw = *(uint32_t *)data.bytes;
     double rms = (double)raw / 1000.0;
-    return [[MBLRMSAccelerometerData alloc] initWithRMS:rms timestamp:date];
+    return [[MBLRMSAccelerometerData alloc] initWithRMS:rms timestamp:date data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLRGBData (Private)
 
-- (instancetype)initWithRed:(uint16_t)red green:(uint16_t)green blue:(uint16_t)blue clear:(uint16_t)clear timestamp:(NSDate *)timestamp;
+- (instancetype)initWithRed:(uint16_t)red green:(uint16_t)green blue:(uint16_t)blue clear:(uint16_t)clear timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 @end
 

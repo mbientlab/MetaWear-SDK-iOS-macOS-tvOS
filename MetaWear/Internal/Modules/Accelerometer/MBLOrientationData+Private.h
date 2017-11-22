@@ -39,11 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBLOrientationData (Private)
 
-- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp;
+- (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation timestamp:(NSDate *)timestamp data:(NSData *)data;
 
 - (instancetype)initWithOrientation:(MBLAccelerometerOrientation)orientation
                     facingDirection:(MBLAccelerometerFacingDirection)facingDirection
-                          timestamp:(NSDate *)timestamp;
+                          timestamp:(NSDate *)timestamp
+                               data:(NSData *)data;
 
 @end
 

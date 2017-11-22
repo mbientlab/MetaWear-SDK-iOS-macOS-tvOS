@@ -66,11 +66,11 @@
     const MBLCalibrationAccuracy accuracy = (MBLCalibrationAccuracy)(*(uint8_t *)&bytes[12]);
     switch (self.formatType) {
         case MBLCorrectedFormatTypeAccelerometer:
-            return [[MBLCorrectedAccelerometerData alloc] initWithX:x / 1000.0 y:y / 1000.0 z:z / 1000.0 accuracy:accuracy timestamp:date];
+            return [[MBLCorrectedAccelerometerData alloc] initWithX:x / 1000.0 y:y / 1000.0 z:z / 1000.0 accuracy:accuracy timestamp:date data:data];
         case MBLCorrectedFormatTypeGyro:
-            return [[MBLCorrectedGyroData alloc] initWithX:x y:y z:z timestamp:date];
+            return [[MBLCorrectedGyroData alloc] initWithX:x y:y z:z timestamp:date data:data];
         case MBLCorrectedFormatTypeMagnetometer:
-            return [[MBLCorrectedMagnetometeData alloc] initWithX:x / 1000000.0 y:y / 1000000.0 z:z / 1000000.0 timestamp:date];
+            return [[MBLCorrectedMagnetometeData alloc] initWithX:x / 1000000.0 y:y / 1000000.0 z:z / 1000000.0 timestamp:date data:data];
     }
     return nil;
 }

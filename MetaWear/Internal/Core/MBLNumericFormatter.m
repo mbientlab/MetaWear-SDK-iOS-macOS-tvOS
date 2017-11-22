@@ -119,7 +119,7 @@
             value = [NSNumber numberWithUnsignedLongLong:u64];
         }
     }
-    return [[MBLNumericData alloc] initWithNumber:value timestamp:date];
+    return [[MBLNumericData alloc] initWithNumber:value timestamp:date data:data];
 }
 #endif
 

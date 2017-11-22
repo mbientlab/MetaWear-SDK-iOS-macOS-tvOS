@@ -45,9 +45,9 @@
 
 @implementation MBLAccelerometerBoschFlatData
 
-- (instancetype)initWithIsFlat:(BOOL)isFlat timestamp:(NSDate *)timestamp
+- (instancetype)initWithIsFlat:(BOOL)isFlat timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.isFlat = isFlat;
         self.faceDownValid = NO;
@@ -55,9 +55,9 @@
     return self;
 }
 
-- (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp
+- (instancetype)initWithIsFlat:(BOOL)isFlat faceDown:(BOOL)faceDown timestamp:(NSDate *)timestamp data:(NSData *)data
 {
-    self = [super initWithTimestamp:timestamp];
+    self = [super initWithTimestamp:timestamp data:data];
     if (self) {
         self.isFlat = isFlat;
         self.faceDown = faceDown;

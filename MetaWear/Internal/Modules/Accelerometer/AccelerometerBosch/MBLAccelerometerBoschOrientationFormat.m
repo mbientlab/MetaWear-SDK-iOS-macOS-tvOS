@@ -68,7 +68,8 @@
     }
     return [[MBLOrientationData alloc] initWithOrientation:result
                                            facingDirection:updsideDown ? MBLAccelerometerFacingDirectionDownward : MBLAccelerometerFacingDirectionUpward
-                                                 timestamp:date];
+                                                 timestamp:date
+                                                      data:data];
 }
 
 - (NSNumber *)numberFromDouble:(double)value

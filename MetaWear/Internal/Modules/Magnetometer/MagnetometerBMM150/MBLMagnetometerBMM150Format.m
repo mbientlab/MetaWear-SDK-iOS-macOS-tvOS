@@ -94,9 +94,9 @@ typedef NS_ENUM(uint8_t, MBLMagnetometerAxis) {
     }
     
     if (self.type == MBLFormatTypeArray) {
-        return [[MBLMagnetometerData alloc] initWithX:x y:y z:z timestamp:date];
+        return [[MBLMagnetometerData alloc] initWithX:x y:y z:z timestamp:date data:data];
     } else {
-        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:x] timestamp:date];
+        return [[MBLNumericData alloc] initWithNumber:[NSNumber numberWithDouble:x] timestamp:date data:data];
     }
 }
 
