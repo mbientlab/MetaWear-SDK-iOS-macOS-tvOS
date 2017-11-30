@@ -103,13 +103,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-tvOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-tvOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding-tvOS/FastCoding.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD-tvOS/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-tvOS/MetaWear.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-tvOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-tvOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding-tvOS/FastCoding.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD-tvOS/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-tvOS/MetaWear.framework"
 fi

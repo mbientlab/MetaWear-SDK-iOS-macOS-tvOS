@@ -29,5 +29,5 @@ Pod::Spec.new do |s|
 
   s.frameworks      = 'CoreData', 'CoreBluetooth'
   s.dependency 'Bolts/Tasks', '~> 1.8.4'
-  s.dependency 'FastCoding+tvOS', '~> 3.2.1'
+  s.dependency 'FastCoding', '~> 3.2.2'
 end

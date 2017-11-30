@@ -33,8 +33,8 @@
     "Bolts/Tasks": [
       "~> 1.8.4"
     ],
-    "FastCoding+tvOS": [
-      "~> 3.2.1"
+    "FastCoding": [
+      "~> 3.2.2"
     ]
   }
 }
