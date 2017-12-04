@@ -198,7 +198,10 @@ typedef struct __attribute__((packed)) {
             if (result.data.length >= 4) {
                 const mw_log_trigger_t *params = result.data.bytes;
                 header = [result.data subdataWithRange:NSMakeRange(0, 3)];
-                return [self.device.modules[params->source_modid] getRegister:result.data];
+                MBLModule *sourceMod = self.device.modules[params->source_modid];
+                if (sourceMod != [NSNull null]) {
+                    return [sourceMod getRegister:result.data];
+                }
             }
             return nil;
         }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull t) {
