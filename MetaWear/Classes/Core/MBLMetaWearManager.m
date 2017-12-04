@@ -181,7 +181,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         NSMutableArray *metaWears = [NSMutableArray arrayWithCapacity:peripherals.count];
         // And finally convert those CBPeripheral's to MBLMetaWears!
         for (id<MBLBluetoothPeripheral> peripheral in peripherals) {
-            [metaWears addObject:[self metawearFromPeripheral:peripheral andAdvertisementData:nil RSSI:nil]];
+            [metaWears addObject:[self metawearFromPeripheral:peripheral]];
         }
         return metaWears;
     }];
@@ -190,13 +190,12 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 - (void)startScanForMetaWears:(BOOL)metaWears metaBoots:(BOOL)metaBoots duplicates:(NSNumber *)duplicates handler:(MBLArrayHandler)handler;
 {
     NSAssert(handler, @"Can't start scanning without handler");
-    dispatch_async([MBLConstants metaWearQueue], ^{
+    // All scan blocks and discovered devices should be accessed on dispatch queue
+    [self.dispatchQueue addOperationWithBlock:^{
         if (metaBoots && metaWears) {
             [self.bothBlocks addObject:handler];
             if (self.discoveredDevices.count) {
-                [self.dispatchQueue addOperationWithBlock:^{
-                    handler(self.discoveredDevices);
-                }];
+                handler(self.discoveredDevices);
             }
         } else if (metaWears) {
             [self.metaWearBlocks addObject:handler];
@@ -226,7 +225,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
                 [self startScan];
             }
         }
-    });
+    }];
 }
 
 - (void)invokeHandler:(MBLArrayHandler)handler isMetaBoot:(BOOL)isMetaBoot
@@ -236,9 +235,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         return obj.isMetaBoot == isMetaBoot;
     }]];
     if (copyDevices.count) {
-        [self.dispatchQueue addOperationWithBlock:^{
-            handler(copyDevices);
-        }];
+        handler(copyDevices);
     }
 }
 
@@ -260,13 +257,12 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 - (void)stopScan
 {
     [self.centralManager stopScan];
-    assert(![MBLConstants isMetaWearQueue]);
-    // Execute on metaWearQueue since mutable arrays are not thread safe
-    dispatch_sync([MBLConstants metaWearQueue], ^{
+    // All scan blocks and discovered devices should be accessed on dispatch queue
+    [self.dispatchQueue addOperationWithBlock:^{
         [self.metaWearBlocks removeAllObjects];
         [self.metaBootBlocks removeAllObjects];
         [self.bothBlocks removeAllObjects];
-    });
+    }];
     self.allowDuplicates = nil;
     self.services = nil;
     self.isScanningMetaWears = NO;
@@ -350,8 +346,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 
 - (void)clearDiscoveredDevices
 {
-    [self.discoveredDevices removeAllObjects];
-    [self.peripheralToMetaWear removeAllObjects];
+    // All scan blocks and discovered devices should be accessed on dispatch queue
+    [self.dispatchQueue addOperationWithBlock:^{
+        [self.discoveredDevices removeAllObjects];
+    }];
 }
 
 #pragma mark - Private helpers
@@ -468,43 +466,15 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 }
 
 - (MBLMetaWear *)metawearFromPeripheral:(id<MBLBluetoothPeripheral>)peripheral
-                   andAdvertisementData:(NSDictionary *)advertisementData
-                                   RSSI:(NSNumber *)RSSI
 {
-    NSString *adName = advertisementData[CBAdvertisementDataLocalNameKey];
-    CBUUID *uuid = [advertisementData[CBAdvertisementDataServiceUUIDsKey] firstObject];
-    BOOL isMetaBoot = [uuid isEqual:[MBLConstants DFUServiceUUID]];
-    // Updates things we already know about
-    for (MBLMetaWear *device in self.discoveredDevices) {
-        if ([device.identifier isEqual:peripheral.identifier]) {
-            device.peripheral = peripheral;
-            peripheral.delegate = device;
-            [device updateName:adName ? adName : peripheral.name];
-            device.discoveryTimeRSSI = RSSI;
-            device.advertisementData = advertisementData;
-            device.isMetaBoot = isMetaBoot;
-            self.peripheralToMetaWear[peripheral] = device;
-            return device;
-        }
-    }
-    
     // Attempt to load MBLMetaWear from disk
     NSData *data = [NSData dataWithContentsOfFile:[self logFilename:peripheral.identifier.UUIDString]];
     MBLMetaWear *device = [FastCoder objectWithData:data];
+    // Create a new one if nothing was loaded
     if (!device || [device isKindOfClass:[NSData class]]) {
-        device = [[MBLMetaWear alloc] initWithPeripheral:peripheral
-                                    andAdvertisementData:advertisementData
-                                                 andRSSI:RSSI];
-    } else {
-        device.peripheral = peripheral;
-        peripheral.delegate = device;
-        [device updateName:adName ? adName : peripheral.name];
-        device.discoveryTimeRSSI = RSSI;
-        device.advertisementData = advertisementData;
-        device.isMetaBoot = isMetaBoot;
+        device = [[MBLMetaWear alloc] initWithPeripheral:peripheral];
     }
     self.peripheralToMetaWear[peripheral] = device;
-    [self.discoveredDevices addObject:device];
     return device;
 }
 
@@ -535,16 +505,14 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if (central.state == CBCentralManagerStatePoweredOn) {
 #pragma clang diagnostic pop
-        NSArray *peripherals = [central retrieveConnectedPeripheralsWithServices:@[[MBLConstants serviceUUID]]];
-        for (id<MBLBluetoothPeripheral> peripheral in peripherals) {
-            [self metawearFromPeripheral:peripheral andAdvertisementData:nil RSSI:nil];
-        }
-        
-        if ((self.metaWearBlocks.count && !self.isScanningMetaWears) ||
-            (self.metaBootBlocks.count && !self.isScanningMetaBoots) ||
-            (self.bothBlocks.count && !(self.isScanningMetaBoots && self.isScanningMetaBoots))) {
-            [self startScan];
-        }
+        // All scan blocks and discovered devices should be accessed on dispatch queue
+        [self.dispatchQueue addOperationWithBlock:^{
+            if ((self.metaWearBlocks.count && !self.isScanningMetaWears) ||
+                (self.metaBootBlocks.count && !self.isScanningMetaBoots) ||
+                (self.bothBlocks.count && !(self.isScanningMetaBoots && self.isScanningMetaBoots))) {
+                [self startScan];
+            }
+        }];
     } else {
         // TODO: This seems like an iOS bug.  If bluetooth powers off the peripherials disconnect but we don't
         // get a deviceDidDisconnect callback.
@@ -591,11 +559,29 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
      advertisementData:(NSDictionary *)advertisementData
                   RSSI:(NSNumber *)RSSI
 {
+    NSString *adName = advertisementData[CBAdvertisementDataLocalNameKey];
     CBUUID *uuid = [advertisementData[CBAdvertisementDataServiceUUIDsKey] firstObject];
     BOOL isMetaBoot = [uuid isEqual:[MBLConstants DFUServiceUUID]];
-    [self metawearFromPeripheral:peripheral andAdvertisementData:advertisementData RSSI:RSSI];
-    // Execute on metaWearQueue since mutable arrays are not thread safe
-    dispatch_async([MBLConstants metaWearQueue], ^{
+    // All scan blocks and discovered devices should be accessed on dispatch queue
+    [self.dispatchQueue addOperationWithBlock:^{
+        // Get or create this MetaWear object
+        MBLMetaWear *device = nil;
+        for (MBLMetaWear *x in self.discoveredDevices) {
+            if ([x.identifier isEqual:peripheral.identifier]) {
+                device = x;
+                break;
+            }
+        }
+        if (!device) {
+            device = [self metawearFromPeripheral:peripheral];
+            [self.discoveredDevices addObject:device];
+        }
+        // Update info of this discovered device
+        [device updateName:adName ? adName : peripheral.name];
+        device.discoveryTimeRSSI = RSSI;
+        device.advertisementData = advertisementData;
+        device.isMetaBoot = isMetaBoot;
+                
         // Make copy incase stopScan is called inside which modifies these arrays
         // Call blocks looking for either metawear or metaboot, we have to
         // filter out the devices we are not intersted in
@@ -625,7 +611,7 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
                 }];
             }
         }
-    });
+    }];
 }
 
 - (void)centralManager:(id<MBLBluetoothCentral>)central didConnectPeripheral:(id<MBLBluetoothPeripheral>)peripheral

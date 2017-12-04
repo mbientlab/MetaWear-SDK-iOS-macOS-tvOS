@@ -108,7 +108,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MMR_MAC"
-            value = "AB:CD:EF:AB:CD:EF"
+            value = "F1:F5:93:F9:F3:2E"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

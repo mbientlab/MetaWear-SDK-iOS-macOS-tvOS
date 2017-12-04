@@ -72,10 +72,7 @@ typedef void (^MBLSimulationHandler)(uint8_t module, uint8_t opcode, NSData *par
 
 @property (nonatomic, nullable) NSArray *modules;
 
-- (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral
-              andAdvertisementData:(NSDictionary *)advertisementData
-                           andRSSI:(NSNumber *)RSSI;
-
+- (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral;
 
 - (void)didConnect;
 - (void)didDisconnect:(nullable NSError *)error;

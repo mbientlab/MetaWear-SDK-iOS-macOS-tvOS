@@ -208,8 +208,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 }
 
 - (instancetype)initWithPeripheral:(id<MBLBluetoothPeripheral>)peripheral
-              andAdvertisementData:(NSDictionary *)advertisementData
-                           andRSSI:(NSNumber *)RSSI
 {
     self = [super init];
     if (self) {
@@ -217,9 +215,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
         
         self.peripheral = peripheral;
         self.identifier = peripheral.identifier;
-        self.advertisementData = advertisementData;
         self.nameImpl = peripheral.name;
-        self.discoveryTimeRSSI = RSSI;
         self.model = MBLModelUnknown;
         
         self.state = MBLConnectionStateDisconnected;
