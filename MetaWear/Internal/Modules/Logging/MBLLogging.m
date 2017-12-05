@@ -198,8 +198,8 @@ typedef struct __attribute__((packed)) {
             if (result.data.length >= 4) {
                 const mw_log_trigger_t *params = result.data.bytes;
                 header = [result.data subdataWithRange:NSMakeRange(0, 3)];
-                MBLModule *sourceMod = self.device.modules[params->source_modid];
-                if (sourceMod != [NSNull null]) {
+                id sourceMod = self.device.modules[params->source_modid];
+                if ([sourceMod isKindOfClass:[MBLModule class]]) {
                     return [sourceMod getRegister:result.data];
                 }
             }

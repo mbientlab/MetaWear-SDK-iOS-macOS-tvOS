@@ -37,6 +37,10 @@
 #import "MBLConstants+Private.h"
 
 NSString *const kMBLAPIVersion = @"2.10.0";
+// This needs to get stepped any time we change the layout of any of the classes,
+// adding or removing member variables, ect.  Or otherwise need apps to have their
+// cache cleared when updating to this API.
+NSString *const kMBLBinaryVersion = @"0";
 
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
 {
@@ -79,6 +83,8 @@ NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
             return @"1.3.4";
         case MBLFirmwareVersion1_3_5:
             return @"1.3.5";
+        case MBLFirmwareVersion1_3_6:
+            return @"1.3.6";
     }
 }
 

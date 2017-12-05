@@ -49,7 +49,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 static NSString * const kMBLRememberedDevicesKey = @"com.mbientlab.metawear.rememberedDevices";
-static NSString * const kMBLApiVersionKey = @"com.mbientlab.metawear.apiversion";
+static NSString * const kMBLBinaryVersionKey = @"com.mbientlab.metawear.binaryVersion";
 
 #if TARGET_OS_SIMULATOR
 static BOOL useMockManager = YES;
@@ -365,7 +365,10 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
             self.centralManager = [[MBLBluetoothCentralMock alloc] initWithDelegate:self queue:bleQueue options:nil];
         } else {
             self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:bleQueue options:nil];
-            version = [[NSUserDefaults standardUserDefaults] stringForKey:kMBLApiVersionKey];
+            version = [[NSUserDefaults standardUserDefaults] stringForKey:kMBLBinaryVersionKey];
+            if (!version) {
+                version = @"0"; // Default value
+            }
         }
         self.discoveredDevices = [NSMutableArray array];
         self.metaWearBlocks = [NSMutableArray array];
@@ -388,12 +391,12 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         BFTaskSetCatchesExceptions(NO);
 #pragma clang diagnostic pop
         
-        // If the app changes its API version then we must delete all the cached MBLMetaWear objects,
+        // If the app changes its binary version then we must delete all the cached MBLMetaWear objects,
         // since they are no longer valid
-        if (!version || ![version isEqualToString:kMBLAPIVersion]) {
+        if (!version || ![version isEqualToString:kMBLBinaryVersion]) {
             // Don't use MBLLog since it needs to reference the MetaWearManager which we are setting up now
-            NSLog(@"Clearing! %@ -> %@", version, kMBLAPIVersion);
-            [[NSUserDefaults standardUserDefaults] setObject:kMBLAPIVersion forKey:kMBLApiVersionKey];
+            NSLog(@"Clearing! %@ -> %@", version, kMBLBinaryVersion);
+            [[NSUserDefaults standardUserDefaults] setObject:kMBLBinaryVersion forKey:kMBLBinaryVersionKey];
             // When the api version changes in an app you will need to reprogram devices
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMBLRememberedDevicesKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
