@@ -45,7 +45,7 @@
 
 static const uint8_t MECHANICAL_SWITCH_ID   = 0x1;
 static const uint8_t LED_ID                 = 0x2;
-//static const uint8_t ACCELEROMETER_ID       = 0x3;
+static const uint8_t ACCELEROMETER_ID       = 0x3;
 static const uint8_t TEMPERATURE_ID         = 0x4;
 static const uint8_t GPIO_ID                = 0x5;
 //static const uint8_t NEOPIXEL_ID            = 0x6;
@@ -219,6 +219,29 @@ typedef void (^MBLNotificationMessageHandler)(message_payload_t const *msg, BOOL
         mw_led_flash_params_t *params = (mw_led_flash_params_t *)msg->data;
         if (params->repeat_count != 0xFF) {
             timeToTurnOff = [NSNumber numberWithDouble:(double)(params->repeat_count * params->time_period) / 1000.0];
+        }
+    }];
+    
+    return module;
+}
+
++ (instancetype)accelerometer:(MBLBluetoothPeripheralMock *)peripheral
+{
+    // BMI160
+    MBLModuleMock *module = [[MBLModuleMock alloc] initWithPeripheral:peripheral modId:ACCELEROMETER_ID modImpl:1 modRev:2 extra:nil];
+
+    int __block count = 0;
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, (1.0 / 25.0) * NSEC_PER_SEC, 0.01 * NSEC_PER_SEC); // 50Hz
+    dispatch_source_set_event_handler(timer, ^{
+        int16_t value[3] = { 0, 0, sin(M_PI * (count++ / 8.0)) * 2047 }; // 16Hz wave
+        [peripheral messageSend:ACCELEROMETER_ID regId:4 notifyen:1 data:[NSData dataWithBytes:&value length:sizeof(6)]];
+    });
+    [module handleNotification:4 handler:^(message_payload_t const *msg, BOOL isStarting) {
+        if (isStarting) {
+            dispatch_resume(timer);
+        } else {
+            dispatch_suspend(timer);
         }
     }];
     

@@ -154,7 +154,7 @@
         self.modules = @[[NSNull null],
                          [MBLModuleMock mechanicalSwitch:self],
                          [MBLModuleMock led:self],
-                         [NSNull null],
+                         [MBLModuleMock accelerometer:self],
                          [MBLModuleMock temperature:self],
                          [MBLModuleMock gpio:self],
                          [NSNull null],

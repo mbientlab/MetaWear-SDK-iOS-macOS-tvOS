@@ -46,6 +46,7 @@ typedef struct __attribute__((packed)) {
 @interface MBLModuleMock : NSObject
 + (instancetype)mechanicalSwitch:(MBLBluetoothPeripheralMock *)peripheral;
 + (instancetype)led:(MBLBluetoothPeripheralMock *)peripheral;
++ (instancetype)accelerometer:(MBLBluetoothPeripheralMock *)peripheral;
 + (instancetype)temperature:(MBLBluetoothPeripheralMock *)peripheral;
 + (instancetype)gpio:(MBLBluetoothPeripheralMock *)peripheral;
 + (instancetype)hapticBuzzer:(MBLBluetoothPeripheralMock *)peripheral;

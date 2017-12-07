@@ -102,8 +102,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "TRAK_MAC"
+            value = "F0:C7:BE:7A:3E:C0"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "MMC_MAC"
-            value = "AB:CD:EF:AB:CD:EF"
+            value = "E9:0D:40:33:3C:E9"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
