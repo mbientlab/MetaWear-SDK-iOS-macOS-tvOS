@@ -232,10 +232,10 @@ typedef void (^MBLNotificationMessageHandler)(message_payload_t const *msg, BOOL
 
     int __block count = 0;
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, (1.0 / 25.0) * NSEC_PER_SEC, 0.01 * NSEC_PER_SEC); // 50Hz
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, (1.0 / 50.0) * NSEC_PER_SEC, 0.01 * NSEC_PER_SEC); // 50Hz
     dispatch_source_set_event_handler(timer, ^{
-        int16_t value[3] = { 0, 0, sin(M_PI * (count++ / 8.0)) * 2047 }; // 16Hz wave
-        [peripheral messageSend:ACCELEROMETER_ID regId:4 notifyen:1 data:[NSData dataWithBytes:&value length:sizeof(6)]];
+        int16_t value[3] = { 0, 0, (sin(M_PI * (count++ / 8.0)) * 4096) + 4543 }; // 3.125Hz wave (50 / 16)
+        [peripheral messageSend:ACCELEROMETER_ID regId:4 notifyen:1 data:[NSData dataWithBytes:&value length:6]];
     });
     [module handleNotification:4 handler:^(message_payload_t const *msg, BOOL isStarting) {
         if (isStarting) {
