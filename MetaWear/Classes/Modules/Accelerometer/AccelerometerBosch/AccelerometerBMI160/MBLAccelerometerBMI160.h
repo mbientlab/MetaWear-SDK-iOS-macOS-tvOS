@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The BMI160 (Accelerometer and Gyro) have a digital filter for the output
  */
-typedef NS_OPTIONS(uint8_t, MBLBMI160FilterMode) {
+typedef NS_ENUM(uint8_t, MBLBMI160FilterMode) {
     MBLBMI160FilterModeNormal = 2,  /// Full bandwidth
     MBLBMI160FilterModeOSR2 = 1,    /// 1/2 normal bandwidth (low pass)
     MBLBMI160FilterModeOSR4 = 0     /// 1/4 normal bandwidth (low pass)

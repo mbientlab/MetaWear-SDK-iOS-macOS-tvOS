@@ -90,7 +90,7 @@
     XCTestExpectation *waitingExpectation = [self expectationWithDescription:@"wait for completion"];
 
     [[[self.device checkForFirmwareUpdateAsync] continueOnDispatchWithBlock:^id _Nullable(BFTask<NSString *> * _Nonnull t) {
-        XCTAssertEqualObjects(t.result, @"1.3.4");
+        XCTAssertEqualObjects(t.result, @"1.3.6");
         return [self.device prepareForFirmwareUpdateAsync];
     }] failure:^(NSError * _Nonnull error) {
         // TODO: Maybe mock out the firmware update manager, for now we expect it to fail at that point
