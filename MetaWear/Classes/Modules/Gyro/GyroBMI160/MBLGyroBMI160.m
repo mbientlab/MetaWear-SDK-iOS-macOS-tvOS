@@ -64,7 +64,8 @@
         
         // Default settings
         self.fullScaleRange = MBLGyroBMI160Range2000;
-        
+        self.filterMode = MBLBMI160FilterModeNormal;
+
         // Registers
         MBLRegister *gyroPowerMode = [[MBLRegister alloc] initWithModule:self registerId:0x1 format:[[MBLNumericFormatter alloc] initIntWithLength:1 isSigned:NO]];
         self.gyroConfig = [[MBLRegister alloc] initWithModule:self registerId:0x3 format:[[MBLFormat alloc] initEncodedDataWithLength:2]];
@@ -90,7 +91,7 @@
     // First setup the gyro config
     bmi160_regs_gyr_t regs = { 0 };
     regs.gyr_conf.gyr_odr = self.scaleSampleFrequency;
-    regs.gyr_conf.gyr_bwp = 2; // TODO: maybe expose this, it's oversampling stuff
+    regs.gyr_conf.gyr_bwp = self.filterMode;
     
     regs.gyr_range.gyr_range = self.fullScaleRange;
     

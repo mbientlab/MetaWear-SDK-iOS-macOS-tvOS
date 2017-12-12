@@ -70,6 +70,9 @@
         self.stepCounterReset = [[MBLRegister alloc] initWithModule:self registerId:0x1B format:[[MBLFormat alloc] initEncodedDataWithLength:1]];
 
         self.lowOrHighGEvent.lowOrHighGDurationMultiplier = 2.5;
+        
+        // Default settings
+        self.filterMode = MBLBMI160FilterModeNormal;
     }
     return self;
 }
@@ -89,7 +92,7 @@
     // Setup the accelerometer config
     bmi160_regs_acc_t regs = { 0 };
     regs.acc_conf.acc_odr = self.scaleSampleFrequency;
-    regs.acc_conf.acc_bwp = 2; // No oversampling
+    regs.acc_conf.acc_bwp = self.filterMode;
     regs.acc_conf.acc_us = 0; // Hardcode to not use undersampling mode
     
     regs.acc_range.acc_range = self.fullScaleRange;

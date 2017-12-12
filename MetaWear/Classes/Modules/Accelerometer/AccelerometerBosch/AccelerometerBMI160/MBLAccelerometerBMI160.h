@@ -41,9 +41,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ The BMI160 (Accelerometer and Gyro) have a digital filter for the output
+ */
+typedef NS_OPTIONS(uint8_t, MBLBMI160FilterMode) {
+    MBLBMI160FilterModeNormal = 2,  /// Full bandwidth
+    MBLBMI160FilterModeOSR2 = 1,    /// 1/2 normal bandwidth (low pass)
+    MBLBMI160FilterModeOSR4 = 0     /// 1/4 normal bandwidth (low pass)
+};
+
+/**
  Interface to a BMI160 accelerometer
  */
 @interface MBLAccelerometerBMI160 : MBLAccelerometerBosch
+
+/**
+ Accelerometer output filtering mode
+ */
+@property (nonatomic) MBLBMI160FilterMode filterMode;
 
 /**
  Event representing a motion (change of acceleration) event.

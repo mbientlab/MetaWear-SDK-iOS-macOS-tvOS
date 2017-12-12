@@ -40,7 +40,7 @@ NSString *const kMBLAPIVersion = @"2.10.0";
 // This needs to get stepped any time we change the layout of any of the classes,
 // adding or removing member variables, ect.  Or otherwise need apps to have their
 // cache cleared when updating to this API.
-NSString *const kMBLBinaryVersion = @"0";
+NSString *const kMBLBinaryVersion = @"1";
 
 NSString *MBLFirmwareVersionString(MBLFirmwareVersion version)
 {

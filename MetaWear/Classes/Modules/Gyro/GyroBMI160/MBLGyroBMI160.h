@@ -35,6 +35,7 @@
 
 #import <MetaWear/MBLGyro.h>
 #import <MetaWear/bmi160.h>
+#import <MetaWear/MBLAccelerometerBMI160.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -53,6 +54,12 @@ typedef NS_ENUM(uint8_t, MBLGyroBMI160Range) {
  Interface to on-board BMI160 gyro
  */
 @interface MBLGyroBMI160 : MBLGyro
+
+/**
+ Gyro output filtering mode
+ */
+@property (nonatomic) MBLBMI160FilterMode filterMode;
+
 /**
  Maximum rotation the gyro can report
  */
