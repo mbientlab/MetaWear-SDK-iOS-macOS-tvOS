@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nonnull BFTask *)writeByteAsync:(uint8_t)byte;
 
 - (void)addNotificationWithExecutor:(BFExecutor *)executor handler:(MBLObjectHandler)handler;
-- (void)removeNotificationHandlers;
+- (void)removeNotificationHandlers NS_SWIFT_NAME(removeRegisterNotificationHandlers());
 
 // conflicts with the paramerized types on MBLEvent
 - (BFTask *)startNotificationsWithHandlerAsync:(nullable MBLObjectHandler)handler;
