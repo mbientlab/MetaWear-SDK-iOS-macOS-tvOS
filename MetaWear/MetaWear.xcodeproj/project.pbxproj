@@ -834,7 +834,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MBL;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40703E051D94AE3500F38FF0 = {
@@ -1130,13 +1130,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-iOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-iOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1187,13 +1187,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-iOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-iOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1275,13 +1275,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-tvOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-tvOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-tvOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1401,13 +1401,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-tvOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-tvOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-tvOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1456,13 +1456,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-macOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-macOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-macOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-macOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1478,13 +1478,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-macOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-macOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/FastCoding-macOS/FastCoding.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWearPrivate-macOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

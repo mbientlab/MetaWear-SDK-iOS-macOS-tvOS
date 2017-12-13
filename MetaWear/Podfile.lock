@@ -1,12 +1,12 @@
 PODS:
   - Bolts/Tasks (1.8.4)
-  - FastCoding+tvOS (3.2.1)
-  - iOSDFULibrary (4.0.2):
+  - FastCoding (3.2.2)
+  - iOSDFULibrary (4.1.0):
     - Zip (~> 1.0)
   - MetaWearPrivate (2.10.0):
     - Bolts/Tasks (~> 1.8.4)
-    - FastCoding+tvOS (~> 3.2.1)
-  - Zip (1.0.0)
+    - FastCoding (~> 3.2.2)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
   - iOSDFULibrary
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  FastCoding+tvOS: d314b6daa8389ec790ab362f973f53a5657292bd
-  iOSDFULibrary: 739d3b5f2c99120b4e9b93ca165d9e451e3c8dec
-  MetaWearPrivate: 315caa0e347171d0ed62b019e20b1477f17e9dd9
-  Zip: 115a122433829a1bbf33f5575fa84047438dcc12
+  FastCoding: f7b1b75a2ccb0dd6ef9c928e46339e20252d98d3
+  iOSDFULibrary: e245240cc1096f3961f2e5ec53860f8fca1ff648
+  MetaWearPrivate: f9cb466d358f6a4a5639f3cce393ddaf37c4def5
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
 PODFILE CHECKSUM: 3f1860c05419ce0c9f1c5e51d97b5df098184716
 

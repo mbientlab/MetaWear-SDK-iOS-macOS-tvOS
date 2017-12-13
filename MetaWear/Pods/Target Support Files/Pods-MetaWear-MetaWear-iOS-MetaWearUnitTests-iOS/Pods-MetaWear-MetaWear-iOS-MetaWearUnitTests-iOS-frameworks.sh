@@ -103,12 +103,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding-iOS/FastCoding.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWearPrivate-iOS/MetaWear.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding-iOS/FastCoding.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWearPrivate-iOS/MetaWear.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
