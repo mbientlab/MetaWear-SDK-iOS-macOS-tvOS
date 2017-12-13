@@ -127,6 +127,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 @property (nonatomic) BOOL isMetaBoot;
 
 @property (nonatomic) BOOL bypassSetup;
+@property (nonatomic) BOOL bypassSanityCheck;
 @property (nonatomic) id<MBLBluetoothPeripheral> peripheral;
 
 @property (nonatomic, nullable) MBLDataProcessor *dataProcessor;
@@ -184,6 +185,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @synthesize peripheral = _noencode_peripheral;
 @synthesize bypassSetup = _noencode_bypassSetup;
+@synthesize bypassSanityCheck = _noencode_bypassSanityCheck;
 
 @synthesize zeroCountQueue = _noencode_zeroCountQueue;
 
@@ -1542,6 +1544,9 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 - (BFTask<NSNumber *> *)sanityCheck
 {
+    if (_noencode_bypassSanityCheck) {
+        return [BFTask taskWithResult:@YES];
+    }
     if (_noencode_programedByOtherApp) {
         NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                              code:kMBLErrorOperationInvalid
