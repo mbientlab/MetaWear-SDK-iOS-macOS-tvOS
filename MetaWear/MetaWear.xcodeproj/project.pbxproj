@@ -32,6 +32,9 @@
 		400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */; };
 		400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
 		400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */; };
+		4009E36C1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4009E36B1FE1B8C7009509CB /* MBLRegisterTests.m */; };
+		4009E36D1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4009E36B1FE1B8C7009509CB /* MBLRegisterTests.m */; };
+		4009E36E1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4009E36B1FE1B8C7009509CB /* MBLRegisterTests.m */; };
 		403BF7731D9E348000B22B82 /* DFUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 403BF7721D9E342800B22B82 /* DFUTests.m */; };
 		40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
 		40703E3A1D94B8CA00F38FF0 /* MBLConverstionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */; };
@@ -135,6 +138,7 @@
 		400655C51D9A1DF30066AB54 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLConnectionTests.m; sourceTree = "<group>"; };
 		400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLMetaWearTests.m; sourceTree = "<group>"; };
+		4009E36B1FE1B8C7009509CB /* MBLRegisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLRegisterTests.m; sourceTree = "<group>"; };
 		400C47D91E8F1CEF00F72568 /* gen_api_reference.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gen_api_reference.sh; sourceTree = "<group>"; };
 		403BF7721D9E342800B22B82 /* DFUTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFUTests.m; sourceTree = "<group>"; };
 		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,6 +414,7 @@
 				40703E141D94AE5000F38FF0 /* MBLMockMetaWearUnitTest.m */,
 				400655CC1D9A46FF0066AB54 /* MBLConnectionTests.m */,
 				400655D01D9A67B60066AB54 /* MBLMetaWearTests.m */,
+				4009E36B1FE1B8C7009509CB /* MBLRegisterTests.m */,
 				40CBC8951D9B37040078573C /* MBLMetaBootTests.m */,
 				40703E0F1D94AE5000F38FF0 /* MBLAutomaticTests.m */,
 				40703E101D94AE5000F38FF0 /* MBLConverstionTests.m */,
@@ -1500,6 +1505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400655C31D9A19720066AB54 /* MBLAutomaticTests.m in Sources */,
+				4009E36C1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */,
 				400655CE1D9A479A0066AB54 /* MBLConnectionTests.m in Sources */,
 				40703E281D94B09600F38FF0 /* MBLConverstionTests.m in Sources */,
 				400655D11D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */,
@@ -1513,6 +1519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400655C41D9A19720066AB54 /* MBLAutomaticTests.m in Sources */,
+				4009E36D1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */,
 				400655CD1D9A47990066AB54 /* MBLConnectionTests.m in Sources */,
 				40703E3A1D94B8CA00F38FF0 /* MBLConverstionTests.m in Sources */,
 				400655D21D9A67FD0066AB54 /* MBLMetaWearTests.m in Sources */,
@@ -1558,6 +1565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F4C1B81DAF3EBC00DAD8F6 /* MBLConverstionTests.m in Sources */,
+				4009E36E1FE1B8C7009509CB /* MBLRegisterTests.m in Sources */,
 				407820131D9DD5EB00FF5134 /* MBLMockMetaWearUnitTest.m in Sources */,
 				40F4C1B51DAF3EB100DAD8F6 /* MBLMetaWearTests.m in Sources */,
 				40F4C1B61DAF3EB600DAD8F6 /* MBLMetaBootTests.m in Sources */,

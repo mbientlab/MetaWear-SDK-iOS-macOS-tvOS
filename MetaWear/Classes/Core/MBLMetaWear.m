@@ -109,7 +109,6 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 @property (nonatomic, nullable) id<MBLRestorable> configuration;
 
-@property (nonatomic) MBLConnectionState state;
 @property (nonatomic) BOOL programedByOtherApp;
 @property (nonatomic) MBLMovingAverage *rssiAverager;
 //@property (nonatomic, nonnull) NSString *name;
@@ -120,6 +119,7 @@ typedef void (^MBLModuleInfoHandler)(MBLModuleInfo *moduleInfo);
 
 
 // Properties from MBLMetaWear+Private.h
+@property (nonatomic) MBLConnectionState state;
 @property (nonatomic, nonnull) NSUUID *identifier;
 @property (nonatomic) NSDictionary *advertisementData;
 @property (nonatomic, nullable) NSString *mac;

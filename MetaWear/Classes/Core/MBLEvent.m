@@ -107,7 +107,7 @@
     }
     
     [device incrementCount];
-    return [[[[[BFTask taskFromMetaWearWithBlock:^id{
+    return [[BFTask taskFromMetaWearWithBlock:^id{
         if (self.hasCommandsImpl) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorOperationInvalid
@@ -115,13 +115,16 @@
             return [BFTask taskWithError:error];
         }
         self.hasCommandsImpl = YES;
-        return nil;
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self initializeAsync];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [device.command programCommandsToRunOnEventAsync:self commands:block];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self activateAsync];
+        return [[[[self initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [device.command programCommandsToRunOnEventAsync:self commands:block];
+        }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [self activateAsync];
+        }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+            if (task.faulted) {
+                self.hasCommandsImpl = NO;
+            }
+            return task;
+        }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         [device decrementCount];
         return task;
@@ -139,7 +142,7 @@
     }
     
     [device incrementCount];
-    return [[[[[BFTask taskFromMetaWearWithBlock:^id{
+    return [[BFTask taskFromMetaWearWithBlock:^id{
         if (!self.hasCommandsImpl) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorOperationInvalid
@@ -147,13 +150,16 @@
             return [BFTask taskWithError:error];
         }
         self.hasCommandsImpl = NO;
-        return nil;
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self deactivateAsync];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [device.command eraseCommandsToRunOnEventAsync:self];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self deinitializeAsync];
+        return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [device.command eraseCommandsToRunOnEventAsync:self];
+        }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [self deinitializeAsync];
+        }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+            if (task.faulted) {
+                self.hasCommandsImpl = YES;
+            }
+            return task;
+        }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         [device decrementCount];
         return task;
@@ -181,7 +187,7 @@
     }
     
     [device incrementCount];
-    return [[[[[BFTask taskFromMetaWearWithBlock:^id{
+    return [[BFTask taskFromMetaWearWithBlock:^id{
         if (self.isLoggingImpl) {
             NSError *error = [NSError errorWithDomain:kMBLErrorDomain
                                                  code:kMBLErrorOperationInvalid
@@ -191,13 +197,16 @@
         self.isLoggingImpl = YES;
         // Clear out the logging id's
         [self.loggingIds removeAllObjects];
-        return nil;
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self initializeAsync];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self.module.device.logging startLoggingAsyncEvent:self];
-    }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
-        return [self activateAsync];
+        return [[[[self initializeAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [self.module.device.logging startLoggingAsyncEvent:self];
+        }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [self activateAsync];
+        }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+            if (task.faulted) {
+                self.isLoggingImpl = NO;
+            }
+            return task;
+        }];
     }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
         [device decrementCount];
         return task;
@@ -264,13 +273,18 @@
         if (self.isLoggingImpl) {
             self.isLoggingImpl = NO;
             
-            return [[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
+            return [[[[[self deactivateAsync] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [device.logging stopLoggingEvent:self];
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [self deinitializeAsync];
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 // Since log downloads take a while, let's save state here
                 return [device synchronizeAsync];
+            }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+                if (task.faulted) {
+                    self.isLoggingImpl = YES;
+                }
+                return task;
             }];
         }
         return nil;

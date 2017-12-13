@@ -184,7 +184,7 @@
         if (self.initializeCount == 1) {
             initializeTask = [[self performAsyncInitialization] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.initializeCount--;
+                    self.initializeCount = 0;
                 }
                 return task;
             }];
@@ -200,12 +200,11 @@
         if (self.initializeCount == 0) {
             deinitializeTask = [[self performAsyncDeinitialization] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.initializeCount++;
+                    self.initializeCount = 1;
                 }
                 return task;
             }];
         }
-        NSAssert(self.initializeCount >= 0, @"init/deinit calls unbalanced.");
         self.initializeCount = MAX(self.initializeCount, 0);
         return deinitializeTask;
     }];
@@ -218,7 +217,7 @@
         if (self.activateCount == 1) {
             activateTask = [[self performAsyncActivation] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.activateCount--;
+                    self.activateCount = 0;
                 }
                 return task;
             }];
@@ -234,12 +233,11 @@
         if (self.activateCount == 0) {
             activateTask = [[self performAsyncDeactivation] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.activateCount++;
+                    self.activateCount = 1;
                 }
                 return task;
             }];
         }
-        NSAssert(self.activateCount >= 0, @"activate/deactivate calls unbalanced.");
         self.activateCount = MAX(self.activateCount, 0);
         return activateTask;
     }];

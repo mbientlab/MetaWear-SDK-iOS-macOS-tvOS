@@ -336,6 +336,10 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [self activateAsync];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+                if (task.faulted) {
+                    self.isNotifyingImpl = NO;
+                    [self removeNotificationHandlers];
+                }
                 [device decrementCount];
                 return task;
             }];
@@ -378,6 +382,9 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
             }] continueOnMetaWearWithSuccessBlock:^id _Nullable(BFTask * _Nonnull task) {
                 return [self deinitializeAsync];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
+                if (task.faulted) {
+                    self.isNotifyingImpl = YES;
+                }
                 [device decrementCount];
                 return task;
             }];
@@ -501,7 +508,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return [self performAsyncInitialization];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.initializeCount--;
+                    self.initializeCount = 0;
                 }
                 return task;
             }];
@@ -520,12 +527,11 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return [self.module deinitializeAsync];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.initializeCount++;
+                    self.initializeCount = 1;
                 }
                 return task;
             }];
         }
-        NSAssert(self.initializeCount >= 0, @"init/deinit calls unbalanced.");
         self.initializeCount = MAX(self.initializeCount, 0);
         return deinitializeTask;
     }];
@@ -540,7 +546,7 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return [self.module activateAsync];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.activateCount--;
+                    self.activateCount = 0;
                 }
                 return task;
             }];
@@ -558,12 +564,11 @@ typedef NS_OPTIONS(uint8_t, MBLRegisterState) {
                 return [self performAsyncDeactivation];
             }] continueOnMetaWearWithBlock:^id _Nullable(BFTask * _Nonnull task) {
                 if (task.faulted) {
-                    self.activateCount++;
+                    self.activateCount = 1;
                 }
                 return task;
             }];
         }
-        NSAssert(self.activateCount >= 0, @"activate/deactivate calls unbalanced.");
         self.activateCount = MAX(self.activateCount, 0);
         return activateTask;
     }];

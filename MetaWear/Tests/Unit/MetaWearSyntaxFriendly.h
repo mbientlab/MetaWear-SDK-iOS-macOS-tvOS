@@ -45,3 +45,4 @@
 #else
   #import <MetaWear/MetaWearPrivate-macOS-umbrella.h>
 #endif
+
