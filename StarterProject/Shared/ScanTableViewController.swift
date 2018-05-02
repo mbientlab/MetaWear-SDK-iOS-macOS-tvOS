@@ -10,128 +10,119 @@ import MetaWear
 import MBProgressHUD
 
 protocol ScanTableViewControllerDelegate {
-    func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MBLMetaWear)
+    func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MetaWear)
 }
 
 class ScanTableViewController: UITableViewController {
+    var scannerModel: ScannerModel!
+    var selected: [ScannerModelItem] = []
     var delegate: ScanTableViewControllerDelegate?
-    var createConfiguration: (() -> MBLRestorable)?
-    var devices: [MBLMetaWear]?
-    var selected: MBLMetaWear?
+    var hud: MBProgressHUD?
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        
-        MBLMetaWearManager.shared().startScan(forMetaWearsAllowDuplicates: true) { array in
-            self.devices = array
-            self.tableView.reloadData()
-        }
+        super.viewWillAppear(animated)
+        scannerModel = ScannerModel(delegate: self)
+        selected = []
+        scannerModel.isScanning = true
+        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        MBLMetaWearManager.shared().stopScan()
+        scannerModel.isScanning = false
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return devices?.count ?? 0
+        return scannerModel.items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MetaWearCell", for: indexPath) 
 
         // Configure the cell...
-        if let cur = devices?[(indexPath as NSIndexPath).row] {
-            let uuid = cell.viewWithTag(1) as! UILabel
-            uuid.text = cur.mac ?? "Connect for MAC"
-            
-            let connected = cell.viewWithTag(3) as! UILabel
-            if cur.state == .connected {
-                connected.isHidden = false
+        let cur = scannerModel.items[indexPath.row]
+        let uuid = cell.viewWithTag(1) as! UILabel
+        uuid.text = cur.device.mac ?? "Connect for MAC"
+        
+        let connected = cell.viewWithTag(3) as! UILabel
+        if cur.device.isConnectedAndSetup {
+            connected.isHidden = false
+        } else {
+            connected.isHidden = true
+        }
+        
+        let name = cell.viewWithTag(4) as! UILabel
+        name.text = cur.device.name
+        
+        let rssi = cell.viewWithTag(2) as! UILabel
+        let signal = cell.viewWithTag(5) as! UIImageView
+        if let movingAverage = cur.device.averageRSSI() {
+            rssi.isHidden = false
+            rssi.text = String(Int(movingAverage.rounded()))
+            if movingAverage < -80.0 {
+                signal.image = UIImage(named: "wifi_d1")
+            } else if movingAverage < -70.0 {
+                signal.image = UIImage(named: "wifi_d2")
+            } else if movingAverage < -60.0 {
+                signal.image = UIImage(named: "wifi_d3")
+            } else if movingAverage < -50.0 {
+                signal.image = UIImage(named: "wifi_d4")
+            } else if movingAverage < -40.0 {
+                signal.image = UIImage(named: "wifi_d5")
             } else {
-                connected.isHidden = true
+                signal.image = UIImage(named: "wifi_d6")
             }
-            
-            let name = cell.viewWithTag(4) as! UILabel
-            name.text = cur.name
-            
-            let rssi = cell.viewWithTag(2) as! UILabel
-            let signal = cell.viewWithTag(5) as! UIImageView
-            if let movingAverage = cur.averageRSSI?.doubleValue {
-                rssi.isHidden = false
-                rssi.text = cur.discoveryTimeRSSI?.stringValue ?? ""
-                
-                if movingAverage < -80.0 {
-                    signal.image = UIImage(named: "wifi_d1")
-                } else if movingAverage < -70.0 {
-                    signal.image = UIImage(named: "wifi_d2")
-                } else if movingAverage < -60.0 {
-                    signal.image = UIImage(named: "wifi_d3")
-                } else if movingAverage < -50.0 {
-                    signal.image = UIImage(named: "wifi_d4")
-                } else if movingAverage < -40.0 {
-                    signal.image = UIImage(named: "wifi_d5")
-                } else {
-                    signal.image = UIImage(named: "wifi_d6")
-                }
-            } else {
-                signal.image = UIImage(named: "wifi_not_connected")
-                rssi.isHidden = true
-            }
+        } else {
+            signal.image = UIImage(named: "wifi_not_connected")
+            rssi.isHidden = true
         }
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let selected = devices?[(indexPath as NSIndexPath).row] {
-            let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            hud.label.text = "Connecting..."
-            
-            self.selected = selected
-            selected.connect(withTimeoutAsync: 15).success { _ in
-                hud.hide(animated: true)
-                selected.led?.flashColorAsync(UIColor.green, withIntensity: 1.0)
-                
-                let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction) -> Void in
-                    selected.led?.setLEDOnAsync(false, withOptions: 1)
-                    selected.disconnectAsync()
-                }))
-                alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: { (action: UIAlertAction) -> Void in
-                    selected.led?.setLEDOnAsync(false, withOptions: 1)
-                    guard let createConfiguration = self.createConfiguration else {
-                        selected.disconnectAsync()
-                        self.delegate?.scanTableViewController(self, didSelectDevice: selected)
-                        return
-                    }
-                    let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-                    hud.label.text = "Programming..."
-                    selected.setConfigurationAsync(createConfiguration()).continueOnDispatch { t in
-                        hud.hide(animated: true)
-                        selected.disconnectAsync()
-                        if let error = t.error {
-                            self.showOKAlert("Error", message: error.localizedDescription)
-                        } else {
-                            self.delegate?.scanTableViewController(self, didSelectDevice: selected)
-                        }
-                        return nil
-                    }
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }.failure { error in
-                hud.label.text = error.localizedDescription
-                hud.hide(animated: true, afterDelay: 2.0)
-            }
+        hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        hud?.label.text = "Connecting..."
+        
+        scannerModel.items[indexPath.row].toggleConnect()
+    }
+}
+
+
+extension ScanTableViewController: ScannerModelDelegate {
+    func scannerModel(_ scannerModel: ScannerModel, didAddItemAt idx: Int) {
+        DispatchQueue.main.async {
+            self.tableView.insertRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
         }
     }
     
-    func showOKAlert(_ title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
-        present(alertController, animated: true)
+    func scannerModel(_ scannerModel: ScannerModel, confirmBlinkingItem item: ScannerModelItem, callback: @escaping (Bool) -> Void) {
+        DispatchQueue.main.async {
+            self.hud?.hide(animated: true)
+            self.hud = nil
+            
+            let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
+                callback(false)
+            })
+            alert.addAction(UIAlertAction(title: "Yes!", style: .default) { _ in
+                callback(true)
+                self.delegate?.scanTableViewController(self, didSelectDevice: item.device)
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func scannerModel(_ scannerModel: ScannerModel, errorDidOccur error: Error) {
+        DispatchQueue.main.async {
+            self.hud?.hide(animated: false)
+            self.hud = nil
+            
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
     }
 }

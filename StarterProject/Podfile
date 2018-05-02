@@ -1,17 +1,17 @@
 abstract_target 'Starter' do
   use_frameworks!
   # Pods for all targets
-  pod 'MetaWear', :path => '../'
+  pod 'MetaWear', :subspecs => ['AsyncUtils', 'UI'], :path => '../'
 
   target 'iOS' do
-    platform :ios, '9.0'
+    platform :ios, '10.0'
 
     # Pods for iOS
     pod 'MBProgressHUD'
   end
 
   target 'macOS' do
-    platform :osx, '10.12'
+    platform :osx, '10.13'
 
     # Pods for macOS
   end

@@ -1,0 +1,6 @@
+framework module Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension {
+  umbrella header "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

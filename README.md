@@ -1,13 +1,12 @@
-# MetaWear SDK for iOS/OS X/tvOS by MBIENTLAB
+# MetaWear  SDK for iOS/macOS/tvOS/watchOS by MBIENTLAB
 
 [![Platforms](https://img.shields.io/cocoapods/p/MetaWear.svg?style=flat)](http://cocoapods.org/pods/MetaWear)
 [![License](https://img.shields.io/cocoapods/l/MetaWear.svg?style=flat)](https://mbientlab.com/license)
 [![Version](https://img.shields.io/cocoapods/v/MetaWear.svg?style=flat)](http://cocoapods.org/pods/MetaWear)
 
-[![Build Status](https://jenkins.schiffli.us/buildStatus/icon?job=MetaWear-SDK-iOS-macOS-tvOS)](https://jenkins.schiffli.us/job/MetaWear-SDK-iOS-macOS-tvOS)
-[![Codecov](https://img.shields.io/codecov/c/github/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.svg?maxAge=2592000)](https://codecov.io/github/mbientlab/MetaWear-SDK-iOS-macOS-tvOS?branch=master)
-
 ![alt tag](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/Images/Metawear.png)
+
+SDK for creating MetaWear apps that run in the Apple ecosystem.  This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful.
 
 ### Overview
 
@@ -29,18 +28,27 @@ The iOS simulator doesn’t support Bluetooth 4.0, so test apps must be run on a
 See the [License](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/LICENSE)
 
 ### Support
-Reach out to the [community](http://community.mbientlab.com) if you encounter any problems, or just want to chat :)
+Reach out to the [community](https://mbientlab.com/community/) if you encounter any problems, or just want to chat :)
 
 ## Getting Started
 
 ### Installation
 
-MetaWear is available through [CocoaPods](http://cocoapods.org). To install
+MetaWear is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "MetaWear"
 ```
+
+*NOTE*
+Also if you are using Xcode 9 and Swift 4.x you will proablly want to manually include the latest Bolts-Swift.  The current
+1.3.0 release is only for Swfit 3.x, so you would have to manually change the Swift version.
+
+```ruby
+pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
+```
+
 For first time CocoaPods users we have a detailed [video guide](https://youtu.be/VTb_EDv5j7A).
 
 ### Simple API Test
@@ -50,35 +58,35 @@ Here is a walkthrough to showcase a very basic connect and toggle LED operation.
 First, import the framework header files like this:
 ```swift
 import MetaWear
+import MetaWearCpp
 ```
 
 Then add the following code wherever appropriate to make the LED flash green:
 ```swift
-MBLMetaWearManager.shared().startScanForMetaWears() { array in
-    // Hooray! We found a MetaWear board, so stop scanning for more
-    MBLMetaWearManager.shared().stopScan()
-    // Connect to the board we found
-    if let device = array.first {
-        device.connectAsync().success() { _ in
-            // Hooray! We connected to a MetaWear board, so flash its LED!
-            device.led?.flashColorAsync(UIColor.green, withIntensity: 0.5)
-        }.failure() { error in
-            // Sorry we couldn't connect
-            print(error)
+MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
+    // We found a MetaWear board, see if it is close
+    if device.rssi.intValue > -50 {
+        // Hooray! We found a MetaWear board, so stop scanning for more
+        MetaWearScanner.shared.stopScan()
+        // Connect to the board we found
+        device.connectAndSetup().continueWith { t in
+            if let error = t.error {
+                // Sorry we couldn't connect
+                print(error)
+            } else {
+                // Hooray! We connected to a MetaWear board, so flash its LED!
+                var pattern = MblMwLedPattern()
+                mbl_mw_led_load_preset_pattern(&pattern, MBL_MW_LED_PRESET_PULSE)
+                mbl_mw_led_stop_and_clear(device.board)
+                mbl_mw_led_write_pattern(device.board, &pattern, MBL_MW_LED_COLOR_GREEN)
+                mbl_mw_led_play(device.board)
+            }
         }
     }
 }
 ```
 Now run the app! 
 
-*BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR* but we do include a simulated MetaWear for use with basic testing, however, it does not have all the features of a real MetaWear.
+*BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR*
 
-### Sample iOS App
 
-We have a sample iOS App on the [App Store](https://itunes.apple.com/us/app/metawear/id920878581) and the source can be found on our [GitHub Page](https://github.com/mbientlab/Metawear-SampleiOSApp).
-
-The sample iOS App demonstrates the base functionality of the various MetaWear modules and serves as a good starting point for developers.
-
-### API Documentation
-
-See the [iOS Guide](https://mbientlab.com/iosdocs/latest/)

@@ -1,11 +1,10 @@
 use_frameworks!
 
-# All tests need access to the Private headers of MetaWear
 abstract_target 'MetaWear' do
-    pod 'MetaWearPrivate', :path => '../'
+    pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
     
     abstract_target 'MetaWear-iOS' do
-        platform :ios, '8.0'
+        platform :ios, '10.0'
         
         target 'MetaWearIntegrationTestHost-iOS' do
             target 'MetaWearIntegrationTests-iOS' do
@@ -20,7 +19,7 @@ abstract_target 'MetaWear' do
     end
     
     abstract_target 'MetaWear-macOS' do
-        platform :osx, '10.11'
+        platform :osx, '10.13'
         
         target 'MetaWearIntegrationTestHost-macOS' do
             target 'MetaWearIntegrationTests-macOS' do
@@ -44,6 +43,14 @@ abstract_target 'MetaWear' do
         end
     
         target 'MetaWearUnitTests-tvOS' do
+        end
+    end
+    
+    
+    abstract_target 'MetaWear-watchOS' do
+        platform :watchos, '4.0'
+        
+        target 'MetaWearIntegrationTestHost-watchOS Extension' do
         end
     end
 end
