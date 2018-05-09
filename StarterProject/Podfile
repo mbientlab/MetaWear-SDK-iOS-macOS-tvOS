@@ -2,6 +2,7 @@ abstract_target 'Starter' do
   use_frameworks!
   # Pods for all targets
   pod 'MetaWear', :subspecs => ['AsyncUtils', 'UI'], :path => '../'
+  pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
 
   target 'iOS' do
     platform :ios, '10.0'

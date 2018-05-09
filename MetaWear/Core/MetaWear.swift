@@ -228,6 +228,8 @@ public class MetaWear: NSObject {
                                              enable_notifications: enableNotifications,
                                              on_disconnect: onDisconnect)
         self.board = mbl_mw_metawearboard_create(&connection)
+        // TODO: evaluate if the timeout provides value
+        mbl_mw_metawearboard_set_time_for_response(self.board, 0)
         self.mac = UserDefaults.standard.string(forKey: "com.mbientlab.macstorage." + peripheral.identifier.uuidString)
     }
     
@@ -245,17 +247,26 @@ public class MetaWear: NSObject {
         invokeDisconnectionHandlers(error: error)
     }
     func didDisconnectPeripheral(error: Error?) {
-        onDisconnectCallback?(UnsafeRawPointer(board), 0)
-        onDisconnectCallback = nil
         invokeConnectionHandlers(error: error, cancelled: error == nil)
         invokeDisconnectionHandlers(error: error)
     }
     func invokeDisconnectionHandlers(error: Error?) {
         assert(DispatchQueue.isBleQueue)
-        self.isConnectedAndSetup = false
+        isConnectedAndSetup = false
+        // Inform the C++ SDK
+        onDisconnectCallback?(UnsafeRawPointer(board), 0)
+        onDisconnectCallback = nil
+        
         let unexpected = (error != nil) && (error as? CBError)?.code != .peripheralDisconnected
-        self.disconnectionSources.forEach { unexpected ? $0.set(error: error!) : $0.set(result: self) }
-        self.disconnectionSources.removeAll(keepingCapacity: true)
+        disconnectionSources.forEach { unexpected ? $0.set(error: error!) : $0.set(result: self) }
+        disconnectionSources.removeAll(keepingCapacity: true)
+        
+        gattCharMap = [:]
+        subscribeCompleteCallbacks = [:]
+        onDataCallbacks = [:]
+        onReadCallbacks = [:]
+        localReadCallbacks.forEach { $0.value.forEach { $0.trySet(error: MetaWearError.operationFailed(message: "disconnected before read finished")) } }
+        localReadCallbacks.removeAll(keepingCapacity: true)
     }
     func invokeConnectionHandlers(error: Error?, cancelled: Bool) {
         assert(DispatchQueue.isBleQueue)

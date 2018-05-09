@@ -14,6 +14,7 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
+  - Bolts-Swift (from `https://github.com/BoltsFramework/Bolts-Swift.git`, commit `e9baa72`)
   - iOSDFULibrary
   - MetaWear/AsyncUtils (from `../`)
   - MetaWear/Mocks (from `../`)
@@ -21,13 +22,20 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Bolts-Swift
     - iOSDFULibrary
     - Zip
 
 EXTERNAL SOURCES:
+  Bolts-Swift:
+    :commit: e9baa72
+    :git: https://github.com/BoltsFramework/Bolts-Swift.git
   MetaWear:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  Bolts-Swift:
+    :commit: e9baa72
+    :git: https://github.com/BoltsFramework/Bolts-Swift.git
 
 SPEC CHECKSUMS:
   Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
@@ -35,6 +43,6 @@ SPEC CHECKSUMS:
   MetaWear: db411d9e682ce4845a3e187a6de0b8cca16b726d
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 0e8b329392a8a7e966662fa269e1ca5b0f680490
+PODFILE CHECKSUM: b23d453d1df89e2cdf9e8033a4b3ed3dcde49c8c
 
 COCOAPODS: 1.5.0

@@ -44,9 +44,9 @@ extension OpaquePointer {
         mbl_mw_datasignal_subscribe(self, bridgeRetained(obj: source)) { (context, dataPtr) in
             let source: TaskCompletionSource<MetaWearData> = bridgeTransfer(ptr: context!)
             if let dataPtr = dataPtr {
-                source.set(result: dataPtr.pointee.copy())
+                source.trySet(result: dataPtr.pointee.copy())
             } else {
-                source.set(error: MetaWearError.operationFailed(message: "could not subscribe"))
+                source.trySet(error: MetaWearError.operationFailed(message: "could not subscribe"))
             }
         }
         mbl_mw_datasignal_read(self)
@@ -61,21 +61,72 @@ extension OpaquePointer {
         mbl_mw_datasignal_log(self, bridgeRetained(obj: source)) { (context, logger) in
             let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
             if let logger = logger {
-                source.set(result: logger)
+                source.trySet(result: logger)
             } else {
-                source.set(error: MetaWearError.operationFailed(message: "could not create log entry"))
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create log entry"))
             }
         }
         return source.task
     }
+    
+    
     public func passthroughCreate(mode: MblMwPassthroughMode, count: UInt16) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_passthrough_create(self, mode, count, bridgeRetained(obj: source)) { (context, passthrough) in
             let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
             if let passthrough = passthrough {
-                source.set(result: passthrough)
+                source.trySet(result: passthrough)
             } else {
-                source.set(error: MetaWearError.operationFailed(message: "could not create conter"))
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create passthrough"))
+            }
+        }
+        return source.task
+    }
+    public func rmsCreate() -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_rms_create(self, bridgeRetained(obj: source)) { (context, rms) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let rms = rms {
+                source.trySet(result: rms)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create rms"))
+            }
+        }
+        return source.task
+    }
+    public func thresholdCreate(mode: MblMwThresholdMode, boundary: Float, hysteresis: Float) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_threshold_create(self, mode, boundary, hysteresis, bridgeRetained(obj: source)) { (context, threshold) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let threshold = threshold {
+                source.trySet(result: threshold)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create threshold"))
+            }
+        }
+        return source.task
+    }
+    public func comparatorCreate(op: MblMwComparatorOperation, mode: MblMwComparatorMode, references: [Float]) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        var references = references
+        mbl_mw_dataprocessor_multi_comparator_create(self, op, mode, &references, UInt8(references.count), bridgeRetained(obj: source)) { (context, comparator) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let comparator = comparator {
+                source.trySet(result: comparator)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create comparator"))
+            }
+        }
+        return source.task
+    }
+    public func sampleCreate(binSize: UInt8) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_sample_create(self, binSize, bridgeRetained(obj: source)) { (context, sample) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let sample = sample {
+                source.trySet(result: sample)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create sample"))
             }
         }
         return source.task

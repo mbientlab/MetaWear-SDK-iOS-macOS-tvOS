@@ -43,9 +43,9 @@ extension OpaquePointer {
         mbl_mw_event_end_record(self, bridgeRetained(obj: source)) { (context, event, status) in
             let source: TaskCompletionSource<()> = bridgeTransfer(ptr: context!)
             if status == 0 {
-                source.set(result: ())
+                source.trySet(result: ())
             } else {
-                source.set(error: MetaWearError.operationFailed(message: "event end record failed: \(status)"))
+                source.trySet(error: MetaWearError.operationFailed(message: "event end record failed: \(status)"))
             }
         }
         return source.task

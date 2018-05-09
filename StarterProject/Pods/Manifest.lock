@@ -10,24 +10,32 @@ PODS:
     - MetaWear/Core
 
 DEPENDENCIES:
+  - Bolts-Swift (from `https://github.com/BoltsFramework/Bolts-Swift.git`, commit `e9baa72`)
   - MBProgressHUD
   - MetaWear/AsyncUtils (from `../`)
   - MetaWear/UI (from `../`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Bolts-Swift
     - MBProgressHUD
 
 EXTERNAL SOURCES:
+  Bolts-Swift:
+    :commit: e9baa72
+    :git: https://github.com/BoltsFramework/Bolts-Swift.git
   MetaWear:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  Bolts-Swift:
+    :commit: e9baa72
+    :git: https://github.com/BoltsFramework/Bolts-Swift.git
 
 SPEC CHECKSUMS:
   Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MetaWear: db411d9e682ce4845a3e187a6de0b8cca16b726d
 
-PODFILE CHECKSUM: 981b4467a7e96b3f253edb1f00bd9efa48322787
+PODFILE CHECKSUM: 7fda1e1472304a0a61a388c9079755c98998f898
 
 COCOAPODS: 1.5.0

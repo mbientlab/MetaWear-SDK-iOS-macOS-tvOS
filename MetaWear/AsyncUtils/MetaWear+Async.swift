@@ -51,7 +51,7 @@ extension MetaWear {
         let source = TaskCompletionSource<Int32>()
         mbl_mw_macro_end_record(board, bridgeRetained(obj: source)) { (context, board, value) in
             let source: TaskCompletionSource<Int32> = bridgeTransfer(ptr: context!)
-            source.set(result: value)
+            source.trySet(result: value)
         }
         return source.task
     }
@@ -63,14 +63,14 @@ extension MetaWear {
             let source: TaskCompletionSource<[OpaquePointer]> = bridgeTransfer(ptr: context!)
             if let anonymousSignals = anonymousSignals {
                 if size == 0 {
-                    source.set(error: MetaWearError.operationFailed(
+                    source.trySet(error: MetaWearError.operationFailed(
                         message: "device is not logging any sensor data"))
                 } else {
                     let array = (0..<size).map { anonymousSignals[Int($0)]! }
-                    source.set(result: array)
+                    source.trySet(result: array)
                 }
             } else {
-                source.set(error: MetaWearError.operationFailed(
+                source.trySet(error: MetaWearError.operationFailed(
                     message: "failed to create anonymous data signals (status = \(size))"))
             }
         }
@@ -82,9 +82,9 @@ extension MetaWear {
         mbl_mw_timer_create(board, period, repetitions, immediateFire ? 0 : 1, bridgeRetained(obj: source)) { (context, timer) in
             let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
             if let timer = timer {
-                source.set(result: timer)
+                source.trySet(result: timer)
             } else {
-                source.set(error: MetaWearError.operationFailed(message: "could not create timer"))
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create timer"))
             }
         }
         return source.task
