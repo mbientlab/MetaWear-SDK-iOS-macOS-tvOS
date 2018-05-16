@@ -131,4 +131,37 @@ extension OpaquePointer {
         }
         return source.task
     }
+    public func mathCreate(op: MblMwMathOperation, rhs: Float, signed: Bool? = nil) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        
+        let handler: MblMwFnDataProcessor = { (context, math) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let math = math {
+                source.trySet(result: math)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create math"))
+            }
+        }
+        switch signed {
+        case .none:
+            mbl_mw_dataprocessor_math_create(self, op, rhs, bridgeRetained(obj: source), handler)
+        case .some(true):
+            mbl_mw_dataprocessor_math_create_signed(self, op, rhs, bridgeRetained(obj: source), handler)
+        case .some(false):
+            mbl_mw_dataprocessor_math_create_unsigned(self, op, rhs, bridgeRetained(obj: source), handler)
+        }
+        return source.task
+    }
+    public func deltaCreate(mode: MblMwDeltaMode, magnitude: Float) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_delta_create(self, mode, magnitude, bridgeRetained(obj: source)) { (context, delta) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let delta = delta {
+                source.trySet(result: delta)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create delta"))
+            }
+        }
+        return source.task
+    }
 }
