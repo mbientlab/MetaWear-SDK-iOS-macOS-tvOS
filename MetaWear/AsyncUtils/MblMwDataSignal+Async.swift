@@ -94,6 +94,18 @@ extension OpaquePointer {
         }
         return source.task
     }
+    public func rssCreate() -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_rss_create(self, bridgeRetained(obj: source)) { (context, rms) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let rms = rms {
+                source.trySet(result: rms)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create rss"))
+            }
+        }
+        return source.task
+    }
     public func thresholdCreate(mode: MblMwThresholdMode, boundary: Float, hysteresis: Float) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_threshold_create(self, mode, boundary, hysteresis, bridgeRetained(obj: source)) { (context, threshold) in
