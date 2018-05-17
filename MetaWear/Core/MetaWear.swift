@@ -45,6 +45,21 @@ public enum MetaWearError: Error {
     case bluetoothPoweredOff
 }
 
+extension MetaWearError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .operationFailed(let message):
+            return "Operation failed: \(message)"
+        case .bluetoothUnsupported:
+            return "Bluetooth unsupported on this platform"
+        case .bluetoothUnauthorized:
+            return "Bluetooth unauthorized in this App"
+        case .bluetoothPoweredOff:
+            return "Bluetooth powered off"
+        }
+    }
+}
+
 // Folder to store device information
 fileprivate let appSupportDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
 fileprivate let adQueue = DispatchQueue(label: "com.mbientlab.adQueue")
