@@ -208,7 +208,10 @@ extension MetaWearScanner: CBCentralManagerDelegate {
         device.advertisementData = advertisementData
         device.rssi = RSSI.intValue
         // Timestamp and save the last N RSSI samples
-        device.rssiHistory.insert((Date(), RSSI.doubleValue), at: 0)
+        let rssi = RSSI.doubleValue
+        if rssi < 0 {
+            device.rssiHistory.insert((Date(), RSSI.doubleValue), at: 0)
+        }
         if device.rssiHistory.count > 10 {
             device.rssiHistory.removeLast()
         }
