@@ -97,6 +97,12 @@ public class MetaWear: NSObject {
         url.appendPathComponent(peripheral.identifier.uuidString + ".file")
         return url
     }
+    public var apiAccessQueue: DispatchQueue {
+        return scanner?.bleQueue ?? DispatchQueue.global()
+    }
+    public var apiAccessExecutor: Executor {
+        return Executor.queue(apiAccessQueue)
+    }
     
     public func averageRSSI(lastNSeconds: Double = 5.0) -> Double? {
         let filteredRSSI = rssiHistory.filter { -$0.0.timeIntervalSinceNow < lastNSeconds }
@@ -110,7 +116,7 @@ public class MetaWear: NSObject {
     // The result of the task returned can be used to watch for disconnects
     public func connectAndSetup() -> Task<Task<MetaWear>> {
         let source = TaskCompletionSource<Task<MetaWear>>()
-        scanner?.bleQueue.async {
+        apiAccessQueue.async {
             guard !self.isConnectedAndSetup else {
                 let disconnectSource = TaskCompletionSource<MetaWear>()
                 self.disconnectionSources.append(disconnectSource)
@@ -204,7 +210,7 @@ public class MetaWear: NSObject {
     
     public func readCharacteristic(_ serviceUUID: CBUUID, _ characteristicUUID: CBUUID) -> Task<Data> {
         let source = TaskCompletionSource<Data>()
-        scanner?.bleQueue.async {
+        apiAccessQueue.async {
             let result = self.getCharacteristic(serviceUUID, characteristicUUID)
             guard let characteristic = result.characteristic else {
                 source.trySet(error: result.error!)
@@ -365,7 +371,7 @@ extension MetaWear: CBPeripheralDelegate {
     }
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard !isMetaBoot else {
-            scanner?.bleQueue.async {
+            apiAccessQueue.async {
                 self.invokeConnectionHandlers(error: nil, cancelled: false)
             }
             return
@@ -378,7 +384,7 @@ extension MetaWear: CBPeripheralDelegate {
                 let error = code != 0 ? MetaWearError.operationFailed(message: "initialized failed: \(code)") : nil
                 // Finished if we had an error
                 guard error == nil else {
-                    device.scanner?.bleQueue.async {
+                    device.apiAccessQueue.async {
                         device.invokeConnectionHandlers(error: error, cancelled: false)
                         device.cancelConnection()
                     }
@@ -408,10 +414,8 @@ extension MetaWear: CBPeripheralDelegate {
                     }
                 }
                 // Finish off the connections
-                if let bleQueue = device.scanner?.bleQueue {
-                    task.continueWith(.queue(bleQueue)) { _ in
-                        device.invokeConnectionHandlers(error: nil, cancelled: false)
-                    }
+                task.continueWith(device.apiAccessExecutor) { _ in
+                    device.invokeConnectionHandlers(error: nil, cancelled: false)
                 }
             }
         }
