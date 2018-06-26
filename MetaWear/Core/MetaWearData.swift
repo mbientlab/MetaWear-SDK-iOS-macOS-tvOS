@@ -69,6 +69,11 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         assert(T.self == String.self || T.self == String?.self)
         return String(cString: value.assumingMemoryBound(to: CChar.self)) as! T
     }
+    guard type_id != MBL_MW_DT_ID_BYTE_ARRAY else {
+        assert(T.self == [UInt8].self)
+        let buffer = UnsafeRawBufferPointer(start: value, count: Int(length))
+        return Array(buffer) as! T
+    }
     // Generalized flow
     assert(MemoryLayout<T>.size == length)
     switch type_id {
@@ -80,8 +85,6 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         assert(T.self == MblMwCartesianFloat.self)
     case MBL_MW_DT_ID_INT32:
         assert(T.self == Int32.self)
-    case MBL_MW_DT_ID_BYTE_ARRAY:
-        assert(T.self == [UInt8].self)
     case MBL_MW_DT_ID_BATTERY_STATE:
         assert(T.self == MblMwBatteryState.self)
     case MBL_MW_DT_ID_TCS34725_ADC:
