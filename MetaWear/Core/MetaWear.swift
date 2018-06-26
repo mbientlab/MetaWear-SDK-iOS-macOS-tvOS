@@ -390,9 +390,8 @@ extension MetaWear: CBPeripheralDelegate {
                 mbl_mw_memory_free(UnsafeMutableRawPointer(mutating: rawInfo))
                 // Grab and cache the mac address if needed
                 var task = Task<()>(())
-                if device.mac == nil {
+                if device.mac == nil, let signal = mbl_mw_settings_get_mac_data_signal(board) {
                     let source = TaskCompletionSource<String>()
-                    let signal = mbl_mw_settings_get_mac_data_signal(board)
                     mbl_mw_datasignal_subscribe(signal, bridgeRetained(obj: source)) { (context, dataPtr) in
                         let source: TaskCompletionSource<String> = bridgeTransfer(ptr: context!)
                         if let dataPtr = dataPtr {
