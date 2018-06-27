@@ -69,7 +69,7 @@ public class FirmwareServer {
                 source.trySet(error: FirmwareError.badServerResponse)
                 return
             }
-            let sdkVersion = "3.0.0"//Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] ?? "3.0.0"
+            let sdkVersion = "3.1.2"//Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] ?? "3.0.0"
             var allFirmwares: [FirmwareBuild] = []
             if let potentialVersions = info?[hardwareRev]?[modelNumber]?[buildFlavor] {
                 let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"] ?? "0") }
