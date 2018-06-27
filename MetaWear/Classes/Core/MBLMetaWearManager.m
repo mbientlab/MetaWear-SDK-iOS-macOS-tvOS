@@ -384,12 +384,6 @@ void MBLSetUseMockManager(BOOL useMock) { useMockManager = useMock; }
         self.centralStateUpdateSources = [NSMutableArray array];
         self.centralStateUpdateSourcesMutex = [[NSObject alloc] init];
         
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        // Don't catch expections
-        BFTaskSetCatchesExceptions(NO);
-#pragma clang diagnostic pop
-        
         // If the app changes its API version then we must delete all the cached MBLMetaWear objects,
         // since they are no longer valid
         if (!version || ![version isEqualToString:kMBLAPIVersion]) {

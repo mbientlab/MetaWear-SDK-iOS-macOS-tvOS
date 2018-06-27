@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '2.10.0'
+  s.version            = '2.10.1'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS API and documentation for the MetaWear platform'
@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   s.private_header_files = 'MetaWear/Internal/**/*.h'
 
   s.frameworks      = 'CoreData', 'CoreBluetooth'
-  s.dependency 'Bolts/Tasks', '~> 1.8.4'
+  s.dependency 'Bolts/Tasks', '~> 1'
   s.dependency 'FastCoding+tvOS', '~> 3.2.1'
 end

@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "Bolts/Tasks": [
-      "~> 1.8.4"
+      "~> 1"
     ],
     "FastCoding+tvOS": [
       "~> 3.2.1"

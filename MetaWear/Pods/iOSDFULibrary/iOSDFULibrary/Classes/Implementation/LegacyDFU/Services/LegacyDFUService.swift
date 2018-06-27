@@ -172,6 +172,20 @@ import CoreBluetooth
     }
     
     /**
+     Returns whether the bootloader is expected to advertise with the same address on one incremented by 1.
+     In the latter case the library needs to scan for a new advertising device and select it by filtering the adv packet,
+     as device address is not available through iOS API.
+     */
+    var newAddressExpected: Bool {
+        // See https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library/issues/170 and
+        // https://github.com/NordicSemiconductor/Android-DFU-Library/pull/45
+        // The legacy bootloader will advertise with address +1 only in SDK 6.1. Future implementations
+        // of legacy DFU will advertise directly with the same address no matter whether the device was
+        // bonded or not. In SDK 6.1 there was no DFU Version characteristic.
+        return version == nil
+    }
+    
+    /**
      Enables notifications for DFU Control Point characteristic. Result it reported using callbacks.
      
      - parameter success: method called when notifications were enabled without a problem
@@ -190,7 +204,7 @@ import CoreBluetooth
      
      - parameter report:  method called when an error occurred
      */
-    func jumpToBootloaderMode(onError report:@escaping ErrorCallback) {
+    func jumpToBootloaderMode(onError report: @escaping ErrorCallback) {
         if !aborted {
             dfuControlPointCharacteristic!.send(Request.jumpToBootloader, onSuccess: nil, onError: report)
         } else {
@@ -370,13 +384,12 @@ import CoreBluetooth
      Sends the firmware data to the DFU target device.
      
      - parameter aFirmware: the firmware to be sent
-     - parameter aPRNValue: number of packets of firmware data to be received by the DFU target before
-     sending a new Packet Receipt Notification
+     - parameter delay: if true, upload will be delayed by 1000ms
      - parameter progressDelegate: a progress delagate that will be informed about transfer progress
      - parameter success:   a callback called when a response with status Success is received
      - parameter report:    a callback called when a response with an error status is received
      */
-    func sendFirmware(_ aFirmware: DFUFirmware, andReportProgressTo progressDelegate: DFUProgressDelegate?,
+    func sendFirmware(_ aFirmware: DFUFirmware, withDelay delay: Bool, andReportProgressTo progressDelegate: DFUProgressDelegate?,
                       onSuccess success: @escaping Callback, onError report: @escaping ErrorCallback) {
         guard !aborted else {
             sendReset(onError: report)
@@ -405,15 +418,23 @@ import CoreBluetooth
                     },
                     onPacketReceiptNofitication: {
                         bytesReceived in
+                        // This callback is called from SecureDFUControlPoint in 2 cases: when a PRN is received (bytesReceived contains number
+                        // of bytes reported), or when the iOS reports the peripheralIsReady(toSendWriteWithoutResponse:) callback
+                        // (bytesReceived is nil). If PRNs are enabled we ignore this second case as the PRNs are responsible for synchronization.
+                        let peripheralIsReadyToSendWriteWithoutRequest = bytesReceived == nil
+                        if self.packetReceiptNotificationNumber > 0 && peripheralIsReadyToSendWriteWithoutRequest {
+                            return
+                        }
+                        
                         // Each time a PRN is received, send next bunch of packets
                         if !self.paused && !self.aborted {
                             let bytesSent = self.dfuPacketCharacteristic!.bytesSent
                             // Due to https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library/issues/54 only 16 least significant bits are verified
-                            if (bytesSent & 0xFFFF) == (bytesReceived & 0xFFFF) {
+                            if peripheralIsReadyToSendWriteWithoutRequest || (bytesSent & 0xFFFF) == (bytesReceived! & 0xFFFF) {
                                 self.dfuPacketCharacteristic!.sendNext(self.packetReceiptNotificationNumber, packetsOf: aFirmware, andReportProgressTo: progressDelegate)
                             } else {
                                 // Target device deported invalid number of bytes received
-                                report(.bytesLost, "\(bytesSent) bytes were sent while \(bytesReceived) bytes were reported as received")
+                                report(.bytesLost, "\(bytesSent) bytes were sent while \(bytesReceived!) bytes were reported as received")
                             }
                         } else if self.aborted {
                             // Upload has been aborted. Reset the target device. It will disconnect automatically
@@ -434,7 +455,18 @@ import CoreBluetooth
                 )
                 // ...and start sending firmware
                 if !self.paused && !self.aborted {
-                    self.dfuPacketCharacteristic!.sendNext(self.packetReceiptNotificationNumber, packetsOf: aFirmware, andReportProgressTo: progressDelegate)
+                    let start = {
+                        self.logger.a("Uploading firmware...")
+                        self.logger.v("Sending firmware to DFU Packet characteristic...")
+                        self.dfuPacketCharacteristic!.sendNext(self.packetReceiptNotificationNumber, packetsOf: aFirmware, andReportProgressTo: progressDelegate)
+                    }
+                    // On devices running SDK 6.0 or older a delay is required before the device is ready to receive data
+                    if delay {
+                        self.logger.d("wait(1000)")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: start)
+                    } else {
+                        start()
+                    }
                 } else if self.aborted {
                     // Upload has been aborted. Reset the target device. It will disconnect automatically
                     self.firmware = nil

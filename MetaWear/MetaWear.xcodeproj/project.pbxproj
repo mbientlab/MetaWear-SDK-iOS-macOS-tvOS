@@ -198,7 +198,7 @@
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
 		40CBC8951D9B37040078573C /* MBLMetaBootTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MBLMetaBootTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		40CBC8981D9B7D5E0078573C /* MagnetometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerTests.m; sourceTree = "<group>"; };
-		40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MetaWearPrivate.podspec; path = ../MetaWearPrivate.podspec; sourceTree = "<group>"; };
+		40D2A7081DC0192300916C7E /* MetaWearPrivate.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MetaWearPrivate.podspec; path = ../MetaWearPrivate.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		40F5A8BF1E8F1C4200BC143D /* accelerometer.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometer.rst; sourceTree = "<group>"; };
 		40F5A8C01E8F1C4200BC143D /* accelerometerbmi160.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometerbmi160.rst; sourceTree = "<group>"; };
 		40F5A8C11E8F1C4200BC143D /* accelerometermma8452q.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accelerometermma8452q.rst; sourceTree = "<group>"; };
@@ -653,7 +653,6 @@
 				40703E031D94AE3500F38FF0 /* Frameworks */,
 				40703E041D94AE3500F38FF0 /* Resources */,
 				346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */,
-				33D71A76E323B9B206883FD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -673,7 +672,6 @@
 				40703E2E1D94B8A700F38FF0 /* Frameworks */,
 				40703E2F1D94B8A700F38FF0 /* Resources */,
 				E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */,
-				4C09F1E7626F360333C9646E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -693,7 +691,6 @@
 				40703E581D94C06800F38FF0 /* Frameworks */,
 				40703E591D94C06800F38FF0 /* Resources */,
 				631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */,
-				0137699022A7D0201A49436F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -713,7 +710,6 @@
 				40703EA31D94C37500F38FF0 /* Frameworks */,
 				40703EA41D94C37500F38FF0 /* Resources */,
 				3E7FE9044A6EBB771B472483 /* [CP] Embed Pods Frameworks */,
-				76059A12DB46EEA4A5EB2FAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -734,7 +730,6 @@
 				40781FDD1D9DD41900FF5134 /* Frameworks */,
 				40781FDE1D9DD41900FF5134 /* Resources */,
 				CD397537C4F0DF6A0CCBA718 /* [CP] Embed Pods Frameworks */,
-				92FFBAC3FECF5C140A582577 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -754,7 +749,6 @@
 				407820151D9DD60500FF5134 /* Frameworks */,
 				407820161D9DD60500FF5134 /* Resources */,
 				817CFAFEE002EA2071491BC4 /* [CP] Embed Pods Frameworks */,
-				1A349ED794582B27B51054A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -773,8 +767,6 @@
 				407820291D9DD60500FF5134 /* Sources */,
 				4078202A1D9DD60500FF5134 /* Frameworks */,
 				4078202B1D9DD60500FF5134 /* Resources */,
-				D9290FEB3A49E4F0B96D72C0 /* [CP] Embed Pods Frameworks */,
-				2906418BAD5816F9166C3BBB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -795,7 +787,6 @@
 				40915FC21D94D392008A5F24 /* Frameworks */,
 				40915FC31D94D392008A5F24 /* Resources */,
 				FBC90CCA537EF206514FE09B /* [CP] Embed Pods Frameworks */,
-				77910CAAD6167CDAB0AC513B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -815,7 +806,6 @@
 				40915FEC1D94D478008A5F24 /* Frameworks */,
 				40915FED1D94D478008A5F24 /* Resources */,
 				ACF38D7B5EFF0974AB9F807B /* [CP] Embed Pods Frameworks */,
-				8320841632EE48A195255044 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1008,21 +998,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0137699022A7D0201A49436F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		02E81058C53AD24BA4DBAD91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1059,21 +1034,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A349ED794582B27B51054A6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1ECA979582EC73A7433D3C9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1090,36 +1050,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2906418BAD5816F9166C3BBB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		33D71A76E323B9B206883FD3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */ = {
@@ -1164,21 +1094,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C09F1E7626F360333C9646E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1217,36 +1132,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76059A12DB46EEA4A5EB2FAB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		77910CAAD6167CDAB0AC513B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B23486CC0856302ADECCB77 /* [CP] Check Pods Manifest.lock */ = {
@@ -1289,21 +1174,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8320841632EE48A195255044 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9247577DE79F1381D2AB2BAE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1320,21 +1190,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92FFBAC3FECF5C140A582577 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ACF38D7B5EFF0974AB9F807B /* [CP] Embed Pods Frameworks */ = {
@@ -1431,21 +1286,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9290FEB3A49E4F0B96D72C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */ = {
