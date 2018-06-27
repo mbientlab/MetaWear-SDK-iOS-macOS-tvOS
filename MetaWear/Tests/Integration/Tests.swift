@@ -42,6 +42,8 @@ class Tests: XCTestCase {
     var device: MetaWear!
     var data: [MetaWearData] = []
     var waitForDisconnection: Task<MetaWear>?
+    var expectation: XCTestExpectation?
+    var counter: Int = 0
     
     override func setUp() {
         super.setUp()
@@ -117,5 +119,30 @@ class Tests: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 30)
+    }
+    
+    
+    func testLinkSaturation() {
+        expectation = XCTestExpectation(description: "wait to get all")
+        // Set the max range of the accelerometer
+        device.logDelegate = ConsoleLogger.shared
+        let signal = mbl_mw_debug_get_key_register_data_signal(device.board)
+        mbl_mw_datasignal_subscribe(signal,  bridgeRetained(obj: self)) { (context, dataPtr) in
+            let this: Tests = bridge(ptr: context!)
+            let val: UInt32 = dataPtr!.pointee.valueAs()
+            XCTAssertEqual(this.counter, Int(val))
+            if (this.counter == 1000) {
+                this.expectation?.fulfill()
+            }
+            this.counter += 1
+        }
+        device.apiAccessQueue.async {
+            self.counter = 1
+            for i in 1...1000 {
+                mbl_mw_debug_set_key_register(self.device.board, UInt32(i))
+                mbl_mw_datasignal_read(signal)
+            }
+        }
+        wait(for: [expectation!], timeout: 30)
     }
 }

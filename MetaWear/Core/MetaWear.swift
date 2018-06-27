@@ -234,6 +234,7 @@ public class MetaWear: NSObject {
     fileprivate var connectionSources: [TaskCompletionSource<Task<MetaWear>>] = []
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
+    fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
     
     fileprivate var serviceCount = 0
     var rssiHistory: [(Date, Double)] = []
@@ -288,6 +289,7 @@ public class MetaWear: NSObject {
         onReadCallbacks = [:]
         localReadCallbacks.forEach { $0.value.forEach { $0.trySet(error: MetaWearError.operationFailed(message: "disconnected before read finished")) } }
         localReadCallbacks.removeAll(keepingCapacity: true)
+        writeQueue.removeAll()
     }
     func invokeConnectionHandlers(error: Error?, cancelled: Bool) {
         assert(DispatchQueue.isBleQueue)
@@ -455,6 +457,30 @@ extension MetaWear: CBPeripheralDelegate {
         logDelegate?.logWith(.info, message: "didUpdateNotificationStateFor \(characteristic)")
         subscribeCompleteCallbacks[characteristic]?(UnsafeRawPointer(board), error == nil ? 0 : 1)
     }
+    public func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
+        writeIfNeeded()
+    }
+    func writeIfNeeded() {
+        guard !writeQueue.isEmpty else {
+            return
+        }
+        var canSendWriteWithoutResponse = true
+        if #available(iOS 11.0, macOS 10.13, tvOS 11.0, watchOS 4.0, *) {
+            // Throttle when it can't handle a write WithoutResponse
+            guard peripheral.canSendWriteWithoutResponse else {
+                return
+            }
+        } else {
+            // Throttle by having every Nth request wait for response
+            commandCount += 1
+            canSendWriteWithoutResponse = !(commandCount % 10 == 0)
+        }
+        let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? .withoutResponse : .withResponse
+        let (data, charToWrite) = writeQueue.removeFirst()
+        logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
+        peripheral.writeValue(data, for: charToWrite, type: type)
+        writeIfNeeded()
+    }
 }
 
 fileprivate var commandCount = 0
@@ -468,11 +494,15 @@ fileprivate func writeGattChar(context: UnsafeMutableRawPointer?,
     let device: MetaWear = bridge(ptr: context!)
     if let charToWrite = device.getCharacteristic(characteristicPtr) {
         let data = Data(bytes: valuePtr!, count: Int(length))
-        device.logDelegate?.logWith(.info, message: "Writing: \(charToWrite.uuid) \(data.hexEncodedString())")
-        // Throttle by having every Nth request wait for response
-        commandCount += 1
-        let type: CBCharacteristicWriteType = commandCount % 10 == 0 ? .withResponse : .withoutResponse
-        device.peripheral.writeValue(data, for: charToWrite, type: type)
+        if DispatchQueue.isBleQueue {
+            device.writeQueue.append((data: data, characteristic: charToWrite))
+            device.writeIfNeeded()
+        } else {
+            device.apiAccessQueue.async {
+                device.writeQueue.append((data: data, characteristic: charToWrite))
+                device.writeIfNeeded()
+            }
+        }
     }
 }
 
