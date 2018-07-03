@@ -235,6 +235,7 @@ public class MetaWear: NSObject {
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
     fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
+    fileprivate var commandCount = 0
     
     fileprivate var serviceCount = 0
     var rssiHistory: [(Date, Double)] = []
@@ -290,6 +291,7 @@ public class MetaWear: NSObject {
         localReadCallbacks.forEach { $0.value.forEach { $0.trySet(error: MetaWearError.operationFailed(message: "disconnected before read finished")) } }
         localReadCallbacks.removeAll(keepingCapacity: true)
         writeQueue.removeAll()
+        commandCount = 0
     }
     func invokeConnectionHandlers(error: Error?, cancelled: Bool) {
         assert(DispatchQueue.isBleQueue)
@@ -465,16 +467,22 @@ extension MetaWear: CBPeripheralDelegate {
             return
         }
         var canSendWriteWithoutResponse = true
+        // Starting from iOS 11 and MacOS 10.13 we have a rhobust way to check
+        // if we can send a message without response and not loose it, so no longer
+        // need to arbitrary senm every 10th message with response
         if #available(iOS 11.0, macOS 10.13, tvOS 11.0, watchOS 4.0, *) {
-            // Throttle when it can't handle a write WithoutResponse
-            guard peripheral.canSendWriteWithoutResponse else {
-                return
+            // The peripheral.canSendWriteWithoutResponse often returns false before
+            // even we start sending, so always send the first
+            if commandCount != 0 {
+                guard peripheral.canSendWriteWithoutResponse else {
+                    return
+                }
             }
         } else {
             // Throttle by having every Nth request wait for response
-            commandCount += 1
             canSendWriteWithoutResponse = !(commandCount % 10 == 0)
         }
+        commandCount += 1
         let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? .withoutResponse : .withResponse
         let (data, charToWrite) = writeQueue.removeFirst()
         logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
@@ -483,7 +491,7 @@ extension MetaWear: CBPeripheralDelegate {
     }
 }
 
-fileprivate var commandCount = 0
+
 // Global callback functions
 fileprivate func writeGattChar(context: UnsafeMutableRawPointer?,
                    caller: UnsafeRawPointer?,
