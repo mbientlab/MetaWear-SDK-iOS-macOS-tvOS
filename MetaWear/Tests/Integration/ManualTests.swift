@@ -60,4 +60,22 @@ class ManualTests: XCTestCase {
         }
         wait(for: [connectExpectation], timeout: 60)
     }
+    
+    func testJumpToBootloader() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
+            if device.rssi > -50 {
+                MetaWearScanner.shared.stopScan()
+                device.connectAndSetup().continueWith { t -> () in
+                    if let error = t.error {
+                        self.continueAfterFailure = false
+                        XCTFail(error.localizedDescription)
+                    }
+                    mbl_mw_debug_jump_to_bootloader(device.board)
+                    connectExpectation.fulfill()
+                }
+            }
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
 }

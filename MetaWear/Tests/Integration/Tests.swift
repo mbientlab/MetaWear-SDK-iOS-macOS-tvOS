@@ -83,7 +83,9 @@ class Tests: XCTestCase {
     }
     
     func testConnection() {
-        print(device.mac!)
+        if (!device.isMetaBoot) {
+            print(device.mac!)
+        }
         print(device.info!.firmwareRevision)
         print(device.info!.hardwareRevision)
         print(device.info!.manufacturer)

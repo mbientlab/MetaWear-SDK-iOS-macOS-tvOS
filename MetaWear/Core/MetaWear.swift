@@ -174,6 +174,18 @@ public class MetaWear: NSObject {
         }
     }
     
+    public func readSerialNumber() -> Task<String> {
+        return readCharacteristic(.disService, .disSerialNumber).continueOnSuccessWith {
+            return String(data: $0, encoding: .utf8) ?? ""
+        }
+    }
+    
+    public func readManufacturer() -> Task<String> {
+        return readCharacteristic(.disService, .disManufacturerName).continueOnSuccessWith {
+            return String(data: $0, encoding: .utf8) ?? ""
+        }
+    }
+    
     public func latestFirmware() -> Task<FirmwareBuild> {
         let tasks = [readHardwareRev(), readModelNumber()]
         return Task.whenAllResult(tasks).continueOnSuccessWithTask { result -> Task<FirmwareBuild> in
@@ -196,9 +208,6 @@ public class MetaWear: NSObject {
     
     public func getCharacteristic(_ serviceUUID: CBUUID,
                                   _ characteristicUUID: CBUUID) -> (error: Error?, characteristic: CBCharacteristic?)  {
-        guard self.isConnectedAndSetup else {
-            return (MetaWearError.operationFailed(message: "call connectAndSetup before performing operations"), nil)
-        }
         guard let service = self.peripheral.services?.first(where: { $0.uuid == serviceUUID }) else {
             return (MetaWearError.operationFailed(message: "service not found"), nil)
         }
@@ -375,8 +384,12 @@ extension MetaWear: CBPeripheralDelegate {
     }
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard !isMetaBoot else {
-            apiAccessQueue.async {
-                self.invokeConnectionHandlers(error: nil, cancelled: false)
+            let task = Task.whenAllResult([readManufacturer(), readModelNumber(), readSerialNumber(), readFirmwareRev(), readHardwareRev()])
+            task.continueWith(apiAccessExecutor) {
+                if let results = $0.result {
+                    self.info = DeviceInformation(manufacturer: results[0], modelNumber: results[1], serialNumber: results[2], firmwareRevision: results[3], hardwareRevision: results[4])
+                }
+                self.invokeConnectionHandlers(error: $0.error, cancelled: false)
             }
             return
         }
