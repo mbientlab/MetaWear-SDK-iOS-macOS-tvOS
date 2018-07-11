@@ -44,7 +44,15 @@ public enum FirmwareError: Error {
 }
 
 public class FirmwareServer {
-    public static func getAllFirmwareAsync(hardwareRev: String, modelNumber: String, buildFlavor: String = "vanilla") -> Task<[FirmwareBuild]> {
+    // Due to a bug in the Nordic SoftDevice and Bootloader, the firmware crosses a one way bridge at
+    // version 1.3.8 (bootloader 0.2.2).  Any firmware versions prior to 1.3.8 (bootloader 0.2.1) must
+    // first install version 1.3.8 before installing version 1.4.0 (bootloader 0.3.0) or greater.
+    // Once at 1.3.8 (bootloader 0.2.2) or greater we cannot install older versions.
+    public static func getAllFirmwareAsync(hardwareRev: String,
+                                           modelNumber: String,
+                                           currentFirmware: String? = nil,
+                                           currentBootloader: String? = nil,
+                                           buildFlavor: String = "vanilla") -> Task<[FirmwareBuild]> {
         let source = TaskCompletionSource<[FirmwareBuild]>()
         // To get the latest firmware version we parse the json from our website, make sure to do
         // this on a backgroud thread to avoid hanging the UI.
@@ -69,10 +77,19 @@ public class FirmwareServer {
                 source.trySet(error: FirmwareError.badServerResponse)
                 return
             }
-            let sdkVersion = "3.1.2"//Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] ?? "3.0.0"
+            let sdkVersion = Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] as! String
             var allFirmwares: [FirmwareBuild] = []
             if let potentialVersions = info?[hardwareRev]?[modelNumber]?[buildFlavor] {
-                let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"] ?? "0") }
+                var validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"] ?? "0") }
+                
+                // Handle the bridge
+                if let capAtBridge = shouldCapAtBridge(currentFirmware: currentFirmware, currentBootloader: currentBootloader) {
+                    validVersions = validVersions.filter {
+                        return capAtBridge ? $0.key.isVersion(lessThanOrEqualTo: "1.3.8") :
+                                             $0.key.isVersion(greaterThanOrEqualTo: "1.3.8")
+                    }
+                }
+                
                 let sortedVersions = validVersions.sorted { $0.key < $1.key }
                 allFirmwares = sortedVersions.map {
                     FirmwareBuild(hardwareRev: hardwareRev,
@@ -89,6 +106,17 @@ public class FirmwareServer {
             source.trySet(result: allFirmwares)
         }.resume()
         return source.task
+    }
+    
+    // Check with side of the firmware bridge we are on
+    static func shouldCapAtBridge(currentFirmware: String? = nil, currentBootloader: String? = nil) -> Bool? {
+        assert(currentFirmware == nil || currentBootloader == nil)
+        if let currentFirmware = currentFirmware {
+            return currentFirmware.isVersion(lessThan: "1.3.8")
+        } else if let currentBootloader = currentBootloader {
+            return currentBootloader.isVersion(lessThan: "0.2.2")
+        }
+        return nil
     }
     
     public static func getLatestFirmwareAsync(hardwareRev: String, modelNumber: String, buildFlavor: String = "vanilla") -> Task<FirmwareBuild> {

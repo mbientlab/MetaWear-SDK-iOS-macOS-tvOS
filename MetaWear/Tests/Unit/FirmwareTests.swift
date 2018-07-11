@@ -75,4 +75,74 @@ class FirmwareTests: XCTestCase {
         }
         wait(for: [myExpectation], timeout: 60)
     }
+    
+    func testFirmwareBridge() {
+        let myExpectation = XCTestExpectation(description: "getting info1")
+        
+        FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: "1.3.7").continueOnSuccessWithTask { result -> Task<[FirmwareBuild]> in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.6/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.7/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            
+            return FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: "1.3.8")
+        }.continueOnSuccessWithTask { result -> Task<[FirmwareBuild]> in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.0/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.1/firmware.zip")
+            
+            return FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: "1.4.0")
+        }.continueOnSuccessWithTask { result -> Task<[FirmwareBuild]> in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.0/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.1/firmware.zip")
+            
+            return FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: nil, currentBootloader: "0.2.1")
+        }.continueOnSuccessWithTask { result -> Task<[FirmwareBuild]> in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.6/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.7/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            
+            return FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: nil, currentBootloader: "0.2.2")
+        }.continueOnSuccessWithTask { result -> Task<[FirmwareBuild]> in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.0/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.1/firmware.zip")
+            
+             return FirmwareServer.getAllFirmwareAsync(hardwareRev: "0.2", modelNumber: "99", currentFirmware: nil, currentBootloader: "0.3.0")
+        }.continueOnSuccessWith { result in
+            XCTAssertEqual(result.count, 3)
+            XCTAssertEqual(result[0].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.3.8/firmware.zip")
+            XCTAssertEqual(result[1].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.0/firmware.zip")
+            XCTAssertEqual(result[2].firmwareURL.absoluteString,
+                           "https://mbientlab.com/releases/metawear/0.2/99/vanilla/1.4.1/firmware.zip")
+            
+        }.continueWith { t in
+            XCTAssertFalse(t.faulted)
+            XCTAssertNil(t.error)
+            myExpectation.fulfill()
+        }
+        wait(for: [myExpectation], timeout: 60)
+    }
 }
