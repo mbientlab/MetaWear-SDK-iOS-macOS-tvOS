@@ -173,8 +173,7 @@
 		40915FDF1D94D3A1008A5F24 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40915FE01D94D3A1008A5F24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		40924E6320F6CD6700D62FF7 /* gen_docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gen_docs.sh; sourceTree = "<group>"; };
-		40924E6520F6DD2200D62FF7 /* bump-version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "bump-version.sh"; path = "../bump-version.sh"; sourceTree = "<group>"; };
+		40924E6720F6EF0B00D62FF7 /* gen_docs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = gen_docs.sh; path = ../gen_docs.sh; sourceTree = "<group>"; };
 		40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmr-r0.2-r1.3.4.zip"; sourceTree = "<group>"; };
 		40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmc-r0.1-r1.3.5.zip"; sourceTree = "<group>"; };
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
@@ -432,7 +431,6 @@
 		409EBC6E20F5962E0050DF05 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
-				40924E6320F6CD6700D62FF7 /* gen_docs.sh */,
 				409EBC7020F5962E0050DF05 /* source */,
 			);
 			name = Docs;
@@ -463,7 +461,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				40924E6520F6DD2200D62FF7 /* bump-version.sh */,
+				40924E6720F6EF0B00D62FF7 /* gen_docs.sh */,
 				409EBC6E20F5962E0050DF05 /* Docs */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
