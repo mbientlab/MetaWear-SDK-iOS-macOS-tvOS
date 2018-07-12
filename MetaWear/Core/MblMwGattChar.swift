@@ -37,7 +37,7 @@ import CoreBluetooth
 import MetaWearCpp
 
 
-// Helpers for dealing with the C++ version of GATT Service/Characteristic
+/// Helpers for dealing with the C++ version of GATT Service/Characteristic
 extension MblMwGattChar: Hashable {
     var serviceUUID: CBUUID {
         var service_uuid_high_swap = service_uuid_high.byteSwapped

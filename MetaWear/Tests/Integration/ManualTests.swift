@@ -41,6 +41,10 @@ import BoltsSwift
 class ManualTests: XCTestCase {
     func testCancelPendingConnection() {
         let connectExpectation = XCTestExpectation(description: "connecting")
+        MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith { array in
+            array.first
+            
+        }
         MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
             if device.rssi > -50 {
                 MetaWearScanner.shared.stopScan()
@@ -48,6 +52,9 @@ class ManualTests: XCTestCase {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                     print("Connecting...")
                     device.connectAndSetup().continueWith { t in
+                        t.result?.continueWith { t in
+                            
+                        }
                         XCTAssertTrue(t.cancelled)
                         connectExpectation.fulfill()
                     }

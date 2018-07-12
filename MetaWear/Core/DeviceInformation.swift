@@ -35,6 +35,7 @@
 
 import MetaWearCpp
 
+/// Container of information about a MetaWear board
 public struct DeviceInformation {
     public let manufacturer: String
     public let modelNumber: String
@@ -44,6 +45,7 @@ public struct DeviceInformation {
 }
 
 extension MblMwDeviceInformation {
+    /// Used to bridge between MetaWearCpp classes and native managed Swift struct
     func convert() -> DeviceInformation {
         return DeviceInformation(manufacturer:  String(cString: manufacturer),
                                  modelNumber: String(cString: model_number),

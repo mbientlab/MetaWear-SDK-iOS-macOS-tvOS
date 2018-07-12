@@ -36,9 +36,9 @@
 import MetaWearCpp
 
 
-// Native swift struct for holding data from the MetaWear
-// This was created because the C++ library destroys MblMwData objects
-// after the callbacks, but sometimes we need them to live longer
+/// Native swift struct for holding data from the MetaWear
+/// This was created because the C++ library destroys MblMwData objects
+/// after the callbacks, but sometimes we need them to live longer
 public struct MetaWearData {
     public let timestamp: Date
     let data: [UInt8]

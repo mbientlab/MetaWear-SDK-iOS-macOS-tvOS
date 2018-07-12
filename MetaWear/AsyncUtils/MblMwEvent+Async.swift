@@ -36,8 +36,8 @@
 import MetaWearCpp
 import BoltsSwift
 
-// Helper functions that taskify the C interface
 extension OpaquePointer {
+    /// Tasky interface to mbl_mw_event_end_record
     public func eventEndRecord() -> Task<()> {
         let source = TaskCompletionSource<()>()
         mbl_mw_event_end_record(self, bridgeRetained(obj: source)) { (context, event, status) in

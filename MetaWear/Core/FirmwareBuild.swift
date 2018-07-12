@@ -36,7 +36,7 @@
 import CoreBluetooth
 import BoltsSwift
 
-
+/// Describes location of a firmware file
 public struct FirmwareBuild {
     public let hardwareRev: String
     public let modelNumber: String

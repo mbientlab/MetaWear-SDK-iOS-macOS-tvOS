@@ -38,6 +38,8 @@ import BoltsSwift
 
 
 fileprivate let peripheralFinderQueue = DispatchQueue(label: "com.mbientlab.PeripheralFinderQueue")
+
+/// Simple scanning utility to find peripheral to pass to Nordic iOS DFU Library
 public class MetaBootFinder: NSObject {
     let uuid: UUID
     let source = TaskCompletionSource<(CBCentralManager, CBPeripheral)>()

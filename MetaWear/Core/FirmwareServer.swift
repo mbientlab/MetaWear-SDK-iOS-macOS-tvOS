@@ -37,17 +37,31 @@ import CoreBluetooth
 import BoltsSwift
 
 
+/// Possible errors when retrieving firmwares from the MbientLab servers
 public enum FirmwareError: Error {
+    /// If server is down or not responding
     case badServerResponse
+    /// Unable to find a compatible firmware
     case noAvailableFirmware(message: String)
+    /// Likely to never occur, unless device runs out of space
     case cannotSaveFile(message: String)
 }
 
+/// Used for interfacing with the MbientLab firmware server
 public class FirmwareServer {
-    // Due to a bug in the Nordic SoftDevice and Bootloader, the firmware crosses a one way bridge at
-    // version 1.3.8 (bootloader 0.2.2).  Any firmware versions prior to 1.3.8 (bootloader 0.2.1) must
-    // first install version 1.3.8 before installing version 1.4.0 (bootloader 0.3.0) or greater.
-    // Once at 1.3.8 (bootloader 0.2.2) or greater we cannot install older versions.
+    /**
+     Find all compatible firmware for the given device type
+     
+     - Note:
+     Due to a bug in the Nordic SoftDevice and Bootloader, the firmware crosses a one way bridge at
+     version 1.3.8 (bootloader 0.2.2).  Any firmware versions prior to 1.3.8 (bootloader 0.2.1) must
+     first install version 1.3.8 before installing version 1.4.0 (bootloader 0.3.0) or greater.
+     Once at 1.3.8 (bootloader 0.2.2) or greater we cannot install older versions.
+     
+     - Note:
+     This is why we require either the currentFirmware or currentBootloader (but not both) depending
+     on if the device is in MetaWear or MetaBoot mode.
+     */
     public static func getAllFirmwareAsync(hardwareRev: String,
                                            modelNumber: String,
                                            currentFirmware: String? = nil,
@@ -108,7 +122,7 @@ public class FirmwareServer {
         return source.task
     }
     
-    // Check with side of the firmware bridge we are on
+    /// Check which side of the firmware bridge we are on
     static func shouldCapAtBridge(currentFirmware: String? = nil, currentBootloader: String? = nil) -> Bool? {
         assert(currentFirmware == nil || currentBootloader == nil)
         if let currentFirmware = currentFirmware {
@@ -119,12 +133,22 @@ public class FirmwareServer {
         return nil
     }
     
-    public static func getLatestFirmwareAsync(hardwareRev: String, modelNumber: String, buildFlavor: String = "vanilla") -> Task<FirmwareBuild> {
-        return FirmwareServer.getAllFirmwareAsync(hardwareRev: hardwareRev, modelNumber: modelNumber, buildFlavor: buildFlavor).continueOnSuccessWith { result in
+    /// Get only the most recent firmware
+    public static func getLatestFirmwareAsync(hardwareRev: String,
+                                              modelNumber: String,
+                                              currentFirmware: String? = nil,
+                                              currentBootloader: String? = nil,
+                                              buildFlavor: String = "vanilla") -> Task<FirmwareBuild> {
+        return FirmwareServer.getAllFirmwareAsync(hardwareRev: hardwareRev,
+                                                  modelNumber: modelNumber,
+                                                  currentFirmware: currentFirmware,
+                                                  currentBootloader: currentFirmware,
+                                                  buildFlavor: buildFlavor).continueOnSuccessWith { result in
             return result.last!
         }
     }
     
+    /// Download the given firmware
     public static func getVersionAsync(hardwareRev: String,
                                        modelNumber: String,
                                        firmwareRev: String) -> Task<URL> {
@@ -147,6 +171,7 @@ public class FirmwareServer {
 
 
 extension URL {
+    /// Download a URL to a local file
     public func downloadAsync() -> Task<URL> {
         let source = TaskCompletionSource<URL>()
         // Go grab the file at the URL

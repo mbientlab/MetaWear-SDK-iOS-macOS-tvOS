@@ -36,6 +36,7 @@
 import CoreBluetooth
 import MetaWearCpp
 
+/// Fake peripheral that case be instantiated in the iOS simulator
 class MockPeripheral: CBPeripheral {
     private var mockName: String?
     override var name: String? {
@@ -77,6 +78,7 @@ extension DeviceInformation {
 }
 
 extension MetaWear {
+    /// Create a fake MetaWear that can be instantiated in the iOS simulator for Unit Tests
     static func spoof(name: String = "unittest",
                       id: String = "CC5CEEF1-C8B9-47BF-9B5D-E7329CED353D",
                       mac: String = "BA:AA:AD:F0:00:0D",

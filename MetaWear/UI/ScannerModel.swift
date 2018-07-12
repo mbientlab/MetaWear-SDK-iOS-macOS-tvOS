@@ -36,14 +36,17 @@
 import CoreBluetooth
 import MetaWearCpp
 
+/// Callbacks from ScannerModel
 public protocol ScannerModelDelegate: class {
     func scannerModel(_ scannerModel: ScannerModel, didAddItemAt idx: Int)
     func scannerModel(_ scannerModel: ScannerModel, confirmBlinkingItem item: ScannerModelItem, callback: @escaping (Bool) -> Void)
     func scannerModel(_ scannerModel: ScannerModel, errorDidOccur error: Error)
 }
 
+/// Common code used for creating BLE scanner UIs where the user can select/deselect devices
 public class ScannerModel {
     public weak var delegate: ScannerModelDelegate?
+    /// All the discovered devices
     public var items: [ScannerModelItem] = []
     
     let scanner: MetaWearScanner
@@ -132,11 +135,12 @@ public class ScannerModelItem {
     public internal(set) var isConnecting = false
     weak var parent: ScannerModel?
     var adWatchdog: Timer?
-    
+    /// See if the connect button should be enabled 
     public var connectButtonEnabled: Bool {
         let someoneConnecting = parent?.connectingItem != nil
         return !someoneConnecting || isConnecting
     }
+    /// Listen for changes that would require changes to the UI
     public var stateDidChange: (() -> Void)? {
         didSet {
             stateDidChange?()
@@ -149,6 +153,7 @@ public class ScannerModelItem {
         watchdogReset()
     }
     
+    /// The UI can expose a 'Connect' button for each device, which in turn should call this
     public func toggleConnect() {
         isConnecting = !isConnecting
         parent?.didToggle(self)

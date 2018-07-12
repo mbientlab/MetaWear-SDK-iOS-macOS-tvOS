@@ -33,11 +33,12 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-
+/// Handle messages from MetaWear devices
 public protocol LogDelegate {
     func logWith(_ level: LogLevel, message: String)
 }
 
+/// The verbosity of log messages
 public enum LogLevel: Int {
     case debug = 0
     case info = 1
@@ -58,6 +59,7 @@ public enum LogLevel: Int {
     }
 }
 
+/// Simple logger implementation that prints messagse to the console
 public struct ConsoleLogger: LogDelegate {
     public static let shared = ConsoleLogger()
     

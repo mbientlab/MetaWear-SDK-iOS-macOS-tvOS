@@ -37,7 +37,7 @@ import BoltsSwift
 import MetaWearCpp
 
 extension OpaquePointer {
-    // Tasky interface to reading a MetaWear data signal
+    /// Tasky interface to reading a MetaWear data signal
     public func read() -> Task<MetaWearData> {
         assert(mbl_mw_datasignal_is_readable(self) != 0)
         let source = TaskCompletionSource<MetaWearData>()
@@ -56,6 +56,7 @@ extension OpaquePointer {
         }
     }
     
+    /// Tasky interface to mbl_mw_datasignal_log
     public func datasignalLog() -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_datasignal_log(self, bridgeRetained(obj: source)) { (context, logger) in
@@ -69,7 +70,7 @@ extension OpaquePointer {
         return source.task
     }
     
-    
+    /// Tasky interface to mbl_mw_dataprocessor_passthrough_create
     public func passthroughCreate(mode: MblMwPassthroughMode, count: UInt16) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_passthrough_create(self, mode, count, bridgeRetained(obj: source)) { (context, passthrough) in
@@ -82,6 +83,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_rms_create
     public func rmsCreate() -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_rms_create(self, bridgeRetained(obj: source)) { (context, rms) in
@@ -94,6 +97,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_rss_create
     public func rssCreate() -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_rss_create(self, bridgeRetained(obj: source)) { (context, rms) in
@@ -106,6 +111,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_threshold_create
     public func thresholdCreate(mode: MblMwThresholdMode, boundary: Float, hysteresis: Float) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_threshold_create(self, mode, boundary, hysteresis, bridgeRetained(obj: source)) { (context, threshold) in
@@ -118,6 +125,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_multi_comparator_create
     public func comparatorCreate(op: MblMwComparatorOperation, mode: MblMwComparatorMode, references: [Float]) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         var references = references
@@ -131,6 +140,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_sample_create
     public func sampleCreate(binSize: UInt8) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_sample_create(self, binSize, bridgeRetained(obj: source)) { (context, sample) in
@@ -143,6 +154,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_math_create
     public func mathCreate(op: MblMwMathOperation, rhs: Float, signed: Bool? = nil) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         
@@ -164,6 +177,8 @@ extension OpaquePointer {
         }
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_delta_create
     public func deltaCreate(mode: MblMwDeltaMode, magnitude: Float) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_dataprocessor_delta_create(self, mode, magnitude, bridgeRetained(obj: source)) { (context, delta) in

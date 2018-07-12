@@ -34,20 +34,24 @@
  */
 
 
-// Convert to/from void* without ownership, only use when lifetime
-// of object is guaranteed elsewhere
-public func bridge<T : AnyObject>(obj : T) -> UnsafeMutableRawPointer {
+/// Convert to void* without ownership, only use when lifetime
+/// of object is guaranteed elsewhere
+public func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
     return Unmanaged.passUnretained(obj).toOpaque()
 }
-public func bridge<T : AnyObject>(ptr : UnsafeRawPointer) -> T {
+/// Convert from void* without ownership, only use when lifetime
+/// of object is guaranteed elsewhere
+public func bridge<T: AnyObject>(ptr: UnsafeRawPointer) -> T {
     return Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
 }
 
-// Convert to/from void* with ownership, make sure these are always
-// called in matching paris
-public func bridgeRetained<T : AnyObject>(obj : T) -> UnsafeMutableRawPointer {
+/// Convert to void* with ownership, make sure these are always
+/// called in matching pairs with bridgeTransfer
+public func bridgeRetained<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(obj).toOpaque()
 }
-public func bridgeTransfer<T : AnyObject>(ptr : UnsafeRawPointer) -> T {
+/// Convert from void* with ownership, make sure these are always
+/// called in matching pairs with bridgeRetained
+public func bridgeTransfer<T: AnyObject>(ptr: UnsafeRawPointer) -> T {
     return Unmanaged<T>.fromOpaque(ptr).takeRetainedValue()
 }

@@ -40,6 +40,8 @@ import BoltsSwift
 fileprivate let rememberedDevicesKey = "com.mbientlab.rememberedDevices"
 fileprivate var scannerCount = 0
 
+/// Scanner utility, make is simple to start scanning for MetaWear devices without
+/// having to understand all of CoreBluetooth
 public class MetaWearScanner: NSObject {
     public static let shared = MetaWearScanner()
     
@@ -59,6 +61,7 @@ public class MetaWearScanner: NSObject {
                                         options: options)
     }
     
+    /// Start the scaning process for MetaWear or MetaBoot devices
     public func startScan(allowDuplicates: Bool, callback: @escaping (MetaWear) -> Void) {
         runWhenPoweredOn {
             self.callback = callback
@@ -68,6 +71,7 @@ public class MetaWearScanner: NSObject {
         }
     }
     
+    /// Stop scanning
     public func stopScan() {
         self.callback = nil
         runWhenPoweredOn {
@@ -75,6 +79,7 @@ public class MetaWearScanner: NSObject {
         }
     }
     
+    /// List of devices stored via `MetaWear.remember()`
     public func retrieveSavedMetaWearsAsync() -> Task<[MetaWear]> {
         let source = TaskCompletionSource<[MetaWear]>()
         runWhenPoweredOn {

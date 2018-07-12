@@ -173,9 +173,17 @@
 		40915FDF1D94D3A1008A5F24 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40915FE01D94D3A1008A5F24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40915FEF1D94D478008A5F24 /* MetaWearIntegrationTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearIntegrationTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40924E6320F6CD6700D62FF7 /* gen_docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gen_docs.sh; sourceTree = "<group>"; };
+		40924E6520F6DD2200D62FF7 /* bump-version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "bump-version.sh"; path = "../bump-version.sh"; sourceTree = "<group>"; };
 		40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmr-r0.2-r1.3.4.zip"; sourceTree = "<group>"; };
 		40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "metawearmmc-r0.1-r1.3.5.zip"; sourceTree = "<group>"; };
 		409CA2881D9D00FF00E1262B /* FastCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FastCoding.framework; path = "Build/MetaWear/Build/Products/Debug-appletvos/FastCoding-tvOS/FastCoding.framework"; sourceTree = "<group>"; };
+		409EBC7120F5962E0050DF05 /* metawearboard.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = metawearboard.rst; sourceTree = "<group>"; };
+		409EBC7420F5962E0050DF05 /* index.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
+		409EBC7520F5962E0050DF05 /* metawearscanner.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = metawearscanner.rst; sourceTree = "<group>"; };
+		409EBC7D20F5962E0050DF05 /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
+		409EBC8220F5962E0050DF05 /* conf.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
+		409EBC9C20F5962E0050DF05 /* project_setup.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project_setup.rst; sourceTree = "<group>"; };
 		484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -421,9 +429,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		409EBC6E20F5962E0050DF05 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				40924E6320F6CD6700D62FF7 /* gen_docs.sh */,
+				409EBC7020F5962E0050DF05 /* source */,
+			);
+			name = Docs;
+			path = ../Docs;
+			sourceTree = "<group>";
+		};
+		409EBC7020F5962E0050DF05 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				409EBC7C20F5962E0050DF05 /* _templates */,
+				409EBC8220F5962E0050DF05 /* conf.py */,
+				409EBC7420F5962E0050DF05 /* index.rst */,
+				409EBC9C20F5962E0050DF05 /* project_setup.rst */,
+				409EBC7120F5962E0050DF05 /* metawearboard.rst */,
+				409EBC7520F5962E0050DF05 /* metawearscanner.rst */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		409EBC7C20F5962E0050DF05 /* _templates */ = {
+			isa = PBXGroup;
+			children = (
+				409EBC7D20F5962E0050DF05 /* layout.html */,
+			);
+			path = _templates;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				40924E6520F6DD2200D62FF7 /* bump-version.sh */,
+				409EBC6E20F5962E0050DF05 /* Docs */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,

@@ -38,6 +38,7 @@ import BoltsSwift
 
 
 extension MetaWear {
+    /// Reset the device to factory defaults
     public func clearAndReset() {
         mbl_mw_logging_stop(board)
         mbl_mw_metawearboard_tear_down(board)
@@ -47,6 +48,7 @@ extension MetaWear {
         mbl_mw_debug_disconnect(board)
     }
     
+    /// Tasky interface to mbl_mw_macro_end_record
     public func macroEndRecord() -> Task<Int32> {
         let source = TaskCompletionSource<Int32>()
         mbl_mw_macro_end_record(board, bridgeRetained(obj: source)) { (context, board, value) in
@@ -56,6 +58,7 @@ extension MetaWear {
         return source.task
     }
     
+    /// Tasky interface to mbl_mw_metawearboard_create_anonymous_datasignals
     public func createAnonymousDatasignals() -> Task<[OpaquePointer]> {
         let source = TaskCompletionSource<[OpaquePointer]>()
         mbl_mw_metawearboard_create_anonymous_datasignals(board, bridgeRetained(obj: source))
@@ -77,6 +80,7 @@ extension MetaWear {
         return source.task
     }
     
+    /// Tasky interface to mbl_mw_timer_create
     public func timerCreate(period: UInt32, repetitions: UInt16 = 0xFFFF, immediateFire: Bool = false) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
         mbl_mw_timer_create(board, period, repetitions, immediateFire ? 0 : 1, bridgeRetained(obj: source)) { (context, timer) in

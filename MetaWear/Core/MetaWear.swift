@@ -37,8 +37,9 @@ import CoreBluetooth
 import MetaWearCpp
 import BoltsSwift
 
-
+/// Possible error's from MetaWear operations
 public enum MetaWearError: Error {
+    /// Generic failure, see message for details
     case operationFailed(message: String)
     case bluetoothUnsupported
     case bluetoothUnauthorized
@@ -60,15 +61,24 @@ extension MetaWearError: LocalizedError {
     }
 }
 
-// Folder to store device information
+/// Folder to store device information
 fileprivate let appSupportDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
 fileprivate let adQueue = DispatchQueue(label: "com.mbientlab.adQueue")
 
+
+/// Each MetaWear object corresponds a physical MetaWear board. It contains
+/// methods for connecting, disconnecting, saving and restoring state.
 public class MetaWear: NSObject {
+    /// Assign a delegate to receive information about what the device is doing
     public var logDelegate: LogDelegate?
+    /// The corresponding CoreBluetooth object
     public let peripheral: CBPeripheral
+    /// The scanner that disovered this device
     public internal(set) weak var scanner: MetaWearScanner?
+    /// This is passed to MetaWearCpp functions
     public internal(set) var board: OpaquePointer!
+    /// Data from the advertisement packet
+    /// This is continually updated when the scanner is active
     public internal(set) var advertisementData: [String : Any] {
         get {
             return adQueue.sync { advertisementDataImpl }
@@ -77,33 +87,47 @@ public class MetaWear: NSObject {
             adQueue.sync { advertisementDataImpl = newValue }
         }
     }
+    /// Received signal strength indicator
+    /// This is continually updated when the scanner is active
     public internal(set) var rssi: Int = 0
+    /// Callback block invoked each advertisementData and rssi is updated
+    public var advertisementReceived: (() -> Void)?
+    /// MAC address of the device, available only after you have connected once
     public internal(set) var mac: String?
+    /// Details about the device, available only after you have connected once
     public internal(set) var info: DeviceInformation?
+    /// Indication that the BLE link is connected and the MetaWearCpp library is properly initialized
     public internal(set) var isConnectedAndSetup = false
+    /// Check if this advertised as a MetaBoot
     public var isMetaBoot: Bool {
         let services = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID]
         return services?.contains(.metaWearDfuService) ?? false
     }
+    /// Get the most update to date name of the device
+    /// - Note:
+    /// peripheral.name may be cached, use the name from advertising data
     public var name: String {
-        // peripheral.name may be cached, use the name from advertising data
+        
         let adName = advertisementData[CBAdvertisementDataLocalNameKey] as? String
         return adName ?? peripheral.name ?? "MetaWear"
     }
-    public var advertisementReceived: (() -> Void)?
+    /// Helper utility create a file name specifically for this device
     public var uniqueUrl: URL {
         var url = appSupportDirectory.appendingPathComponent("com.mbientlab.devices", isDirectory: true)
         try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
         url.appendPathComponent(peripheral.identifier.uuidString + ".file")
         return url
     }
+    /// In order to ensure crash free behavior of the MetaWearCpp library, all calls into
+    /// it should occur from this queue
     public var apiAccessQueue: DispatchQueue {
         return scanner?.bleQueue ?? DispatchQueue.global()
     }
+    /// Bolts-Swift shortcut to apiAccessQueue
     public var apiAccessExecutor: Executor {
         return Executor.queue(apiAccessQueue)
     }
-    
+    /// Smooth out the RSSI into something less jumpy
     public func averageRSSI(lastNSeconds: Double = 5.0) -> Double? {
         let filteredRSSI = rssiHistory.filter { -$0.0.timeIntervalSinceNow < lastNSeconds }
         guard filteredRSSI.count > 0 else {
@@ -113,7 +137,8 @@ public class MetaWear: NSObject {
         return sumArray / Double(filteredRSSI.count)
     }
     
-    // The result of the task returned can be used to watch for disconnects
+    /// Connect to the device and initialize the MetaWearCpp libray
+    /// - Returns: Task that completes when the device disconnects
     public func connectAndSetup() -> Task<Task<MetaWear>> {
         let source = TaskCompletionSource<Task<MetaWear>>()
         apiAccessQueue.async {
@@ -130,19 +155,19 @@ public class MetaWear: NSObject {
         }
         return source.task
     }
-    
+    /// Disconnect or cancel a connection attempt
     public func cancelConnection() {
         scanner?.cancelConnection(self)
     }
-    
+    /// Add this to a persistent list retrieved with `MetaWearScanner.retrieveSavedMetaWearsAsync(...)`
     public func remember() {
         scanner?.remember(self)
     }
-    
+    /// Remove this from the persistent list `MetaWearScanner.retrieveSavedMetaWearsAsync(...)`
     public func forget() {
         scanner?.forget(self)
     }
-    
+    /// Dump all MetaWearCpp libray state
     public func serialize() -> [UInt8] {
         var count: UInt32 = 0
         let start = mbl_mw_metawearboard_serialize(board, &count)
@@ -150,7 +175,7 @@ public class MetaWear: NSObject {
         mbl_mw_memory_free(start)
         return data
     }
-    
+    /// Restore MetaWearCpp libray state, must be called before `connectAndSetup()`
     public func deserialize(_ _data: [UInt8]) {
         var data = _data
         mbl_mw_metawearboard_deserialize(board, &data, UInt32(data.count))
@@ -186,13 +211,23 @@ public class MetaWear: NSObject {
         }
     }
     
+    /// Get a pointer to the latest firmware for this device
     public func latestFirmware() -> Task<FirmwareBuild> {
-        let tasks = [readHardwareRev(), readModelNumber()]
+        let tasks = [readHardwareRev(), readModelNumber(), readFirmwareRev()]
+        let isMetaBoot = self.isMetaBoot
         return Task.whenAllResult(tasks).continueOnSuccessWithTask { result -> Task<FirmwareBuild> in
-            return FirmwareServer.getLatestFirmwareAsync(hardwareRev: result[0], modelNumber: result[1])
+            return isMetaBoot ?
+                FirmwareServer.getLatestFirmwareAsync(hardwareRev: result[0],
+                                                      modelNumber: result[1],
+                                                      currentFirmware: nil,
+                                                      currentBootloader: result[2]) :
+                FirmwareServer.getLatestFirmwareAsync(hardwareRev: result[0],
+                                                      modelNumber: result[1],
+                                                      currentFirmware: result[2])
         }
     }
     
+    /// Get a pointer to the latest firmware for this device or nil if already on the latest
     public func checkForFirmwareUpdate() -> Task<FirmwareBuild?> {
         var latestBuild: FirmwareBuild?
         return latestFirmware().continueOnSuccessWithTask { result -> Task<String> in

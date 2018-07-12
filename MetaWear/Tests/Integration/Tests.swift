@@ -50,7 +50,11 @@ class Tests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let connectExpectation = XCTestExpectation(description: "connecting")
         MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
-            if device.rssi > -50 {
+            guard let rssi = device.averageRSSI(), rssi > -50 else {
+                return
+            }
+            
+            if (device.averageRSSI() ?? -100) > -50 {
                 MetaWearScanner.shared.stopScan()
                 self.device = device
                 device.connectAndSetup().continueWith { t -> () in
