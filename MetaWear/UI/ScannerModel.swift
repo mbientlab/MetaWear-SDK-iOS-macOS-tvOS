@@ -111,18 +111,22 @@ public class ScannerModel {
             guard !t.cancelled && !t.faulted else {
                 resetState()
                 if let error = t.error {
-                    self.delegate?.scannerModel(self, errorDidOccur: error)
+                    DispatchQueue.main.async {
+                        self.delegate?.scannerModel(self, errorDidOccur: error)
+                    }
                 }
                 return
             }
             // The connection could have synd an unknown MAC address
             item.stateDidChange?()
             item.device.flashLED(color: .green, intensity: 1.0, _repeat: 60)
-            self.delegate?.scannerModel(self, confirmBlinkingItem: item) { (confirmed) in
-                resetState()
-                item.device.turnOffLed()
-                if !confirmed {
-                    mbl_mw_debug_disconnect(item.device.board)
+            DispatchQueue.main.async {
+                self.delegate?.scannerModel(self, confirmBlinkingItem: item) { (confirmed) in
+                    resetState()
+                    item.device.turnOffLed()
+                    if !confirmed {
+                        mbl_mw_debug_disconnect(item.device.board)
+                    }
                 }
             }
         }
