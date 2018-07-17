@@ -1,17 +1,15 @@
 use_frameworks!
 
 abstract_target 'MetaWear' do
-    pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
     pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
     
     abstract_target 'MetaWear-iOS' do
         platform :ios, '10.0'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-iOS' do
             target 'MetaWearIntegrationTests-iOS' do
                 inherit! :search_paths
-            
-                pod 'iOSDFULibrary'
             end
         end
         
@@ -21,12 +19,11 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-macOS' do
         platform :osx, '10.13'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-macOS' do
             target 'MetaWearIntegrationTests-macOS' do
                 inherit! :search_paths
-                
-                pod 'iOSDFULibrary'
             end
         end
         
@@ -36,6 +33,7 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-tvOS' do
         platform :tvos, '10.0'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
 
         target 'MetaWearIntegrationTestHost-tvOS' do
             target 'MetaWearIntegrationTests-tvOS' do
@@ -50,6 +48,7 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-watchOS' do
         platform :watchos, '4.0'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-watchOS Extension' do
         end

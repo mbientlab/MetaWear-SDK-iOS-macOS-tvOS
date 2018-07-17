@@ -35,6 +35,7 @@
 
 import CoreBluetooth
 import BoltsSwift
+import iOSDFULibrary
 
 /// Describes location of a firmware file
 public struct FirmwareBuild {
@@ -43,21 +44,24 @@ public struct FirmwareBuild {
     public let buildFlavor: String
     public let firmwareRev: String
     public let filename: String
+    public let requiredBootloader: String?
     
     public let firmwareURL: URL
     
     public init(hardwareRev: String,
                 modelNumber: String,
+                buildFlavor: String,
                 firmwareRev: String,
-                filename: String? = nil,
-                buildFlavor: String? = nil) {
+                filename: String,
+                requiredBootloader: String?) {
         self.hardwareRev = hardwareRev
         self.modelNumber = modelNumber
-        self.buildFlavor = buildFlavor ?? "vanilla"
+        self.buildFlavor = buildFlavor
         self.firmwareRev = firmwareRev
-        self.filename = filename ?? "firmware.bin"
+        self.filename = filename
+        self.requiredBootloader = requiredBootloader
         
-        self.firmwareURL = URL(string: "https://mbientlab.com/releases/metawear/\(hardwareRev)/\(modelNumber)/\(self.buildFlavor)/\(firmwareRev)/\(self.filename)")!
+        self.firmwareURL = URL(string: "https://mbientlab.com/releases/metawear/\(hardwareRev)/\(modelNumber)/\(buildFlavor)/\(firmwareRev)/\(filename)")!
     }
     
     public init(hardwareRev: String,
@@ -65,13 +69,31 @@ public struct FirmwareBuild {
                 firmwareRev: String,
                 customUrl: URL,
                 filename: String? = nil,
-                buildFlavor: String? = nil) {
+                buildFlavor: String? = nil,
+                requiredBootloader: String? = nil) {
         self.hardwareRev = hardwareRev
         self.modelNumber = modelNumber
         self.buildFlavor = buildFlavor ?? "vanilla"
         self.firmwareRev = firmwareRev
         self.filename = filename ?? "firmware.bin"
-        
+        self.requiredBootloader = requiredBootloader
+
         self.firmwareURL = customUrl
+    }
+    
+    func getNordicFirmware() -> Task<DFUFirmware> {
+        let task = firmwareURL.isFileURL ? Task<URL>(firmwareURL) : firmwareURL.downloadAsync()
+        return task.continueOnSuccessWithTask { fileUrl in
+            var selectedFirmware: DFUFirmware?
+            if fileUrl.pathExtension.caseInsensitiveCompare("zip") == .orderedSame {
+                selectedFirmware = DFUFirmware(urlToZipFile: fileUrl)
+            } else {
+                selectedFirmware = DFUFirmware(urlToBinOrHexFile: fileUrl, urlToDatFile: nil, type: .application)
+            }
+            guard let firmware = selectedFirmware else {
+                return Task<DFUFirmware>(error: MetaWearError.operationFailed(message: "invalid dfu file chosen '\(fileUrl.lastPathComponent)'"))
+            }
+            return Task<DFUFirmware>(firmware)
+        }
     }
 }

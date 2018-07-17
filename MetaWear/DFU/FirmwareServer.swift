@@ -51,26 +51,14 @@ public enum FirmwareError: Error {
 public class FirmwareServer {
     /**
      Find all compatible firmware for the given device type
-     
-     - Note:
-     Due to a bug in the Nordic SoftDevice and Bootloader, the firmware crosses a one way bridge at
-     version 1.3.8 (bootloader 0.2.2).  Any firmware versions prior to 1.3.8 (bootloader 0.2.1) must
-     first install version 1.3.8 before installing version 1.4.0 (bootloader 0.3.0) or greater.
-     Once at 1.3.8 (bootloader 0.2.2) or greater we cannot install older versions.
-     
-     - Note:
-     This is why we require either the currentFirmware or currentBootloader (but not both) depending
-     on if the device is in MetaWear or MetaBoot mode.
      */
     public static func getAllFirmwareAsync(hardwareRev: String,
                                            modelNumber: String,
-                                           currentFirmware: String? = nil,
-                                           currentBootloader: String? = nil,
                                            buildFlavor: String = "vanilla") -> Task<[FirmwareBuild]> {
         let source = TaskCompletionSource<[FirmwareBuild]>()
         // To get the latest firmware version we parse the json from our website, make sure to do
         // this on a backgroud thread to avoid hanging the UI.
-        let request = URLRequest(url: URL(string: "https://mbientlab.com/releases/metawear/info1.json")!,
+        let request = URLRequest(url: URL(string: "https://mbientlab.com/releases/metawear/info2.json")!,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -94,23 +82,15 @@ public class FirmwareServer {
             let sdkVersion = Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] as! String
             var allFirmwares: [FirmwareBuild] = []
             if let potentialVersions = info?[hardwareRev]?[modelNumber]?[buildFlavor] {
-                var validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"] ?? "0") }
-                
-                // Handle the bridge
-                if let capAtBridge = shouldCapAtBridge(currentFirmware: currentFirmware, currentBootloader: currentBootloader) {
-                    validVersions = validVersions.filter {
-                        return capAtBridge ? $0.key.isVersion(lessThanOrEqualTo: "1.3.8") :
-                                             $0.key.isVersion(greaterThanOrEqualTo: "1.3.8")
-                    }
-                }
-                
+                let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"]!) }
                 let sortedVersions = validVersions.sorted { $0.key < $1.key }
                 allFirmwares = sortedVersions.map {
                     FirmwareBuild(hardwareRev: hardwareRev,
                                   modelNumber: modelNumber,
+                                  buildFlavor: buildFlavor,
                                   firmwareRev: $0,
-                                  filename: $1["filename"] ?? "firmware.bin",
-                                  buildFlavor: buildFlavor)
+                                  filename: $1["filename"]!,
+                                  requiredBootloader: $1["required-bootloader"]!)
                 }
             }
             
@@ -122,49 +102,46 @@ public class FirmwareServer {
         return source.task
     }
     
-    /// Check which side of the firmware bridge we are on
-    static func shouldCapAtBridge(currentFirmware: String? = nil, currentBootloader: String? = nil) -> Bool? {
-        assert(currentFirmware == nil || currentBootloader == nil)
-        if let currentFirmware = currentFirmware {
-            return currentFirmware.isVersion(lessThan: "1.3.8")
-        } else if let currentBootloader = currentBootloader {
-            return currentBootloader.isVersion(lessThan: "0.2.2")
-        }
-        return nil
+    public static func getAllBootloaderAsync(hardwareRev: String, modelNumber: String) -> Task<[FirmwareBuild]> {
+        return FirmwareServer.getAllFirmwareAsync(hardwareRev: hardwareRev, modelNumber: modelNumber, buildFlavor: "bootloader")
     }
     
     /// Get only the most recent firmware
     public static func getLatestFirmwareAsync(hardwareRev: String,
                                               modelNumber: String,
-                                              currentFirmware: String? = nil,
-                                              currentBootloader: String? = nil,
                                               buildFlavor: String = "vanilla") -> Task<FirmwareBuild> {
         return FirmwareServer.getAllFirmwareAsync(hardwareRev: hardwareRev,
                                                   modelNumber: modelNumber,
-                                                  currentFirmware: currentFirmware,
-                                                  currentBootloader: currentFirmware,
                                                   buildFlavor: buildFlavor).continueOnSuccessWith { result in
             return result.last!
         }
     }
     
-    /// Download the given firmware
+    /// Try to find the the given firmware version
     public static func getVersionAsync(hardwareRev: String,
                                        modelNumber: String,
-                                       firmwareRev: String) -> Task<URL> {
+                                       firmwareRev: String,
+                                       buildFlavor: String = "vanilla",
+                                       requiredBootloader: String? = nil) -> Task<FirmwareBuild> {
         var build = FirmwareBuild(hardwareRev: hardwareRev,
                                   modelNumber: modelNumber,
+                                  buildFlavor: buildFlavor,
                                   firmwareRev: firmwareRev,
-                                  filename: "firmware.zip")
+                                  filename: "firmware.zip",
+                                  requiredBootloader: requiredBootloader)
         return build.firmwareURL.downloadAsync().continueWithTask { t -> Task<URL> in
             if !t.faulted {
                 return t
             }
             build = FirmwareBuild(hardwareRev: hardwareRev,
                                   modelNumber: modelNumber,
+                                  buildFlavor: buildFlavor,
                                   firmwareRev: firmwareRev,
-                                  filename: "firmware.bin")
+                                  filename: "firmware.bin",
+                                  requiredBootloader: requiredBootloader)
             return build.firmwareURL.downloadAsync()
+        }.continueOnSuccessWith { _ in
+            return build
         }
     }
 }

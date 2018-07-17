@@ -44,7 +44,7 @@ fileprivate var scannerCount = 0
 /// having to understand all of CoreBluetooth
 public class MetaWearScanner: NSObject {
     public static let shared = MetaWearScanner()
-    
+    public var central: CBCentralManager! = nil
     public var deviceMap: [CBPeripheral: MetaWear] = [:]
     public var didUpdateState: ((CBCentralManager) -> Void)? {
         didSet {
@@ -102,7 +102,6 @@ public class MetaWearScanner: NSObject {
     // Internal details below
     var allowDuplicates: Bool = false
     var callback: ((MetaWear) -> Void)?
-    var central: CBCentralManager! = nil
     var isScanning = false
     var centralStateUpdateSources: [TaskCompletionSource<()>] = []
     var runOnPowerOn: [() -> Void] = []

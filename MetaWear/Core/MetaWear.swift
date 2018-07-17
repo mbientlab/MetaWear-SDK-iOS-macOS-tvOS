@@ -211,36 +211,6 @@ public class MetaWear: NSObject {
         }
     }
     
-    /// Get a pointer to the latest firmware for this device
-    public func latestFirmware() -> Task<FirmwareBuild> {
-        let tasks = [readHardwareRev(), readModelNumber(), readFirmwareRev()]
-        let isMetaBoot = self.isMetaBoot
-        return Task.whenAllResult(tasks).continueOnSuccessWithTask { result -> Task<FirmwareBuild> in
-            return isMetaBoot ?
-                FirmwareServer.getLatestFirmwareAsync(hardwareRev: result[0],
-                                                      modelNumber: result[1],
-                                                      currentFirmware: nil,
-                                                      currentBootloader: result[2]) :
-                FirmwareServer.getLatestFirmwareAsync(hardwareRev: result[0],
-                                                      modelNumber: result[1],
-                                                      currentFirmware: result[2])
-        }
-    }
-    
-    /// Get a pointer to the latest firmware for this device or nil if already on the latest
-    public func checkForFirmwareUpdate() -> Task<FirmwareBuild?> {
-        var latestBuild: FirmwareBuild?
-        return latestFirmware().continueOnSuccessWithTask { result -> Task<String> in
-            latestBuild = result
-            return self.readFirmwareRev()
-        }.continueOnSuccessWith { result in
-            if result.isVersion(lessThan: latestBuild!.firmwareRev) {
-                return latestBuild
-            }
-            return nil
-        }
-    }
-    
     public func getCharacteristic(_ serviceUUID: CBUUID,
                                   _ characteristicUUID: CBUUID) -> (error: Error?, characteristic: CBCharacteristic?)  {
         guard let service = self.peripheral.services?.first(where: { $0.uuid == serviceUUID }) else {
