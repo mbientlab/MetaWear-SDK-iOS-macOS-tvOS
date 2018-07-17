@@ -8,24 +8,34 @@
 
 import UIKit
 import MetaWear
+import MetaWearCpp
+import MBProgressHUD
+import BoltsSwift
 
 class MainTableViewController: UITableViewController, ScanTableViewControllerDelegate {
-    var devices: [MBLMetaWear] = []
+    var devices: [MetaWear] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
-        MBLMetaWearManager.shared().retrieveSavedMetaWearsAsync().success { (array) in
-            self.devices = array as! [MBLMetaWear]
+        MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith(.mainThread) {
+            self.devices = $0
             self.tableView.reloadData()
         }
     }
     
     // MARK: - Scan table view delegate
     
-    func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MBLMetaWear) {
-        device.rememberDevice()
-        _ = navigationController?.popViewController(animated: true)
+    func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MetaWear) {
+        navigationController?.popViewController(animated: true)
+        
+        let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        hud.label.text = "Programming..."
+        device.initialDeviceSetup().continueWith(.mainThread) {
+            hud.mode = .text
+            hud.label.text = $0.error?.localizedDescription ?? "Success"
+            hud.hide(animated: true, afterDelay: 2.5)
+        }
     }
 
     // MARK: - Table view data source
@@ -61,19 +71,15 @@ class MainTableViewController: UITableViewController, ScanTableViewControllerDel
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable.ƒ
         return indexPath.row < devices.count
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let cur = devices[indexPath.row]
-            cur.forgetDevice()
-            cur.connect(withTimeoutAsync: 15.0).success { _ in
-                cur.setConfigurationAsync(nil)
-            }
+            devices[indexPath.row].eraseDevice()
             devices.remove(at: indexPath.row)
-            tableView.reloadSections([0], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
@@ -84,9 +90,41 @@ class MainTableViewController: UITableViewController, ScanTableViewControllerDel
         // Get the new view controller using segue.destinationViewController.
         if let scanController = segue.destination as? ScanTableViewController {
             scanController.delegate = self
-            scanController.createConfiguration = DeviceConfiguration.init
         } else if let deviceController = segue.destination as? DeviceViewController {
-            deviceController.device = sender as! MBLMetaWear
+            deviceController.device = sender as! MetaWear
+        }
+    }
+}
+
+extension MetaWear {
+    // Call once to setup a device
+    func initialDeviceSetup(temperaturePeriodMsec: UInt32 = 1000) -> Task<()> {
+        return eraseDevice().continueWithTask { _ -> Task<Task<MetaWear>> in
+            return self.connectAndSetup()
+        }.continueOnSuccessWithTask { _ -> Task<()> in
+            let state = DeviceState(temperaturePeriodMsec: temperaturePeriodMsec)
+            return state.setup(self)
+        }.continueWithTask { t -> Task<()> in
+            if !t.faulted {
+                self.remember()
+            } else {
+                self.eraseDevice()
+            }
+            return t
+        }
+    }
+    
+    // If you no longer need a device call this
+    @discardableResult
+    func eraseDevice() -> Task<MetaWear> {
+        // Remove the on-disk state
+        try? FileManager.default.removeItem(at: uniqueUrl)
+        // Drop the device from the MetaWearScanner saved list
+        forget()
+        // Reset and clear all data from the device
+        return connectAndSetup().continueOnSuccessWithTask {
+            self.clearAndReset()
+            return $0
         }
     }
 }

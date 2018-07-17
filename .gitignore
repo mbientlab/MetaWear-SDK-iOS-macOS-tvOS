@@ -31,3 +31,7 @@ Carthage
 # `pod install` in .travis.yml
 #
 # Pods/
+
+# Build
+bump-version.sh
+docs/

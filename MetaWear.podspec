@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '2.10.1'
+  s.version            = '3.1.3'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
-  s.summary            = 'iOS/macOS/tvOS API and documentation for the MetaWear platform'
+  s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
   s.description        = <<-DESC
                          This library allows for simple interfacing with the MetaWear Bluetooth (BLE)
                          sensor platform.  Stream or log a variety of sensor data via simple API calls.
@@ -12,20 +12,54 @@ Pod::Spec.new do |s|
                          DESC
   s.author             = { 'Stephen Schiffli' => 'stephen@mbientlab.com' }
 
-  s.source             = { :git => 'https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git', :tag => s.version.to_s }
+  s.source             = { :git => 'https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git',
+                           :tag => s.version.to_s, :submodules => true }
 
-  s.platform = :ios, :osx, :tvos
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.11'
+  s.platform = :ios, :osx, :tvos, :watchos
+  s.ios.deployment_target = '10.0'
+  s.osx.deployment_target = '10.13'
   s.tvos.deployment_target = '10.0'
+  s.watchos.deployment_target = '4.0'
 
   s.social_media_url   = "https://twitter.com/mbientLab"
-  s.documentation_url  = "https://www.mbientlab.com/docs/metawear/ios/#{s.version}/index.html"
+  s.documentation_url  = "https://mbientlab.com/cppdocs/latest/"
 
-  s.source_files = 'MetaWear/{Assets,Classes,Internal}/**/*.{h,m}'
-  s.private_header_files = 'MetaWear/Internal/**/*.h'
+  s.default_subspec = 'Core'
 
-  s.frameworks      = 'CoreData', 'CoreBluetooth'
-  s.dependency 'Bolts/Tasks', '~> 1'
-  s.dependency 'FastCoding+tvOS', '~> 3.2.1'
+  s.subspec 'Core' do |s|
+    s.preserve_paths = 'MetaWear/MetaWear-SDK-Cpp/src/**/*'
+    s.source_files   = 'MetaWear/Core/**/*',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/**/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*'
+    s.compiler_flags = '-Wno-documentation', '-Wno-comma'
+    s.pod_target_xcconfig = {
+      'SWIFT_VERSION' => '4.1',
+      'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src',
+      'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src'
+    }
+    s.frameworks = 'CoreBluetooth'
+    s.dependency 'Bolts-Swift', '~> 1.3.0'
+  end
+
+  s.subspec 'AsyncUtils' do |s|
+    s.source_files = 'MetaWear/AsyncUtils/**/*'
+    s.dependency 'MetaWear/Core'
+  end
+
+  s.subspec 'UI' do |s|
+    s.source_files = 'MetaWear/UI/**/*'
+    s.dependency 'MetaWear/Core'
+    s.dependency 'MetaWear/AsyncUtils'
+  end
+
+  s.subspec 'Mocks' do |s|
+    s.source_files = 'MetaWear/Mocks/**/*'
+    s.dependency 'MetaWear/Core'
+  end
+  
+  s.subspec 'DFU' do |s|
+      s.source_files = 'MetaWear/DFU/**/*'
+      s.dependency 'MetaWear/Core'
+      s.dependency 'iOSDFULibrary', '~> 4'
+  end
 end

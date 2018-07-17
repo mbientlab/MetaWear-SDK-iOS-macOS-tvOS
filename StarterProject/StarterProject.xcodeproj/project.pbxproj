@@ -24,12 +24,25 @@
 		402973861DB839ED00EC8C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973801DB839EA00EC8C32 /* AppDelegate.swift */; };
 		402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973811DB839EA00EC8C32 /* DeviceViewController.swift */; };
 		402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973821DB839EA00EC8C32 /* MainTableViewController.swift */; };
-		402A1EB21F9E65C3001C2253 /* DeviceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */; };
-		402A1EB31F9E65C8001C2253 /* DeviceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */; };
+		40F7881D209B6D3E002D5E27 /* DeviceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7881C209B6D3E002D5E27 /* DeviceState.swift */; };
+		40F7881E209B6D3E002D5E27 /* DeviceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F7881C209B6D3E002D5E27 /* DeviceState.swift */; };
 		A74CC4E904D4261827DB3639 /* Pods_Starter_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */; };
 		BC31A9FBED54BD932058B42E /* Pods_Starter_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */; };
 		E829A8A800A7AFC5A4C5DA7A /* Pods_Starter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3D37560DD979815A53DF1B /* Pods_Starter_iOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		404057A1209A6D2400591D6B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C3D37560DD979815A53DF1B /* Pods_Starter_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +67,7 @@
 		402973801DB839EA00EC8C32 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		402973811DB839EA00EC8C32 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		402973821DB839EA00EC8C32 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfiguration.swift; sourceTree = "<group>"; };
+		40F7881C209B6D3E002D5E27 /* DeviceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceState.swift; sourceTree = "<group>"; };
 		4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831B849867AF94CA117AB75 /* Pods-Starter-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-macOS/Pods-Starter-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC9E019C266AD9823B5E877D /* Pods-Starter-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +132,7 @@
 				402973811DB839EA00EC8C32 /* DeviceViewController.swift */,
 				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
 				4029737D1DB839AF00EC8C32 /* ScanTableViewController.swift */,
-				402A1EB11F9E65C3001C2253 /* DeviceConfiguration.swift */,
+				40F7881C209B6D3E002D5E27 /* DeviceState.swift */,
 				402973281DB81F5A00EC8C32 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -190,6 +203,7 @@
 				4029732A1DB81F5A00EC8C32 /* Frameworks */,
 				4029732B1DB81F5A00EC8C32 /* Resources */,
 				5D83398C0851483637B414DA /* [CP] Embed Pods Frameworks */,
+				404057A1209A6D2400591D6B /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -244,8 +258,8 @@
 		402973201DB81F5A00EC8C32 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0900;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "MBIENTLAB, INC";
 				TargetAttributes = {
 					4029732C1DB81F5A00EC8C32 = {
@@ -345,15 +359,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Starter-iOS/Pods-Starter-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD-iOS/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWear-iOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
@@ -387,14 +399,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Starter-macOS/Pods-Starter-macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-macOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-macOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWear-macOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,15 +419,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-tvOS/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-tvOS/FastCoding_tvOS.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD-tvOS/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MetaWear-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FastCoding_tvOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
 			);
@@ -452,7 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402973851DB839EA00EC8C32 /* MainTableViewController.swift in Sources */,
-				402A1EB21F9E65C3001C2253 /* DeviceConfiguration.swift in Sources */,
+				40F7881D209B6D3E002D5E27 /* DeviceState.swift in Sources */,
 				402973831DB839EA00EC8C32 /* AppDelegate.swift in Sources */,
 				4029737E1DB839AF00EC8C32 /* ScanTableViewController.swift in Sources */,
 				402973841DB839EA00EC8C32 /* DeviceViewController.swift in Sources */,
@@ -464,7 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */,
-				402A1EB31F9E65C8001C2253 /* DeviceConfiguration.swift in Sources */,
+				40F7881E209B6D3E002D5E27 /* DeviceState.swift in Sources */,
 				402973861DB839ED00EC8C32 /* AppDelegate.swift in Sources */,
 				4029737F1DB839B200EC8C32 /* ScanTableViewController.swift in Sources */,
 				402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */,
@@ -515,6 +523,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -522,6 +531,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -548,11 +558,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0.1;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -569,6 +582,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -576,6 +590,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -596,9 +611,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0.1;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -610,7 +628,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
@@ -629,7 +646,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
@@ -655,7 +671,6 @@
 				SDKROOT = appletvos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -673,7 +688,6 @@
 				SDKROOT = appletvos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -688,7 +702,6 @@
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = macosx;
@@ -707,7 +720,6 @@
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = macosx;

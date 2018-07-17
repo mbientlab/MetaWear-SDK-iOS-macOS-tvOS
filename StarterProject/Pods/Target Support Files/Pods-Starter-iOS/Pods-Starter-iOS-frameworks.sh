@@ -143,14 +143,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD-iOS/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-iOS/MetaWear.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Bolts-iOS/Bolts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FastCoding+tvOS-iOS/FastCoding_tvOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD-iOS/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-iOS/MetaWear.framework"
 fi
