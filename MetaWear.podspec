@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
                        'MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*'
     s.compiler_flags = '-Wno-documentation', '-Wno-comma'
     s.pod_target_xcconfig = {
-      'SWIFT_VERSION' => '4.0',
+      'SWIFT_VERSION' => '4.1',
       'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src',
       'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src'
     }
