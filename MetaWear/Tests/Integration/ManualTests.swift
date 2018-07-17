@@ -39,6 +39,24 @@ import BoltsSwift
 @testable import MetaWearCpp
 
 class ManualTests: XCTestCase {
+    func connectNearest() -> Task<MetaWear> {
+        let source = TaskCompletionSource<MetaWear>()
+        MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
+            if let rssi = device.averageRSSI(), rssi > -50 {
+                MetaWearScanner.shared.stopScan()
+                device.logDelegate = ConsoleLogger.shared
+                device.connectAndSetup().continueWith { t -> () in
+                    if let error = t.error {
+                        source.trySet(error: error)
+                    } else {
+                        source.trySet(result: device)
+                    }
+                }
+            }
+        }
+        return source.task
+    }
+    
     func testCancelPendingConnection() {
         let connectExpectation = XCTestExpectation(description: "connecting")
         MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith { array in
@@ -70,17 +88,65 @@ class ManualTests: XCTestCase {
     
     func testJumpToBootloader() {
         let connectExpectation = XCTestExpectation(description: "connecting")
-        MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
-            if device.rssi > -50 {
-                MetaWearScanner.shared.stopScan()
-                device.connectAndSetup().continueWith { t -> () in
-                    if let error = t.error {
-                        self.continueAfterFailure = false
-                        XCTFail(error.localizedDescription)
-                    }
-                    mbl_mw_debug_jump_to_bootloader(device.board)
-                    connectExpectation.fulfill()
-                }
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            mbl_mw_debug_jump_to_bootloader(device.board)
+            connectExpectation.fulfill()
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
+    func testiBeacon() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            device.flashLED(color: .green, intensity: 1.0, _repeat: 2)
+            mbl_mw_ibeacon_enable(device.board)
+            mbl_mw_ibeacon_set_major(device.board, 1111)
+            mbl_mw_ibeacon_set_minor(device.board, 2222)
+            mbl_mw_debug_disconnect(device.board)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                connectExpectation.fulfill()
+            }
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
+    func testWhitelist() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            device.flashLED(color: .green, intensity: 1.0, _repeat: 2)
+            var address = MblMwBtleAddress(address_type: 0, address: (0x70, 0x9e, 0x38, 0x95, 0x01, 0x00))
+            mbl_mw_settings_add_whitelist_address(device.board, 0, &address)
+            mbl_mw_settings_set_ad_parameters(device.board, 418, 0, MBL_MW_BLE_AD_TYPE_CONNECTED_DIRECTED)
+            // mbl_mw_settings_set_whitelist_filter_mode(device.board, MBL_MW_WHITELIST_FILTER_SCAN_AND_CONNECTION_REQUESTS)
+            mbl_mw_debug_disconnect(device.board)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                connectExpectation.fulfill()
+            }
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
+    func testClearMacro() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            mbl_mw_macro_erase_all(device.board)
+            mbl_mw_debug_reset_after_gc(device.board)
+            mbl_mw_debug_disconnect(device.board)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                connectExpectation.fulfill()
             }
         }
         wait(for: [connectExpectation], timeout: 60)

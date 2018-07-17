@@ -67,6 +67,7 @@ extension MetaWear {
         }
     }
     
+    /// Install the provided firmware (or latest if none provided)
     public func updateFirmware(delegate: DFUProgressDelegate? = nil, build: FirmwareBuild? = nil) -> Task<Void> {
         var finalBuild: FirmwareBuild!
         return connectAndSetup().continueOnSuccessWithTask { _ -> Task<FirmwareBuild> in
@@ -93,6 +94,7 @@ extension MetaWear {
     }
 }
 
+/// Find device with identifier on a new central object
 func findMetaBoot(_ identifier: UUID) -> Task<(MetaWearScanner, MetaWear)>  {
     let scanner = MetaWearScanner()
     let source = TaskCompletionSource<(MetaWearScanner, MetaWear)>()
@@ -105,6 +107,7 @@ func findMetaBoot(_ identifier: UUID) -> Task<(MetaWearScanner, MetaWear)>  {
     return source.task
 }
 
+/// Call into the actual Nordic DFU library
 func runNordicInstall(metaboot: MetaWear, scanner: MetaWearScanner, firmware: DFUFirmware, delegate: DFUProgressDelegate?) -> Task<Void> {
     let central = scanner.central!
     let peripheral = metaboot.peripheral
@@ -122,6 +125,7 @@ func runNordicInstall(metaboot: MetaWear, scanner: MetaWearScanner, firmware: DF
     return dfuSource.task
 }
 
+/// Recursive check that the correct bootloader is installed before trying DFU
 func updateMetaBoot(identifier: UUID, build: FirmwareBuild, delegate: DFUProgressDelegate?) -> Task<Void> {
     return findMetaBoot(identifier).continueOnSuccessWithTask { (scanner, metaboot) in
         return metaboot.connectAndSetup().continueOnSuccessWithTask { _ in

@@ -49,9 +49,7 @@ public enum FirmwareError: Error {
 
 /// Used for interfacing with the MbientLab firmware server
 public class FirmwareServer {
-    /**
-     Find all compatible firmware for the given device type
-     */
+    /// Find all compatible firmware for the given device type
     public static func getAllFirmwareAsync(hardwareRev: String,
                                            modelNumber: String,
                                            buildFlavor: String = "vanilla") -> Task<[FirmwareBuild]> {
@@ -102,6 +100,7 @@ public class FirmwareServer {
         return source.task
     }
     
+    /// Find all compatible bootloaders for the given device type
     public static func getAllBootloaderAsync(hardwareRev: String, modelNumber: String) -> Task<[FirmwareBuild]> {
         return FirmwareServer.getAllFirmwareAsync(hardwareRev: hardwareRev, modelNumber: modelNumber, buildFlavor: "bootloader")
     }
