@@ -21,6 +21,8 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '10.0'
   s.watchos.deployment_target = '4.0'
 
+  s.swift_version = '4.1'
+
   s.social_media_url   = "https://twitter.com/mbientLab"
   s.documentation_url  = "https://mbientlab.com/cppdocs/latest/"
 
@@ -33,12 +35,11 @@ Pod::Spec.new do |s|
                        'MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*'
     s.compiler_flags = '-Wno-documentation', '-Wno-comma'
     s.pod_target_xcconfig = {
-      'SWIFT_VERSION' => '4.1',
       'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src',
       'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src'
     }
     s.frameworks = 'CoreBluetooth'
-    s.dependency 'Bolts-Swift', '~> 1.3.0'
+    s.dependency 'Bolts-Swift', '~> 1'
   end
 
   s.subspec 'AsyncUtils' do |s|
@@ -58,6 +59,9 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'DFU' do |s|
+      s.ios.deployment_target = '10.0'
+      s.osx.deployment_target = '10.13'
+
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'
       s.dependency 'iOSDFULibrary', '~> 4'

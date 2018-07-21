@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Updated Podspec with the swift-version key and latest Bolts-Swift 1.4.0
+
 ## [3.1.3] - 2018-07-16
 ### Added
 - Documentation for basic features of this API.
