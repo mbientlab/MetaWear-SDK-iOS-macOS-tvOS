@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		088E33E5AFA1E3A88FED67D3 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */; };
-		2CA001D51AB8B0B68DC03986 /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */; };
+		156D459924C89766FB0DF572 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC7F1C40367F7401B4651CB /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */; };
+		1E8BFB823FC809F3194EE9A5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA413E5A697CC1B1839F513 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */; };
+		242200F43DDED1C9F7F3B004 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B696C50FE8153D328341BCC /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */; };
 		404057AD209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
 		404057AE209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
 		404057AF209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
@@ -48,14 +49,13 @@
 		40969D9A1F96C01D0024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
 		40969D9B1F96C0210024C2ED /* metawearmmc-r0.1-r1.3.5.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D901F96B6320024C2ED /* metawearmmc-r0.1-r1.3.5.zip */; };
 		40969D9C1F96C0210024C2ED /* metawearmmr-r0.2-r1.3.4.zip in Resources */ = {isa = PBXBuildFile; fileRef = 40969D8F1F96B6320024C2ED /* metawearmmr-r0.2-r1.3.4.zip */; };
-		4CD60AFE9810719E6C216CA9 /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */; };
-		507DF4AF55480C3FD7E0DE6B /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */; };
-		7A5922771D78B9E2C42DAA92 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */; };
-		944905580F05FE11E28F1CDA /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */; };
-		AA67B6217E520AD3126D553A /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */; };
-		ACAB1804AB0115C056BF758B /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */; };
-		B7E4C1EC3139AFCD24132488 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F7D42585D28D4745E3E01A /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */; };
-		F788597B715675A6862B643D /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */; };
+		545C929D91BC940EABEEEB25 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD218032B47881A268796072 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */; };
+		798701EC11CC4DEBBFE7FEC6 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB218E9ABB82FF268858EF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */; };
+		87ABAEAF16D2122F1F400B49 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3E58B765FFCB32E40896B1 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */; };
+		881E56AEEB549D20C93FEC1D /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777E8BE52776805DFD1DF61B /* Pods_MetaWearIntegrationTests_macOS.framework */; };
+		8B9005DDDEADF06ED8F8CF01 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FBDEF8BF933A1C06F53831 /* Pods_MetaWearIntegrationTests_tvOS.framework */; };
+		B013598C8979975ABBA30E60 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299846B602D3536F0447ECAD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */; };
+		F558768C0584B051DEB9315B /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3380F45505DF7EA8D00CE1 /* Pods_MetaWearIntegrationTests_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,13 +122,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		013B39904A9C0F3735BA9A97 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		0CC7F1C40367F7401B4651CB /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B9DAD1DD6AAB60FB8E2838 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1B8897796EB86BD8A0028A82 /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1D280BD53A25F1E9910742BC /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		216B7033A805EBF37C411AFB /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		23CB218E9ABB82FF268858EF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		299846B602D3536F0447ECAD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FBDEF8BF933A1C06F53831 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B696C50FE8153D328341BCC /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E06F9C64AEA806D32581A30 /* MetaWear.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MetaWear.podspec; path = ../MetaWear.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		404057AC209A796300591D6B /* FirmwareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirmwareTests.swift; sourceTree = "<group>"; };
 		404057B0209A7CB700591D6B /* ManualTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualTests.swift; sourceTree = "<group>"; };
 		404057B1209A7CB700591D6B /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
@@ -183,35 +187,31 @@
 		409EBC7D20F5962E0050DF05 /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
 		409EBC8220F5962E0050DF05 /* conf.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
 		409EBC9C20F5962E0050DF05 /* project_setup.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project_setup.rst; sourceTree = "<group>"; };
-		484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		56D26D2541DE09EA81DA4175 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF78A37DB22BDC4AD33196D /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB3382D0AA93F53F82426A6B /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		B5F7D42585D28D4745E3E01A /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		628DD5D21340280BABA1CEDE /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		63CC6BF92B83CC986BD0B4F5 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		69A168E76C9AD014BCBC7055 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		777E8BE52776805DFD1DF61B /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8469164A5DAB31B6EA449431 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-macOS/Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		98AB2A2F1532F208CC5185D8 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AD660D07C46FF62D5D8493F0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AF8C92E37F4F0E39DD4A3179 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B605C27994BB1982401ED60D /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		B8E491155BCBD8FD6DDB50D2 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4639C9104CACAD62933611C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		D5BA4F01FBBB9FB3A6F3CD11 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
-		E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6B67ABFBBE378F7FC2CD6D7 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CB3380F45505DF7EA8D00CE1 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA413E5A697CC1B1839F513 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECC4A10B92CEA5D8634193C9 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
+		ED3E58B765FFCB32E40896B1 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED9FB7E4E1E69AF36105CC58 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		F3CD04ECF25844525CA299FC /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		FD218032B47881A268796072 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7E4C1EC3139AFCD24132488 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework in Frameworks */,
+				87ABAEAF16D2122F1F400B49 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA67B6217E520AD3126D553A /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */,
+				B013598C8979975ABBA30E60 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				944905580F05FE11E28F1CDA /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */,
+				242200F43DDED1C9F7F3B004 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				088E33E5AFA1E3A88FED67D3 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */,
+				798701EC11CC4DEBBFE7FEC6 /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA001D51AB8B0B68DC03986 /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */,
+				F558768C0584B051DEB9315B /* Pods_MetaWearIntegrationTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACAB1804AB0115C056BF758B /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */,
+				156D459924C89766FB0DF572 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F788597B715675A6862B643D /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */,
+				1E8BFB823FC809F3194EE9A5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A5922771D78B9E2C42DAA92 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */,
+				8B9005DDDEADF06ED8F8CF01 /* Pods_MetaWearIntegrationTests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				507DF4AF55480C3FD7E0DE6B /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */,
+				545C929D91BC940EABEEEB25 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,13 +298,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CD60AFE9810719E6C216CA9 /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */,
+				881E56AEEB549D20C93FEC1D /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3369CC28117E833FFF92EA4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6B67ABFBBE378F7FC2CD6D7 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */,
+				628DD5D21340280BABA1CEDE /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */,
+				9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */,
+				98AB2A2F1532F208CC5185D8 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */,
+				B8E491155BCBD8FD6DDB50D2 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */,
+				F3CD04ECF25844525CA299FC /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */,
+				69A168E76C9AD014BCBC7055 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */,
+				B605C27994BB1982401ED60D /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */,
+				AD660D07C46FF62D5D8493F0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */,
+				ED9FB7E4E1E69AF36105CC58 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */,
+				216B7033A805EBF37C411AFB /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */,
+				AF8C92E37F4F0E39DD4A3179 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */,
+				1D280BD53A25F1E9910742BC /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */,
+				ECC4A10B92CEA5D8634193C9 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */,
+				14B9DAD1DD6AAB60FB8E2838 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */,
+				013B39904A9C0F3735BA9A97 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */,
+				8469164A5DAB31B6EA449431 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */,
+				63CC6BF92B83CC986BD0B4F5 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */,
+				1B8897796EB86BD8A0028A82 /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */,
+				5AF78A37DB22BDC4AD33196D /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		40405833209A83CA00591D6B /* MetaWearIntegrationTestHost-watchOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +494,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				CDB18D4111E3967525918DE4 /* Pods */,
+				3369CC28117E833FFF92EA4E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -496,16 +523,16 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				E1E34DFCA4063CE2A07A83BF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */,
-				5EAB7B6352380360645B98AD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */,
-				FFAABAC8B3AA3D6E4C1C4F88 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */,
-				E5511FEC9D23EDED11DA652A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */,
-				E8ED5F56A688455F38CFF3F5 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */,
-				FBB2CC43F574564AEC7B2954 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */,
-				B8191DF79A938D05A40C4647 /* Pods_MetaWearIntegrationTests_iOS.framework */,
-				8A9274E932D0BA7E8B3AB8D3 /* Pods_MetaWearIntegrationTests_macOS.framework */,
-				9614BF1F256D2E9766AF51F3 /* Pods_MetaWearIntegrationTests_tvOS.framework */,
-				B5F7D42585D28D4745E3E01A /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */,
+				23CB218E9ABB82FF268858EF /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */,
+				299846B602D3536F0447ECAD /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */,
+				FD218032B47881A268796072 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */,
+				2B696C50FE8153D328341BCC /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */,
+				EAA413E5A697CC1B1839F513 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */,
+				0CC7F1C40367F7401B4651CB /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */,
+				ED3E58B765FFCB32E40896B1 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */,
+				CB3380F45505DF7EA8D00CE1 /* Pods_MetaWearIntegrationTests_iOS.framework */,
+				777E8BE52776805DFD1DF61B /* Pods_MetaWearIntegrationTests_macOS.framework */,
+				29FBDEF8BF933A1C06F53831 /* Pods_MetaWearIntegrationTests_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -535,33 +562,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		CDB18D4111E3967525918DE4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */,
-				3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */,
-				4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */,
-				7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */,
-				EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */,
-				C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */,
-				F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */,
-				315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */,
-				6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */,
-				120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */,
-				54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */,
-				372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */,
-				0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */,
-				C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */,
-				BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */,
-				6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */,
-				0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */,
-				484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */,
-				AB3382D0AA93F53F82426A6B /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */,
-				D5BA4F01FBBB9FB3A6F3CD11 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -587,11 +587,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40405851209A83CC00591D6B /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-watchOS Extension" */;
 			buildPhases = (
-				8DB2A51FA651028165A30686 /* [CP] Check Pods Manifest.lock */,
+				2426EFA3C81A4CCB856F7298 /* [CP] Check Pods Manifest.lock */,
 				4040583A209A83CB00591D6B /* Sources */,
 				4040583B209A83CB00591D6B /* Frameworks */,
 				4040583C209A83CB00591D6B /* Resources */,
-				7506B69DF24E6E47DA895E75 /* [CP] Embed Pods Frameworks */,
+				9994123CA3AC231D12823429 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -606,11 +606,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40703E0D1D94AE3500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-iOS" */;
 			buildPhases = (
-				C71AC92BEFBDB9F6B9F4BAB7 /* [CP] Check Pods Manifest.lock */,
+				D4DF3CC52807B3C41C328037 /* [CP] Check Pods Manifest.lock */,
 				40703E021D94AE3500F38FF0 /* Sources */,
 				40703E031D94AE3500F38FF0 /* Frameworks */,
 				40703E041D94AE3500F38FF0 /* Resources */,
-				346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */,
+				5AB788E89338293F541AB99B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -625,11 +625,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40703E381D94B8A700F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-macOS" */;
 			buildPhases = (
-				02E81058C53AD24BA4DBAD91 /* [CP] Check Pods Manifest.lock */,
+				B0BD32AA0F626F7F0972EDC5 /* [CP] Check Pods Manifest.lock */,
 				40703E2D1D94B8A700F38FF0 /* Sources */,
 				40703E2E1D94B8A700F38FF0 /* Frameworks */,
 				40703E2F1D94B8A700F38FF0 /* Resources */,
-				E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */,
+				B62CDA180856E4364A83EF23 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -644,12 +644,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40703E6F1D94C06900F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-iOS" */;
 			buildPhases = (
-				1ECA979582EC73A7433D3C9D /* [CP] Check Pods Manifest.lock */,
+				9BB9096216AD359ED4335EA6 /* [CP] Check Pods Manifest.lock */,
 				40703E571D94C06800F38FF0 /* Sources */,
 				40703E581D94C06800F38FF0 /* Frameworks */,
 				40703E591D94C06800F38FF0 /* Resources */,
-				631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */,
 				40405854209A83CC00591D6B /* Embed Watch Content */,
+				143B51053E15C77C55E6B9F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -665,7 +665,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40703EAD1D94C37500F38FF0 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-iOS" */;
 			buildPhases = (
-				74C76A8A0396ED2279A859DD /* [CP] Check Pods Manifest.lock */,
+				E238D255F3F3371523D12C0E /* [CP] Check Pods Manifest.lock */,
 				40703EA21D94C37500F38FF0 /* Sources */,
 				40703EA31D94C37500F38FF0 /* Frameworks */,
 				40703EA41D94C37500F38FF0 /* Resources */,
@@ -684,11 +684,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40781FEA1D9DD41900FF5134 /* Build configuration list for PBXNativeTarget "MetaWearUnitTests-tvOS" */;
 			buildPhases = (
-				D145B927748D76117FF30E46 /* [CP] Check Pods Manifest.lock */,
+				85DE2E74A87C57473D56875E /* [CP] Check Pods Manifest.lock */,
 				40781FDC1D9DD41900FF5134 /* Sources */,
 				40781FDD1D9DD41900FF5134 /* Frameworks */,
 				40781FDE1D9DD41900FF5134 /* Resources */,
-				CD397537C4F0DF6A0CCBA718 /* [CP] Embed Pods Frameworks */,
+				D1D56F246C7F24BF36E0BEFE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -703,11 +703,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 407820341D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-tvOS" */;
 			buildPhases = (
-				9247577DE79F1381D2AB2BAE /* [CP] Check Pods Manifest.lock */,
+				9442F6B91850411E0BB98774 /* [CP] Check Pods Manifest.lock */,
 				407820141D9DD60500FF5134 /* Sources */,
 				407820151D9DD60500FF5134 /* Frameworks */,
 				407820161D9DD60500FF5134 /* Resources */,
-				817CFAFEE002EA2071491BC4 /* [CP] Embed Pods Frameworks */,
+				63D25A37F0717553804A4F20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -722,7 +722,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 407820371D9DD60500FF5134 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-tvOS" */;
 			buildPhases = (
-				C054C15FB63B3A232F639E8A /* [CP] Check Pods Manifest.lock */,
+				3247D79AF4192B2A09E483D5 /* [CP] Check Pods Manifest.lock */,
 				407820291D9DD60500FF5134 /* Sources */,
 				4078202A1D9DD60500FF5134 /* Frameworks */,
 				4078202B1D9DD60500FF5134 /* Resources */,
@@ -741,11 +741,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40915FD61D94D392008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTestHost-macOS" */;
 			buildPhases = (
-				0E6F7A6A5584FEE2173F2EFC /* [CP] Check Pods Manifest.lock */,
+				9A5734D745CEC45AD7C50EDE /* [CP] Check Pods Manifest.lock */,
 				40915FC11D94D392008A5F24 /* Sources */,
 				40915FC21D94D392008A5F24 /* Frameworks */,
 				40915FC31D94D392008A5F24 /* Resources */,
-				FBC90CCA537EF206514FE09B /* [CP] Embed Pods Frameworks */,
+				202EBDFA89868822DC9B54EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -760,7 +760,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40915FF41D94D478008A5F24 /* Build configuration list for PBXNativeTarget "MetaWearIntegrationTests-macOS" */;
 			buildPhases = (
-				7B23486CC0856302ADECCB77 /* [CP] Check Pods Manifest.lock */,
+				5C3A67D267487934E07A172F /* [CP] Check Pods Manifest.lock */,
 				40915FEB1D94D478008A5F24 /* Sources */,
 				40915FEC1D94D478008A5F24 /* Frameworks */,
 				40915FED1D94D478008A5F24 /* Resources */,
@@ -783,7 +783,7 @@
 			attributes = {
 				CLASSPREFIX = MBL;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40405831209A83CA00591D6B = {
@@ -991,85 +991,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02E81058C53AD24BA4DBAD91 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0E6F7A6A5584FEE2173F2EFC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1ECA979582EC73A7433D3C9D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		346F7A67900D41D94213EBAA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		631C0B8F86757D22D29FFE29 /* [CP] Embed Pods Frameworks */ = {
+		143B51053E15C77C55E6B9F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1093,7 +1015,31 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74C76A8A0396ED2279A859DD /* [CP] Check Pods Manifest.lock */ = {
+		202EBDFA89868822DC9B54EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2426EFA3C81A4CCB856F7298 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1104,34 +1050,56 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWearIntegrationTests-iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7506B69DF24E6E47DA895E75 /* [CP] Embed Pods Frameworks */ = {
+		3247D79AF4192B2A09E483D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-watchOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWearIntegrationTests-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AB788E89338293F541AB99B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B23486CC0856302ADECCB77 /* [CP] Check Pods Manifest.lock */ = {
+		5C3A67D267487934E07A172F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1149,7 +1117,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		817CFAFEE002EA2071491BC4 /* [CP] Embed Pods Frameworks */ = {
+		63D25A37F0717553804A4F20 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1169,99 +1137,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DB2A51FA651028165A30686 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9247577DE79F1381D2AB2BAE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C054C15FB63B3A232F639E8A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWearIntegrationTests-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C71AC92BEFBDB9F6B9F4BAB7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD397537C4F0DF6A0CCBA718 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D145B927748D76117FF30E46 /* [CP] Check Pods Manifest.lock */ = {
+		85DE2E74A87C57473D56875E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1279,7 +1155,99 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E483B0530F48198DA665653E /* [CP] Embed Pods Frameworks */ = {
+		9442F6B91850411E0BB98774 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9994123CA3AC231D12823429 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-watchOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A5734D745CEC45AD7C50EDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BB9096216AD359ED4335EA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0BD32AA0F626F7F0972EDC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B62CDA180856E4364A83EF23 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1303,28 +1271,60 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FBC90CCA537EF206514FE09B /* [CP] Embed Pods Frameworks */ = {
+		D1D56F246C7F24BF36E0BEFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4DF3CC52807B3C41C328037 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E238D255F3F3371523D12C0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetaWearIntegrationTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1515,7 +1515,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -1543,14 +1542,13 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
 		};
 		4040584F209A83CC00591D6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB3382D0AA93F53F82426A6B /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */;
+			baseConfigurationReference = 1D280BD53A25F1E9910742BC /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1572,14 +1570,13 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
 		};
 		40405850209A83CC00591D6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5BA4F01FBBB9FB3A6F3CD11 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */;
+			baseConfigurationReference = ECC4A10B92CEA5D8634193C9 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1601,14 +1598,13 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
 		};
 		40703E0B1D94AE3500F38FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C9766F13CD493411988E405 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */;
+			baseConfigurationReference = 9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1628,13 +1624,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphonesimulator;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		40703E0C1D94AE3500F38FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DB1D5FB2C9DF1B999A30C40 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */;
+			baseConfigurationReference = 98AB2A2F1532F208CC5185D8 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1654,13 +1649,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphonesimulator;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		40703E361D94B8A700F38FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9A1816D273EAF6C594AB9B9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */;
+			baseConfigurationReference = 69A168E76C9AD014BCBC7055 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1682,13 +1676,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		40703E371D94B8A700F38FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315922240872C094896F86A5 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */;
+			baseConfigurationReference = B605C27994BB1982401ED60D /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1710,13 +1703,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		40703E701D94C06900F38FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 643F4B1C47594649B403E4E6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */;
+			baseConfigurationReference = C6B67ABFBBE378F7FC2CD6D7 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1735,7 +1727,7 @@
 		};
 		40703E711D94C06900F38FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F0AE8CB80A89F8BF3547857 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */;
+			baseConfigurationReference = 628DD5D21340280BABA1CEDE /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1755,7 +1747,7 @@
 		};
 		40703EAB1D94C37500F38FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BC206FACF309897F345A691 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */;
+			baseConfigurationReference = 14B9DAD1DD6AAB60FB8E2838 /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1771,14 +1763,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
 			};
 			name = Debug;
 		};
 		40703EAC1D94C37500F38FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C258274DBAC14BFD8411CF49 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */;
+			baseConfigurationReference = 013B39904A9C0F3735BA9A97 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1794,14 +1785,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
-				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
 			};
 			name = Release;
 		};
 		40781FEB1D9DD41900FF5134 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54E10821F9CD84FE00E1EFAA /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 216B7033A805EBF37C411AFB /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1816,14 +1806,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
 		};
 		40781FEC1D9DD41900FF5134 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 372F4EFD8A378C461EB0D023 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */;
+			baseConfigurationReference = AF8C92E37F4F0E39DD4A3179 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1838,14 +1827,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearUnitTests-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
 		};
 		407820351D9DD60500FF5134 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BCF4815800711C1ECBF93D4 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */;
+			baseConfigurationReference = AD660D07C46FF62D5D8493F0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1866,7 +1854,7 @@
 		};
 		407820361D9DD60500FF5134 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 120874BAE9EB8D11171E121C /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */;
+			baseConfigurationReference = ED9FB7E4E1E69AF36105CC58 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1888,7 +1876,7 @@
 		};
 		407820381D9DD60500FF5134 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BE7C944CE23C1660A3C623F /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 1B8897796EB86BD8A0028A82 /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1905,7 +1893,6 @@
 				SDKROOT = appletvos;
 				SUPPORTED_PLATFORMS = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-tvOS.app/MetaWearIntegrationTestHost-tvOS";
 			};
@@ -1913,7 +1900,7 @@
 		};
 		407820391D9DD60500FF5134 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 484B02B57C8B8237F94E2B65 /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */;
+			baseConfigurationReference = 5AF78A37DB22BDC4AD33196D /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1930,7 +1917,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SUPPORTED_PLATFORMS = appletvos;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-tvOS.app/MetaWearIntegrationTestHost-tvOS";
 			};
@@ -1938,7 +1924,7 @@
 		};
 		40915FD71D94D392008A5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD47055A31E7C566988CB52 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */;
+			baseConfigurationReference = B8E491155BCBD8FD6DDB50D2 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1959,7 +1945,7 @@
 		};
 		40915FD81D94D392008A5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9B9653403BEAE2CC84C0280 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */;
+			baseConfigurationReference = F3CD04ECF25844525CA299FC /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1981,7 +1967,7 @@
 		};
 		40915FF51D94D478008A5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFFE3806FA2AEB7E46E264A0 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
+			baseConfigurationReference = 8469164A5DAB31B6EA449431 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1998,14 +1984,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-macOS.app/Contents/MacOS/MetaWearIntegrationTestHost-macOS";
 			};
 			name = Debug;
 		};
 		40915FF61D94D478008A5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B17492B63AD8FBF5BC78DD6 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
+			baseConfigurationReference = 63CC6BF92B83CC986BD0B4F5 /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -2022,7 +2007,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-macOS.app/Contents/MacOS/MetaWearIntegrationTestHost-macOS";
 			};
 			name = Release;
@@ -2077,6 +2061,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
@@ -2125,6 +2110,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
