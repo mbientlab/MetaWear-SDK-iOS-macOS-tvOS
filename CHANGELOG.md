@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Updated Podspec with the swift-version key and latest Bolts-Swift 1.4.0
+- MetaWear-SDK-Cpp v0.16.0
 
 ## [3.1.3] - 2018-07-16
 ### Added
