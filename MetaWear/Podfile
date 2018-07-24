@@ -1,8 +1,6 @@
 use_frameworks!
 
 abstract_target 'MetaWear' do
-    pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
-    
     abstract_target 'MetaWear-iOS' do
         platform :ios, '10.0'
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
