@@ -733,46 +733,46 @@
 		0227157ED06AFCBEB4D09ED5AE80AA1D /* MetaWear+Firmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Firmware.swift"; path = "MetaWear/DFU/MetaWear+Firmware.swift"; sourceTree = "<group>"; };
 		02B0F8DB23E56A44D8EA9A43AC7C5CCF /* DFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUService.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUService.swift; sourceTree = "<group>"; };
 		02B331627190C631A4DB30D511522F44 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		042AC927BC910548E4AA58D4D0C20C7C /* multichanneltemperature.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = multichanneltemperature.cpp; sourceTree = "<group>"; };
+		042AC927BC910548E4AA58D4D0C20C7C /* multichanneltemperature.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = multichanneltemperature.cpp; sourceTree = "<group>"; };
 		04B0C159F5C36C15D18B0F0F3647C4BC /* Bolts-Swift-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-watchOS-prefix.pch"; path = "../Bolts-Swift-watchOS/Bolts-Swift-watchOS-prefix.pch"; sourceTree = "<group>"; };
-		052202C6A415CF1071906C4D8B1035EB /* settings.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
+		052202C6A415CF1071906C4D8B1035EB /* settings.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = settings.cpp; sourceTree = "<group>"; };
 		0587D668F7D25D72E9A821CDEAFCB48B /* Bolts-Swift-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-Swift-tvOS.xcconfig"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS.xcconfig"; sourceTree = "<group>"; };
 		06391F1D445F8198E4D614364F41CD2D /* Pods-MetaWearIntegrationTests-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWearIntegrationTests-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0646800EECED1BAF4AC13CB9E3866330 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = iOSDFULibrary/Classes/Utilities/Data.swift; sourceTree = "<group>"; };
 		08902F62F43E100DBC6D8E2210A475FD /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-resources.sh"; sourceTree = "<group>"; };
 		09A320266200E1A0664645599F1E9DDD /* ajax-loader.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = "ajax-loader.gif"; path = "Docs/build/html/_static/ajax-loader.gif"; sourceTree = "<group>"; };
-		0A652B81ED6E1448461FA7ABF6118E24 /* genindex.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = genindex.html; path = Docs/build/html/genindex.html; sourceTree = "<group>"; };
+		0A652B81ED6E1448461FA7ABF6118E24 /* genindex.html */ = {isa = PBXFileReference; includeInIndex = 1; name = genindex.html; path = Docs/build/html/genindex.html; sourceTree = "<group>"; };
 		0AD9B4AE96B9446885844A4DB4245B2B /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		0BA519C617380F70E744607863ED703D /* Task+Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+Delay.swift"; path = "Sources/BoltsSwift/Task+Delay.swift"; sourceTree = "<group>"; };
 		0BEABFA048E0E9D6CCB69878A8337F5A /* Pods-MetaWearIntegrationTests-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-tvOS-resources.sh"; sourceTree = "<group>"; };
-		0C80D69A267A46D6333B59DD9374CBD9 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DAF456D0FED28D01BEF215D0BB518C0 /* task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = task.cpp; sourceTree = "<group>"; };
+		0C80D69A267A46D6333B59DD9374CBD9 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DAF456D0FED28D01BEF215D0BB518C0 /* task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = task.cpp; sourceTree = "<group>"; };
 		0EDADF7F64E4C98A6CA948025535C5EC /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap"; sourceTree = "<group>"; };
 		0F94A36E3AFA6EBEF7FB8A34A4352175 /* ManifestFirmwareInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManifestFirmwareInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/ManifestFirmwareInfo.swift; sourceTree = "<group>"; };
 		10757DFF6BCC73CD3C6A2ADBCA5F960F /* Pods-MetaWearIntegrationTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		116203619F58C987920002EE6B37CE6E /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		119B57EC95C4B2638815E0B6ABCD7174 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-resources.sh"; sourceTree = "<group>"; };
 		11CF78DD2D3C9076332F0B6FF5AC4695 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1233AD1455324F3ACA51670D1ECA69DD /* roboto-slab-v7-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-bold.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff2"; sourceTree = "<group>"; };
+		1233AD1455324F3ACA51670D1ECA69DD /* roboto-slab-v7-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff2"; sourceTree = "<group>"; };
 		12AE9AA947AF275B27C8883789D7B242 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-acknowledgements.plist"; sourceTree = "<group>"; };
-		12C8A2ECE783C4A083557E657CB9C995 /* project_setup.doctree */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = project_setup.doctree; path = Docs/build/doctrees/project_setup.doctree; sourceTree = "<group>"; };
+		12C8A2ECE783C4A083557E657CB9C995 /* project_setup.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.doctree; path = Docs/build/doctrees/project_setup.doctree; sourceTree = "<group>"; };
 		1482265587727D68E5B335B391869EEF /* LegacyDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/DFU/LegacyDFUExecutor.swift; sourceTree = "<group>"; };
 		14C97DFBFB1B55A0E55438D85E5036D1 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		14FF98430D0CB89E85CED3B66CCE1FA7 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14FF98430D0CB89E85CED3B66CCE1FA7 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1638CDB3FFAA0FAD1BD741E7A1789DCB /* Zip-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zip-iOS-umbrella.h"; sourceTree = "<group>"; };
 		1641E74D80DF7148698DE7B1F574FCB4 /* SecureDFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUService.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Services/SecureDFUService.swift; sourceTree = "<group>"; };
-		1787DAFBD73C11FA76F6C6F891898075 /* jquery-3.2.1.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = "jquery-3.2.1.js"; path = "Docs/build/html/_static/jquery-3.2.1.js"; sourceTree = "<group>"; };
+		1787DAFBD73C11FA76F6C6F891898075 /* jquery-3.2.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "jquery-3.2.1.js"; path = "Docs/build/html/_static/jquery-3.2.1.js"; sourceTree = "<group>"; };
 		179A55B9C457FA9A8D10AB87E80631ED /* Bolts-Swift-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-tvOS-umbrella.h"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		17F9BC4775B3AC83A4B5A3EC8D1A0219 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		187496DABCAD752166563C3DEE9B8CBD /* anonymous_datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = anonymous_datasignal.cpp; sourceTree = "<group>"; };
-		19D6678B21013A2AA3E76742535538DA /* macro.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = macro.cpp; sourceTree = "<group>"; };
+		187496DABCAD752166563C3DEE9B8CBD /* anonymous_datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = anonymous_datasignal.cpp; sourceTree = "<group>"; };
+		19D6678B21013A2AA3E76742535538DA /* macro.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = macro.cpp; sourceTree = "<group>"; };
 		19DE09EF16EFF2FD031FEC717665CC11 /* Bolts-Swift-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-Swift-watchOS.xcconfig"; path = "../Bolts-Swift-watchOS/Bolts-Swift-watchOS.xcconfig"; sourceTree = "<group>"; };
 		19E3890674BACA9128C1C1F9835FB048 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.modulemap"; sourceTree = "<group>"; };
 		1A3AFE0EE1E3BCE89DE882391ECDCDFC /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-prefix.pch"; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-prefix.pch"; sourceTree = "<group>"; };
-		1B0676BE86D9583EC562448DFE69F3A3 /* lato-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bold.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.eot"; sourceTree = "<group>"; };
-		1B6E160237DA07E26CEE78E3C6A78A26 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CDB42A92F3D23CD8151B6BE5A64BDB1 /* accelerometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = accelerometer_bosch.cpp; sourceTree = "<group>"; };
-		1E8462C707BAEF2AC7B2F04E6FF56170 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B0676BE86D9583EC562448DFE69F3A3 /* lato-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.eot"; sourceTree = "<group>"; };
+		1B6E160237DA07E26CEE78E3C6A78A26 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CDB42A92F3D23CD8151B6BE5A64BDB1 /* accelerometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = accelerometer_bosch.cpp; sourceTree = "<group>"; };
+		1E8462C707BAEF2AC7B2F04E6FF56170 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED2AB296A1B1CD2AEEBEEDCF74624DA /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-dummy.m"; sourceTree = "<group>"; };
 		1F4AD0F21AEC06B27504E07071E55A3D /* Zip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Zip.swift; path = Zip/Zip.swift; sourceTree = "<group>"; };
 		20414AC783F2C79421FC802B17AF6B37 /* DFUPeripheralSelectorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelectorDelegate.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -785,57 +785,57 @@
 		23DA68CC3636116209C7A30BDAF6F0D2 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		25C05A3B25B23975A17107F661D73D5F /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		25C83457451FD5A29DBFC9D7AA22E184 /* ZipUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipUtilities.swift; path = Zip/ZipUtilities.swift; sourceTree = "<group>"; };
-		273B41753774635918C08ED7D65186D0 /* serialpassthrough.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = serialpassthrough.cpp; sourceTree = "<group>"; };
+		273B41753774635918C08ED7D65186D0 /* serialpassthrough.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = serialpassthrough.cpp; sourceTree = "<group>"; };
 		29A92F6A0289BED184257ACBD3631DAE /* Zip-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Zip-iOS.xcconfig"; sourceTree = "<group>"; };
 		2A15757A99F40F5AB20F50496D4AC44C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Bolts-Swift-macOS/Info.plist"; sourceTree = "<group>"; };
-		2A9C308A07E2959C4D7AC71A6079EA97 /* lato-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-regular.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.eot"; sourceTree = "<group>"; };
+		2A9C308A07E2959C4D7AC71A6079EA97 /* lato-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.eot"; sourceTree = "<group>"; };
 		2B5A502C2CC9D4B6026DE3F997ED0B59 /* iOSDFULibrary-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "iOSDFULibrary-macOS.modulemap"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.modulemap"; sourceTree = "<group>"; };
 		2D411C296AE8F8E17258BAA69064E287 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.modulemap"; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.modulemap"; sourceTree = "<group>"; };
 		2DB32D699148AA9B8E99EF48F686D1DF /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-resources.sh"; sourceTree = "<group>"; };
 		2DEEABC9BEC8B962C5C71A939CF77ABA /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2EDF86AC577064CE4CF6F1313921D7AA /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-resources.sh"; sourceTree = "<group>"; };
-		2F72393353B7D0392468EF0EE1E34211 /* ibeacon.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = ibeacon.cpp; sourceTree = "<group>"; };
+		2F72393353B7D0392468EF0EE1E34211 /* ibeacon.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = ibeacon.cpp; sourceTree = "<group>"; };
 		2FEDDBA6DA005906CB62AC4098E35A36 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-prefix.pch"; sourceTree = "<group>"; };
 		30C36A3215357B32410B4DB9CA8A984A /* FirmwareServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirmwareServer.swift; path = MetaWear/DFU/FirmwareServer.swift; sourceTree = "<group>"; };
-		31163123D181A85BDF9341328D3E193B /* roboto-slab-v7-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-regular.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff2"; sourceTree = "<group>"; };
-		3128808BBD3D9A7F117E50386DF5ECCE /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Zip/minizip/zip.c; sourceTree = "<group>"; };
-		31E35C19739075CD6024F53F9836967D /* responseheader.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = responseheader.cpp; sourceTree = "<group>"; };
-		328E924DF43A60D073F08A95154BEAF6 /* lato-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-regular.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff"; sourceTree = "<group>"; };
+		31163123D181A85BDF9341328D3E193B /* roboto-slab-v7-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff2"; sourceTree = "<group>"; };
+		3128808BBD3D9A7F117E50386DF5ECCE /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zip.c; path = Zip/minizip/zip.c; sourceTree = "<group>"; };
+		31E35C19739075CD6024F53F9836967D /* responseheader.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = responseheader.cpp; sourceTree = "<group>"; };
+		328E924DF43A60D073F08A95154BEAF6 /* lato-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff"; sourceTree = "<group>"; };
 		336F1A00204D8A6550C80D49F2E809E3 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.modulemap"; sourceTree = "<group>"; };
 		34E4A445CE686B584E1F252ACC021203 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35060D8ED6023D58DC2A5138CD773F28 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.modulemap"; sourceTree = "<group>"; };
-		359D4336E934F48E5A5662A0E136DA56 /* metawearscanner.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = metawearscanner.rst.txt; path = Docs/build/html/_sources/metawearscanner.rst.txt; sourceTree = "<group>"; };
+		359D4336E934F48E5A5662A0E136DA56 /* metawearscanner.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst.txt; path = Docs/build/html/_sources/metawearscanner.rst.txt; sourceTree = "<group>"; };
 		3612B926ACAFB9BA635B260B7115B71A /* Pods-MetaWearIntegrationTests-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-tvOS-frameworks.sh"; sourceTree = "<group>"; };
 		3679B8DC5C009AE10D92C7FF0C6B4EDB /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		37670CCC404FC264B07E480C344C821F /* project_setup.rst */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = project_setup.rst; path = Docs/source/project_setup.rst; sourceTree = "<group>"; };
-		37FFCA9B6D6ED93D22F024E949BC4EB3 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		38607215F9AD81B15D9EEA9564904154 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37670CCC404FC264B07E480C344C821F /* project_setup.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst; path = Docs/source/project_setup.rst; sourceTree = "<group>"; };
+		37FFCA9B6D6ED93D22F024E949BC4EB3 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zip.framework; path = "Zip-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38607215F9AD81B15D9EEA9564904154 /* Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_macOS_MetaWearIntegrationTestHost_macOS.framework; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D854413BA7877B89126C626034B847 /* Bolts-Swift-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-Swift-macOS-dummy.m"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-dummy.m"; sourceTree = "<group>"; };
-		39146F2A59AFEA319B41C9FBBCFD7C92 /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39146F2A59AFEA319B41C9FBBCFD7C92 /* Pods_MetaWearIntegrationTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_macOS.framework; path = "Pods-MetaWearIntegrationTests-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F3B6F1F2785A72D4BC3D9169099A61 /* MetaWear+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Async.swift"; path = "MetaWear/AsyncUtils/MetaWear+Async.swift"; sourceTree = "<group>"; };
 		3A180304775B85648F47121CA96B1EB4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1C6B2E346D4D6BE37D9665C5A560A5 /* Pods-MetaWearIntegrationTests-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWearIntegrationTests-iOS-umbrella.h"; sourceTree = "<group>"; };
 		3C2B49ED7F1FFA0D76778ADC2A3FD917 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D800605874384681EB4E6EBB3A9B165 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-resources.sh"; sourceTree = "<group>"; };
 		3D8408087170F0518772556A0BCEC09A /* Pods-MetaWearIntegrationTests-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWearIntegrationTests-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3D9A6442F56D87454A19291CB90FDB69 /* metawearscanner.doctree */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = metawearscanner.doctree; path = Docs/build/doctrees/metawearscanner.doctree; sourceTree = "<group>"; };
-		3E31AE8AB9422F6A1894B8B87023F57E /* async_creator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = async_creator.cpp; sourceTree = "<group>"; };
+		3D9A6442F56D87454A19291CB90FDB69 /* metawearscanner.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.doctree; path = Docs/build/doctrees/metawearscanner.doctree; sourceTree = "<group>"; };
+		3E31AE8AB9422F6A1894B8B87023F57E /* async_creator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = async_creator.cpp; sourceTree = "<group>"; };
 		3E38D128DAC4636BC0CC175F0881F8A6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		404A805E929CA6F65DD9A4636A98638A /* lato-bolditalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bolditalic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.ttf"; sourceTree = "<group>"; };
+		404A805E929CA6F65DD9A4636A98638A /* lato-bolditalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.ttf"; sourceTree = "<group>"; };
 		429E6E3CF69870B5E4953FA8F6091C74 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		42F9D17A5FE570DEEA06700102689958 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		436FDBC3E5D46266015EEE80C9B342B5 /* DFUFirmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUFirmware.swift; path = iOSDFULibrary/Classes/Implementation/Firmware/DFUFirmware.swift; sourceTree = "<group>"; };
-		443C54DA880C73EC1D0D01D4B3C14778 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44836C79E50AA283AACB554EC0795FF6 /* Makefile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.make; name = Makefile; path = Docs/Makefile; sourceTree = "<group>"; };
+		443C54DA880C73EC1D0D01D4B3C14778 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDFULibrary.framework; path = "iOSDFULibrary-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44836C79E50AA283AACB554EC0795FF6 /* Makefile */ = {isa = PBXFileReference; includeInIndex = 1; name = Makefile; path = Docs/Makefile; sourceTree = "<group>"; };
 		44CC36F00A95D8677918053BA74309DA /* MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-dummy.m"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-dummy.m"; sourceTree = "<group>"; };
 		44D4FCFC60A79AC7BEF826AEAA886ABE /* Pods-MetaWearIntegrationTests-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		451E8B587720F2BEF3BE88868AA9CEB4 /* Executor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Sources/BoltsSwift/Executor.swift; sourceTree = "<group>"; };
 		45E35F25EFF05C3924C3CF2956D9FB24 /* iOSDFULibrary-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "iOSDFULibrary-macOS-prefix.pch"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS-prefix.pch"; sourceTree = "<group>"; };
 		46130C8032B9CA0CB63B05132257CCBC /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-umbrella.h"; sourceTree = "<group>"; };
-		46AD87C74C52E07220D89010EFFC0EA3 /* theme.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = theme.js; path = Docs/build/html/_static/js/theme.js; sourceTree = "<group>"; };
-		4729987E0DC9656903724274B278C03F /* modernizr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = modernizr.min.js; path = Docs/build/html/_static/js/modernizr.min.js; sourceTree = "<group>"; };
-		4835DC0F6B6641FE7EAB83FBE589D66B /* search.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = search.html; path = Docs/build/html/search.html; sourceTree = "<group>"; };
-		49CB1C2CDB72855ED5531743F4AEEAD6 /* roboto-slab-v7-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-bold.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff"; sourceTree = "<group>"; };
+		46AD87C74C52E07220D89010EFFC0EA3 /* theme.js */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.js; path = Docs/build/html/_static/js/theme.js; sourceTree = "<group>"; };
+		4729987E0DC9656903724274B278C03F /* modernizr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = modernizr.min.js; path = Docs/build/html/_static/js/modernizr.min.js; sourceTree = "<group>"; };
+		4835DC0F6B6641FE7EAB83FBE589D66B /* search.html */ = {isa = PBXFileReference; includeInIndex = 1; name = search.html; path = Docs/build/html/search.html; sourceTree = "<group>"; };
+		49CB1C2CDB72855ED5531743F4AEEAD6 /* roboto-slab-v7-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff"; sourceTree = "<group>"; };
 		4AB0C476B4DF7448961AA16E2943837B /* DFUStreamHex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamHex.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamHex.swift; sourceTree = "<group>"; };
 		4C877840A3F8F69B16D4815B289EE4B4 /* IntelHex2BinConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IntelHex2BinConverter.h; path = iOSDFULibrary/Classes/Utilities/HexToBinConverter/IntelHex2BinConverter.h; sourceTree = "<group>"; };
 		4CE0A304A77CE43DEE4A79DE5CD8D9A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -845,26 +845,26 @@
 		4F30EDFE01E5E1B640B4A32654D0F155 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		505657139C15274AA9DFFA6B200D42D7 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		50C10FB5C18BC3D9B6CBB7AEC5F0B6CF /* DFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUControlPoint.swift; sourceTree = "<group>"; };
-		50D0E17C7CF3350183E2702A67A8680C /* led.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = led.cpp; sourceTree = "<group>"; };
-		511C1D9E38920CA5E5DB987849E7A450 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		516A8CF423B74655F19A81AFAA5EC483 /* threadpool.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = threadpool.cpp; sourceTree = "<group>"; };
+		50D0E17C7CF3350183E2702A67A8680C /* led.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = led.cpp; sourceTree = "<group>"; };
+		511C1D9E38920CA5E5DB987849E7A450 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		516A8CF423B74655F19A81AFAA5EC483 /* threadpool.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = threadpool.cpp; sourceTree = "<group>"; };
 		51A16496FE7111EA2A48413961D8E2E7 /* Pods-MetaWearIntegrationTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWearIntegrationTests-iOS.modulemap"; sourceTree = "<group>"; };
 		5230AFF1B2BF05C75F44FC01170327B8 /* comment-bright.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "comment-bright.png"; path = "Docs/build/html/_static/comment-bright.png"; sourceTree = "<group>"; };
 		52F3102B9F60A6B496E11FFDAF7518F0 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.xcconfig"; sourceTree = "<group>"; };
 		5394449ACFB624056F0385758C7EA263 /* DFUStreamZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamZip.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamZip.swift; sourceTree = "<group>"; };
-		54B4E1EDC552F6626C16A0A624EC26D3 /* lato-italic.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-italic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.eot"; sourceTree = "<group>"; };
-		553440E277EBCC5015DD042D65A84B35 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		54B4E1EDC552F6626C16A0A624EC26D3 /* lato-italic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.eot"; sourceTree = "<group>"; };
+		553440E277EBCC5015DD042D65A84B35 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.ttf"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		55ADF8DB6E71D4CA117584B3A7FC1A3E /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh"; sourceTree = "<group>"; };
 		5893054E3E03DDB7A38EF2A4AAB372FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/Info.plist"; sourceTree = "<group>"; };
 		5997402F4329D853E7BCB603CE25BA3F /* LoggerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerDelegate.swift; path = iOSDFULibrary/Classes/Utilities/Logging/LoggerDelegate.swift; sourceTree = "<group>"; };
 		5A10B2EA553069C796888CFC9DF799A8 /* QuickZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickZip.swift; path = Zip/QuickZip.swift; sourceTree = "<group>"; };
 		5A501F99C53E65214336B57BF8C15FCF /* SoftdeviceBootloaderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoftdeviceBootloaderInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/SoftdeviceBootloaderInfo.swift; sourceTree = "<group>"; };
-		5AD811A4586759413A8DAEC98608023B /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = memory.cpp; sourceTree = "<group>"; };
+		5AD811A4586759413A8DAEC98608023B /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = memory.cpp; sourceTree = "<group>"; };
 		5B3CC78DF058537FAA7642F32DF5E0BB /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap"; sourceTree = "<group>"; };
-		5B690F31D388907470C0DF4AC4D42F3D /* dfu_operations_details.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = dfu_operations_details.cpp; sourceTree = "<group>"; };
+		5B690F31D388907470C0DF4AC4D42F3D /* dfu_operations_details.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_operations_details.cpp; sourceTree = "<group>"; };
 		5BAE0ABA0A6F538E868254D9F101BE09 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Zip-macOS/Info.plist"; sourceTree = "<group>"; };
 		5CA8D32B9C323FA419ED9B0FE21A7481 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-dummy.m"; sourceTree = "<group>"; };
-		5D24D66BAC631EB0BF7E198B34CBE293 /* dfu_utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = dfu_utility.cpp; sourceTree = "<group>"; };
+		5D24D66BAC631EB0BF7E198B34CBE293 /* dfu_utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_utility.cpp; sourceTree = "<group>"; };
 		5D309696A6B188576EA54A5834846886 /* Pods-MetaWearIntegrationTests-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWearIntegrationTests-iOS-dummy.m"; sourceTree = "<group>"; };
 		5D659A54AFE195D24B85CFC70F8F6734 /* SecureDFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/DFU/SecureDFUServiceInitiator.swift; sourceTree = "<group>"; };
 		5D9D78A668A89C64803144239FD3E9BF /* DFUController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUController.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUController.swift; sourceTree = "<group>"; };
@@ -872,165 +872,165 @@
 		5EFC15AB3BD8B826657CD5776901780E /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Sources/BoltsSwift/Task.swift; sourceTree = "<group>"; };
 		5FD0B5F6ECFD1993591E14D93B8A4C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6007B14F565FF154037111E7604F2A18 /* zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Zip/minizip/zip.h; sourceTree = "<group>"; };
-		602ECA01F886E0D0C61643442E991DB3 /* theme.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = theme.css; path = Docs/build/html/_static/css/theme.css; sourceTree = "<group>"; };
+		602ECA01F886E0D0C61643442E991DB3 /* theme.css */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.css; path = Docs/build/html/_static/css/theme.css; sourceTree = "<group>"; };
 		603648A986F2C0D161D29BE851D57C52 /* MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-umbrella.h"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-umbrella.h"; sourceTree = "<group>"; };
 		6243DB8D1C6BB8A7A34E169274510593 /* MetaWearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWearData.swift; sourceTree = "<group>"; };
-		626855AF75D8AF56BE7F64B4C6CAE3EA /* conductance.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = conductance.cpp; sourceTree = "<group>"; };
+		626855AF75D8AF56BE7F64B4C6CAE3EA /* conductance.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = conductance.cpp; sourceTree = "<group>"; };
 		627516D8B2000EDBB9363EA11AF4A0A4 /* Pods-MetaWearIntegrationTests-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWearIntegrationTests-macOS.modulemap"; sourceTree = "<group>"; };
 		63BD66F0058B68A8F0A048B9B93F17D7 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-dummy.m"; sourceTree = "<group>"; };
 		646C3E00A59C92FD42A78D18DCA253B6 /* Pods-MetaWearIntegrationTests-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-iOS-frameworks.sh"; sourceTree = "<group>"; };
-		6496C76D3CB385286E0116CF2A19FD9F /* dfu_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = dfu_operations.cpp; sourceTree = "<group>"; };
-		6588E1C459CAF7DCD6EC0EF1A39275E9 /* documentation_options.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = documentation_options.js; path = Docs/build/html/_static/documentation_options.js; sourceTree = "<group>"; };
+		6496C76D3CB385286E0116CF2A19FD9F /* dfu_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_operations.cpp; sourceTree = "<group>"; };
+		6588E1C459CAF7DCD6EC0EF1A39275E9 /* documentation_options.js */ = {isa = PBXFileReference; includeInIndex = 1; name = documentation_options.js; path = Docs/build/html/_static/documentation_options.js; sourceTree = "<group>"; };
 		66E14CE143A947E19091B8A03F233B29 /* Bolts-Swift-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-Swift-iOS-dummy.m"; sourceTree = "<group>"; };
 		6743A877F9EFD5B3B72015810B075E8D /* Zip-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Zip-macOS.modulemap"; path = "../Zip-macOS/Zip-macOS.modulemap"; sourceTree = "<group>"; };
 		67A004C058CA6A4E4E5785CE990A602E /* LegacyDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheral.swift; sourceTree = "<group>"; };
-		67D0271632A94C44D019CC2C420C386C /* metawearboard.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = metawearboard.html; path = Docs/build/html/metawearboard.html; sourceTree = "<group>"; };
+		67D0271632A94C44D019CC2C420C386C /* metawearboard.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.html; path = Docs/build/html/metawearboard.html; sourceTree = "<group>"; };
 		67D3CE7C33CF5DDCCFFACDB7E73DF3EF /* DFUStreamBin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamBin.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamBin.swift; sourceTree = "<group>"; };
-		68F4AD5813BDD548863C60DE203A1C66 /* underscore.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = underscore.js; path = Docs/build/html/_static/underscore.js; sourceTree = "<group>"; };
-		694575263562C38CE14282D32E703E41 /* conf.py */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.python; name = conf.py; path = Docs/source/conf.py; sourceTree = "<group>"; };
+		68F4AD5813BDD548863C60DE203A1C66 /* underscore.js */ = {isa = PBXFileReference; includeInIndex = 1; name = underscore.js; path = Docs/build/html/_static/underscore.js; sourceTree = "<group>"; };
+		694575263562C38CE14282D32E703E41 /* conf.py */ = {isa = PBXFileReference; includeInIndex = 1; name = conf.py; path = Docs/source/conf.py; sourceTree = "<group>"; };
 		6983CD1C0A1B54CA11B21A351889624C /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6A02AB9600FA0F9C2D129FC04C833C21 /* minus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = minus.png; path = Docs/build/html/_static/minus.png; sourceTree = "<group>"; };
 		6A35F74FF4AEE208ACF93E2AB44431B5 /* MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.xcconfig"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.xcconfig"; sourceTree = "<group>"; };
-		6AB0A39E00564EBD3D60C491717D62B3 /* dataprocessor.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = dataprocessor.cpp; sourceTree = "<group>"; };
+		6AB0A39E00564EBD3D60C491717D62B3 /* dataprocessor.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dataprocessor.cpp; sourceTree = "<group>"; };
 		6AC08B6615CCD65CDB2AF05218F5A044 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		6AD3C77FD886DEC9D5C811CA4B8A73B2 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh"; sourceTree = "<group>"; };
-		6B0B104C7303672C8DA7CD82FFAC23B7 /* lato-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bold.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff"; sourceTree = "<group>"; };
-		6B3D6DE7D848454BE228874F4BA640FB /* metawearscanner.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = metawearscanner.html; path = Docs/build/html/metawearscanner.html; sourceTree = "<group>"; };
-		6B438AFAC42E3EF2136BCBC1D652DBE2 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B0B104C7303672C8DA7CD82FFAC23B7 /* lato-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff"; sourceTree = "<group>"; };
+		6B3D6DE7D848454BE228874F4BA640FB /* metawearscanner.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.html; path = Docs/build/html/metawearscanner.html; sourceTree = "<group>"; };
+		6B438AFAC42E3EF2136BCBC1D652DBE2 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zip.framework; path = "Zip-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7E1599FB05F27AE17850BDDC7A9426 /* SecureDFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Peripheral/SecureDFUPeripheralDelegate.swift; sourceTree = "<group>"; };
-		6C8614A20E2EEF08A944B6D509063FE6 /* fontawesome-webfont.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "fontawesome-webfont.woff2"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff2"; sourceTree = "<group>"; };
+		6C8614A20E2EEF08A944B6D509063FE6 /* fontawesome-webfont.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff2"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff2"; sourceTree = "<group>"; };
 		6CA866C02F89D931A4C1A0F21386A1C1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA8FB8C0FBF0E19A1ECEE2B571FEE38 /* Zip-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Zip-macOS-prefix.pch"; path = "../Zip-macOS/Zip-macOS-prefix.pch"; sourceTree = "<group>"; };
 		6CB4B0FE993F664045BAA9B5D5C572B7 /* SecureDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/DFU/SecureDFUExecutor.swift; sourceTree = "<group>"; };
 		6CD21509EC01C5B8E755BA079CDED9CC /* Pods-MetaWearIntegrationTests-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		6DBE3E77D7E156330FD7558A2651C6FF /* DFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUPacket.swift; sourceTree = "<group>"; };
-		6E1DB806A25636C38EF5255AFE899F68 /* lato-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-regular.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.ttf"; sourceTree = "<group>"; };
+		6E1DB806A25636C38EF5255AFE899F68 /* lato-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.ttf"; sourceTree = "<group>"; };
 		6EF04B1F4004A55B398C7B6DAD581543 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707D5C5A850374E84093B35D5F050ECC /* DFUVersion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUVersion.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUVersion.swift; sourceTree = "<group>"; };
 		70AC435F59E13F0125F0E789D041C1C3 /* Bolts-Swift-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-iOS-umbrella.h"; sourceTree = "<group>"; };
 		71117082E521D3A1C9EFB55F40E6262B /* up.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = up.png; path = Docs/build/html/_static/up.png; sourceTree = "<group>"; };
-		7280F9E542C5E5D8A2D4B61C4EFC15BA /* debug.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
+		7280F9E542C5E5D8A2D4B61C4EFC15BA /* debug.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = debug.cpp; sourceTree = "<group>"; };
 		74299291E704C4E70B5B938FE71CCD5C /* Zip-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Zip-macOS-umbrella.h"; path = "../Zip-macOS/Zip-macOS-umbrella.h"; sourceTree = "<group>"; };
-		747DA1E1A62C31495BA8447C501ABA96 /* lato-italic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-italic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff2"; sourceTree = "<group>"; };
+		747DA1E1A62C31495BA8447C501ABA96 /* lato-italic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff2"; sourceTree = "<group>"; };
 		74D9269B999725605C8C052B052FA6D0 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7504C2BE76C5AE3E05543C814BD6B9EC /* searchindex.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = searchindex.js; path = Docs/build/html/searchindex.js; sourceTree = "<group>"; };
+		7504C2BE76C5AE3E05543C814BD6B9EC /* searchindex.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchindex.js; path = Docs/build/html/searchindex.js; sourceTree = "<group>"; };
 		750B1F2C0E004206E66A28955A554D06 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		762C34D2C8717E0CD10CBFB8FB056A1B /* Zip-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zip-iOS-prefix.pch"; sourceTree = "<group>"; };
-		76BCF07F6160BFF5BB503EC4311B3B88 /* gpio.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = gpio.cpp; sourceTree = "<group>"; };
-		7701EF85F9A319189A3C8205A9224AAB /* badge_only.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = badge_only.css; path = Docs/build/html/_static/css/badge_only.css; sourceTree = "<group>"; };
-		774BD6F4FA44C7B57995443A1DAA5B53 /* basic.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = basic.css; path = Docs/build/html/_static/basic.css; sourceTree = "<group>"; };
+		76BCF07F6160BFF5BB503EC4311B3B88 /* gpio.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = gpio.cpp; sourceTree = "<group>"; };
+		7701EF85F9A319189A3C8205A9224AAB /* badge_only.css */ = {isa = PBXFileReference; includeInIndex = 1; name = badge_only.css; path = Docs/build/html/_static/css/badge_only.css; sourceTree = "<group>"; };
+		774BD6F4FA44C7B57995443A1DAA5B53 /* basic.css */ = {isa = PBXFileReference; includeInIndex = 1; name = basic.css; path = Docs/build/html/_static/basic.css; sourceTree = "<group>"; };
 		77BD5E4E466C25D780F8005383032CF0 /* DFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceInitiator.swift; sourceTree = "<group>"; };
 		77C1DCEAA748BFEF258FEB8998977233 /* iOSDFULibrary-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "iOSDFULibrary-iOS.modulemap"; sourceTree = "<group>"; };
-		77EFCADF888F21B6446CA22F8BCD6AF2 /* lato-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-regular.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff2"; sourceTree = "<group>"; };
+		77EFCADF888F21B6446CA22F8BCD6AF2 /* lato-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff2"; sourceTree = "<group>"; };
 		78169E520778F3CCC6BA3B12B3192ACC /* DFUPeripheralSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelector.swift; sourceTree = "<group>"; };
 		786446C74989E6CED51E92F695586294 /* ScannerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScannerModel.swift; path = MetaWear/UI/ScannerModel.swift; sourceTree = "<group>"; };
 		79554846837812E127D72A9CB268E4CF /* Bolts-Swift-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-Swift-macOS.xcconfig"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS.xcconfig"; sourceTree = "<group>"; };
-		79EF1599DE9B46A2007EEDE0A1177CC0 /* lato-bolditalic.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bolditalic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff"; sourceTree = "<group>"; };
+		79EF1599DE9B46A2007EEDE0A1177CC0 /* lato-bolditalic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff"; sourceTree = "<group>"; };
 		7AE8DB2F292765287146EADD628AC926 /* MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-prefix.pch"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-prefix.pch"; sourceTree = "<group>"; };
 		7B00126BBCE5E505A3C2E8E01524E2F6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BBEADCADB6F366F6932BB5F4999C7EB /* iOSDFULibrary-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDFULibrary-iOS-dummy.m"; sourceTree = "<group>"; };
-		7CA54C013D914D49158E83BA08D45DA5 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D6B4151367C294F62D549604376FB2B /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = index.html; path = Docs/build/html/index.html; sourceTree = "<group>"; };
+		7CA54C013D914D49158E83BA08D45DA5 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6B4151367C294F62D549604376FB2B /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = Docs/build/html/index.html; sourceTree = "<group>"; };
 		7E579E8B7DB1C5EDD5CC577905100FEA /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.modulemap"; sourceTree = "<group>"; };
 		7E80E1C8291F15526FE0AA13C571F17A /* Bolts-Swift-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Bolts-Swift-macOS.modulemap"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS.modulemap"; sourceTree = "<group>"; };
 		7F7AA5F71BFC827BA5034DA9298C9715 /* MetaWearScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWearScanner.swift; sourceTree = "<group>"; };
 		802BE0A9C05F9821C765A83D502FF677 /* Pods-MetaWearIntegrationTests-macOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-macOS-frameworks.sh"; sourceTree = "<group>"; };
-		806F1063CB760A6F372E22F4F02ECEED /* logging.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = logging.cpp; sourceTree = "<group>"; };
-		81090B28F64D0A3100DAF1E4DBEBDA41 /* lato-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bold.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff2"; sourceTree = "<group>"; };
+		806F1063CB760A6F372E22F4F02ECEED /* logging.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = logging.cpp; sourceTree = "<group>"; };
+		81090B28F64D0A3100DAF1E4DBEBDA41 /* lato-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff2"; sourceTree = "<group>"; };
 		81181FE2E6CE49A9C329469C5C5DC6F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81546B48ED29178160B847633CA7BD47 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		836E828B9AD41B430DA1B6A9641C4961 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		8380A1EF78B30ECA6F9BB67B1FC6B8DD /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		84FA3557295165787949D6D36AC9699A /* SecureDFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUPacket.swift; sourceTree = "<group>"; };
 		8516DD2961388290CB334C5064ACED08 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		853233AC351B6F4B134FADCC71DAB99F /* metawearboard.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = metawearboard.rst.txt; path = Docs/build/html/_sources/metawearboard.rst.txt; sourceTree = "<group>"; };
+		853233AC351B6F4B134FADCC71DAB99F /* metawearboard.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst.txt; path = Docs/build/html/_sources/metawearboard.rst.txt; sourceTree = "<group>"; };
 		857A49B325CE1FC467136648CDD25462 /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		872DC736B9BC7971029F0575FB5ADDCE /* Bolts-Swift-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-macOS-prefix.pch"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-prefix.pch"; sourceTree = "<group>"; };
-		877A85E3E0BF54E52BF701108B14C637 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Zip/minizip/ioapi.c; sourceTree = "<group>"; };
+		877A85E3E0BF54E52BF701108B14C637 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi.c; path = Zip/minizip/ioapi.c; sourceTree = "<group>"; };
 		88A851CD3BC5965A003619E9FCE7C8F7 /* Bolts-Swift-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-Swift-watchOS-dummy.m"; path = "../Bolts-Swift-watchOS/Bolts-Swift-watchOS-dummy.m"; sourceTree = "<group>"; };
 		88DEA0BED980E224B35BACC8CDC6A84A /* LegacyDFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUService.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Services/LegacyDFUService.swift; sourceTree = "<group>"; };
 		89A8070752394806C2ECAED7E9258000 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AA0A39B33756B03E54F268AEC40C08D /* jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.js; path = Docs/build/html/_static/jquery.js; sourceTree = "<group>"; };
-		8B5AC6ED3AD97116AECA156464090FD4 /* lato-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bold.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.ttf"; sourceTree = "<group>"; };
+		8AA0A39B33756B03E54F268AEC40C08D /* jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.js; path = Docs/build/html/_static/jquery.js; sourceTree = "<group>"; };
+		8B5AC6ED3AD97116AECA156464090FD4 /* lato-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.ttf"; sourceTree = "<group>"; };
 		8B75BB7F4B860A1FD268AAA86C08F840 /* Zip-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Zip-macOS-dummy.m"; path = "../Zip-macOS/Zip-macOS-dummy.m"; sourceTree = "<group>"; };
 		8C2EC55135D596343E0DB64B3D2C31D2 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-umbrella.h"; sourceTree = "<group>"; };
 		8C38F547A22314E49CC7A1B3E92733C5 /* comment.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = comment.png; path = Docs/build/html/_static/comment.png; sourceTree = "<group>"; };
 		8C5C6DFB62084D2404EBF1C9A10B7C9D /* DFUServiceSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUSelector/DFUServiceSelector.swift; sourceTree = "<group>"; };
-		8C7C2B3F65A10AF83D1D04595227DF0E /* barometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = barometer_bosch.cpp; sourceTree = "<group>"; };
+		8C7C2B3F65A10AF83D1D04595227DF0E /* barometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = barometer_bosch.cpp; sourceTree = "<group>"; };
 		8D9F6E07B310AD2A19E55F6D09AB5096 /* DFUStarterPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStarterPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/DFUSelector/DFUStarterPeripheral.swift; sourceTree = "<group>"; };
-		8DD6EBC173C06D00C2161DC46414DEFA /* pygments.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = pygments.css; path = Docs/build/html/_static/pygments.css; sourceTree = "<group>"; };
-		8E35453CC1A5CB0A091B06AF0EF934C4 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD6EBC173C06D00C2161DC46414DEFA /* pygments.css */ = {isa = PBXFileReference; includeInIndex = 1; name = pygments.css; path = Docs/build/html/_static/pygments.css; sourceTree = "<group>"; };
+		8E35453CC1A5CB0A091B06AF0EF934C4 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-AsyncUtils-Core-Mocks-UI-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5D6C0A824BEF113A18841DC9304271 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-umbrella.h"; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-umbrella.h"; sourceTree = "<group>"; };
 		8E8FA59A59519F6DB0472AB4DA158B04 /* LegacyDFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheralDelegate.swift; sourceTree = "<group>"; };
-		8EC2E885ECCF1BE43735CE1E8DF07188 /* underscore-1.3.1.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = "underscore-1.3.1.js"; path = "Docs/build/html/_static/underscore-1.3.1.js"; sourceTree = "<group>"; };
+		8EC2E885ECCF1BE43735CE1E8DF07188 /* underscore-1.3.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "underscore-1.3.1.js"; path = "Docs/build/html/_static/underscore-1.3.1.js"; sourceTree = "<group>"; };
 		8F92E58A3F6AB05594E04E312A87C225 /* IntelHex2BinConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IntelHex2BinConverter.m; path = iOSDFULibrary/Classes/Utilities/HexToBinConverter/IntelHex2BinConverter.m; sourceTree = "<group>"; };
-		8FA49D0876574B62061E5EEC3E3490CE /* metawearboard.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = metawearboard.cpp; sourceTree = "<group>"; };
+		8FA49D0876574B62061E5EEC3E3490CE /* metawearboard.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = metawearboard.cpp; sourceTree = "<group>"; };
 		8FB95CF28FEFDF373A66C344F5C15874 /* crc32.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = crc32.swift; path = iOSDFULibrary/Classes/Utilities/crc32.swift; sourceTree = "<group>"; };
-		90D89F6D8187E5431999E9A2FEC08D77 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		910AEB8518C7EB3DEE1650933DC0FB99 /* project_setup.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = project_setup.html; path = Docs/build/html/project_setup.html; sourceTree = "<group>"; };
+		90D89F6D8187E5431999E9A2FEC08D77 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		910AEB8518C7EB3DEE1650933DC0FB99 /* project_setup.html */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.html; path = Docs/build/html/project_setup.html; sourceTree = "<group>"; };
 		9160164C2E7AE75FC2BE3F71A71CFB65 /* Bolts-Swift-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-Swift-tvOS-dummy.m"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-dummy.m"; sourceTree = "<group>"; };
 		91B5F3A78CA0EF18C4C671C01D1D8DD5 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		92A8288C71F90961F65F4365A191DAEC /* Zip-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Zip-iOS.modulemap"; sourceTree = "<group>"; };
 		92D99E333EB4C58D0F8D5F9869B15FBD /* Pods-MetaWearIntegrationTests-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWearIntegrationTests-tvOS.modulemap"; sourceTree = "<group>"; };
 		9334FCD6A7AACF6835FD3F779309FA4D /* DFUStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStream.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStream.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93F85566374291B2AB0DF31FFA5B1CC4 /* accelerometer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = accelerometer.cpp; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93F85566374291B2AB0DF31FFA5B1CC4 /* accelerometer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = accelerometer.cpp; sourceTree = "<group>"; };
 		93F964DDAC8BD026D683BF54FD168B21 /* Double.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Double.swift; path = iOSDFULibrary/Classes/Utilities/Double.swift; sourceTree = "<group>"; };
 		9459F36E351F7D12D8B731211B9BD030 /* Bolts-Swift-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-tvOS-prefix.pch"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-prefix.pch"; sourceTree = "<group>"; };
 		94D6646C95EC7CE601758BE1A79E9ED6 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		953F868403F7599FBC730DE758E31175 /* Pods-MetaWearIntegrationTests-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWearIntegrationTests-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		957DC977FA7499B0E2E1A5111013F4EF /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-umbrella.h"; sourceTree = "<group>"; };
-		9663FB897F417FB58F95719E5F258022 /* metawearscanner.rst */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = metawearscanner.rst; path = Docs/source/metawearscanner.rst; sourceTree = "<group>"; };
+		9663FB897F417FB58F95719E5F258022 /* metawearscanner.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst; path = Docs/source/metawearscanner.rst; sourceTree = "<group>"; };
 		97FE0428CAC266D6962FC0DDA09AE0C1 /* iOSDFULibrary-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "iOSDFULibrary-macOS.xcconfig"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.xcconfig"; sourceTree = "<group>"; };
 		98082EB0CC809774AA3578B0002E8DFA /* down.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = down.png; path = Docs/build/html/_static/down.png; sourceTree = "<group>"; };
 		98223004311140FBA7A227673D4F0603 /* comment-close.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "comment-close.png"; path = "Docs/build/html/_static/comment-close.png"; sourceTree = "<group>"; };
 		9A0EA4898D2E15CFDE928E63212D4DC5 /* Zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Zip.h; path = Zip/Zip.h; sourceTree = "<group>"; };
-		9A143C6DF5DADCB355D95C3F978230BA /* lato-bolditalic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bolditalic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff2"; sourceTree = "<group>"; };
+		9A143C6DF5DADCB355D95C3F978230BA /* lato-bolditalic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff2"; sourceTree = "<group>"; };
 		9A25E726BBBDC42DAD5305F6AC627028 /* Pods-MetaWearIntegrationTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		9C9A78642CFA14F3FC36A2E3B1DC5636 /* project_setup.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = project_setup.rst.txt; path = Docs/build/html/_sources/project_setup.rst.txt; sourceTree = "<group>"; };
+		9C9A78642CFA14F3FC36A2E3B1DC5636 /* project_setup.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst.txt; path = Docs/build/html/_sources/project_setup.rst.txt; sourceTree = "<group>"; };
 		9CBEE9FD10C3C705BA435294BA515D44 /* Bridging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bridging.swift; sourceTree = "<group>"; };
 		9D0C1E5AE44373A7C68A93E4C03419CE /* FirmwareBuild.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirmwareBuild.swift; path = MetaWear/DFU/FirmwareBuild.swift; sourceTree = "<group>"; };
 		9D4E5BB449C5462A48E3E2BF7C911B70 /* ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Zip/minizip/ioapi.h; sourceTree = "<group>"; };
 		9D6FEC3C86DBBC69C0D23FF4C84222E2 /* DFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUExecutor.swift; sourceTree = "<group>"; };
-		9DBC1B21AB6C52D818C496CBA50E30DD /* MetaWear.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = MetaWear.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DBC1B21AB6C52D818C496CBA50E30DD /* MetaWear.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MetaWear.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EB8744344934AE9EE2BF17D3C397A42 /* SecureDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Peripheral/SecureDFUPeripheral.swift; sourceTree = "<group>"; };
 		9EF747CE4C8BDB360891F16F7BBDAB15 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-umbrella.h"; sourceTree = "<group>"; };
 		9F0ECCF212202FA663DF384098BAF2B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00BE0BA37A0D4A41C17CC345EEF03A6 /* Bolts-Swift-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Bolts-Swift-tvOS.modulemap"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS.modulemap"; sourceTree = "<group>"; };
-		A05BCC45A22D31E6F559550A69FC0351 /* lato-italic.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-italic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff"; sourceTree = "<group>"; };
-		A0DFA964A99BB41092D728AFCB3223F2 /* doctools.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = doctools.js; path = Docs/build/html/_static/doctools.js; sourceTree = "<group>"; };
-		A1588ED111C365EC97DF2515BED4E04D /* lato-bolditalic.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-bolditalic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.eot"; sourceTree = "<group>"; };
+		A05BCC45A22D31E6F559550A69FC0351 /* lato-italic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff"; sourceTree = "<group>"; };
+		A0DFA964A99BB41092D728AFCB3223F2 /* doctools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = doctools.js; path = Docs/build/html/_static/doctools.js; sourceTree = "<group>"; };
+		A1588ED111C365EC97DF2515BED4E04D /* lato-bolditalic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.eot"; sourceTree = "<group>"; };
 		A30B865D115DD7F25E61ABE2A186A488 /* LegacyDFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/DFU/LegacyDFUServiceInitiator.swift; sourceTree = "<group>"; };
-		A345DC2E9707F790B1CA55C28167315A /* humidity_bme280.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = humidity_bme280.cpp; sourceTree = "<group>"; };
+		A345DC2E9707F790B1CA55C28167315A /* humidity_bme280.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = humidity_bme280.cpp; sourceTree = "<group>"; };
 		A46E1C33627BDC39246857999FD2B958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A4F4B99CBD5412BA7246EF3FE177CB7D /* fontawesome-webfont.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "fontawesome-webfont.eot"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.eot"; sourceTree = "<group>"; };
-		A585E596219CD9D6DE112CD3C9E0F769 /* roboto-slab-v7-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-regular.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.eot"; sourceTree = "<group>"; };
+		A4F4B99CBD5412BA7246EF3FE177CB7D /* fontawesome-webfont.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.eot"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.eot"; sourceTree = "<group>"; };
+		A585E596219CD9D6DE112CD3C9E0F769 /* roboto-slab-v7-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.eot"; sourceTree = "<group>"; };
 		A63072581BA7AB4DA69E0FC13BE06A57 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.modulemap"; sourceTree = "<group>"; };
 		A7CFC9099267EC880772C85661A5D2BE /* Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A9922467199938CE801890DE50A6EFCE /* Pods-MetaWearIntegrationTests-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-iOS-resources.sh"; sourceTree = "<group>"; };
 		A998F741C49436258E4C2CD075962ED4 /* MblMwEvent+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwEvent+Async.swift"; path = "MetaWear/AsyncUtils/MblMwEvent+Async.swift"; sourceTree = "<group>"; };
 		AA27B5203BE6194F6754E1CE038CB1D0 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh"; sourceTree = "<group>"; };
-		AA48C20A7BBF99D5DF0E7A9FDD2A70D9 /* index.rst */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = index.rst; path = Docs/source/index.rst; sourceTree = "<group>"; };
+		AA48C20A7BBF99D5DF0E7A9FDD2A70D9 /* index.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst; path = Docs/source/index.rst; sourceTree = "<group>"; };
 		AB5B53A4722BDF4D1131054C4224B010 /* MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-dummy.m"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS-dummy.m"; sourceTree = "<group>"; };
 		AC67A70A32D5AFE893EB3592A7770578 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-resources.sh"; sourceTree = "<group>"; };
 		AC90E12FC17B34BEAA6762F40B8C3794 /* MblMwDataSignal+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwDataSignal+Async.swift"; path = "MetaWear/AsyncUtils/MblMwDataSignal+Async.swift"; sourceTree = "<group>"; };
-		ACA663AA234D785E0A33BE35A2258571 /* miniz.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = miniz.cpp; sourceTree = "<group>"; };
+		ACA663AA234D785E0A33BE35A2258571 /* miniz.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = miniz.cpp; sourceTree = "<group>"; };
 		ADC3D7C3F0700C7CC728E7133E62C2AE /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-resources.sh"; sourceTree = "<group>"; };
 		AF0D496C0D429A207DAE3A6FDE554FCF /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B1B464521511CE4BCCAA4BA0FC016F0C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/Info.plist"; sourceTree = "<group>"; };
 		B1CB522E3045AE739780B54C942B5BCE /* CBUUID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBUUID.swift; sourceTree = "<group>"; };
-		B1F9C1A9CFBACD7BA8F9ED26F02CA451 /* accelerometer_mma8452q.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = accelerometer_mma8452q.cpp; sourceTree = "<group>"; };
+		B1F9C1A9CFBACD7BA8F9ED26F02CA451 /* accelerometer_mma8452q.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = accelerometer_mma8452q.cpp; sourceTree = "<group>"; };
 		B20C4C0A9AA1649BA3AEC5D46DCEBD2F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B30A8904C199C5E7BCDB0709DF06AE8D /* DFUServiceDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceDelegate.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceDelegate.swift; sourceTree = "<group>"; };
 		B35B48A3C2CA07A097D36491B6477526 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-umbrella.h"; sourceTree = "<group>"; };
 		B40CF6B087FAD8F23589C6B130F26A2B /* iOSDFULibrary-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDFULibrary-iOS-umbrella.h"; sourceTree = "<group>"; };
-		B5A33575EF11DC912260CE0A04DC9F9C /* fontawesome-webfont.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "fontawesome-webfont.woff"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff"; sourceTree = "<group>"; };
+		B5A33575EF11DC912260CE0A04DC9F9C /* fontawesome-webfont.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff"; sourceTree = "<group>"; };
 		B5EEE30CA311A653E0730CFD5A60BD45 /* Bolts-Swift-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-watchOS-umbrella.h"; path = "../Bolts-Swift-watchOS/Bolts-Swift-watchOS-umbrella.h"; sourceTree = "<group>"; };
 		B70E25EA2DB1CFC2D6487AB5F682F08F /* SecureDFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUControlPoint.swift; sourceTree = "<group>"; };
-		B732291A51157EF8E48435A6E1F29200 /* colordetector_tcs34725.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = colordetector_tcs34725.cpp; sourceTree = "<group>"; };
-		B736CF6547EB2ECEDC0F53C90C1F78AC /* proximity_tsl2671.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = proximity_tsl2671.cpp; sourceTree = "<group>"; };
+		B732291A51157EF8E48435A6E1F29200 /* colordetector_tcs34725.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = colordetector_tcs34725.cpp; sourceTree = "<group>"; };
+		B736CF6547EB2ECEDC0F53C90C1F78AC /* proximity_tsl2671.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = proximity_tsl2671.cpp; sourceTree = "<group>"; };
 		B7F39CF0770E29321B13108C62E79013 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-dummy.m"; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS-dummy.m"; sourceTree = "<group>"; };
-		B8CEB96D24435EDDB5368B5435B7E8E6 /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
+		B8CEB96D24435EDDB5368B5435B7E8E6 /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = utils.cpp; sourceTree = "<group>"; };
 		B98C6F46BB0AA3EB2B2A7B07DFD30E7A /* crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Zip/minizip/crypt.h; sourceTree = "<group>"; };
 		B9B31DF557672AAC8B0ADE5848112D62 /* up-pressed.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "up-pressed.png"; path = "Docs/build/html/_static/up-pressed.png"; sourceTree = "<group>"; };
 		BA50BB9BC752722A73C0DFAC7BDF89BA /* String+VersionCompare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+VersionCompare.swift"; sourceTree = "<group>"; };
@@ -1040,64 +1040,64 @@
 		BC3D5C82B5B54E964A4790BF1DED74D1 /* MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.modulemap"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.modulemap"; sourceTree = "<group>"; };
 		BC75C820DBE7595868D2C03791739134 /* Pods-MetaWearIntegrationTests-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWearIntegrationTests-macOS-umbrella.h"; sourceTree = "<group>"; };
 		BCD9CD8F9A3E46DDA578207A0509687F /* LogDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogDelegate.swift; sourceTree = "<group>"; };
-		BCFC3AF86DC76AA024D48C94E6660971 /* metawearboard.doctree */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = metawearboard.doctree; path = Docs/build/doctrees/metawearboard.doctree; sourceTree = "<group>"; };
+		BCFC3AF86DC76AA024D48C94E6660971 /* metawearboard.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.doctree; path = Docs/build/doctrees/metawearboard.doctree; sourceTree = "<group>"; };
 		BD0766CF780610D401CC416B4E794D12 /* iOSDFULibrary-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "iOSDFULibrary-macOS-umbrella.h"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS-umbrella.h"; sourceTree = "<group>"; };
 		BD9101A2D95DA94FA1A34BFA37B5E230 /* MetaWear+Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Mock.swift"; path = "MetaWear/Mocks/MetaWear+Mock.swift"; sourceTree = "<group>"; };
 		BE0612029D15E5DB0AC306FAC6D55ECD /* MblMwGattChar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MblMwGattChar.swift; sourceTree = "<group>"; };
 		BE0C4936B67E485798B9FADAEFB3F962 /* iOSDFULibrary-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "iOSDFULibrary-macOS-dummy.m"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS-dummy.m"; sourceTree = "<group>"; };
-		BE170EC77E7A580CE0AE8E32CD240ECA /* fontawesome-webfont.svg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = "fontawesome-webfont.svg"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.svg"; sourceTree = "<group>"; };
+		BE170EC77E7A580CE0AE8E32CD240ECA /* fontawesome-webfont.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.svg"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.svg"; sourceTree = "<group>"; };
 		BE4E8BF5B5B1A1B4DE5D8C356701F76D /* Bolts-Swift-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Bolts-Swift-iOS.xcconfig"; sourceTree = "<group>"; };
-		BEDA60D7A2A41DBEFAD2B5B535DE9A20 /* file_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = file_operations.cpp; sourceTree = "<group>"; };
+		BEDA60D7A2A41DBEFAD2B5B535DE9A20 /* file_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = file_operations.cpp; sourceTree = "<group>"; };
 		BF432B434BADB6E8392DE30A6AB193BA /* Task+ContinueWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+ContinueWith.swift"; path = "Sources/BoltsSwift/Task+ContinueWith.swift"; sourceTree = "<group>"; };
-		C10515CF0971E85D622BA555958BB811 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C125363050EA305544A7CF876DE74399 /* gyro_bmi160.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = gyro_bmi160.cpp; sourceTree = "<group>"; };
+		C10515CF0971E85D622BA555958BB811 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_iOS.framework; path = "Pods-MetaWearIntegrationTests-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C125363050EA305544A7CF876DE74399 /* gyro_bmi160.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = gyro_bmi160.cpp; sourceTree = "<group>"; };
 		C21F53CC23E808F2656CF4E67AB64F4E /* MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-umbrella.h"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS-umbrella.h"; sourceTree = "<group>"; };
-		C314EE2F1D5BB81AF2E7FAE242EB72F4 /* switch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = switch.cpp; sourceTree = "<group>"; };
-		C39ED2A366CE0FD2625BC000F537452F /* metawearboard.rst */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = metawearboard.rst; path = Docs/source/metawearboard.rst; sourceTree = "<group>"; };
-		C45F7BA769C049DF09608C5979D0069F /* moduleinfo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = moduleinfo.cpp; sourceTree = "<group>"; };
+		C314EE2F1D5BB81AF2E7FAE242EB72F4 /* switch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = switch.cpp; sourceTree = "<group>"; };
+		C39ED2A366CE0FD2625BC000F537452F /* metawearboard.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst; path = Docs/source/metawearboard.rst; sourceTree = "<group>"; };
+		C45F7BA769C049DF09608C5979D0069F /* moduleinfo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = moduleinfo.cpp; sourceTree = "<group>"; };
 		C535466B0C74F32D41C301D3558FABCA /* Pods-MetaWearIntegrationTests-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearIntegrationTests-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		C5560B1AAA35BF5E844C529B2AAE86B9 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5560B1AAA35BF5E844C529B2AAE86B9 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDFULibrary.framework; path = "iOSDFULibrary-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C9D3C7F4ED6D71887257593DC39FAE /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		C63B31D3C47772EEA98A3658BFA3929D /* Bolts-Swift-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Bolts-Swift-watchOS.modulemap"; path = "../Bolts-Swift-watchOS/Bolts-Swift-watchOS.modulemap"; sourceTree = "<group>"; };
 		C700CA6AED620858A00A8F2BB3B85151 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C718079A817784DC3D82A74838EFD787 /* Bolts-Swift-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-iOS-prefix.pch"; sourceTree = "<group>"; };
 		C743D0A5845E523BA1629F6197814983 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		C7E511C44020A9692C1B5BF85DD680E5 /* MetaWear.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWear.swift; sourceTree = "<group>"; };
-		C937EFC66E2805AC36379C3A7D079442 /* version.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
+		C937EFC66E2805AC36379C3A7D079442 /* version.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = version.cpp; sourceTree = "<group>"; };
 		CB1E7575441476F45722A743BD2EC13D /* Task+WhenAny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+WhenAny.swift"; path = "Sources/BoltsSwift/Task+WhenAny.swift"; sourceTree = "<group>"; };
-		CBA7EE5238DB5B27CE3B28231393E173 /* index.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = index.rst.txt; path = Docs/build/html/_sources/index.rst.txt; sourceTree = "<group>"; };
+		CBA7EE5238DB5B27CE3B28231393E173 /* index.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst.txt; path = Docs/build/html/_sources/index.rst.txt; sourceTree = "<group>"; };
 		CC3E62A50475BC3D6AB80BF8EC02512F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CC9FAFBC7C89F2F3ACF67B02080B1073 /* TaskCompletionSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskCompletionSource.swift; path = Sources/BoltsSwift/TaskCompletionSource.swift; sourceTree = "<group>"; };
 		CCA31563A6863A27B0140FFB7937B044 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../iOSDFULibrary-macOS/Info.plist"; sourceTree = "<group>"; };
 		CDBEA1F6697B1465B416ECF986FA151C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		CE4CB8A20317F9C609D6C88F7FC380FA /* websupport.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = websupport.js; path = Docs/build/html/_static/websupport.js; sourceTree = "<group>"; };
+		CE4CB8A20317F9C609D6C88F7FC380FA /* websupport.js */ = {isa = PBXFileReference; includeInIndex = 1; name = websupport.js; path = Docs/build/html/_static/websupport.js; sourceTree = "<group>"; };
 		CE777B23C2FE7FFB36E42E139E276219 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-dummy.m"; sourceTree = "<group>"; };
-		CEC5B1AA2C8651DCB81E3E7054EB8CC7 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D072A2632FE40BBB71E8D27D7FCDE50C /* magnetometer_bmm150.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = magnetometer_bmm150.cpp; sourceTree = "<group>"; };
-		D2DB0432F3A22113A448933384AFCDAC /* roboto-slab-v7-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf"; sourceTree = "<group>"; };
-		D46C43BEACF97922DA715B70950FA368 /* roboto-slab-v7-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-regular.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff"; sourceTree = "<group>"; };
+		CEC5B1AA2C8651DCB81E3E7054EB8CC7 /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D072A2632FE40BBB71E8D27D7FCDE50C /* magnetometer_bmm150.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = magnetometer_bmm150.cpp; sourceTree = "<group>"; };
+		D2DB0432F3A22113A448933384AFCDAC /* roboto-slab-v7-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf"; sourceTree = "<group>"; };
+		D46C43BEACF97922DA715B70950FA368 /* roboto-slab-v7-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff"; sourceTree = "<group>"; };
 		D4EE2A9ECB28B9A3D098F32D9DF9290F /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		D4EE765D2C66B8411C822F1EAB9D8727 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D51AA130BE255802CC44122EFBD9D837 /* DFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUPeripheralDelegate.swift; sourceTree = "<group>"; };
-		D62C732104318F58003E965D9EC8BB49 /* environment.pickle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = environment.pickle; path = Docs/build/doctrees/environment.pickle; sourceTree = "<group>"; };
+		D62C732104318F58003E965D9EC8BB49 /* environment.pickle */ = {isa = PBXFileReference; includeInIndex = 1; name = environment.pickle; path = Docs/build/doctrees/environment.pickle; sourceTree = "<group>"; };
 		D64A71884F6F13BA5601C13B4DAB2265 /* Manifest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manifest.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/Manifest.swift; sourceTree = "<group>"; };
-		D650D615567078B3D87F6F62E087B47E /* searchtools.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = searchtools.js; path = Docs/build/html/_static/searchtools.js; sourceTree = "<group>"; };
+		D650D615567078B3D87F6F62E087B47E /* searchtools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchtools.js; path = Docs/build/html/_static/searchtools.js; sourceTree = "<group>"; };
 		D6659BB071AC399DC4D70430768B5AA2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		D6EC9B2806D28BF52043D77FBD4563EC /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-umbrella.h"; sourceTree = "<group>"; };
 		D79F0B9CCA47D7BEC6F4BEB78F2D0AF6 /* plus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = plus.png; path = Docs/build/html/_static/plus.png; sourceTree = "<group>"; };
-		D7C32809E9D2CC8F4BD07B49F589B801 /* roboto-slab-v7-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.ttf"; sourceTree = "<group>"; };
+		D7C32809E9D2CC8F4BD07B49F589B801 /* roboto-slab-v7-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.ttf"; sourceTree = "<group>"; };
 		DA457849EC8E8226A65817B1A96B66C1 /* Pods-MetaWearIntegrationTests-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWearIntegrationTests-tvOS-dummy.m"; sourceTree = "<group>"; };
 		DAF920DACC755F5344DB7D343E000502 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.modulemap"; sourceTree = "<group>"; };
 		DAFD906B0F2FCAF1C6DC95634145FB67 /* unzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Zip/minizip/unzip.h; sourceTree = "<group>"; };
-		DBB15DDBD87A925E677B13EEBA52EA4C /* lato-italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "lato-italic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.ttf"; sourceTree = "<group>"; };
+		DBB15DDBD87A925E677B13EEBA52EA4C /* lato-italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.ttf"; sourceTree = "<group>"; };
 		DC07C2F3FC0BF05B6E45042BBD2123F7 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		DC8B36600B03C65C1E9B5D9474AF9337 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Bolts-Swift-watchOS/Info.plist"; sourceTree = "<group>"; };
 		DC90AB989D24B251DC6EA37A5E23D723 /* Bolts-Swift-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Bolts-Swift-iOS.modulemap"; sourceTree = "<group>"; };
-		DCA98DA05975DDC40026FC749CC38749 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DCA98DA05975DDC40026FC749CC38749 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		DD03A653270B8F24D06ACCC4E7FFA544 /* Pods-MetaWearIntegrationTests-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWearIntegrationTests-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		DDB0564C3BCFB74DE96005255A0B8226 /* Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-umbrella.h"; sourceTree = "<group>"; };
 		DEAD4BD44E8B10479242DB64BF8E603A /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh"; sourceTree = "<group>"; };
-		E09752A2A28D926882AA019824B5E744 /* sensor_fusion.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = sensor_fusion.cpp; sourceTree = "<group>"; };
+		E09752A2A28D926882AA019824B5E744 /* sensor_fusion.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = sensor_fusion.cpp; sourceTree = "<group>"; };
 		E117E5E032CDEEA2221232E5DD9CE060 /* Pods-MetaWearIntegrationTests-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWearIntegrationTests-macOS-dummy.m"; sourceTree = "<group>"; };
 		E2203FE6F9585852CB77087245E8C6A6 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh"; sourceTree = "<group>"; };
 		E4036E809E512C516394A7F6FB4C2B09 /* DeviceInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInformation.swift; sourceTree = "<group>"; };
@@ -1105,45 +1105,45 @@
 		E49FFCE6327183EAF6934E95717D4C82 /* Pods-MetaWearIntegrationTests-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearIntegrationTests-macOS-resources.sh"; sourceTree = "<group>"; };
 		E4E0C1511FC05291BA3A5FD79C2533B0 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50812B9E7D3BB42B7715748991EC412 /* MetaWear-AsyncUtils-Core-Mocks-UI-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWear-AsyncUtils-Core-Mocks-UI-watchOS.xcconfig"; path = "../MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS.xcconfig"; sourceTree = "<group>"; };
-		E67419CF7B3C071CA1C3E89CD847EBF2 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Zip/minizip/unzip.c; sourceTree = "<group>"; };
+		E67419CF7B3C071CA1C3E89CD847EBF2 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = unzip.c; path = Zip/minizip/unzip.c; sourceTree = "<group>"; };
 		E6BDCA2CFB6CEE8E984A9B55B232A63D /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E70959117815002F51A0AAAD41C4AECE /* ButtonlessDFU.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonlessDFU.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/ButtonlessDFU.swift; sourceTree = "<group>"; };
-		E74A174F3B1245A01D5B4341F83C691B /* neopixel.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = neopixel.cpp; sourceTree = "<group>"; };
+		E74A174F3B1245A01D5B4341F83C691B /* neopixel.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = neopixel.cpp; sourceTree = "<group>"; };
 		E7852608063A2F0EE91A0044583622FB /* DFUServiceController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceController.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceController.swift; sourceTree = "<group>"; };
 		E890C4C651B1CF09B94F1715BDA8394B /* cbindings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = cbindings.swift; sourceTree = "<group>"; };
 		E89668BE7C1318F60E25D8D1162DC9A4 /* Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
-		E945E403061FD90F06DA1425E78101D9 /* roboto-slab-v7-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "roboto-slab-v7-bold.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot"; sourceTree = "<group>"; };
-		E98220B61F90CB91429ABDAF4DC3FD31 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAF97AA375E2FF3A63857C1EF8CB4874 /* datainterpreter.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = datainterpreter.cpp; sourceTree = "<group>"; };
+		E945E403061FD90F06DA1425E78101D9 /* roboto-slab-v7-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot"; sourceTree = "<group>"; };
+		E98220B61F90CB91429ABDAF4DC3FD31 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF97AA375E2FF3A63857C1EF8CB4874 /* datainterpreter.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = datainterpreter.cpp; sourceTree = "<group>"; };
 		EBDE9A1CA6F13D55B0E00898C7C1E25E /* DFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUPeripheral.swift; sourceTree = "<group>"; };
-		EC04601FD1672C446897A3C8D80A4F85 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC23076E1C54D8E4EAD529BAA895236B /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED01ABC3C1DBD9DC324805838DDC33F5 /* dataprocessor_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = dataprocessor_config.cpp; sourceTree = "<group>"; };
+		EC04601FD1672C446897A3C8D80A4F85 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC23076E1C54D8E4EAD529BAA895236B /* Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWear_MetaWear_iOS_MetaWearIntegrationTestHost_iOS.framework; path = "Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED01ABC3C1DBD9DC324805838DDC33F5 /* dataprocessor_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dataprocessor_config.cpp; sourceTree = "<group>"; };
 		EDEF014D9A7B4606B3A0546001324ADE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Bolts-Swift-tvOS/Info.plist"; sourceTree = "<group>"; };
-		EE1692591FC3E8B4357CC5707EC83465 /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = datasignal.cpp; sourceTree = "<group>"; };
+		EE1692591FC3E8B4357CC5707EC83465 /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = datasignal.cpp; sourceTree = "<group>"; };
 		EF62D1D2496DAEDF7252309D09F07517 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/BoltsSwift/Errors.swift; sourceTree = "<group>"; };
-		EFC73F1BCC44BAF3639A352AA37B27D0 /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = event.cpp; sourceTree = "<group>"; };
+		EFC73F1BCC44BAF3639A352AA37B27D0 /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = event.cpp; sourceTree = "<group>"; };
 		F0095FC6285648DFA21C5AD9B3331563 /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.xcconfig"; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.xcconfig"; sourceTree = "<group>"; };
-		F10E984FB03115B8B0FF0FE4C5F79394 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10E984FB03115B8B0FF0FE4C5F79394 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearIntegrationTests_tvOS.framework; path = "Pods-MetaWearIntegrationTests-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AEC1BD8F817359114D5C3E968702D0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F2B2981664E907326B8CD8F38DB337BE /* Zip-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zip-iOS-dummy.m"; sourceTree = "<group>"; };
 		F2DD3E309E5EE6A24B0D754BE7115DE3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/Info.plist"; sourceTree = "<group>"; };
-		F3532E8352894B1174EB86C5813B8A7C /* layout.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = layout.html; path = Docs/source/_templates/layout.html; sourceTree = "<group>"; };
-		F44A880A2B7931BE2FAF001D93462D61 /* objects.inv */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = objects.inv; path = Docs/build/html/objects.inv; sourceTree = "<group>"; };
+		F3532E8352894B1174EB86C5813B8A7C /* layout.html */ = {isa = PBXFileReference; includeInIndex = 1; name = layout.html; path = Docs/source/_templates/layout.html; sourceTree = "<group>"; };
+		F44A880A2B7931BE2FAF001D93462D61 /* objects.inv */ = {isa = PBXFileReference; includeInIndex = 1; name = objects.inv; path = Docs/build/html/objects.inv; sourceTree = "<group>"; };
 		F4B4B40C946FB16305A459A2423559C7 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		F4D58C021C2F7BBC6261655A1D1A6B6A /* timer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		F4D58C021C2F7BBC6261655A1D1A6B6A /* timer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = timer.cpp; sourceTree = "<group>"; };
 		F53F8C7409B132E6DA31316781A16890 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6BADB08B39E768D55996606A798F6EC /* Zip-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Zip-macOS.xcconfig"; path = "../Zip-macOS/Zip-macOS.xcconfig"; sourceTree = "<group>"; };
-		F6CC3033BBA80F2B93AB8E53DA43F15A /* index.doctree */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = index.doctree; path = Docs/build/doctrees/index.doctree; sourceTree = "<group>"; };
+		F6CC3033BBA80F2B93AB8E53DA43F15A /* index.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = index.doctree; path = Docs/build/doctrees/index.doctree; sourceTree = "<group>"; };
 		F6E0C90918D425EAD5026E7345F55BC9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-dummy.m"; sourceTree = "<group>"; };
 		F7FF689685B72A5F8D472F60F4CBBBF9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		F82698A8B8395E65947F8249D19DBC25 /* haptic.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = haptic.cpp; sourceTree = "<group>"; };
+		F82698A8B8395E65947F8249D19DBC25 /* haptic.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = haptic.cpp; sourceTree = "<group>"; };
 		F88F69444220D5A7036E534A2F2D0CB8 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		FA031072678F4DC74722EE09CDC39F7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		FC57A7ABBF3D4EAC808856A282421A2A /* ambientlight_ltr329.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = ambientlight_ltr329.cpp; sourceTree = "<group>"; };
+		FA031072678F4DC74722EE09CDC39F7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		FC57A7ABBF3D4EAC808856A282421A2A /* ambientlight_ltr329.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = ambientlight_ltr329.cpp; sourceTree = "<group>"; };
 		FCC7F155A239579A1A9EDA4B5235E7D8 /* iOSDFULibrary-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOSDFULibrary-iOS.xcconfig"; sourceTree = "<group>"; };
-		FDDE7D708450CA3EF3650FDB17D54EB8 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE1E049579AEAE5F712B4FD0AA954D51 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDE7D708450CA3EF3650FDB17D54EB8 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE1E049579AEAE5F712B4FD0AA954D51 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-AsyncUtils-Core-Mocks-UI-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1371,6 +1371,7 @@
 				25C83457451FD5A29DBFC9D7AA22E184 /* ZipUtilities.swift */,
 				8B292DC29341602222D268E6AB4AD7B2 /* Support Files */,
 			);
+			name = Zip;
 			path = Zip;
 			sourceTree = "<group>";
 		};
@@ -1383,6 +1384,7 @@
 				BEDA60D7A2A41DBEFAD2B5B535DE9A20 /* file_operations.cpp */,
 				ACA663AA234D785E0A33BE35A2258571 /* miniz.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -1400,6 +1402,7 @@
 			children = (
 				AC9592695A68765AFD1BDEA61B6D297C /* swift */,
 			);
+			name = bindings;
 			path = bindings;
 			sourceTree = "<group>";
 		};
@@ -1480,6 +1483,7 @@
 			children = (
 				C9132138F82F4BF1E083B23F74C06970 /* cpp */,
 			);
+			name = platform;
 			path = platform;
 			sourceTree = "<group>";
 		};
@@ -1494,6 +1498,7 @@
 				E4A9DCFE828237ECE0A49B171595AD45 /* processor */,
 				D6916FE75A03C27E64C1CDDBCA43BD1C /* sensor */,
 			);
+			name = metawear;
 			path = metawear;
 			sourceTree = "<group>";
 		};
@@ -1516,6 +1521,7 @@
 			children = (
 				E6B4DFBDB39C796D87E21BE64B7C4449 /* cpp */,
 			);
+			name = impl;
 			path = impl;
 			sourceTree = "<group>";
 		};
@@ -1597,6 +1603,7 @@
 				BC035182E4920C4BF68853295F21200C /* ZipArchive.swift */,
 				93D650FA6467F31D659D04DB6B350EAC /* Support Files */,
 			);
+			name = iOSDFULibrary;
 			path = iOSDFULibrary;
 			sourceTree = "<group>";
 		};
@@ -1659,6 +1666,7 @@
 				CC9FAFBC7C89F2F3ACF67B02080B1073 /* TaskCompletionSource.swift */,
 				D81E357583925D5FDFC304F1FA60CD32 /* Support Files */,
 			);
+			name = "Bolts-Swift";
 			path = "Bolts-Swift";
 			sourceTree = "<group>";
 		};
@@ -1675,6 +1683,7 @@
 			children = (
 				1E576757554E21937C81FA43D4EF3EDD /* cpp */,
 			);
+			name = dfu;
 			path = dfu;
 			sourceTree = "<group>";
 		};
@@ -1683,6 +1692,7 @@
 			children = (
 				E8249867E811D2097F3B4E90F908A72E /* cpp */,
 			);
+			name = peripheral;
 			path = peripheral;
 			sourceTree = "<group>";
 		};
@@ -1729,6 +1739,7 @@
 			children = (
 				634A048B416C51D5226A99CEFE7E5002 /* metawear */,
 			);
+			name = src;
 			path = src;
 			sourceTree = "<group>";
 		};
@@ -1775,6 +1786,7 @@
 			children = (
 				E890C4C651B1CF09B94F1715BDA8394B /* cbindings.swift */,
 			);
+			name = swift;
 			path = swift;
 			sourceTree = "<group>";
 		};
@@ -1898,6 +1910,7 @@
 				C314EE2F1D5BB81AF2E7FAE242EB72F4 /* switch.cpp */,
 				B8CEB96D24435EDDB5368B5435B7E8E6 /* utils.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -1956,6 +1969,7 @@
 			children = (
 				C3796580C7C1A0669A7700A0818700B6 /* cpp */,
 			);
+			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -1992,6 +2006,7 @@
 				F4D58C021C2F7BBC6261655A1D1A6B6A /* timer.cpp */,
 				C937EFC66E2805AC36379C3A7D079442 /* version.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -2001,6 +2016,7 @@
 				6AB0A39E00564EBD3D60C491717D62B3 /* dataprocessor.cpp */,
 				ED01ABC3C1DBD9DC324805838DDC33F5 /* dataprocessor_config.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -2012,6 +2028,7 @@
 				0DAF456D0FED28D01BEF215D0BB518C0 /* task.cpp */,
 				516A8CF423B74655F19A81AFAA5EC483 /* threadpool.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -2020,6 +2037,7 @@
 			children = (
 				B25FD7F7296EC44C2E41CB065554FBF9 /* cpp */,
 			);
+			name = sensor;
 			path = sensor;
 			sourceTree = "<group>";
 		};
@@ -2069,6 +2087,7 @@
 			children = (
 				C745F1CB7EE59EA416CDA529C7274DB1 /* cpp */,
 			);
+			name = processor;
 			path = processor;
 			sourceTree = "<group>";
 		};
@@ -2078,6 +2097,7 @@
 				EAF97AA375E2FF3A63857C1EF8CB4874 /* datainterpreter.cpp */,
 				8FA49D0876574B62061E5EEC3E3490CE /* metawearboard.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -2089,6 +2109,7 @@
 				50D0E17C7CF3350183E2702A67A8680C /* led.cpp */,
 				E74A174F3B1245A01D5B4341F83C691B /* neopixel.cpp */,
 			);
+			name = cpp;
 			path = cpp;
 			sourceTree = "<group>";
 		};
@@ -2811,7 +2832,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4503,7 +4524,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
