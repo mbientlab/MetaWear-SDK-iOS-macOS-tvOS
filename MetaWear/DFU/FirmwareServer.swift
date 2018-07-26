@@ -81,7 +81,7 @@ public class FirmwareServer {
             var allFirmwares: [FirmwareBuild] = []
             if let potentialVersions = info?[hardwareRev]?[modelNumber]?[buildFlavor] {
                 let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"]!) }
-                let sortedVersions = validVersions.sorted { $0.key < $1.key }
+                let sortedVersions = validVersions.sorted { $0.key.isVersion(lessThan: $1.key) }
                 allFirmwares = sortedVersions.map {
                     FirmwareBuild(hardwareRev: hardwareRev,
                                   modelNumber: modelNumber,
