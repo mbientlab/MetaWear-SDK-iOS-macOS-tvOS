@@ -34,6 +34,7 @@
  */
 
 
+/// String helper functions
 extension String {
     /// Inner comparison utility to handle same versions with different length. (Ex: "1.0.0" & "1.0")
     private func compare(toVersion targetVersion: String) -> ComparisonResult {

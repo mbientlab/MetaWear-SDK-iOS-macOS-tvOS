@@ -36,6 +36,7 @@
 import BoltsSwift
 import MetaWearCpp
 
+ /// Task wrappers around various CPP functions with callbacks
 extension OpaquePointer {
     /// Tasky interface to reading a MetaWear data signal
     public func read() -> Task<MetaWearData> {
