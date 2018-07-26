@@ -38,15 +38,7 @@ MetaWear is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "MetaWear"
-```
-
-*NOTE*
-Also if you are using Xcode 9 and Swift 4.x you will proablly want to manually include the latest Bolts-Swift.  The current
-1.3.0 release is only for Swfit 3.x, so you would have to manually change the Swift version.
-
-```ruby
-pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
+pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
 ```
 
 For first time CocoaPods users we have a detailed [video guide](https://youtu.be/VTb_EDv5j7A).
