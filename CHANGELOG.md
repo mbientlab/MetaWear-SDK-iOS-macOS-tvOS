@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Bluetooth State Restoration on MetaWearScanner.shared
 
+### Changed
+- CPP submodule accessed with https instead of git protocol
+
 ## [3.1.4] - 2018-07-23
 
 ### Changed
