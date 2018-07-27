@@ -43,7 +43,7 @@ fileprivate var scannerCount = 0
 /// Scanner utility, make is simple to start scanning for MetaWear devices without
 /// having to understand all of CoreBluetooth
 public class MetaWearScanner: NSObject {
-    public static let shared = MetaWearScanner()
+    public static let shared = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
     public var central: CBCentralManager! = nil
     public var deviceMap: [CBPeripheral: MetaWear] = [:]
     public var didUpdateState: ((CBCentralManager) -> Void)? {
@@ -52,10 +52,9 @@ public class MetaWearScanner: NSObject {
         }
     }
     
-    public override init() {
+    public init(restoreIdentifier: String? = nil) {
         super.init()
-        let options: [String : Any] = [:]
-        //options[CBCentralManagerOptionRestoreIdentifierKey] = restoreIdentifier
+        let options: [String : Any] = restoreIdentifier == nil ? [:] : [CBCentralManagerOptionRestoreIdentifierKey: restoreIdentifier!]
         self.central = CBCentralManager(delegate: self,
                                         queue: bleQueue,
                                         options: options)
@@ -231,22 +230,9 @@ extension MetaWearScanner: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         deviceMap[peripheral]?.didDisconnectPeripheral(error: error)
     }
-    // public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-    // MetaWearScanner.willRestoreState?(dict)
-    
-    // An array (an instance of NSArray) of CBPeripheral objects that contains
-    // all of the peripherals that were connected to the central manager
-    // (or had a connection pending) at the time the app was terminated by the system.
-    // let a = dict[CBCentralManagerRestoredStatePeripheralsKey]
-    
-    // An array (an instance of NSArray) of service UUIDs (represented by CBUUID objects)
-    // that contains all the services the central manager was scanning for at the
-    // time the app was terminated by the system.
-    // let b = dict[CBCentralManagerRestoredStateScanServicesKey]
-    
-    // A dictionary (an instance of NSDictionary) that contains all of the
-    // peripheral scan options that were being used by the central manager
-    // at the time the app was terminated by the system.
-    // let c = dict[CBCentralManagerRestoredStateScanOptionsKey]
-    // }
+    public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {        
+        // As an SDK, we arn't sure what operations the user is acutally doing.
+        // You should place code in didFinishLaunchingWithOptions to kick off any tasks
+        // you expect to take place
+    }
 }

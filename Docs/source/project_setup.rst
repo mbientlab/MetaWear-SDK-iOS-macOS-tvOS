@@ -9,9 +9,8 @@ Compile Dependency
 
 To add the MetaWear SDK as a dependency to your project you should setup `CocoaPods <https://guides.cocoapods.org/using/getting-started.html>`_, and add the following line to your Podfile:  ::
 
-    pod "MetaWear"
-    # Bolts-Swift hasn't pushed the latest Xcode 9 + Swift 4 compatiable version, so require it directly
-    pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
+    # The subspecs are all optional, but might be useful
+    pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
 
 .. highlight:: console
 

@@ -19,7 +19,7 @@ The MetaWear hardware comes pre-loaded with a wirelessly upgradeable firmware, s
 ### Requirements
 - [MetaWear board](https://mbientlab.com/store/)
 - [Apple ID](https://appleid.apple.com/), you can now get started for free!  Once you are ready to submit an App to the App Store, you need a paid [Apple Developer Account](https://developer.apple.com/programs/ios/).
-- Device running iOS 8.0 or later with Bluetooth 4.0
+- Device running iOS 10.0 or later with Bluetooth 4.0
 
 > REQUIREMENT NOTES  
 The iOS simulator doesn’t support Bluetooth 4.0, so test apps must be run on a real iOS device which requires a developer account.  Bluetooth 4.0 available on iPhone 4S+, iPad 3rd generation+, or iPod Touch 5th generation.
@@ -38,15 +38,7 @@ MetaWear is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "MetaWear"
-```
-
-*NOTE*
-Also if you are using Xcode 9 and Swift 4.x you will proablly want to manually include the latest Bolts-Swift.  The current
-1.3.0 release is only for Swfit 3.x, so you would have to manually change the Swift version.
-
-```ruby
-pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift.git', :commit => 'e9baa72'
+pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
 ```
 
 For first time CocoaPods users we have a detailed [video guide](https://youtu.be/VTb_EDv5j7A).
