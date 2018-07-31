@@ -45,6 +45,7 @@ fileprivate var scannerCount = 0
 public class MetaWearScanner: NSObject {
     public static let shared = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
     public var central: CBCentralManager! = nil
+    /// All devices that have been discovered in one way or another by this central
     public var deviceMap: [CBPeripheral: MetaWear] = [:]
     public var didUpdateState: ((CBCentralManager) -> Void)? {
         didSet {
@@ -96,7 +97,24 @@ public class MetaWearScanner: NSObject {
         }
         return source.task
     }
-
+    
+    /// List of devices that are already connected
+    /// This is useful to check after state was restored
+    public func retrieveConnectedMetaWearsAsync() -> Task<[MetaWear]> {
+        let source = TaskCompletionSource<[MetaWear]>()
+        runWhenPoweredOn {
+            var devices: [MetaWear] = []
+            let peripherals = self.central.retrieveConnectedPeripherals(withServices: [.metaWearService,
+                                                                                       .metaWearDfuService])
+            devices = peripherals.map { peripheral -> MetaWear in
+                let device = self.deviceMap[peripheral] ?? MetaWear(peripheral: peripheral, scanner: self)
+                self.deviceMap[peripheral] = device
+                return device
+            }
+            source.trySet(result: devices)
+        }
+        return source.task
+    }
     
     // Internal details below
     var allowDuplicates: Bool = false
@@ -230,9 +248,19 @@ extension MetaWearScanner: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         deviceMap[peripheral]?.didDisconnectPeripheral(error: error)
     }
-    public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {        
+    public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         // As an SDK, we arn't sure what operations the user is acutally doing.
         // You should place code in didFinishLaunchingWithOptions to kick off any tasks
         // you expect to take place
+        
+        // An array (an instance of NSArray) of CBPeripheral objects that contains
+        // all of the peripherals that were connected to the central manager
+        // (or had a connection pending) at the time the app was terminated by the system.
+        if let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
+            for peripheral in peripherals {
+                let device = MetaWear(peripheral: peripheral, scanner: self)
+                self.deviceMap[peripheral] = device
+            }
+        }
     }
 }
