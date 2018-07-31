@@ -6,13 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- MetaWearScanner.retrieveConnectedMetaWearsAsync function
+
+### Changed
+- Save CBPeripheral's retrieved in willRestoreState
+
+## [3.1.5] - 2018-07-27
+### Added
 - Bluetooth State Restoration on MetaWearScanner.shared
 
 ### Changed
 - CPP submodule accessed with https instead of git protocol
 
 ## [3.1.4] - 2018-07-23
-
 ### Changed
 - Updated Podspec with the swift-version key and latest Bolts-Swift 1.4.0
 - MetaWear-SDK-Cpp v0.16.0
