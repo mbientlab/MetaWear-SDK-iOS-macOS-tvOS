@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - MetaWear.readRSSI - get RSSI value after connection
 
+### Fixed
+- MetaBoot status not updated if scanning wasn't used
+
 ## [3.1.6] - 2018-07-31
 ### Added
 - MetaWearScanner.retrieveConnectedMetaWearsAsync function
