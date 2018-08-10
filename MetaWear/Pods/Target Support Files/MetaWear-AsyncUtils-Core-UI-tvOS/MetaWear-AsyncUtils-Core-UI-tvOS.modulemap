@@ -1,0 +1,6 @@
+framework module MetaWear {
+  umbrella header "MetaWear-AsyncUtils-Core-UI-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

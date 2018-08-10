@@ -54,6 +54,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Mocks' do |s|
+    s.ios.deployment_target = '10.0'
+    s.osx.deployment_target = '10.13'
+      
     s.source_files = 'MetaWear/Mocks/**/*'
     s.dependency 'MetaWear/Core'
   end

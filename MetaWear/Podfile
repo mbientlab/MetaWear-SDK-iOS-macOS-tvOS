@@ -31,7 +31,7 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-tvOS' do
         platform :tvos, '10.0'
-        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
 
         target 'MetaWearIntegrationTestHost-tvOS' do
             target 'MetaWearIntegrationTests-tvOS' do
@@ -46,7 +46,7 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-watchOS' do
         platform :watchos, '4.0'
-        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks'], :path => '../'
+        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-watchOS Extension' do
         end

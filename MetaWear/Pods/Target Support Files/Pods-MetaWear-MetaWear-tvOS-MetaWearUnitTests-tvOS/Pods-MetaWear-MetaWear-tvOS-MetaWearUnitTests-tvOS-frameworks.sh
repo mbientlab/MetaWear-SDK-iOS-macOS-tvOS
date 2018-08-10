@@ -144,11 +144,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

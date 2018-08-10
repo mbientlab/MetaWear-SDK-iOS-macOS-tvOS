@@ -1148,7 +1148,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1264,7 +1264,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-watchOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-watchOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1320,7 +1320,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
