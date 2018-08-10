@@ -159,6 +159,20 @@ public class MetaWear: NSObject {
     public func cancelConnection() {
         scanner?.cancelConnection(self)
     }
+    /// Retrieves the current RSSI value for the peripheral while it is connected
+    public func readRSSI() -> Task<Int> {
+        let source = TaskCompletionSource<Int>()
+        apiAccessQueue.async {
+            guard self.peripheral.state == .connected else {
+                source.trySet(error: MetaWearError.operationFailed(message: "MetaWear not connected, can't perform operation.  Please connect to MetaWear before reading RSSI."))
+                return
+            }
+            self.rssiSources.append(source)
+            self.peripheral.readRSSI()
+        }
+        return source.task
+    }
+    
     /// Add this to a persistent list retrieved with `MetaWearScanner.retrieveSavedMetaWearsAsync(...)`
     public func remember() {
         scanner?.remember(self)
@@ -246,6 +260,7 @@ public class MetaWear: NSObject {
     fileprivate var onDisconnectCallback: MblMwFnVoidVoidPtrInt?
     fileprivate var disconnectionSources: [TaskCompletionSource<MetaWear>] = []
     fileprivate var connectionSources: [TaskCompletionSource<Task<MetaWear>>] = []
+    fileprivate var rssiSources: [TaskCompletionSource<Int>] = []
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
     fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
@@ -506,6 +521,10 @@ extension MetaWear: CBPeripheralDelegate {
         logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
         peripheral.writeValue(data, for: charToWrite, type: type)
         writeIfNeeded()
+    }
+    public func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        rssiSources.forEach { $0.trySet(result: RSSI.intValue) }
+        rssiSources.removeAll()
     }
 }
 

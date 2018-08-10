@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- MetaWear.readRSSI - get RSSI value after connection
+
+## [3.1.6] - 2018-07-31
+### Added
 - MetaWearScanner.retrieveConnectedMetaWearsAsync function
 
 ### Changed

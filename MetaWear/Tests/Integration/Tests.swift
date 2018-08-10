@@ -151,4 +151,14 @@ class Tests: XCTestCase {
         }
         wait(for: [expectation!], timeout: 30)
     }
+    
+    func testRSSI() {
+        expectation = XCTestExpectation(description: "expectation")
+        device.readRSSI().continueWith { t in
+            XCTAssertFalse(t.faulted)
+            print(t.result ?? 0)
+            self.expectation?.fulfill()
+        }
+        wait(for: [expectation!], timeout: 30)
+    }
 }
