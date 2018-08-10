@@ -98,16 +98,10 @@ extension MetaWear {
 func findMetaBoot(_ identifier: UUID) -> Task<(MetaWearScanner, MetaWear)>  {
     let scanner = MetaWearScanner()
     let source = TaskCompletionSource<(MetaWearScanner, MetaWear)>()
-    scanner.retrieveConnectedMetaWearsAsync().continueWith { _ in
-        if let found = MetaWearScanner.shared.deviceMap.first(where: { $0.key.identifier == identifier }) {
-            source.trySet(result: (scanner, found.value))
-        } else {
-            scanner.startScan(allowDuplicates: false) { found in
-                if found.peripheral.identifier == identifier {
-                    scanner.stopScan()
-                    source.trySet(result: (scanner, found))
-                }
-            }
+    scanner.startScan(allowDuplicates: false) { found in
+        if found.peripheral.identifier == identifier {
+            scanner.stopScan()
+            source.trySet(result: (scanner, found))
         }
     }
     return source.task

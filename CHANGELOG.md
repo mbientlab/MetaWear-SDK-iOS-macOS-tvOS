@@ -11,9 +11,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - MetaBoot status not updated if scanning wasn't used
 
-### Changed
-- Firmware update now looks for connected devices before scanning
-
 ## [3.1.6] - 2018-07-31
 ### Added
 - MetaWearScanner.retrieveConnectedMetaWearsAsync function
