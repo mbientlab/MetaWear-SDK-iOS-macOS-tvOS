@@ -69,6 +69,9 @@ class MockPeripheral: CBPeripheral {
     private var info: DeviceInformation
     private var notification: CBMutableCharacteristic
     private var modules: [UInt8: MockModule] = [:]
+    private func addModule(_ module: MockModule) {
+        modules[module.modId] = module
+    }
     
     private init(id: String, info: DeviceInformation, name: String? = nil) {
         self.mockName = name
@@ -80,9 +83,17 @@ class MockPeripheral: CBPeripheral {
     static func create(id: String, info: DeviceInformation, name: String? = nil) -> CBPeripheral {
         let peripheral = MockPeripheral(id: id, info: info, name: name)
         
-        let logging = MockModule.logging(peripheral: peripheral)
-        peripheral.modules[logging.modId] = logging
-        
+        peripheral.addModule(MockModule.mechanicalSwitch(peripheral: peripheral))
+        peripheral.addModule(MockModule.led(peripheral: peripheral))
+        peripheral.addModule(MockModule.accelBMI160(peripheral: peripheral))
+        peripheral.addModule(MockModule.iBeacon(peripheral: peripheral))
+        peripheral.addModule(MockModule.dataProcessor(peripheral: peripheral))
+        peripheral.addModule(MockModule.event(peripheral: peripheral))
+        peripheral.addModule(MockModule.logging(peripheral: peripheral))
+        peripheral.addModule(MockModule.timer(peripheral: peripheral))
+        peripheral.addModule(MockModule.macro(peripheral: peripheral))
+        peripheral.addModule(MockModule.settings(peripheral: peripheral))
+        peripheral.addModule(MockModule.testDebug(peripheral: peripheral))
         //        // This is needed to prevent crashing when disposed
         //        peripheral.addObserver(peripheral, forKeyPath: #keyPath(MockPeripheral.delegate), options: [], context: nil)
         return peripheral
@@ -166,7 +177,7 @@ class MockPeripheral: CBPeripheral {
                 }
             }
             self.mockDelegate?.peripheral?(self, didDiscoverCharacteristicsFor: service, error: nil)
-        }        
+        }
     }
     
     func messageSend(modId: UInt8, regId: UInt8, notifyEn: Bool, data: Data?) {

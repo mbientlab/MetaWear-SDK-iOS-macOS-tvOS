@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - MetaWear.readRSSI - get RSSI value after connection
+- More mocked modules with spoof'd MetaWear's
 
 ### Fixed
 - MetaBoot status not updated if scanning wasn't used
