@@ -13,10 +13,8 @@
 		404057AD209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
 		404057AE209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
 		404057AF209A796400591D6B /* FirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057AC209A796300591D6B /* FirmwareTests.swift */; };
-		404057B2209A7CB700591D6B /* ManualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B0209A7CB700591D6B /* ManualTests.swift */; };
 		404057B3209A7CB700591D6B /* ManualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B0209A7CB700591D6B /* ManualTests.swift */; };
 		404057B4209A7CB700591D6B /* ManualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B0209A7CB700591D6B /* ManualTests.swift */; };
-		404057B5209A7CB700591D6B /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B1209A7CB700591D6B /* Tests.swift */; };
 		404057B6209A7CB700591D6B /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B1209A7CB700591D6B /* Tests.swift */; };
 		404057B7209A7CB700591D6B /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B1209A7CB700591D6B /* Tests.swift */; };
 		40405836209A83CA00591D6B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40405834209A83CA00591D6B /* Interface.storyboard */; };
@@ -26,6 +24,11 @@
 		40405846209A83CB00591D6B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40405845209A83CB00591D6B /* ExtensionDelegate.swift */; };
 		40405848209A83CC00591D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40405847209A83CC00591D6B /* Assets.xcassets */; };
 		4040584C209A83CC00591D6B /* MetaWearIntegrationTestHost-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 40405832209A83CA00591D6B /* MetaWearIntegrationTestHost-watchOS.app */; };
+		4058ABC5211D10A600A50323 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B1209A7CB700591D6B /* Tests.swift */; };
+		4058ABC6211D10AA00A50323 /* ManualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404057B0209A7CB700591D6B /* ManualTests.swift */; };
+		4058ABC8211D11A800A50323 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058ABC7211D11A100A50323 /* Tests.swift */; };
+		4058ABC9211D11A900A50323 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058ABC7211D11A100A50323 /* Tests.swift */; };
+		4058ABCA211D11AA00A50323 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058ABC7211D11A100A50323 /* Tests.swift */; };
 		40703E831D94C0DB00F38FF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40703E741D94C0AB00F38FF0 /* AppDelegate.m */; };
 		40703E841D94C0E800F38FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40703E761D94C0AB00F38FF0 /* LaunchScreen.storyboard */; };
 		40703E851D94C0E800F38FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40703E781D94C0AB00F38FF0 /* Main.storyboard */; };
@@ -145,6 +148,7 @@
 		40405845209A83CB00591D6B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		40405847209A83CC00591D6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40405849209A83CC00591D6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4058ABC7211D11A100A50323 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		40703E061D94AE3500F38FF0 /* MetaWearUnitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetaWearUnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40703E0A1D94AE3500F38FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../MetaWearUnitTests-iOS/Info.plist"; sourceTree = "<group>"; };
 		40703E1E1D94AEFE00F38FF0 /* MetaWearIntegrationTests-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetaWearIntegrationTests-iOS-Info.plist"; sourceTree = "<group>"; };
@@ -357,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				404057AC209A796300591D6B /* FirmwareTests.swift */,
+				4058ABC7211D11A100A50323 /* Tests.swift */,
 				40703E1C1D94AE7200F38FF0 /* Supporting Files */,
 			);
 			path = Unit;
@@ -591,7 +596,7 @@
 				4040583A209A83CB00591D6B /* Sources */,
 				4040583B209A83CB00591D6B /* Frameworks */,
 				4040583C209A83CB00591D6B /* Resources */,
-				9994123CA3AC231D12823429 /* [CP] Embed Pods Frameworks */,
+				CB32377EA08141F29A0DE5DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -610,7 +615,7 @@
 				40703E021D94AE3500F38FF0 /* Sources */,
 				40703E031D94AE3500F38FF0 /* Frameworks */,
 				40703E041D94AE3500F38FF0 /* Resources */,
-				5AB788E89338293F541AB99B /* [CP] Embed Pods Frameworks */,
+				A6D2F07A75C5BF890843B8EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -629,7 +634,7 @@
 				40703E2D1D94B8A700F38FF0 /* Sources */,
 				40703E2E1D94B8A700F38FF0 /* Frameworks */,
 				40703E2F1D94B8A700F38FF0 /* Resources */,
-				B62CDA180856E4364A83EF23 /* [CP] Embed Pods Frameworks */,
+				3F42B4767EBB6576B59E2162 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -649,7 +654,7 @@
 				40703E581D94C06800F38FF0 /* Frameworks */,
 				40703E591D94C06800F38FF0 /* Resources */,
 				40405854209A83CC00591D6B /* Embed Watch Content */,
-				143B51053E15C77C55E6B9F5 /* [CP] Embed Pods Frameworks */,
+				6D8E6924E41ABC2BE7583464 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -688,7 +693,7 @@
 				40781FDC1D9DD41900FF5134 /* Sources */,
 				40781FDD1D9DD41900FF5134 /* Frameworks */,
 				40781FDE1D9DD41900FF5134 /* Resources */,
-				D1D56F246C7F24BF36E0BEFE /* [CP] Embed Pods Frameworks */,
+				FF36D3E22023B363EACB86B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -707,7 +712,7 @@
 				407820141D9DD60500FF5134 /* Sources */,
 				407820151D9DD60500FF5134 /* Frameworks */,
 				407820161D9DD60500FF5134 /* Resources */,
-				63D25A37F0717553804A4F20 /* [CP] Embed Pods Frameworks */,
+				939C4D171C745DBB0EFEE7C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -745,7 +750,7 @@
 				40915FC11D94D392008A5F24 /* Sources */,
 				40915FC21D94D392008A5F24 /* Frameworks */,
 				40915FC31D94D392008A5F24 /* Resources */,
-				202EBDFA89868822DC9B54EF /* [CP] Embed Pods Frameworks */,
+				67756B4D24FEC824A9014959 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -799,7 +804,7 @@
 					40703E051D94AE3500F38FF0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					40703E301D94B8A700F38FF0 = {
@@ -991,54 +996,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		143B51053E15C77C55E6B9F5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		202EBDFA89868822DC9B54EF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2426EFA3C81A4CCB856F7298 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1075,17 +1032,17 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5AB788E89338293F541AB99B /* [CP] Embed Pods Frameworks */ = {
+		3F42B4767EBB6576B59E2162 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1096,7 +1053,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C3A67D267487934E07A172F /* [CP] Check Pods Manifest.lock */ = {
@@ -1117,24 +1074,52 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63D25A37F0717553804A4F20 /* [CP] Embed Pods Frameworks */ = {
+		67756B4D24FEC824A9014959 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D8E6924E41ABC2BE7583464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85DE2E74A87C57473D56875E /* [CP] Check Pods Manifest.lock */ = {
@@ -1155,6 +1140,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		939C4D171C745DBB0EFEE7C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9442F6B91850411E0BB98774 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1171,26 +1176,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9994123CA3AC231D12823429 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-watchOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-watchOS/MetaWear.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A5734D745CEC45AD7C50EDE /* [CP] Check Pods Manifest.lock */ = {
@@ -1229,6 +1214,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A6D2F07A75C5BF890843B8EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-iOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip-iOS/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B0BD32AA0F626F7F0972EDC5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1247,39 +1256,15 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B62CDA180856E4364A83EF23 /* [CP] Embed Pods Frameworks */ = {
+		CB32377EA08141F29A0DE5DC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-macOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS/MetaWear.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip-macOS/Zip.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary-macOS/iOSDFULibrary.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS/Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D1D56F246C7F24BF36E0BEFE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-Mocks-UI-tvOS/MetaWear.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-watchOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-watchOS/MetaWear.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1288,7 +1273,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension/Pods-MetaWear-MetaWear-watchOS-MetaWearIntegrationTestHost-watchOS Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4DF3CC52807B3C41C328037 /* [CP] Check Pods Manifest.lock */ = {
@@ -1327,6 +1312,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FF36D3E22023B363EACB86B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift-tvOS/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MetaWear-AsyncUtils-Core-UI-tvOS/MetaWear.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetaWear.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1344,6 +1349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				404057AD209A796400591D6B /* FirmwareTests.swift in Sources */,
+				4058ABC8211D11A800A50323 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1352,6 +1358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				404057AE209A796400591D6B /* FirmwareTests.swift in Sources */,
+				4058ABC9211D11A900A50323 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1368,8 +1375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404057B2209A7CB700591D6B /* ManualTests.swift in Sources */,
-				404057B5209A7CB700591D6B /* Tests.swift in Sources */,
+				4058ABC5211D10A600A50323 /* Tests.swift in Sources */,
+				4058ABC6211D10AA00A50323 /* ManualTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,6 +1385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				404057AF209A796400591D6B /* FirmwareTests.swift in Sources */,
+				4058ABCA211D11AA00A50323 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

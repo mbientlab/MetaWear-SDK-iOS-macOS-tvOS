@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '3.1.6'
+  s.version            = '3.1.7'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
@@ -54,6 +54,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Mocks' do |s|
+    s.ios.deployment_target = '10.0'
+    s.osx.deployment_target = '10.13'
+      
     s.source_files = 'MetaWear/Mocks/**/*'
     s.dependency 'MetaWear/Core'
   end

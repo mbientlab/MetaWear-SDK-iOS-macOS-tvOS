@@ -1,8 +1,8 @@
 /**
- * DeviceInformation.swift
- * MetaWear
+ * Tests.swift
+ * MetaWear-Tests
  *
- * Created by Stephen Schiffli on 5/3/18.
+ * Created by Stephen Schiffli on 8/9/18.
  * Copyright 2018 MbientLab Inc. All rights reserved.
  *
  * IMPORTANT: Your use of this Software is limited to those specific rights
@@ -33,36 +33,21 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-import MetaWearCpp
+import XCTest
+import BoltsSwift
+@testable import MetaWear
+@testable import MetaWearCpp
 
-/// Container of information about a MetaWear board
-public struct DeviceInformation {
-    public let manufacturer: String
-    public let modelNumber: String
-    public let serialNumber: String
-    public let firmwareRevision: String
-    public let hardwareRevision: String
+class Tests: XCTestCase {
     
-    public init(manufacturer: String,
-                modelNumber: String,
-                serialNumber: String,
-                firmwareRevision: String,
-                hardwareRevision: String) {
-        self.manufacturer = manufacturer
-        self.modelNumber = modelNumber
-        self.serialNumber = serialNumber
-        self.firmwareRevision = firmwareRevision
-        self.hardwareRevision = hardwareRevision
-    }
-}
-
-extension MblMwDeviceInformation {
-    /// Used to bridge between MetaWearCpp classes and native managed Swift struct
-    func convert() -> DeviceInformation {
-        return DeviceInformation(manufacturer: String(cString: manufacturer),
-                                 modelNumber: String(cString: model_number),
-                                 serialNumber: String(cString: serial_number),
-                                 firmwareRevision: String(cString: firmware_revision),
-                                 hardwareRevision: String(cString: hardware_revision))
+    func testConnect() {
+        let expectation = XCTestExpectation(description: "expectation")
+        let device = MetaWear.spoof()
+        device.logDelegate = ConsoleLogger.shared
+        device.connectAndSetup().continueWith { t in
+            print(t)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 60)
     }
 }

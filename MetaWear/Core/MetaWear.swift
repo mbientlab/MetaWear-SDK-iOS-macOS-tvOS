@@ -84,7 +84,12 @@ public class MetaWear: NSObject {
             return adQueue.sync { advertisementDataImpl }
         }
         set {
-            adQueue.sync { advertisementDataImpl = newValue }
+            adQueue.sync {
+                advertisementDataImpl = newValue
+                if let services = newValue[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
+                    isMetaBoot = services.contains(.metaWearDfuService)
+                }
+            }
         }
     }
     /// Received signal strength indicator
@@ -98,16 +103,12 @@ public class MetaWear: NSObject {
     public internal(set) var info: DeviceInformation?
     /// Indication that the BLE link is connected and the MetaWearCpp library is properly initialized
     public internal(set) var isConnectedAndSetup = false
-    /// Check if this advertised as a MetaBoot
-    public var isMetaBoot: Bool {
-        let services = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID]
-        return services?.contains(.metaWearDfuService) ?? false
-    }
+    /// Check if this advertised or discovered as a MetaBoot
+    public internal(set) var isMetaBoot = false
     /// Get the most update to date name of the device
     /// - Note:
     /// peripheral.name may be cached, use the name from advertising data
     public var name: String {
-        
         let adName = advertisementData[CBAdvertisementDataLocalNameKey] as? String
         return adName ?? peripheral.name ?? "MetaWear"
     }
@@ -159,6 +160,20 @@ public class MetaWear: NSObject {
     public func cancelConnection() {
         scanner?.cancelConnection(self)
     }
+    /// Retrieves the current RSSI value for the peripheral while it is connected
+    public func readRSSI() -> Task<Int> {
+        let source = TaskCompletionSource<Int>()
+        apiAccessQueue.async {
+            guard self.peripheral.state == .connected else {
+                source.trySet(error: MetaWearError.operationFailed(message: "MetaWear not connected, can't perform operation.  Please connect to MetaWear before reading RSSI."))
+                return
+            }
+            self.rssiSources.append(source)
+            self.peripheral.readRSSI()
+        }
+        return source.task
+    }
+    
     /// Add this to a persistent list retrieved with `MetaWearScanner.retrieveSavedMetaWearsAsync(...)`
     public func remember() {
         scanner?.remember(self)
@@ -246,6 +261,7 @@ public class MetaWear: NSObject {
     fileprivate var onDisconnectCallback: MblMwFnVoidVoidPtrInt?
     fileprivate var disconnectionSources: [TaskCompletionSource<MetaWear>] = []
     fileprivate var connectionSources: [TaskCompletionSource<Task<MetaWear>>] = []
+    fileprivate var rssiSources: [TaskCompletionSource<Int>] = []
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
     fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
@@ -359,11 +375,19 @@ public class MetaWear: NSObject {
 
 extension MetaWear: CBPeripheralDelegate {
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        // Abort the connection on any error here
+        guard error == nil else {
+            invokeConnectionHandlers(error: error!, cancelled: false)
+            cancelConnection()
+            return
+        }
+        
         gattCharMap = [:]
         serviceCount = 0
         for service in peripheral.services! {
             switch service.uuid {
             case .metaWearService:
+                isMetaBoot = false
                 peripheral.discoverCharacteristics([
                     .metaWearCommand,
                     .metaWearNotification], for: service)
@@ -377,7 +401,8 @@ extension MetaWear: CBPeripheralDelegate {
                      .disFirmwareRev,
                      .disModelNumber], for: service)
             case .metaWearDfuService:
-                break // Expected service, but we don't need to discover its characteristics
+                // Expected service, but we don't need to discover its characteristics
+                isMetaBoot = true
             default:
                 let error = MetaWearError.operationFailed(message: "MetaWear device contained an unexpected BLE service.  Please try connection again.")
                 self.invokeConnectionHandlers(error: error, cancelled: false)
@@ -388,6 +413,13 @@ extension MetaWear: CBPeripheralDelegate {
         }
     }
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        // Abort the connection on any error here
+        guard error == nil else {
+            invokeConnectionHandlers(error: error!, cancelled: false)
+            cancelConnection()
+            return
+        }
+        
         guard !isMetaBoot else {
             let task = Task.whenAllResult([readManufacturer(), readModelNumber(), readSerialNumber(), readFirmwareRev(), readHardwareRev()])
             task.continueWith(apiAccessExecutor) {
@@ -506,6 +538,10 @@ extension MetaWear: CBPeripheralDelegate {
         logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
         peripheral.writeValue(data, for: charToWrite, type: type)
         writeIfNeeded()
+    }
+    public func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        rssiSources.forEach { $0.trySet(result: RSSI.intValue) }
+        rssiSources.removeAll()
     }
 }
 
