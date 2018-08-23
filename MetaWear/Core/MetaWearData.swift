@@ -103,6 +103,10 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         assert(T.self == MblMwLoggingTime.self)
     case MBL_MW_DT_ID_BTLE_ADDRESS:
         assert(T.self == MblMwBtleAddress.self)
+    case MBL_MW_DT_ID_BOSCH_ANY_MOTION:
+        assert(T.self == MblMwBoschAnyMotion.self)
+    case MBL_MW_DT_ID_CALIBRATION_STATE:
+        assert(T.self == MblMwCalibrationState.self)
     default:
         fatalError("unknown data type")
     }
