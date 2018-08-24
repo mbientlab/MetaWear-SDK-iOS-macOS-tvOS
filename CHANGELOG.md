@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.1.8] - 2018-08-24
+### Added
+- Support for MblMwBoschAnyMotion and MblMwCalibrationState data types
+
+### Changed
+- MetaWear-SDK-Cpp v0.16.3
+
 ## [3.1.7] - 2018-08-12
 ### Added
 - MetaWear.readRSSI - get RSSI value after connection
