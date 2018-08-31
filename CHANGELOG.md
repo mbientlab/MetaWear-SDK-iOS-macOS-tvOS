@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Threading issues when accessing advertisement data (name, rssi, and averageRssi)
+
 ## [3.1.8] - 2018-08-24
 ### Added
 - Support for MblMwBoschAnyMotion and MblMwCalibrationState data types

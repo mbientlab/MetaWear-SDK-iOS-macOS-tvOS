@@ -74,27 +74,19 @@ public class MetaWear: NSObject {
     /// The corresponding CoreBluetooth object
     public let peripheral: CBPeripheral
     /// The scanner that disovered this device
-    public internal(set) weak var scanner: MetaWearScanner?
+    public private(set) weak var scanner: MetaWearScanner?
     /// This is passed to MetaWearCpp functions
-    public internal(set) var board: OpaquePointer!
+    public private(set) var board: OpaquePointer!
     /// Data from the advertisement packet
     /// This is continually updated when the scanner is active
-    public internal(set) var advertisementData: [String : Any] {
+    public var advertisementData: [String : Any] {
         get {
             return adQueue.sync { advertisementDataImpl }
-        }
-        set {
-            adQueue.sync {
-                advertisementDataImpl = newValue
-                if let services = newValue[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
-                    isMetaBoot = services.contains(.metaWearDfuService)
-                }
-            }
         }
     }
     /// Received signal strength indicator
     /// This is continually updated when the scanner is active
-    public internal(set) var rssi: Int = 0
+    public private(set) var rssi: Int = 0
     /// Callback block invoked each advertisementData and rssi is updated
     public var advertisementReceived: (() -> Void)?
     /// MAC address of the device, available only after you have connected once
@@ -102,15 +94,17 @@ public class MetaWear: NSObject {
     /// Details about the device, available only after you have connected once
     public internal(set) var info: DeviceInformation?
     /// Indication that the BLE link is connected and the MetaWearCpp library is properly initialized
-    public internal(set) var isConnectedAndSetup = false
+    public private(set) var isConnectedAndSetup = false
     /// Check if this advertised or discovered as a MetaBoot
-    public internal(set) var isMetaBoot = false
+    public private(set) var isMetaBoot = false
     /// Get the most update to date name of the device
     /// - Note:
     /// peripheral.name may be cached, use the name from advertising data
     public var name: String {
-        let adName = advertisementData[CBAdvertisementDataLocalNameKey] as? String
-        return adName ?? peripheral.name ?? "MetaWear"
+        return adQueue.sync {
+            let adName = advertisementDataImpl[CBAdvertisementDataLocalNameKey] as? String
+            return adName ?? peripheral.name ?? "MetaWear"
+        }
     }
     /// Helper utility create a file name specifically for this device
     public var uniqueUrl: URL {
@@ -130,12 +124,14 @@ public class MetaWear: NSObject {
     }
     /// Smooth out the RSSI into something less jumpy
     public func averageRSSI(lastNSeconds: Double = 5.0) -> Double? {
-        let filteredRSSI = rssiHistory.filter { -$0.0.timeIntervalSinceNow < lastNSeconds }
-        guard filteredRSSI.count > 0 else {
-            return nil
+        return adQueue.sync {
+            let filteredRSSI = rssiHistory.filter { -$0.0.timeIntervalSinceNow < lastNSeconds }
+            guard filteredRSSI.count > 0 else {
+                return nil
+            }
+            let sumArray = filteredRSSI.reduce(0.0) { $0 + $1.1 }
+            return sumArray / Double(filteredRSSI.count)
         }
-        let sumArray = filteredRSSI.reduce(0.0) { $0 + $1.1 }
-        return sumArray / Double(filteredRSSI.count)
     }
     
     /// Connect to the device and initialize the MetaWearCpp libray
@@ -284,6 +280,25 @@ public class MetaWear: NSObject {
         // TODO: evaluate if the timeout provides value
         mbl_mw_metawearboard_set_time_for_response(self.board, 0)
         self.mac = UserDefaults.standard.string(forKey: "com.mbientlab.macstorage." + peripheral.identifier.uuidString)
+    }
+    
+    func didDiscover(advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        adQueue.sync {
+            self.advertisementDataImpl = advertisementData
+            if let services = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
+                self.isMetaBoot = services.contains(.metaWearDfuService)
+            }
+            self.rssi = RSSI.intValue
+            // Timestamp and save the last N RSSI samples
+            let rssi = RSSI.doubleValue
+            if rssi < 0 {
+                rssiHistory.insert((Date(), RSSI.doubleValue), at: 0)
+            }
+            if rssiHistory.count > 10 {
+                rssiHistory.removeLast()
+            }
+        }
+        advertisementReceived?()
     }
     
     func didConnect() {

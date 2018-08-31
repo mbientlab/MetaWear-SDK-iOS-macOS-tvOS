@@ -226,17 +226,7 @@ extension MetaWearScanner: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let device = deviceMap[peripheral] ?? MetaWear(peripheral: peripheral, scanner: self)
         deviceMap[peripheral] = device
-        device.advertisementData = advertisementData
-        device.rssi = RSSI.intValue
-        // Timestamp and save the last N RSSI samples
-        let rssi = RSSI.doubleValue
-        if rssi < 0 {
-            device.rssiHistory.insert((Date(), RSSI.doubleValue), at: 0)
-        }
-        if device.rssiHistory.count > 10 {
-            device.rssiHistory.removeLast()
-        }
-        device.advertisementReceived?()
+        device.didDiscover(advertisementData: advertisementData, rssi: RSSI)
         callback?(device)
     }
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
