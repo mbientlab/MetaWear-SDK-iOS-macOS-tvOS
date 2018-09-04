@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Changing MetaWearScanner.shared to a non-restorable type.  It requires exta steps, so people should have to opt in by using MetaWearScanner.sharedRestore instead 
+
 ### Fixed
 - Threading issues when accessing advertisement data (name, rssi, and averageRssi)
 

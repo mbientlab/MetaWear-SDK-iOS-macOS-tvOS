@@ -43,7 +43,8 @@ fileprivate var scannerCount = 0
 /// Scanner utility, make is simple to start scanning for MetaWear devices without
 /// having to understand all of CoreBluetooth
 public class MetaWearScanner: NSObject {
-    public static let shared = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
+    public static let shared = MetaWearScanner()
+    public static let sharedRestore = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
     public var central: CBCentralManager! = nil
     /// All devices that have been discovered in one way or another by this central
     public var deviceMap: [CBPeripheral: MetaWear] = [:]
