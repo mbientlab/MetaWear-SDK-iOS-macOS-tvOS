@@ -43,7 +43,8 @@ fileprivate var scannerCount = 0
 /// Scanner utility, make is simple to start scanning for MetaWear devices without
 /// having to understand all of CoreBluetooth
 public class MetaWearScanner: NSObject {
-    public static let shared = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
+    public static let shared = MetaWearScanner()
+    public static let sharedRestore = MetaWearScanner(restoreIdentifier: "MetaWearScanner.shared")
     public var central: CBCentralManager! = nil
     /// All devices that have been discovered in one way or another by this central
     public var deviceMap: [CBPeripheral: MetaWear] = [:]
@@ -226,17 +227,7 @@ extension MetaWearScanner: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let device = deviceMap[peripheral] ?? MetaWear(peripheral: peripheral, scanner: self)
         deviceMap[peripheral] = device
-        device.advertisementData = advertisementData
-        device.rssi = RSSI.intValue
-        // Timestamp and save the last N RSSI samples
-        let rssi = RSSI.doubleValue
-        if rssi < 0 {
-            device.rssiHistory.insert((Date(), RSSI.doubleValue), at: 0)
-        }
-        if device.rssiHistory.count > 10 {
-            device.rssiHistory.removeLast()
-        }
-        device.advertisementReceived?()
+        device.didDiscover(advertisementData: advertisementData, rssi: RSSI)
         callback?(device)
     }
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {

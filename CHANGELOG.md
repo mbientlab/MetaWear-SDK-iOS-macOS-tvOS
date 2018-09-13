@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.1.9] - 2018-09-13
+### Changed
+- Changing MetaWearScanner.shared to a non-restorable type.  It requires exta steps, so people should have to opt in by using MetaWearScanner.sharedRestore instead 
+
+### Fixed
+- Threading issues when accessing advertisement data (name, rssi, and averageRssi)
+
 ## [3.1.8] - 2018-08-24
 ### Added
 - Support for MblMwBoschAnyMotion and MblMwCalibrationState data types
