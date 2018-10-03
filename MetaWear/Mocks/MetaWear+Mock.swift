@@ -93,6 +93,7 @@ class MockPeripheral: CBPeripheral {
         peripheral.addModule(MockModule.timer(peripheral: peripheral))
         peripheral.addModule(MockModule.macro(peripheral: peripheral))
         peripheral.addModule(MockModule.settings(peripheral: peripheral))
+        peripheral.addModule(MockModule.magBMM150(peripheral: peripheral))
         peripheral.addModule(MockModule.testDebug(peripheral: peripheral))
         //        // This is needed to prevent crashing when disposed
         //        peripheral.addObserver(peripheral, forKeyPath: #keyPath(MockPeripheral.delegate), options: [], context: nil)

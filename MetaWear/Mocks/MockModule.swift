@@ -102,9 +102,14 @@ class MockModule {
     }
     
     static func accelBMI160(peripheral: MockPeripheral) -> MockModule {
-        let extra = Data(bytes: [0x3, 0x0])
         let modId: UInt8 = 0x3
-        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 1, modRev: 2, extra: extra)
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 1, modRev: 2)
+        return module
+    }
+    
+    static func magBMM150(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x15
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2)
         return module
     }
     
