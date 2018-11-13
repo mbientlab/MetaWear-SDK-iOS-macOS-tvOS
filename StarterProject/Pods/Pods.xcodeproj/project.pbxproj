@@ -2009,40 +2009,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		002125F29B97862069E93DCFA4DF9012 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65BD9B5AA54BD97C6215255336328CD1 /* MetaWear-macOS.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
-				PRODUCT_MODULE_NAME = MetaWear;
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		091A30BE3C8901FF823A3A7420AC9E7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E714D8E62191DAAB6CE7AC6D2B63D314 /* Pods-Starter-tvOS.debug.xcconfig */;
@@ -2211,7 +2177,74 @@
 			};
 			name = Debug;
 		};
-		273A1A085827CAC19836CF4C1F4FFD79 /* Debug */ = {
+		1F2F974FBB40A5583BBD96220B7B6A68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A1654D713D357D7AFD62FCAC6756B02 /* MetaWear-tvOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
+				PRODUCT_MODULE_NAME = MetaWear;
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2BA966C869A99D78E8522A3B177A4EF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BD9B5AA54BD97C6215255336328CD1 /* MetaWear-macOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
+				PRODUCT_MODULE_NAME = MetaWear;
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		43093C99E0A1B8C2D3089CC09D971C44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9A1654D713D357D7AFD62FCAC6756B02 /* MetaWear-tvOS.xcconfig */;
 			buildSettings = {
@@ -2235,7 +2268,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2308,40 +2341,6 @@
 			};
 			name = Debug;
 		};
-		5D50221AFD6926481AF3103B99F239F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65BD9B5AA54BD97C6215255336328CD1 /* MetaWear-macOS.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
-				PRODUCT_MODULE_NAME = MetaWear;
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		655052479B798F62BA6F1B0C2C699174 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8468FE86B85A9D95FF5DF8AFC02B3CE /* Pods-Starter-macOS.release.xcconfig */;
@@ -2377,6 +2376,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		6AAA671878990380C37E9B47B42FC4AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1560CF53730C908F3A840B142798C445 /* MetaWear-iOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
+				PRODUCT_MODULE_NAME = MetaWear;
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		6B0EAC21206EBF8781B1098B928E32D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2439,6 +2471,40 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		854CEE0A94FBB70355B243C1FAF28212 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1560CF53730C908F3A840B142798C445 /* MetaWear-iOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
+				PRODUCT_MODULE_NAME = MetaWear;
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2543,6 +2609,40 @@
 			};
 			name = Release;
 		};
+		A1A9CFAFA766DE28A27F43FD1E3F6319 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BD9B5AA54BD97C6215255336328CD1 /* MetaWear-macOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-macOS/MetaWear-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetaWear-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "Target Support Files/MetaWear-macOS/MetaWear-macOS.modulemap";
+				PRODUCT_MODULE_NAME = MetaWear;
+				PRODUCT_NAME = MetaWear;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A571011B08A00A44EA6CF87F7AC13999 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87F5B491BB8BB90853BFA31254C11353 /* Bolts-Swift-iOS.xcconfig */;
@@ -2639,39 +2739,6 @@
 			};
 			name = Debug;
 		};
-		DBB8DD29E6CACAF5832DEEFDC095CA4B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A1654D713D357D7AFD62FCAC6756B02 /* MetaWear-tvOS.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-tvOS/MetaWear-tvOS.modulemap";
-				PRODUCT_MODULE_NAME = MetaWear;
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.1;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		E047939FD57204B9E9B64E5A2A9D5F05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5BAE2AE51522CFFAAC13455FB6C4C59A /* Pods-Starter-tvOS.release.xcconfig */;
@@ -2739,39 +2806,6 @@
 			};
 			name = Release;
 		};
-		EC21F6124F4249829C9313C9574A2884 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1560CF53730C908F3A840B142798C445 /* MetaWear-iOS.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
-				PRODUCT_MODULE_NAME = MetaWear;
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		EC85B252CD015E9988B7A9C6DFAE5847 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24F858DBC3552FC3A13626D490C08850 /* MBProgressHUD-iOS.xcconfig */;
@@ -2802,40 +2836,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		F082550B26544C0BF46736D1CE6BCD52 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1560CF53730C908F3A840B142798C445 /* MetaWear-iOS.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-iOS/MetaWear-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MetaWear-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MetaWear-iOS/MetaWear-iOS.modulemap";
-				PRODUCT_MODULE_NAME = MetaWear;
-				PRODUCT_NAME = MetaWear;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		FAB3E566E6C5EE2FB49F18EF8A28201E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2888,8 +2888,8 @@
 		2379256C7B63B3AFD179C5CA9BEA0D02 /* Build configuration list for PBXNativeTarget "MetaWear-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				002125F29B97862069E93DCFA4DF9012 /* Debug */,
-				5D50221AFD6926481AF3103B99F239F6 /* Release */,
+				2BA966C869A99D78E8522A3B177A4EF8 /* Debug */,
+				A1A9CFAFA766DE28A27F43FD1E3F6319 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2915,8 +2915,8 @@
 		9057A67A2FE311F665275C116AC062BD /* Build configuration list for PBXNativeTarget "MetaWear-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				273A1A085827CAC19836CF4C1F4FFD79 /* Debug */,
-				DBB8DD29E6CACAF5832DEEFDC095CA4B /* Release */,
+				43093C99E0A1B8C2D3089CC09D971C44 /* Debug */,
+				1F2F974FBB40A5583BBD96220B7B6A68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2942,8 +2942,8 @@
 		CB978462A591CD086FFCCC2AD2510653 /* Build configuration list for PBXNativeTarget "MetaWear-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC21F6124F4249829C9313C9574A2884 /* Debug */,
-				F082550B26544C0BF46736D1CE6BCD52 /* Release */,
+				6AAA671878990380C37E9B47B42FC4AF /* Debug */,
+				854CEE0A94FBB70355B243C1FAF28212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
