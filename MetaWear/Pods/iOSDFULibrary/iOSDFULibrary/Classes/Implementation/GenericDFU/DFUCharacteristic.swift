@@ -20,35 +20,18 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-internal protocol DFUController {
-    
-    /**
-     Call this method to pause uploading during the transmition process. The transmition can be resumed
-     only when connection remains. If service has already started sending firmware data it will pause after receiving
-     next Packet Receipt Notification. Otherwise it will continue to send Op Codes and pause before sending the first bytes
-     of the firmware. With Packet Receipt Notifications disabled it is the only moment when upload may be paused.
-     
-     - returns: true if DFU operation was paused, false otherwise
-     */
-    func pause() -> Bool
-    
-    /**
-     Call this method to resume the paused transffer, otherwise does nothing.
-     
-     - returns: true if DFU operation was resumed, false otherwise
-     */
-    func resume() -> Bool
-    
-    /**
-     Aborts the upload. The phone will disconnect from peripheral. The peripheral will try to
-     recover the last firmware. Might, restart in the Bootloader mode if the application has been
-     removed.
-     
-     Abort (Reset) command will be sent instead of a next Op Code, or after receiving a
-     Packet Receipt Notification. It PRM procedure is disabled it will continue until the whole
-     firmware is sent and then Reset will be sent instead of Verify Firmware op code.
-     
-     - returns: true if DFU operation was aborted, false otherwise
-     */
-    func abort() -> Bool
+import Foundation
+import CoreBluetooth
+
+/// Describes a DFU Characteristic
+internal protocol DFUCharacteristic {
+
+    /// Discovered characteristic.
+    var characteristic: CBCharacteristic { get }
+
+    /// Logger helper.
+    /// The logger inside may be nil, but the helper may not.
+    var logger: LoggerHelper { get }
+
+    init(_ characteristic: CBCharacteristic, _ logger: LoggerHelper)
 }

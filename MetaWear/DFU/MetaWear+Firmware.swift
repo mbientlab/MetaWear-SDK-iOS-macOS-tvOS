@@ -95,23 +95,23 @@ extension MetaWear {
 }
 
 /// Find device with identifier on a new central object
-func findMetaBoot(_ identifier: UUID) -> Task<(MetaWearScanner, MetaWear)>  {
+func findMetaBoot(_ identifier: UUID) -> Task<MetaWear>  {
     let scanner = MetaWearScanner()
-    let source = TaskCompletionSource<(MetaWearScanner, MetaWear)>()
+    let source = TaskCompletionSource<MetaWear>()
     scanner.startScan(allowDuplicates: false) { found in
         if found.peripheral.identifier == identifier {
             scanner.stopScan()
-            source.trySet(result: (scanner, found))
+            source.trySet(result: found)
         }
     }
     return source.task
 }
 
 /// Call into the actual Nordic DFU library
-func runNordicInstall(metaboot: MetaWear, scanner: MetaWearScanner, firmware: DFUFirmware, delegate: DFUProgressDelegate?) -> Task<Void> {
-    let central = scanner.central!
+func runNordicInstall(metaboot: MetaWear, firmware: DFUFirmware, delegate: DFUProgressDelegate?) -> Task<Void> {
     let peripheral = metaboot.peripheral
-    let initiator = DFUServiceInitiator(centralManager: central, target: peripheral).with(firmware: firmware)
+    peripheral.delegate = nil // Don't want callbacks while the DFU is working
+    let initiator = DFUServiceInitiator(target: peripheral).with(firmware: firmware)
     initiator.forceDfu = true // We also have the DIS which confuses the DFU library
     initiator.logger = metaboot
     initiator.delegate = metaboot
@@ -127,7 +127,7 @@ func runNordicInstall(metaboot: MetaWear, scanner: MetaWearScanner, firmware: DF
 
 /// Recursive check that the correct bootloader is installed before trying DFU
 func updateMetaBoot(identifier: UUID, build: FirmwareBuild, delegate: DFUProgressDelegate?) -> Task<Void> {
-    return findMetaBoot(identifier).continueOnSuccessWithTask { (scanner, metaboot) in
+    return findMetaBoot(identifier).continueOnSuccessWithTask { metaboot in
         return metaboot.connectAndSetup().continueOnSuccessWithTask { _ in
             if let required = build.requiredBootloader, required != metaboot.info!.firmwareRevision {
                 return FirmwareServer.getAllBootloaderAsync(hardwareRev: build.hardwareRev, modelNumber: build.modelNumber).continueWithTask {
@@ -141,7 +141,7 @@ func updateMetaBoot(identifier: UUID, build: FirmwareBuild, delegate: DFUProgres
                 }
             } else {
                 return build.getNordicFirmware().continueOnSuccessWithTask {
-                    return runNordicInstall(metaboot: metaboot, scanner: scanner, firmware: $0, delegate: delegate)
+                    return runNordicInstall(metaboot: metaboot, firmware: $0, delegate: delegate)
                 }
             }
         }
