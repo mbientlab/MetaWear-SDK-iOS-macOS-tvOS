@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Switching Projects to original build system for Xcode 10 (workaround for CocoaPod issue)
+- MetaWear-SDK-Cpp v0.17.0
 
 ### Fixed
 - macOS StarterProject
