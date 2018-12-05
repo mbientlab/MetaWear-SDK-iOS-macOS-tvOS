@@ -191,6 +191,7 @@
 		409EBC7D20F5962E0050DF05 /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
 		409EBC8220F5962E0050DF05 /* conf.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
 		409EBC9C20F5962E0050DF05 /* project_setup.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project_setup.rst; sourceTree = "<group>"; };
+		40C71ED421B866560068FEE0 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		56D26D2541DE09EA81DA4175 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5AF78A37DB22BDC4AD33196D /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -563,6 +564,7 @@
 				2E06F9C64AEA806D32581A30 /* MetaWear.podspec */,
 				C4639C9104CACAD62933611C /* README.md */,
 				56D26D2541DE09EA81DA4175 /* LICENSE */,
+				40C71ED421B866560068FEE0 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -799,6 +801,7 @@
 					4040583D209A83CB00591D6B = {
 						CreatedOnToolsVersion = 9.3;
 						DevelopmentTeam = S2273LZ6GL;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					40703E051D94AE3500F38FF0 = {
@@ -826,7 +829,7 @@
 					40703EA51D94C37500F38FF0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S2273LZ6GL;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 40703E5A1D94C06800F38FF0;
 					};
@@ -1578,6 +1581,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -1606,6 +1610,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
@@ -1771,6 +1776,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
 			};
 			name = Debug;
@@ -1793,6 +1799,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetaWearIntegrationTestHost-iOS.app/MetaWearIntegrationTestHost-iOS";
 			};
 			name = Release;

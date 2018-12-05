@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.1.10] - 2018-12-05
+### Added
+- Mock gyro and sensor fusion
+
+### Changed
+- Switching Projects to original build system for Xcode 10 (workaround for CocoaPod issue)
+- MetaWear-SDK-Cpp v0.17.0
+
+### Fixed
+- macOS StarterProject
+
+### Added
+- Mock magnetometer
+
 ## [3.1.9] - 2018-09-13
 ### Changed
 - Changing MetaWearScanner.shared to a non-restorable type.  It requires exta steps, so people should have to opt in by using MetaWearScanner.sharedRestore instead 

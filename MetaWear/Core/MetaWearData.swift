@@ -74,6 +74,11 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         let buffer = UnsafeRawBufferPointer(start: value, count: Int(length))
         return Array(buffer) as! T
     }
+    guard type_id != MBL_MW_DT_ID_DATA_ARRAY else {
+        assert(T.self == [MblMwData].self)
+        let buffer = UnsafeRawBufferPointer(start: value, count: Int(length))
+        return Array(buffer) as! T
+    }
     // Generalized flow
     assert(MemoryLayout<T>.size == length)
     switch type_id {
@@ -107,6 +112,8 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         assert(T.self == MblMwBoschAnyMotion.self)
     case MBL_MW_DT_ID_CALIBRATION_STATE:
         assert(T.self == MblMwCalibrationState.self)
+    case MBL_MW_DT_ID_BOSCH_TAP:
+        assert(T.self == MblMwBoschTap.self)
     default:
         fatalError("unknown data type")
     }

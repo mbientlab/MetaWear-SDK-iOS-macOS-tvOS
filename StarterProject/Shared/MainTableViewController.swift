@@ -18,6 +18,10 @@ class MainTableViewController: UITableViewController, ScanTableViewControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
+        updateList()
+    }
+    
+    func updateList() {
         MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith(.mainThread) {
             self.devices = $0
             self.tableView.reloadData()
@@ -35,6 +39,7 @@ class MainTableViewController: UITableViewController, ScanTableViewControllerDel
             hud.mode = .text
             hud.label.text = $0.error?.localizedDescription ?? "Success"
             hud.hide(animated: true, afterDelay: 2.5)
+            self.updateList()
         }
     }
 
@@ -91,7 +96,7 @@ class MainTableViewController: UITableViewController, ScanTableViewControllerDel
         if let scanController = segue.destination as? ScanTableViewController {
             scanController.delegate = self
         } else if let deviceController = segue.destination as? DeviceViewController {
-            deviceController.device = sender as! MetaWear
+            deviceController.device = (sender as! MetaWear)
         }
     }
 }

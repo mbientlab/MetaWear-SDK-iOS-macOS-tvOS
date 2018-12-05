@@ -102,9 +102,14 @@ class MockModule {
     }
     
     static func accelBMI160(peripheral: MockPeripheral) -> MockModule {
-        let extra = Data(bytes: [0x3, 0x0])
         let modId: UInt8 = 0x3
-        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 1, modRev: 2, extra: extra)
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 1, modRev: 2)
+        return module
+    }
+    
+    static func magBMM150(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x15
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2)
         return module
     }
     
@@ -196,6 +201,18 @@ class MockModule {
     static func settings(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0x11
         let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 7, extra: Data(bytes: [0x3]))
+        return module
+    }
+    
+    static func gyroBMI160(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x13
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 1)
+        return module
+    }
+    
+    static func sensorFusion(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x19
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2, extra: Data(bytes: [0x03,0x00,0x06,0x00,0x02,0x00,0x01,0x00]))
         return module
     }
     

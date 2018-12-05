@@ -57,6 +57,7 @@ class Tests: XCTestCase {
             if (device.averageRSSI() ?? -100) > -50 {
                 MetaWearScanner.shared.stopScan()
                 self.device = device
+                device.logDelegate = ConsoleLogger.shared
                 device.connectAndSetup().continueWith { t -> () in
                     if let error = t.error {
                         self.continueAfterFailure = false
@@ -158,6 +159,47 @@ class Tests: XCTestCase {
             XCTAssertFalse(t.faulted)
             print(t.result ?? 0)
             self.expectation?.fulfill()
+        }
+        wait(for: [expectation!], timeout: 30)
+    }
+    
+    func testFuser() {
+        expectation = XCTestExpectation(description: "expectation")
+        let board = device.board
+        let accSignal = mbl_mw_acc_get_acceleration_data_signal(board)!
+        let gyroSignal = mbl_mw_gyro_bmi160_get_rotation_data_signal(board)!
+        accSignal.fuserCreate(with: gyroSignal).continueWith { t in
+            guard let fused = t.result else {
+                XCTFail(t.error!.localizedDescription)
+                self.expectation?.fulfill()
+                return
+            }
+            mbl_mw_datasignal_subscribe(fused,  bridgeRetained(obj: self)) { (context, dataPtr) in
+                let this: Tests = bridge(ptr: context!)
+                
+                let fused: [MblMwData] = dataPtr!.pointee.valueAs()
+                let acc: MblMwCartesianFloat = fused[0].valueAs()
+                let gyro: MblMwCartesianFloat = fused[1].valueAs()
+                print(acc)
+                print(gyro)
+                
+                if (this.counter == 1000) {
+                    mbl_mw_debug_reset(this.device.board)
+                    this.expectation?.fulfill()
+                }
+                this.counter += 1
+            }
+            
+            mbl_mw_acc_set_odr(board, 50)
+            mbl_mw_acc_write_acceleration_config(board)
+            mbl_mw_acc_enable_acceleration_sampling(board)
+            mbl_mw_acc_start(board)
+            
+            mbl_mw_gyro_bmi160_set_odr(board, MBL_MW_GYRO_BMI160_ODR_50Hz)
+            mbl_mw_gyro_bmi160_write_config(board)
+            mbl_mw_gyro_bmi160_enable_rotation_sampling(board)
+            mbl_mw_gyro_bmi160_start(board)
+            
         }
         wait(for: [expectation!], timeout: 30)
     }
