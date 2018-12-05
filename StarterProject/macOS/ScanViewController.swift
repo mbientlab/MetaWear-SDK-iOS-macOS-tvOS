@@ -101,15 +101,13 @@ class ScanViewController: NSViewController, NSTableViewDelegate, NSTableViewData
             return
         }
         scannerModel.items[tableView.clickedRow].toggleConnect()
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 }
 
 extension ScanViewController: ScannerModelDelegate {
     func scannerModel(_ scannerModel: ScannerModel, didAddItemAt idx: Int) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     
     func scannerModel(_ scannerModel: ScannerModel, confirmBlinkingItem item: ScannerModelItem, callback: @escaping (Bool) -> Void) {
