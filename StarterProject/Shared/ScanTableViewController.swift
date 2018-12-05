@@ -93,36 +93,30 @@ class ScanTableViewController: UITableViewController {
 
 extension ScanTableViewController: ScannerModelDelegate {
     func scannerModel(_ scannerModel: ScannerModel, didAddItemAt idx: Int) {
-        DispatchQueue.main.async {
-            self.tableView.insertRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
-        }
+        tableView.insertRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
     }
     
     func scannerModel(_ scannerModel: ScannerModel, confirmBlinkingItem item: ScannerModelItem, callback: @escaping (Bool) -> Void) {
-        DispatchQueue.main.async {
-            self.hud?.hide(animated: true)
-            self.hud = nil
-            
-            let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
-                callback(false)
-            })
-            alert.addAction(UIAlertAction(title: "Yes!", style: .default) { _ in
-                callback(true)
-                self.delegate?.scanTableViewController(self, didSelectDevice: item.device)
-            })
-            self.present(alert, animated: true, completion: nil)
-        }
+        hud?.hide(animated: true)
+        hud = nil
+        
+        let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
+            callback(false)
+        })
+        alert.addAction(UIAlertAction(title: "Yes!", style: .default) { _ in
+            callback(true)
+            self.delegate?.scanTableViewController(self, didSelectDevice: item.device)
+        })
+        present(alert, animated: true, completion: nil)
     }
     
     func scannerModel(_ scannerModel: ScannerModel, errorDidOccur error: Error) {
-        DispatchQueue.main.async {
-            self.hud?.hide(animated: false)
-            self.hud = nil
-            
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
-        }
+        hud?.hide(animated: false)
+        hud = nil
+        
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }
