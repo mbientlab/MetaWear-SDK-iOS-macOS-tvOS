@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '3.1.10'
+  s.version            = '3.1.11'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, :osx, :tvos, :watchos
   s.ios.deployment_target = '10.0'
-  s.osx.deployment_target = '10.13'
+  s.osx.deployment_target = '10.14'
   s.tvos.deployment_target = '10.0'
   s.watchos.deployment_target = '4.0'
 
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Mocks' do |s|
     s.ios.deployment_target = '10.0'
-    s.osx.deployment_target = '10.13'
+    s.osx.deployment_target = '10.14'
       
     s.source_files = 'MetaWear/Mocks/**/*'
     s.dependency 'MetaWear/Core'
@@ -63,10 +63,10 @@ Pod::Spec.new do |s|
   
   s.subspec 'DFU' do |s|
       s.ios.deployment_target = '10.0'
-      s.osx.deployment_target = '10.13'
+      s.osx.deployment_target = '10.14'
 
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'
-      s.dependency 'iOSDFULibrary', '4.2.0'
+      s.dependency 'iOSDFULibrary', '4.2.2'
   end
 end

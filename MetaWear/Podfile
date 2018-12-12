@@ -16,7 +16,7 @@ abstract_target 'MetaWear' do
     end
     
     abstract_target 'MetaWear-macOS' do
-        platform :osx, '10.13'
+        platform :osx, '10.14'
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-macOS' do
