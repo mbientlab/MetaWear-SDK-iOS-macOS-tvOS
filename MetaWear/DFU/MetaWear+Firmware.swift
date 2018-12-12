@@ -81,11 +81,15 @@ extension MetaWear {
             return task
         }.continueOnSuccessWithTask { result -> Task<Void> in
             finalBuild = result
-            self.isMetaBoot ? self.cancelConnection() : mbl_mw_debug_jump_to_bootloader(self.board)
-            return Task<Void>.withDelay(3.0)
-        }.continueOnSuccessWithTask { _ in
-            return updateMetaBoot(identifier:self.peripheral.identifier, build: finalBuild, delegate: delegate)
+            guard self.isMetaBoot else {
+                mbl_mw_debug_jump_to_bootloader(self.board)
+                return Task<Void>.withDelay(3.0)
+            }
+            return Task<Void>(())
+        }.continueOnSuccessWithTask { result -> Task<Void> in
+            return updateMetaBoot(metaboot:self, build: finalBuild, delegate: delegate)
         }.continueWithTask {
+            self.cancelConnection()
             initiatorCache.removeValue(forKey: self)
             dfuSourceCache.removeValue(forKey: self)
             dfuControllerCache.removeValue(forKey: self)
@@ -94,55 +98,37 @@ extension MetaWear {
     }
 }
 
-/// Find device with identifier on a new central object
-func findMetaBoot(_ identifier: UUID) -> Task<MetaWear>  {
-    let scanner = MetaWearScanner()
-    let source = TaskCompletionSource<MetaWear>()
-    scanner.startScan(allowDuplicates: false) { found in
-        if found.peripheral.identifier == identifier {
-            scanner.stopScan()
-            source.trySet(result: found)
-        }
-    }
-    return source.task
-}
-
 /// Call into the actual Nordic DFU library
 func runNordicInstall(metaboot: MetaWear, firmware: DFUFirmware, delegate: DFUProgressDelegate?) -> Task<Void> {
-    let peripheral = metaboot.peripheral
-    peripheral.delegate = nil // Don't want callbacks while the DFU is working
-    let initiator = DFUServiceInitiator(target: peripheral).with(firmware: firmware)
+    let initiator = DFUServiceInitiator(queue: metaboot.apiAccessQueue).with(firmware: firmware)
     initiator.forceDfu = true // We also have the DIS which confuses the DFU library
     initiator.logger = metaboot
     initiator.delegate = metaboot
-    initiator.peripheralSelector = metaboot
     initiator.progressDelegate = delegate
     
     initiatorCache[metaboot] = initiator
     let dfuSource = TaskCompletionSource<Void>()
     dfuSourceCache[metaboot] = dfuSource
-    dfuControllerCache[metaboot] = initiator.start()
+    dfuControllerCache[metaboot] = initiator.start(target: metaboot.peripheral)
     return dfuSource.task
 }
 
 /// Recursive check that the correct bootloader is installed before trying DFU
-func updateMetaBoot(identifier: UUID, build: FirmwareBuild, delegate: DFUProgressDelegate?) -> Task<Void> {
-    return findMetaBoot(identifier).continueOnSuccessWithTask { metaboot in
-        return metaboot.connectAndSetup().continueOnSuccessWithTask { _ in
-            if let required = build.requiredBootloader, required != metaboot.info!.firmwareRevision {
-                return FirmwareServer.getAllBootloaderAsync(hardwareRev: build.hardwareRev, modelNumber: build.modelNumber).continueWithTask {
-                    if let bootloader = $0.result?.first(where: { $0.firmwareRev == required }) {
-                        return updateMetaBoot(identifier: identifier, build: bootloader, delegate: delegate).continueOnSuccessWithTask {
-                            return updateMetaBoot(identifier: identifier, build: build, delegate: delegate)
-                        }
-                    } else {
-                        return Task<Void>(error: MetaWearError.operationFailed(message: "Could not perform DFU.  Firmware \(build.firmwareRev) requires bootloader version '\(required)' which does not exist."))
+func updateMetaBoot(metaboot: MetaWear, build: FirmwareBuild, delegate: DFUProgressDelegate?) -> Task<Void> {
+    return metaboot.connectAndSetup().continueOnSuccessWithTask { _ in
+        if let required = build.requiredBootloader, required != metaboot.info!.firmwareRevision {
+            return FirmwareServer.getAllBootloaderAsync(hardwareRev: build.hardwareRev, modelNumber: build.modelNumber).continueWithTask {
+                if let bootloader = $0.result?.first(where: { $0.firmwareRev == required }) {
+                    return updateMetaBoot(metaboot: metaboot, build: bootloader, delegate: delegate).continueOnSuccessWithTask {
+                        return updateMetaBoot(metaboot: metaboot, build: build, delegate: delegate)
                     }
+                } else {
+                    return Task<Void>(error: MetaWearError.operationFailed(message: "Could not perform DFU.  Firmware \(build.firmwareRev) requires bootloader version '\(required)' which does not exist."))
                 }
-            } else {
-                return build.getNordicFirmware().continueOnSuccessWithTask {
-                    return runNordicInstall(metaboot: metaboot, firmware: $0, delegate: delegate)
-                }
+            }
+        } else {
+            return build.getNordicFirmware().continueOnSuccessWithTask {
+                return runNordicInstall(metaboot: metaboot, firmware: $0, delegate: delegate)
             }
         }
     }
@@ -185,11 +171,3 @@ extension MetaWear: LoggerDelegate {
     }
 }
 
-extension MetaWear: DFUPeripheralSelectorDelegate {
-    public func select(_ peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber, hint name: String?) -> Bool {
-        return peripheral.identifier == peripheral.identifier
-    }
-    public func filterBy(hint dfuServiceUUID: CBUUID) -> [CBUUID]? {
-        return [dfuServiceUUID]
-    }
-}

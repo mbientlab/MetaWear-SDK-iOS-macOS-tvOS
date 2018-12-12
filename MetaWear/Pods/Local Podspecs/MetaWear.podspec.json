@@ -19,7 +19,7 @@
   },
   "platforms": {
     "ios": "10.0",
-    "osx": "10.13",
+    "osx": "10.14",
     "tvos": "10.0",
     "watchos": "4.0"
   },
@@ -76,7 +76,7 @@
       "name": "Mocks",
       "platforms": {
         "ios": "10.0",
-        "osx": "10.13"
+        "osx": "10.14"
       },
       "source_files": "MetaWear/Mocks/**/*",
       "dependencies": {
@@ -89,7 +89,7 @@
       "name": "DFU",
       "platforms": {
         "ios": "10.0",
-        "osx": "10.13"
+        "osx": "10.14"
       },
       "source_files": "MetaWear/DFU/**/*",
       "dependencies": {
@@ -97,7 +97,7 @@
 
         ],
         "iOSDFULibrary": [
-          "4.2.0"
+          "4.2.2"
         ]
       }
     }
