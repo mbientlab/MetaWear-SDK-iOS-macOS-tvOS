@@ -221,19 +221,19 @@ extension OpaquePointer {
 
 private func errorForCode(_ code: Int) -> String? {
     switch code {
-    case MBL_MW_STATUS_WARNING_UNEXPECTED_SENSOR_DATA:
+    case STATUS_WARNING_UNEXPECTED_SENSOR_DATA:
         return "Data unexpectedly received from a sensor"
-    case MBL_MW_STATUS_WARNING_INVALID_PROCESSOR_TYPE:
+    case STATUS_WARNING_INVALID_PROCESSOR_TYPE:
         return "Invalid processor passed into a dataprocessor function"
-    case MBL_MW_STATUS_ERROR_UNSUPPORTED_PROCESSOR:
+    case STATUS_ERROR_UNSUPPORTED_PROCESSOR:
         return "Processor not supported for the data signal"
-    case MBL_MW_STATUS_WARNING_INVALID_RESPONSE:
+    case STATUS_WARNING_INVALID_RESPONSE:
         return "Invalid response receieved from the MetaWear notify characteristic"
-    case MBL_MW_STATUS_ERROR_TIMEOUT:
+    case STATUS_ERROR_TIMEOUT:
         return "Timeout occured during an asynchronous operation"
-    case MBL_MW_STATUS_ERROR_SERIALIZATION_FORMAT:
+    case STATUS_ERROR_SERIALIZATION_FORMAT:
         return "Cannot restore API state given the input serialization format"
-    case MBL_MW_STATUS_ERROR_ENABLE_NOTIFY:
+    case STATUS_ERROR_ENABLE_NOTIFY:
         return "Failed to enable notifications"
     default:
        return nil
