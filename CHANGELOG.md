@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [3.2.0] - 2019-02-12
+### Changed
+- MetaWear-SDK-Cpp v0.18.0.
+- Restart scanning if BLE state toggles off then on
+
+### Fixed
+Removed MBL_MW_ prefix from constants to fix duplicate symbol errors.
+
 ## [3.1.11] - 2018-12-12
 ### Changed
 - Updated iOSDFULibrary to 4.2.2
