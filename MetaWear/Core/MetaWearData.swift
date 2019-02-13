@@ -62,6 +62,9 @@ extension MblMwData {
     public func valueAs<T>() -> T {
         return doTheParse(length: length, type_id: type_id, value: value)
     }
+    public func extraAs<T>() -> T {
+        return extra.bindMemory(to: T.self, capacity: 1).pointee
+    }
 }
 
 fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: UnsafeRawPointer) -> T {
@@ -76,8 +79,10 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
     }
     guard type_id != MBL_MW_DT_ID_DATA_ARRAY else {
         assert(T.self == [MblMwData].self)
-        let buffer = UnsafeRawBufferPointer(start: value, count: Int(length))
-        return Array(buffer) as! T
+        let count = Int(length) / MemoryLayout<UnsafePointer<MblMwData>>.size
+        let pointer = value.bindMemory(to: UnsafePointer<MblMwData>.self, capacity: count)
+        let buffer = UnsafeBufferPointer(start: pointer, count: count)
+        return buffer.map { $0.pointee } as! T
     }
     // Generalized flow
     assert(MemoryLayout<T>.size == length)

@@ -36,22 +36,39 @@
 import MetaWearCpp
 import BoltsSwift
 
-
 extension MetaWear {
+    public func clearAndReset() {
+        board.clearAndReset()
+    }
+    
+    public func macroEndRecord() -> Task<Int32> {
+        return board.macroEndRecord()
+    }
+    
+    public func createAnonymousDatasignals() -> Task<[OpaquePointer]> {
+        return board.createAnonymousDatasignals()
+    }
+    
+    public func timerCreate(period: UInt32, repetitions: UInt16 = 0xFFFF, immediateFire: Bool = false) -> Task<OpaquePointer> {
+        return board.timerCreate(period: period, repetitions: repetitions, immediateFire: immediateFire)
+    }
+}
+
+extension OpaquePointer {
     /// Reset the device to factory defaults
     public func clearAndReset() {
-        mbl_mw_logging_stop(board)
-        mbl_mw_metawearboard_tear_down(board)
-        mbl_mw_logging_clear_entries(board)
-        mbl_mw_macro_erase_all(board)
-        mbl_mw_debug_reset_after_gc(board)
-        mbl_mw_debug_disconnect(board)
+        mbl_mw_logging_stop(self)
+        mbl_mw_metawearboard_tear_down(self)
+        mbl_mw_logging_clear_entries(self)
+        mbl_mw_macro_erase_all(self)
+        mbl_mw_debug_reset_after_gc(self)
+        mbl_mw_debug_disconnect(self)
     }
     
     /// Tasky interface to mbl_mw_macro_end_record
     public func macroEndRecord() -> Task<Int32> {
         let source = TaskCompletionSource<Int32>()
-        mbl_mw_macro_end_record(board, bridgeRetained(obj: source)) { (context, board, value) in
+        mbl_mw_macro_end_record(self, bridgeRetained(obj: source)) { (context, board, value) in
             let source: TaskCompletionSource<Int32> = bridgeTransfer(ptr: context!)
             source.trySet(result: value)
         }
@@ -61,7 +78,7 @@ extension MetaWear {
     /// Tasky interface to mbl_mw_metawearboard_create_anonymous_datasignals
     public func createAnonymousDatasignals() -> Task<[OpaquePointer]> {
         let source = TaskCompletionSource<[OpaquePointer]>()
-        mbl_mw_metawearboard_create_anonymous_datasignals(board, bridgeRetained(obj: source))
+        mbl_mw_metawearboard_create_anonymous_datasignals(self, bridgeRetained(obj: source))
         { (context, board, anonymousSignals, size) in
             let source: TaskCompletionSource<[OpaquePointer]> = bridgeTransfer(ptr: context!)
             if let anonymousSignals = anonymousSignals {
@@ -83,7 +100,7 @@ extension MetaWear {
     /// Tasky interface to mbl_mw_timer_create
     public func timerCreate(period: UInt32, repetitions: UInt16 = 0xFFFF, immediateFire: Bool = false) -> Task<OpaquePointer> {
         let source = TaskCompletionSource<OpaquePointer>()
-        mbl_mw_timer_create(board, period, repetitions, immediateFire ? 0 : 1, bridgeRetained(obj: source)) { (context, timer) in
+        mbl_mw_timer_create(self, period, repetitions, immediateFire ? 0 : 1, bridgeRetained(obj: source)) { (context, timer) in
             let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
             if let timer = timer {
                 source.trySet(result: timer)

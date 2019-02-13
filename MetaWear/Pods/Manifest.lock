@@ -2,16 +2,16 @@ PODS:
   - Bolts-Swift (1.4.0)
   - iOSDFULibrary (4.2.2):
     - Zip (~> 1.0)
-  - MetaWear/AsyncUtils (3.1.11):
+  - MetaWear/AsyncUtils (3.2.0):
     - MetaWear/Core
-  - MetaWear/Core (3.1.11):
+  - MetaWear/Core (3.2.0):
     - Bolts-Swift (~> 1)
-  - MetaWear/DFU (3.1.11):
+  - MetaWear/DFU (3.2.0):
     - iOSDFULibrary (= 4.2.2)
     - MetaWear/Core
-  - MetaWear/Mocks (3.1.11):
+  - MetaWear/Mocks (3.2.0):
     - MetaWear/Core
-  - MetaWear/UI (3.1.11):
+  - MetaWear/UI (3.2.0):
     - MetaWear/AsyncUtils
     - MetaWear/Core
   - Zip (1.1.0)
@@ -35,7 +35,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
   iOSDFULibrary: 65a30a36d33ef451ef2d6c2b6a002a26eed786af
-  MetaWear: d46913201bd43754be98360bf2e4bcdef567cd63
+  MetaWear: eebc38d300655c0241bded9035f9c1e5e122900d
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
 PODFILE CHECKSUM: 7e054d1143c758be24b5cd3bab279b2bc2f3e19a

@@ -177,11 +177,12 @@ class Tests: XCTestCase {
             mbl_mw_datasignal_subscribe(fused,  bridgeRetained(obj: self)) { (context, dataPtr) in
                 let this: Tests = bridge(ptr: context!)
                 
+                let timestamp = dataPtr!.pointee.timestamp
                 let fused: [MblMwData] = dataPtr!.pointee.valueAs()
                 let acc: MblMwCartesianFloat = fused[0].valueAs()
                 let gyro: MblMwCartesianFloat = fused[1].valueAs()
-                print(acc)
-                print(gyro)
+                print("\(timestamp) \(acc)")
+                print("\(timestamp) \(gyro)")
                 
                 if (this.counter == 1000) {
                     mbl_mw_debug_reset(this.device.board)
