@@ -217,6 +217,36 @@ extension OpaquePointer {
         errorCheck(code: Int(code), source: source)
         return source.task
     }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_packer_create
+    public func packerCreate(count: UInt8) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        let code = mbl_mw_dataprocessor_packer_create(self, count, bridgeRetained(obj: source)) { (context, packer) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let packer = packer {
+                source.trySet(result: packer)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create packer"))
+            }
+        }
+        errorCheck(code: Int(code), source: source)
+        return source.task
+    }
+    
+    /// Tasky interface to mbl_mw_dataprocessor_accounter_create_count
+    public func accounterCreateCount() -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        let code = mbl_mw_dataprocessor_accounter_create_count(self, bridgeRetained(obj: source)) { (context, counter) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let counter = counter {
+                source.trySet(result: counter)
+            } else {
+                source.trySet(error: MetaWearError.operationFailed(message: "could not create counter"))
+            }
+        }
+        errorCheck(code: Int(code), source: source)
+        return source.task
+    }
 }
 
 private func errorForCode(_ code: Int) -> String? {
