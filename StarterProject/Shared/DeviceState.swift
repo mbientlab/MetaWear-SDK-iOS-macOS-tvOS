@@ -78,7 +78,7 @@ class DeviceState: Codable {
 // Helper functions that task-ify the C interface
 extension MetaWear {
     func getThermistorSignal() -> Task<OpaquePointer> {
-        guard mbl_mw_metawearboard_lookup_module(board, MBL_MW_MODULE_TEMPERATURE) != MBL_MW_MODULE_TYPE_NA else {
+        guard mbl_mw_metawearboard_lookup_module(board, MBL_MW_MODULE_TEMPERATURE) != MODULE_TYPE_NA else {
             return Task<OpaquePointer>(error: MetaWearError.operationFailed(message: "No temperature module"))
         }
         for channel in 0..<mbl_mw_multi_chnl_temp_get_num_channels(board) {

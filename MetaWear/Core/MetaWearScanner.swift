@@ -69,6 +69,12 @@ public class MetaWearScanner: NSObject {
             self.central.scanForPeripherals(withServices: [.metaWearService,
                                                            .metaWearDfuService],
                                             options: [CBCentralManagerScanOptionAllowDuplicatesKey: allowDuplicates])
+            // Restart scanning if BLE state toggles off then on
+            self.runOnPowerOff.append { [unowned self] in
+                if let callback = self.callback {
+                    self.startScan(allowDuplicates: allowDuplicates, callback: callback)
+                }
+            }
         }
     }
     
@@ -123,6 +129,7 @@ public class MetaWearScanner: NSObject {
     var isScanning = false
     var centralStateUpdateSources: [TaskCompletionSource<()>] = []
     var runOnPowerOn: [() -> Void] = []
+    var runOnPowerOff: [() -> Void] = []
     let bleQueue: DispatchQueue = {
         let queue = DispatchQueue(label: "com.mbientlab.bleQueue\(scannerCount)")
         scannerCount += 1
@@ -219,6 +226,10 @@ extension MetaWearScanner: CBCentralManagerDelegate {
             let localRunOnPowerOn = runOnPowerOn
             runOnPowerOn.removeAll()
             localRunOnPowerOn.forEach { $0() }
+        } else if central.state == .poweredOff {
+            let localRunOnPowerOff = runOnPowerOff
+            runOnPowerOff.removeAll()
+            localRunOnPowerOff.forEach { $0() }
         }
 
         centralStateUpdateSources.forEach { self.updateCentralStateSource($0) }
