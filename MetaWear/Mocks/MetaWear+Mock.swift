@@ -128,7 +128,7 @@ class MockPeripheral: CBPeripheral {
         case .disManufacturerName:
             mCharacteristic.value = info.manufacturer.data(using: .utf8)!
         case .batteryLife:
-            mCharacteristic.value = Data(bytes: [99])
+            mCharacteristic.value = Data([99])
         default:
             error = MetaWearError.operationFailed(message: "can't read characteristic")
         }
@@ -186,7 +186,7 @@ class MockPeripheral: CBPeripheral {
     func messageSend(modId: UInt8, regId: UInt8, notifyEn: Bool, data: Data?) {
         if (notifyEn) {
             MockCentralManager.shared.bleQueue.async {
-                var header = Data(bytes: [modId, regId])
+                var header = Data([modId, regId])
                 if let data = data {
                     header.append(data)
                 }

@@ -60,7 +60,7 @@ class MockModule {
         self.peripheral = peripheral
         self.modId = modId
         
-        var data = Data(bytes: [modImpl, modRev])
+        var data = Data([modImpl, modRev])
         if let extra = extra {
             data.append(extra)
         }
@@ -95,7 +95,7 @@ class MockModule {
     }
     
     static func led(peripheral: MockPeripheral) -> MockModule {
-        let extra = Data(bytes: [0x3, 0x0])
+        let extra = Data([0x3, 0x0])
         let modId: UInt8 = 0x2
         let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 1, extra: extra)
         return module
@@ -131,7 +131,7 @@ class MockModule {
         
         module.handleWrite(regId: createReg) {
             let eventId = module.entries.remove(at: 0)
-            module.peripheral.messageSend(modId: $0.modId, regId: $0.regId, notifyEn: true, data: Data(bytes: [eventId]))
+            module.peripheral.messageSend(modId: $0.modId, regId: $0.regId, notifyEn: true, data: Data([eventId]))
         }
         module.handleWrite(regId: removeReg) {
             let eventId = $0.data[0]
@@ -149,7 +149,7 @@ class MockModule {
                                     modId: 0x9,
                                     modImpl: 0,
                                     modRev: 2,
-                                    extra: Data(bytes: [0x1c]),
+                                    extra: Data([0x1c]),
                                     createReg: 2,
                                     removeReg: 6,
                                     removeAllReg: 8)
@@ -160,7 +160,7 @@ class MockModule {
                                     modId: 0xA,
                                     modImpl: 0,
                                     modRev: 0,
-                                    extra: Data(bytes: [0x1c]),
+                                    extra: Data([0x1c]),
                                     createReg: 2,
                                     removeReg: 4,
                                     removeAllReg: 5)
@@ -171,12 +171,12 @@ class MockModule {
                                           modId: 0xB,
                                           modImpl: 0,
                                           modRev: 2,
-                                          extra: Data(bytes: [0x8, 0x0, 0x0, 0x27, 0x10]),
+                                          extra: Data([0x8, 0x0, 0x0, 0x27, 0x10]),
                                           createReg: 0x2,
                                           removeReg: 0x3,
                                           removeAllReg: 0xA)
         module.handleRead(regId: 4) {
-            module.peripheral.messageSend(modId: $0.modId, regId: $0.regId, notifyEn: true, data: Data(bytes: [0x0, 0x0, 0x0, 0x0, 0x0]))
+            module.peripheral.messageSend(modId: $0.modId, regId: $0.regId, notifyEn: true, data: Data([0x0, 0x0, 0x0, 0x0, 0x0]))
         }
         return module
     }
@@ -186,7 +186,7 @@ class MockModule {
                                     modId: 0xC,
                                     modImpl: 0,
                                     modRev: 0,
-                                    extra: Data(bytes: [0x8]),
+                                    extra: Data([0x8]),
                                     createReg: 2,
                                     removeReg: 5,
                                     removeAllReg: 8)
@@ -194,13 +194,13 @@ class MockModule {
     
     static func macro(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0xF
-        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2, extra: Data(bytes: [0x8, 0x7]))
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2, extra: Data([0x8, 0x7]))
         return module
     }
     
     static func settings(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0x11
-        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 7, extra: Data(bytes: [0x3]))
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 7, extra: Data([0x3]))
         return module
     }
     
@@ -212,7 +212,7 @@ class MockModule {
     
     static func sensorFusion(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0x19
-        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2, extra: Data(bytes: [0x03,0x00,0x06,0x00,0x02,0x00,0x01,0x00]))
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2, extra: Data([0x03,0x00,0x06,0x00,0x02,0x00,0x01,0x00]))
         return module
     }
     

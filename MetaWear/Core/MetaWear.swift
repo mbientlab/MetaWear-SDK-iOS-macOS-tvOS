@@ -499,18 +499,22 @@ extension MetaWear: CBPeripheralDelegate {
         } else {
             logDelegate?.logWith(.info, message: "didUpdateValueForCharacteristic \(characteristic)")
         }
-        guard let data = characteristic.value else {
+        guard let data = characteristic.value, data.count > 0 else {
             return
         }
         if let onRead = onReadCallbacks[characteristic] {
-            data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> () in
-                let _ = onRead(UnsafeRawPointer(board), bytes, UInt8(data.count))
+            data.withUnsafeBytes { rawBufferPointer -> Void in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                let unsafePointer = unsafeBufferPointer.baseAddress!
+                let _ = onRead(UnsafeRawPointer(board), unsafePointer, UInt8(data.count))
             }
             onReadCallbacks.removeValue(forKey: characteristic)
         }
         if let onData = onDataCallbacks[characteristic] {
-            data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> () in
-                let _ = onData(UnsafeRawPointer(board), bytes, UInt8(data.count))
+            data.withUnsafeBytes { rawBufferPointer -> Void in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                let unsafePointer = unsafeBufferPointer.baseAddress!
+                let _ = onData(UnsafeRawPointer(board), unsafePointer, UInt8(data.count))
             }
         }
         if let sources = localReadCallbacks.removeValue(forKey: characteristic) {
