@@ -53,11 +53,11 @@ extension MblMwGattChar: Hashable {
         data.append(UnsafeBufferPointer(start: &uuid_low_swap, count: 1))
         return CBUUID(data: data)
     }
-    public var hashValue: Int {
-        return service_uuid_high.hashValue ^
-            service_uuid_low.hashValue ^
-            uuid_high.hashValue ^
-            uuid_low.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(service_uuid_high)
+        hasher.combine(service_uuid_low)
+        hasher.combine(uuid_high)
+        hasher.combine(uuid_low)
     }
     public static func ==(lhs: MblMwGattChar, rhs: MblMwGattChar) -> Bool {
         return lhs.service_uuid_high == rhs.service_uuid_high &&

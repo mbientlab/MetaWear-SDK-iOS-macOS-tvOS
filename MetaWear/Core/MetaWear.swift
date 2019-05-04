@@ -260,7 +260,7 @@ public class MetaWear: NSObject {
     fileprivate var rssiSources: [TaskCompletionSource<Int>] = []
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
-    fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
+    fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic, type: CBCharacteristicWriteType)] = []
     fileprivate var commandCount = 0
     
     fileprivate var serviceCount = 0
@@ -499,18 +499,22 @@ extension MetaWear: CBPeripheralDelegate {
         } else {
             logDelegate?.logWith(.info, message: "didUpdateValueForCharacteristic \(characteristic)")
         }
-        guard let data = characteristic.value else {
+        guard let data = characteristic.value, data.count > 0 else {
             return
         }
         if let onRead = onReadCallbacks[characteristic] {
-            data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> () in
-                let _ = onRead(UnsafeRawPointer(board), bytes, UInt8(data.count))
+            data.withUnsafeBytes { rawBufferPointer -> Void in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                let unsafePointer = unsafeBufferPointer.baseAddress!
+                let _ = onRead(UnsafeRawPointer(board), unsafePointer, UInt8(data.count))
             }
             onReadCallbacks.removeValue(forKey: characteristic)
         }
         if let onData = onDataCallbacks[characteristic] {
-            data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> () in
-                let _ = onData(UnsafeRawPointer(board), bytes, UInt8(data.count))
+            data.withUnsafeBytes { rawBufferPointer -> Void in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                let unsafePointer = unsafeBufferPointer.baseAddress!
+                let _ = onData(UnsafeRawPointer(board), unsafePointer, UInt8(data.count))
             }
         }
         if let sources = localReadCallbacks.removeValue(forKey: characteristic) {
@@ -548,9 +552,9 @@ extension MetaWear: CBPeripheralDelegate {
             canSendWriteWithoutResponse = !(commandCount % 10 == 0)
         }
         commandCount += 1
-        let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? .withoutResponse : .withResponse
-        let (data, charToWrite) = writeQueue.removeFirst()
-        logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
+        let (data, charToWrite, requestedType) = writeQueue.removeFirst()
+        let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? requestedType : .withResponse
+        logDelegate?.logWith(.info, message: "Writing \(type == .withoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
         peripheral.writeValue(data, for: charToWrite, type: type)
         writeIfNeeded()
     }
@@ -571,12 +575,13 @@ fileprivate func writeGattChar(context: UnsafeMutableRawPointer?,
     let device: MetaWear = bridge(ptr: context!)
     if let charToWrite = device.getCharacteristic(characteristicPtr) {
         let data = Data(bytes: valuePtr!, count: Int(length))
+        let type: CBCharacteristicWriteType = writeType == MBL_MW_GATT_CHAR_WRITE_WITH_RESPONSE ? .withResponse : .withoutResponse
         if DispatchQueue.isBleQueue {
-            device.writeQueue.append((data: data, characteristic: charToWrite))
+            device.writeQueue.append((data: data, characteristic: charToWrite, type: type))
             device.writeIfNeeded()
         } else {
             device.apiAccessQueue.async {
-                device.writeQueue.append((data: data, characteristic: charToWrite))
+                device.writeQueue.append((data: data, characteristic: charToWrite, type: type))
                 device.writeIfNeeded()
             }
         }

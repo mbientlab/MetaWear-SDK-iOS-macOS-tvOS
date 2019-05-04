@@ -169,7 +169,7 @@ public class MetaWearScanner: NSObject {
     }
     func forget(_ device: MetaWear) {
         var devices = UserDefaults.standard.stringArray(forKey: rememberedDevicesKey)
-        if let idx = devices?.index(of: device.peripheral.identifier.uuidString) {
+        if let idx = devices?.firstIndex(of: device.peripheral.identifier.uuidString) {
             devices?.remove(at: idx)
             UserDefaults.standard.set(devices, forKey: rememberedDevicesKey)
         }
@@ -189,6 +189,8 @@ public class MetaWearScanner: NSObject {
             source.set(error: MetaWearError.bluetoothPoweredOff)
         case .poweredOn:
             source.set(result: ())
+        @unknown default:
+            fatalError("new central.state values, please update.")
         }
     }
     
