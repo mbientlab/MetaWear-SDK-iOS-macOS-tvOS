@@ -100,7 +100,7 @@ extension ScanTableViewController: ScannerModelDelegate {
         hud?.hide(animated: true)
         hud = nil
         
-        let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Confirm Device", message: "Do you see a blinking green LED on the MetaWear", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
             callback(false)
         })

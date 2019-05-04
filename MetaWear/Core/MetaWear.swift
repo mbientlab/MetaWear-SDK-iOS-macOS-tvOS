@@ -260,7 +260,7 @@ public class MetaWear: NSObject {
     fileprivate var rssiSources: [TaskCompletionSource<Int>] = []
     fileprivate var localReadCallbacks: [CBCharacteristic: [TaskCompletionSource<Data>]] = [:]
     fileprivate var advertisementDataImpl: [String : Any] = [:]
-    fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic)] = []
+    fileprivate var writeQueue: [(data: Data, characteristic: CBCharacteristic, type: CBCharacteristicWriteType)] = []
     fileprivate var commandCount = 0
     
     fileprivate var serviceCount = 0
@@ -552,9 +552,9 @@ extension MetaWear: CBPeripheralDelegate {
             canSendWriteWithoutResponse = !(commandCount % 10 == 0)
         }
         commandCount += 1
-        let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? .withoutResponse : .withResponse
-        let (data, charToWrite) = writeQueue.removeFirst()
-        logDelegate?.logWith(.info, message: "Writing \(canSendWriteWithoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
+        let (data, charToWrite, requestedType) = writeQueue.removeFirst()
+        let type: CBCharacteristicWriteType = canSendWriteWithoutResponse ? requestedType : .withResponse
+        logDelegate?.logWith(.info, message: "Writing \(type == .withoutResponse ? "NO-RSP" : "   RSP"): \(charToWrite.uuid) \(data.hexEncodedString())")
         peripheral.writeValue(data, for: charToWrite, type: type)
         writeIfNeeded()
     }
@@ -575,12 +575,13 @@ fileprivate func writeGattChar(context: UnsafeMutableRawPointer?,
     let device: MetaWear = bridge(ptr: context!)
     if let charToWrite = device.getCharacteristic(characteristicPtr) {
         let data = Data(bytes: valuePtr!, count: Int(length))
+        let type: CBCharacteristicWriteType = writeType == MBL_MW_GATT_CHAR_WRITE_WITH_RESPONSE ? .withResponse : .withoutResponse
         if DispatchQueue.isBleQueue {
-            device.writeQueue.append((data: data, characteristic: charToWrite))
+            device.writeQueue.append((data: data, characteristic: charToWrite, type: type))
             device.writeIfNeeded()
         } else {
             device.apiAccessQueue.async {
-                device.writeQueue.append((data: data, characteristic: charToWrite))
+                device.writeQueue.append((data: data, characteristic: charToWrite, type: type))
                 device.writeIfNeeded()
             }
         }
