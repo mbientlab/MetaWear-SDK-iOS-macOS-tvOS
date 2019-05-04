@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.3.0] - 2019-05-03
+### Changed
+- MetaWear-SDK-Cpp v0.18.4.
+- Swift 5
+
+### Fixed
+- Macro programming could drop commands if more than 16 were issued in rapid succession
+
 ## [3.2.0] - 2019-02-12
 ### Changed
 - MetaWear-SDK-Cpp v0.18.0.
