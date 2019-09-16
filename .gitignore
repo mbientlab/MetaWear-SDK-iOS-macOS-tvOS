@@ -33,5 +33,5 @@ Carthage
 # Pods/
 
 # Build
-bump-version.sh
+upload_ios.sh
 docs/
