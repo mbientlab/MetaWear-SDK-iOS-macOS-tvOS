@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '3.3.0'
+  s.version            = '3.4.0'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
@@ -67,6 +67,6 @@ Pod::Spec.new do |s|
 
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'
-      s.dependency 'iOSDFULibrary', '4.2.2'
+      s.dependency 'iOSDFULibrary', '4.5.1'
   end
 end

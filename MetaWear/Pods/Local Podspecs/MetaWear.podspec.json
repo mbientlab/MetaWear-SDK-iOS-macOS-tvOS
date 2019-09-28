@@ -23,7 +23,7 @@
     "tvos": "10.0",
     "watchos": "4.0"
   },
-  "swift_version": "5.0",
+  "swift_versions": "5.0",
   "social_media_url": "https://twitter.com/mbientLab",
   "documentation_url": "https://mbientlab.com/cppdocs/latest/",
   "default_subspecs": "Core",
@@ -97,9 +97,10 @@
 
         ],
         "iOSDFULibrary": [
-          "4.2.2"
+          "4.5.1"
         ]
       }
     }
-  ]
+  ],
+  "swift_version": "5.0"
 }
