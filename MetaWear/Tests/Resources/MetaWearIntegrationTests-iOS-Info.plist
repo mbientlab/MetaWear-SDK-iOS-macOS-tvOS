@@ -20,5 +20,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+    	<string>MetaSensor bluetooth use.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+    	<string>MetaSensor bluetooth use.</string>
 </dict>
 </plist>

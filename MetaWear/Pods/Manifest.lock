@@ -1,20 +1,20 @@
 PODS:
-  - Bolts-Swift (1.4.0)
-  - iOSDFULibrary (4.2.2):
-    - Zip (~> 1.0)
+  - Bolts-Swift (1.5.0)
+  - iOSDFULibrary (4.5.1):
+    - ZIPFoundation (= 0.9.9)
   - MetaWear/AsyncUtils (3.3.0):
     - MetaWear/Core
   - MetaWear/Core (3.3.0):
     - Bolts-Swift (~> 1)
   - MetaWear/DFU (3.3.0):
-    - iOSDFULibrary (= 4.2.2)
+    - iOSDFULibrary (= 4.5.1)
     - MetaWear/Core
   - MetaWear/Mocks (3.3.0):
     - MetaWear/Core
   - MetaWear/UI (3.3.0):
     - MetaWear/AsyncUtils
     - MetaWear/Core
-  - Zip (1.1.0)
+  - ZIPFoundation (0.9.9)
 
 DEPENDENCIES:
   - MetaWear/AsyncUtils (from `../`)
@@ -26,18 +26,18 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts-Swift
     - iOSDFULibrary
-    - Zip
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   MetaWear:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
-  iOSDFULibrary: 65a30a36d33ef451ef2d6c2b6a002a26eed786af
-  MetaWear: bb1956c7b98629b27af7ee4cd9bc392b347cd658
-  Zip: 8877eede3dda76bcac281225c20e71c25270774c
+  Bolts-Swift: afbbaf8c8186e7f769be4afa656949c14087ba44
+  iOSDFULibrary: 87c6a088cf7172e3694dfaa8305e7ded5eda2547
+  MetaWear: 28c34e8f87775d1b2034a20cf2564c5c3b84ff1d
+  ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef
 
 PODFILE CHECKSUM: 7e054d1143c758be24b5cd3bab279b2bc2f3e19a
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.7.5

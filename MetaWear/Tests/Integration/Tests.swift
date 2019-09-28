@@ -44,6 +44,7 @@ class Tests: XCTestCase {
     var waitForDisconnection: Task<MetaWear>?
     var expectation: XCTestExpectation?
     var counter: Int = 0
+    var handlers = MblMwLogDownloadHandler()
     
     override func setUp() {
         super.setUp()
@@ -132,7 +133,6 @@ class Tests: XCTestCase {
     func testLinkSaturation() {
         expectation = XCTestExpectation(description: "wait to get all")
         // Set the max range of the accelerometer
-        device.logDelegate = ConsoleLogger.shared
         let signal = mbl_mw_debug_get_key_register_data_signal(device.board)
         mbl_mw_datasignal_subscribe(signal,  bridgeRetained(obj: self)) { (context, dataPtr) in
             let this: Tests = bridge(ptr: context!)
@@ -166,42 +166,144 @@ class Tests: XCTestCase {
     func testFuser() {
         expectation = XCTestExpectation(description: "expectation")
         let board = device.board
-        let accSignal = mbl_mw_acc_get_acceleration_data_signal(board)!
-        let gyroSignal = mbl_mw_gyro_bmi160_get_rotation_data_signal(board)!
-        accSignal.fuserCreate(with: gyroSignal).continueWith { t in
-            guard let fused = t.result else {
-                XCTFail(t.error!.localizedDescription)
-                self.expectation?.fulfill()
-                return
-            }
-            mbl_mw_datasignal_subscribe(fused,  bridgeRetained(obj: self)) { (context, dataPtr) in
+        counter = 0
+        
+        let accelRange = MBL_MW_SENSOR_FUSION_ACC_RANGE_16G
+        let gyroRange = MBL_MW_SENSOR_FUSION_GYRO_RANGE_2000DPS
+        let sensorFusionMode = MBL_MW_SENSOR_FUSION_MODE_IMU_PLUS
+
+        let accSignal = mbl_mw_sensor_fusion_get_data_signal(board, MBL_MW_SENSOR_FUSION_DATA_LINEAR_ACC)!
+        var accLog: OpaquePointer!
+        let gyroSignal = mbl_mw_sensor_fusion_get_data_signal(board, MBL_MW_SENSOR_FUSION_DATA_CORRECTED_GYRO)!
+        var gyroLog: OpaquePointer!
+        
+        mbl_mw_macro_execute(board, 2)
+
+        accSignal.datasignalLog().continueOnSuccessWithTask { logger -> Task<OpaquePointer> in
+            accLog = logger
+            return gyroSignal.datasignalLog()
+        }.continueOnSuccessWith { logger in
+            gyroLog = logger
+            
+            mbl_mw_logging_start(board, 0)
+            
+            mbl_mw_sensor_fusion_set_acc_range(board, accelRange)
+            mbl_mw_sensor_fusion_set_gyro_range(board, gyroRange)
+            mbl_mw_sensor_fusion_set_mode(board, sensorFusionMode)
+            mbl_mw_sensor_fusion_write_config(board)
+            
+            mbl_mw_sensor_fusion_enable_data(board, MBL_MW_SENSOR_FUSION_DATA_LINEAR_ACC)
+            mbl_mw_sensor_fusion_enable_data(board, MBL_MW_SENSOR_FUSION_DATA_CORRECTED_GYRO)
+            mbl_mw_sensor_fusion_start(board)
+            
+            
+            mbl_mw_logger_subscribe(accLog, bridge(obj: self), { (context, dataPtr) in
                 let this: Tests = bridge(ptr: context!)
-                
                 let timestamp = dataPtr!.pointee.timestamp
-                let fused: [MblMwData] = dataPtr!.pointee.valueAs()
-                let acc: MblMwCartesianFloat = fused[0].valueAs()
-                let gyro: MblMwCartesianFloat = fused[1].valueAs()
-                print("\(timestamp) \(acc)")
-                print("\(timestamp) \(gyro)")
-                
+                let acc: MblMwCartesianFloat = dataPtr!.pointee.valueAs()
+                print("acc : \(timestamp) \(acc)")
                 if (this.counter == 1000) {
                     mbl_mw_debug_reset(this.device.board)
                     this.expectation?.fulfill()
                 }
-                this.counter += 1
+            })
+            mbl_mw_logger_subscribe(gyroLog, bridge(obj: self), { (context, dataPtr) in
+                let timestamp = dataPtr!.pointee.timestamp
+                let gyro: MblMwCorrectedCartesianFloat = dataPtr!.pointee.valueAs()
+                print("gyro: \(timestamp) \(gyro)")
+            })
+            
+            
+            self.handlers.context = bridge(obj: self)
+            self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
+                var progress = Double(totalEntries - remainingEntries) / Double(totalEntries)
+                // Make sure progress is always [0.0,1.0]
+                progress = min(progress, 1.0)
+                progress = max(progress, 0.0)
+                print("\(progress)")
+                if remainingEntries == 0 {
+                    print("done - getting again \(Date())")
+                    let this: Tests = bridge(ptr: context!)
+                    if this.counter == 0 {
+                        mbl_mw_logging_download(this.device.board, 0, &this.handlers)
+                    } else if this.counter == 1 {
+                        mbl_mw_logging_download(this.device.board, 10, &this.handlers)
+                        this.counter = 2
+                    } else {
+                        mbl_mw_debug_reset(this.device.board)
+                        this.expectation?.fulfill()
+                    }
+                }
+            }
+            self.handlers.received_unknown_entry = { (context, id, epoch, data, length) in
+                print("received_unknown_entry")
+            }
+            self.handlers.received_unhandled_entry = { (context, data) in
+                print("received_unhandled_entry")
             }
             
-            mbl_mw_acc_set_odr(board, 50)
-            mbl_mw_acc_write_acceleration_config(board)
-            mbl_mw_acc_enable_acceleration_sampling(board)
-            mbl_mw_acc_start(board)
+            mbl_mw_logging_download(board, 0, &self.handlers)
             
-            mbl_mw_gyro_bmi160_set_odr(board, MBL_MW_GYRO_BMI160_ODR_50Hz)
-            mbl_mw_gyro_bmi160_write_config(board)
-            mbl_mw_gyro_bmi160_enable_rotation_sampling(board)
-            mbl_mw_gyro_bmi160_start(board)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                mbl_mw_sensor_fusion_stop(self.device.board)
+                self.counter = 1
+                print("stopping \(Date())")
+            }
             
         }
+        wait(for: [expectation!], timeout: 300000)
+    }
+    
+    func testReadMacro() {
+        expectation = XCTestExpectation(description: "expectation")
+        let board = device.board
+        for i: UInt8 in 0..<8 {
+            let cmd: [UInt8] = [0x0F, 0x82, i]
+            mbl_mw_debug_send_command(board, cmd, UInt8(cmd.count))
+        }
         wait(for: [expectation!], timeout: 30)
+    }
+}
+
+
+extension OpaquePointer {
+    fileprivate func highpassCreate(size: UInt8) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_highpass_create(self, size, bridgeRetained(obj: source)) { (context, processor) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let processor = processor {
+                source.set(result: processor)
+            } else {
+                source.set(error: MetaWearError.operationFailed(message: "could not create highpass processor"))
+            }
+        }
+        return source.task
+    }
+    
+    fileprivate func accumulatorCreate(size: UInt8) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_accumulator_create_size(self, size, bridgeRetained(obj: source)) { (context, processor) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let processor = processor {
+                source.set(result: processor)
+            } else {
+                source.set(error: MetaWearError.operationFailed(message: "could not create accumulator processor"))
+            }
+        }
+        return source.task
+    }
+    
+    
+    fileprivate func timeCreate(mode: MblMwTimeMode, period: UInt32) -> Task<OpaquePointer> {
+        let source = TaskCompletionSource<OpaquePointer>()
+        mbl_mw_dataprocessor_time_create(self, mode, period, bridgeRetained(obj: source)) { (context, processor) in
+            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+            if let processor = processor {
+                source.set(result: processor)
+            } else {
+                source.set(error: MetaWearError.operationFailed(message: "could not create time processor"))
+            }
+        }
+        return source.task
     }
 }
