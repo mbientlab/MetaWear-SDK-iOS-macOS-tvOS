@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Bolts-Swift
 - Updated iOSDFULibrary 
 - iOS13 support 
+- iOS13 default ios build settings for StarterProject + Bluetooth requirements 
 
 ## [3.3.0] - 2019-05-03
 ### Changed
