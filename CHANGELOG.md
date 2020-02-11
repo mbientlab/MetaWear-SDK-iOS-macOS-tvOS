@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.4.1] - 2020-02-11
+### Fixed
+- Issue between repo and cocoapods 
+
+## [3.4.0] - 2019-09-28
+### Changed
+- Updated Bolts-Swift
+- Updated iOSDFULibrary 
+- iOS13 support 
+- iOS13 default ios build settings for StarterProject + Bluetooth requirements 
 
 ## [3.3.0] - 2019-05-03
 ### Changed

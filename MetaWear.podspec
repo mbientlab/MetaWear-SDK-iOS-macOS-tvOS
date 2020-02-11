@@ -67,6 +67,6 @@ Pod::Spec.new do |s|
 
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'
-      s.dependency 'iOSDFULibrary', '4.2.2'
+      s.dependency 'iOSDFULibrary', '4.5.1'
   end
 end

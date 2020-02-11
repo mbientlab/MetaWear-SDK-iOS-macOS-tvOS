@@ -1,11 +1,11 @@
 PODS:
   - Bolts-Swift (1.5.0)
   - MBProgressHUD (1.2.0)
-  - MetaWear/AsyncUtils (3.4.0):
+  - MetaWear/AsyncUtils (3.4.1):
     - MetaWear/Core
-  - MetaWear/Core (3.4.0):
+  - MetaWear/Core (3.4.1):
     - Bolts-Swift (~> 1)
-  - MetaWear/UI (3.4.0):
+  - MetaWear/UI (3.4.1):
     - MetaWear/AsyncUtils
     - MetaWear/Core
 
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Bolts-Swift: afbbaf8c8186e7f769be4afa656949c14087ba44
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MetaWear: 31414f30c24ce00bbe9640c03d192705a9fcd16f
+  MetaWear: 066603be7bd76d1014214b1a6c8016f423da3a74
 
 PODFILE CHECKSUM: d37f0b8ef0fb75f119fbabb2f98e3d364e5d47b2
 
