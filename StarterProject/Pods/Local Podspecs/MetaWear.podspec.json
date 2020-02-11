@@ -1,6 +1,6 @@
 {
   "name": "MetaWear",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
-    "tag": "3.3.0",
+    "tag": "3.4.0",
     "submodules": true
   },
   "platforms": {
@@ -23,7 +23,7 @@
     "tvos": "10.0",
     "watchos": "4.0"
   },
-  "swift_version": "5.0",
+  "swift_versions": "5.0",
   "social_media_url": "https://twitter.com/mbientLab",
   "documentation_url": "https://mbientlab.com/cppdocs/latest/",
   "default_subspecs": "Core",
@@ -101,5 +101,6 @@
         ]
       }
     }
-  ]
+  ],
+  "swift_version": "5.0"
 }
