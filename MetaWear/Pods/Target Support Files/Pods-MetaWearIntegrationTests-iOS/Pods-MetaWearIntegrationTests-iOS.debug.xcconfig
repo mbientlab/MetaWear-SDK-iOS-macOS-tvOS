@@ -1,7 +1,6 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/Zip-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/iOSDFULibrary-iOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift-iOS/BoltsSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Zip-iOS/Zip.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/iOSDFULibrary-iOS/iOSDFULibrary.framework/Headers"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 OTHER_LDFLAGS = $(inherited) -l"z" -framework "BoltsSwift" -framework "CoreBluetooth" -framework "MetaWear" -framework "Zip" -framework "iOSDFULibrary"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

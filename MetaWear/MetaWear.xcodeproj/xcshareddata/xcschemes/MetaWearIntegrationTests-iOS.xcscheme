@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -41,6 +41,28 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "NO">
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "METAWEAR_MODEL_UNDER_TEST"
+            value = "MMR"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "TRAK_MAC"
+            value = "F0:C7:BE:7A:3E:C0"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MMC_MAC"
+            value = "E9:0D:40:33:3C:E9"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MMR_MAC"
+            value = "F1:F5:93:F9:F3:2E"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -94,30 +116,6 @@
             </SkippedTests>
          </TestableReference>
       </Testables>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "METAWEAR_MODEL_UNDER_TEST"
-            value = "MMR"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "TRAK_MAC"
-            value = "F0:C7:BE:7A:3E:C0"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "MMC_MAC"
-            value = "E9:0D:40:33:3C:E9"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "MMR_MAC"
-            value = "F1:F5:93:F9:F3:2E"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -138,8 +136,6 @@
             ReferencedContainer = "container:MetaWear.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
