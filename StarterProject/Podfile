@@ -2,9 +2,9 @@ abstract_target 'Starter' do
   use_frameworks!
   # Pods for all targets
   ## LOCAL
-  #pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI'], :path => '../'
+  pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI'], :path => '../'
   ## COCOAPODS
-  pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI']
+  #pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI']
 
   target 'iOS' do
     platform :ios, '10.0'

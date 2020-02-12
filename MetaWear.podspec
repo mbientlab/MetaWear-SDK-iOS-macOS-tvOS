@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '3.4.1'
-  s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE' }
+  s.version            = '3.4.2'
+  s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE.md' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
   s.description        = <<-DESC

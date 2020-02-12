@@ -341,55 +341,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A090094F3EF4A003696EBE836CFA8B /* Lato-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Lato-Regular.ttf"; path = "Docs/build/html/_static/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		01151F16126993CDFB0F765A981871EA /* index.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst; path = Docs/source/index.rst; sourceTree = "<group>"; };
 		01BEC80C8D9CB2B29FC4155D860B484E /* MetaWear-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetaWear-iOS-dummy.m"; sourceTree = "<group>"; };
+		0235E86E6EB72562616F11716A67FFF5 /* lato-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff2"; sourceTree = "<group>"; };
 		03F915EA8DA168A6746EE05A27437E6B /* Pods-Starter-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Starter-macOS-umbrella.h"; sourceTree = "<group>"; };
 		04104D8942A0E3C69DB61E3C74DF3B85 /* neopixel.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = neopixel.cpp; sourceTree = "<group>"; };
 		049589A4CC19B13147DEC7C34E7EE795 /* Task+ContinueWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+ContinueWith.swift"; path = "Sources/BoltsSwift/Task+ContinueWith.swift"; sourceTree = "<group>"; };
-		0677A4F935F362BEB0C9639B8BBD2AB8 /* file.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = file.png; path = Docs/build/html/_static/file.png; sourceTree = "<group>"; };
 		06EFE329282D060FD9C0B4D6054041A3 /* Bolts-Swift-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Bolts-Swift-tvOS-Info.plist"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-Info.plist"; sourceTree = "<group>"; };
+		08E9D47C1B974F3ED08DADB49BC1FE30 /* lato-bolditalic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff2"; sourceTree = "<group>"; };
 		0923BC62EB111D5C35A7B60C81150072 /* TaskCompletionSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskCompletionSource.swift; path = Sources/BoltsSwift/TaskCompletionSource.swift; sourceTree = "<group>"; };
-		09E1D83B11C2AD937EB37064D1BC4E9B /* lato-italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.ttf"; sourceTree = "<group>"; };
+		09793F517A4BA53E53B4D3E03CA46696 /* fontawesome-webfont.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.svg"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.svg"; sourceTree = "<group>"; };
 		0B933CD64E9041C01BD5F4EDAF3878D6 /* led.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = led.cpp; sourceTree = "<group>"; };
-		0DC2E5E41EA1D0DBB0A7A325ECD21EA0 /* conf.py */ = {isa = PBXFileReference; includeInIndex = 1; name = conf.py; path = Docs/source/conf.py; sourceTree = "<group>"; };
+		0DD6D3A1CE932066AB5631DC6F63CD60 /* lato-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.ttf"; sourceTree = "<group>"; };
 		0E01CEBBC16426ED5BB22722E986FBF2 /* Pods_Starter_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Starter_iOS.framework; path = "Pods-Starter-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E2B88AED6983FE5160CF7EA7461282A /* metawearscanner.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.doctree; path = Docs/build/doctrees/metawearscanner.doctree; sourceTree = "<group>"; };
-		0E4E7F0A4380C3DAD6BE5132AEB74DB1 /* roboto-slab-v7-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf"; sourceTree = "<group>"; };
-		0F131F0580FDFCED051DF15E57061439 /* lato-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff2"; sourceTree = "<group>"; };
-		0F2D59F705A38611986615F9325431EE /* roboto-slab-v7-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot"; sourceTree = "<group>"; };
+		0E044F9576B3ECE9F3EE603562E9A125 /* file.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = file.png; path = Docs/build/html/_static/file.png; sourceTree = "<group>"; };
+		0EA2A6BC6AC0924BF73AB12A09A10A5E /* searchindex.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchindex.js; path = Docs/build/html/searchindex.js; sourceTree = "<group>"; };
+		0EBEB360DC542D312483A767B8A9FFBD /* index.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = index.doctree; path = Docs/build/doctrees/index.doctree; sourceTree = "<group>"; };
 		0F9B289663E7947410AFA5B72413C8A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0FBA158E56A4CD7ADD34646953462705 /* MetaWear.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWear.swift; sourceTree = "<group>"; };
+		0FFB42CF6C886D9A6BB910B090443311 /* conf.py */ = {isa = PBXFileReference; includeInIndex = 1; name = conf.py; path = Docs/source/conf.py; sourceTree = "<group>"; };
 		10149E43C31A1657604A77C99C8C463F /* MBProgressHUD-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD-tvOS-prefix.pch"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS-prefix.pch"; sourceTree = "<group>"; };
-		1054B005D53BBE61734AD397E4F1C8A4 /* lato-italic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff2"; sourceTree = "<group>"; };
+		10BE27907D5E29D084E5074EEAEBEFA7 /* Lato-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Lato-Bold.ttf"; path = "Docs/build/html/_static/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
 		10F1F1758AC724CAB5E2F79E318BB519 /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = memory.cpp; sourceTree = "<group>"; };
+		1150E595CF82D2D0422B58CD12EF2227 /* language_data.js */ = {isa = PBXFileReference; includeInIndex = 1; name = language_data.js; path = Docs/build/html/_static/language_data.js; sourceTree = "<group>"; };
 		1201CEDC32F4C615417AA1BE18614B3C /* proximity_tsl2671.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = proximity_tsl2671.cpp; sourceTree = "<group>"; };
-		136796CF794A33898FE040C116627043 /* lato-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff2"; sourceTree = "<group>"; };
+		12E800337FB6F00A203F3E0DD2E8D625 /* metawearscanner.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.doctree; path = Docs/build/doctrees/metawearscanner.doctree; sourceTree = "<group>"; };
 		144734E72160EFDC6AD21BD976CFD0DF /* Pods_Starter_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Starter_macOS.framework; path = "Pods-Starter-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		153BA4543969937B9CCC2E26F0E09DA6 /* roboto-slab-v7-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff"; sourceTree = "<group>"; };
-		16EF305C82C2C1FA5B7914CBF5979BC8 /* project_setup.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.doctree; path = Docs/build/doctrees/project_setup.doctree; sourceTree = "<group>"; };
 		1763332208A5A09D306E22541877463D /* MetaWear-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "MetaWear-tvOS.modulemap"; path = "../MetaWear-tvOS/MetaWear-tvOS.modulemap"; sourceTree = "<group>"; };
 		17E3C6A09FDDC2761D9AB30C52368CC3 /* Pods-Starter-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Starter-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1830B127450CEF5363A9E218F4A848C3 /* Bolts-Swift-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Bolts-Swift-macOS-Info.plist"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-Info.plist"; sourceTree = "<group>"; };
+		1832F0AC2AD2CE262D158104E1E307F4 /* metawearboard.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.html; path = Docs/build/html/metawearboard.html; sourceTree = "<group>"; };
 		1A66E457F724C9BC8C72AD7552E59DA7 /* Pods-Starter-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Starter-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		1ACEB5861FD4686700F1EA9D677FF2DE /* underscore.js */ = {isa = PBXFileReference; includeInIndex = 1; name = underscore.js; path = Docs/build/html/_static/underscore.js; sourceTree = "<group>"; };
 		1AF850C10B5775F86A7AAE9D4037AD88 /* Bridging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bridging.swift; sourceTree = "<group>"; };
-		1EAE9C611273D285BC24C1D6D3EEF35B /* metawearscanner.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst.txt; path = Docs/build/html/_sources/metawearscanner.rst.txt; sourceTree = "<group>"; };
+		1D3782CB2656EF2862C12B2086AB72C0 /* lato-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.eot"; sourceTree = "<group>"; };
 		1FBECCC322979724635DA998AD47F512 /* multichanneltemperature.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = multichanneltemperature.cpp; sourceTree = "<group>"; };
-		2060808864ED010BF0800BC17DB5EAAD /* Lato-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Lato-Bold.ttf"; path = "Docs/build/html/_static/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		200F87F62875D5EA15ECE2429E5B0132 /* roboto-slab-v7-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff2"; sourceTree = "<group>"; };
 		216BA82E343FF087A5A19F10ADC4F0DA /* Pods_Starter_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Starter_tvOS.framework; path = "Pods-Starter-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24085AF494D91533C7F7E1B3568AE5E6 /* Inconsolata-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Inconsolata-Bold.ttf"; path = "Docs/build/html/_static/fonts/Inconsolata-Bold.ttf"; sourceTree = "<group>"; };
 		245C4A1468A196BE99267F514F7CC0F2 /* MetaWear-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWear-macOS-dummy.m"; path = "../MetaWear-macOS/MetaWear-macOS-dummy.m"; sourceTree = "<group>"; };
-		26A4AA54C5F68D2D6A43F9516FE114C7 /* doctools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = doctools.js; path = Docs/build/html/_static/doctools.js; sourceTree = "<group>"; };
+		276F0EC0DF5B4591D34E7E7F101218AD /* lato-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff"; sourceTree = "<group>"; };
 		280164C3BA91D1B60346B0616EBF8EFB /* Bolts-Swift-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-Swift-iOS-dummy.m"; sourceTree = "<group>"; };
-		2903522ACD73554AD6AA00AC5B7B147D /* index.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = index.doctree; path = Docs/build/doctrees/index.doctree; sourceTree = "<group>"; };
-		29A916AAAA95BA8110969035BAF35270 /* roboto-slab-v7-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.eot"; sourceTree = "<group>"; };
+		28AE1F777DB13008EB5978261738C256 /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "RobotoSlab-Regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
 		2B50E9CDD82BF2461D3D4D62D87359F0 /* anonymous_datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = anonymous_datasignal.cpp; sourceTree = "<group>"; };
+		2C4672A7869C555CEA70E01B63326383 /* lato-bolditalic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.eot"; sourceTree = "<group>"; };
 		2D8A176F268C0110AE9912FBAD149B60 /* MBProgressHUD-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MBProgressHUD-tvOS.xcconfig"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS.xcconfig"; sourceTree = "<group>"; };
 		2DAF971DBE52EF0D0DE26506C3B7F582 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		2E183761CDAC4DFC3824830467991617 /* theme.js */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.js; path = Docs/build/html/_static/js/theme.js; sourceTree = "<group>"; };
-		2E1F3904FF440A434D897A3B7FDA9B3E /* metawearboard.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.html; path = Docs/build/html/metawearboard.html; sourceTree = "<group>"; };
-		2F79A4E308559EEC22747BBADBF44447 /* minus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = minus.png; path = Docs/build/html/_static/minus.png; sourceTree = "<group>"; };
+		2E89CF6AB2C5A42F843A196B7D593E6A /* roboto-slab-v7-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff2"; sourceTree = "<group>"; };
+		2F44466371F83E1BE826E9B2C54E1E32 /* metawearscanner.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst.txt; path = Docs/build/html/_sources/metawearscanner.rst.txt; sourceTree = "<group>"; };
+		2FE47EE279AF56AB7183B2620605300A /* jquery-3.2.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "jquery-3.2.1.js"; path = "Docs/build/html/_static/jquery-3.2.1.js"; sourceTree = "<group>"; };
+		3053760DD6D4F5FBDB46E7167EB5E8FA /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Inconsolata-Regular.ttf"; path = "Docs/build/html/_static/fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
 		3070911002ADB3BDC49D74A08E6BB113 /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = datasignal.cpp; sourceTree = "<group>"; };
 		31A077E3429FE20ED7272F5B9E192D59 /* macro.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = macro.cpp; sourceTree = "<group>"; };
-		3338D2D380F4B3BBE8D8B725BE134DFF /* lato-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.eot"; sourceTree = "<group>"; };
+		31F6D975482B0D1D5B528992B480932F /* minus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = minus.png; path = Docs/build/html/_static/minus.png; sourceTree = "<group>"; };
+		335600482EAF0EB02CE32A5FA632FAB4 /* basic.css */ = {isa = PBXFileReference; includeInIndex = 1; name = basic.css; path = Docs/build/html/_static/basic.css; sourceTree = "<group>"; };
 		33F1F1E8C4F2BD51D67CEE59C17F725F /* Pods-Starter-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Starter-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		34FBBF5D0AB364441F3AD30FC1D77A1D /* gpio.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = gpio.cpp; sourceTree = "<group>"; };
 		35AB631E4FFEE71A2C4F4FAFF79B1A36 /* Task+Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+Delay.swift"; path = "Sources/BoltsSwift/Task+Delay.swift"; sourceTree = "<group>"; };
@@ -397,172 +402,170 @@
 		363AB124A316B3BB883752D02DDDD722 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		36B08BE943E60E936C4BD4FB55A714AF /* miniz.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = miniz.cpp; sourceTree = "<group>"; };
 		3717161A50E0CF9F109C6FD22ED2808A /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		37A53FD24B85796112EAD3188235C833 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		388CFC0DAB524AEE7F7D603F36CA4CEE /* MetaWear-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MetaWear-tvOS-dummy.m"; path = "../MetaWear-tvOS/MetaWear-tvOS-dummy.m"; sourceTree = "<group>"; };
 		39EFC3444868D94E50BD6C83FB0CD5CD /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1058850CDA24D12CED40534A662041 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = Docs/build/html/index.html; sourceTree = "<group>"; };
+		3AB9DB56D106DE257024CAC37A8D31E1 /* search.html */ = {isa = PBXFileReference; includeInIndex = 1; name = search.html; path = Docs/build/html/search.html; sourceTree = "<group>"; };
+		3CA0DF5FD92A7AB3922BCEBE2794C4AA /* lato-bolditalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.ttf"; sourceTree = "<group>"; };
 		3DAC03814DF7012856E5994E699DAC92 /* magnetometer_bmm150.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = magnetometer_bmm150.cpp; sourceTree = "<group>"; };
-		3E3ED024C0AE36FE7E7E7A6FAD2EC471 /* objects.inv */ = {isa = PBXFileReference; includeInIndex = 1; name = objects.inv; path = Docs/build/html/objects.inv; sourceTree = "<group>"; };
-		3F5C8F5DC7B8490FBAA8BD4AB1AFC9C4 /* MetaWear.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MetaWear.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3F6DC87C4D5B37D476C551040B11E2C0 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = "MBProgressHUD-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCE33143E3A6981A1D9EC79831D3268 /* lato-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.ttf"; sourceTree = "<group>"; };
 		3FDD445088974C683D2755DA0A026ED6 /* cbindings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = cbindings.swift; sourceTree = "<group>"; };
 		406D7E69BEB6379F681643E3442FC75D /* async_creator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = async_creator.cpp; sourceTree = "<group>"; };
+		408973DCA92A277847ABD42EED6257D3 /* metawearboard.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.doctree; path = Docs/build/doctrees/metawearboard.doctree; sourceTree = "<group>"; };
+		42769F6F4F2B189FC6D9ABE09F5E6198 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		432DE6FACF72130FA1D2718AD3E5F440 /* MblMwDataSignal+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwDataSignal+Async.swift"; path = "MetaWear/AsyncUtils/MblMwDataSignal+Async.swift"; sourceTree = "<group>"; };
 		43969DBAEBDBBD2D0C0846CD5F0058CB /* Pods-Starter-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-iOS-Info.plist"; sourceTree = "<group>"; };
 		4482C9B7243AD5CBE51787276594CD83 /* Bolts-Swift-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-Swift-tvOS-dummy.m"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-dummy.m"; sourceTree = "<group>"; };
 		44FA592C8837FE855782E5DB6CFF10F8 /* logging.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = logging.cpp; sourceTree = "<group>"; };
 		473497F476BB5C8ACFB905A3707A713E /* MetaWear-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetaWear-iOS-Info.plist"; sourceTree = "<group>"; };
-		47E2E07D313613FA3ABA60178313663F /* lato-bolditalic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff"; sourceTree = "<group>"; };
+		47B649EF6D6DC60F88AE23B3883B8F0E /* index.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst.txt; path = Docs/build/html/_sources/index.rst.txt; sourceTree = "<group>"; };
 		4817A1760DAC2F13567CC1326F7608BF /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		48AB4F388CDD10546B7611CFBF27CA89 /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "RobotoSlab-Regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
-		4BC47C092AFB472D1294932D9F9851C2 /* lato-bolditalic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.eot"; sourceTree = "<group>"; };
-		4F5C7A3F401FB167EB34E20A09CF04D0 /* Makefile */ = {isa = PBXFileReference; includeInIndex = 1; name = Makefile; path = Docs/Makefile; sourceTree = "<group>"; };
-		500279E9E428E1D6990E9AB903435875 /* project_setup.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst; path = Docs/source/project_setup.rst; sourceTree = "<group>"; };
+		4F77D6CDC16B8C3AB1CC4C38355803C2 /* doctools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = doctools.js; path = Docs/build/html/_static/doctools.js; sourceTree = "<group>"; };
+		4FE6302CEAD37A02F44AB557E6E9DDD6 /* plus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = plus.png; path = Docs/build/html/_static/plus.png; sourceTree = "<group>"; };
 		50B6D92C920877C7145E1CD0741C4A00 /* Pods-Starter-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		510EAE06F25B4B45502161AF9C18B141 /* accelerometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = accelerometer_bosch.cpp; sourceTree = "<group>"; };
 		525748436EB314BFA3B1594B597BF611 /* haptic.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = haptic.cpp; sourceTree = "<group>"; };
 		5289E0591F6B3A887194BEBC7FD5AAB3 /* MetaWear-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "MetaWear-tvOS-Info.plist"; path = "../MetaWear-tvOS/MetaWear-tvOS-Info.plist"; sourceTree = "<group>"; };
 		52992EE6B8AA8940F327214B955F1000 /* Pods-Starter-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		529FA2B4B895C3D016DCAA0CA85EA1B7 /* lato-italic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff"; sourceTree = "<group>"; };
 		544A1E89305BD5F64340AA3095088671 /* Pods-Starter-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		54A884E2108C45B5A97F7AA5071C27C7 /* accelerometer_mma8452q.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = accelerometer_mma8452q.cpp; sourceTree = "<group>"; };
 		54AC34DB2371656D10B3D02C802910F7 /* MblMwEvent+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwEvent+Async.swift"; path = "MetaWear/AsyncUtils/MblMwEvent+Async.swift"; sourceTree = "<group>"; };
 		55A10666CB72EFBCE3F16C2B931654A0 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55BECDFFF769D746671AD181C410A540 /* environment.pickle */ = {isa = PBXFileReference; includeInIndex = 1; name = environment.pickle; path = Docs/build/doctrees/environment.pickle; sourceTree = "<group>"; };
-		55F41900E58AEAE70771BDF4C2210A29 /* search.html */ = {isa = PBXFileReference; includeInIndex = 1; name = search.html; path = Docs/build/html/search.html; sourceTree = "<group>"; };
 		562ADEA3291E0B6AC8DC5CDA40ABA8B7 /* colordetector_tcs34725.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = colordetector_tcs34725.cpp; sourceTree = "<group>"; };
-		57D7467706EA46F07B0C04FD41685BCC /* project_setup.html */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.html; path = Docs/build/html/project_setup.html; sourceTree = "<group>"; };
 		58D113D145A9C42B8B5D3060E4D2E4A8 /* Pods-Starter-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B788B34EDF9D8B76433717A286DF1EA /* genindex.html */ = {isa = PBXFileReference; includeInIndex = 1; name = genindex.html; path = Docs/build/html/genindex.html; sourceTree = "<group>"; };
+		5906796188739DD5C73E8D8E04EDB722 /* Lato-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Lato-Regular.ttf"; path = "Docs/build/html/_static/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		59C68B6011FC82395E380E5C3B83D406 /* MetaWear.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MetaWear.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5A818025B58A35576031EF429295013E /* fontawesome-webfont.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff"; sourceTree = "<group>"; };
+		5B8AD1DEDB692EBADD97377B6512F89A /* metawearscanner.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.html; path = Docs/build/html/metawearscanner.html; sourceTree = "<group>"; };
 		5BBDF131360F21DBCDE65C6E3DED6765 /* switch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = switch.cpp; sourceTree = "<group>"; };
 		5C23AE369F5948595E174EA268B493F9 /* task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = task.cpp; sourceTree = "<group>"; };
 		5C81B90A8F41A8FE07519B38D4A15792 /* MetaWear-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-iOS-prefix.pch"; sourceTree = "<group>"; };
 		5D0EDEA7D137A2E5556A8B303BE63D82 /* MblMwGattChar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MblMwGattChar.swift; sourceTree = "<group>"; };
-		5D342972F43FB9CE06D988008590158E /* theme.css */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.css; path = Docs/build/html/_static/css/theme.css; sourceTree = "<group>"; };
 		5DD1CB00BC5272BDF08DB7270167952D /* MBProgressHUD-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-iOS-umbrella.h"; sourceTree = "<group>"; };
-		602957038856F021B3F940BA9C3967A4 /* language_data.js */ = {isa = PBXFileReference; includeInIndex = 1; name = language_data.js; path = Docs/build/html/_static/language_data.js; sourceTree = "<group>"; };
 		605A1D4036ADEF955D22C5B3FD98B178 /* Pods-Starter-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Starter-iOS-umbrella.h"; sourceTree = "<group>"; };
-		606C5489F62B67D5375C58FDF1470D47 /* underscore.js */ = {isa = PBXFileReference; includeInIndex = 1; name = underscore.js; path = Docs/build/html/_static/underscore.js; sourceTree = "<group>"; };
-		6211B0E04F14863846502014A4BB462F /* roboto-slab-v7-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.ttf"; sourceTree = "<group>"; };
 		643127F39AA1214FC775B00935297A65 /* moduleinfo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = moduleinfo.cpp; sourceTree = "<group>"; };
+		6434FE8C8DF8D48683588924A8B445F3 /* genindex.html */ = {isa = PBXFileReference; includeInIndex = 1; name = genindex.html; path = Docs/build/html/genindex.html; sourceTree = "<group>"; };
 		64D1FE11AC0EDE27D7873CE06293B8F0 /* ambientlight_ltr329.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = ambientlight_ltr329.cpp; sourceTree = "<group>"; };
+		673406F1C993745F523DD1E5F19D4012 /* layout.html */ = {isa = PBXFileReference; includeInIndex = 1; name = layout.html; path = Docs/source/_templates/layout.html; sourceTree = "<group>"; };
+		675ABC8CB686851281E644A7A26EAF81 /* roboto-slab-v7-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot"; sourceTree = "<group>"; };
 		688AAE17AAEAAC553FA61078C4EB6BC1 /* datainterpreter.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = datainterpreter.cpp; sourceTree = "<group>"; };
-		6A18856AEACA6B19709855C5BB9F0519 /* lato-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.woff"; sourceTree = "<group>"; };
 		6A8CB0BCF8B4965882490BCDA2E47B6E /* Executor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Sources/BoltsSwift/Executor.swift; sourceTree = "<group>"; };
 		6BDAE0349CEF9C4C816D82252B70AF45 /* gyro_bmi160.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = gyro_bmi160.cpp; sourceTree = "<group>"; };
-		6E4BE8421D318733889092125DD9B433 /* roboto-slab-v7-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff"; sourceTree = "<group>"; };
 		6E548A000C7AA5DBDA459E5CFE1D08B0 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E74DB37E236D20FE7B548450606AE8D /* settings.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = settings.cpp; sourceTree = "<group>"; };
+		6E8C64C24F16EE4D1CAA2F928ABC8A7E /* metawearscanner.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst; path = Docs/source/metawearscanner.rst; sourceTree = "<group>"; };
 		6F1EE461C783643C4865A43A963713A4 /* MBProgressHUD-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-iOS-prefix.pch"; sourceTree = "<group>"; };
-		6F854BE996EC30896AA0A66E74A2D55A /* pygments.css */ = {isa = PBXFileReference; includeInIndex = 1; name = pygments.css; path = Docs/build/html/_static/pygments.css; sourceTree = "<group>"; };
 		6FE572C55BFB800DA0765CCB7E6EFB34 /* threadpool.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = threadpool.cpp; sourceTree = "<group>"; };
 		702271784BFC1B5B9BBAB107FDE921EC /* Pods-Starter-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Starter-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		7064F7D3B490A774C1173DEEE9460938 /* sensor_fusion.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = sensor_fusion.cpp; sourceTree = "<group>"; };
 		707FABB7A00BD78759D2F560D9519FC1 /* Bolts-Swift-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-iOS-prefix.pch"; sourceTree = "<group>"; };
+		70905792C42DC3B5F0B405CE930C255F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.ttf"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		7251449B2ACE7EAB753F54C94F0CFF84 /* lato-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.eot"; sourceTree = "<group>"; };
 		729AF0F81A6F0F5F292DFF120F5D102C /* Bolts-Swift-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Bolts-Swift-macOS-dummy.m"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-dummy.m"; sourceTree = "<group>"; };
+		7401B89B9E6E2FC3403238DF4CDF4F4F /* project_setup.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst.txt; path = Docs/build/html/_sources/project_setup.rst.txt; sourceTree = "<group>"; };
 		7418CF41A42F30CF160C2A5C7A4C7715 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = "MBProgressHUD-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459167C943575EE73BB4AB06A4F6E14 /* MetaWear-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-iOS-umbrella.h"; sourceTree = "<group>"; };
 		74E3C72735D877C0052F21790F37BABC /* Bolts-Swift-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-macOS-prefix.pch"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-prefix.pch"; sourceTree = "<group>"; };
-		75C34C74E99E4210B2134D236DE56911 /* project_setup.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst.txt; path = Docs/build/html/_sources/project_setup.rst.txt; sourceTree = "<group>"; };
 		75F9C2271BB13B6889827D4A413394DB /* dataprocessor.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dataprocessor.cpp; sourceTree = "<group>"; };
 		7B4022BBDA42381ED4694FC499EFE1FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7B7562ACE21E5963BA33A821DD7C42DB /* MetaWear-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "MetaWear-macOS.modulemap"; path = "../MetaWear-macOS/MetaWear-macOS.modulemap"; sourceTree = "<group>"; };
-		7CF5C26CDB0CC527F8DF8A5AB6445EB1 /* fontawesome-webfont.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.eot"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.eot"; sourceTree = "<group>"; };
 		7CFCCDEC50580BCB7CACDBF59B32337A /* MetaWear-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWear-tvOS.xcconfig"; path = "../MetaWear-tvOS/MetaWear-tvOS.xcconfig"; sourceTree = "<group>"; };
+		7D02125F41F2C0F408ED04CA6AD3FC3F /* roboto-slab-v7-regular.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.eot"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.eot"; sourceTree = "<group>"; };
+		7E5186CF64A5D9C2E180B2646C860E7C /* Makefile */ = {isa = PBXFileReference; includeInIndex = 1; name = Makefile; path = Docs/Makefile; sourceTree = "<group>"; };
+		7EE65DFE168C6B7FE53410B284E8C21E /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
 		7F19ABE522E142C9503E3A9121B11F59 /* dfu_operations_details.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_operations_details.cpp; sourceTree = "<group>"; };
 		7F3E0B8E0AD0DB3D3B601C398C66DF7F /* Pods-Starter-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		7FA57559F622F077FE134916D0553925 /* MetaWear-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "MetaWear-macOS-Info.plist"; path = "../MetaWear-macOS/MetaWear-macOS-Info.plist"; sourceTree = "<group>"; };
+		82BD7581090F44DBA75328AB78F29A9E /* metawearboard.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst.txt; path = Docs/build/html/_sources/metawearboard.rst.txt; sourceTree = "<group>"; };
+		82E700F806289A75738592E4172A78A6 /* environment.pickle */ = {isa = PBXFileReference; includeInIndex = 1; name = environment.pickle; path = Docs/build/doctrees/environment.pickle; sourceTree = "<group>"; };
 		83455CE177FB104D69BBF2BE4F7BC66E /* LogDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogDelegate.swift; sourceTree = "<group>"; };
-		847492720FEAD0FEEF7F47ABB10966A6 /* lato-bolditalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.ttf"; sourceTree = "<group>"; };
+		839EF1439E56EA2CB51F39908D0B001B /* lato-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.ttf"; sourceTree = "<group>"; };
 		8545B2CB73086350F06532DF6147FC88 /* MetaWear-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-macOS-umbrella.h"; path = "../MetaWear-macOS/MetaWear-macOS-umbrella.h"; sourceTree = "<group>"; };
-		85925B422763A536705DF7C908738204 /* lato-bolditalic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff2"; sourceTree = "<group>"; };
 		86BED791777254136C48411F89A554DC /* dfu_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_operations.cpp; sourceTree = "<group>"; };
+		86CE59A972D4AD03C5E9704E4F3D53BF /* theme.css */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.css; path = Docs/build/html/_static/css/theme.css; sourceTree = "<group>"; };
 		887A0B2E8481AB7CE0DD552ADD31F5C6 /* Pods-Starter-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Starter-tvOS.modulemap"; sourceTree = "<group>"; };
-		890DE41CA043630C568C5A352DA5FF94 /* lato-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff"; sourceTree = "<group>"; };
-		8981595C65474607C1FD3F7317CA1AE1 /* Inconsolata-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Inconsolata-Bold.ttf"; path = "Docs/build/html/_static/fonts/Inconsolata-Bold.ttf"; sourceTree = "<group>"; };
+		89BC24FAE2465D77FF26169BF5C3DE74 /* lato-italic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.eot"; sourceTree = "<group>"; };
 		8B3B97AED66B3F5B9546BAE9A8D8E743 /* MetaWear-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MetaWear-iOS.xcconfig"; sourceTree = "<group>"; };
-		8E7A5F7FAE8AC6A771EF4A52EB8C49E9 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = Docs/build/html/index.html; sourceTree = "<group>"; };
+		8B7BBB53CA006C1F67172539DEB3B368 /* searchtools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchtools.js; path = Docs/build/html/_static/searchtools.js; sourceTree = "<group>"; };
+		8D92DF97FD864C0F7102401C3A83BB7F /* modernizr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = modernizr.min.js; path = Docs/build/html/_static/js/modernizr.min.js; sourceTree = "<group>"; };
 		8F32073BD5D6C2E343F7EE9FDD4A8414 /* Bolts-Swift-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-macOS-umbrella.h"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-umbrella.h"; sourceTree = "<group>"; };
-		9114D0E0BEFB007FFAA24786B73D9F83 /* basic.css */ = {isa = PBXFileReference; includeInIndex = 1; name = basic.css; path = Docs/build/html/_static/basic.css; sourceTree = "<group>"; };
 		9145A16784A61F94A854D5C0D37B7A4D /* file_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = file_operations.cpp; sourceTree = "<group>"; };
-		91571FD64478D594900BEDCCA02DEA4F /* underscore-1.3.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "underscore-1.3.1.js"; path = "Docs/build/html/_static/underscore-1.3.1.js"; sourceTree = "<group>"; };
-		92E1C62D587200B95BFE8D3C760B2A62 /* fontawesome-webfont.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.svg"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.svg"; sourceTree = "<group>"; };
 		94E7660C400BEE7B6CDBFC3BF5CFA9D6 /* Bolts-Swift-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-Swift-macOS.xcconfig"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS.xcconfig"; sourceTree = "<group>"; };
+		9566E63F3EDDE02FE82D6832C93249CE /* objects.inv */ = {isa = PBXFileReference; includeInIndex = 1; name = objects.inv; path = Docs/build/html/objects.inv; sourceTree = "<group>"; };
 		973F1F6E8D98971DFC54B89A49598E78 /* Pods-Starter-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-tvOS-Info.plist"; sourceTree = "<group>"; };
-		9802C46A98DF1C9C4491E5535D6301A1 /* badge_only.css */ = {isa = PBXFileReference; includeInIndex = 1; name = badge_only.css; path = Docs/build/html/_static/css/badge_only.css; sourceTree = "<group>"; };
+		975E3E62AB01BF3EF91AD69BA47B5ACA /* theme.js */ = {isa = PBXFileReference; includeInIndex = 1; name = theme.js; path = Docs/build/html/_static/js/theme.js; sourceTree = "<group>"; };
+		9968E20B117222C3F9CEA16701B14228 /* roboto-slab-v7-bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf"; sourceTree = "<group>"; };
+		9AA64B7D55F8ABECD6660AB445623FB7 /* lato-italic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff"; sourceTree = "<group>"; };
 		9AB2FADC6838D0A7ECACDA37240D7085 /* MetaWear+LED.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+LED.swift"; path = "MetaWear/AsyncUtils/MetaWear+LED.swift"; sourceTree = "<group>"; };
+		9CF4251C724BC274809C5AB675D150AA /* lato-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff2"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E7DE2A5D6AC3B2548FECA5B037E111B /* fontawesome-webfont.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff"; sourceTree = "<group>"; };
+		9E32D5A2E18E51676BCAE837D88D76D8 /* lato-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.woff"; sourceTree = "<group>"; };
 		9EFFD00E0A5696A72AA306CBE44473FA /* responseheader.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = responseheader.cpp; sourceTree = "<group>"; };
-		9FF213D37B1DC933FBCB766BD469EC27 /* roboto-slab-v7-regular.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff2"; sourceTree = "<group>"; };
-		A09C269C0334B177D72FB54C781D8AB2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		A0A0E9E8355D5F1F5B5DE84C9656E727 /* index.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst; path = Docs/source/index.rst; sourceTree = "<group>"; };
 		A357943C03E6C3464F72484931EEBF89 /* timer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = timer.cpp; sourceTree = "<group>"; };
+		A3B71A4DE04DD761E8E3D7BDA24FD6F8 /* fontawesome-webfont.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff2"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff2"; sourceTree = "<group>"; };
 		A74B484D602F19A4456227A21F822A1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		A8B4E85C7F2D05A9BE3CD2739C2415C3 /* lato-bold.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bold.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-bold.eot"; sourceTree = "<group>"; };
 		AAD7FD76278DB05EE0D5C019279C739C /* MetaWear-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-tvOS-umbrella.h"; path = "../MetaWear-tvOS/MetaWear-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		ABF3255DB353B5E39FEA8EE96753B546 /* documentation_options.js */ = {isa = PBXFileReference; includeInIndex = 1; name = documentation_options.js; path = Docs/build/html/_static/documentation_options.js; sourceTree = "<group>"; };
 		ACC1FF023AB5C66C2B8182854BE4E80E /* CBUUID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBUUID.swift; sourceTree = "<group>"; };
+		AD23FACD71055224E59006D1BDDC409F /* lato-italic.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.woff2"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.woff2"; sourceTree = "<group>"; };
 		AD73B0EB009D33DEFCDF44A12A798211 /* MetaWearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWearData.swift; sourceTree = "<group>"; };
+		AD763B0F1307B8DB619E9B016D303915 /* pygments.css */ = {isa = PBXFileReference; includeInIndex = 1; name = pygments.css; path = Docs/build/html/_static/pygments.css; sourceTree = "<group>"; };
 		AE0D16902D92A36A820FD1814FFE14DC /* Pods-Starter-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Starter-macOS.modulemap"; sourceTree = "<group>"; };
 		AF6504E19D8EAF17C76C83F187C29AEA /* conductance.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = conductance.cpp; sourceTree = "<group>"; };
 		AFCB9699781E86899B67216F4780F706 /* MBProgressHUD-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "MBProgressHUD-tvOS-Info.plist"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS-Info.plist"; sourceTree = "<group>"; };
 		B1B3569712E32522356304FB6B9DF2A5 /* Pods-Starter-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Starter-macOS-dummy.m"; sourceTree = "<group>"; };
-		B3FC71E0E8F0DE0F281377BF5A7D0FBA /* modernizr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = modernizr.min.js; path = Docs/build/html/_static/js/modernizr.min.js; sourceTree = "<group>"; };
 		B5A1EF63ACC8E8DD8FCF2BAC6B7043FA /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/BoltsSwift/Errors.swift; sourceTree = "<group>"; };
-		B66FBC3808F0F647096F2CC41DD65C4C /* metawearboard.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst.txt; path = Docs/build/html/_sources/metawearboard.rst.txt; sourceTree = "<group>"; };
+		B5C35CB68EF77C24C8DBB81DC1A3267D /* underscore-1.3.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "underscore-1.3.1.js"; path = "Docs/build/html/_static/underscore-1.3.1.js"; sourceTree = "<group>"; };
 		B6C1768EABE541542200CB527DB47CD6 /* ScannerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScannerModel.swift; path = MetaWear/UI/ScannerModel.swift; sourceTree = "<group>"; };
 		B748A5D86BC8CD2C7D80AEC34A000CBC /* MetaWear+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Async.swift"; path = "MetaWear/AsyncUtils/MetaWear+Async.swift"; sourceTree = "<group>"; };
+		B90FC8DB681D54D80461040E9FBC4AE3 /* project_setup.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.rst; path = Docs/source/project_setup.rst; sourceTree = "<group>"; };
+		BA75AC4C3AC51D654502B40DF76408AA /* lato-italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.ttf"; sourceTree = "<group>"; };
+		BA77A550A4E122B162CE8B4BCE6C0C6A /* Inconsolata.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Inconsolata.ttf; path = Docs/build/html/_static/fonts/Inconsolata.ttf; sourceTree = "<group>"; };
 		BB8FF63AAD949B90017C1EA691426A74 /* Pods-Starter-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Starter-tvOS-dummy.m"; sourceTree = "<group>"; };
 		BED2722CF229AFF0D421F60D2BF85C94 /* MBProgressHUD-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MBProgressHUD-iOS.xcconfig"; sourceTree = "<group>"; };
-		BF47B2B8916D93829543D152BB006828 /* metawearboard.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst; path = Docs/source/metawearboard.rst; sourceTree = "<group>"; };
 		C099A53D7B4B4B957280D1A29B8AB95C /* Pods-Starter-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Starter-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		C12E8994A66D8B88B06B083E87971B90 /* Task+WhenAny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+WhenAny.swift"; path = "Sources/BoltsSwift/Task+WhenAny.swift"; sourceTree = "<group>"; };
 		C1846D3ECD5EC73737E4C667C0FE2BE3 /* serialpassthrough.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = serialpassthrough.cpp; sourceTree = "<group>"; };
-		C2176872599ABB3D853B9296EEBF96E7 /* searchindex.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchindex.js; path = Docs/build/html/searchindex.js; sourceTree = "<group>"; };
 		C4802EC8EF01CAACFF3F32B5AA8AC4DE /* MetaWear-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MetaWear-iOS.modulemap"; sourceTree = "<group>"; };
 		C51467A09019FEE5C1F73B2A1B53ADCA /* MBProgressHUD-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MBProgressHUD-iOS.modulemap"; sourceTree = "<group>"; };
-		C51E9EBE5581152B24459A29BB3104E8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.ttf"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		C7B19DD01CEEAA90D1F237D749937441 /* project_setup.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.doctree; path = Docs/build/doctrees/project_setup.doctree; sourceTree = "<group>"; };
 		C81D2E67097EFC1B69D02B9B96CAC265 /* Pods-Starter-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Starter-iOS.modulemap"; sourceTree = "<group>"; };
 		C89E6622B43CF1FBB3D18A3036852974 /* Pods-Starter-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		C9394AFCD5C7ECFE7D4C661FF715C076 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Sources/BoltsSwift/Task.swift; sourceTree = "<group>"; };
 		C9CBE64A5591F9E2C6A23B7AF8708F53 /* MetaWear-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-tvOS-prefix.pch"; path = "../MetaWear-tvOS/MetaWear-tvOS-prefix.pch"; sourceTree = "<group>"; };
 		CA10A7C819BBF350BDDD6EDCD550F31B /* Pods-Starter-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		CAC309B05CB23FC0D983A49FDEF9EA01 /* documentation_options.js */ = {isa = PBXFileReference; includeInIndex = 1; name = documentation_options.js; path = Docs/build/html/_static/documentation_options.js; sourceTree = "<group>"; };
 		CAC76F3E807C941CA22AB4A210F735FD /* DeviceInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInformation.swift; sourceTree = "<group>"; };
-		CC47993E8E21B87898017374FB75C62D /* layout.html */ = {isa = PBXFileReference; includeInIndex = 1; name = layout.html; path = Docs/source/_templates/layout.html; sourceTree = "<group>"; };
 		CCD22536BAE61DCC8D663E97003CD922 /* MetaWear-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MetaWear-macOS.xcconfig"; path = "../MetaWear-macOS/MetaWear-macOS.xcconfig"; sourceTree = "<group>"; };
-		CCF66107F6A405A2BB128EC57E63E7C8 /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "RobotoSlab-Bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
 		CE52AD98E81774535C3BF4931162BE04 /* Bolts-Swift-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-tvOS-prefix.pch"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-prefix.pch"; sourceTree = "<group>"; };
 		CF27CA339BF3D0FDDECB15B8970409A7 /* barometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = barometer_bosch.cpp; sourceTree = "<group>"; };
+		CF904DB3DB4A68882466A6B9C6670811 /* metawearboard.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.rst; path = Docs/source/metawearboard.rst; sourceTree = "<group>"; };
+		CF9ACDCDD3AA7EE89A450FFE08D2FE9D /* lato-bolditalic.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-bolditalic.woff"; path = "Docs/build/html/_static/fonts/Lato/lato-bolditalic.woff"; sourceTree = "<group>"; };
 		D050976257BD51D9A25060F299644F7B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		D0DC98CA823928555F35BA35263E5D74 /* MetaWear-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MetaWear-macOS-prefix.pch"; path = "../MetaWear-macOS/MetaWear-macOS-prefix.pch"; sourceTree = "<group>"; };
+		D10CEC04922311A7ADEBE10B39231964 /* roboto-slab-v7-bold.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff"; sourceTree = "<group>"; };
 		D197FBAD8B0D726C59E35F0713802A8F /* Pods-Starter-macOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Starter-macOS-frameworks.sh"; sourceTree = "<group>"; };
 		D21F6FE9D75D21757483CAD6A6FA87F1 /* dataprocessor_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dataprocessor_config.cpp; sourceTree = "<group>"; };
 		D313240738817139FCFA0461C4279722 /* version.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = version.cpp; sourceTree = "<group>"; };
 		D4AD443E41E2F8EA226F5E594A113D28 /* Task+WhenAll.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+WhenAll.swift"; path = "Sources/BoltsSwift/Task+WhenAll.swift"; sourceTree = "<group>"; };
 		D4CAC14BFF79D63B3A889D0785D97156 /* Bolts-Swift-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Bolts-Swift-iOS-Info.plist"; sourceTree = "<group>"; };
-		D5AACAB0E84B8FC7A9D4B115C0932FE7 /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Inconsolata-Regular.ttf"; path = "Docs/build/html/_static/fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
 		D5E9AA5F3AD0645F48AE4319008B4908 /* String+VersionCompare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+VersionCompare.swift"; sourceTree = "<group>"; };
 		D8804142802B216BC94601D4F4171EB5 /* Bolts-Swift-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Bolts-Swift-iOS.modulemap"; sourceTree = "<group>"; };
 		D8F5E1FD3C98C027A0932A8C27F367BB /* metawearboard.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = metawearboard.cpp; sourceTree = "<group>"; };
 		D97D161FDB1E5FDBA4B98B11F07A7B96 /* Pods-Starter-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D991087D12CF9E44E1820890FDEB4F17 /* Bolts-Swift-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Bolts-Swift-tvOS.modulemap"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS.modulemap"; sourceTree = "<group>"; };
-		DA15A2195AD6A208FAA1702BE6C753BB /* jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.js; path = Docs/build/html/_static/jquery.js; sourceTree = "<group>"; };
+		DADEDC1942EFB483FE88D3FA14A243FD /* fontawesome-webfont.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.eot"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.eot"; sourceTree = "<group>"; };
+		DAFB162C33B78276EC619E05B883F90D /* badge_only.css */ = {isa = PBXFileReference; includeInIndex = 1; name = badge_only.css; path = Docs/build/html/_static/css/badge_only.css; sourceTree = "<group>"; };
 		DCB8B42B9F579C8B8D21BED2494BF344 /* Pods-Starter-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Starter-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DCEDF81238282893801C3C26F147EEED /* roboto-slab-v7-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.ttf"; sourceTree = "<group>"; };
 		DE1AE6957641B7F59265FBC087B848EF /* Bolts-Swift-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Bolts-Swift-tvOS-umbrella.h"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS-umbrella.h"; sourceTree = "<group>"; };
 		DE89D4A260A54DE5D2D357CB488063AE /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		DFA43A8CB84897EF3320F7B69663F020 /* metawearboard.doctree */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearboard.doctree; path = Docs/build/doctrees/metawearboard.doctree; sourceTree = "<group>"; };
-		DFBDDB748B6097861B2D0DABEDFDD771 /* metawearscanner.html */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.html; path = Docs/build/html/metawearscanner.html; sourceTree = "<group>"; };
-		E0EA32C0CAD83A7BDC90AA8E0CE0ACC5 /* searchtools.js */ = {isa = PBXFileReference; includeInIndex = 1; name = searchtools.js; path = Docs/build/html/_static/searchtools.js; sourceTree = "<group>"; };
 		E2085FD9931C89DA8AA52D0E897C420C /* dfu_utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = dfu_utility.cpp; sourceTree = "<group>"; };
 		E23463721A4BA292DBB81B56732771E6 /* ibeacon.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = ibeacon.cpp; sourceTree = "<group>"; };
-		E331F26E745DAE76C6752755A8A8F9A6 /* roboto-slab-v7-bold.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-bold.woff2"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff2"; sourceTree = "<group>"; };
 		E3DEE35E8596B808523D378CDE37DED1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		E4542F65BEA3E5A77A5FF45582F8E1EA /* humidity_bme280.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = humidity_bme280.cpp; sourceTree = "<group>"; };
 		E608ED39FAC88E2D3F65671B9A858398 /* MBProgressHUD-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD-tvOS-dummy.m"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS-dummy.m"; sourceTree = "<group>"; };
 		E8FE9921B3FACB66801CA0A81780C436 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		E913E88ACCB3D526AA249F867C59B174 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		E9233A0D3E38D900B15005108807C248 /* lato-italic.eot */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-italic.eot"; path = "Docs/build/html/_static/fonts/Lato/lato-italic.eot"; sourceTree = "<group>"; };
 		E9AF0AFF425D0015BA54FDFB5BF52DA5 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4F8FDA8643C39160309C87DB62E963 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		EAE4548355640FFBDA8185BEEE7D81D1 /* MetaWearScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MetaWearScanner.swift; sourceTree = "<group>"; };
@@ -571,22 +574,19 @@
 		ED126E7183DC02E4BEA94D4D8C6509B2 /* Bolts-Swift-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Bolts-Swift-tvOS.xcconfig"; path = "../Bolts-Swift-tvOS/Bolts-Swift-tvOS.xcconfig"; sourceTree = "<group>"; };
 		EE4BC6A26A7B66065DCAFF135EC26DCF /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = event.cpp; sourceTree = "<group>"; };
 		EEA5F7D3BA6D2A352E4C591C17B5A8A0 /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = "MetaWear-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF91E89652B7CF171A35A1D8F795C098 /* roboto-slab-v7-regular.woff */ = {isa = PBXFileReference; includeInIndex = 1; name = "roboto-slab-v7-regular.woff"; path = "Docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff"; sourceTree = "<group>"; };
 		F06BC57215D86F3A418D7AE6A5BE43E5 /* Bolts-Swift-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-iOS-umbrella.h"; sourceTree = "<group>"; };
 		F13FC7E2EA6900A8A2228E057CB9D94D /* Pods-Starter-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Starter-iOS-dummy.m"; sourceTree = "<group>"; };
 		F1AA4A577C72CA7BBC24A2A3EC582949 /* MBProgressHUD-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD-tvOS-umbrella.h"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS-umbrella.h"; sourceTree = "<group>"; };
-		F1AFEDF6312F425E1C2E0B31D29FDB8A /* metawearscanner.rst */ = {isa = PBXFileReference; includeInIndex = 1; name = metawearscanner.rst; path = Docs/source/metawearscanner.rst; sourceTree = "<group>"; };
 		F21CBEFF8FA330C1A2DBF739585E467D /* debug.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = debug.cpp; sourceTree = "<group>"; };
 		F3635A708EAFEAB1DA2E0858AD0C04AD /* MBProgressHUD-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "MBProgressHUD-tvOS.modulemap"; path = "../MBProgressHUD-tvOS/MBProgressHUD-tvOS.modulemap"; sourceTree = "<group>"; };
-		F39428B2CD2C99E4E2984932CF2D717B /* jquery-3.2.1.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "jquery-3.2.1.js"; path = "Docs/build/html/_static/jquery-3.2.1.js"; sourceTree = "<group>"; };
+		F5F505F9B81472AED2E8F4CBC4ECD457 /* project_setup.html */ = {isa = PBXFileReference; includeInIndex = 1; name = project_setup.html; path = Docs/build/html/project_setup.html; sourceTree = "<group>"; };
 		F65CDCCEA2AFA49BF96FF24F2BC40AA6 /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = utils.cpp; sourceTree = "<group>"; };
 		F6710417A13CF412E6D2156FAAADD716 /* MBProgressHUD-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-iOS-dummy.m"; sourceTree = "<group>"; };
-		F7CFD2D649756C48EA08A5E92DB8790E /* index.rst.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = index.rst.txt; path = Docs/build/html/_sources/index.rst.txt; sourceTree = "<group>"; };
 		F9CCB0ABC0F034886A8C3F8BD4DBB583 /* MBProgressHUD-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MBProgressHUD-iOS-Info.plist"; sourceTree = "<group>"; };
 		FA470C9BD2DC321FBE20260D27FCE4B7 /* Pods-Starter-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Starter-macOS-Info.plist"; sourceTree = "<group>"; };
-		FA5D2602C46B8896935F133C0EEC6622 /* Inconsolata.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Inconsolata.ttf; path = Docs/build/html/_static/fonts/Inconsolata.ttf; sourceTree = "<group>"; };
-		FB75367EA088D36D03DEC0CBAB554493 /* fontawesome-webfont.woff2 */ = {isa = PBXFileReference; includeInIndex = 1; name = "fontawesome-webfont.woff2"; path = "Docs/build/html/_static/fonts/fontawesome-webfont.woff2"; sourceTree = "<group>"; };
-		FD378D84CE763D829DE2AA1CC988F32C /* plus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = plus.png; path = Docs/build/html/_static/plus.png; sourceTree = "<group>"; };
-		FDE8142152CC020E62FE137A2ADE42B1 /* lato-regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "lato-regular.ttf"; path = "Docs/build/html/_static/fonts/Lato/lato-regular.ttf"; sourceTree = "<group>"; };
+		FB6F3790B330927BD7626688D39AEACE /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "RobotoSlab-Bold.ttf"; path = "Docs/build/html/_static/fonts/RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		FD7B70ECEE844B36E04C3CB58AAD78ED /* jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.js; path = Docs/build/html/_static/jquery.js; sourceTree = "<group>"; };
 		FE4922A30A4D950D68DDE25771C68C5C /* Bolts-Swift-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Bolts-Swift-iOS.xcconfig"; sourceTree = "<group>"; };
 		FFAEA4E7DEC191F4EB7AFFE15AD8C887 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -706,7 +706,7 @@
 			children = (
 				B9C43D769C3D66ECD726494DFB3F0606 /* AsyncUtils */,
 				83170061AC04DB5DCB25F84FA3A3E628 /* Core */,
-				344A224EA3FF737B7DC6D89945CA938F /* Pod */,
+				ACEFE289917B24DD047BA9B5A104DFD5 /* Pod */,
 				DA3AE0BED075BDFB846CF4EA6A2F65CA /* Support Files */,
 				79D15A6C6F68D5E1771583EB96D6DF28 /* UI */,
 			);
@@ -818,93 +818,6 @@
 			);
 			name = Core;
 			path = MetaWear/Core;
-			sourceTree = "<group>";
-		};
-		344A224EA3FF737B7DC6D89945CA938F /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				9802C46A98DF1C9C4491E5535D6301A1 /* badge_only.css */,
-				9114D0E0BEFB007FFAA24786B73D9F83 /* basic.css */,
-				0DC2E5E41EA1D0DBB0A7A325ECD21EA0 /* conf.py */,
-				26A4AA54C5F68D2D6A43F9516FE114C7 /* doctools.js */,
-				CAC309B05CB23FC0D983A49FDEF9EA01 /* documentation_options.js */,
-				55BECDFFF769D746671AD181C410A540 /* environment.pickle */,
-				0677A4F935F362BEB0C9639B8BBD2AB8 /* file.png */,
-				7CF5C26CDB0CC527F8DF8A5AB6445EB1 /* fontawesome-webfont.eot */,
-				92E1C62D587200B95BFE8D3C760B2A62 /* fontawesome-webfont.svg */,
-				C51E9EBE5581152B24459A29BB3104E8 /* fontawesome-webfont.ttf */,
-				9E7DE2A5D6AC3B2548FECA5B037E111B /* fontawesome-webfont.woff */,
-				FB75367EA088D36D03DEC0CBAB554493 /* fontawesome-webfont.woff2 */,
-				5B788B34EDF9D8B76433717A286DF1EA /* genindex.html */,
-				FA5D2602C46B8896935F133C0EEC6622 /* Inconsolata.ttf */,
-				8981595C65474607C1FD3F7317CA1AE1 /* Inconsolata-Bold.ttf */,
-				D5AACAB0E84B8FC7A9D4B115C0932FE7 /* Inconsolata-Regular.ttf */,
-				2903522ACD73554AD6AA00AC5B7B147D /* index.doctree */,
-				8E7A5F7FAE8AC6A771EF4A52EB8C49E9 /* index.html */,
-				A0A0E9E8355D5F1F5B5DE84C9656E727 /* index.rst */,
-				F7CFD2D649756C48EA08A5E92DB8790E /* index.rst.txt */,
-				DA15A2195AD6A208FAA1702BE6C753BB /* jquery.js */,
-				F39428B2CD2C99E4E2984932CF2D717B /* jquery-3.2.1.js */,
-				602957038856F021B3F940BA9C3967A4 /* language_data.js */,
-				A8B4E85C7F2D05A9BE3CD2739C2415C3 /* lato-bold.eot */,
-				2060808864ED010BF0800BC17DB5EAAD /* Lato-Bold.ttf */,
-				3FCE33143E3A6981A1D9EC79831D3268 /* lato-bold.ttf */,
-				890DE41CA043630C568C5A352DA5FF94 /* lato-bold.woff */,
-				136796CF794A33898FE040C116627043 /* lato-bold.woff2 */,
-				4BC47C092AFB472D1294932D9F9851C2 /* lato-bolditalic.eot */,
-				847492720FEAD0FEEF7F47ABB10966A6 /* lato-bolditalic.ttf */,
-				47E2E07D313613FA3ABA60178313663F /* lato-bolditalic.woff */,
-				85925B422763A536705DF7C908738204 /* lato-bolditalic.woff2 */,
-				E9233A0D3E38D900B15005108807C248 /* lato-italic.eot */,
-				09E1D83B11C2AD937EB37064D1BC4E9B /* lato-italic.ttf */,
-				529FA2B4B895C3D016DCAA0CA85EA1B7 /* lato-italic.woff */,
-				1054B005D53BBE61734AD397E4F1C8A4 /* lato-italic.woff2 */,
-				3338D2D380F4B3BBE8D8B725BE134DFF /* lato-regular.eot */,
-				00A090094F3EF4A003696EBE836CFA8B /* Lato-Regular.ttf */,
-				FDE8142152CC020E62FE137A2ADE42B1 /* lato-regular.ttf */,
-				6A18856AEACA6B19709855C5BB9F0519 /* lato-regular.woff */,
-				0F131F0580FDFCED051DF15E57061439 /* lato-regular.woff2 */,
-				CC47993E8E21B87898017374FB75C62D /* layout.html */,
-				37A53FD24B85796112EAD3188235C833 /* LICENSE */,
-				4F5C7A3F401FB167EB34E20A09CF04D0 /* Makefile */,
-				3F5C8F5DC7B8490FBAA8BD4AB1AFC9C4 /* MetaWear.podspec */,
-				DFA43A8CB84897EF3320F7B69663F020 /* metawearboard.doctree */,
-				2E1F3904FF440A434D897A3B7FDA9B3E /* metawearboard.html */,
-				BF47B2B8916D93829543D152BB006828 /* metawearboard.rst */,
-				B66FBC3808F0F647096F2CC41DD65C4C /* metawearboard.rst.txt */,
-				0E2B88AED6983FE5160CF7EA7461282A /* metawearscanner.doctree */,
-				DFBDDB748B6097861B2D0DABEDFDD771 /* metawearscanner.html */,
-				F1AFEDF6312F425E1C2E0B31D29FDB8A /* metawearscanner.rst */,
-				1EAE9C611273D285BC24C1D6D3EEF35B /* metawearscanner.rst.txt */,
-				2F79A4E308559EEC22747BBADBF44447 /* minus.png */,
-				B3FC71E0E8F0DE0F281377BF5A7D0FBA /* modernizr.min.js */,
-				3E3ED024C0AE36FE7E7E7A6FAD2EC471 /* objects.inv */,
-				FD378D84CE763D829DE2AA1CC988F32C /* plus.png */,
-				16EF305C82C2C1FA5B7914CBF5979BC8 /* project_setup.doctree */,
-				57D7467706EA46F07B0C04FD41685BCC /* project_setup.html */,
-				500279E9E428E1D6990E9AB903435875 /* project_setup.rst */,
-				75C34C74E99E4210B2134D236DE56911 /* project_setup.rst.txt */,
-				6F854BE996EC30896AA0A66E74A2D55A /* pygments.css */,
-				A09C269C0334B177D72FB54C781D8AB2 /* README.md */,
-				0F2D59F705A38611986615F9325431EE /* roboto-slab-v7-bold.eot */,
-				0E4E7F0A4380C3DAD6BE5132AEB74DB1 /* roboto-slab-v7-bold.ttf */,
-				153BA4543969937B9CCC2E26F0E09DA6 /* roboto-slab-v7-bold.woff */,
-				E331F26E745DAE76C6752755A8A8F9A6 /* roboto-slab-v7-bold.woff2 */,
-				29A916AAAA95BA8110969035BAF35270 /* roboto-slab-v7-regular.eot */,
-				6211B0E04F14863846502014A4BB462F /* roboto-slab-v7-regular.ttf */,
-				6E4BE8421D318733889092125DD9B433 /* roboto-slab-v7-regular.woff */,
-				9FF213D37B1DC933FBCB766BD469EC27 /* roboto-slab-v7-regular.woff2 */,
-				CCF66107F6A405A2BB128EC57E63E7C8 /* RobotoSlab-Bold.ttf */,
-				48AB4F388CDD10546B7611CFBF27CA89 /* RobotoSlab-Regular.ttf */,
-				55F41900E58AEAE70771BDF4C2210A29 /* search.html */,
-				C2176872599ABB3D853B9296EEBF96E7 /* searchindex.js */,
-				E0EA32C0CAD83A7BDC90AA8E0CE0ACC5 /* searchtools.js */,
-				5D342972F43FB9CE06D988008590158E /* theme.css */,
-				2E183761CDAC4DFC3824830467991617 /* theme.js */,
-				606C5489F62B67D5375C58FDF1470D47 /* underscore.js */,
-				91571FD64478D594900BEDCCA02DEA4F /* underscore-1.3.1.js */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		377A8D795E0CBB505D717AB2D0D118BE /* swift */ = {
@@ -1151,6 +1064,93 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MBProgressHUD-iOS";
+			sourceTree = "<group>";
+		};
+		ACEFE289917B24DD047BA9B5A104DFD5 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				DAFB162C33B78276EC619E05B883F90D /* badge_only.css */,
+				335600482EAF0EB02CE32A5FA632FAB4 /* basic.css */,
+				0FFB42CF6C886D9A6BB910B090443311 /* conf.py */,
+				4F77D6CDC16B8C3AB1CC4C38355803C2 /* doctools.js */,
+				ABF3255DB353B5E39FEA8EE96753B546 /* documentation_options.js */,
+				82E700F806289A75738592E4172A78A6 /* environment.pickle */,
+				0E044F9576B3ECE9F3EE603562E9A125 /* file.png */,
+				DADEDC1942EFB483FE88D3FA14A243FD /* fontawesome-webfont.eot */,
+				09793F517A4BA53E53B4D3E03CA46696 /* fontawesome-webfont.svg */,
+				70905792C42DC3B5F0B405CE930C255F /* fontawesome-webfont.ttf */,
+				5A818025B58A35576031EF429295013E /* fontawesome-webfont.woff */,
+				A3B71A4DE04DD761E8E3D7BDA24FD6F8 /* fontawesome-webfont.woff2 */,
+				6434FE8C8DF8D48683588924A8B445F3 /* genindex.html */,
+				BA77A550A4E122B162CE8B4BCE6C0C6A /* Inconsolata.ttf */,
+				24085AF494D91533C7F7E1B3568AE5E6 /* Inconsolata-Bold.ttf */,
+				3053760DD6D4F5FBDB46E7167EB5E8FA /* Inconsolata-Regular.ttf */,
+				0EBEB360DC542D312483A767B8A9FFBD /* index.doctree */,
+				3A1058850CDA24D12CED40534A662041 /* index.html */,
+				01151F16126993CDFB0F765A981871EA /* index.rst */,
+				47B649EF6D6DC60F88AE23B3883B8F0E /* index.rst.txt */,
+				FD7B70ECEE844B36E04C3CB58AAD78ED /* jquery.js */,
+				2FE47EE279AF56AB7183B2620605300A /* jquery-3.2.1.js */,
+				1150E595CF82D2D0422B58CD12EF2227 /* language_data.js */,
+				1D3782CB2656EF2862C12B2086AB72C0 /* lato-bold.eot */,
+				10BE27907D5E29D084E5074EEAEBEFA7 /* Lato-Bold.ttf */,
+				839EF1439E56EA2CB51F39908D0B001B /* lato-bold.ttf */,
+				9E32D5A2E18E51676BCAE837D88D76D8 /* lato-bold.woff */,
+				9CF4251C724BC274809C5AB675D150AA /* lato-bold.woff2 */,
+				2C4672A7869C555CEA70E01B63326383 /* lato-bolditalic.eot */,
+				3CA0DF5FD92A7AB3922BCEBE2794C4AA /* lato-bolditalic.ttf */,
+				CF9ACDCDD3AA7EE89A450FFE08D2FE9D /* lato-bolditalic.woff */,
+				08E9D47C1B974F3ED08DADB49BC1FE30 /* lato-bolditalic.woff2 */,
+				89BC24FAE2465D77FF26169BF5C3DE74 /* lato-italic.eot */,
+				BA75AC4C3AC51D654502B40DF76408AA /* lato-italic.ttf */,
+				9AA64B7D55F8ABECD6660AB445623FB7 /* lato-italic.woff */,
+				AD23FACD71055224E59006D1BDDC409F /* lato-italic.woff2 */,
+				7251449B2ACE7EAB753F54C94F0CFF84 /* lato-regular.eot */,
+				5906796188739DD5C73E8D8E04EDB722 /* Lato-Regular.ttf */,
+				0DD6D3A1CE932066AB5631DC6F63CD60 /* lato-regular.ttf */,
+				276F0EC0DF5B4591D34E7E7F101218AD /* lato-regular.woff */,
+				0235E86E6EB72562616F11716A67FFF5 /* lato-regular.woff2 */,
+				673406F1C993745F523DD1E5F19D4012 /* layout.html */,
+				7EE65DFE168C6B7FE53410B284E8C21E /* LICENSE.md */,
+				7E5186CF64A5D9C2E180B2646C860E7C /* Makefile */,
+				59C68B6011FC82395E380E5C3B83D406 /* MetaWear.podspec */,
+				408973DCA92A277847ABD42EED6257D3 /* metawearboard.doctree */,
+				1832F0AC2AD2CE262D158104E1E307F4 /* metawearboard.html */,
+				CF904DB3DB4A68882466A6B9C6670811 /* metawearboard.rst */,
+				82BD7581090F44DBA75328AB78F29A9E /* metawearboard.rst.txt */,
+				12E800337FB6F00A203F3E0DD2E8D625 /* metawearscanner.doctree */,
+				5B8AD1DEDB692EBADD97377B6512F89A /* metawearscanner.html */,
+				6E8C64C24F16EE4D1CAA2F928ABC8A7E /* metawearscanner.rst */,
+				2F44466371F83E1BE826E9B2C54E1E32 /* metawearscanner.rst.txt */,
+				31F6D975482B0D1D5B528992B480932F /* minus.png */,
+				8D92DF97FD864C0F7102401C3A83BB7F /* modernizr.min.js */,
+				9566E63F3EDDE02FE82D6832C93249CE /* objects.inv */,
+				4FE6302CEAD37A02F44AB557E6E9DDD6 /* plus.png */,
+				C7B19DD01CEEAA90D1F237D749937441 /* project_setup.doctree */,
+				F5F505F9B81472AED2E8F4CBC4ECD457 /* project_setup.html */,
+				B90FC8DB681D54D80461040E9FBC4AE3 /* project_setup.rst */,
+				7401B89B9E6E2FC3403238DF4CDF4F4F /* project_setup.rst.txt */,
+				AD763B0F1307B8DB619E9B016D303915 /* pygments.css */,
+				42769F6F4F2B189FC6D9ABE09F5E6198 /* README.md */,
+				675ABC8CB686851281E644A7A26EAF81 /* roboto-slab-v7-bold.eot */,
+				9968E20B117222C3F9CEA16701B14228 /* roboto-slab-v7-bold.ttf */,
+				D10CEC04922311A7ADEBE10B39231964 /* roboto-slab-v7-bold.woff */,
+				200F87F62875D5EA15ECE2429E5B0132 /* roboto-slab-v7-bold.woff2 */,
+				7D02125F41F2C0F408ED04CA6AD3FC3F /* roboto-slab-v7-regular.eot */,
+				DCEDF81238282893801C3C26F147EEED /* roboto-slab-v7-regular.ttf */,
+				EF91E89652B7CF171A35A1D8F795C098 /* roboto-slab-v7-regular.woff */,
+				2E89CF6AB2C5A42F843A196B7D593E6A /* roboto-slab-v7-regular.woff2 */,
+				FB6F3790B330927BD7626688D39AEACE /* RobotoSlab-Bold.ttf */,
+				28AE1F777DB13008EB5978261738C256 /* RobotoSlab-Regular.ttf */,
+				3AB9DB56D106DE257024CAC37A8D31E1 /* search.html */,
+				0EA2A6BC6AC0924BF73AB12A09A10A5E /* searchindex.js */,
+				8B7BBB53CA006C1F67172539DEB3B368 /* searchtools.js */,
+				86CE59A972D4AD03C5E9704E4F3D53BF /* theme.css */,
+				975E3E62AB01BF3EF91AD69BA47B5ACA /* theme.js */,
+				1ACEB5861FD4686700F1EA9D677FF2DE /* underscore.js */,
+				B5C35CB68EF77C24C8DBB81DC1A3267D /* underscore-1.3.1.js */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		B37EE82271BCA0D7BFE772F0748A7028 /* cpp */ = {
