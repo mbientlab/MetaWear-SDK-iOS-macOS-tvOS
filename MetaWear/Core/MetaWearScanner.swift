@@ -130,7 +130,7 @@ public class MetaWearScanner: NSObject {
     var centralStateUpdateSources: [TaskCompletionSource<()>] = []
     var runOnPowerOn: [() -> Void] = []
     var runOnPowerOff: [() -> Void] = []
-    let bleQueue: DispatchQueue = {
+    public let bleQueue: DispatchQueue = {
         let queue = DispatchQueue(label: "com.mbientlab.bleQueue\(scannerCount)")
         scannerCount += 1
         queue.setSpecific(key: bleQueueKey, value: bleQueueValue)
