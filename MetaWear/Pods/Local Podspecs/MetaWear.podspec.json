@@ -1,10 +1,10 @@
 {
   "name": "MetaWear",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
-    "file": "LICENSE"
+    "file": "LICENSE.md"
   },
   "homepage": "https://mbientlab.com",
   "summary": "iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
-    "tag": "3.4.1",
+    "tag": "3.4.2",
     "submodules": true
   },
   "platforms": {
