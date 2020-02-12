@@ -299,6 +299,8 @@ public class MetaWear: NSObject {
             }
         }
         advertisementReceived?()
+        
+        logDelegate?.logWith(.info, message: "didDiscover: \(RSSI)")
     }
     
     func didConnect() {
@@ -309,14 +311,20 @@ public class MetaWear: NSObject {
             .batteryService,
             .disService
             ])
+        
+        logDelegate?.logWith(.info, message: "didConnect")
     }
     func didFailToConnect(error: Error?) {
         invokeConnectionHandlers(error: error, cancelled: false)
         invokeDisconnectionHandlers(error: error)
+        
+        logDelegate?.logWith(.info, message: "didFailToConnect: \(error)")
     }
     func didDisconnectPeripheral(error: Error?) {
         invokeConnectionHandlers(error: error, cancelled: error == nil)
         invokeDisconnectionHandlers(error: error)
+        
+        logDelegate?.logWith(.info, message: "didDisconnectPeripheral: \(error)")
     }
     func invokeDisconnectionHandlers(error: Error?) {
         assert(DispatchQueue.isBleQueue)
