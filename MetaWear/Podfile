@@ -3,7 +3,10 @@ use_frameworks!
 abstract_target 'MetaWear' do
     abstract_target 'MetaWear-iOS' do
         platform :ios, '10.0'
-        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+        ## LOCAL
+	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+        ## COCOAPODS
+	#pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
         
         target 'MetaWearIntegrationTestHost-iOS' do
             target 'MetaWearIntegrationTests-iOS' do
@@ -17,7 +20,10 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-macOS' do
         platform :osx, '10.14'
-        pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+        ## LOCAL
+	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+        ## COCOAPODS
+	#pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
         
         target 'MetaWearIntegrationTestHost-macOS' do
             target 'MetaWearIntegrationTests-macOS' do
@@ -31,7 +37,10 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-tvOS' do
         platform :tvos, '10.0'
+        ## LOCAL
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
+        ## COCOAPODS
+        #pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils']
 
         target 'MetaWearIntegrationTestHost-tvOS' do
             target 'MetaWearIntegrationTests-tvOS' do
@@ -46,7 +55,10 @@ abstract_target 'MetaWear' do
     
     abstract_target 'MetaWear-watchOS' do
         platform :watchos, '4.0'
+        ## LOCAL
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
+        ## COCOAPODS
+        #pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils']
         
         target 'MetaWearIntegrationTestHost-watchOS Extension' do
         end
