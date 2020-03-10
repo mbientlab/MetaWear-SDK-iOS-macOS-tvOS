@@ -719,17 +719,11 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         }
     }
     
-    @IBAction func readTempraturePressed(_ sender: Any) {
-        let idx = UInt8(tempChannelSelector.selectedSegmentIndex)
-        let source = mbl_mw_multi_chnl_temp_get_source(device.board, idx)
-        if source == MBL_MW_TEMPERATURE_SOURCE_EXT_THERM {
-            let readPin = UInt8(readPinTextField.text!) ?? 0
-            let enablePin = UInt8(enablePinTextField.text!) ?? 0
-            mbl_mw_multi_chnl_temp_configure_ext_thermistor(device.board, idx, readPin, enablePin, 1)
-        }
-        let selected = mbl_mw_multi_chnl_temp_get_temperature_data_signal(device.board, idx)!
+    func readTempraturePressed(_ sender: Any) {
+        let source = mbl_mw_multi_chnl_temp_get_source(device.board, UInt8(MBL_MW_TEMPERATURE_SOURCE_PRESET_THERM.rawValue))
+        let selected = mbl_mw_multi_chnl_temp_get_temperature_data_signal(device.board, UInt8(MBL_MW_TEMPERATURE_SOURCE_PRESET_THERM.rawValue))!
         selected.read().continueOnSuccessWith(.mainThread) { obj in
-            self.tempratureLabel.text = String(format: "%.1f°C", (obj.valueAs() as Float))
+            print(String(format: "%.1f°C", (obj.valueAs() as Float)))
         }
     }
     
@@ -1767,7 +1761,15 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
     }
 
     @IBAction func startiBeaconPressed(_ sender: Any) {
-        // TODO: Expose the other iBeacon parameters
+        let uuid = UUID().uuidString
+        var i: UInt8 = UInt8.init(uuid)!
+        let up: UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.init(&i)
+        mbl_mw_ibeacon_set_major(device.board, 78)
+        mbl_mw_ibeacon_set_minor(device.board, 7453)
+        mbl_mw_ibeacon_set_period(device.board, 15027)
+        mbl_mw_ibeacon_set_rx_power(device.board, -55)
+        mbl_mw_ibeacon_set_tx_power(device.board, -12)
+        mbl_mw_ibeacon_set_uuid(device.board, up)
         mbl_mw_ibeacon_enable(device.board)
     }
 
