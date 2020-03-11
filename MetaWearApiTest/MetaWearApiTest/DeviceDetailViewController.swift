@@ -1762,8 +1762,8 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
 
     @IBAction func startiBeaconPressed(_ sender: Any) {
         let uuid = UUID().uuidString
-        var i: UInt8 = UInt8.init(uuid)!
-        let up: UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.init(&i)
+        var array: [UInt8] = Array(uuid.utf8)
+        let up: UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.init(&array)
         mbl_mw_ibeacon_set_major(device.board, 78)
         mbl_mw_ibeacon_set_minor(device.board, 7453)
         mbl_mw_ibeacon_set_period(device.board, 15027)
