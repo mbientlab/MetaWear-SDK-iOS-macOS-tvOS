@@ -8,6 +8,8 @@
 
 SDK for creating MetaWear apps that run in the Apple ecosystem.  This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful.
 
+Also, check out the starter [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/StarterProject) and the very through example App [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/MetaWearApiTest) for sample code.
+
 ### Overview
 
 [MetaWear](https://mbientlab.com) is a complete development and production platform for wearable and connected device applications.
@@ -23,6 +25,8 @@ The MetaWear hardware comes pre-loaded with a wirelessly upgradeable firmware, s
 
 > REQUIREMENT NOTES  
 The iOS simulator doesn’t support Bluetooth 4.0, so test apps must be run on a real iOS device which requires a developer account.  Bluetooth 4.0 available on iPhone 4S+, iPad 3rd generation+, or iPod Touch 5th generation.
+
+*BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR*
 
 ### License
 See the [License](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/LICENSE)
@@ -79,6 +83,6 @@ MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
 ```
 Now run the app! 
 
-*BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR*
+### Tutorials
 
-
+Tutorials can be found [here](https://mbientlab.com/tutorials/).
