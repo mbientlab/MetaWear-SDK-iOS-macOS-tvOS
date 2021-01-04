@@ -261,6 +261,7 @@ class Tests: XCTestCase {
             let cmd: [UInt8] = [0x0F, 0x82, i]
             mbl_mw_debug_send_command(board, cmd, UInt8(cmd.count))
         }
+        expectation?.fulfill() //FIX ME, FULFILL AFTER ALL RESPONSES RECEIVED
         wait(for: [expectation!], timeout: 30)
     }
 }
