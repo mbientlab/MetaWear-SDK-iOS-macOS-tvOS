@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '3.4.2'
+  s.version            = '3.4.3'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE.md' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                          Contact us at hello@mbientlab.com if you need custom hardware or help with App development.
                          See www.mbientlab.com for details.
                          DESC
-  s.author             = { 'Stephen Schiffli' => 'stephen@mbientlab.com' }
+  s.author             = { 'Laura Kassovic' => 'laura@mbientlab.com' }
 
   s.source             = { :git => 'https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git',
                            :tag => s.version.to_s, :submodules => true }
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 
   s.social_media_url   = "https://twitter.com/mbientLab"
-  s.documentation_url  = "https://mbientlab.com/cppdocs/latest/"
+  s.documentation_url  = "https://mbientlab.com/tutorials/"
 
   s.default_subspec = 'Core'
 

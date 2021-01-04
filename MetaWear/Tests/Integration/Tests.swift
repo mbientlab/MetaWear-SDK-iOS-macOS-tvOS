@@ -244,7 +244,7 @@ class Tests: XCTestCase {
             
             mbl_mw_logging_download(board, 0, &self.handlers)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 mbl_mw_sensor_fusion_stop(self.device.board)
                 self.counter = 1
                 print("stopping \(Date())")
@@ -261,6 +261,7 @@ class Tests: XCTestCase {
             let cmd: [UInt8] = [0x0F, 0x82, i]
             mbl_mw_debug_send_command(board, cmd, UInt8(cmd.count))
         }
+        expectation?.fulfill() //FIX ME, FULFILL AFTER ALL RESPONSES RECEIVED
         wait(for: [expectation!], timeout: 30)
     }
 }

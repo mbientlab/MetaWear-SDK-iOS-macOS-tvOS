@@ -1,6 +1,6 @@
 {
   "name": "MetaWear",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
@@ -10,11 +10,11 @@
   "summary": "iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform",
   "description": "This library allows for simple interfacing with the MetaWear Bluetooth (BLE)\nsensor platform.  Stream or log a variety of sensor data via simple API calls.\nContact us at hello@mbientlab.com if you need custom hardware or help with App development.\nSee www.mbientlab.com for details.",
   "authors": {
-    "Stephen Schiffli": "stephen@mbientlab.com"
+    "Laura Kassovic": "laura@mbientlab.com"
   },
   "source": {
     "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
-    "tag": "3.4.2",
+    "tag": "3.4.3",
     "submodules": true
   },
   "platforms": {
@@ -25,7 +25,7 @@
   },
   "swift_versions": "5.0",
   "social_media_url": "https://twitter.com/mbientLab",
-  "documentation_url": "https://mbientlab.com/cppdocs/latest/",
+  "documentation_url": "https://mbientlab.com/tutorials/",
   "default_subspecs": "Core",
   "subspecs": [
     {

@@ -6,7 +6,9 @@
 
 ![alt tag](https://raw.githubusercontent.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/master/Images/Metawear.png)
 
-SDK for creating MetaWear apps that run in the Apple ecosystem.  This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful.
+SDK for creating MetaWear apps that run in the Apple ecosystem.  
+
+This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful.
 
 Also, check out the starter [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/StarterProject) and the very through example App [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/MetaWearApiTest) for sample code.
 
@@ -14,17 +16,17 @@ Also, check out the starter [App](https://github.com/mbientlab/MetaWear-SDK-iOS-
 
 [MetaWear](https://mbientlab.com) is a complete development and production platform for wearable and connected device applications.
 
-MetaWear features a number of sensors and peripherals all easily controllable over Bluetooth 4.0 Low Energy using this SDK, no firmware or hardware experience needed!
+MetaWear features a number of sensors and peripherals all easily controllable over Bluetooth 4.0/5.0 Low Energy using this SDK, no firmware or hardware experience needed!
 
 The MetaWear hardware comes pre-loaded with a wirelessly upgradeable firmware, so it keeps getting more powerful over time.
 
 ### Requirements
 - [MetaWear board](https://mbientlab.com/store/)
 - [Apple ID](https://appleid.apple.com/), you can now get started for free!  Once you are ready to submit an App to the App Store, you need a paid [Apple Developer Account](https://developer.apple.com/programs/ios/).
-- Device running iOS 10.0 or later with Bluetooth 4.0
+- Device running iOS 10.0 or later with Bluetooth 4.0 (iOS 13+, XCODE12+, BLE5.0 recommended)
 
 > REQUIREMENT NOTES  
-The iOS simulator doesn’t support Bluetooth 4.0, so test apps must be run on a real iOS device which requires a developer account.  Bluetooth 4.0 available on iPhone 4S+, iPad 3rd generation+, or iPod Touch 5th generation.
+The iOS simulator doesn’t support Bluetooth 4.0/5.0, so test apps must be run on a real iOS device which requires a developer account.  Bluetooth 4.0 available on iPhone 4S+, iPad 3rd generation+, or iPod Touch 5th generation.
 
 *BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR*
 
@@ -37,9 +39,7 @@ Reach out to the [community](https://mbientlab.com/community/) if you encounter 
 ## Getting Started
 
 ### Installation
-
-MetaWear is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+MetaWear is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
@@ -84,5 +84,4 @@ MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
 Now run the app! 
 
 ### Tutorials
-
 Tutorials can be found [here](https://mbientlab.com/tutorials/).
