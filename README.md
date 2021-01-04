@@ -1,7 +1,7 @@
 # MetaWear  SDK for iOS/macOS/tvOS/watchOS by MBIENTLAB
 
 [![Platforms](https://img.shields.io/cocoapods/p/MetaWear.svg?style=flat)](http://cocoapods.org/pods/MetaWear)
-[![License](https://img.shields.io/cocoapods/l/MetaWear.svg?style=flat)](https://mbientlab.com/license)
+[![License](https://img.shields.io/cocoapods/l/MetaWear.svg?style=flat)](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/LICENSE.md)
 [![Version](https://img.shields.io/cocoapods/v/MetaWear.svg?style=flat)](http://cocoapods.org/pods/MetaWear)
 
 ![alt tag](https://raw.githubusercontent.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/master/Images/Metawear.png)
@@ -31,7 +31,7 @@ The iOS simulator doesn’t support Bluetooth 4.0/5.0, so test apps must be run 
 *BLUETOOTH IS NOT SUPPORTED IN THE SIMULATOR*
 
 ### License
-See the [License](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/LICENSE).
+See the [License](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/blob/master/LICENSE.md)
 
 ### Support
 Reach out to the [community](https://mbientlab.com/community/) if you encounter any problems, or just want to chat :)
