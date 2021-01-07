@@ -43,10 +43,8 @@ API Access Queue
 
 The core of this SDK is the MetaWearCpp library, and **it's not indented to be thread safe**.  Any time you call one of its mbl_mw_* functions you will want to make sure you are on the ``apiAccessQueue`` or ``apiAccessExecutor`` in order to ensure crash free behavior.
 
-::
-
 Saving MetaWears
-----------------
+-----------------
 
 If you expect to re-connect to a specific MetaWear device, you can "remember" it for easy retrieval later on through the MetaWearScanner.
 
