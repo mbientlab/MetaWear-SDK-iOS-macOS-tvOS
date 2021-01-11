@@ -80,3 +80,15 @@ Apple generates a unique identifier for each BLE device.  Note, two different Ap
 
     print("\(device.peripheral.identifier)")
 
+Reset
+----------
+
+To fully reset your MetaWear board:
+
+::
+
+    device.connectAndSetup().continueWith(.mainThread) { t in
+        device.clearAndReset() // this handles everything for you
+        print("Clear and Reset the board")
+    }
+

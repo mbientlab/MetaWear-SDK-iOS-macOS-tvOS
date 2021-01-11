@@ -1,7 +1,7 @@
 .. highlight:: swift
 
-MetaWearScanner
-===============
+MetaWear Scanner
+================
 
 Scanning and discovery of MetaWear devices is done through the `MetaWearScanner <https://www.mbientlab.com/docs/metawear/ios/latest/Classes/MetaWearScanner.html>`_.  The manager also maintains a list of previously saved MetaWear's for simple re-connecting.
 
