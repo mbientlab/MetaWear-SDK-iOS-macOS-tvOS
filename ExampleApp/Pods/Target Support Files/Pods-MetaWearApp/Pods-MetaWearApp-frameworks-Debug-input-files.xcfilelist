@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-MetaWearApp/Pods-MetaWearApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/MetaWear/MetaWear.framework
+${BUILT_PRODUCTS_DIR}/StaticDataTableViewController/StaticDataTableViewController.framework
+${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework
+${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework

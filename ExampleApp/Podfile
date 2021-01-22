@@ -2,7 +2,7 @@
 platform :ios, '10.0'
 use_frameworks!
 
-target 'MetaWearApiTest' do
+target 'MetaWearApp' do
   pod 'MetaWear', :subspecs => ['AsyncUtils', 'UI', 'DFU']
   pod 'MBProgressHUD'
   pod 'StaticDataTableViewController'
