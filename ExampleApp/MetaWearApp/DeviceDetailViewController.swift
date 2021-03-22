@@ -554,11 +554,11 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         hud.label.text = "Updating..."
         device.updateFirmware(delegate: self).continueWith { t in
             if let error = t.error {
-                print("Firmware update error \(error.localizedDescription)")
-                let alertController = UIAlertController(title: "Update Error", message: "Please re-connect and try again, if you can't connect, try MetaBoot Mode to recover.\nError: \(error.localizedDescription)", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
                 DispatchQueue.main.async {
+                    print("Firmware update error \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Update Error", message: "Please re-connect and try again, if you can't connect, try MetaBoot Mode to recover.\nError: \(error.localizedDescription)", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                     self.hud?.hide(animated: true)
                 }
             } else {

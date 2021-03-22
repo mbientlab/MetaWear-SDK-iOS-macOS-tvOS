@@ -57,6 +57,15 @@
 		6F8D972C1AF668270B9DA1C1 /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A1E686EA067BA1F21C94C /* Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS.framework */; };
 		7DFB8E3E757AA59FB6B87556 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D098693F507F95523CEC2456 /* Pods_MetaWear_MetaWear_tvOS_MetaWearUnitTests_tvOS.framework */; };
 		8AEA9C538942199830BE7B6B /* Pods_MetaWearIntegrationTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEB932F09D8B4BB720E75C2 /* Pods_MetaWearIntegrationTests_macOS.framework */; };
+		ABB5532025F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
+		ABB5532125F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
+		ABB5532225F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
+		ABEEADC325D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
+		ABEEADC425D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
+		ABEEADC525D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
+		ABEEADC725D758FF00AD1F88 /* GyroscopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */; };
+		ABEEADC825D758FF00AD1F88 /* GyroscopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */; };
+		ABEEADC925D758FF00AD1F88 /* GyroscopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */; };
 		C0BE9E70E4089C6F08FE590F /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E017EC1F72EA22D0ACD7A0B1 /* Pods_MetaWear_MetaWear_iOS_MetaWearUnitTests_iOS.framework */; };
 		F341671D79CCAF86AEAA9A5A /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36EF3C0A2070835EA6973292 /* Pods_MetaWear_MetaWear_macOS_MetaWearUnitTests_macOS.framework */; };
 /* End PBXBuildFile section */
@@ -201,6 +210,9 @@
 		9A48D104D1B7CCF64BA84E3D /* Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWear_MetaWear_watchOS_MetaWearIntegrationTestHost_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6940A7253774BF00DA83FC /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		ABB5531F25F8316500F36FEC /* LoggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
+		ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerTests.swift; sourceTree = "<group>"; };
+		ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroscopeTests.swift; sourceTree = "<group>"; };
 		AD660D07C46FF62D5D8493F0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0F4B5B1D12FF6A9AD72AE2 /* Pods_MetaWearIntegrationTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8C92E37F4F0E39DD4A3179 /* Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearUnitTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -406,6 +418,9 @@
 			children = (
 				404057B0209A7CB700591D6B /* ManualTests.swift */,
 				404057B1209A7CB700591D6B /* Tests.swift */,
+				ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */,
+				ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */,
+				ABB5531F25F8316500F36FEC /* LoggingTests.swift */,
 			);
 			path = Integration;
 			sourceTree = "<group>";
@@ -778,7 +793,7 @@
 			attributes = {
 				CLASSPREFIX = MBL;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Stephen Schiffli";
 				TargetAttributes = {
 					40405831209A83CA00591D6B = {
@@ -1366,6 +1381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB5532025F8316500F36FEC /* LoggingTests.swift in Sources */,
+				ABEEADC325D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABEEADC725D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				4058ABC5211D10A600A50323 /* Tests.swift in Sources */,
 				4058ABC6211D10AA00A50323 /* ManualTests.swift in Sources */,
 			);
@@ -1393,6 +1411,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB5532225F8316500F36FEC /* LoggingTests.swift in Sources */,
+				ABEEADC525D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABEEADC925D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				404057B4209A7CB700591D6B /* ManualTests.swift in Sources */,
 				404057B7209A7CB700591D6B /* Tests.swift in Sources */,
 			);
@@ -1411,6 +1432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB5532125F8316500F36FEC /* LoggingTests.swift in Sources */,
+				ABEEADC425D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABEEADC825D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				404057B3209A7CB700591D6B /* ManualTests.swift in Sources */,
 				404057B6209A7CB700591D6B /* Tests.swift in Sources */,
 			);
@@ -2033,6 +2057,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2057,13 +2082,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
@@ -2091,6 +2116,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2108,13 +2134,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};

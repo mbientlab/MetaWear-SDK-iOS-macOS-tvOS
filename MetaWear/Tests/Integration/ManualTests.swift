@@ -39,6 +39,11 @@ import BoltsSwift
 @testable import MetaWearCpp
 
 class ManualTests: XCTestCase {
+    var device: MetaWear!
+    var counter: OpaquePointer!
+    var comparator: OpaquePointer!
+    var id: Int!
+    
     func connectNearest() -> Task<MetaWear> {
         let source = TaskCompletionSource<MetaWear>()
         MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
@@ -61,7 +66,6 @@ class ManualTests: XCTestCase {
         let connectExpectation = XCTestExpectation(description: "connecting")
         MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith { array in
             array.first
-            
         }
         MetaWearScanner.shared.startScan(allowDuplicates: true) { (device) in
             if device.rssi > -50 {
@@ -71,7 +75,6 @@ class ManualTests: XCTestCase {
                     print("Connecting...")
                     device.connectAndSetup().continueWith { t in
                         t.result?.continueWith { t in
-                            
                         }
                         XCTAssertTrue(t.cancelled)
                         connectExpectation.fulfill()
@@ -94,6 +97,64 @@ class ManualTests: XCTestCase {
             }
             mbl_mw_debug_jump_to_bootloader(device.board)
             connectExpectation.fulfill()
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
+    func testConnection() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            print(device.info!.firmwareRevision)
+            print(device.info!.hardwareRevision)
+            print(device.info!.manufacturer)
+            print(device.info!.modelNumber)
+            print(device.info!.serialNumber)
+            device.clearAndReset()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                print("fulfill")
+                connectExpectation.fulfill()
+            }
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
+    func testUserMacroBoltsSwift() {
+        let connectExpectation = XCTestExpectation(description: "connecting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            print("macro")
+            mbl_mw_macro_record(device.board, 1)
+            let switcher = mbl_mw_switch_get_state_data_signal(device.board)
+            print("switch: ", switcher as Any)
+            switcher?.counterCreate().continueOnSuccessWithTask(device.apiAccessExecutor) { counter -> Task<OpaquePointer> in
+                self.counter = counter
+                print("counter :",counter)
+                return counter.comparatorCreate(op: MBL_MW_COMPARATOR_OP_EQ, mode: MBL_MW_COMPARATOR_MODE_ABSOLUTE, references: [Float(2999)])
+            }.continueOnSuccessWithTask(device.apiAccessExecutor) { comparator -> Task<Void> in
+                print("comp: ", comparator)
+                mbl_mw_event_record_commands(comparator)
+                print("led")
+                device.flashLED(color: .red, intensity: 1.0, _repeat: 1)
+                mbl_mw_dataprocessor_counter_set_state(self.counter, 0)
+                print("event end")
+                return comparator.eventEndRecord()
+            }.continueOnSuccessWithTask(device.apiAccessExecutor) { _ -> Task<Int32> in
+                print("macro end")
+                return device.macroEndRecord()
+            }.continueOnSuccessWith(device.apiAccessExecutor) { id in
+                self.id = Int(id)
+                print("macro with id: ",id)
+            }.continueWith(device.apiAccessExecutor) { _ in
+                print("macro execute")
+                mbl_mw_macro_execute(device.board, UInt8(self.id))
+                print("done")
+                connectExpectation.fulfill()
+            }
         }
         wait(for: [connectExpectation], timeout: 60)
     }

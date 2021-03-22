@@ -57,7 +57,9 @@ extension MblMwData {
                             typeId: type_id)
     }
     public var timestamp: Date {
-        return Date(timeIntervalSince1970: Double(epoch) / 1000.0)
+        let date = Date(timeIntervalSince1970: Double(epoch) / 1000.0)
+        let milliseconds = epoch%1000
+        return Calendar.current.date(byAdding: .nanosecond, value: Int(milliseconds), to: date)!
     }
     public func valueAs<T>() -> T {
         return doTheParse(length: length, type_id: type_id, value: value)
@@ -115,6 +117,8 @@ fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: U
         assert(T.self == MblMwBtleAddress.self)
     case MBL_MW_DT_ID_BOSCH_ANY_MOTION:
         assert(T.self == MblMwBoschAnyMotion.self)
+    case MBL_MW_DT_ID_BOSCH_GESTURE:
+        assert(T.self == MblMwBoschGestureType.self)
     case MBL_MW_DT_ID_CALIBRATION_STATE:
         assert(T.self == MblMwCalibrationState.self)
     case MBL_MW_DT_ID_BOSCH_TAP:

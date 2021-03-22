@@ -45,19 +45,16 @@
 		176C6C44C5D906F5C8EEAE3AC94349DE /* metawearboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3B544A8CA50CA8E1AF96A0582DE5218 /* metawearboard.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		17A4A4D8C600CB7DC5794D87C33EA580 /* Bolts-Swift-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7B8882026B8D908567C13E297BD6436 /* Bolts-Swift-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17EEFEFFC71F0AC6D1D8B82606F976B2 /* Task+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5AFD8F526047908EF1A6F8FDAE4E9 /* Task+Delay.swift */; };
-		1828A674642F9601D3EE9DF8349F906A /* gyro_bmi160.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		18409AAD5C7E82D5049A2610FABD7FD9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9481942C645F5AF023E048963705B7E7 /* CoreBluetooth.framework */; };
 		18911D8F9D18B8C0F580060AEFE19972 /* sensor_fusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 151AE9FA75AEEAF352A67C395BAE1AD7 /* sensor_fusion.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		18B3536F76AA6D5805A3D54FB293A9BA /* async_creator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABC01310722C277D019E6C2DB9517E7 /* async_creator.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		19155E6CE340324EC4B2CB23B5186C49 /* multichanneltemperature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FA78546C4335D20357CC4567FD305 /* multichanneltemperature.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		198C920283F48BF1E567D61BBA50C0EB /* gyro_bmi160.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		1A85E25520CBEB05A133319ACEA5A56C /* Task+WhenAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D9DEE679B18E5C458D4795D10E1890 /* Task+WhenAny.swift */; };
 		1B09635D62697DA6999C83F10B697764 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F403E27DBF07E56940860662756CB3 /* Manifest.swift */; };
 		1B2BC0BEF4CA1068B94161312E332B28 /* String+VersionCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD4D50909896D979EFF9650C009BFF /* String+VersionCompare.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		1CDE0B11B612BD4F89155727AEF40AB5 /* SecureDFUPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A925FEACFBE227CEDCF7149D4EF12F9 /* SecureDFUPacket.swift */; };
 		1D2752827AE095A857F2F96F85CA951F /* DFUExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD54ED09D15C9FCDAB012469BA87074 /* DFUExecutor.swift */; };
 		1D38CBD7FCE2DB3E753E23A78258D235 /* dfu_operations_details.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9550C9A8C8656880258CF8CD98C53 /* dfu_operations_details.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		1ED7AD14E2DAE13E034B34D10F937241 /* gyro_bmi160.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		1EDB8323EBC82C8A31DFA333E0A9AD8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D4003C2F97282E3C82E5711C7F8C46 /* Foundation.framework */; };
 		1EFD82B98118369A8821D338DC1E85B2 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB3D8DBC28CCF0A73CEFF033FFE1C /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS-dummy.m */; };
 		1F53B49C2588587431798F94B8E535C6 /* MetaWear+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4615841E2C1E8157D02E95B64E71C4 /* MetaWear+Async.swift */; };
@@ -84,7 +81,6 @@
 		26D3D26ECBE79A53740D7C45161ACCA8 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156218A27163C74F4FF3A8B88B84FDB0 /* settings.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		2707350FDCEED6E2032F8415D4A47217 /* Bolts-Swift-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FAF8D54517745664357BCB15561320 /* Bolts-Swift-watchOS-dummy.m */; };
 		27CE81CBE47F1F2BBFA60340F9BF2595 /* ZIPFoundation-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D35F2A88DC0477C6B52780CE08C435D /* ZIPFoundation-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27D6816E5AD6D9D126B26717651A45A5 /* gyro_bmi160.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		2AB34B8AFFA74307998D5E1E2C730DC2 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F403E27DBF07E56940860662756CB3 /* Manifest.swift */; };
 		2B0C0DDB69A91BB85292877FC981AF35 /* gpio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24A13113E387EC83E9B0377DA7C515D0 /* gpio.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		2BE90797E4BF39D5BAD13E8E8DF5D5CD /* file_operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 357E5635098F2378732DB33A5AE27106 /* file_operations.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
@@ -307,6 +303,10 @@
 		AAB07233F932C37D80A3C80070947012 /* DeviceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96070473785FC109F4DF1B95A23E0C9 /* DeviceInformation.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		AB2D593DE9B596E644EF647D7325F360 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A33FF544CA30169E9B6900CC8263EBE /* utils.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		ABB726B84F6B78582476A3A802F1C096 /* crc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448F7A74DD00F5CC447008E69AB4CED /* crc32.swift */; };
+		ABEEADBE25D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */; };
+		ABEEADBF25D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */; };
+		ABEEADC025D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */; };
+		ABEEADC125D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */; };
 		AC78FFD48DFE2A09FFBD364C93418CA9 /* cbindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C4E4954F577DC5838552C26A95F21 /* cbindings.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		AC8A2BDB812636F1AE5E4B708E1BEDFF /* DFUServiceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804F804E9F5EF675B36052B75A24FEBA /* DFUServiceSelector.swift */; };
 		AD09F0C6ABAF819011BE7BFC0B5E8C86 /* DeviceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96070473785FC109F4DF1B95A23E0C9 /* DeviceInformation.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
@@ -882,7 +882,6 @@
 		6815A76152D2B6E658D68110E116BF9A /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = datasignal.cpp; sourceTree = "<group>"; };
 		6882BE967AA96319C1FDCEF8A43A9D96 /* Pods_MetaWearIntegrationTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWearIntegrationTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		692329CE0A9A63D15123D684C9F2AA34 /* SoftdeviceBootloaderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoftdeviceBootloaderInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/SoftdeviceBootloaderInfo.swift; sourceTree = "<group>"; };
-		6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = gyro_bmi160.cpp; sourceTree = "<group>"; };
 		69C4F4120F41A0168DBD214ADBC03CDB /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Inconsolata-Regular.ttf"; path = "Docs/build/html/_static/fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
 		6A2CF8242C6BEA5AE65A948C455204BD /* file.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = file.png; path = Docs/build/html/_static/file.png; sourceTree = "<group>"; };
 		6A33FF544CA30169E9B6900CC8263EBE /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
@@ -992,6 +991,7 @@
 		AA8C4E4954F577DC5838552C26A95F21 /* cbindings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = cbindings.swift; sourceTree = "<group>"; };
 		AAE50FD99694245A4A0B675B49C15390 /* index.doctree */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = index.doctree; path = Docs/build/doctrees/index.doctree; sourceTree = "<group>"; };
 		AB1E37A13754FFEFD8230A743ECEAD66 /* Bolts-Swift-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Bolts-Swift-macOS-Info.plist"; path = "../Bolts-Swift-macOS/Bolts-Swift-macOS-Info.plist"; sourceTree = "<group>"; };
+		ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gyro_bosch.cpp; path = "../../../../../../../MetaWear-SDK-Cpp/src/metawear/sensor/cpp/gyro_bosch.cpp"; sourceTree = "<group>"; };
 		AC14F27D31997A9BAB52F11719E73EB8 /* iOSDFULibrary-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOSDFULibrary-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AC68A1B035D2F7A706C5CEC4FAAB22F9 /* iOSDFULibrary-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "iOSDFULibrary-macOS.debug.xcconfig"; path = "../iOSDFULibrary-macOS/iOSDFULibrary-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0358D314C8BEEE6DF294E6CFBE3DCC /* Pods-MetaWearIntegrationTests-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWearIntegrationTests-macOS-dummy.m"; sourceTree = "<group>"; };
@@ -2037,6 +2037,7 @@
 		E45667E673CDC5210DC68217EE71C5E6 /* cpp */ = {
 			isa = PBXGroup;
 			children = (
+				ABEEADBD25D5FD9D00AD1F88 /* gyro_bosch.cpp */,
 				E328DFF0E848278274D43506C91398A2 /* accelerometer.cpp */,
 				508B72A1332DB45B29517F8C078A5B9F /* accelerometer_bosch.cpp */,
 				5AE6AD7941189A82EF88895867E33CEB /* accelerometer_mma8452q.cpp */,
@@ -2045,7 +2046,6 @@
 				E8EF759174C33810CE720C98CAB60552 /* colordetector_tcs34725.cpp */,
 				62ADBF1A253BFDC62623319DA3174DCC /* conductance.cpp */,
 				24A13113E387EC83E9B0377DA7C515D0 /* gpio.cpp */,
-				6948E117F8C4ABF920FD4BD166D6F08B /* gyro_bmi160.cpp */,
 				34A8066D3D9A5135273080AF0ECAA244 /* humidity_bme280.cpp */,
 				C60154A98FA6CA33BA0AECEC621F8FEA /* magnetometer_bmm150.cpp */,
 				2D8FA78546C4335D20357CC4567FD305 /* multichanneltemperature.cpp */,
@@ -2791,7 +2791,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3097,10 +3097,10 @@
 				0CB888E0514B852F57B603DE8F24464C /* FirmwareBuild.swift in Sources */,
 				D82F8113E318FA8A873FC495733A41B3 /* FirmwareServer.swift in Sources */,
 				5011FE4E8871C7AE681791ABC2759BD9 /* gpio.cpp in Sources */,
-				1828A674642F9601D3EE9DF8349F906A /* gyro_bmi160.cpp in Sources */,
 				1594F90575CC6B6CE520E590AACF5CA1 /* haptic.cpp in Sources */,
 				F074429419BBF6F8FC4180167C84D997 /* humidity_bme280.cpp in Sources */,
 				BC0AFCB8457D881B50133859E3CD4EA9 /* ibeacon.cpp in Sources */,
+				ABEEADBF25D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */,
 				9D497A6BC135BDC8D5C73E5DD30E08CC /* led.cpp in Sources */,
 				BF53063B16EBA5DDA925B32F0D20CE04 /* LogDelegate.swift in Sources */,
 				225E119D952C1EBBAA5B3229B45F27DE /* logging.cpp in Sources */,
@@ -3146,6 +3146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D20BEE53B9A83DD5A200FEE2C7F31FF1 /* accelerometer.cpp in Sources */,
+				ABEEADC025D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */,
 				347C773436F0CB0B1372BA87ABBC346C /* accelerometer_bosch.cpp in Sources */,
 				76C499CA49126EEEEA27D02B81681577 /* accelerometer_mma8452q.cpp in Sources */,
 				BDD82E36C8C5AAC0766182E9E965A463 /* ambientlight_ltr329.cpp in Sources */,
@@ -3169,7 +3170,6 @@
 				48A80D29A5184F6E0D03C46D72AFE632 /* event.cpp in Sources */,
 				2BE90797E4BF39D5BAD13E8E8DF5D5CD /* file_operations.cpp in Sources */,
 				2B0C0DDB69A91BB85292877FC981AF35 /* gpio.cpp in Sources */,
-				198C920283F48BF1E567D61BBA50C0EB /* gyro_bmi160.cpp in Sources */,
 				FF17670D631D8A332D0E99B9AE91A98F /* haptic.cpp in Sources */,
 				63CE6FED54F065D299205FCDCFCC7CD1 /* humidity_bme280.cpp in Sources */,
 				43F84EBFD25FF7692EA9C8271E48016C /* ibeacon.cpp in Sources */,
@@ -3305,6 +3305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA824688BCC5765358E78D4EAC60C6DF /* accelerometer.cpp in Sources */,
+				ABEEADC125D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */,
 				61CAC6ACEB5FDA1FA2C39F5CAE1BBAE7 /* accelerometer_bosch.cpp in Sources */,
 				5A146B9BB0B56E0277C9F0A60968C3ED /* accelerometer_mma8452q.cpp in Sources */,
 				F42BA670785299FC5275FF2B33486CD7 /* ambientlight_ltr329.cpp in Sources */,
@@ -3328,7 +3329,6 @@
 				428179FEBEDC98B766752F98E061ADF0 /* event.cpp in Sources */,
 				2E8F91FFA759077621E70121A16366E7 /* file_operations.cpp in Sources */,
 				C423BEFE58331137BA10C8BC38978F75 /* gpio.cpp in Sources */,
-				27D6816E5AD6D9D126B26717651A45A5 /* gyro_bmi160.cpp in Sources */,
 				821E05BA9354D961757A1841586421D6 /* haptic.cpp in Sources */,
 				8A9F2625278E8AF124C9578B64CBC82B /* humidity_bme280.cpp in Sources */,
 				61E277265DEF113ED4E4ED2DA10E114D /* ibeacon.cpp in Sources */,
@@ -3478,10 +3478,10 @@
 				B14EA4E7064C760AC032E21BC6625559 /* FirmwareBuild.swift in Sources */,
 				C6E1A4AF07DE69B813031FD82CD71E81 /* FirmwareServer.swift in Sources */,
 				3312E10704D574542E267ECA909C3416 /* gpio.cpp in Sources */,
-				1ED7AD14E2DAE13E034B34D10F937241 /* gyro_bmi160.cpp in Sources */,
 				DB5A9D068E02D006A6997A57EFC01DCD /* haptic.cpp in Sources */,
 				74D5B1A504F078C89022CD5CD114548C /* humidity_bme280.cpp in Sources */,
 				BFA2700C0E8B100D781808CE27E4BA20 /* ibeacon.cpp in Sources */,
+				ABEEADBE25D5FD9D00AD1F88 /* gyro_bosch.cpp in Sources */,
 				DAC626B91B02EEAD8274C8EB9C676F25 /* led.cpp in Sources */,
 				EED95F559709D6E001D4A77EEF0CC9C2 /* LogDelegate.swift in Sources */,
 				CB67AC3249391CF49FFF401DACB29617 /* logging.cpp in Sources */,
@@ -3782,7 +3782,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -3814,7 +3814,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -3824,7 +3824,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBE6BE9F290F399278452EF43CA4D1B9 /* iOSDFULibrary-macOS.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3876,7 +3875,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3899,7 +3898,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.modulemap";
 				PRODUCT_MODULE_NAME = MetaWear;
@@ -3920,7 +3919,6 @@
 			baseConfigurationReference = FAF9B7ACE4773B4D39C8F25F3B7E77C9 /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3987,7 +3985,6 @@
 			baseConfigurationReference = 47A42A6D0D2C373B25D8BD3F4C472B37 /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4032,7 +4029,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.modulemap";
@@ -4053,7 +4050,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 707BD7956532BB56B82F2E086BAA65B6 /* Bolts-Swift-macOS.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4097,7 +4093,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap";
@@ -4118,7 +4114,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8940A499B23F205CC27EDBA8204CED90 /* ZIPFoundation-macOS.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4172,7 +4167,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4195,7 +4190,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap";
@@ -4266,7 +4261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -4277,7 +4272,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
@@ -4308,7 +4303,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -4340,7 +4335,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4352,7 +4347,6 @@
 			baseConfigurationReference = B5BE3C3ED8B205DDC9F2354DB07DBECB /* Pods-MetaWearIntegrationTests-macOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4385,7 +4379,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29BEF66C4C982AC2F1A552DB5471A6C9 /* Bolts-Swift-macOS.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4429,7 +4422,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.modulemap";
@@ -4452,7 +4445,6 @@
 			baseConfigurationReference = 9B955A6106805E43023472610E0D7DCE /* Pods-MetaWearIntegrationTests-macOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4496,7 +4488,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS.modulemap";
 				PRODUCT_MODULE_NAME = iOSDFULibrary;
@@ -4517,7 +4509,6 @@
 			baseConfigurationReference = 5B4AB69038A39EEC97BC88ED51E3ACDB /* Pods-MetaWear-MetaWear-macOS-MetaWearUnitTests-macOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4572,7 +4563,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -4616,7 +4607,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 597BB4FDABFB4BEA9A3862A562CED887 /* ZIPFoundation-macOS.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4648,7 +4638,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC112E70B6C61DDB793D7E4D3987AD6A /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4723,7 +4712,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/iOSDFULibrary-iOS/iOSDFULibrary-iOS.modulemap";
 				PRODUCT_MODULE_NAME = iOSDFULibrary;
@@ -4762,7 +4751,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -4772,7 +4761,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A245C5D0AA47340FD2954B4AA314C11C /* MetaWear-AsyncUtils-Core-DFU-Mocks-UI-macOS.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4815,7 +4803,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS.modulemap";
 				PRODUCT_MODULE_NAME = ZIPFoundation;
@@ -4920,7 +4908,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4943,7 +4931,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS/MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS.modulemap";
 				PRODUCT_MODULE_NAME = MetaWear;
@@ -4974,7 +4962,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearIntegrationTestHost-iOS.modulemap";
@@ -5007,7 +4995,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MetaWearIntegrationTests-iOS/Pods-MetaWearIntegrationTests-iOS.modulemap";
@@ -5029,7 +5017,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC68A1B035D2F7A706C5CEC4FAAB22F9 /* iOSDFULibrary-macOS.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -5138,7 +5125,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -5147,7 +5134,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
@@ -5176,7 +5163,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -5188,7 +5175,6 @@
 			baseConfigurationReference = D67806B7EF620D21EEB845FE7B2BF36C /* Pods-MetaWear-MetaWear-macOS-MetaWearIntegrationTestHost-macOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -5232,7 +5218,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS.modulemap";
 				PRODUCT_MODULE_NAME = BoltsSwift;
@@ -5263,7 +5249,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ZIPFoundation-iOS/ZIPFoundation-iOS.modulemap";
 				PRODUCT_MODULE_NAME = ZIPFoundation;
@@ -5293,7 +5279,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Bolts-Swift-iOS/Bolts-Swift-iOS.modulemap";
 				PRODUCT_MODULE_NAME = BoltsSwift;

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                            :tag => s.version.to_s, :submodules => true }
 
   s.platform = :ios, :osx, :tvos, :watchos
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '12.1'
   s.osx.deployment_target = '10.14'
   s.tvos.deployment_target = '10.0'
   s.watchos.deployment_target = '4.0'
