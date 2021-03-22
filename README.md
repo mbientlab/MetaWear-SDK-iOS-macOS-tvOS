@@ -67,7 +67,7 @@ use_frameworks!
 target 'MyApp' do
     pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
     pod "MetaWear"
-    pod "MetaWear", '~> 3.4.3'
+    pod "MetaWear", '~> '4.0.0'
 end
 ```
 Tip: CocoaPods provides a pod init command to create a Podfile with smart defaults. You should use it.
