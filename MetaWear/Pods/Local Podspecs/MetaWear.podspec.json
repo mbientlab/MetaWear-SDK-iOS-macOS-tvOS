@@ -1,6 +1,6 @@
 {
   "name": "MetaWear",
-  "version": "3.4.3",
+  "version": "4.0.0",
   "license": {
     "type": "Commercial",
     "text": "See https://www.mbientlab.com/terms/",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
-    "tag": "3.4.3",
+    "tag": "4.0.0",
     "submodules": true
   },
   "platforms": {
@@ -33,7 +33,13 @@
       "preserve_paths": "MetaWear/MetaWear-SDK-Cpp/src/**/*",
       "source_files": [
         "MetaWear/Core/**/*",
-        "MetaWear/MetaWear-SDK-Cpp/src/metawear/**/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/*/*.cpp",
         "MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*"
       ],
       "compiler_flags": [

@@ -31,7 +31,13 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |s|
     s.preserve_paths = 'MetaWear/MetaWear-SDK-Cpp/src/**/*'
     s.source_files   = 'MetaWear/Core/**/*',
-                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/**/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/core/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/*/*.cpp',
+                       'MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/*/*.cpp',
                        'MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*'
     s.compiler_flags = '-Wno-documentation', '-Wno-comma'
     s.pod_target_xcconfig = {
