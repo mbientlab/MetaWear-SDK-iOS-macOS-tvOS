@@ -729,7 +729,7 @@
                             <tableViewSection headerTitle="Sensor Fusion" id="Qc8-fh-2Jc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="395" id="MkH-Eg-R6O">
-                                        <rect key="frame" x="0.0" y="1262.3333320617676" width="414" height="395"/>
+                                        <rect key="frame" x="0.0" y="1249.3333320617676" width="414" height="395"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MkH-Eg-R6O" id="xpb-Px-rGt">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="395"/>
@@ -856,10 +856,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Accelerometer BMI160" id="Hn1-iU-AR8">
+                            <tableViewSection headerTitle="Accelerometer BMI160 / BMI270" id="Hn1-iU-AR8">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="620" id="HHO-Ez-crv">
-                                        <rect key="frame" x="0.0" y="1705.3333320617676" width="414" height="620"/>
+                                        <rect key="frame" x="0.0" y="1692.3333320617676" width="414" height="620"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HHO-Ez-crv" id="k50-dG-yWV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
@@ -1061,7 +1061,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Gyroscope BMI160" id="vnK-2J-abM">
+                            <tableViewSection headerTitle="Gyroscope BMI160 / BMI270" id="vnK-2J-abM">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="430" id="re0-Ws-kgG">
                                         <rect key="frame" x="0.0" y="2373.3333320617676" width="414" height="430"/>

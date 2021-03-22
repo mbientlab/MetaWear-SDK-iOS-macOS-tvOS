@@ -23,6 +23,7 @@ extension String {
 
 class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDelegate {
     var device: MetaWear!
+    var bmi270: Bool = false
     
     @IBOutlet weak var connectionSwitch: UISwitch!
     @IBOutlet weak var connectionStateLabel: UILabel!
@@ -328,6 +329,21 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         
         if mbl_mw_metawearboard_lookup_module(board, MBL_MW_MODULE_ACCELEROMETER) == MetaWearCpp.MBL_MW_MODULE_ACC_TYPE_BMI160 {
             cell(accelerometerBMI160Cell, setHidden: false)
+            bmi270 = false
+            if loggers["acceleration"] != nil {
+                accelerometerBMI160StartLog.isEnabled = false
+                accelerometerBMI160StopLog.isEnabled = true
+                accelerometerBMI160StartStream.isEnabled = false
+                accelerometerBMI160StopStream.isEnabled = false
+            } else {
+                accelerometerBMI160StartLog.isEnabled = true
+                accelerometerBMI160StopLog.isEnabled = false
+                accelerometerBMI160StartStream.isEnabled = true
+                accelerometerBMI160StopStream.isEnabled = false
+            }
+        } else if mbl_mw_metawearboard_lookup_module(board, MBL_MW_MODULE_ACCELEROMETER) == MetaWearCpp.MBL_MW_MODULE_ACC_TYPE_BMI270 {
+            cell(accelerometerBMI160Cell, setHidden: false)
+            bmi270 = true
             if loggers["acceleration"] != nil {
                 accelerometerBMI160StartLog.isEnabled = false
                 accelerometerBMI160StopLog.isEnabled = true
@@ -934,38 +950,38 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
     func updateGyroBMI160Settings() {
         switch self.gyroBMI160Scale.selectedSegmentIndex {
         case 0:
-            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BMI160_RANGE_125dps)
+            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BOSCH_RANGE_125dps)
             self.gyroBMI160Graph.fullScale = 1
         case 1:
-            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BMI160_RANGE_250dps)
+            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BOSCH_RANGE_250dps)
             self.gyroBMI160Graph.fullScale = 2
         case 2:
-            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BMI160_RANGE_500dps)
+            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BOSCH_RANGE_500dps)
             self.gyroBMI160Graph.fullScale = 4
         case 3:
-            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BMI160_RANGE_1000dps)
+            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BOSCH_RANGE_1000dps)
             self.gyroBMI160Graph.fullScale = 8
         case 4:
-            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BMI160_RANGE_2000dps)
+            mbl_mw_gyro_bmi160_set_range(device.board, MBL_MW_GYRO_BOSCH_RANGE_2000dps)
             self.gyroBMI160Graph.fullScale = 16
         default:
             fatalError("Unexpected gyroBMI160Scale value")
         }
         switch self.gyroBMI160Frequency.selectedSegmentIndex {
         case 0:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_1600Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_1600Hz)
         case 1:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_800Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_800Hz)
         case 2:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_400Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_400Hz)
         case 3:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_200Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_200Hz)
         case 4:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_100Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_100Hz)
         case 5:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_50Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_50Hz)
         case 6:
-            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BMI160_ODR_25Hz)
+            mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_25Hz)
         default:
             fatalError("Unexpected gyroBMI160Frequency value")
         }

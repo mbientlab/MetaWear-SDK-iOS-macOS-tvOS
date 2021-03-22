@@ -10,7 +10,7 @@
 #include "metawear/core/cpp/datasignal_private.h"
 #include "metawear/sensor/accelerometer_bosch.h"
 #include "metawear/sensor/cpp/accelerometer_bosch_private.h"
-#include "metawear/sensor/cpp/gyro_bmi160_private.h"
+#include "metawear/sensor/cpp/gyro_bosch_private.h"
 #include "metawear/core/cpp/logging_private.h"
 #include "metawear/processor/cpp/dataprocessor_config.h"
 #include "metawear/processor/cpp/dataprocessor_private.h"
@@ -200,6 +200,28 @@ static MblMwData* convert_to_bosch_any_motion(bool log_data, const MblMwDataSign
     detected(value->z_axis_active, 2);
     
     CREATE_MESSAGE(MBL_MW_DT_ID_BOSCH_ANY_MOTION);
+}
+
+static MblMwData* convert_to_bmi270_gesture(bool log_data, const MblMwDataSignal* signal, const uint8_t *response, uint8_t len) {
+    MblMwBoschGestureType *value= (MblMwBoschGestureType*) malloc(sizeof(MblMwBoschGestureType));
+
+    value->type = response[0] & 0x03;
+    
+    uint32_t temp = response[0];
+    temp = temp >> 2;
+    value->gesture_code = temp;
+
+    CREATE_MESSAGE(MBL_MW_DT_ID_BOSCH_GESTURE);
+}
+
+static MblMwData* convert_to_bmi270_activity(bool log_data, const MblMwDataSignal* signal, const uint8_t *response, uint8_t len) {
+    uint32_t temp = response[0];
+    temp = temp >> 1;
+    
+    uint32_t *value= (uint32_t*) calloc(1, sizeof(uint32_t));
+    memcpy(value, &temp, sizeof(uint32_t));
+
+    CREATE_MESSAGE(MBL_MW_DT_ID_UINT32);
 }
 
 CONVERT_TO_FLOAT(convert_to_temperature, int32_t, TEMPERATURE_SCALE)
@@ -394,7 +416,9 @@ unordered_map<DataInterpreter, FnBoolDataSignalByteArray> data_response_converte
     { DataInterpreter::BOSCH_ANY_MOTION, convert_to_bosch_any_motion },
     { DataInterpreter::SENSOR_FUSION_CALIB_STATE, convert_to_calibration_state },
     { DataInterpreter::FUSED_DATA, convert_to_fused },
-    { DataInterpreter::BOSCH_TAP, convert_to_bosch_tap }
+    { DataInterpreter::BOSCH_TAP, convert_to_bosch_tap },
+    { DataInterpreter::BMI270_GESTURE , convert_to_bmi270_gesture },
+    { DataInterpreter::BMI270_ACTIVITY , convert_to_bmi270_activity }
 };
 
 static float bosch_acc_to_firmware(const MblMwDataSignal* signal, float value) {

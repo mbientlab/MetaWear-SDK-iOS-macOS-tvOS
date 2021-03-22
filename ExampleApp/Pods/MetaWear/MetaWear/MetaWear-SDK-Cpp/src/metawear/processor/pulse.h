@@ -22,8 +22,9 @@ typedef enum {
 } MblMwPulseOutput;
 
 /**
- * Create a pulse detector.  A pointer representing the processor will be passed back 
- * to the user via a callback function.
+ * Create a pulse detector. 
+ * Detects and quantifies a pulse over the input values using the threshold and width specified.
+ * A pointer representing the processor will be passed back to the user via a callback function.
  * @param source                Data signal providing the input for the processor
  * @param output                Output type of the processor
  * @param threshold             Value the data must exceed for a valid pulse

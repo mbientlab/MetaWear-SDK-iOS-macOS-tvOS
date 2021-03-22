@@ -42,7 +42,9 @@ enum class DataInterpreter : uint8_t {
     BOSCH_ANY_MOTION,
     SENSOR_FUSION_CALIB_STATE,
     FUSED_DATA,
-    BOSCH_TAP
+    BOSCH_TAP,
+    BMI270_GESTURE,
+    BMI270_ACTIVITY
 };
 
 enum class FirmwareConverter : uint8_t {

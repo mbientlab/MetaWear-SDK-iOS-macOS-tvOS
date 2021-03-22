@@ -7,158 +7,158 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		011C01505F4F3685166B888016C2FBED /* ambientlight_ltr329.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E937A80FDB3242182D5339EEBA30502 /* ambientlight_ltr329.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		01B08E703BC5323BA53F07E69559BAF6 /* gyro_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243C15BC09EBF72A47B48B8C1B5F4944 /* gyro_bosch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		026A6874391AC4AAB63311BD18DAFF2E /* StaticDataTableViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8989921E654F57F6037C1C589875FE37 /* StaticDataTableViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03678BBC93EF535F8936EC6E181263C0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D65786DA3193C10242F1474947CD3 /* Data.swift */; };
-		03B03A76CFEE424774FDB92A111F2F1F /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32D0A959ADA5A57AFAB59EF8DCA2D3EF /* debug.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		03CEE4DACF36FEB754DF9D399DAC6767 /* colordetector_tcs34725.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D12605973B91272DDD1EFB170F37D792 /* colordetector_tcs34725.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		04675A1821D4A45C768F86C740A7087E /* SecureDFUExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC4EAA6C71E8616FD79CD9179EE540 /* SecureDFUExecutor.swift */; };
-		05839B9A7CB01C45C1F5D8B6511B486D /* async_creator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69896A2EE6CF90C1A3FF20EFBA8F0742 /* async_creator.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		061197B6EC97ADA4C845520112B6AE5C /* async_creator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D57410FBE38A75B8CB9A7F8085AA515 /* async_creator.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		06C1727E2A65D664078EBE422C419D50 /* file_operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE4A96BEB88BC5348190BC92927FACD1 /* file_operations.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		078F26C19623A61CEBAE2FC2913BC1C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
-		07FBB93F90E5E8FBAAF8AB11A5E00501 /* multichanneltemperature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98D5D243824CC7F3F06823E66FE953A8 /* multichanneltemperature.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		08D79D92F2840649E5B62FE9C6D48F9A /* IntelHex2BinConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21528D6BF7A8956EB63990B194B16040 /* IntelHex2BinConverter.swift */; };
-		08D886BED1DA9DAEC8E615C083888DCD /* FirmwareBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D99F8F14DFE5C632E3B4285B14727 /* FirmwareBuild.swift */; };
+		0B39CE9D8D4B5229E0A5EE8D0EA90A5C /* macro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E7258EA46507E42BD2CE9A04C58BED /* macro.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		0E8D9BA82A551306324AD1A5DFCE6DF6 /* multichanneltemperature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CF32349D5EA2CFEBFB48B05B50A60A8 /* multichanneltemperature.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		0FBB50196BE9EEE012D1E816913BB52B /* SecureDFUPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CE77F6654BB5DA90DA55AB56B3A47 /* SecureDFUPacket.swift */; };
-		0FDFB9B015EACF5853460E7285556AF4 /* metawearboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2538704F421614806C9E5830971AD04C /* metawearboard.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		10BE676B7E4DCE0988625D78B6F4E4E3 /* datasignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA4C5602708C62AA6273CFBE5F03F69 /* datasignal.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		11F93B2679B4EF790192284DAF6FA71E /* FileManager+ZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1632A47BC489FF73899C2D17AC0A1AE8 /* FileManager+ZIP.swift */; };
-		13097E731F56CB88F06F875DDA83E730 /* barometer_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B8E263CAA80A8601320E21CDAB4BF3D /* barometer_bosch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		13B030CA298CA39BB49985F124AD3C4A /* switch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D74BBF0A579D8F1218E1149E4E0076 /* switch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		1443816BC1F02406FB7A6932747CD1F3 /* accelerometer_mma8452q.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E40D3AB0DA2C494578681DAF0424 /* accelerometer_mma8452q.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		1446BC927F16C2BC40247F570C74DED5 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B17233D4D95ADCC281AF20F74F797 /* Manifest.swift */; };
-		18392BADECC16E64936BB24864C86C55 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA837BAFAD0C618F93E3105DB9252 /* memory.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		1BF04AE299BA14747683B8B811AD5F16 /* MblMwDataSignal+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3529107D0E9FB7B47AEACF74FBC31D44 /* MblMwDataSignal+Async.swift */; };
+		1695B6146E80FF7706BBAE6B2DF33FD3 /* magnetometer_bmm150.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B197D723824D674A761A58220D3EAE1E /* magnetometer_bmm150.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		179D07AED6A917A41FDFE44F5969D06B /* MetaWear-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16657E20F89FCB9494E4A7B6CBDCCDE7 /* MetaWear-dummy.m */; };
 		1DC5B3F0912556FC9D575263BE8802B2 /* DFUStreamZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAF6581EBDED1B91F0BFAF85341591 /* DFUStreamZip.swift */; };
 		1EADC1EB0ACD38F0CE0B7BDFA7CF46FB /* DFUServiceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E645A0C207B986A568BC7176AEC41C1 /* DFUServiceSelector.swift */; };
-		1FFC784819F5610994CAA92EC85584ED /* CBUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7781058CDB0033DDCCB5AA92F554A /* CBUUID.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		20D27EE146221C51C8F1D7270E124FB3 /* MetaWearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCE7A5E20EF98D87C7F6956206C2DA6 /* MetaWearData.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		22AA013EBCF87B606F7BF88CB572F07F /* humidity_bme280.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9924E17E1DBC18F074E9902DBE719F7 /* humidity_bme280.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		1F1B7DB2B609D79D6D7598B1F81ACB56 /* accelerometer_mma8452q.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C97C91FB5FA785ADB5B591C1D279A5D6 /* accelerometer_mma8452q.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		20B18CED115C85382DE6333A36D702F9 /* dataprocessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF97B98539C53749B0D5880511B6CFDB /* dataprocessor.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		20F57E2966C6A86BB78C64DCD59FCA6B /* MetaWear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E62B1DC482CC7AFAFE1528E3245B39 /* MetaWear.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		234EE12A3CA87EADA2453A766A00830B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
 		24CDC0F319FDD92296CB767FCDB3690C /* Data+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071D2439D76E05970B2A8B2DF94B336 /* Data+Serialization.swift */; };
-		2523C14B4AA3DEFB2AB9E8DC59A03AFB /* ScannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA70C0BD383EA3448080684840D428D /* ScannerModel.swift */; };
-		25A4B39CF0ED2305855AD21138BECB5D /* serialpassthrough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF128697ADEA78F08F064376BBB1971 /* serialpassthrough.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		260B8E873FCC9FABD7350B12199252E5 /* SecureDFUPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D881A5C1590F7E28328C7E64BA210E6 /* SecureDFUPeripheralDelegate.swift */; };
 		2A499D77D34720F440ADA4AE4B7974E8 /* ZipArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FF37C04775035280BDDD5C071068F8 /* ZipArchive.swift */; };
 		2ADCA6617E90462217CAD6DBA7A3E64A /* iOSDFULibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64658030742275A682D916756891F794 /* iOSDFULibrary-dummy.m */; };
 		2B25A0B7B06D7DCFBA5B075FEE148699 /* LegacyDFUExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DD65E3844D356035FE854F4FCF2FDA /* LegacyDFUExecutor.swift */; };
 		2E8154916B68F10117A683A06F574FB2 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BD83E981A8B2C7A505B82736DAF0C2 /* StaticDataTableViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		31B62529675E54F3867B6D32695BE118 /* sensor_fusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2045BCFCBB56D6330E681F8B83A94D /* sensor_fusion.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		32E9B665B5BD1A0203CD96B285F24E8A /* String+VersionCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8667B05524FAFD46D9573C77E7558DB /* String+VersionCompare.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		34E6D5EEECBD77034F432269862F6738 /* barometer_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FF6364B163D25289CA2FE7AD4FBCFF5 /* barometer_bosch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		35342F719F434B5B94EFE0DA3EE4BD2B /* DFUService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC28F47664F6C463C4EC6ECF10BD9B /* DFUService.swift */; };
 		361E3A77D5F6FC042DA20BEAF26BE71D /* ZIPFoundation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D73E7FFA956ACD0263DF98FE8D134385 /* ZIPFoundation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		375385727B877E39BA297A165D77CA00 /* MblMwGattChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BED6E6825BCCE9076CCF1D00295615B /* MblMwGattChar.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		37891C0FED1C391F1A3289B64A6F285F /* haptic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF96056AF39288C65E82B52F762050EE /* haptic.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		3854C0BF7A13EC7DF3C740EDE5EA0DE4 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96EBA25499E7DA54AB713E9C4FE9BD /* Executor.swift */; };
-		3C521627DC811E633D64BA90AD2AD3C9 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2B6857E7DC2955E012A4E7DEA3DB470 /* timer.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		3A838F491C70A51D79858363AD1BA472 /* switch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C0D5B9E82436C24250B3D6E15FF24 /* switch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		3C937EDB30BDA845D8E36BF7FCC0F25B /* LegacyDFUServiceInitiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBFBC3044BCB82CB086A181B750A1A /* LegacyDFUServiceInitiator.swift */; };
+		3F035F7CA5E2B0F90271BD9F79D5356C /* haptic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5251FC5B447128F1537EB907AEE54A /* haptic.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		3F584720DD7624DAA421419E455ECCF7 /* DFUPeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB7C05551FF3161A68A92BA8B43915 /* DFUPeripheralSelector.swift */; };
+		3F6FAF4809DEE95511B684761992B8CC /* anonymous_datasignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BCD4D4B8FED2616FD4D20BD8ED653 /* anonymous_datasignal.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		4015E912BF48053059A6F40F2D89D6BB /* LoggerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E3258E9E34AE19A17E9E759F79161 /* LoggerDelegate.swift */; };
+		41C450BF25478E2E7FB605A2754068C9 /* serialpassthrough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6394A2AF59932470FD07700FB2A322 /* serialpassthrough.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		420A205A853253EA59749ABF6C7EA7BD /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6B9751FB4CBC5613F10E56E0E408B99 /* settings.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		4239540E50C5ADE6EC6B82DA349AD19D /* SecureDFUControlPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD6E34BA4E5C6147E35350626013C7 /* SecureDFUControlPoint.swift */; };
 		429B4E492DC314E69F1188C131D3F5DD /* StaticDataTableViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE1E1E541896A9CAF8280331030FCE6 /* StaticDataTableViewController-dummy.m */; };
+		44B06F29B850E1A64EF6AF1041C7DC3F /* gpio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28D03E79BAF3A8D986436D419CB3805F /* gpio.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		46F005589DAB6B125E716DC70253A5A4 /* DFUExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202095E20F7C6FBFE77B6FFA8533C8B5 /* DFUExecutor.swift */; };
 		4C210784F56DEB6ED04D6F7A4876F685 /* DFUUuidHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFFAE0EB63874C11092088B58754BF2 /* DFUUuidHelper.swift */; };
 		502688D9D9CDCF7A9EDADEB3BF27D5F9 /* DFUFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F18F7DB046F904ABFDD601BF3719A5 /* DFUFirmware.swift */; };
-		5161DE5123CD8FC2409BFE2FE652BE68 /* miniz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB6130AA4739D55456442F91CD102337 /* miniz.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		50BF69431848036B7B01609D8074CC11 /* dataprocessor_config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 335F582AD4BAB5761A97FCE615793F62 /* dataprocessor_config.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		51ADD77F208ED26E908D0D177FCE5363 /* Bridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE328B6B52B7971F30DA25673CD4CD6B /* Bridging.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		52B8275D2CF369551F3CC746398A106C /* Task+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754375A5E622A0A62D3140B8C30457A5 /* Task+Delay.swift */; };
 		552CB2A6FEFD51F4AF0CBFCF5A94F414 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D005E1DC3587C2A4F11FE8C7E2035A8 /* Task.swift */; };
 		55F712C9CFCF33B44460B5D8CBACB1C5 /* DFUCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1ACF9E5474531F598562B69B4C0DB /* DFUCharacteristic.swift */; };
-		577527DB6B08034063AA9EDF090AE9ED /* moduleinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C1A0757607B81DC9DCF94C3F8867F47 /* moduleinfo.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		58345515872791511820C9B1D4249B6A /* task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037DD41EA354F3EAD3F2825A490ED643 /* task.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		58353ED7119D6E63DC9A6D0316075DF7 /* colordetector_tcs34725.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E3A94AB9E1EBA13EC3C3EB666685D8 /* colordetector_tcs34725.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		56014CE19C3368D5EBF8319DFC1D9FFF /* MetaWear+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853762A553CBE0CEA12C5DDCD1A21BF /* MetaWear+Async.swift */; };
+		594B5D81FDC9939FB6EB29D9B40BC228 /* MblMwDataSignal+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3529107D0E9FB7B47AEACF74FBC31D44 /* MblMwDataSignal+Async.swift */; };
+		59E9B2830D99AC4D65F11C62FBD7456C /* task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F49230EBB46244A38ABE02389D098F23 /* task.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		5BD9FB538AB815167192E63A234F8C47 /* LegacyDFUPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEA2EC921054D38DD5A6DED808C5ADF /* LegacyDFUPeripheral.swift */; };
-		5C4E67B7335523B80A3ED05E76AF05E7 /* ibeacon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A449C2FA1A048E54D52CCCCE83A4EF35 /* ibeacon.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		5D66DF938C9BDF3C213F899D4DB9A3A4 /* Bolts-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F61241FA317AAAA1C25F166DF9B3A6D3 /* Bolts-Swift-dummy.m */; };
 		5E0E73FFE552B41202649F9917E46BCF /* DFUControlPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D4C15BC4339BE3A6A90736E81F3F7B /* DFUControlPoint.swift */; };
-		61E5A0647C75F2812D150938EA127C21 /* magnetometer_bmm150.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F95FF89402CA7FB93038973AEF686F /* magnetometer_bmm150.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		62981CB90399D5F57D3DF57D8C387316 /* accelerometer_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65A54F481C675CB8F29745B5A5C3B96 /* accelerometer_bosch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		5E619DA06C1B875DB6D9B14F6C784106 /* FirmwareServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F4AB09799BEC257D3FEB0DD3F5A23 /* FirmwareServer.swift */; };
+		5E96BA245EC471A0EBFA4D9D6A4683F7 /* moduleinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FCD2BA7C344E08DA4D1DAAB0F7D48 /* moduleinfo.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		5F7599675E3748F49AF5ED3149A4E5DC /* DeviceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44A178A80CD02F214D4BFF5BFAAE17 /* DeviceInformation.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		600E67AC62C9C18F97C070B7BA897D71 /* ibeacon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C220786BF5ED3A3687A7FBFB904415B8 /* ibeacon.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		650E9D429CDE51DB0E4813A275CBEC50 /* miniz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 533E5F5324D41F0995AA99B106A3AD68 /* miniz.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		651E298633FC2E635463030BE29838D5 /* Archive+Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFAB9BBD7A2A368841946A850536F0B /* Archive+Writing.swift */; };
 		66D02D1A2269962D6CE65673CF601511 /* Task+ContinueWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B638ACD2212ABF3ABCD2A9BABD341F /* Task+ContinueWith.swift */; };
 		67642D4790709076710553FE857571F7 /* SecureDFUService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47AB88BE396567525C3899F1140246B /* SecureDFUService.swift */; };
 		68FD22BEE899896F9C44B61B9EC58E3D /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701815FE78FC1BC05F47BCD0B3A0771F /* ZIPFoundation.framework */; };
 		69EC08C6552345D57C2DF58159231F53 /* iOSDFULibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A647DEF989006EB7279708610D756F50 /* iOSDFULibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CDE640B2447502FB90E74CCCA155C17 /* DFUServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CB900BEFF47722F5926D1A4875FB9 /* DFUServiceDelegate.swift */; };
-		6CFC12C72BDD3C74A8A02B1390CF97D7 /* proximity_tsl2671.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0A7ACC184DEF927EEB38AA1803F8EA1 /* proximity_tsl2671.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		6DABE4020FFFF0F1A37B04037EA06758 /* LegacyDFUPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D9E1D20E85A56DA8AC23E00D229102 /* LegacyDFUPeripheralDelegate.swift */; };
 		70EE1C774C978E1876AE6CA1224E897D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E15F8DA7673D505C043451833E089785 /* MBProgressHUD.m */; };
 		75121322D21149F7B4BE053408EB05C7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD1AEF3E83BFDC217FE512E87CFAE08 /* CoreBluetooth.framework */; };
-		756173F0BA3FC4D94A237E928CC2CA77 /* dfu_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8848F926922C2B2B99CBFCFCBBA76FF3 /* dfu_utility.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		7596519E375DA27F6E7D05D440757055 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81E9018004F79785E7E1CAA148DF624 /* CoreGraphics.framework */; };
+		7619EBA0499FD2BF46AE6FE2B73D59D8 /* event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A4995F40B7A6454DF7ED79EB1E4EDA /* event.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		7668074B251987EEEB4A52D71A1C179A /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DCB253B7F72BBCFD482A17805E14E4 /* Data+Compression.swift */; };
-		76D546214EC61689EEB7794ECF0A11AE /* event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 987E05925C090D3AEF34D4EE46A1DD1E /* event.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		7772ACAB44BDC501C2BE20244B576F5E /* Task+WhenAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002AF053635FA061EF474719F95CC33 /* Task+WhenAll.swift */; };
-		7AA62AD84CFF9972308A79692AAAA347 /* DeviceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F96C7D6D08BEB7700C03EF9E5E714E /* DeviceInformation.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		77DB4BEB22AE80F211EEDCF242C25C34 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80A27C30CD22B563326740263C03393B /* timer.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		7D8873BFFCE78F69C171F1D5437A020B /* ambientlight_ltr329.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B326E008753089B28215FE766CB96A9A /* ambientlight_ltr329.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		7DD4CF51E9F2C0F807E07822E2ED0D9E /* proximity_tsl2671.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56292CE455B0CAC817140305AC61E2A /* proximity_tsl2671.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		7EA24871588170C52B4D1E6411ACCB32 /* MetaWear-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE2181EAB593240FC5B5DCD34B0B49CF /* MetaWear-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F14435FAED54D9AFAFCD9218C90501D /* dataprocessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC8DE4A0CCF8B7AC02CAF96CCF4E080 /* dataprocessor.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		8169EE61FAD7EC8044B1AFC98C371ACE /* MetaWear+LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF16FCF30CF9AB32F0162AD7BF3798D1 /* MetaWear+LED.swift */; };
 		81A704D6A47361813C198704969841C4 /* Pods-MetaWearApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A41AC7C91DE1A5FC358417048E54B6D /* Pods-MetaWearApp-dummy.m */; };
 		81B9E2F21B1EF9FE4E769103108DEA8A /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8600D7D52F433ADEEEE39935F63412EC /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81FF02DF1559E42D5D9D19DE33977824 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AA7E65B096FF265D556BAD00D1953 /* LoggerHelper.swift */; };
 		84E49AA4AEBF2D359BE494195AA77EF3 /* Task+WhenAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD705F874AA6F9BC059E520FEAE4664 /* Task+WhenAny.swift */; };
 		8507C9A5091D4D40D044F674051103F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
-		8A0A7258E0468ED2246BB73456664D9D /* accelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE16C35F0BABDD3534483648F653D8 /* accelerometer.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		88FAFA1D8B329E5C3964DF74358BAA10 /* ScannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA70C0BD383EA3448080684840D428D /* ScannerModel.swift */; };
 		8D2A10CB374DFE57C0D8F0F802C9E6EE /* TaskCompletionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0E237219B0EDC980640BBE43F7D5C8 /* TaskCompletionSource.swift */; };
-		8F8FC12DD0DEEE08E87E7A815A17BB9D /* MetaWearScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DFB9B2B82DCC74D8792EB49B10A4 /* MetaWearScanner.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		8FE282B061EE320A03C2696CF6A1FDF1 /* datainterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FEDD2BDFEA0EA7F4D20ED9224A8275 /* datainterpreter.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		90767670961387E68E957FE69705C1CC /* MetaWear+LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF16FCF30CF9AB32F0162AD7BF3798D1 /* MetaWear+LED.swift */; };
+		90BF1C8C54B2C3837EBE17D2F002B5A7 /* MetaWearScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997819DE34E3D87A44BA3642769DC720 /* MetaWearScanner.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		90DBD53D89F3359514C2E813C5CCEA9C /* SecureDFUPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE636A4DBF32477E4FB8C3EEF7E782AD /* SecureDFUPeripheral.swift */; };
 		921AEA8AE2F54E8903C8474AF7C02D7A /* ButtonlessDFU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAF576A08A54DD27B5F3688652F550 /* ButtonlessDFU.swift */; };
+		92DBC332ED7A8F96DE85E224A1861D23 /* conductance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC1A58791D69E740C8310B7C64B684FB /* conductance.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		96F043F35F66A501C4D500410C7112AE /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A2F988BF37CF6904ABDFB58B657403 /* iOSDFULibrary.framework */; };
 		97B45CE5839BB6DE9A401216EC42A34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
 		9814FADE7BAA77D1EF94ECC82991FDEF /* Pods-MetaWearApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B183E738176341B6912FF596CE1874 /* Pods-MetaWearApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98EE6FA76CB79C8D269C88B0781484E8 /* file_operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8945043F94325BCFFCB152AE12172 /* file_operations.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		98F0E06FFD93CD0F8D696E7D05381F34 /* LegacyDFUService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23549AF83E49CDA370D1AB769A2A17DA /* LegacyDFUService.swift */; };
 		99EB8E15AFC9DEA9C70E8176C2548A03 /* DFUServiceInitiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC397FCFE88C75B896B859D6067A74 /* DFUServiceInitiator.swift */; };
-		9E46F376C096748E25422FBAD5081275 /* MetaWear+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853762A553CBE0CEA12C5DDCD1A21BF /* MetaWear+Async.swift */; };
-		9E5928659156551848B763AE150FF112 /* threadpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0C41399A9E94975B23232068DD7A94E /* threadpool.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		A075FB5FFF515E8183F2DC056342C5B9 /* DFUStreamHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83DAD24E5D7D6EC3C72DCE5811E7488 /* DFUStreamHex.swift */; };
-		A406799FCAF8092B912F4C4F8C28C5A5 /* anonymous_datasignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38827D3654869505702F1C42904167C /* anonymous_datasignal.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		A4CDF30446F40355B1CA369299AC0C2A /* MblMwEvent+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47F4088435378347F68410C6D9DDCC /* MblMwEvent+Async.swift */; };
-		A67A2200D85822980CB756158DDD9053 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69507A23B303168990ECBA57667DDFDE /* version.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		A0AE55F569DC0DB5FEA0DB70989BBE6B /* MblMwGattChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB620F7EA80ED569CBC3875471A4A25 /* MblMwGattChar.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		A337B04DFF230010006C3E562200EFBE /* dfu_operations_details.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8BC8485AD5BED9E3F552A8FFD69DCFC /* dfu_operations_details.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		A503074914D10CA23FE4C31A95B03A1A /* accelerometer_bosch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED7E527DA744557AFDA843B28E765E48 /* accelerometer_bosch.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		A83A4ED8C9E40EBE227A7A544F668B50 /* cbindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FA581C1F3AC0F9DD9D8BAE5045BD5 /* cbindings.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		A972FA1C7F3A4736501269ED2B51CDA7 /* dfu_operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59DF442183CC8AC8E1C89654A9EA1F3D /* dfu_operations.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		A9DECD94C58F5AAB60192DE1824BB34B /* DFUStarterPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC2519D5DE348C89025A24F651F73E6 /* DFUStarterPeripheral.swift */; };
-		AAE4758783E6B0EAECF23CBFFF247534 /* conductance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E18C5926CDE6DE06AE17D316E9C984EF /* conductance.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		AB546BC90F60495117E6012E758375B7 /* sensor_fusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E75D72FCA22D55B58E32C4CA5CC377DA /* sensor_fusion.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		AA2487A00502C0AAD7AA15512CA8475D /* led.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE5BF6502B1BD0BCD22E359427B46E3F /* led.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		AB834C696F4E179DE5B2F43EE80142CB /* DFUStreamBin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9457E1F9DA9FF6990E4DD01E469135 /* DFUStreamBin.swift */; };
 		AC1B5B34F7456E723EC031A496585471 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
+		AD08DE6CEE5507C13B3C981B3E0A666A /* responseheader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022FB5563F16348C0D739597D687EF76 /* responseheader.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		AEA40F88C5B13EF0E39278C0DCD5C4E6 /* DFUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449433CCD12DD9DCA606EF5332D8494D /* DFUController.swift */; };
-		AFCF2923BFFCE64352FDA187F0791F4D /* MetaWear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD62CCF73825EE80A2F29549B9B789 /* MetaWear.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		B0DE8E701924DA7485B025D37EA8F99B /* MetaWear+Firmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECAD34679D22EE8727A629943447128 /* MetaWear+Firmware.swift */; };
 		B1DCD5B0562F42388C7A95F051A3BDDC /* DFUPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0938D8FB4B3D15A100BECDB63CE7F /* DFUPeripheral.swift */; };
 		B4472F32C9FD30D32533ED07A56B9052 /* DFUServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A210E6131823634C6BFF4C533A05A7A2 /* DFUServiceController.swift */; };
-		B5BCFE814FC558DDA1C96D710FDD0C9E /* logging.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F1B2F879B96E4EA8300601D00A7A /* logging.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		B6A2AD3D620C2F58494045C071A38F57 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C03E461076CE69B9E6743FF6DB4F34F6 /* utils.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		B62E8894638B2215116684D8E7CE868C /* datainterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 956E8419BFCC33C26C35ADE157FAAD4D /* datainterpreter.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		B7088A8A94E6A4FAEB7010B53217BBD4 /* ZIPFoundation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08D7616FC0B535B4DBE9C490EB4EF2 /* ZIPFoundation-dummy.m */; };
-		BA134D10A12A031AC4D9E5E7A3EEF510 /* FirmwareServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F4AB09799BEC257D3FEB0DD3F5A23 /* FirmwareServer.swift */; };
-		BADBB40F893A173BFF5F45C7B8CB0D72 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 120A5240C782918C7AF013C2B867F177 /* settings.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		BB592C6683A457E6D9BE096B75771CBD /* LogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F375456024748FE992233ABFDDA14 /* LogDelegate.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		B785123332742A2E27A278B8E604FCFF /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56D3CD43CDFE7EACA5832B85B0EAD712 /* utils.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		BC16591E151AA57C79F4A039757F4C25 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14D36F90112825F9FA7059727A5698EB /* version.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		BD2509FB35037C2A4A4C05E2B4C9E6A5 /* StaticDataTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 66534226AD2111DDC1749912CEDF8E1A /* StaticDataTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDC2E55A99D9AAA488517CFB945FF118 /* BoltsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9D305B5CD86EB71323E39E34EF83FE /* BoltsSwift.framework */; };
 		BF3175EFA66D6DDA28BEDD2769EBA2AB /* crc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F0164DAF26330AEEAAC47330271F0 /* crc32.swift */; };
 		C45C9DCE8F984B0C60FFFB016D9585E9 /* SecureDFUServiceInitiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6779FA207B2E6D1DA4D969D7AE792885 /* SecureDFUServiceInitiator.swift */; };
 		C87FE87F69FE3A0171552D6DE0BA299A /* ManifestFirmwareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE6B9E85107AC4266139ED9B5AF9E0 /* ManifestFirmwareInfo.swift */; };
+		C8CF81D4B06B358B84D27AACDA525A4E /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9E6B81E6FA664B4661288111A9E9998 /* debug.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		CD0B4F1F0BDC22B944BA2B0AD20808E6 /* Bolts-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E064DD6DFDD02065ED3EE67ABE168DE /* Bolts-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEDBA56F1C89DE56EC1D0DDBC2547568 /* String+VersionCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6C64555CF47140177A5C11B2698BB /* String+VersionCompare.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		CF100637B422EA16F0DD205EC593AD8E /* SoftdeviceBootloaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9412CE57B6CD3757FCDFB2F38F47F75 /* SoftdeviceBootloaderInfo.swift */; };
 		D159AE393CD52385BFBB1692B2E76346 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2515BC14E65C7D0D6B7255C1B47C9E /* Archive.swift */; };
-		D4FB960782257616CF9010B580EA5A6F /* responseheader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF1E5E26E23DAB2EC74C150107A0A1E4 /* responseheader.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		D631ADB50F7D4A009F2F2446D7CA1B19 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DB20E76FD7B2E8152659D65E9754D /* Entry.swift */; };
-		D74E0FDEC9CC0C95108D98ACD6A75E00 /* MetaWear+Firmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECAD34679D22EE8727A629943447128 /* MetaWear+Firmware.swift */; };
-		D7924D81705CB94FA2A957119288DE1F /* gpio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27F56AE147CDF31FF4E6552C60925EA9 /* gpio.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		D967F4693DB44C0004C139720701E01E /* MetaWear-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16657E20F89FCB9494E4A7B6CBDCCDE7 /* MetaWear-dummy.m */; };
+		D7B7F1652E511610B943556F1BEBE1BC /* accelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD1DEB6AE584058F27B11B505F91272B /* accelerometer.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		D86B86C0D116F4C54C5E81BC9F669CFC /* metawearboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA4D15D6A126831CF32DABCE3800D3D7 /* metawearboard.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		DA11E39D6FD5EA730E011DDF6299F3FC /* MetaWearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10FABB8E129451AB692BF8EC27756A8 /* MetaWearData.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		DABF20F73D27572CD97071A6D4DB9004 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB98A1C2BF53AB161EC98D042685EA /* MBProgressHUD-dummy.m */; };
-		DD90B6ACD409916C477AC69840E8B540 /* dataprocessor_config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0E06CAFE18BFE384E76B201E599496E /* dataprocessor_config.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		DC4809BC09FFA8A8ABCAD6A92F24A52A /* humidity_bme280.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5D013A4298646C77F884C7EF3B5D6577 /* humidity_bme280.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		DE26772AE6EF3F885CF8C589DA5916BC /* CBUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D20AAD917BE0AB54E34AD2AEF47769 /* CBUUID.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		DF136753A9483F3F71F306314C896B8C /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 305B7954CACD582338C0E8A653514B4E /* memory.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		E1539C8A321B1BC8AC1DA4807A80E1C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
-		E3160697798636BF61C69FB6DFB5055E /* Bridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD72AB7C630418C13E7B9A508BAA4F4 /* Bridging.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
-		E3597C9E4909E0C4A94BCC7088D03327 /* led.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F29C029F8A3720909711CD2F6A31B0A /* led.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		E571F1933D0E6E24246A085B32B2DE96 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E1214FFD05647BED7C415E33217504 /* Errors.swift */; };
-		E6E0778DAF545BDFB81ADC4E90A8BD21 /* cbindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA0C205BF06A85E170E81ABBBAF930 /* cbindings.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		E885D9D76E5BF6B91E6D743045DC1F65 /* dfu_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E816A37B4E01DEEB5779D1FC26256A /* dfu_utility.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		EB2A4C29BE958CCB03B3FD9FAB927F1F /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D63B4B3333966511EF5D76D0D53847 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB5DA7384246362DC87CD998398333CF /* neopixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7612F5A5593C828DC19B84FBBEA484C /* neopixel.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		EB6FC01155D62D6CDFD07202A5215BE9 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DF43FDE69B5F010951EE099FEC09E8 /* Double.swift */; };
-		EC9512989523382951A4A9392E6C3BAA /* dfu_operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6CEBC70E3229649E26495F5B34092 /* dfu_operations.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		ED8046F6CE237E8A5F180C77C4CBCD86 /* DFUPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBE1E2C6223F80D285507093A3485D /* DFUPeripheralDelegate.swift */; };
 		F09112B09FCA2A120ABFF162E01F4AF0 /* DFUVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771B90153C7BE9970D65525E0FFC570 /* DFUVersion.swift */; };
-		F0E434B3CACBBD26FAA789D2DF842310 /* macro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E0D4E7B071F8FE283FD68589D497C /* macro.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		F1A7FB896D42EF20E63A6554D81C3E5A /* DFUPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98117BDA6403C20A3629F052354D0F23 /* DFUPacket.swift */; };
-		F1FECB850B1C3AC3E947CE023889195E /* datasignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F322F2093D185F1C9436332B188B03CA /* datasignal.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		F298018160AFACDE19C6B310DCF3D61C /* LogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CFF2A39F57FFB7D8EAD3C241C13C5 /* LogDelegate.swift */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		F321F3BCEF31D108BBC610D800041C49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */; };
-		F3E3E5497E90960A60582D5B1E975991 /* dfu_operations_details.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EBBA11D390737A7DCBFD0B5C006A4 /* dfu_operations_details.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		F612969E69DE5F072AD96720641B1184 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E49B43B821164750E927D65926A25D /* QuartzCore.framework */; };
+		F748649DF4B2D9579C2380234DBB866A /* MblMwEvent+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47F4088435378347F68410C6D9DDCC /* MblMwEvent+Async.swift */; };
+		F93F6EA9664C36437F4CE1E47D23BE36 /* neopixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DFEF567BEFD080B08477B50B6E1F7A2 /* neopixel.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		F9EBFAFE7A6B0326B3CEE98E731B291E /* threadpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF9C51950A52470922B39128F9B96DF2 /* threadpool.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
 		FA66C0578246E5A9EE0AEE93FCFF3BD5 /* DFUStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2706FF7ACB232024481C9C6787521BA6 /* DFUStream.swift */; };
-		FD5A0A70920590BA95461937CD19D172 /* gyro_bmi160.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0BBBFBCF4C8B0A503776CD05A536C7 /* gyro_bmi160.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		FDB992787BA5A6D114EC177923F70CD2 /* logging.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53ADDAAAB1CA09D279DB3CC1D9D28F96 /* logging.cpp */; settings = {COMPILER_FLAGS = "-Wno-documentation -Wno-comma"; }; };
+		FED0A393CBE9D16858E54CA0C7F2A964 /* FirmwareBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D99F8F14DFE5C632E3B4285B14727 /* FirmwareBuild.swift */; };
 		FF1DAD239336904830532BECA58F0DAB /* Archive+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C71870BBAF25DDC32296768000F2530 /* Archive+Reading.swift */; };
 		FF9DE8D5E73906692CE1B7F526038B80 /* DFUPeripheralSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8489EF584F146F662721FC52EA066A3 /* DFUPeripheralSelectorDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -232,82 +232,79 @@
 /* Begin PBXFileReference section */
 		01D4C15BC4339BE3A6A90736E81F3F7B /* DFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUControlPoint.swift; sourceTree = "<group>"; };
 		0206297E74FA05FC7E2D79CE6BCCAA8C /* iOSDFULibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDFULibrary-prefix.pch"; sourceTree = "<group>"; };
-		037DD41EA354F3EAD3F2825A490ED643 /* task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = task.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/task.cpp"; sourceTree = "<group>"; };
+		022FB5563F16348C0D739597D687EF76 /* responseheader.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = responseheader.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/responseheader.cpp"; sourceTree = "<group>"; };
 		08D63B4B3333966511EF5D76D0D53847 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		08F95FF89402CA7FB93038973AEF686F /* magnetometer_bmm150.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = magnetometer_bmm150.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/magnetometer_bmm150.cpp"; sourceTree = "<group>"; };
 		092DB20E76FD7B2E8152659D65E9754D /* Entry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = Sources/ZIPFoundation/Entry.swift; sourceTree = "<group>"; };
 		093F5103620C8F1C1EA6BA4A922B94FA /* ZIPFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZIPFoundation.debug.xcconfig; sourceTree = "<group>"; };
 		0C7C8B227390868C935CA68C686E70FB /* Bolts-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Bolts-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		0D39862091F9F13B48CD3E16913E2F7E /* MBProgressHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MBProgressHUD-Info.plist"; sourceTree = "<group>"; };
 		0EFFAE0EB63874C11092088B58754BF2 /* DFUUuidHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUUuidHelper.swift; path = iOSDFULibrary/Classes/Implementation/DFUUuidHelper.swift; sourceTree = "<group>"; };
+		0F1C0D5B9E82436C24250B3D6E15FF24 /* switch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = switch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/switch.cpp"; sourceTree = "<group>"; };
 		0F4B17233D4D95ADCC281AF20F74F797 /* Manifest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manifest.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/Manifest.swift; sourceTree = "<group>"; };
-		0F4EBBA11D390737A7DCBFD0B5C006A4 /* dfu_operations_details.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_operations_details.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_operations_details.cpp"; sourceTree = "<group>"; };
 		0F983688CDE62DDAB6C88E9D44B3993B /* StaticDataTableViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "StaticDataTableViewController-Info.plist"; sourceTree = "<group>"; };
 		1071D2439D76E05970B2A8B2DF94B336 /* Data+Serialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Serialization.swift"; path = "Sources/ZIPFoundation/Data+Serialization.swift"; sourceTree = "<group>"; };
-		120A5240C782918C7AF013C2B867F177 /* settings.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = settings.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/settings.cpp"; sourceTree = "<group>"; };
 		12801AC35EAD821195216A26E6C73D9D /* Pods-MetaWearApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaWearApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		12A2F988BF37CF6904ABDFB58B657403 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14D36F90112825F9FA7059727A5698EB /* version.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = version.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/version.cpp"; sourceTree = "<group>"; };
 		1579A0986D70C32D7BED1A855C31EF4B /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1632A47BC489FF73899C2D17AC0A1AE8 /* FileManager+ZIP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FileManager+ZIP.swift"; path = "Sources/ZIPFoundation/FileManager+ZIP.swift"; sourceTree = "<group>"; };
 		16657E20F89FCB9494E4A7B6CBDCCDE7 /* MetaWear-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetaWear-dummy.m"; sourceTree = "<group>"; };
 		1A9067CE0798BB685FD005D0EEE9B406 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1AD5F09BA95CAE6EB9F54E63A0EC0B66 /* MetaWear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetaWear.release.xcconfig; sourceTree = "<group>"; };
 		1B41EE120CFD88C9514FC63A133478FD /* Bolts-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-prefix.pch"; sourceTree = "<group>"; };
-		1BF7781058CDB0033DDCCB5AA92F554A /* CBUUID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBUUID.swift; path = MetaWear/Core/CBUUID.swift; sourceTree = "<group>"; };
-		1F29C029F8A3720909711CD2F6A31B0A /* led.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = led.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/led.cpp"; sourceTree = "<group>"; };
+		1EB620F7EA80ED569CBC3875471A4A25 /* MblMwGattChar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MblMwGattChar.swift; path = MetaWear/Core/MblMwGattChar.swift; sourceTree = "<group>"; };
 		1FEB7C05551FF3161A68A92BA8B43915 /* DFUPeripheralSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelector.swift; sourceTree = "<group>"; };
 		202095E20F7C6FBFE77B6FFA8533C8B5 /* DFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUExecutor.swift; sourceTree = "<group>"; };
-		20FD62CCF73825EE80A2F29549B9B789 /* MetaWear.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWear.swift; path = MetaWear/Core/MetaWear.swift; sourceTree = "<group>"; };
 		21528D6BF7A8956EB63990B194B16040 /* IntelHex2BinConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntelHex2BinConverter.swift; path = iOSDFULibrary/Classes/Utilities/HexToBinConverter/IntelHex2BinConverter.swift; sourceTree = "<group>"; };
 		21B1375088A0310C7AE2BE4C8188D12F /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDFULibrary.framework; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CAF9D2D2B8600E6D66547078994B10 /* iOSDFULibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDFULibrary.modulemap; sourceTree = "<group>"; };
 		23549AF83E49CDA370D1AB769A2A17DA /* LegacyDFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUService.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Services/LegacyDFUService.swift; sourceTree = "<group>"; };
-		2538704F421614806C9E5830971AD04C /* metawearboard.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = metawearboard.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/cpp/metawearboard.cpp"; sourceTree = "<group>"; };
+		243C15BC09EBF72A47B48B8C1B5F4944 /* gyro_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = gyro_bosch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/gyro_bosch.cpp"; sourceTree = "<group>"; };
 		2706FF7ACB232024481C9C6787521BA6 /* DFUStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStream.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStream.swift; sourceTree = "<group>"; };
-		27F56AE147CDF31FF4E6552C60925EA9 /* gpio.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = gpio.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/gpio.cpp"; sourceTree = "<group>"; };
+		28D03E79BAF3A8D986436D419CB3805F /* gpio.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = gpio.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/gpio.cpp"; sourceTree = "<group>"; };
 		29E1214FFD05647BED7C415E33217504 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/BoltsSwift/Errors.swift; sourceTree = "<group>"; };
+		2A8BCD4D4B8FED2616FD4D20BD8ED653 /* anonymous_datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = anonymous_datasignal.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/anonymous_datasignal.cpp"; sourceTree = "<group>"; };
 		2ACD6E34BA4E5C6147E35350626013C7 /* SecureDFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUControlPoint.swift; sourceTree = "<group>"; };
 		2BFC4EAA6C71E8616FD79CD9179EE540 /* SecureDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/DFU/SecureDFUExecutor.swift; sourceTree = "<group>"; };
 		2C9457E1F9DA9FF6990E4DD01E469135 /* DFUStreamBin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamBin.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamBin.swift; sourceTree = "<group>"; };
 		2DDAF6581EBDED1B91F0BFAF85341591 /* DFUStreamZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamZip.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamZip.swift; sourceTree = "<group>"; };
 		2F0F4AB09799BEC257D3FEB0DD3F5A23 /* FirmwareServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirmwareServer.swift; path = MetaWear/DFU/FirmwareServer.swift; sourceTree = "<group>"; };
+		305B7954CACD582338C0E8A653514B4E /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = memory.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/memory.cpp"; sourceTree = "<group>"; };
 		30C0938D8FB4B3D15A100BECDB63CE7F /* DFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUPeripheral.swift; sourceTree = "<group>"; };
 		31EE6B9E85107AC4266139ED9B5AF9E0 /* ManifestFirmwareInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManifestFirmwareInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/ManifestFirmwareInfo.swift; sourceTree = "<group>"; };
-		32D0A959ADA5A57AFAB59EF8DCA2D3EF /* debug.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = debug.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/debug.cpp"; sourceTree = "<group>"; };
+		335F582AD4BAB5761A97FCE615793F62 /* dataprocessor_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dataprocessor_config.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/cpp/dataprocessor_config.cpp"; sourceTree = "<group>"; };
 		3529107D0E9FB7B47AEACF74FBC31D44 /* MblMwDataSignal+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwDataSignal+Async.swift"; path = "MetaWear/AsyncUtils/MblMwDataSignal+Async.swift"; sourceTree = "<group>"; };
 		38E08A9225BF5A13A6C8B5F705204623 /* Bolts-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Bolts-Swift.modulemap"; sourceTree = "<group>"; };
-		38F96C7D6D08BEB7700C03EF9E5E714E /* DeviceInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceInformation.swift; path = MetaWear/Core/DeviceInformation.swift; sourceTree = "<group>"; };
 		3996FCA223045413EB0079F931553B67 /* Pods-MetaWearApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		3B20E40D3AB0DA2C494578681DAF0424 /* accelerometer_mma8452q.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer_mma8452q.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer_mma8452q.cpp"; sourceTree = "<group>"; };
 		3B21BE00BC66EF31A93F2DF7B5247F9A /* StaticDataTableViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StaticDataTableViewController.release.xcconfig; sourceTree = "<group>"; };
-		3B8E263CAA80A8601320E21CDAB4BF3D /* barometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = barometer_bosch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/barometer_bosch.cpp"; sourceTree = "<group>"; };
 		3BA67DF2A5A7D47D0AFFFF1D6797B9EA /* MetaWear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetaWear.debug.xcconfig; sourceTree = "<group>"; };
 		3C71870BBAF25DDC32296768000F2530 /* Archive+Reading.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Archive+Reading.swift"; path = "Sources/ZIPFoundation/Archive+Reading.swift"; sourceTree = "<group>"; };
-		3E6F375456024748FE992233ABFDDA14 /* LogDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogDelegate.swift; path = MetaWear/Core/LogDelegate.swift; sourceTree = "<group>"; };
-		40DA0C205BF06A85E170E81ABBBAF930 /* cbindings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = cbindings.swift; path = "MetaWear/MetaWear-SDK-Cpp/bindings/swift/cbindings.swift"; sourceTree = "<group>"; };
-		43F8DFB9B2B82DCC74D8792EB49B10A4 /* MetaWearScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWearScanner.swift; path = MetaWear/Core/MetaWearScanner.swift; sourceTree = "<group>"; };
+		3CF32349D5EA2CFEBFB48B05B50A60A8 /* multichanneltemperature.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = multichanneltemperature.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/multichanneltemperature.cpp"; sourceTree = "<group>"; };
 		449433CCD12DD9DCA606EF5332D8494D /* DFUController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUController.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUController.swift; sourceTree = "<group>"; };
 		45DCB253B7F72BBCFD482A17805E14E4 /* Data+Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Compression.swift"; path = "Sources/ZIPFoundation/Data+Compression.swift"; sourceTree = "<group>"; };
+		46E816A37B4E01DEEB5779D1FC26256A /* dfu_utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_utility.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_utility.cpp"; sourceTree = "<group>"; };
 		4771B90153C7BE9970D65525E0FFC570 /* DFUVersion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUVersion.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUVersion.swift; sourceTree = "<group>"; };
 		48789CCD01EB4537854FC36EA197CBD6 /* MetaWear.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MetaWear.modulemap; sourceTree = "<group>"; };
 		48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZIPFoundation.framework; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B1E0D4E7B071F8FE283FD68589D497C /* macro.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = macro.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/macro.cpp"; sourceTree = "<group>"; };
 		4CEC397FCFE88C75B896B859D6067A74 /* DFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceInitiator.swift; sourceTree = "<group>"; };
+		4E6FCD2BA7C344E08DA4D1DAAB0F7D48 /* moduleinfo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = moduleinfo.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/moduleinfo.cpp"; sourceTree = "<group>"; };
 		4F7D1D3D189B7727BFBF0ED4C2989206 /* StaticDataTableViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StaticDataTableViewController-prefix.pch"; sourceTree = "<group>"; };
 		4FA70C0BD383EA3448080684840D428D /* ScannerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScannerModel.swift; path = MetaWear/UI/ScannerModel.swift; sourceTree = "<group>"; };
 		5002AF053635FA061EF474719F95CC33 /* Task+WhenAll.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+WhenAll.swift"; path = "Sources/BoltsSwift/Task+WhenAll.swift"; sourceTree = "<group>"; };
+		533E5F5324D41F0995AA99B106A3AD68 /* miniz.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = miniz.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/miniz.cpp"; sourceTree = "<group>"; };
+		53ADDAAAB1CA09D279DB3CC1D9D28F96 /* logging.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = logging.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/logging.cpp"; sourceTree = "<group>"; };
 		55BD1ADD808C6B4C3AB6AF7008D4D017 /* StaticDataTableViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StaticDataTableViewController.debug.xcconfig; sourceTree = "<group>"; };
 		55DF43FDE69B5F010951EE099FEC09E8 /* Double.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Double.swift; path = iOSDFULibrary/Classes/Utilities/Double.swift; sourceTree = "<group>"; };
-		5BED6E6825BCCE9076CCF1D00295615B /* MblMwGattChar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MblMwGattChar.swift; path = MetaWear/Core/MblMwGattChar.swift; sourceTree = "<group>"; };
-		5C1A0757607B81DC9DCF94C3F8867F47 /* moduleinfo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = moduleinfo.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/moduleinfo.cpp"; sourceTree = "<group>"; };
+		56D3CD43CDFE7EACA5832B85B0EAD712 /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = utils.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/utils.cpp"; sourceTree = "<group>"; };
+		59DF442183CC8AC8E1C89654A9EA1F3D /* dfu_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_operations.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_operations.cpp"; sourceTree = "<group>"; };
+		5D013A4298646C77F884C7EF3B5D6577 /* humidity_bme280.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = humidity_bme280.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/humidity_bme280.cpp"; sourceTree = "<group>"; };
+		5FF6364B163D25289CA2FE7AD4FBCFF5 /* barometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = barometer_bosch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/barometer_bosch.cpp"; sourceTree = "<group>"; };
 		60DD65E3844D356035FE854F4FCF2FDA /* LegacyDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/DFU/LegacyDFUExecutor.swift; sourceTree = "<group>"; };
-		63FEDD2BDFEA0EA7F4D20ED9224A8275 /* datainterpreter.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = datainterpreter.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/cpp/datainterpreter.cpp"; sourceTree = "<group>"; };
 		64658030742275A682D916756891F794 /* iOSDFULibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDFULibrary-dummy.m"; sourceTree = "<group>"; };
 		6504843C3E7D2B148773D9A5FB436567 /* Pods_MetaWearApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetaWearApp.framework; path = "Pods-MetaWearApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66534226AD2111DDC1749912CEDF8E1A /* StaticDataTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		6779FA207B2E6D1DA4D969D7AE792885 /* SecureDFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/DFU/SecureDFUServiceInitiator.swift; sourceTree = "<group>"; };
-		69507A23B303168990ECBA57667DDFDE /* version.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = version.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/version.cpp"; sourceTree = "<group>"; };
-		69896A2EE6CF90C1A3FF20EFBA8F0742 /* async_creator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = async_creator.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/async_creator.cpp"; sourceTree = "<group>"; };
+		6A2045BCFCBB56D6330E681F8B83A94D /* sensor_fusion.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sensor_fusion.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/sensor_fusion.cpp"; sourceTree = "<group>"; };
 		6AD1AEF3E83BFDC217FE512E87CFAE08 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		6BDC28F47664F6C463C4EC6ECF10BD9B /* DFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUService.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUService.swift; sourceTree = "<group>"; };
 		6BE1E1E541896A9CAF8280331030FCE6 /* StaticDataTableViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StaticDataTableViewController-dummy.m"; sourceTree = "<group>"; };
@@ -315,114 +312,117 @@
 		6F06C6D2A37B9901E2E3277EAA264539 /* StaticDataTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StaticDataTableViewController.framework; path = StaticDataTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		701815FE78FC1BC05F47BCD0B3A0771F /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A1CC4E66BD948939FAFF18865BADE3 /* Pods-MetaWearApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetaWearApp-Info.plist"; sourceTree = "<group>"; };
+		70E62B1DC482CC7AFAFE1528E3245B39 /* MetaWear.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWear.swift; path = MetaWear/Core/MetaWear.swift; sourceTree = "<group>"; };
 		72FF37C04775035280BDDD5C071068F8 /* ZipArchive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipArchive.swift; path = iOSDFULibrary/Classes/Utilities/ZipArchive.swift; sourceTree = "<group>"; };
 		754375A5E622A0A62D3140B8C30457A5 /* Task+Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+Delay.swift"; path = "Sources/BoltsSwift/Task+Delay.swift"; sourceTree = "<group>"; };
 		761D99F8F14DFE5C632E3B4285B14727 /* FirmwareBuild.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirmwareBuild.swift; path = MetaWear/DFU/FirmwareBuild.swift; sourceTree = "<group>"; };
 		76C4D8E550EAE40982C1F05BE4B2E15B /* iOSDFULibrary-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iOSDFULibrary-Info.plist"; sourceTree = "<group>"; };
 		7A41AC7C91DE1A5FC358417048E54B6D /* Pods-MetaWearApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetaWearApp-dummy.m"; sourceTree = "<group>"; };
-		7B60F1B2F879B96E4EA8300601D00A7A /* logging.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = logging.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/logging.cpp"; sourceTree = "<group>"; };
 		7D005E1DC3587C2A4F11FE8C7E2035A8 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Sources/BoltsSwift/Task.swift; sourceTree = "<group>"; };
 		7D08D7616FC0B535B4DBE9C490EB4EF2 /* ZIPFoundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZIPFoundation-dummy.m"; sourceTree = "<group>"; };
-		7DD8945043F94325BCFFCB152AE12172 /* file_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = file_operations.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/file_operations.cpp"; sourceTree = "<group>"; };
+		7D57410FBE38A75B8CB9A7F8085AA515 /* async_creator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = async_creator.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/async_creator.cpp"; sourceTree = "<group>"; };
 		7DF415FCE4EC0E6B83191E69BD55A61F /* MetaWear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetaWear.framework; path = MetaWear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0E237219B0EDC980640BBE43F7D5C8 /* TaskCompletionSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskCompletionSource.swift; path = Sources/BoltsSwift/TaskCompletionSource.swift; sourceTree = "<group>"; };
 		7E5F0164DAF26330AEEAAC47330271F0 /* crc32.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = crc32.swift; path = iOSDFULibrary/Classes/Utilities/crc32.swift; sourceTree = "<group>"; };
 		7ECAD34679D22EE8727A629943447128 /* MetaWear+Firmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Firmware.swift"; path = "MetaWear/DFU/MetaWear+Firmware.swift"; sourceTree = "<group>"; };
-		7FF6CEBC70E3229649E26495F5B34092 /* dfu_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_operations.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_operations.cpp"; sourceTree = "<group>"; };
+		80A27C30CD22B563326740263C03393B /* timer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = timer.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/timer.cpp"; sourceTree = "<group>"; };
+		815CFF2A39F57FFB7D8EAD3C241C13C5 /* LogDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogDelegate.swift; path = MetaWear/Core/LogDelegate.swift; sourceTree = "<group>"; };
 		83B183E738176341B6912FF596CE1874 /* Pods-MetaWearApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetaWearApp-umbrella.h"; sourceTree = "<group>"; };
-		85EE16C35F0BABDD3534483648F653D8 /* accelerometer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer.cpp"; sourceTree = "<group>"; };
+		84E7258EA46507E42BD2CE9A04C58BED /* macro.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = macro.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/macro.cpp"; sourceTree = "<group>"; };
 		8600D7D52F433ADEEEE39935F63412EC /* MBProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-umbrella.h"; sourceTree = "<group>"; };
-		8848F926922C2B2B99CBFCFCBBA76FF3 /* dfu_utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_utility.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_utility.cpp"; sourceTree = "<group>"; };
 		8989921E654F57F6037C1C589875FE37 /* StaticDataTableViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StaticDataTableViewController-umbrella.h"; sourceTree = "<group>"; };
 		8A44170DF338C9902F8CF3B45D63CB70 /* Pods-MetaWearApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearApp.release.xcconfig"; sourceTree = "<group>"; };
 		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC2519D5DE348C89025A24F651F73E6 /* DFUStarterPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStarterPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/DFUSelector/DFUStarterPeripheral.swift; sourceTree = "<group>"; };
+		8DFEF567BEFD080B08477B50B6E1F7A2 /* neopixel.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = neopixel.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/neopixel.cpp"; sourceTree = "<group>"; };
 		8E064DD6DFDD02065ED3EE67ABE168DE /* Bolts-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-Swift-umbrella.h"; sourceTree = "<group>"; };
-		8E937A80FDB3242182D5339EEBA30502 /* ambientlight_ltr329.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ambientlight_ltr329.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/ambientlight_ltr329.cpp"; sourceTree = "<group>"; };
 		8ECAF576A08A54DD27B5F3688652F550 /* ButtonlessDFU.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonlessDFU.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/ButtonlessDFU.swift; sourceTree = "<group>"; };
 		94F18F7DB046F904ABFDD601BF3719A5 /* DFUFirmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUFirmware.swift; path = iOSDFULibrary/Classes/Implementation/Firmware/DFUFirmware.swift; sourceTree = "<group>"; };
+		956E8419BFCC33C26C35ADE157FAAD4D /* datainterpreter.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = datainterpreter.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/cpp/datainterpreter.cpp"; sourceTree = "<group>"; };
 		97221598CA1C5BB3D4DD994DCC3555AB /* Bolts-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Bolts-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		977CB900BEFF47722F5926D1A4875FB9 /* DFUServiceDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceDelegate.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceDelegate.swift; sourceTree = "<group>"; };
 		97D9E1D20E85A56DA8AC23E00D229102 /* LegacyDFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheralDelegate.swift; sourceTree = "<group>"; };
 		98117BDA6403C20A3629F052354D0F23 /* DFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUPacket.swift; sourceTree = "<group>"; };
-		987E05925C090D3AEF34D4EE46A1DD1E /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = event.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/event.cpp"; sourceTree = "<group>"; };
-		98D5D243824CC7F3F06823E66FE953A8 /* multichanneltemperature.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = multichanneltemperature.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/multichanneltemperature.cpp"; sourceTree = "<group>"; };
+		997819DE34E3D87A44BA3642769DC720 /* MetaWearScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWearScanner.swift; path = MetaWear/Core/MetaWearScanner.swift; sourceTree = "<group>"; };
 		9B493CE5C06107EB6323809A47F734F2 /* ZIPFoundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ZIPFoundation-Info.plist"; sourceTree = "<group>"; };
+		9C6394A2AF59932470FD07700FB2A322 /* serialpassthrough.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = serialpassthrough.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/serialpassthrough.cpp"; sourceTree = "<group>"; };
 		9D881A5C1590F7E28328C7E64BA210E6 /* SecureDFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Peripheral/SecureDFUPeripheralDelegate.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DED867BB55C8F0B552007F31CB44795 /* MBProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.debug.xcconfig; sourceTree = "<group>"; };
 		9E9D305B5CD86EB71323E39E34EF83FE /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F0FA581C1F3AC0F9DD9D8BAE5045BD5 /* cbindings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = cbindings.swift; path = "MetaWear/MetaWear-SDK-Cpp/bindings/swift/cbindings.swift"; sourceTree = "<group>"; };
 		A1EAFE1F60E0E8F97FB3BFCA6D426E26 /* MBProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MBProgressHUD.modulemap; sourceTree = "<group>"; };
 		A210E6131823634C6BFF4C533A05A7A2 /* DFUServiceController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceController.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceController.swift; sourceTree = "<group>"; };
 		A2B638ACD2212ABF3ABCD2A9BABD341F /* Task+ContinueWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+ContinueWith.swift"; path = "Sources/BoltsSwift/Task+ContinueWith.swift"; sourceTree = "<group>"; };
-		A449C2FA1A048E54D52CCCCE83A4EF35 /* ibeacon.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ibeacon.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/ibeacon.cpp"; sourceTree = "<group>"; };
 		A647DEF989006EB7279708610D756F50 /* iOSDFULibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDFULibrary-umbrella.h"; sourceTree = "<group>"; };
 		A8489EF584F146F662721FC52EA066A3 /* DFUPeripheralSelectorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelectorDelegate.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelectorDelegate.swift; sourceTree = "<group>"; };
-		A9924E17E1DBC18F074E9902DBE719F7 /* humidity_bme280.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = humidity_bme280.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/humidity_bme280.cpp"; sourceTree = "<group>"; };
 		ABBFAEDEF0915722E829A5D97767A5BB /* Pods-MetaWearApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetaWearApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AE2181EAB593240FC5B5DCD34B0B49CF /* MetaWear-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-umbrella.h"; sourceTree = "<group>"; };
 		AEBFEF4DD1A7D9F58D230345A2BFE173 /* Pods-MetaWearApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetaWearApp-frameworks.sh"; sourceTree = "<group>"; };
-		B0E06CAFE18BFE384E76B201E599496E /* dataprocessor_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dataprocessor_config.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/cpp/dataprocessor_config.cpp"; sourceTree = "<group>"; };
 		B195FFB7C0BEF4C9B1751695AB504558 /* MBProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.release.xcconfig; sourceTree = "<group>"; };
+		B197D723824D674A761A58220D3EAE1E /* magnetometer_bmm150.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = magnetometer_bmm150.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/magnetometer_bmm150.cpp"; sourceTree = "<group>"; };
+		B326E008753089B28215FE766CB96A9A /* ambientlight_ltr329.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ambientlight_ltr329.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/ambientlight_ltr329.cpp"; sourceTree = "<group>"; };
 		B3A31555FA47E389C79FD193B2BDA148 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		B50B01544C71BB60799B8CD64CE397CD /* iOSDFULibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDFULibrary.debug.xcconfig; sourceTree = "<group>"; };
 		B52CE77F6654BB5DA90DA55AB56B3A47 /* SecureDFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUPacket.swift; sourceTree = "<group>"; };
+		B56292CE455B0CAC817140305AC61E2A /* proximity_tsl2671.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = proximity_tsl2671.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/proximity_tsl2671.cpp"; sourceTree = "<group>"; };
 		B583BC1907511D7BD70BCD29A37FEA0C /* MetaWear-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetaWear-prefix.pch"; sourceTree = "<group>"; };
 		B83DAD24E5D7D6EC3C72DCE5811E7488 /* DFUStreamHex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamHex.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamHex.swift; sourceTree = "<group>"; };
 		B84D65786DA3193C10242F1474947CD3 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = iOSDFULibrary/Classes/Utilities/Data.swift; sourceTree = "<group>"; };
-		BAC8DE4A0CCF8B7AC02CAF96CCF4E080 /* dataprocessor.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dataprocessor.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/cpp/dataprocessor.cpp"; sourceTree = "<group>"; };
+		B9E6B81E6FA664B4661288111A9E9998 /* debug.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = debug.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/debug.cpp"; sourceTree = "<group>"; };
 		BB2515BC14E65C7D0D6B7255C1B47C9E /* Archive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = Sources/ZIPFoundation/Archive.swift; sourceTree = "<group>"; };
-		BE0BBBFBCF4C8B0A503776CD05A536C7 /* gyro_bmi160.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = gyro_bmi160.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/gyro_bmi160.cpp"; sourceTree = "<group>"; };
-		C03E461076CE69B9E6743FF6DB4F34F6 /* utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = utils.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/utils.cpp"; sourceTree = "<group>"; };
+		BE328B6B52B7971F30DA25673CD4CD6B /* Bridging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bridging.swift; path = MetaWear/Core/Bridging.swift; sourceTree = "<group>"; };
+		C220786BF5ED3A3687A7FBFB904415B8 /* ibeacon.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ibeacon.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/ibeacon.cpp"; sourceTree = "<group>"; };
 		C47AB88BE396567525C3899F1140246B /* SecureDFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUService.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Services/SecureDFUService.swift; sourceTree = "<group>"; };
 		C4DBFBC3044BCB82CB086A181B750A1A /* LegacyDFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/DFU/LegacyDFUServiceInitiator.swift; sourceTree = "<group>"; };
-		CB6130AA4739D55456442F91CD102337 /* miniz.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = miniz.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/miniz.cpp"; sourceTree = "<group>"; };
+		C97C91FB5FA785ADB5B591C1D279A5D6 /* accelerometer_mma8452q.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer_mma8452q.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer_mma8452q.cpp"; sourceTree = "<group>"; };
+		CA44A178A80CD02F214D4BFF5BFAAE17 /* DeviceInformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceInformation.swift; path = MetaWear/Core/DeviceInformation.swift; sourceTree = "<group>"; };
+		CA4D15D6A126831CF32DABCE3800D3D7 /* metawearboard.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = metawearboard.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/cpp/metawearboard.cpp"; sourceTree = "<group>"; };
 		CBFAB9BBD7A2A368841946A850536F0B /* Archive+Writing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Archive+Writing.swift"; path = "Sources/ZIPFoundation/Archive+Writing.swift"; sourceTree = "<group>"; };
+		CD5251FC5B447128F1537EB907AEE54A /* haptic.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = haptic.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/haptic.cpp"; sourceTree = "<group>"; };
 		CE636A4DBF32477E4FB8C3EEF7E782AD /* SecureDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Peripheral/SecureDFUPeripheral.swift; sourceTree = "<group>"; };
 		CF16FCF30CF9AB32F0162AD7BF3798D1 /* MetaWear+LED.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+LED.swift"; path = "MetaWear/AsyncUtils/MetaWear+LED.swift"; sourceTree = "<group>"; };
+		CF97B98539C53749B0D5880511B6CFDB /* dataprocessor.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dataprocessor.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/cpp/dataprocessor.cpp"; sourceTree = "<group>"; };
 		D016245E7B3AB8C3B98FDECF254F670D /* iOSDFULibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDFULibrary.release.xcconfig; sourceTree = "<group>"; };
-		D0A7ACC184DEF927EEB38AA1803F8EA1 /* proximity_tsl2671.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = proximity_tsl2671.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/proximity_tsl2671.cpp"; sourceTree = "<group>"; };
+		D12605973B91272DDD1EFB170F37D792 /* colordetector_tcs34725.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = colordetector_tcs34725.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/colordetector_tcs34725.cpp"; sourceTree = "<group>"; };
 		D1EE0A9DD75F6680A9A36315B37CFF19 /* Pods-MetaWearApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetaWearApp.modulemap"; sourceTree = "<group>"; };
-		D2D6C64555CF47140177A5C11B2698BB /* String+VersionCompare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+VersionCompare.swift"; path = "MetaWear/Core/String+VersionCompare.swift"; sourceTree = "<group>"; };
 		D4BD83E981A8B2C7A505B82736DAF0C2 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
 		D4E49B43B821164750E927D65926A25D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		D5BB98A1C2BF53AB161EC98D042685EA /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		D68E3258E9E34AE19A17E9E759F79161 /* LoggerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerDelegate.swift; path = iOSDFULibrary/Classes/Utilities/Logging/LoggerDelegate.swift; sourceTree = "<group>"; };
 		D73E7FFA956ACD0263DF98FE8D134385 /* ZIPFoundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZIPFoundation-umbrella.h"; sourceTree = "<group>"; };
+		D7D20AAD917BE0AB54E34AD2AEF47769 /* CBUUID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBUUID.swift; path = MetaWear/Core/CBUUID.swift; sourceTree = "<group>"; };
 		D81E9018004F79785E7E1CAA148DF624 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		D853762A553CBE0CEA12C5DDCD1A21BF /* MetaWear+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MetaWear+Async.swift"; path = "MetaWear/AsyncUtils/MetaWear+Async.swift"; sourceTree = "<group>"; };
+		D8667B05524FAFD46D9573C77E7558DB /* String+VersionCompare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+VersionCompare.swift"; path = "MetaWear/Core/String+VersionCompare.swift"; sourceTree = "<group>"; };
 		DAA96E061721C849DE9CEB07B3C21175 /* StaticDataTableViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = StaticDataTableViewController.modulemap; sourceTree = "<group>"; };
 		DAA9976A559A979A587720A1D07FF8C5 /* ZIPFoundation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZIPFoundation-prefix.pch"; sourceTree = "<group>"; };
-		DBF128697ADEA78F08F064376BBB1971 /* serialpassthrough.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = serialpassthrough.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/serialpassthrough.cpp"; sourceTree = "<group>"; };
+		DC1A58791D69E740C8310B7C64B684FB /* conductance.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = conductance.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/conductance.cpp"; sourceTree = "<group>"; };
+		DD1DEB6AE584058F27B11B505F91272B /* accelerometer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer.cpp"; sourceTree = "<group>"; };
 		DE3AA7E65B096FF265D556BAD00D1953 /* LoggerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerHelper.swift; path = iOSDFULibrary/Classes/Utilities/Logging/LoggerHelper.swift; sourceTree = "<group>"; };
+		DE4A96BEB88BC5348190BC92927FACD1 /* file_operations.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = file_operations.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/file_operations.cpp"; sourceTree = "<group>"; };
 		DEEA2EC921054D38DD5A6DED808C5ADF /* LegacyDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheral.swift; sourceTree = "<group>"; };
+		DF9C51950A52470922B39128F9B96DF2 /* threadpool.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = threadpool.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/threadpool.cpp"; sourceTree = "<group>"; };
 		DFB1ACF9E5474531F598562B69B4C0DB /* DFUCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUCharacteristic.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUCharacteristic.swift; sourceTree = "<group>"; };
 		E15F8DA7673D505C043451833E089785 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		E18C5926CDE6DE06AE17D316E9C984EF /* conductance.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = conductance.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/conductance.cpp"; sourceTree = "<group>"; };
-		E2B6857E7DC2955E012A4E7DEA3DB470 /* timer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = timer.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/timer.cpp"; sourceTree = "<group>"; };
-		E38827D3654869505702F1C42904167C /* anonymous_datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = anonymous_datasignal.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/anonymous_datasignal.cpp"; sourceTree = "<group>"; };
+		E6B9751FB4CBC5613F10E56E0E408B99 /* settings.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = settings.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/settings.cpp"; sourceTree = "<group>"; };
 		E72EBDC502298C03B99ADD4492201FB6 /* MetaWear-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetaWear-Info.plist"; sourceTree = "<group>"; };
-		E75D72FCA22D55B58E32C4CA5CC377DA /* sensor_fusion.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sensor_fusion.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/sensor_fusion.cpp"; sourceTree = "<group>"; };
-		E7612F5A5593C828DC19B84FBBEA484C /* neopixel.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = neopixel.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/neopixel.cpp"; sourceTree = "<group>"; };
-		E9D74BBF0A579D8F1218E1149E4E0076 /* switch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = switch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/switch.cpp"; sourceTree = "<group>"; };
-		E9E3A94AB9E1EBA13EC3C3EB666685D8 /* colordetector_tcs34725.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = colordetector_tcs34725.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/colordetector_tcs34725.cpp"; sourceTree = "<group>"; };
+		E8BC8485AD5BED9E3F552A8FFD69DCFC /* dfu_operations_details.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = dfu_operations_details.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/cpp/dfu_operations_details.cpp"; sourceTree = "<group>"; };
 		EB96EBA25499E7DA54AB713E9C4FE9BD /* Executor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Sources/BoltsSwift/Executor.swift; sourceTree = "<group>"; };
-		EBCE7A5E20EF98D87C7F6956206C2DA6 /* MetaWearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWearData.swift; path = MetaWear/Core/MetaWearData.swift; sourceTree = "<group>"; };
 		EBD705F874AA6F9BC059E520FEAE4664 /* Task+WhenAny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+WhenAny.swift"; path = "Sources/BoltsSwift/Task+WhenAny.swift"; sourceTree = "<group>"; };
 		ED6BC1D8C8F1A9842A1F431F9E274623 /* ZIPFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZIPFoundation.release.xcconfig; sourceTree = "<group>"; };
-		EDD72AB7C630418C13E7B9A508BAA4F4 /* Bridging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bridging.swift; path = MetaWear/Core/Bridging.swift; sourceTree = "<group>"; };
+		ED7E527DA744557AFDA843B28E765E48 /* accelerometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer_bosch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer_bosch.cpp"; sourceTree = "<group>"; };
 		EE13BACECF5EF97267FA2A22C4C0451C /* Bolts-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Bolts-Swift-Info.plist"; sourceTree = "<group>"; };
 		EF47F4088435378347F68410C6D9DDCC /* MblMwEvent+Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MblMwEvent+Async.swift"; path = "MetaWear/AsyncUtils/MblMwEvent+Async.swift"; sourceTree = "<group>"; };
-		F0C41399A9E94975B23232068DD7A94E /* threadpool.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = threadpool.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/threadpool.cpp"; sourceTree = "<group>"; };
-		F322F2093D185F1C9436332B188B03CA /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = datasignal.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/datasignal.cpp"; sourceTree = "<group>"; };
-		F3BFA837BAFAD0C618F93E3105DB9252 /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = memory.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/memory.cpp"; sourceTree = "<group>"; };
+		F0A4995F40B7A6454DF7ED79EB1E4EDA /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = event.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/event.cpp"; sourceTree = "<group>"; };
+		F10FABB8E129451AB692BF8EC27756A8 /* MetaWearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetaWearData.swift; path = MetaWear/Core/MetaWearData.swift; sourceTree = "<group>"; };
+		F49230EBB46244A38ABE02389D098F23 /* task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = task.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/cpp/task.cpp"; sourceTree = "<group>"; };
 		F61241FA317AAAA1C25F166DF9B3A6D3 /* Bolts-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-Swift-dummy.m"; sourceTree = "<group>"; };
-		F65A54F481C675CB8F29745B5A5C3B96 /* accelerometer_bosch.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = accelerometer_bosch.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/cpp/accelerometer_bosch.cpp"; sourceTree = "<group>"; };
 		F78191528C58A10A3F2255E697B397EA /* ZIPFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ZIPFoundation.modulemap; sourceTree = "<group>"; };
 		F9412CE57B6CD3757FCDFB2F38F47F75 /* SoftdeviceBootloaderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoftdeviceBootloaderInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/SoftdeviceBootloaderInfo.swift; sourceTree = "<group>"; };
 		FABBE1E2C6223F80D285507093A3485D /* DFUPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralDelegate.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUPeripheralDelegate.swift; sourceTree = "<group>"; };
-		FF1E5E26E23DAB2EC74C150107A0A1E4 /* responseheader.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = responseheader.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/responseheader.cpp"; sourceTree = "<group>"; };
-		FF96056AF39288C65E82B52F762050EE /* haptic.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = haptic.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/haptic.cpp"; sourceTree = "<group>"; };
+		FBA4C5602708C62AA6273CFBE5F03F69 /* datasignal.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = datasignal.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/cpp/datasignal.cpp"; sourceTree = "<group>"; };
+		FE5BF6502B1BD0BCD22E359427B46E3F /* led.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = led.cpp; path = "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/cpp/led.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,7 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				4A49408268732F16BA895B44FE09E816 /* AsyncUtils */,
-				38B209678F4D330D67C4736AF3218870 /* Core */,
+				507444870EF0ACAD261F524F07355E65 /* Core */,
 				CD3B879DC13AE5D9E489334FA9330A17 /* DFU */,
 				61E3CDCC12A54CE28C730EAB90F12328 /* Support Files */,
 				3091E84A76266A77C6A4CAE6148A37FF /* UI */,
@@ -553,68 +553,6 @@
 			);
 			name = "Bolts-Swift";
 			path = "Bolts-Swift";
-			sourceTree = "<group>";
-		};
-		38B209678F4D330D67C4736AF3218870 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				85EE16C35F0BABDD3534483648F653D8 /* accelerometer.cpp */,
-				F65A54F481C675CB8F29745B5A5C3B96 /* accelerometer_bosch.cpp */,
-				3B20E40D3AB0DA2C494578681DAF0424 /* accelerometer_mma8452q.cpp */,
-				8E937A80FDB3242182D5339EEBA30502 /* ambientlight_ltr329.cpp */,
-				E38827D3654869505702F1C42904167C /* anonymous_datasignal.cpp */,
-				69896A2EE6CF90C1A3FF20EFBA8F0742 /* async_creator.cpp */,
-				3B8E263CAA80A8601320E21CDAB4BF3D /* barometer_bosch.cpp */,
-				EDD72AB7C630418C13E7B9A508BAA4F4 /* Bridging.swift */,
-				40DA0C205BF06A85E170E81ABBBAF930 /* cbindings.swift */,
-				1BF7781058CDB0033DDCCB5AA92F554A /* CBUUID.swift */,
-				E9E3A94AB9E1EBA13EC3C3EB666685D8 /* colordetector_tcs34725.cpp */,
-				E18C5926CDE6DE06AE17D316E9C984EF /* conductance.cpp */,
-				63FEDD2BDFEA0EA7F4D20ED9224A8275 /* datainterpreter.cpp */,
-				BAC8DE4A0CCF8B7AC02CAF96CCF4E080 /* dataprocessor.cpp */,
-				B0E06CAFE18BFE384E76B201E599496E /* dataprocessor_config.cpp */,
-				F322F2093D185F1C9436332B188B03CA /* datasignal.cpp */,
-				32D0A959ADA5A57AFAB59EF8DCA2D3EF /* debug.cpp */,
-				38F96C7D6D08BEB7700C03EF9E5E714E /* DeviceInformation.swift */,
-				7FF6CEBC70E3229649E26495F5B34092 /* dfu_operations.cpp */,
-				0F4EBBA11D390737A7DCBFD0B5C006A4 /* dfu_operations_details.cpp */,
-				8848F926922C2B2B99CBFCFCBBA76FF3 /* dfu_utility.cpp */,
-				987E05925C090D3AEF34D4EE46A1DD1E /* event.cpp */,
-				7DD8945043F94325BCFFCB152AE12172 /* file_operations.cpp */,
-				27F56AE147CDF31FF4E6552C60925EA9 /* gpio.cpp */,
-				BE0BBBFBCF4C8B0A503776CD05A536C7 /* gyro_bmi160.cpp */,
-				FF96056AF39288C65E82B52F762050EE /* haptic.cpp */,
-				A9924E17E1DBC18F074E9902DBE719F7 /* humidity_bme280.cpp */,
-				A449C2FA1A048E54D52CCCCE83A4EF35 /* ibeacon.cpp */,
-				1F29C029F8A3720909711CD2F6A31B0A /* led.cpp */,
-				3E6F375456024748FE992233ABFDDA14 /* LogDelegate.swift */,
-				7B60F1B2F879B96E4EA8300601D00A7A /* logging.cpp */,
-				4B1E0D4E7B071F8FE283FD68589D497C /* macro.cpp */,
-				08F95FF89402CA7FB93038973AEF686F /* magnetometer_bmm150.cpp */,
-				5BED6E6825BCCE9076CCF1D00295615B /* MblMwGattChar.swift */,
-				F3BFA837BAFAD0C618F93E3105DB9252 /* memory.cpp */,
-				20FD62CCF73825EE80A2F29549B9B789 /* MetaWear.swift */,
-				2538704F421614806C9E5830971AD04C /* metawearboard.cpp */,
-				EBCE7A5E20EF98D87C7F6956206C2DA6 /* MetaWearData.swift */,
-				43F8DFB9B2B82DCC74D8792EB49B10A4 /* MetaWearScanner.swift */,
-				CB6130AA4739D55456442F91CD102337 /* miniz.cpp */,
-				5C1A0757607B81DC9DCF94C3F8867F47 /* moduleinfo.cpp */,
-				98D5D243824CC7F3F06823E66FE953A8 /* multichanneltemperature.cpp */,
-				E7612F5A5593C828DC19B84FBBEA484C /* neopixel.cpp */,
-				D0A7ACC184DEF927EEB38AA1803F8EA1 /* proximity_tsl2671.cpp */,
-				FF1E5E26E23DAB2EC74C150107A0A1E4 /* responseheader.cpp */,
-				E75D72FCA22D55B58E32C4CA5CC377DA /* sensor_fusion.cpp */,
-				DBF128697ADEA78F08F064376BBB1971 /* serialpassthrough.cpp */,
-				120A5240C782918C7AF013C2B867F177 /* settings.cpp */,
-				D2D6C64555CF47140177A5C11B2698BB /* String+VersionCompare.swift */,
-				E9D74BBF0A579D8F1218E1149E4E0076 /* switch.cpp */,
-				037DD41EA354F3EAD3F2825A490ED643 /* task.cpp */,
-				F0C41399A9E94975B23232068DD7A94E /* threadpool.cpp */,
-				E2B6857E7DC2955E012A4E7DEA3DB470 /* timer.cpp */,
-				C03E461076CE69B9E6743FF6DB4F34F6 /* utils.cpp */,
-				69507A23B303168990ECBA57667DDFDE /* version.cpp */,
-			);
-			name = Core;
 			sourceTree = "<group>";
 		};
 		43B630A5610D931092E598DA1B06502E /* Support Files */ = {
@@ -641,6 +579,68 @@
 				CF16FCF30CF9AB32F0162AD7BF3798D1 /* MetaWear+LED.swift */,
 			);
 			name = AsyncUtils;
+			sourceTree = "<group>";
+		};
+		507444870EF0ACAD261F524F07355E65 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD1DEB6AE584058F27B11B505F91272B /* accelerometer.cpp */,
+				ED7E527DA744557AFDA843B28E765E48 /* accelerometer_bosch.cpp */,
+				C97C91FB5FA785ADB5B591C1D279A5D6 /* accelerometer_mma8452q.cpp */,
+				B326E008753089B28215FE766CB96A9A /* ambientlight_ltr329.cpp */,
+				2A8BCD4D4B8FED2616FD4D20BD8ED653 /* anonymous_datasignal.cpp */,
+				7D57410FBE38A75B8CB9A7F8085AA515 /* async_creator.cpp */,
+				5FF6364B163D25289CA2FE7AD4FBCFF5 /* barometer_bosch.cpp */,
+				BE328B6B52B7971F30DA25673CD4CD6B /* Bridging.swift */,
+				9F0FA581C1F3AC0F9DD9D8BAE5045BD5 /* cbindings.swift */,
+				D7D20AAD917BE0AB54E34AD2AEF47769 /* CBUUID.swift */,
+				D12605973B91272DDD1EFB170F37D792 /* colordetector_tcs34725.cpp */,
+				DC1A58791D69E740C8310B7C64B684FB /* conductance.cpp */,
+				956E8419BFCC33C26C35ADE157FAAD4D /* datainterpreter.cpp */,
+				CF97B98539C53749B0D5880511B6CFDB /* dataprocessor.cpp */,
+				335F582AD4BAB5761A97FCE615793F62 /* dataprocessor_config.cpp */,
+				FBA4C5602708C62AA6273CFBE5F03F69 /* datasignal.cpp */,
+				B9E6B81E6FA664B4661288111A9E9998 /* debug.cpp */,
+				CA44A178A80CD02F214D4BFF5BFAAE17 /* DeviceInformation.swift */,
+				59DF442183CC8AC8E1C89654A9EA1F3D /* dfu_operations.cpp */,
+				E8BC8485AD5BED9E3F552A8FFD69DCFC /* dfu_operations_details.cpp */,
+				46E816A37B4E01DEEB5779D1FC26256A /* dfu_utility.cpp */,
+				F0A4995F40B7A6454DF7ED79EB1E4EDA /* event.cpp */,
+				DE4A96BEB88BC5348190BC92927FACD1 /* file_operations.cpp */,
+				28D03E79BAF3A8D986436D419CB3805F /* gpio.cpp */,
+				243C15BC09EBF72A47B48B8C1B5F4944 /* gyro_bosch.cpp */,
+				CD5251FC5B447128F1537EB907AEE54A /* haptic.cpp */,
+				5D013A4298646C77F884C7EF3B5D6577 /* humidity_bme280.cpp */,
+				C220786BF5ED3A3687A7FBFB904415B8 /* ibeacon.cpp */,
+				FE5BF6502B1BD0BCD22E359427B46E3F /* led.cpp */,
+				815CFF2A39F57FFB7D8EAD3C241C13C5 /* LogDelegate.swift */,
+				53ADDAAAB1CA09D279DB3CC1D9D28F96 /* logging.cpp */,
+				84E7258EA46507E42BD2CE9A04C58BED /* macro.cpp */,
+				B197D723824D674A761A58220D3EAE1E /* magnetometer_bmm150.cpp */,
+				1EB620F7EA80ED569CBC3875471A4A25 /* MblMwGattChar.swift */,
+				305B7954CACD582338C0E8A653514B4E /* memory.cpp */,
+				70E62B1DC482CC7AFAFE1528E3245B39 /* MetaWear.swift */,
+				CA4D15D6A126831CF32DABCE3800D3D7 /* metawearboard.cpp */,
+				F10FABB8E129451AB692BF8EC27756A8 /* MetaWearData.swift */,
+				997819DE34E3D87A44BA3642769DC720 /* MetaWearScanner.swift */,
+				533E5F5324D41F0995AA99B106A3AD68 /* miniz.cpp */,
+				4E6FCD2BA7C344E08DA4D1DAAB0F7D48 /* moduleinfo.cpp */,
+				3CF32349D5EA2CFEBFB48B05B50A60A8 /* multichanneltemperature.cpp */,
+				8DFEF567BEFD080B08477B50B6E1F7A2 /* neopixel.cpp */,
+				B56292CE455B0CAC817140305AC61E2A /* proximity_tsl2671.cpp */,
+				022FB5563F16348C0D739597D687EF76 /* responseheader.cpp */,
+				6A2045BCFCBB56D6330E681F8B83A94D /* sensor_fusion.cpp */,
+				9C6394A2AF59932470FD07700FB2A322 /* serialpassthrough.cpp */,
+				E6B9751FB4CBC5613F10E56E0E408B99 /* settings.cpp */,
+				D8667B05524FAFD46D9573C77E7558DB /* String+VersionCompare.swift */,
+				0F1C0D5B9E82436C24250B3D6E15FF24 /* switch.cpp */,
+				F49230EBB46244A38ABE02389D098F23 /* task.cpp */,
+				DF9C51950A52470922B39128F9B96DF2 /* threadpool.cpp */,
+				80A27C30CD22B563326740263C03393B /* timer.cpp */,
+				56D3CD43CDFE7EACA5832B85B0EAD712 /* utils.cpp */,
+				14D36F90112825F9FA7059727A5698EB /* version.cpp */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		54C908F5CD414E71346EF652F37998D3 /* Targets Support Files */ = {
@@ -972,7 +972,7 @@
 			buildConfigurationList = 602B8B342D945E49C26277703382F699 /* Build configuration list for PBXNativeTarget "MetaWear" */;
 			buildPhases = (
 				079C427B565998C3AB8CC5A09F17AD8E /* Headers */,
-				12B5E2ADE6D7328FAF4D72C71063D3DD /* Sources */,
+				1AA7B6306B88E31B84A81C0EB552EEBF /* Sources */,
 				1542BE6DB61C57223B7A1C8C47EBA0AB /* Frameworks */,
 				4E91C41DF27A1EA897F65472351C34BF /* Resources */,
 			);
@@ -1164,77 +1164,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		12B5E2ADE6D7328FAF4D72C71063D3DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A0A7258E0468ED2246BB73456664D9D /* accelerometer.cpp in Sources */,
-				62981CB90399D5F57D3DF57D8C387316 /* accelerometer_bosch.cpp in Sources */,
-				1443816BC1F02406FB7A6932747CD1F3 /* accelerometer_mma8452q.cpp in Sources */,
-				011C01505F4F3685166B888016C2FBED /* ambientlight_ltr329.cpp in Sources */,
-				A406799FCAF8092B912F4C4F8C28C5A5 /* anonymous_datasignal.cpp in Sources */,
-				05839B9A7CB01C45C1F5D8B6511B486D /* async_creator.cpp in Sources */,
-				13097E731F56CB88F06F875DDA83E730 /* barometer_bosch.cpp in Sources */,
-				E3160697798636BF61C69FB6DFB5055E /* Bridging.swift in Sources */,
-				E6E0778DAF545BDFB81ADC4E90A8BD21 /* cbindings.swift in Sources */,
-				1FFC784819F5610994CAA92EC85584ED /* CBUUID.swift in Sources */,
-				58353ED7119D6E63DC9A6D0316075DF7 /* colordetector_tcs34725.cpp in Sources */,
-				AAE4758783E6B0EAECF23CBFFF247534 /* conductance.cpp in Sources */,
-				8FE282B061EE320A03C2696CF6A1FDF1 /* datainterpreter.cpp in Sources */,
-				7F14435FAED54D9AFAFCD9218C90501D /* dataprocessor.cpp in Sources */,
-				DD90B6ACD409916C477AC69840E8B540 /* dataprocessor_config.cpp in Sources */,
-				F1FECB850B1C3AC3E947CE023889195E /* datasignal.cpp in Sources */,
-				03B03A76CFEE424774FDB92A111F2F1F /* debug.cpp in Sources */,
-				7AA62AD84CFF9972308A79692AAAA347 /* DeviceInformation.swift in Sources */,
-				EC9512989523382951A4A9392E6C3BAA /* dfu_operations.cpp in Sources */,
-				F3E3E5497E90960A60582D5B1E975991 /* dfu_operations_details.cpp in Sources */,
-				756173F0BA3FC4D94A237E928CC2CA77 /* dfu_utility.cpp in Sources */,
-				76D546214EC61689EEB7794ECF0A11AE /* event.cpp in Sources */,
-				98EE6FA76CB79C8D269C88B0781484E8 /* file_operations.cpp in Sources */,
-				08D886BED1DA9DAEC8E615C083888DCD /* FirmwareBuild.swift in Sources */,
-				BA134D10A12A031AC4D9E5E7A3EEF510 /* FirmwareServer.swift in Sources */,
-				D7924D81705CB94FA2A957119288DE1F /* gpio.cpp in Sources */,
-				FD5A0A70920590BA95461937CD19D172 /* gyro_bmi160.cpp in Sources */,
-				37891C0FED1C391F1A3289B64A6F285F /* haptic.cpp in Sources */,
-				22AA013EBCF87B606F7BF88CB572F07F /* humidity_bme280.cpp in Sources */,
-				5C4E67B7335523B80A3ED05E76AF05E7 /* ibeacon.cpp in Sources */,
-				E3597C9E4909E0C4A94BCC7088D03327 /* led.cpp in Sources */,
-				BB592C6683A457E6D9BE096B75771CBD /* LogDelegate.swift in Sources */,
-				B5BCFE814FC558DDA1C96D710FDD0C9E /* logging.cpp in Sources */,
-				F0E434B3CACBBD26FAA789D2DF842310 /* macro.cpp in Sources */,
-				61E5A0647C75F2812D150938EA127C21 /* magnetometer_bmm150.cpp in Sources */,
-				1BF04AE299BA14747683B8B811AD5F16 /* MblMwDataSignal+Async.swift in Sources */,
-				A4CDF30446F40355B1CA369299AC0C2A /* MblMwEvent+Async.swift in Sources */,
-				375385727B877E39BA297A165D77CA00 /* MblMwGattChar.swift in Sources */,
-				18392BADECC16E64936BB24864C86C55 /* memory.cpp in Sources */,
-				9E46F376C096748E25422FBAD5081275 /* MetaWear+Async.swift in Sources */,
-				D74E0FDEC9CC0C95108D98ACD6A75E00 /* MetaWear+Firmware.swift in Sources */,
-				90767670961387E68E957FE69705C1CC /* MetaWear+LED.swift in Sources */,
-				D967F4693DB44C0004C139720701E01E /* MetaWear-dummy.m in Sources */,
-				AFCF2923BFFCE64352FDA187F0791F4D /* MetaWear.swift in Sources */,
-				0FDFB9B015EACF5853460E7285556AF4 /* metawearboard.cpp in Sources */,
-				20D27EE146221C51C8F1D7270E124FB3 /* MetaWearData.swift in Sources */,
-				8F8FC12DD0DEEE08E87E7A815A17BB9D /* MetaWearScanner.swift in Sources */,
-				5161DE5123CD8FC2409BFE2FE652BE68 /* miniz.cpp in Sources */,
-				577527DB6B08034063AA9EDF090AE9ED /* moduleinfo.cpp in Sources */,
-				07FBB93F90E5E8FBAAF8AB11A5E00501 /* multichanneltemperature.cpp in Sources */,
-				EB5DA7384246362DC87CD998398333CF /* neopixel.cpp in Sources */,
-				6CFC12C72BDD3C74A8A02B1390CF97D7 /* proximity_tsl2671.cpp in Sources */,
-				D4FB960782257616CF9010B580EA5A6F /* responseheader.cpp in Sources */,
-				2523C14B4AA3DEFB2AB9E8DC59A03AFB /* ScannerModel.swift in Sources */,
-				AB546BC90F60495117E6012E758375B7 /* sensor_fusion.cpp in Sources */,
-				25A4B39CF0ED2305855AD21138BECB5D /* serialpassthrough.cpp in Sources */,
-				BADBB40F893A173BFF5F45C7B8CB0D72 /* settings.cpp in Sources */,
-				CEDBA56F1C89DE56EC1D0DDBC2547568 /* String+VersionCompare.swift in Sources */,
-				13B030CA298CA39BB49985F124AD3C4A /* switch.cpp in Sources */,
-				58345515872791511820C9B1D4249B6A /* task.cpp in Sources */,
-				9E5928659156551848B763AE150FF112 /* threadpool.cpp in Sources */,
-				3C521627DC811E633D64BA90AD2AD3C9 /* timer.cpp in Sources */,
-				B6A2AD3D620C2F58494045C071A38F57 /* utils.cpp in Sources */,
-				A67A2200D85822980CB756158DDD9053 /* version.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		16BF5BC40D63BBB1DB055C7EA3B32DAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1248,6 +1177,77 @@
 				84E49AA4AEBF2D359BE494195AA77EF3 /* Task+WhenAny.swift in Sources */,
 				552CB2A6FEFD51F4AF0CBFCF5A94F414 /* Task.swift in Sources */,
 				8D2A10CB374DFE57C0D8F0F802C9E6EE /* TaskCompletionSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AA7B6306B88E31B84A81C0EB552EEBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7B7F1652E511610B943556F1BEBE1BC /* accelerometer.cpp in Sources */,
+				A503074914D10CA23FE4C31A95B03A1A /* accelerometer_bosch.cpp in Sources */,
+				1F1B7DB2B609D79D6D7598B1F81ACB56 /* accelerometer_mma8452q.cpp in Sources */,
+				7D8873BFFCE78F69C171F1D5437A020B /* ambientlight_ltr329.cpp in Sources */,
+				3F6FAF4809DEE95511B684761992B8CC /* anonymous_datasignal.cpp in Sources */,
+				061197B6EC97ADA4C845520112B6AE5C /* async_creator.cpp in Sources */,
+				34E6D5EEECBD77034F432269862F6738 /* barometer_bosch.cpp in Sources */,
+				51ADD77F208ED26E908D0D177FCE5363 /* Bridging.swift in Sources */,
+				A83A4ED8C9E40EBE227A7A544F668B50 /* cbindings.swift in Sources */,
+				DE26772AE6EF3F885CF8C589DA5916BC /* CBUUID.swift in Sources */,
+				03CEE4DACF36FEB754DF9D399DAC6767 /* colordetector_tcs34725.cpp in Sources */,
+				92DBC332ED7A8F96DE85E224A1861D23 /* conductance.cpp in Sources */,
+				B62E8894638B2215116684D8E7CE868C /* datainterpreter.cpp in Sources */,
+				20B18CED115C85382DE6333A36D702F9 /* dataprocessor.cpp in Sources */,
+				50BF69431848036B7B01609D8074CC11 /* dataprocessor_config.cpp in Sources */,
+				10BE676B7E4DCE0988625D78B6F4E4E3 /* datasignal.cpp in Sources */,
+				C8CF81D4B06B358B84D27AACDA525A4E /* debug.cpp in Sources */,
+				5F7599675E3748F49AF5ED3149A4E5DC /* DeviceInformation.swift in Sources */,
+				A972FA1C7F3A4736501269ED2B51CDA7 /* dfu_operations.cpp in Sources */,
+				A337B04DFF230010006C3E562200EFBE /* dfu_operations_details.cpp in Sources */,
+				E885D9D76E5BF6B91E6D743045DC1F65 /* dfu_utility.cpp in Sources */,
+				7619EBA0499FD2BF46AE6FE2B73D59D8 /* event.cpp in Sources */,
+				06C1727E2A65D664078EBE422C419D50 /* file_operations.cpp in Sources */,
+				FED0A393CBE9D16858E54CA0C7F2A964 /* FirmwareBuild.swift in Sources */,
+				5E619DA06C1B875DB6D9B14F6C784106 /* FirmwareServer.swift in Sources */,
+				44B06F29B850E1A64EF6AF1041C7DC3F /* gpio.cpp in Sources */,
+				01B08E703BC5323BA53F07E69559BAF6 /* gyro_bosch.cpp in Sources */,
+				3F035F7CA5E2B0F90271BD9F79D5356C /* haptic.cpp in Sources */,
+				DC4809BC09FFA8A8ABCAD6A92F24A52A /* humidity_bme280.cpp in Sources */,
+				600E67AC62C9C18F97C070B7BA897D71 /* ibeacon.cpp in Sources */,
+				AA2487A00502C0AAD7AA15512CA8475D /* led.cpp in Sources */,
+				F298018160AFACDE19C6B310DCF3D61C /* LogDelegate.swift in Sources */,
+				FDB992787BA5A6D114EC177923F70CD2 /* logging.cpp in Sources */,
+				0B39CE9D8D4B5229E0A5EE8D0EA90A5C /* macro.cpp in Sources */,
+				1695B6146E80FF7706BBAE6B2DF33FD3 /* magnetometer_bmm150.cpp in Sources */,
+				594B5D81FDC9939FB6EB29D9B40BC228 /* MblMwDataSignal+Async.swift in Sources */,
+				F748649DF4B2D9579C2380234DBB866A /* MblMwEvent+Async.swift in Sources */,
+				A0AE55F569DC0DB5FEA0DB70989BBE6B /* MblMwGattChar.swift in Sources */,
+				DF136753A9483F3F71F306314C896B8C /* memory.cpp in Sources */,
+				56014CE19C3368D5EBF8319DFC1D9FFF /* MetaWear+Async.swift in Sources */,
+				B0DE8E701924DA7485B025D37EA8F99B /* MetaWear+Firmware.swift in Sources */,
+				8169EE61FAD7EC8044B1AFC98C371ACE /* MetaWear+LED.swift in Sources */,
+				179D07AED6A917A41FDFE44F5969D06B /* MetaWear-dummy.m in Sources */,
+				20F57E2966C6A86BB78C64DCD59FCA6B /* MetaWear.swift in Sources */,
+				D86B86C0D116F4C54C5E81BC9F669CFC /* metawearboard.cpp in Sources */,
+				DA11E39D6FD5EA730E011DDF6299F3FC /* MetaWearData.swift in Sources */,
+				90BF1C8C54B2C3837EBE17D2F002B5A7 /* MetaWearScanner.swift in Sources */,
+				650E9D429CDE51DB0E4813A275CBEC50 /* miniz.cpp in Sources */,
+				5E96BA245EC471A0EBFA4D9D6A4683F7 /* moduleinfo.cpp in Sources */,
+				0E8D9BA82A551306324AD1A5DFCE6DF6 /* multichanneltemperature.cpp in Sources */,
+				F93F6EA9664C36437F4CE1E47D23BE36 /* neopixel.cpp in Sources */,
+				7DD4CF51E9F2C0F807E07822E2ED0D9E /* proximity_tsl2671.cpp in Sources */,
+				AD08DE6CEE5507C13B3C981B3E0A666A /* responseheader.cpp in Sources */,
+				88FAFA1D8B329E5C3964DF74358BAA10 /* ScannerModel.swift in Sources */,
+				31B62529675E54F3867B6D32695BE118 /* sensor_fusion.cpp in Sources */,
+				41C450BF25478E2E7FB605A2754068C9 /* serialpassthrough.cpp in Sources */,
+				420A205A853253EA59749ABF6C7EA7BD /* settings.cpp in Sources */,
+				32E9B665B5BD1A0203CD96B285F24E8A /* String+VersionCompare.swift in Sources */,
+				3A838F491C70A51D79858363AD1BA472 /* switch.cpp in Sources */,
+				59E9B2830D99AC4D65F11C62FBD7456C /* task.cpp in Sources */,
+				F9EBFAFE7A6B0326B3CEE98E731B291E /* threadpool.cpp in Sources */,
+				77DB4BEB22AE80F211EEDCF242C25C34 /* timer.cpp in Sources */,
+				B785123332742A2E27A278B8E604FCFF /* utils.cpp in Sources */,
+				BC16591E151AA57C79F4A039757F4C25 /* version.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

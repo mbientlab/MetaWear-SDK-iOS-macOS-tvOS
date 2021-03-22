@@ -12,8 +12,10 @@ extern "C" {
 #endif
 
 /**
- * Create a sample delay processor.  A pointer representing the processor will be passed back 
- * to the user via a callback function.
+ * Create a sample delay processor.  
+ * Holds data until a certain amount (bin_size) has been collected.
+ * Can be used to delay the input into another processor.
+ * A pointer representing the processor will be passed back to the user via a callback function.
  * @param source                Data signal providing the input for the processor
  * @param bin_size              Number of samples to hold before letting data through
  * @param context               Pointer to additional data for the callback function
