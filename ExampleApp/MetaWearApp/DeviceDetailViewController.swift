@@ -704,9 +704,15 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
     }
     
     @IBAction func readTemperaturePressed(_ sender: Any) {
+        if channelTypeLabel.text == "BMP280" {
+            mbl_mw_baro_bosch_start(device.board)
+        }
         let selected = mbl_mw_multi_chnl_temp_get_temperature_data_signal(device.board, UInt8(tempChannelSelector.selectedSegmentIndex))!
         selected.read().continueOnSuccessWith(.mainThread) { [self] obj in
             self.temperatureLabel.text = String(format: "%.1f°C", (obj.valueAs() as Float))
+        }
+        if channelTypeLabel.text == "BMP280" {
+            mbl_mw_baro_bosch_stop(device.board)
         }
     }
     
@@ -812,7 +818,10 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         }
         mbl_mw_acc_stop(device.board)
         mbl_mw_acc_disable_acceleration_sampling(device.board)
-
+        if bmi270 {
+            mbl_mw_logging_flush_page(device.board)
+        }
+        
         hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .determinateHorizontalBar
         hud.label.text = "Downloading..."
@@ -868,83 +877,91 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
     }
     
     @IBAction func accelerometerBMI160StartOrientPressed(_ sender: Any) {
-        accelerometerBMI160StartOrient.isEnabled = false
-        accelerometerBMI160StopOrient.isEnabled = true
-        updateAccelerometerBMI160Settings()
-        let signal = mbl_mw_acc_bosch_get_orientation_detection_data_signal(device.board)!
-        mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
-            let orientation: MblMwSensorOrientation = obj!.pointee.valueAs()
-            let _self: DeviceDetailViewController = bridge(ptr: context!)
-            DispatchQueue.main.async {
-                switch orientation {
-                case MBL_MW_SENSOR_ORIENTATION_FACE_UP_PORTRAIT_UPRIGHT:
-                    _self.accelerometerBMI160OrientLabel.text = "Portrait Face Up"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_UP_PORTRAIT_UPSIDE_DOWN:
-                    _self.accelerometerBMI160OrientLabel.text = "Portrait Upside Down Face Up"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_UP_LANDSCAPE_LEFT:
-                    _self.accelerometerBMI160OrientLabel.text = "Landscape Left Face Up"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_UP_LANDSCAPE_RIGHT:
-                    _self.accelerometerBMI160OrientLabel.text = "Landscape Right Face Up"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_PORTRAIT_UPRIGHT:
-                    _self.accelerometerBMI160OrientLabel.text = "Portrait Face Down"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_PORTRAIT_UPSIDE_DOWN:
-                    _self.accelerometerBMI160OrientLabel.text = "Portrait Upside Down Face Down"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_LANDSCAPE_LEFT:
-                    _self.accelerometerBMI160OrientLabel.text = "Landscape Left Face Down"
-                case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_LANDSCAPE_RIGHT:
-                    _self.accelerometerBMI160OrientLabel.text = "Landscape Right Face Down"
-                default:
-                    _self.accelerometerBMI160OrientLabel.text = "N/A"
+        if !bmi270 {
+            accelerometerBMI160StartOrient.isEnabled = false
+            accelerometerBMI160StopOrient.isEnabled = true
+            updateAccelerometerBMI160Settings()
+            let signal = mbl_mw_acc_bosch_get_orientation_detection_data_signal(device.board)!
+            mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
+                let orientation: MblMwSensorOrientation = obj!.pointee.valueAs()
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                DispatchQueue.main.async {
+                    switch orientation {
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_UP_PORTRAIT_UPRIGHT:
+                        _self.accelerometerBMI160OrientLabel.text = "Portrait Face Up"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_UP_PORTRAIT_UPSIDE_DOWN:
+                        _self.accelerometerBMI160OrientLabel.text = "Portrait Upside Down Face Up"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_UP_LANDSCAPE_LEFT:
+                        _self.accelerometerBMI160OrientLabel.text = "Landscape Left Face Up"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_UP_LANDSCAPE_RIGHT:
+                        _self.accelerometerBMI160OrientLabel.text = "Landscape Right Face Up"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_PORTRAIT_UPRIGHT:
+                        _self.accelerometerBMI160OrientLabel.text = "Portrait Face Down"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_PORTRAIT_UPSIDE_DOWN:
+                        _self.accelerometerBMI160OrientLabel.text = "Portrait Upside Down Face Down"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_LANDSCAPE_LEFT:
+                        _self.accelerometerBMI160OrientLabel.text = "Landscape Left Face Down"
+                    case MBL_MW_SENSOR_ORIENTATION_FACE_DOWN_LANDSCAPE_RIGHT:
+                        _self.accelerometerBMI160OrientLabel.text = "Landscape Right Face Down"
+                    default:
+                        _self.accelerometerBMI160OrientLabel.text = "N/A"
+                    }
                 }
             }
-        }
-        mbl_mw_acc_bosch_enable_orientation_detection(device.board)
-        mbl_mw_acc_start(device.board)
-        
-        streamingCleanup[signal] = {
-            mbl_mw_acc_stop(self.device.board)
-            mbl_mw_acc_bosch_disable_orientation_detection(self.device.board)
-            mbl_mw_datasignal_unsubscribe(signal)
+            mbl_mw_acc_bosch_enable_orientation_detection(device.board)
+            mbl_mw_acc_start(device.board)
+            
+            streamingCleanup[signal] = {
+                mbl_mw_acc_stop(self.device.board)
+                mbl_mw_acc_bosch_disable_orientation_detection(self.device.board)
+                mbl_mw_datasignal_unsubscribe(signal)
+            }
         }
     }
 
     @IBAction func accelerometerBMI160StopOrientPressed(_ sender: Any) {
-        accelerometerBMI160StartOrient.isEnabled = true
-        accelerometerBMI160StopOrient.isEnabled = false
-        let signal = mbl_mw_acc_bosch_get_orientation_detection_data_signal(device.board)!
-        streamingCleanup.removeValue(forKey: signal)?()
-        accelerometerBMI160OrientLabel.text = "XXXXXXXXXXXXXX"
+        if !bmi270 {
+            accelerometerBMI160StartOrient.isEnabled = true
+            accelerometerBMI160StopOrient.isEnabled = false
+            let signal = mbl_mw_acc_bosch_get_orientation_detection_data_signal(device.board)!
+            streamingCleanup.removeValue(forKey: signal)?()
+            accelerometerBMI160OrientLabel.text = "XXXXXXXXXXXXXX"
+        }
     }
 
     @IBAction func accelerometerBMI160StartStepPressed(_ sender: Any) {
-        accelerometerBMI160StartStep.isEnabled = false
-        accelerometerBMI160StopStep.isEnabled = true
-        updateAccelerometerBMI160Settings()
-        let signal = mbl_mw_acc_bmi160_get_step_detector_data_signal(device.board)!
-        mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
-            let _self: DeviceDetailViewController = bridge(ptr: context!)
-            _self.accelerometerBMI160StepCount += 1
-            DispatchQueue.main.async {
-                _self.accelerometerBMI160StepLabel.text = "Step Count: \(_self.accelerometerBMI160StepCount)"
+        if !bmi270 {
+            accelerometerBMI160StartStep.isEnabled = false
+            accelerometerBMI160StopStep.isEnabled = true
+            updateAccelerometerBMI160Settings()
+            let signal = mbl_mw_acc_bmi160_get_step_detector_data_signal(device.board)!
+            mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                _self.accelerometerBMI160StepCount += 1
+                DispatchQueue.main.async {
+                    _self.accelerometerBMI160StepLabel.text = "Step Count: \(_self.accelerometerBMI160StepCount)"
+                }
             }
-        }
-        mbl_mw_acc_bmi160_enable_step_detector(device.board)
-        mbl_mw_acc_start(device.board)
-        
-        streamingCleanup[signal] = {
-            mbl_mw_acc_stop(self.device.board)
-            mbl_mw_acc_bmi160_disable_step_detector(self.device.board)
-            mbl_mw_datasignal_unsubscribe(signal)
+            mbl_mw_acc_bmi160_enable_step_detector(device.board)
+            mbl_mw_acc_start(device.board)
+            
+            streamingCleanup[signal] = {
+                mbl_mw_acc_stop(self.device.board)
+                mbl_mw_acc_bmi160_disable_step_detector(self.device.board)
+                mbl_mw_datasignal_unsubscribe(signal)
+            }
         }
     }
 
     @IBAction func accelerometerBMI160StopStepPressed(_ sender: Any) {
-        accelerometerBMI160StartStep.isEnabled = true
-        accelerometerBMI160StopStep.isEnabled = false
-        let signal = mbl_mw_acc_bmi160_get_step_detector_data_signal(device.board)!
-        streamingCleanup.removeValue(forKey: signal)?()
-        accelerometerBMI160StepCount = 0
-        accelerometerBMI160StepLabel.text = "Step Count: 0"
+        if !bmi270 {
+            accelerometerBMI160StartStep.isEnabled = true
+            accelerometerBMI160StopStep.isEnabled = false
+            let signal = mbl_mw_acc_bmi160_get_step_detector_data_signal(device.board)!
+            streamingCleanup.removeValue(forKey: signal)?()
+            accelerometerBMI160StepCount = 0
+            accelerometerBMI160StepLabel.text = "Step Count: 0"
+        }
     }
 
     func updateGyroBMI160Settings() {
@@ -996,25 +1013,48 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         updateGyroBMI160Settings()
         gyroBMI160Data.removeAll()
         
-        let signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
-        mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
-            let acceleration: MblMwCartesianFloat = obj!.pointee.valueAs()
-            let _self: DeviceDetailViewController = bridge(ptr: context!)
-            DispatchQueue.main.async {
-                // TODO: Come up with a better graph interface, we need to scale value
-                // to show up right
-                _self.gyroBMI160Graph.addX(Double(acceleration.x * 0.008), y: Double(acceleration.y * 0.008), z: Double(acceleration.z * 0.008))
+        if bmi270 {
+            let signal = mbl_mw_gyro_bmi270_get_rotation_data_signal(device.board)!
+            mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
+                let acceleration: MblMwCartesianFloat = obj!.pointee.valueAs()
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                DispatchQueue.main.async {
+                    // TODO: Come up with a better graph interface, we need to scale value
+                    // to show up right
+                    _self.gyroBMI160Graph.addX(Double(acceleration.x * 0.008), y: Double(acceleration.y * 0.008), z: Double(acceleration.z * 0.008))
+                }
+                // Add data to data array for saving
+                _self.gyroBMI160Data.append((obj!.pointee.epoch, acceleration))
             }
-            // Add data to data array for saving
-            _self.gyroBMI160Data.append((obj!.pointee.epoch, acceleration))
-        }
-        mbl_mw_gyro_bmi160_enable_rotation_sampling(device.board)
-        mbl_mw_gyro_bmi160_start(device.board)
-        
-        streamingCleanup[signal] = {
-            mbl_mw_gyro_bmi160_stop(self.device.board)
-            mbl_mw_gyro_bmi160_disable_rotation_sampling(self.device.board)
-            mbl_mw_datasignal_unsubscribe(signal)
+            mbl_mw_gyro_bmi270_enable_rotation_sampling(device.board)
+            mbl_mw_gyro_bmi270_start(device.board)
+            
+            streamingCleanup[signal] = {
+                mbl_mw_gyro_bmi270_stop(self.device.board)
+                mbl_mw_gyro_bmi270_disable_rotation_sampling(self.device.board)
+                mbl_mw_datasignal_unsubscribe(signal)
+            }
+        } else {
+            let signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
+            mbl_mw_datasignal_subscribe(signal, bridge(obj: self)) { (context, obj) in
+                let acceleration: MblMwCartesianFloat = obj!.pointee.valueAs()
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                DispatchQueue.main.async {
+                    // TODO: Come up with a better graph interface, we need to scale value
+                    // to show up right
+                    _self.gyroBMI160Graph.addX(Double(acceleration.x * 0.008), y: Double(acceleration.y * 0.008), z: Double(acceleration.z * 0.008))
+                }
+                // Add data to data array for saving
+                _self.gyroBMI160Data.append((obj!.pointee.epoch, acceleration))
+            }
+            mbl_mw_gyro_bmi160_enable_rotation_sampling(device.board)
+            mbl_mw_gyro_bmi160_start(device.board)
+            
+            streamingCleanup[signal] = {
+                mbl_mw_gyro_bmi160_stop(self.device.board)
+                mbl_mw_gyro_bmi160_disable_rotation_sampling(self.device.board)
+                mbl_mw_datasignal_unsubscribe(signal)
+            }
         }
     }
 
@@ -1022,8 +1062,13 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         gyroBMI160StartStream.isEnabled = true
         gyroBMI160StopStream.isEnabled = false
         gyroBMI160StartLog.isEnabled = true
-        let signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
-        streamingCleanup.removeValue(forKey: signal)?()
+        var signal: OpaquePointer?
+        if bmi270 {
+            signal = mbl_mw_gyro_bmi270_get_rotation_data_signal(device.board)!
+        } else {
+            signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
+        }
+        streamingCleanup.removeValue(forKey: signal!)?()
     }
 
     @IBAction func gyroBMI160StartLogPressed(_ sender: Any) {
@@ -1033,16 +1078,29 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         gyroBMI160StopStream.isEnabled = false
         updateGyroBMI160Settings()
         
-        let signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
-        mbl_mw_datasignal_log(signal, bridge(obj: self)) { (context, logger) in
-            let _self: DeviceDetailViewController = bridge(ptr: context!)
-            let cString = mbl_mw_logger_generate_identifier(logger)!
-            let identifier = String(cString: cString)
-            _self.loggers[identifier] = logger!
+        if bmi270 {
+            let signal = mbl_mw_gyro_bmi270_get_rotation_data_signal(device.board)!
+            mbl_mw_datasignal_log(signal, bridge(obj: self)) { (context, logger) in
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                let cString = mbl_mw_logger_generate_identifier(logger)!
+                let identifier = String(cString: cString)
+                _self.loggers[identifier] = logger!
+            }
+            mbl_mw_logging_start(device.board, 0)
+            mbl_mw_gyro_bmi270_enable_rotation_sampling(device.board)
+            mbl_mw_gyro_bmi270_start(device.board)
+        } else {
+            let signal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
+            mbl_mw_datasignal_log(signal, bridge(obj: self)) { (context, logger) in
+                let _self: DeviceDetailViewController = bridge(ptr: context!)
+                let cString = mbl_mw_logger_generate_identifier(logger)!
+                let identifier = String(cString: cString)
+                _self.loggers[identifier] = logger!
+            }
+            mbl_mw_logging_start(device.board, 0)
+            mbl_mw_gyro_bmi160_enable_rotation_sampling(device.board)
+            mbl_mw_gyro_bmi160_start(device.board)
         }
-        mbl_mw_logging_start(device.board, 0)
-        mbl_mw_gyro_bmi160_enable_rotation_sampling(device.board)
-        mbl_mw_gyro_bmi160_start(device.board)
     }
 
     @IBAction func gyroBMI160StopLogPressed(_ sender: Any) {
@@ -1052,9 +1110,15 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         guard let logger = loggers.removeValue(forKey: "angular-velocity") else {
             return
         }
-        mbl_mw_gyro_bmi160_stop(device.board)
-        mbl_mw_gyro_bmi160_disable_rotation_sampling(device.board)
-        
+        if bmi270 {
+            mbl_mw_gyro_bmi270_stop(device.board)
+            mbl_mw_gyro_bmi270_disable_rotation_sampling(device.board)
+            mbl_mw_logging_flush_page(device.board)
+        } else {
+            mbl_mw_gyro_bmi160_stop(device.board)
+            mbl_mw_gyro_bmi160_disable_rotation_sampling(device.board)
+        }
+
         hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .determinateHorizontalBar
         hud.label.text = "Downloading..."
@@ -1175,6 +1239,9 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         }
         mbl_mw_mag_bmm150_stop(device.board)
         mbl_mw_mag_bmm150_disable_b_field_sampling(device.board)
+        if bmi270 {
+            mbl_mw_logging_flush_page(device.board)
+        }
         
         hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .determinateHorizontalBar
@@ -1948,6 +2015,9 @@ class DeviceDetailViewController: StaticDataTableViewController, UITextFieldDele
         }
         mbl_mw_sensor_fusion_stop(device.board)
         mbl_mw_sensor_fusion_clear_enabled_mask(device.board)
+        if bmi270 {
+            mbl_mw_logging_flush_page(device.board)
+        }
         
         hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .determinateHorizontalBar
