@@ -70,7 +70,7 @@ target 'MyApp' do
     // COCOA POD
     pod "MetaWear"
     // COCOA POD RELEASE SPECIFIC
-    pod "MetaWear", '~> '4.0.0'
+    pod "MetaWear", '~> '4.0.1'
 end
 ```
 Tip: CocoaPods provides a pod init command to create a Podfile with smart defaults. You should use it.

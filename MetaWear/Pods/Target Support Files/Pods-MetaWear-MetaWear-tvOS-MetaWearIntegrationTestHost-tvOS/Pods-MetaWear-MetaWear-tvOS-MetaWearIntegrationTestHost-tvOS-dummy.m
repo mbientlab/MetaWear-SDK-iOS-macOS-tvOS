@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS : NSObject
-@end
-@implementation PodsDummy_Pods_MetaWear_MetaWear_tvOS_MetaWearIntegrationTestHost_tvOS
-@end
