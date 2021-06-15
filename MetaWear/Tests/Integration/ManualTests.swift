@@ -131,7 +131,7 @@ class ManualTests: XCTestCase {
             mbl_mw_macro_record(device.board, 1)
             let switcher = mbl_mw_switch_get_state_data_signal(device.board)
             print("switch: ", switcher as Any)
-            switcher?.counterCreate().continueOnSuccessWithTask(device.apiAccessExecutor) { counter -> Task<OpaquePointer> in
+            switcher?.accounterCreateCount().continueOnSuccessWithTask(device.apiAccessExecutor) { counter -> Task<OpaquePointer> in
                 self.counter = counter
                 print("counter :",counter)
                 return counter.comparatorCreate(op: MBL_MW_COMPARATOR_OP_EQ, mode: MBL_MW_COMPARATOR_MODE_ABSOLUTE, references: [Float(2999)])
@@ -166,9 +166,9 @@ class ManualTests: XCTestCase {
                 return
             }
             device.flashLED(color: .green, intensity: 1.0, _repeat: 2)
-            mbl_mw_ibeacon_enable(device.board)
-            mbl_mw_ibeacon_set_major(device.board, 1111)
-            mbl_mw_ibeacon_set_minor(device.board, 2222)
+            //mbl_mw_ibeacon_enable(device.board)
+            //mbl_mw_ibeacon_set_major(device.board, 1111)
+            //mbl_mw_ibeacon_set_minor(device.board, 2222)
             mbl_mw_debug_disconnect(device.board)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 connectExpectation.fulfill()

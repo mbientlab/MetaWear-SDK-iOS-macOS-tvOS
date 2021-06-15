@@ -73,7 +73,9 @@ class MockPeripheral: CBPeripheral {
         modules[module.modId] = module
     }
     
-    private init(id: String, info: DeviceInformation, name: String? = nil) {
+    private convenience init(id: String, info: DeviceInformation, name: String? = nil) {
+        // TO DO - FIX MOCKS
+        self.init(id: id, info: info)
         self.mockName = name
         self.info = info
         self.notification = CBMutableCharacteristic(type: .metaWearNotification, properties: .notify, value: nil, permissions: .readable)
@@ -211,6 +213,20 @@ extension DeviceInformation {
         serialNumber: "FFFFFF",
         firmwareRevision: "1.3.6",
         hardwareRevision: "0.2"
+    )
+    public static let metaMotionRL = DeviceInformation(
+        manufacturer:  "MbientLab Inc",
+        modelNumber: "5",
+        serialNumber: "FFFFFF",
+        firmwareRevision: "1.3.6",
+        hardwareRevision: "0.6"
+    )
+    public static let metaMotionS = DeviceInformation(
+        manufacturer:  "MbientLab Inc",
+        modelNumber: "8",
+        serialNumber: "FFFFFF",
+        firmwareRevision: "1.3.6",
+        hardwareRevision: "0.1"
     )
 }
 

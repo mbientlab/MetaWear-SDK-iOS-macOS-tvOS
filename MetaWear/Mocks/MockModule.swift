@@ -107,6 +107,12 @@ class MockModule {
         return module
     }
     
+    static func accelBMI270(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x3
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 4, modRev: 0)
+        return module
+    }
+    
     static func magBMM150(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0x15
         let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 2)
@@ -207,6 +213,12 @@ class MockModule {
     static func gyroBMI160(peripheral: MockPeripheral) -> MockModule {
         let modId: UInt8 = 0x13
         let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 0, modRev: 1)
+        return module
+    }
+    
+    static func gyroBMI270(peripheral: MockPeripheral) -> MockModule {
+        let modId: UInt8 = 0x13
+        let module = MockModule(peripheral: peripheral, modId: modId, modImpl: 1, modRev: 0)
         return module
     }
     

@@ -73,6 +73,20 @@ class Tests: XCTestCase {
         device.clearAndReset()
     }
     
+    func testLED() {
+        expectation = XCTestExpectation(description: "led device")
+        // Hooray! We connected to a MetaWear board, so flash its LED!
+        var pattern = MblMwLedPattern()
+        mbl_mw_led_load_preset_pattern(&pattern, MBL_MW_LED_PRESET_BLINK)
+        //mbl_mw_led_stop_and_clear(device.board)
+        mbl_mw_led_write_pattern(device.board, &pattern, MBL_MW_LED_COLOR_GREEN)
+        mbl_mw_led_play(device.board)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            mbl_mw_debug_disconnect(self.device.board)
+            self.expectation!.fulfill()
+        }
+    }
+    
     func testSetDeviceName() {
         expectation = XCTestExpectation(description: "rename device")
         let name = "TEMPY"

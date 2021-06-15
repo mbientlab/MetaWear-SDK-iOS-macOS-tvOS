@@ -38,7 +38,7 @@ import MetaWearCpp
 
  /// Task wrappers around various CPP functions with callbacks
 extension OpaquePointer {
-    /// Tasky interface to reading a MetaWear data signal
+    /// Tasky interface to reading a MetaWear data signal mbl_mw_datasignal_subscribe
     /// Read signal
     public func read() -> Task<MetaWearData> {
         assert(mbl_mw_datasignal_is_readable(self) != 0)

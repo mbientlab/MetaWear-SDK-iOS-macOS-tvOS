@@ -65,8 +65,11 @@ Then list the dependencies in a text file named Podfile in your Xcode project di
 platform :ios, '8.0'
 use_frameworks!
 target 'MyApp' do
+    // LOCAL
     pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
+    // COCOA POD
     pod "MetaWear"
+    // COCOA POD RELEASE SPECIFIC
     pod "MetaWear", '~> '4.0.0'
 end
 ```
@@ -77,6 +80,13 @@ Now you can install the dependencies in your project:
 ```sh
 pod install
 ```
+
+It might be good to update:
+
+```sh
+pod update
+```
+
 Make sure to always open the Xcode workspace instead of the project file when building your project:
 
 ```sh
@@ -87,6 +97,7 @@ Now you can import your dependencies e.g.:
 ```sh
 #import MetaWear
 ```
+
 ### Usage
 Require the metawear package
 

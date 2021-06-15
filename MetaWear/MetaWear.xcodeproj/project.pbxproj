@@ -195,7 +195,6 @@
 		409EBC7520F5962E0050DF05 /* metawearscanner.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = metawearscanner.rst; sourceTree = "<group>"; };
 		409EBC7D20F5962E0050DF05 /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
 		409EBC8220F5962E0050DF05 /* conf.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
-		409EBC9C20F5962E0050DF05 /* project_setup.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project_setup.rst; sourceTree = "<group>"; };
 		40C71ED421B866560068FEE0 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		5AF78A37DB22BDC4AD33196D /* Pods-MetaWearIntegrationTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWearIntegrationTests-tvOS/Pods-MetaWearIntegrationTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +210,34 @@
 		9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6940A7253774BF00DA83FC /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		ABB5531F25F8316500F36FEC /* LoggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
+		ABBCEAE32679529000E70FAE /* peripherals.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = peripherals.rst; sourceTree = "<group>"; };
+		ABBCEAE42679529000E70FAE /* magnetometer.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = magnetometer.rst; sourceTree = "<group>"; };
+		ABBCEAE52679529000E70FAE /* event.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = event.rst; sourceTree = "<group>"; };
+		ABBCEAE62679529000E70FAE /* cppbridge.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = cppbridge.rst; sourceTree = "<group>"; };
+		ABBCEAE72679529000E70FAE /* sensor_fusion.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = sensor_fusion.rst; sourceTree = "<group>"; };
+		ABBCEAE82679529000E70FAE /* ambientlightsensor.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = ambientlightsensor.rst; sourceTree = "<group>"; };
+		ABBCEAE92679529000E70FAE /* led.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = led.rst; sourceTree = "<group>"; };
+		ABBCEAEA2679529100E70FAE /* barometer.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = barometer.rst; sourceTree = "<group>"; };
+		ABBCEAEB2679529100E70FAE /* core_modules.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = core_modules.rst; sourceTree = "<group>"; };
+		ABBCEAEC2679529100E70FAE /* macro.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = macro.rst; sourceTree = "<group>"; };
+		ABBCEAED2679529100E70FAE /* advanced_features.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = advanced_features.rst; sourceTree = "<group>"; };
+		ABBCEAEE2679529100E70FAE /* timer.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = timer.rst; sourceTree = "<group>"; };
+		ABBCEAEF2679529100E70FAE /* logging.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = logging.rst; sourceTree = "<group>"; };
+		ABBCEAF02679529100E70FAE /* accelerometer.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = accelerometer.rst; sourceTree = "<group>"; };
+		ABBCEAF12679529100E70FAE /* haptic.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = haptic.rst; sourceTree = "<group>"; };
+		ABBCEAF22679529100E70FAE /* gpio.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = gpio.rst; sourceTree = "<group>"; };
+		ABBCEAF32679529100E70FAE /* humidity.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = humidity.rst; sourceTree = "<group>"; };
+		ABBCEAF42679529200E70FAE /* i2c.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = i2c.rst; sourceTree = "<group>"; };
+		ABBCEAF52679529200E70FAE /* settings.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = settings.rst; sourceTree = "<group>"; };
+		ABBCEAF62679529200E70FAE /* spi.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = spi.rst; sourceTree = "<group>"; };
+		ABBCEAF72679529200E70FAE /* temperature.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = temperature.rst; sourceTree = "<group>"; };
+		ABBCEAF82679529200E70FAE /* gyro.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = gyro.rst; sourceTree = "<group>"; };
+		ABBCEAF92679529200E70FAE /* project.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = project.rst; sourceTree = "<group>"; };
+		ABBCEAFA2679529200E70FAE /* logger.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = logger.rst; sourceTree = "<group>"; };
+		ABBCEAFB2679529200E70FAE /* ibeacon.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = ibeacon.rst; sourceTree = "<group>"; };
+		ABBCEAFC2679529200E70FAE /* datasignal.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = datasignal.rst; sourceTree = "<group>"; };
+		ABBCEAFD2679529300E70FAE /* dataprocessor.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = dataprocessor.rst; sourceTree = "<group>"; };
+		ABBCEAFE2679529300E70FAE /* sensors.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = sensors.rst; sourceTree = "<group>"; };
 		ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerTests.swift; sourceTree = "<group>"; };
 		ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroscopeTests.swift; sourceTree = "<group>"; };
 		AD660D07C46FF62D5D8493F0 /* Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS/Pods-MetaWear-MetaWear-tvOS-MetaWearIntegrationTestHost-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -477,12 +504,39 @@
 		409EBC7020F5962E0050DF05 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				409EBC7C20F5962E0050DF05 /* _templates */,
-				409EBC8220F5962E0050DF05 /* conf.py */,
+				ABBCEAF02679529100E70FAE /* accelerometer.rst */,
+				ABBCEAED2679529100E70FAE /* advanced_features.rst */,
+				ABBCEAE82679529000E70FAE /* ambientlightsensor.rst */,
+				ABBCEAEA2679529100E70FAE /* barometer.rst */,
+				ABBCEAEB2679529100E70FAE /* core_modules.rst */,
+				ABBCEAE62679529000E70FAE /* cppbridge.rst */,
+				ABBCEAFD2679529300E70FAE /* dataprocessor.rst */,
+				ABBCEAFC2679529200E70FAE /* datasignal.rst */,
+				ABBCEAE52679529000E70FAE /* event.rst */,
+				ABBCEAF22679529100E70FAE /* gpio.rst */,
+				ABBCEAF82679529200E70FAE /* gyro.rst */,
+				ABBCEAF12679529100E70FAE /* haptic.rst */,
+				ABBCEAF32679529100E70FAE /* humidity.rst */,
+				ABBCEAF42679529200E70FAE /* i2c.rst */,
+				ABBCEAFB2679529200E70FAE /* ibeacon.rst */,
 				409EBC7420F5962E0050DF05 /* index.rst */,
-				409EBC9C20F5962E0050DF05 /* project_setup.rst */,
+				ABBCEAE92679529000E70FAE /* led.rst */,
+				ABBCEAFA2679529200E70FAE /* logger.rst */,
+				ABBCEAEF2679529100E70FAE /* logging.rst */,
+				ABBCEAEC2679529100E70FAE /* macro.rst */,
+				ABBCEAE42679529000E70FAE /* magnetometer.rst */,
 				409EBC7120F5962E0050DF05 /* metawearboard.rst */,
 				409EBC7520F5962E0050DF05 /* metawearscanner.rst */,
+				ABBCEAE32679529000E70FAE /* peripherals.rst */,
+				ABBCEAF92679529200E70FAE /* project.rst */,
+				ABBCEAE72679529000E70FAE /* sensor_fusion.rst */,
+				ABBCEAFE2679529300E70FAE /* sensors.rst */,
+				ABBCEAF52679529200E70FAE /* settings.rst */,
+				ABBCEAF62679529200E70FAE /* spi.rst */,
+				ABBCEAF72679529200E70FAE /* temperature.rst */,
+				ABBCEAEE2679529100E70FAE /* timer.rst */,
+				409EBC7C20F5962E0050DF05 /* _templates */,
+				409EBC8220F5962E0050DF05 /* conf.py */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -1539,6 +1593,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Debug;
 		};
@@ -1566,6 +1621,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Release;
 		};
@@ -1594,6 +1650,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Debug;
 		};
@@ -1622,6 +1679,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Release;
 		};
@@ -1872,6 +1930,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.5;
 			};
 			name = Debug;
 		};
@@ -1894,6 +1953,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.5;
 			};
 			name = Release;
 		};
@@ -1959,6 +2019,7 @@
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1981,6 +2042,7 @@
 				DEVELOPMENT_TEAM = S2273LZ6GL;
 				INFOPLIST_FILE = "Tests/MetaWearIntegrationTestHost-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mbientlab.MetaWearIntegrationTestHost-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2082,8 +2144,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -2134,8 +2196,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;

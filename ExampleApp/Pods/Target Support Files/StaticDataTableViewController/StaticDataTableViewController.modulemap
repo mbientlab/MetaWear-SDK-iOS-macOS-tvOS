@@ -1,6 +1,0 @@
-framework module StaticDataTableViewController {
-  umbrella header "StaticDataTableViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

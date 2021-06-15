@@ -1,6 +1,0 @@
-framework module MetaWear {
-  umbrella header "MetaWear-umbrella.h"
-
-  export *
-  module * { export * }
-}

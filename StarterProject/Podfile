@@ -4,23 +4,23 @@ abstract_target 'Starter' do
   ## LOCAL
   pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI'], :path => '../'
   ## COCOAPODS
-  #pod 'MetaWear', :subspecs => ['Core', 'AsyncUtils', 'UI']
+  #pod 'MetaWear'
 
   target 'iOS' do
-    platform :ios, '10.0'
+    platform :ios, '14.5'
 
     # Pods for iOS
     pod 'MBProgressHUD'
   end
 
   target 'macOS' do
-    platform :osx, '10.14'
+    platform :osx, '11.3'
 
     # Pods for macOS
   end
 
   target 'tvOS' do
-    platform :tvos, '10.0'
+    platform :tvos, '14.5'
 
     # Pods for tvOS
     pod 'MBProgressHUD'
