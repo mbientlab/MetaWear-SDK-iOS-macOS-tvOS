@@ -1,8 +1,10 @@
 # OS X
 .DS_Store
 
-# Xcode
+# Docs
 build/
+
+# Xcode
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -21,6 +23,8 @@ DerivedData
 
 # Bundler
 .bundle
+
+*/Pods
 
 Carthage
 # We recommend against adding the Pods directory to your .gitignore. However
