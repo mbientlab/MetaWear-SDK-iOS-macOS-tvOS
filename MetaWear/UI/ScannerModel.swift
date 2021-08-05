@@ -37,7 +37,7 @@ import CoreBluetooth
 import MetaWearCpp
 
 /// Callbacks from ScannerModel
-public protocol ScannerModelDelegate: class {
+public protocol ScannerModelDelegate: AnyObject {
     func scannerModel(_ scannerModel: ScannerModel, didAddItemAt idx: Int)
     func scannerModel(_ scannerModel: ScannerModel, confirmBlinkingItem item: ScannerModelItem, callback: @escaping (Bool) -> Void)
     func scannerModel(_ scannerModel: ScannerModel, errorDidOccur error: Error)

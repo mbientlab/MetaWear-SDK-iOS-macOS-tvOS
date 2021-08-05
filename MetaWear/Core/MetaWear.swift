@@ -318,13 +318,13 @@ public class MetaWear: NSObject {
         invokeConnectionHandlers(error: error, cancelled: false)
         invokeDisconnectionHandlers(error: error)
         
-        logDelegate?.logWith(.info, message: "didFailToConnect: \(error)")
+        logDelegate?.logWith(.info, message: "didFailToConnect: \(String(describing: error))")
     }
     func didDisconnectPeripheral(error: Error?) {
         invokeConnectionHandlers(error: error, cancelled: error == nil)
         invokeDisconnectionHandlers(error: error)
         
-        logDelegate?.logWith(.info, message: "didDisconnectPeripheral: \(error)")
+        logDelegate?.logWith(.info, message: "didDisconnectPeripheral: \(String(describing: error))")
     }
     func invokeDisconnectionHandlers(error: Error?) {
         assert(DispatchQueue.isBleQueue)
