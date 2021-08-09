@@ -155,7 +155,9 @@ extension URL {
         let source = TaskCompletionSource<URL>()
         // Go grab the file at the URL
         let url = self
+#if DEBUG
         print("Downloading... \(url)")
+#endif
         session.downloadTask(with: url) { (location, response, error) in
             guard error == nil else {
                 source.trySet(error: error!)
@@ -179,7 +181,9 @@ extension URL {
                 try? FileManager.default.removeItem(at: tempUrl)
                 try FileManager.default.copyItem(at: location!, to: tempUrl)
                 source.trySet(result: tempUrl)
+#if DEBUG
                 print("Download Complete")
+#endif
             } catch {
                 source.trySet(error: FirmwareError.cannotSaveFile(message: "Couldn't find temp directory to store firmware file.  Please report issue to developers@mbientlab.com"))
             }
