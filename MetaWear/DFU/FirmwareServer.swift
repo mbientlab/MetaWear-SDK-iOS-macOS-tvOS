@@ -49,6 +49,9 @@ public enum FirmwareError: Error {
 
 /// Used for interfacing with the MbientLab firmware server
 public class FirmwareServer {
+
+    public static let session = URLSession(configuration: .ephemeral)
+
     /// Find all compatible firmware for the given device type
     public static func getAllFirmwareAsync(hardwareRev: String,
                                            modelNumber: String,
@@ -59,7 +62,7 @@ public class FirmwareServer {
         let request = URLRequest(url: URL(string: "https://mbientlab.com/releases/metawear/info2.json")!,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10)
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 source.trySet(error: error!)
                 return
@@ -152,8 +155,10 @@ extension URL {
         let source = TaskCompletionSource<URL>()
         // Go grab the file at the URL
         let url = self
+#if DEBUG
         print("Downloading... \(url)")
-        URLSession.shared.downloadTask(with: url) { (location, response, error) in
+#endif
+        session.downloadTask(with: url) { (location, response, error) in
             guard error == nil else {
                 source.trySet(error: error!)
                 return
@@ -170,13 +175,15 @@ extension URL {
             // variable suppiled is invalid once this block returns.
             do {
                 let tempUrl = try FileManager.default.url(for: .itemReplacementDirectory,
-                                                          in: .userDomainMask,
-                                                          appropriateFor: location,
-                                                          create: true).appendingPathComponent(url.lastPathComponent)
+                                                             in: .userDomainMask,
+                                                             appropriateFor: location,
+                                                             create: true).appendingPathComponent(url.lastPathComponent)
                 try? FileManager.default.removeItem(at: tempUrl)
                 try FileManager.default.copyItem(at: location!, to: tempUrl)
                 source.trySet(result: tempUrl)
+#if DEBUG
                 print("Download Complete")
+#endif
             } catch {
                 source.trySet(error: FirmwareError.cannotSaveFile(message: "Couldn't find temp directory to store firmware file.  Please report issue to developers@mbientlab.com"))
             }
