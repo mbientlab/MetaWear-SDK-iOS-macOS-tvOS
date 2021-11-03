@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = 'MetaWear'
-  s.version            = '4.0.2'
+  s.version            = '4.1.0'
   s.license            = { :type => 'Commercial', :text => 'See https://www.mbientlab.com/terms/', :file => 'LICENSE.md' }
   s.homepage           = 'https://mbientlab.com'
   s.summary            = 'iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform'
@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
                            :tag => s.version.to_s, :submodules => true }
 
   s.platform = :ios, :osx, :tvos, :watchos
-  s.ios.deployment_target = '14.5'
-  s.osx.deployment_target = '11.3'
-  s.tvos.deployment_target = '14.5'
-  s.watchos.deployment_target = '7.4'
+  s.ios.deployment_target = '14.0'
+  s.osx.deployment_target = '11.0'
+  s.tvos.deployment_target = '14.0'
+  s.watchos.deployment_target = '7.0'
 
   s.swift_version = '5.0'
 
@@ -60,8 +60,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'DFU' do |s|
-      s.ios.deployment_target = '14.5'
-      s.osx.deployment_target = '11.3'
+      s.ios.deployment_target = '14.0'
+      s.osx.deployment_target = '11.0'
 
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'

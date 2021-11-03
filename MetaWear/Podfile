@@ -2,7 +2,7 @@ use_frameworks!
 
 abstract_target 'MetaWear' do
     abstract_target 'MetaWear-iOS' do
-        platform :ios, '14.5'
+        platform :ios, '14.0'
         ## LOCAL
 	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'DFU'], :path => '../'
         
@@ -17,7 +17,7 @@ abstract_target 'MetaWear' do
     end
     
     abstract_target 'MetaWear-macOS' do
-        platform :osx, '11.3'
+        platform :osx, '11.0'
         ## LOCAL
 	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'DFU'], :path => '../'
         
@@ -32,7 +32,7 @@ abstract_target 'MetaWear' do
     end
     
     abstract_target 'MetaWear-tvOS' do
-        platform :tvos, '14.5'
+        platform :tvos, '14.0'
         ## LOCAL
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
 
@@ -48,7 +48,7 @@ abstract_target 'MetaWear' do
     
     
     abstract_target 'MetaWear-watchOS' do
-        platform :watchos, '7.4'
+        platform :watchos, '7.0'
         ## LOCAL
         pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils'], :path => '../'
         
