@@ -59,20 +59,12 @@ Pod::Spec.new do |s|
     s.dependency 'MetaWear/AsyncUtils'
   end
 
-  s.subspec 'Mocks' do |s|
-    s.ios.deployment_target = '14.5'
-    s.osx.deployment_target = '11.3'
-      
-    s.source_files = 'MetaWear/Mocks/**/*'
-    s.dependency 'MetaWear/Core'
-  end
-  
   s.subspec 'DFU' do |s|
       s.ios.deployment_target = '14.5'
       s.osx.deployment_target = '11.3'
 
       s.source_files = 'MetaWear/DFU/**/*'
       s.dependency 'MetaWear/Core'
-      s.dependency 'iOSDFULibrary', '4.11.0'
+      s.dependency 'iOSDFULibrary'
   end
 end

@@ -4,7 +4,7 @@ abstract_target 'MetaWear' do
     abstract_target 'MetaWear-iOS' do
         platform :ios, '14.5'
         ## LOCAL
-	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'DFU'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-iOS' do
             target 'MetaWearIntegrationTests-iOS' do
@@ -19,7 +19,7 @@ abstract_target 'MetaWear' do
     abstract_target 'MetaWear-macOS' do
         platform :osx, '11.3'
         ## LOCAL
-	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU'], :path => '../'
+	pod 'MetaWear', :subspecs => ['UI', 'AsyncUtils', 'DFU'], :path => '../'
         
         target 'MetaWearIntegrationTestHost-macOS' do
             target 'MetaWearIntegrationTests-macOS' do

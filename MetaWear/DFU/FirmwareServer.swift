@@ -47,10 +47,10 @@ public enum FirmwareError: Error {
     case cannotSaveFile(message: String)
 }
 
+public let session = URLSession(configuration: .ephemeral)
+
 /// Used for interfacing with the MbientLab firmware server
 public class FirmwareServer {
-
-    public static let session = URLSession(configuration: .ephemeral)
 
     /// Find all compatible firmware for the given device type
     public static func getAllFirmwareAsync(hardwareRev: String,

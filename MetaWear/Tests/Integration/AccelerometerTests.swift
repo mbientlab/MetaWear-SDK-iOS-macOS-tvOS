@@ -165,6 +165,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // NOT CURRENTLY WORKING
     func testAccelPackedData() {
         let expectation = XCTestExpectation(description: "get accel data")
         // Set the max range of the accelerometer

@@ -62,15 +62,15 @@ sudo gem install cocoapods
 Then list the dependencies in a text file named Podfile in your Xcode project directory:
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '14.0'
 use_frameworks!
 target 'MyApp' do
     // LOCAL
-    pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'Mocks', 'DFU']
+    pod "MetaWear", :subspecs => ['UI', 'AsyncUtils', 'DFU']
     // COCOA POD
     pod "MetaWear"
     // COCOA POD RELEASE SPECIFIC
-    pod "MetaWear", '~> '4.0.1'
+    pod "MetaWear", '~> '4.0.2'
 end
 ```
 Tip: CocoaPods provides a pod init command to create a Podfile with smart defaults. You should use it.
