@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2021-11-03
+### Update and Error Fix
+- Update iOSDUFLibrary 
+- Remove Mocks 
+- Update CPP lib (fix odr bug)
+- Add more Tests
+- Lower required versions 
+
 ## [4.0.2] - 2021-08-05
 ### Update
 - Update iOSDUFLibrary pod for Swift 5.5 CBPeripheral API change 
