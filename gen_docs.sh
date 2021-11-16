@@ -9,7 +9,7 @@ jazzy \
     --github_url https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS \
     --github-file-prefix https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/$1/MetaWear \
     --module-version $1 \
-    --xcodebuild-arguments -UseModernBuildSystem=YES,-workspace,MetaWear.xcworkspace,-scheme,MetaWear-AsyncUtils-Core-DFU-Mocks-UI-iOS \
+    --xcodebuild-arguments -UseModernBuildSystem=YES,-workspace,MetaWear.xcworkspace,-scheme,MetaWear-AsyncUtils-Core-DFU-UI-iOS \
     --module MetaWear \
     --exclude=MetaWear/MetaWear-SDK-Cpp/* \
     --readme README.md \

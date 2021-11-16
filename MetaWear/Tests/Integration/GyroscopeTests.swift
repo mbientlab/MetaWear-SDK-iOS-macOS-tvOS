@@ -74,6 +74,7 @@ class GyroscopeTests: XCTestCase {
         device.clearAndReset()
     }
     
+    // MMRL, MMC, and MMR ONLY
     func testGyroBMI160Data() {
         let expectation = XCTestExpectation(description: "get gyro data")
         // Set the max range of the accelerometer
@@ -109,6 +110,7 @@ class GyroscopeTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testGyroBMI270Data() {
         let expectation = XCTestExpectation(description: "get gyro data")
         // Set the max range of the accelerometer
@@ -144,6 +146,7 @@ class GyroscopeTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMRL, MMR and MMC ONLY
     func testGyroBMI160PackedData() {
         let expectation = XCTestExpectation(description: "get gyro packed data")
         // Set the max range of the accelerometer
@@ -179,6 +182,7 @@ class GyroscopeTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testGyroBMI270PackedData() {
         let expectation = XCTestExpectation(description: "get gyro packed data")
         // Set the max range of the accelerometer

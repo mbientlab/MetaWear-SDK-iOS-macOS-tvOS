@@ -60,6 +60,9 @@
 		ABB5532025F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
 		ABB5532125F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
 		ABB5532225F8316500F36FEC /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5531F25F8316500F36FEC /* LoggingTests.swift */; };
+		ABB6C6DE2744276900A98D6C /* RandomLoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6C6DD2744276900A98D6C /* RandomLoggingTests.swift */; };
+		ABB6C6DF2744276900A98D6C /* RandomLoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6C6DD2744276900A98D6C /* RandomLoggingTests.swift */; };
+		ABB6C6E02744276900A98D6C /* RandomLoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6C6DD2744276900A98D6C /* RandomLoggingTests.swift */; };
 		ABEEADC325D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
 		ABEEADC425D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
 		ABEEADC525D7580300AD1F88 /* AccelerometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */; };
@@ -210,6 +213,7 @@
 		9D2CC86004B9E8F7F816C2E3 /* Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS/Pods-MetaWear-MetaWear-iOS-MetaWearUnitTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6940A7253774BF00DA83FC /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		ABB5531F25F8316500F36FEC /* LoggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
+		ABB6C6DD2744276900A98D6C /* RandomLoggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLoggingTests.swift; sourceTree = "<group>"; };
 		ABBCEAE32679529000E70FAE /* peripherals.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = peripherals.rst; sourceTree = "<group>"; };
 		ABBCEAE42679529000E70FAE /* magnetometer.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = magnetometer.rst; sourceTree = "<group>"; };
 		ABBCEAE52679529000E70FAE /* event.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = event.rst; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				ABEEADC225D7580300AD1F88 /* AccelerometerTests.swift */,
 				ABEEADC625D758FF00AD1F88 /* GyroscopeTests.swift */,
 				ABB5531F25F8316500F36FEC /* LoggingTests.swift */,
+				ABB6C6DD2744276900A98D6C /* RandomLoggingTests.swift */,
 			);
 			path = Integration;
 			sourceTree = "<group>";
@@ -1437,6 +1442,7 @@
 			files = (
 				ABB5532025F8316500F36FEC /* LoggingTests.swift in Sources */,
 				ABEEADC325D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABB6C6DE2744276900A98D6C /* RandomLoggingTests.swift in Sources */,
 				ABEEADC725D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				4058ABC5211D10A600A50323 /* Tests.swift in Sources */,
 				4058ABC6211D10AA00A50323 /* ManualTests.swift in Sources */,
@@ -1467,6 +1473,7 @@
 			files = (
 				ABB5532225F8316500F36FEC /* LoggingTests.swift in Sources */,
 				ABEEADC525D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABB6C6E02744276900A98D6C /* RandomLoggingTests.swift in Sources */,
 				ABEEADC925D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				404057B4209A7CB700591D6B /* ManualTests.swift in Sources */,
 				404057B7209A7CB700591D6B /* Tests.swift in Sources */,
@@ -1488,6 +1495,7 @@
 			files = (
 				ABB5532125F8316500F36FEC /* LoggingTests.swift in Sources */,
 				ABEEADC425D7580300AD1F88 /* AccelerometerTests.swift in Sources */,
+				ABB6C6DF2744276900A98D6C /* RandomLoggingTests.swift in Sources */,
 				ABEEADC825D758FF00AD1F88 /* GyroscopeTests.swift in Sources */,
 				404057B3209A7CB700591D6B /* ManualTests.swift in Sources */,
 				404057B6209A7CB700591D6B /* Tests.swift in Sources */,
@@ -1594,7 +1602,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Debug;
 		};
@@ -1623,7 +1631,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 4;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Release;
 		};
@@ -1653,7 +1661,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Debug;
 		};
@@ -1683,7 +1691,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 4;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Release;
 		};
@@ -2189,7 +2197,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Debug;
 		};
@@ -2242,7 +2250,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
 			};
 			name = Release;
 		};

@@ -152,6 +152,7 @@ class Tests: XCTestCase {
         wait(for: [expectation!], timeout: 30)
     }
     
+    // WORKS ON MMRL, MMR and MMC ONLY
     func testBMI160Fuser() {
         expectation = XCTestExpectation(description: "get accel logger")
         mbl_mw_acc_set_odr(device.board, 25)
@@ -164,7 +165,7 @@ class Tests: XCTestCase {
             mbl_mw_datasignal_log(fuser, bridge(obj: self)) { (context, logger) in
                 let this: Tests = bridge(ptr: context!)
                 this.fuser = logger!
-                print("Started logger: ", this.fuser)
+                print("Started logger: ", this.fuser as Any)
             }
         }
         mbl_mw_acc_enable_acceleration_sampling(device.board)
@@ -201,6 +202,7 @@ class Tests: XCTestCase {
         wait(for: [expectation!], timeout: 60)
     }
     
+    // WORKS ON MMS ONLY
     func testBMI270Fuser() {
         expectation = XCTestExpectation(description: "get accel logger")
         mbl_mw_acc_set_odr(device.board, 25)
@@ -213,7 +215,7 @@ class Tests: XCTestCase {
             mbl_mw_datasignal_log(fuser, bridge(obj: self)) { (context, logger) in
                 let this: Tests = bridge(ptr: context!)
                 this.fuser = logger!
-                print("Started logger: ", this.fuser)
+                print("Started logger: ", this.fuser as Any)
             }
         }
         mbl_mw_acc_enable_acceleration_sampling(device.board)
@@ -262,7 +264,7 @@ class Tests: XCTestCase {
         mbl_mw_datasignal_log(eulerSignal, bridge(obj: self)) { (context, logger) in
             let this: Tests = bridge(ptr: context!)
             this.fuser = logger!
-            print("Started logger: ", this.fuser)
+            print("Started logger: ", this.fuser as Any)
         }
         mbl_mw_logging_start(device.board, 0)
         mbl_mw_sensor_fusion_clear_enabled_mask(device.board)

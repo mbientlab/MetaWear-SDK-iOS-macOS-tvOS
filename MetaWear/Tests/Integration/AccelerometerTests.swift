@@ -15,6 +15,8 @@ import BoltsSwift
 class AccelerometerTests: XCTestCase {
     var device: MetaWear!
     var data: [MetaWearData] = []
+    var timesStamps: [Date] = []
+    var steps = 0
     var waitForDisconnection: Task<MetaWear>?
     var expectation: XCTestExpectation?
     var counter: Int = 0
@@ -78,11 +80,11 @@ class AccelerometerTests: XCTestCase {
     func testReadAccelDataConfig() {
         let expectation = XCTestExpectation(description: "get accel data config")
         mbl_mw_acc_read_config(device.board, bridge(obj: self)) { (context, board, value) in
-            let i16 = context!.load(as: UInt16.self)
-            print(i16)
-            let i16bufptr = UnsafeBufferPointer(start: context!.assumingMemoryBound(to: UInt16.self), count: 1)
-            let i16array = Array(i16bufptr)
-            print(i16array)
+            //let i16 = context!.load(as: UInt16.self)
+            //print(i16)
+            //let i16bufptr = UnsafeBufferPointer(start: context!.assumingMemoryBound(to: UInt16.self), count: 1)
+            //let i16array = Array(i16bufptr)
+            //print(i16array)
             let i8bufptr = UnsafeBufferPointer(start: context!.assumingMemoryBound(to: UInt8.self), count: 2)
             let i8array = Array(i8bufptr)
             print(i8array)
@@ -114,7 +116,7 @@ class AccelerometerTests: XCTestCase {
             default:
                 print("Unknown ODR")
             }
-            switch MblMwAccBoschRange(rawValue: UInt32((i8array[1] & 0x0F))) {
+            switch MblMwAccBoschRange(rawValue: UInt32((i8array[1] & 0x03))) {
             case MBL_MW_ACC_BOSCH_RANGE_2G:
                 print("Range = 2G")
             case MBL_MW_ACC_BOSCH_RANGE_4G:
@@ -142,7 +144,7 @@ class AccelerometerTests: XCTestCase {
         // Get acc signal
         let accSignal = mbl_mw_acc_get_acceleration_data_signal(device.board) //mbl_mw_acc_bosch_get_acceleration_data_signal
         mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             print(dataPtr!.pointee.valueAs() as MblMwCartesianFloat)
             this.data.append(dataPtr!.pointee.copy())
         }
@@ -165,7 +167,68 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
-    // NOT CURRENTLY WORKING
+    func testAccelDataRate() {
+        let expectation = XCTestExpectation(description: "get accel data")
+        // Set the max range of the accelerometer
+        mbl_mw_acc_set_range(device.board, 4.0)
+        mbl_mw_acc_set_odr(device.board, 100)
+        mbl_mw_acc_write_acceleration_config(device.board)
+        // Get acc signal
+        let accSignal = mbl_mw_acc_get_acceleration_data_signal(device.board) //mbl_mw_acc_bosch_get_acceleration_data_signal
+        mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
+            let this: AccelerometerTests = bridge(ptr: context!)
+            let df = DateFormatter()
+            df.dateFormat = "y-MM-dd H:m:ss.SSSS"
+            //let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
+            //print(dataPtr!.pointee.epoch, date, dataPtr!.pointee.valueAs() as MblMwCartesianFloat)
+            this.timesStamps.append(Date(timeIntervalSince1970: TimeInterval(dataPtr!.pointee.epoch)))
+            this.data.append(dataPtr!.pointee.copy())
+        }
+        // Start sampling and start acc
+        mbl_mw_acc_enable_acceleration_sampling(device.board)
+        mbl_mw_acc_start(device.board)
+        // Stop after 5 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            // Stop the stream
+            mbl_mw_acc_stop(self.device.board)
+            mbl_mw_acc_disable_acceleration_sampling(self.device.board)
+            mbl_mw_datasignal_unsubscribe(accSignal)
+            sleep(2)
+            //var i = 0
+            /*while i<self.timesStamps.count {
+                //print("\(self.timesStamps[i])")
+                if (i > 0) {
+                    let difference = Calendar.current.dateComponents([.second], from: self.timesStamps[i-1], to: self.timesStamps[i])
+                    let formattedString = String(format: "%02ld", difference.second!)
+                    print(formattedString)
+                    
+                }
+                let pt: MblMwCartesianFloat = self.data[i].valueAs()
+                print("\(self.timesStamps[i]) \(pt.x) \(pt.y) \(pt.z)")
+                i = i+1
+            }*/
+            //for entry in self.timesStamps {
+            //    let epoch = entry
+            //    print("\(epoch)")
+            //}
+            //for entry in self.data {
+            //    let pt: MblMwCartesianFloat = entry.valueAs()
+            //    let date = entry.timestamp
+            //    print("\(date) \(pt.x) \(pt.y) \(pt.z)")
+            //}
+            print("COUNT SHOULD BE NEAR 500")
+            print("COUNT: \(self.timesStamps.count)")
+            //print(self.timesStamps[0])
+            //print(self.timesStamps[self.timesStamps.count-1])
+            //let difference = Calendar.current.dateComponents([.second], from: self.timesStamps[0], to: self.timesStamps[self.timesStamps.count-1])
+            //let formattedString = String(format: "%02ld", difference.second!)
+            //print(formattedString)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 30)
+    }
+    
+    // NOT WORKING
     func testAccelPackedData() {
         let expectation = XCTestExpectation(description: "get accel data")
         // Set the max range of the accelerometer
@@ -175,7 +238,7 @@ class AccelerometerTests: XCTestCase {
         // Get acc signal
         let accSignal = mbl_mw_acc_bosch_get_packed_acceleration_data_signal(device.board) // same as mbl_mw_acc_get_packed_acceleration_data_signal
         mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             print(dataPtr!.pointee.valueAs() as [MblMwCartesianFloat])
             this.data.append(dataPtr!.pointee.copy())
         }
@@ -223,6 +286,7 @@ class AccelerometerTests: XCTestCase {
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
                 let this: AccelerometerTests = bridge(ptr: context!)
                 if remainingEntries == 0 {
+                    mbl_mw_logger_remove(this.logger)
                     print("done")
                     this.expectation?.fulfill()
                 }
@@ -238,6 +302,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation!], timeout: 35)
     }
     
+    // MMS ONLY
     func testAccelAnyMotionData() {
         let expectation = XCTestExpectation(description: "get accel any motion data")
         // Start the accelerometer
@@ -253,7 +318,7 @@ class AccelerometerTests: XCTestCase {
         // Get any motion signal
         let accAnyMotionSignal = mbl_mw_acc_bosch_get_motion_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accAnyMotionSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -280,6 +345,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelNoMotionData() {
         let expectation = XCTestExpectation(description: "get accel no motion data")
         // Start the accelerometer
@@ -295,7 +361,7 @@ class AccelerometerTests: XCTestCase {
         // Get any motion signal
         let accNoMotionSignal = mbl_mw_acc_bosch_get_motion_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accNoMotionSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -322,6 +388,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelSigMotionData() {
         let expectation = XCTestExpectation(description: "get accel sig motion data")
         // Start the accelerometer
@@ -336,7 +403,7 @@ class AccelerometerTests: XCTestCase {
         // Get any motion signal
         let accSigMotionSignal = mbl_mw_acc_bosch_get_motion_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accSigMotionSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -363,6 +430,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelStepDetectorData() {
         let expectation = XCTestExpectation(description: "get accel step detector data")
         // Start the accelerometer
@@ -374,33 +442,31 @@ class AccelerometerTests: XCTestCase {
         // Get any motion signal
         let accStepSignal = mbl_mw_acc_bmi270_get_step_detector_data_signal(device.board) //mbl_mw_acc_bmi160_get_step_detector_data_signal
         mbl_mw_datasignal_subscribe(accStepSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
             print(dataPtr!.pointee.epoch, date, "Step detected")
-            this.data.append(dataPtr!.pointee.copy())
+            this.steps = this.steps+1
         }
         // Start detecting motion and turn on acc
         mbl_mw_acc_bmi270_enable_step_detector(device.board)
         // Stop after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
             // Stop the stream
             mbl_mw_acc_bmi270_disable_step_detector(self.device.board)
             // Stop the accelerometer
             mbl_mw_acc_stop(self.device.board)
             // Unsubscribe to any motion
             mbl_mw_datasignal_unsubscribe(accStepSignal)
-            for entry in self.data {
-                let pt: UInt32 = entry.valueAs()
-                print("\(pt)")
-            }
+            print("You took this many steps:", self.steps)
             
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testReadAccelStepCounterData() {
         let expectation = XCTestExpectation(description: "read accel step counter data")
         // Read
@@ -408,12 +474,13 @@ class AccelerometerTests: XCTestCase {
             print("GOT THIS:", value)
         }
         // Stop after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelStepCounterData() {
         let expectation = XCTestExpectation(description: "get accel step counter data")
         // Start the accelerometer
@@ -430,7 +497,7 @@ class AccelerometerTests: XCTestCase {
         // Get any motion signal
         let accStepSignal = mbl_mw_acc_bmi270_get_step_counter_data_signal(device.board) //mbl_mw_acc_bmi160_get_step_counter_data_signal
         mbl_mw_datasignal_subscribe(accStepSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -459,6 +526,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
 
+    // MMS ONLY
     func testAccelWristGestureData() {
         let expectation = XCTestExpectation(description: "get accel wrist gesture data")
         // Start the accelerometer
@@ -476,7 +544,7 @@ class AccelerometerTests: XCTestCase {
         // Get gesture signal
         let accSignal = mbl_mw_acc_bmi270_get_wrist_detector_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -527,6 +595,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelWristWakeupData() {
         let expectation = XCTestExpectation(description: "get accel wrist gesture data")
         // Start the accelerometer
@@ -546,7 +615,7 @@ class AccelerometerTests: XCTestCase {
         // Get gesture signal
         let accSignal = mbl_mw_acc_bmi270_get_wrist_detector_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"
@@ -597,6 +666,7 @@ class AccelerometerTests: XCTestCase {
         wait(for: [expectation], timeout: 30)
     }
     
+    // MMS ONLY
     func testAccelActivityData() {
         let expectation = XCTestExpectation(description: "get accel activity data")
         // Start the accelerometer
@@ -608,7 +678,7 @@ class AccelerometerTests: XCTestCase {
         // Get gesture signal
         let accSignal = mbl_mw_acc_bmi270_get_activity_detector_data_signal(device.board)
         mbl_mw_datasignal_subscribe(accSignal, bridge(obj: self)) { (context, dataPtr) in
-            let this: Tests = bridge(ptr: context!)
+            let this: AccelerometerTests = bridge(ptr: context!)
             let df = DateFormatter()
             df.dateFormat = "y-MM-dd H:m:ss.SSSS"
             let date = df.string(from: dataPtr!.pointee.timestamp) // -> "2016-11-17 17:51:15.1720"

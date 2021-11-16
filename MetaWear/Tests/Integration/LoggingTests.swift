@@ -90,7 +90,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.logger = logger!
-            print("Started logger: ", this.logger)
+            print("Started logger: ", this.logger as Any)
         }
         mbl_mw_logging_start(device.board, 0)
         mbl_mw_acc_enable_acceleration_sampling(device.board)
@@ -109,7 +109,7 @@ class LoggingTests: XCTestCase {
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
                 let this: LoggingTests = bridge(ptr: context!)
                 if remainingEntries == 0 {
-                    print("done with logger: ", this.logger)
+                    print("done with logger: ", this.logger as Any)
                     mbl_mw_logger_remove(this.logger)
                     this.expectation?.fulfill()
                 }
@@ -122,9 +122,10 @@ class LoggingTests: XCTestCase {
             }
             mbl_mw_logging_download(self.device.board, 0, &self.handlers)
         }
-        wait(for: [expectation!], timeout: 60)
+        wait(for: [expectation!], timeout: 600)
     }
     
+    // MMRL, MMC, and MMR ONLY
     func testGyroBMI160Logging() {
         expectation = XCTestExpectation(description: "get accel logger")
         let gyroSignal = mbl_mw_gyro_bmi160_get_rotation_data_signal(device.board)!
@@ -137,7 +138,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.logger = logger!
-            print("Started logger: ", this.logger)
+            print("Started logger: ", this.logger as Any)
         }
         mbl_mw_gyro_bmi160_enable_rotation_sampling(device.board)
         mbl_mw_gyro_bmi160_start(device.board)
@@ -156,7 +157,7 @@ class LoggingTests: XCTestCase {
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
                 let this: LoggingTests = bridge(ptr: context!)
                 if remainingEntries == 0 {
-                    print("done with logger: ", this.logger)
+                    print("done with logger: ", this.logger as Any)
                     mbl_mw_logger_remove(this.logger)
                     this.expectation?.fulfill()
                 }
@@ -172,6 +173,7 @@ class LoggingTests: XCTestCase {
         wait(for: [expectation!], timeout: 60)
     }
     
+    // MMRL, MMC, and MMR ONLY
     func testAccelGyroBMI160Logging() {
         expectation = XCTestExpectation(description: "get accel logger")
         mbl_mw_acc_set_odr(device.board, 25)
@@ -187,7 +189,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.loggers["acceleration"] = logger!
-            print("Started logger: ", this.loggers["acceleration"])
+            print("Started logger: ", this.loggers["acceleration"] as Any)
         }
         mbl_mw_gyro_bmi160_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_25Hz)
         mbl_mw_gyro_bmi160_write_config(device.board)
@@ -201,7 +203,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.loggers["angular-velocity"] = logger!
-            print("Started logger: ", this.loggers["angular-velocity"])
+            print("Started logger: ", this.loggers["angular-velocity"] as Any)
         }
         mbl_mw_acc_enable_acceleration_sampling(device.board)
         mbl_mw_acc_start(device.board)
@@ -229,9 +231,9 @@ class LoggingTests: XCTestCase {
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
                 let this: LoggingTests = bridge(ptr: context!)
                 if remainingEntries == 0 {
-                    print("done with logger: ", this.loggers["acceleration"])
+                    print("done with logger: ", this.loggers["acceleration"] as Any)
                     mbl_mw_logger_remove(this.loggers["acceleration"])
-                    print("done with logger: ", this.loggers["angular-velocity"])
+                    print("done with logger: ", this.loggers["angular-velocity"] as Any)
                     mbl_mw_logger_remove(this.loggers["angular-velocity"])
                     this.expectation?.fulfill()
                 }
@@ -247,6 +249,7 @@ class LoggingTests: XCTestCase {
         wait(for: [expectation!], timeout: 60)
     }
     
+    // MMS ONLY
     func testAccelGyroBMI270Logging() {
         expectation = XCTestExpectation(description: "get accel logger")
         mbl_mw_acc_set_odr(device.board, 25)
@@ -262,7 +265,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.loggers["acceleration"] = logger!
-            print("Started logger: ", this.loggers["acceleration"])
+            print("Started logger: ", this.loggers["acceleration"] as Any)
         }
         mbl_mw_gyro_bmi270_set_odr(device.board, MBL_MW_GYRO_BOSCH_ODR_25Hz)
         mbl_mw_gyro_bmi270_write_config(device.board)
@@ -276,7 +279,7 @@ class LoggingTests: XCTestCase {
             this.loggerID = cId
             print("Generated ID for logger: ", cId)
             this.loggers["angular-velocity"] = logger!
-            print("Started logger: ", this.loggers["angular-velocity"])
+            print("Started logger: ", this.loggers["angular-velocity"] as Any)
         }
         mbl_mw_acc_enable_acceleration_sampling(device.board)
         mbl_mw_acc_start(device.board)
@@ -304,9 +307,9 @@ class LoggingTests: XCTestCase {
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in
                 let this: LoggingTests = bridge(ptr: context!)
                 if remainingEntries == 0 {
-                    print("done with logger: ", this.loggers["acceleration"])
+                    print("done with logger: ", this.loggers["acceleration"] as Any)
                     mbl_mw_logger_remove(this.loggers["acceleration"])
-                    print("done with logger: ", this.loggers["angular-velocity"])
+                    print("done with logger: ", this.loggers["angular-velocity"] as Any)
                     mbl_mw_logger_remove(this.loggers["angular-velocity"])
                     this.expectation?.fulfill()
                 }
@@ -338,7 +341,7 @@ class LoggingTests: XCTestCase {
         mbl_mw_logging_start(device.board, 0)
         mbl_mw_acc_enable_acceleration_sampling(device.board)
         mbl_mw_acc_start(device.board)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
             mbl_mw_acc_stop(self.device.board)
             mbl_mw_acc_disable_acceleration_sampling(self.device.board)
             mbl_mw_logging_stop(self.device.board)
@@ -354,8 +357,8 @@ class LoggingTests: XCTestCase {
             }
             mbl_mw_logging_raw_download(self.device.board, 0, &self.rawHandlers)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 17) {
-            print("done with logger: ", self.logger)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+            print("done with logger: ", self.logger as Any)
             mbl_mw_logger_remove(self.logger)
             self.expectation?.fulfill()
         }

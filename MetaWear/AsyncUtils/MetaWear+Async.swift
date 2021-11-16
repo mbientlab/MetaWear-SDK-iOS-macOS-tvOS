@@ -60,6 +60,7 @@ extension OpaquePointer {
         mbl_mw_logging_stop(self)
         mbl_mw_metawearboard_tear_down(self)
         mbl_mw_logging_clear_entries(self)
+        mbl_mw_event_remove_all(self)
         mbl_mw_macro_erase_all(self)
         mbl_mw_debug_reset_after_gc(self) //05
         mbl_mw_debug_disconnect(self) //06

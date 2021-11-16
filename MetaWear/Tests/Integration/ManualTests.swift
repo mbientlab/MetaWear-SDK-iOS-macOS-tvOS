@@ -63,7 +63,7 @@ class ManualTests: XCTestCase {
     }
     
     func testCancelPendingConnection() {
-        let connectExpectation = XCTestExpectation(description: "connecting")
+        let connectExpectation = XCTestExpectation(description: "pending")
         MetaWearScanner.shared.retrieveSavedMetaWearsAsync().continueOnSuccessWith { array in
             array.first
         }
@@ -90,7 +90,7 @@ class ManualTests: XCTestCase {
     }
     
     func testJumpToBootloader() {
-        let connectExpectation = XCTestExpectation(description: "connecting")
+        let connectExpectation = XCTestExpectation(description: "bootloader")
         connectNearest().continueWith { t in
             guard let device = t.result else {
                 return
@@ -121,8 +121,23 @@ class ManualTests: XCTestCase {
         wait(for: [connectExpectation], timeout: 60)
     }
     
+    func testReset() {
+        let connectExpectation = XCTestExpectation(description: "reseting")
+        connectNearest().continueWith { t in
+            guard let device = t.result else {
+                return
+            }
+            device.clearAndReset()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                print("fulfill")
+                connectExpectation.fulfill()
+            }
+        }
+        wait(for: [connectExpectation], timeout: 60)
+    }
+    
     func testUserMacroBoltsSwift() {
-        let connectExpectation = XCTestExpectation(description: "connecting")
+        let connectExpectation = XCTestExpectation(description: "macro")
         connectNearest().continueWith { t in
             guard let device = t.result else {
                 return
