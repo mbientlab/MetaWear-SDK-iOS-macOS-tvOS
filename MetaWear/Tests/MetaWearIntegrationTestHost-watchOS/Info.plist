@@ -29,5 +29,9 @@
 	<string>com.mbientlab.MetaWearIntegrationTestHost-iOS</string>
 	<key>WKWatchKitApp</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Testing</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Testing</string>
 </dict>
 </plist>
