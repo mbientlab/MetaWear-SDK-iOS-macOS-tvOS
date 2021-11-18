@@ -28,5 +28,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Automatic</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Testing</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Testing</string>
 </dict>
 </plist>

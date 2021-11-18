@@ -28,5 +28,9 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Testing</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Testing</string>
 </dict>
 </plist>
