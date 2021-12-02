@@ -419,19 +419,22 @@ extension OpaquePointer {
     }
     
     /// Tasky interface to mbl_mw_dataprocessor_fuser_create
-    public func fuserCreate(with: OpaquePointer) -> Task<OpaquePointer> {
-        let source = TaskCompletionSource<OpaquePointer>()
-        var array: [OpaquePointer?] = [with]
-        let code = mbl_mw_dataprocessor_fuser_create(self, UnsafeMutablePointer(&array), 1,  bridgeRetained(obj: source)) { (context, delta) in
-            let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
-            if let delta = delta {
-                source.trySet(result: delta)
-            } else {
-                source.trySet(error: MetaWearError.operationFailed(message: "could not create fuser"))
+    public func fuserCreate(with: OpaquePointer?) -> Task<OpaquePointer> {
+        withUnsafePointer(to: with) { w in
+            let mutable = UnsafeMutablePointer<OpaquePointer?>(mutating: w)
+            let source = TaskCompletionSource<OpaquePointer>()
+
+            let code = mbl_mw_dataprocessor_fuser_create(self, mutable, 1, bridgeRetained(obj: source)) { (context, delta) in
+                let source: TaskCompletionSource<OpaquePointer> = bridgeTransfer(ptr: context!)
+                if let delta = delta {
+                    source.trySet(result: delta)
+                } else {
+                    source.trySet(error: MetaWearError.operationFailed(message: "could not create fuser"))
+                }
             }
+            errorCheck(code: Int(code), source: source)
+            return source.task
         }
-        errorCheck(code: Int(code), source: source)
-        return source.task
     }
 
 }
