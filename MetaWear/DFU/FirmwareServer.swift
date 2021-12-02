@@ -41,10 +41,21 @@ import BoltsSwift
 public enum FirmwareError: Error {
     /// If server is down or not responding
     case badServerResponse
+    /// If JSON decoding fails
+    case invalidServerResponse(message: String)
     /// Unable to find a compatible firmware
     case noAvailableFirmware(message: String)
     /// Likely to never occur, unless device runs out of space
     case cannotSaveFile(message: String)
+
+    var localizedDescription: String {
+        switch self {
+            case .badServerResponse: return "Bad server response"
+            case .invalidServerResponse(message: let message): return "Invalid Server Response: \(message)"
+            case .noAvailableFirmware(let message): return "No Firmware Available: \(message)"
+            case .cannotSaveFile(let message): return "Cannot Save File: \(message)"
+        }
+    }
 }
 
 public let session = URLSession(configuration: .ephemeral)
@@ -75,30 +86,33 @@ public class FirmwareServer {
                 source.trySet(error: FirmwareError.noAvailableFirmware(message: "Firmware URL \(request.url!) returned code \(httpResponse.statusCode)"))
                 return
             }
-            
-            guard let info = try? JSONSerialization.jsonObject(with: data!) as? [String: [String: [String: [String: [String: String]]]]] else {
-                source.trySet(error: FirmwareError.badServerResponse)
-                return
-            }
-            let sdkVersion = Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] as! String
-            var allFirmwares: [FirmwareBuild] = []
-            if let potentialVersions = info[hardwareRev]?[modelNumber]?[buildFlavor] {
-                let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"]!) }
-                let sortedVersions = validVersions.sorted { $0.key.isVersion(lessThan: $1.key) }
-                allFirmwares = sortedVersions.map {
-                    FirmwareBuild(hardwareRev: hardwareRev,
-                                  modelNumber: modelNumber,
-                                  buildFlavor: buildFlavor,
-                                  firmwareRev: $0,
-                                  filename: $1["filename"]!,
-                                  requiredBootloader: $1["required-bootloader"]!)
+            do {
+                guard let info = try JSONSerialization.jsonObject(with: data!) as? [String: [String: [String: [String: [String: String]]]]] else {
+                    source.trySet(error: FirmwareError.invalidServerResponse(message: "Unknown") )
+                    return
                 }
-            }
-            
-            if allFirmwares.count == 0 {
-                source.trySet(error: FirmwareError.noAvailableFirmware(message: "No valid firmware releases found.  Please update your application and if problem persists, email developers@mbientlab.com"))
-            }
-            source.trySet(result: allFirmwares)
+
+                let sdkVersion = Bundle(for: MetaWear.self).infoDictionary?["CFBundleShortVersionString"] as! String
+                var allFirmwares: [FirmwareBuild] = []
+                if let potentialVersions = info[hardwareRev]?[modelNumber]?[buildFlavor] {
+                    let validVersions = potentialVersions.filter { sdkVersion.isVersion(greaterThanOrEqualTo: $1["min-ios-version"]!) }
+                    let sortedVersions = validVersions.sorted { $0.key.isVersion(lessThan: $1.key) }
+                    allFirmwares = sortedVersions.map {
+                        FirmwareBuild(hardwareRev: hardwareRev,
+                                      modelNumber: modelNumber,
+                                      buildFlavor: buildFlavor,
+                                      firmwareRev: $0,
+                                      filename: $1["filename"]!,
+                                      requiredBootloader: $1["required-bootloader"]!)
+                    }
+                }
+
+                if allFirmwares.count == 0 {
+                    source.trySet(error: FirmwareError.noAvailableFirmware(message: "No valid firmware releases found.  Please update your application and if problem persists, email developers@mbientlab.com"))
+                }
+                source.trySet(result: allFirmwares)
+            } catch { source.trySet(error: FirmwareError.invalidServerResponse(message: error.localizedDescription)) }
+
         }.resume()
         return source.task
     }
