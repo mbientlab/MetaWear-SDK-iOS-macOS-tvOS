@@ -45,7 +45,9 @@ public struct MetaWearData {
     let typeId: MblMwDataTypeId
     
     public func valueAs<T>() -> T {
-        return doTheParse(length: UInt8(data.count), type_id: typeId, value: UnsafeRawPointer(data))
+        data.withUnsafeBytes { p in
+            castAs((T.self, typeId), p)
+        }
     }
 }
 
@@ -62,69 +64,74 @@ extension MblMwData {
         return Calendar.current.date(byAdding: .nanosecond, value: Int(milliseconds), to: date)!
     }
     public func valueAs<T>() -> T {
-        return doTheParse(length: length, type_id: type_id, value: value)
+        let b = UnsafeRawBufferPointer(start: value, count: .init(length))
+        return castAs((T.self, type_id), b)
     }
     public func extraAs<T>() -> T {
         return extra.bindMemory(to: T.self, capacity: 1).pointee
     }
 }
 
-fileprivate func doTheParse<T>(length: UInt8, type_id: MblMwDataTypeId, value: UnsafeRawPointer) -> T {
-    guard type_id != MBL_MW_DT_ID_STRING else {
-        assert(T.self == String.self || T.self == String?.self)
-        return String(cString: value.assumingMemoryBound(to: CChar.self)) as! T
+// MARK: - Cast
+
+func castAs<T>(_ target: Claim<T>, _ pointer: UnsafeRawBufferPointer) -> T {
+    if isByteArray(target) {
+        return Array(pointer) as! T
     }
-    guard type_id != MBL_MW_DT_ID_BYTE_ARRAY else {
-        assert(T.self == [UInt8].self)
-        let buffer = UnsafeRawBufferPointer(start: value, count: Int(length))
-        return Array(buffer) as! T
+    if isString(target), let typed = pointer.baseAddress?.assumingMemoryBound(to: CChar.self) {
+        return String(cString: typed) as! T
     }
-    guard type_id != MBL_MW_DT_ID_DATA_ARRAY else {
-        assert(T.self == [MblMwData].self)
-        let count = Int(length) / MemoryLayout<UnsafePointer<MblMwData>>.size
-        let pointer = value.bindMemory(to: UnsafePointer<MblMwData>.self, capacity: count)
-        let buffer = UnsafeBufferPointer(start: pointer, count: count)
+    if isDataArray(target) {
+        let count = Int(pointer.endIndex) / MemoryLayout<UnsafePointer<MblMwData>>.size
+        let arrayPointer = pointer.baseAddress?.bindMemory(to: UnsafePointer<MblMwData>.self, capacity: count)
+        let buffer = UnsafeBufferPointer(start: arrayPointer, count: count)
         return buffer.map { $0.pointee } as! T
     }
-    // Generalized flow
-    assert(MemoryLayout<T>.size == length)
-    switch type_id {
-    case MBL_MW_DT_ID_UINT32:
-        assert(T.self == UInt32.self)
-    case MBL_MW_DT_ID_FLOAT:
-        assert(T.self == Float.self)
-    case MBL_MW_DT_ID_CARTESIAN_FLOAT:
-        assert(T.self == MblMwCartesianFloat.self)
-    case MBL_MW_DT_ID_INT32:
-        assert(T.self == Int32.self)
-    case MBL_MW_DT_ID_BATTERY_STATE:
-        assert(T.self == MblMwBatteryState.self)
-    case MBL_MW_DT_ID_TCS34725_ADC:
-        assert(T.self == MblMwTcs34725ColorAdc.self)
-    case MBL_MW_DT_ID_EULER_ANGLE:
-        assert(T.self == MblMwEulerAngles.self)
-    case MBL_MW_DT_ID_QUATERNION:
-        assert(T.self == MblMwQuaternion.self)
-    case MBL_MW_DT_ID_CORRECTED_CARTESIAN_FLOAT:
-        assert(T.self == MblMwCorrectedCartesianFloat.self)
-    case MBL_MW_DT_ID_OVERFLOW_STATE:
-        assert(T.self == MblMwOverflowState.self)
-    case MBL_MW_DT_ID_SENSOR_ORIENTATION:
-        assert(T.self == MblMwSensorOrientation.self)
-    case MBL_MW_DT_ID_LOGGING_TIME:
-        assert(T.self == MblMwLoggingTime.self)
-    case MBL_MW_DT_ID_BTLE_ADDRESS:
-        assert(T.self == MblMwBtleAddress.self)
-    case MBL_MW_DT_ID_BOSCH_ANY_MOTION:
-        assert(T.self == MblMwBoschAnyMotion.self)
-    case MBL_MW_DT_ID_BOSCH_GESTURE:
-        assert(T.self == MblMwBoschGestureType.self)
-    case MBL_MW_DT_ID_CALIBRATION_STATE:
-        assert(T.self == MblMwCalibrationState.self)
-    case MBL_MW_DT_ID_BOSCH_TAP:
-        assert(T.self == MblMwBoschTap.self)
-    default:
-        fatalError("unknown data type")
+
+    assert(MemoryLayout<T>.size == pointer.endIndex)
+    assertMatching(target)
+    return pointer.load(as: T.self)
+}
+
+typealias Claim<T> = (type: T.Type, typeId: MblMwDataTypeId)
+
+fileprivate func isString<T>(_ input: Claim<T>) -> Bool {
+    guard input.typeId == MBL_MW_DT_ID_STRING else { return false }
+    assert(T.self == String.self || T.self == String?.self)
+    return true
+}
+
+fileprivate func isByteArray<T>(_ input: Claim<T>) -> Bool {
+    guard input.typeId == MBL_MW_DT_ID_BYTE_ARRAY else { return false }
+    assert(T.self == [UInt8].self)
+    return true
+}
+
+fileprivate func isDataArray<T>(_ input: Claim<T>) -> Bool {
+    guard input.typeId == MBL_MW_DT_ID_DATA_ARRAY else { return false }
+    assert(T.self == [MblMwData].self)
+    return true
+}
+
+fileprivate func assertMatching<T>(_ input: Claim<T>) {
+    switch input.typeId {
+        case MBL_MW_DT_ID_UINT32:                    assert(T.self == UInt32.self)
+        case MBL_MW_DT_ID_FLOAT:                     assert(T.self == Float.self)
+        case MBL_MW_DT_ID_CARTESIAN_FLOAT:           assert(T.self == MblMwCartesianFloat.self)
+        case MBL_MW_DT_ID_INT32:                     assert(T.self == Int32.self)
+        case MBL_MW_DT_ID_BATTERY_STATE:             assert(T.self == MblMwBatteryState.self)
+        case MBL_MW_DT_ID_TCS34725_ADC:              assert(T.self == MblMwTcs34725ColorAdc.self)
+        case MBL_MW_DT_ID_EULER_ANGLE:               assert(T.self == MblMwEulerAngles.self)
+        case MBL_MW_DT_ID_QUATERNION:                assert(T.self == MblMwQuaternion.self)
+        case MBL_MW_DT_ID_CORRECTED_CARTESIAN_FLOAT: assert(T.self == MblMwCorrectedCartesianFloat.self)
+        case MBL_MW_DT_ID_OVERFLOW_STATE:            assert(T.self == MblMwOverflowState.self)
+        case MBL_MW_DT_ID_SENSOR_ORIENTATION:        assert(T.self == MblMwSensorOrientation.self)
+        case MBL_MW_DT_ID_LOGGING_TIME:              assert(T.self == MblMwLoggingTime.self)
+        case MBL_MW_DT_ID_BTLE_ADDRESS:              assert(T.self == MblMwBtleAddress.self)
+        case MBL_MW_DT_ID_BOSCH_ANY_MOTION:          assert(T.self == MblMwBoschAnyMotion.self)
+        case MBL_MW_DT_ID_BOSCH_GESTURE:             assert(T.self == MblMwBoschGestureType.self)
+        case MBL_MW_DT_ID_CALIBRATION_STATE:         assert(T.self == MblMwCalibrationState.self)
+        case MBL_MW_DT_ID_BOSCH_TAP:                 assert(T.self == MblMwBoschTap.self)
+        default: fatalError("unknown data type")
     }
-    return value.bindMemory(to: T.self, capacity: 1).pointee
 }

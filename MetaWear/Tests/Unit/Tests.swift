@@ -50,4 +50,18 @@ class Tests: XCTestCase {
         }
         wait(for: [expectation], timeout: 60)
     }
+
+    func testParse_ByteArray() {
+        let exp: [UInt8] = [0, 1, 2, 3]
+        let sut = MetaWearData(timestamp: Date(), data: exp, typeId: MBL_MW_DT_ID_BYTE_ARRAY)
+        let result = sut.valueAs() as [UInt8]
+        XCTAssertEqual(result, exp)
+    }
+
+    func testParse_DataArray() {
+        let sut = MetaWearData(timestamp: Date(),
+                               data: [128, 30, 140, 1, 0, 96, 0, 0, 224, 29, 140, 1, 0, 96, 0, 0],
+                               typeId: MBL_MW_DT_ID_DATA_ARRAY)
+        let result = sut.valueAs() as [MblMwData]
+    }
 }
