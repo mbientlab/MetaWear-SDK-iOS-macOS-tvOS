@@ -28,7 +28,7 @@ class Tests: XCTestCase {
             guard let rssi = device.averageRSSI(), rssi > -50 else {
                 return
             }
-            if (device.averageRSSI() ?? -100) > -50 {
+            if (device.averageRSSI() ?? -100) > -100 {
                 MetaWearScanner.shared.stopScan()
                 self.device = device
                 device.logDelegate = ConsoleLogger.shared
@@ -232,7 +232,13 @@ class Tests: XCTestCase {
             mbl_mw_logging_flush_page(self.device.board)
             let fuserLogger = self.fuser
             mbl_mw_logger_subscribe(fuserLogger, bridge(obj: self), { (context, obj) in
-                print(obj!.pointee.epoch, obj!.pointee)
+                let cast = obj!.pointee.valueAs() as [MblMwData]
+                let parsed = cast.map { $0.valueAs() as MblMwCartesianFloat }
+                print("")
+                print(">> Obj   ", obj!.pointee.type_id, obj!.pointee.timestamp, obj!.pointee.length)
+                print(">> Cast  ", cast.first!.type_id, cast.first!.timestamp, cast.first!.length)
+                print(">> Parsed", parsed.first!)
+                print("")
             })
             self.handlers.context = bridge(obj: self)
             self.handlers.received_progress_update = { (context, remainingEntries, totalEntries) in

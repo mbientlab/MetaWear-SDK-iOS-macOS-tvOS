@@ -45,7 +45,8 @@ public struct MetaWearData {
     let typeId: MblMwDataTypeId
     
     public func valueAs<T>() -> T {
-        data.withUnsafeBytes { p in
+        assert(T.self != [MblMwData].self, "Cast before MblMwData.copy(). This Swift struct is not identical.")
+        return data.withUnsafeBytes { p in
             castAs((T.self, typeId), p)
         }
     }
@@ -115,23 +116,26 @@ fileprivate func isDataArray<T>(_ input: Claim<T>) -> Bool {
 
 fileprivate func assertMatching<T>(_ input: Claim<T>) {
     switch input.typeId {
-        case MBL_MW_DT_ID_UINT32:                    assert(T.self == UInt32.self)
-        case MBL_MW_DT_ID_FLOAT:                     assert(T.self == Float.self)
-        case MBL_MW_DT_ID_CARTESIAN_FLOAT:           assert(T.self == MblMwCartesianFloat.self)
-        case MBL_MW_DT_ID_INT32:                     assert(T.self == Int32.self)
-        case MBL_MW_DT_ID_BATTERY_STATE:             assert(T.self == MblMwBatteryState.self)
-        case MBL_MW_DT_ID_TCS34725_ADC:              assert(T.self == MblMwTcs34725ColorAdc.self)
-        case MBL_MW_DT_ID_EULER_ANGLE:               assert(T.self == MblMwEulerAngles.self)
-        case MBL_MW_DT_ID_QUATERNION:                assert(T.self == MblMwQuaternion.self)
-        case MBL_MW_DT_ID_CORRECTED_CARTESIAN_FLOAT: assert(T.self == MblMwCorrectedCartesianFloat.self)
-        case MBL_MW_DT_ID_OVERFLOW_STATE:            assert(T.self == MblMwOverflowState.self)
-        case MBL_MW_DT_ID_SENSOR_ORIENTATION:        assert(T.self == MblMwSensorOrientation.self)
-        case MBL_MW_DT_ID_LOGGING_TIME:              assert(T.self == MblMwLoggingTime.self)
-        case MBL_MW_DT_ID_BTLE_ADDRESS:              assert(T.self == MblMwBtleAddress.self)
-        case MBL_MW_DT_ID_BOSCH_ANY_MOTION:          assert(T.self == MblMwBoschAnyMotion.self)
-        case MBL_MW_DT_ID_BOSCH_GESTURE:             assert(T.self == MblMwBoschGestureType.self)
-        case MBL_MW_DT_ID_CALIBRATION_STATE:         assert(T.self == MblMwCalibrationState.self)
-        case MBL_MW_DT_ID_BOSCH_TAP:                 assert(T.self == MblMwBoschTap.self)
+        case MBL_MW_DT_ID_UINT32:                    assert(T.self == UInt32.self)                       // 0
+        case MBL_MW_DT_ID_FLOAT:                     assert(T.self == Float.self)                        // 1
+        case MBL_MW_DT_ID_CARTESIAN_FLOAT:           assert(T.self == MblMwCartesianFloat.self)          // 2
+        case MBL_MW_DT_ID_INT32:                     assert(T.self == Int32.self)                        // 3
+            // BYTE_ARRAY 4
+        case MBL_MW_DT_ID_BATTERY_STATE:             assert(T.self == MblMwBatteryState.self)            // 5
+        case MBL_MW_DT_ID_TCS34725_ADC:              assert(T.self == MblMwTcs34725ColorAdc.self)        // 6
+        case MBL_MW_DT_ID_EULER_ANGLE:               assert(T.self == MblMwEulerAngles.self)             // 7
+        case MBL_MW_DT_ID_QUATERNION:                assert(T.self == MblMwQuaternion.self)              // 8
+        case MBL_MW_DT_ID_CORRECTED_CARTESIAN_FLOAT: assert(T.self == MblMwCorrectedCartesianFloat.self) // 9
+        case MBL_MW_DT_ID_OVERFLOW_STATE:            assert(T.self == MblMwOverflowState.self)           // 10
+        case MBL_MW_DT_ID_SENSOR_ORIENTATION:        assert(T.self == MblMwSensorOrientation.self)       // 11
+            // STRING 12
+        case MBL_MW_DT_ID_LOGGING_TIME:              assert(T.self == MblMwLoggingTime.self)             // 13
+        case MBL_MW_DT_ID_BTLE_ADDRESS:              assert(T.self == MblMwBtleAddress.self)             // 14
+        case MBL_MW_DT_ID_BOSCH_ANY_MOTION:          assert(T.self == MblMwBoschAnyMotion.self)          // 15
+        case MBL_MW_DT_ID_CALIBRATION_STATE:         assert(T.self == MblMwCalibrationState.self)        // 16
+            // DATA_ARRAY 17
+        case MBL_MW_DT_ID_BOSCH_TAP:                 assert(T.self == MblMwBoschTap.self)                // 18
+        case MBL_MW_DT_ID_BOSCH_GESTURE:             assert(T.self == MblMwBoschGestureType.self)        // 19
         default: fatalError("unknown data type")
     }
 }
