@@ -38,7 +38,7 @@ import BoltsSwift
 
 
 /// Possible errors when retrieving firmwares from the MbientLab servers
-public enum FirmwareError: Error {
+public enum FirmwareError: Error, LocalizedError {
     /// If server is down or not responding
     case badServerResponse
     /// If JSON decoding fails
@@ -48,7 +48,7 @@ public enum FirmwareError: Error {
     /// Likely to never occur, unless device runs out of space
     case cannotSaveFile(message: String)
 
-    var localizedDescription: String {
+    public var errorDescription: String? {
         switch self {
             case .badServerResponse: return "Bad server response"
             case .invalidServerResponse(message: let message): return "Invalid Server Response: \(message)"
