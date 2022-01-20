@@ -6,11 +6,10 @@
 
 ![alt tag](https://raw.githubusercontent.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/master/Images/Metawear.png)
 
-SDK for creating MetaWear apps that run in the Apple ecosystem.  
+SDK for creating MetaWear apps that run in the Apple ecosystem. This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful. Check out the starter [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/StarterProject) and the very through example App [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/ExampleApp) for sample code.
 
-This is a thin wrapper around the [MetaWear C++ API](https://github.com/mbientlab/MetaWear-SDK-Cpp) so you will find the C++ [documentation](https://mbientlab.com/cppdocs/latest/) and [API reference](https://mbientlab.com/docs/metawear/cpp/latest/globals.html) useful.
-
-Also, check out the starter [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/StarterProject) and the very through example App [App](https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS/tree/master/ExampleApp) for sample code.
+### Like Combine more than Bolts? 😎
+We're developing a [Swift Combine SDK](https://github.com/mbientlab/MetaWear-Swift-Combine-SDK), now in beta with interactive documentation and two sample apps.
 
 ### Overview
 
