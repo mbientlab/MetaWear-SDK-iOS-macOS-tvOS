@@ -86,9 +86,9 @@ public struct FirmwareBuild {
         return task.continueOnSuccessWithTask { fileUrl in
             var selectedFirmware: DFUFirmware?
             if fileUrl.pathExtension.caseInsensitiveCompare("zip") == .orderedSame {
-                selectedFirmware = DFUFirmware(urlToZipFile: fileUrl)
+                selectedFirmware = try! DFUFirmware(urlToZipFile: fileUrl)
             } else {
-                selectedFirmware = DFUFirmware(urlToBinOrHexFile: fileUrl, urlToDatFile: nil, type: .application)
+                selectedFirmware = try! DFUFirmware(urlToBinOrHexFile: fileUrl, urlToDatFile: nil, type: .application)
             }
             guard let firmware = selectedFirmware else {
                 return Task<DFUFirmware>(error: MetaWearError.operationFailed(message: "invalid dfu file chosen '\(fileUrl.lastPathComponent)'"))
